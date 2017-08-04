@@ -1,1 +1,17 @@
+2017-08-04 13:46:20: 'result': 'p'
+2017-08-04 13:46:20: The verifyAbout case in BuildVerifiation_Jenkins failed
+2017-08-04 13:46:20: 'result': 'f'
+2017-08-04 13:46:20: 
+<font color="red">Fail: Verify about</font>
+2017-08-04 13:46:20: 
+<font color="red">Fail: about</font>
+2017-08-04 13:46:20: about
+-------------------------------------------------------------------------------
+Promise VTrak Command Line Interface (CLI) Utility
+Version: 12.02.9999.12 Build Date: Aug 01, 2017
+Copyright 2005-2017 Promise Technology, Inc. All rights reserved.
+-------------------------------------------------------------------------------
+
+administrator@cli> 
+2017-08-04 13:46:20: <b>Verify about</b>
 ﻿

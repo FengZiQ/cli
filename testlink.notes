@@ -1,0 +1,16 @@
+<b>Verify about</b>
+about
+-------------------------------------------------------------------------------
+Promise VTrak Command Line Interface (CLI) Utility
+Version: 12.02.9999.12 Build Date: Aug 01, 2017
+Copyright 2005-2017 Promise Technology, Inc. All rights reserved.
+-------------------------------------------------------------------------------
+
+administrator@cli> 
+
+<font color="red">Fail: about</font>
+
+<font color="red">Fail: Verify about</font>
+'result': 'f'
+The verifyAbout case in BuildVerifiation_Jenkins failed
+'result': 'p'
