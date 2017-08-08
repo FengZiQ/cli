@@ -14,3 +14,1948 @@ administrator@cli>
 'result': 'f'
 The verifyAbout case in BuildVerifiation_Jenkins failed
 'result': 'p'
+<b>Verify precondition</b>
+chap
+-------------------------------------------------------------------------------
+ChapId: 0 (Peer) Name: TestInitiator
+
+administrator@cli> 
+chap -a del -i 0
+
+administrator@cli> 
+<b>Verify chap -a add</b>
+<b>Verify CHAP legal name and type </b>
+chap -a add -s "name=a+-/(.)b,type=peer"
+Chap Secret(12 - 16 characters): [33D[33C[0m[?12l[?25h[?25l[33D[0m[J[0mChap Secret(12 - 16 characters): [0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lConfirm Secret:  [17D[17C[0m[?12l[?25h[?25l[17D[0m[J[0mConfirm Secret:  [0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[29D[0m
+[J[?7h[0m[?12l[?25h[?2004l111122221111
+
+administrator@cli> 
+Error (0x401): Invalid command or request
+invalid command: 111122221111
+
+administrator@cli> 
+
+<font color="red">Fail: chap -a add -s "name=a+-/(.)b,type=peer" </font>
+
+<font color="red">Fail: Verify chap -a add</font>
+'result': 'f'
+<b>Verify chap </b>
+chap -a add -s "name=testType,type=local,targetid=0"
+chap
+Chap Secret(12 - 16 characters): [33D[33C[0m[?12l[?25h[?25l[33D[0m[J[0mChap Secret(12 - 16 characters): [0m*[0m*[0m*[0m*[37D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x201): Invalid password or secret
+CHAP secret should be 12 to 16 characters
+
+administrator@cli> 
+chap
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> 
+
+<font color="red">Fail: chap </font>
+
+<font color="red">Fail: Verify chap </font>
+'result': 'f'
+<b>Verify chap -a list</b>
+chap
+-------------------------------------------------------------------------------
+ChapId: 0 (Peer) Name: a+-/(.)b
+
+administrator@cli> 
+chap -a list
+-------------------------------------------------------------------------------
+ChapId: 0 (Peer) Name: a+-/(.)b
+
+administrator@cli> 
+<b>Verify chap -a list -i chap id</b>
+chap -a list -i 0
+-------------------------------------------------------------------------------
+ChapId: 0 (Peer) Name: a+-/(.)b
+
+administrator@cli> 
+
+<font color="green">Pass</font>
+'result': 'p'
+<b>Verify chap -a mod</b>
+chap
+-------------------------------------------------------------------------------
+ChapId: 0 (Peer) Name: a+-/(.)b
+
+administrator@cli> 
+chap -a mod -s "name=testModifyName" -i 0
+-------------------------------------------------------------------------------
+ChapId: 0 (Peer) Name: a+-/(.)b
+
+administrator@cli> 
+chap
+-------------------------------------------------------------------------------
+ChapId: 0 (Peer) Name: a+-/(.)b
+
+administrator@cli> 
+
+<font color="red">Fail: chap -a mod -s "name=testModifyName" -i 0</font>
+
+<font color="red">Fail: Verify chap -a mod</font>
+'result': 'f'
+<b>Verify chap -a del</b>
+
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     03:00  01/01/2010   Enabled               
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     03:00  01/01/2010   Enabled               
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     03:00  01/01/2010   Enabled               
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     03:00  01/01/2010   Enabled               
+
+administrator@cli> 
+bgasched -a del -i 1
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a del'
+
+administrator@cli> 
+bgasched -a add -t rc-s "recurtype=monthly,daypattern=dow,wom=2nd,dow=Sun,month=1,endon=10"
+Error (0x2013): Invalid setting parameters
+-t: invalid setting rc-s (rc|br|sc)
+
+administrator@cli> 
+bgached
+Error (0x401): Invalid command or request
+invalid command: bgached
+
+administrator@cli> 
+bgasched -a add -t br-s "recurtype=monthly,daypattern=dow,wom=2nd,dow=Sun,month=1,endon=10"
+Error (0x2013): Invalid setting parameters
+-t: invalid setting br-s (rc|br|sc)
+
+administrator@cli> 
+bgached
+Error (0x401): Invalid command or request
+invalid command: bgached
+
+administrator@cli> 
+bgasched -a add -t sc-s "recurtype=monthly,daypattern=dow,wom=2nd,dow=Sun,month=1,endon=10"
+Error (0x2013): Invalid setting parameters
+-t: invalid setting sc-s (rc|br|sc)
+
+administrator@cli> 
+bgached
+Error (0x401): Invalid command or request
+invalid command: bgached
+
+administrator@cli> 
+
+<font color="green">Pass</font>
+'result': 'p'
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     03:00  01/01/2010   Enabled               
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     03:00  01/01/2010   Enabled               
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     03:00  01/01/2010   Enabled               
+
+administrator@cli> 
+bgasched -a del -i -t rb1
+Error (0x2012): Invalid option for the command or the action
+invalid option: -t
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     03:00  01/01/2010   Enabled               
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     03:00  01/01/2010   Enabled               
+
+administrator@cli> 
+bgasched -a del -i -t rb 1
+Error (0x2012): Invalid option for the command or the action
+invalid option: -t
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     03:00  01/01/2010   Enabled               
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     03:00  01/01/2010   Enabled               
+
+administrator@cli> 
+bgasched -a add -t rc-s "recurtype=monthly,daypattern=dow,wom=2nd,dow=Sun,month=1,endon=10"
+Error (0x2013): Invalid setting parameters
+-t: invalid setting rc-s (rc|br|sc)
+
+administrator@cli> 
+bgached
+Error (0x401): Invalid command or request
+invalid command: bgached
+
+administrator@cli> 
+bgasched -a add -t br-s "recurtype=monthly,daypattern=dow,wom=2nd,dow=Sun,month=1,endon=10"
+Error (0x2013): Invalid setting parameters
+-t: invalid setting br-s (rc|br|sc)
+
+administrator@cli> 
+bgached
+Error (0x401): Invalid command or request
+invalid command: bgached
+
+administrator@cli> 
+bgasched -a add -t sc-s "recurtype=monthly,daypattern=dow,wom=2nd,dow=Sun,month=1,endon=10"
+Error (0x2013): Invalid setting parameters
+-t: invalid setting sc-s (rc|br|sc)
+
+administrator@cli> 
+bgached
+Error (0x401): Invalid command or request
+invalid command: bgached
+
+administrator@cli> 
+
+<font color="green">Pass</font>
+'result': 'p'
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     03:00  01/01/2010   Enabled               
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     03:00  01/01/2010   Enabled               
+
+administrator@cli> 
+bgasched -a del -t rb -i 1
+Error (0x2013): Invalid setting parameters
+-t: invalid setting rb (rc|br|sc)
+
+administrator@cli> 
+bgasched -a add -t rc -s "recurtype=monthly,daypattern=dow,wom=2nd,dow=Sun,month=1,endon=10"
+
+administrator@cli> 
+bgached
+Error (0x401): Invalid command or request
+invalid command: bgached
+
+administrator@cli> 
+bgasched -a add -t br -s "recurtype=monthly,daypattern=dow,wom=2nd,dow=Sun,month=1,endon=10"
+Error (0x40000): Reached the max number of schedules
+
+administrator@cli> 
+bgached
+Error (0x401): Invalid command or request
+invalid command: bgached
+
+administrator@cli> 
+bgasched -a add -t sc -s "recurtype=monthly,daypattern=dow,wom=2nd,dow=Sun,month=1,endon=10"
+
+administrator@cli> 
+bgached
+Error (0x401): Invalid command or request
+invalid command: bgached
+
+administrator@cli> 
+
+<font color="green">Pass</font>
+'result': 'p'
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     03:00  01/01/2010   Enabled               
+SpareCheck          1    Monthly     22:00  01/00/1900   Disabled              
+RedundancyCheck     1    Monthly     22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     03:00  01/01/2010   Enabled               
+SpareCheck          1    Monthly     22:00  01/00/1900   Disabled              
+RedundancyCheck     1    Monthly     22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     03:00  01/01/2010   Enabled               
+SpareCheck          1    Monthly     22:00  01/00/1900   Disabled              
+RedundancyCheck     1    Monthly     22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     03:00  01/01/2010   Enabled               
+SpareCheck          1    Monthly     22:00  01/00/1900   Disabled              
+RedundancyCheck     1    Monthly     22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     03:00  01/01/2010   Enabled               
+SpareCheck          1    Monthly     22:00  01/00/1900   Disabled              
+RedundancyCheck     1    Monthly     22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     03:00  01/01/2010   Enabled               
+SpareCheck          1    Monthly     22:00  01/00/1900   Disabled              
+RedundancyCheck     1    Monthly     22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     03:00  01/01/2010   Enabled               
+SpareCheck          1    Monthly     22:00  01/00/1900   Disabled              
+RedundancyCheck     1    Monthly     22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     03:00  01/01/2010   Enabled               
+SpareCheck          1    Monthly     22:00  01/00/1900   Disabled              
+RedundancyCheck     1    Monthly     22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     03:00  01/01/2010   Enabled               
+SpareCheck          1    Monthly     22:00  01/00/1900   Disabled              
+RedundancyCheck     1    Monthly     22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     03:00  01/01/2010   Enabled               
+SpareCheck          1    Monthly     22:00  01/00/1900   Disabled              
+RedundancyCheck     1    Monthly     22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     03:00  01/01/2010   Enabled               
+SpareCheck          1    Monthly     22:00  01/00/1900   Disabled              
+RedundancyCheck     1    Monthly     22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     03:00  01/01/2010   Enabled               
+SpareCheck          1    Monthly     22:00  01/00/1900   Disabled              
+RedundancyCheck     1    Monthly     22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched -a del -t br -i 1
+
+administrator@cli> 
+bgasched -a del -t sc -i 1
+
+administrator@cli> 
+bgasched -a del -t rc -i 1
+
+administrator@cli> 
+bgasched -a add -t rc -s "recurtype=monthly,daypattern=dow,wom=2nd,dow=Sun,month=1,endon=10"
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+RedundancyCheck     1    Monthly     22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched -a add -t br -s "recurtype=monthly,daypattern=dow,wom=2nd,dow=Sun,month=1,endon=10"
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     02:00  01/00/1900   Disabled              
+RedundancyCheck     1    Monthly     22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched -a add -t sc -s "recurtype=monthly,daypattern=dow,wom=2nd,dow=Sun,month=1,endon=10"
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     02:00  01/00/1900   Disabled              
+SpareCheck          1    Monthly     22:00  01/00/1900   Disabled              
+RedundancyCheck     1    Monthly     22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+
+<font color="green">Pass</font>
+'result': 'p'
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     02:00  01/00/1900   Disabled              
+SpareCheck          1    Monthly     22:00  01/00/1900   Disabled              
+RedundancyCheck     1    Monthly     22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     02:00  01/00/1900   Disabled              
+SpareCheck          1    Monthly     22:00  01/00/1900   Disabled              
+RedundancyCheck     1    Monthly     22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched -a del -t br -i 1
+
+administrator@cli> 
+bgasched -a del -t sc -i 1
+
+administrator@cli> 
+bgasched -a del -t rc -i 1
+
+administrator@cli> 
+bgasched -a add -t rc -s "recurtype=monthly,daypattern=dow,wom=2nd,dow=Sun,month=1,endon=10"
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+RedundancyCheck     1    Monthly     22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched -a add -t br -s "recurtype=monthly,daypattern=dow,wom=2nd,dow=Sun,month=1,endon=10"
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     02:00  01/00/1900   Disabled              
+RedundancyCheck     1    Monthly     22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched -a add -t sc -s "recurtype=monthly,daypattern=dow,wom=2nd,dow=Sun,month=1,endon=10"
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     02:00  01/00/1900   Disabled              
+SpareCheck          1    Monthly     22:00  01/00/1900   Disabled              
+RedundancyCheck     1    Monthly     22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched -a add -t sc -s "recurtype=monthly,daypattern=dow,wom=2nd,dow=Sun,month=1,endon=10"
+Error (0x40000): Reached the max number of schedules
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     02:00  01/00/1900   Disabled              
+SpareCheck          1    Monthly     22:00  01/00/1900   Disabled              
+RedundancyCheck     1    Monthly     22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+Fail: bgasched -a add -t sc -s "recurtype=monthly,daypattern=dow,wom=2nd,dow=Sun,month=1,endon=10"
+
+<font color="green">Pass</font>
+'result': 'p'
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     02:00  01/00/1900   Disabled              
+SpareCheck          1    Monthly     22:00  01/00/1900   Disabled              
+RedundancyCheck     1    Monthly     22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     02:00  01/00/1900   Disabled              
+SpareCheck          1    Monthly     22:00  01/00/1900   Disabled              
+RedundancyCheck     1    Monthly     22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched -a del -t br -i 1
+
+administrator@cli> 
+bgasched -a del -t sc -i 1
+
+administrator@cli> 
+bgasched -a del -t rc -i 1
+
+administrator@cli> 
+bgasched -a add -t rc -s "recurtype=monthly,daypattern=dow,wom=2nd,dow=Sun,month=1,endon=10"
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+RedundancyCheck     1    Monthly     22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched -a add -t rc -s "recurtype=monthly,daypattern=dow,wom=2nd,dow=Sun,month=1,endon=10"
+Error (0x40010): Schedule already exists for the specified device
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+RedundancyCheck     1    Monthly     22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+Fail: bgasched -a add -t rc -s "recurtype=monthly,daypattern=dow,wom=2nd,dow=Sun,month=1,endon=10"
+bgasched -a add -t br -s "recurtype=monthly,daypattern=dow,wom=2nd,dow=Sun,month=1,endon=10"
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     02:00  01/00/1900   Disabled              
+RedundancyCheck     1    Monthly     22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched -a add -t sc -s "recurtype=monthly,daypattern=dow,wom=2nd,dow=Sun,month=1,endon=10"
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     02:00  01/00/1900   Disabled              
+SpareCheck          1    Monthly     22:00  01/00/1900   Disabled              
+RedundancyCheck     1    Monthly     22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+
+<font color="red">Fail: To verify add bgasched </font>
+'result': 'f'
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     02:00  01/00/1900   Disabled              
+SpareCheck          1    Monthly     22:00  01/00/1900   Disabled              
+RedundancyCheck     1    Monthly     22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     02:00  01/00/1900   Disabled              
+SpareCheck          1    Monthly     22:00  01/00/1900   Disabled              
+RedundancyCheck     1    Monthly     22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched -a del -t br -i 1
+
+administrator@cli> 
+bgasched -a del -t sc -i 1
+
+administrator@cli> 
+bgasched -a del -t rc -i 1
+
+administrator@cli> 
+bgasched -a add -t rc -s "recurtype=monthly,daypattern=dow,wom=2nd,dow=Sun,month=1,endon=10"
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+RedundancyCheck     1    Monthly     22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched -a add -t rc -s "recurtype=monthly,daypattern=dow,wom=2nd,dow=Sun,month=2,endon=10"
+Error (0x40010): Schedule already exists for the specified device
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+RedundancyCheck     1    Monthly     22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+Fail: bgasched -a add -t rc -s "recurtype=monthly,daypattern=dow,wom=2nd,dow=Sun,month=2,endon=10"
+bgasched -a add -t br -s "recurtype=monthly,daypattern=dow,wom=2nd,dow=Sun,month=3,endon=10"
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     02:00  01/00/1900   Disabled              
+RedundancyCheck     1    Monthly     22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched -a add -t sc -s "recurtype=monthly,daypattern=dow,wom=2nd,dow=Sun,month=4,endon=10"
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     02:00  01/00/1900   Disabled              
+SpareCheck          1    Monthly     22:00  01/00/1900   Disabled              
+RedundancyCheck     1    Monthly     22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+
+<font color="red">Fail: To verify add bgasched </font>
+'result': 'f'
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     03:00  01/01/2010   Enabled               
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     03:00  01/01/2010   Enabled               
+
+administrator@cli> 
+bgasched -a del -t br -i 1
+
+administrator@cli> 
+pool
+===============================================================================
+Id   Name                        TotalCap  UsedCap   FreeCap   OpStatus       
+===============================================================================
+0    Ptestbbm                    199.61 GB 35.08 GB  164.53 GB OK              
+
+administrator@cli> 
+phydrv
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Pool0           
+     S640                                                                      
+2    HDS722020AL SAS HDD  2 TB        Encl1 Slot2   OK         Pool0           
+     A330                                                                      
+3    ST373455SS  SAS HDD  73 GB       Encl1 Slot3   OK         Pool0           
+4    HUS724040AL SAS HDD  4 TB        Encl1 Slot4   OK         Unconfigured    
+     S640                                                                      
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         Unconfigured    
+7    HUS723020AL SAS HDD  2 TB        Encl1 Slot7   OK         Unconfigured    
+     S640                                                                      
+8    HUS724040AL SAS HDD  4 TB        Encl1 Slot8   OK         Unconfigured    
+     S640                                                                      
+9    HUS724040AL SAS HDD  4 TB        Encl1 Slot9   OK         Unconfigured    
+     S640                                                                      
+11   HDS722020AL SAS HDD  2 TB        Encl1 Slot11  OK         Unconfigured    
+     A330                                                                      
+12   HUS724040AL SAS HDD  4 TB        Encl1 Slot12  OK         Unconfigured    
+     S640                                                                      
+13   ST3146356SS SAS HDD  146 GB      Encl1 Slot13  OK         Unconfigured    
+15   SSD U110    SAS SSD  31 GB       Encl1 Slot15  OK         Unconfigured    
+     32GB                                                                      
+16   ST373455SS  SAS HDD  73 GB       Encl1 Slot16  OK         Unconfigured    
+
+administrator@cli> 
+bgasched
+
+administrator@cli> 
+pool
+===============================================================================
+Id   Name                        TotalCap  UsedCap   FreeCap   OpStatus       
+===============================================================================
+0    Ptestbbm                    199.61 GB 35.08 GB  164.53 GB OK              
+
+administrator@cli> 
+phydrv
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Pool0           
+     S640                                                                      
+2    HDS722020AL SAS HDD  2 TB        Encl1 Slot2   OK         Pool0           
+     A330                                                                      
+3    ST373455SS  SAS HDD  73 GB       Encl1 Slot3   OK         Pool0           
+4    HUS724040AL SAS HDD  4 TB        Encl1 Slot4   OK         Unconfigured    
+     S640                                                                      
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         Unconfigured    
+7    HUS723020AL SAS HDD  2 TB        Encl1 Slot7   OK         Unconfigured    
+     S640                                                                      
+8    HUS724040AL SAS HDD  4 TB        Encl1 Slot8   OK         Unconfigured    
+     S640                                                                      
+9    HUS724040AL SAS HDD  4 TB        Encl1 Slot9   OK         Unconfigured    
+     S640                                                                      
+11   HDS722020AL SAS HDD  2 TB        Encl1 Slot11  OK         Unconfigured    
+     A330                                                                      
+12   HUS724040AL SAS HDD  4 TB        Encl1 Slot12  OK         Unconfigured    
+     S640                                                                      
+13   ST3146356SS SAS HDD  146 GB      Encl1 Slot13  OK         Unconfigured    
+15   SSD U110    SAS SSD  31 GB       Encl1 Slot15  OK         Unconfigured    
+     32GB                                                                      
+16   ST373455SS  SAS HDD  73 GB       Encl1 Slot16  OK         Unconfigured    
+
+administrator@cli> 
+bgasched
+
+administrator@cli> 
+pool
+No pool in the subsystem
+
+administrator@cli> 
+phydrv
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Unconfigured    
+     S640                                                                      
+2    HDS722020AL SAS HDD  2 TB        Encl1 Slot2   OK         Unconfigured    
+     A330                                                                      
+3    ST373455SS  SAS HDD  73 GB       Encl1 Slot3   OK         Unconfigured    
+4    HUS724040AL SAS HDD  4 TB        Encl1 Slot4   OK         Unconfigured    
+     S640                                                                      
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         Unconfigured    
+7    HUS723020AL SAS HDD  2 TB        Encl1 Slot7   OK         Unconfigured    
+     S640                                                                      
+8    HUS724040AL SAS HDD  4 TB        Encl1 Slot8   OK         Unconfigured    
+     S640                                                                      
+9    HUS724040AL SAS HDD  4 TB        Encl1 Slot9   OK         Unconfigured    
+     S640                                                                      
+11   HDS722020AL SAS HDD  2 TB        Encl1 Slot11  OK         Unconfigured    
+     A330                                                                      
+12   HUS724040AL SAS HDD  4 TB        Encl1 Slot12  OK         Unconfigured    
+     S640                                                                      
+13   ST3146356SS SAS HDD  146 GB      Encl1 Slot13  OK         Unconfigured    
+15   SSD U110    SAS SSD  31 GB       Encl1 Slot15  OK         Unconfigured    
+     32GB                                                                      
+16   ST373455SS  SAS HDD  73 GB       Encl1 Slot16  OK         Unconfigured    
+
+administrator@cli> 
+bgasched
+
+administrator@cli> 
+pool
+No pool in the subsystem
+
+administrator@cli> 
+phydrv
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Unconfigured    
+     S640                                                                      
+2    HDS722020AL SAS HDD  2 TB        Encl1 Slot2   OK         Unconfigured    
+     A330                                                                      
+3    ST373455SS  SAS HDD  73 GB       Encl1 Slot3   OK         Unconfigured    
+4    HUS724040AL SAS HDD  4 TB        Encl1 Slot4   OK         Unconfigured    
+     S640                                                                      
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         Unconfigured    
+7    HUS723020AL SAS HDD  2 TB        Encl1 Slot7   OK         Unconfigured    
+     S640                                                                      
+8    HUS724040AL SAS HDD  4 TB        Encl1 Slot8   OK         Unconfigured    
+     S640                                                                      
+9    HUS724040AL SAS HDD  4 TB        Encl1 Slot9   OK         Unconfigured    
+     S640                                                                      
+11   HDS722020AL SAS HDD  2 TB        Encl1 Slot11  OK         Unconfigured    
+     A330                                                                      
+12   HUS724040AL SAS HDD  4 TB        Encl1 Slot12  OK         Unconfigured    
+     S640                                                                      
+13   ST3146356SS SAS HDD  146 GB      Encl1 Slot13  OK         Unconfigured    
+15   SSD U110    SAS SSD  31 GB       Encl1 Slot15  OK         Unconfigured    
+     32GB                                                                      
+16   ST373455SS  SAS HDD  73 GB       Encl1 Slot16  OK         Unconfigured    
+
+administrator@cli> 
+bgasched
+
+administrator@cli> 
+pool
+No pool in the subsystem
+
+administrator@cli> 
+phydrv
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Unconfigured    
+     S640                                                                      
+2    HDS722020AL SAS HDD  2 TB        Encl1 Slot2   OK         Unconfigured    
+     A330                                                                      
+3    ST373455SS  SAS HDD  73 GB       Encl1 Slot3   OK         Unconfigured    
+4    HUS724040AL SAS HDD  4 TB        Encl1 Slot4   OK         Unconfigured    
+     S640                                                                      
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         Unconfigured    
+7    HUS723020AL SAS HDD  2 TB        Encl1 Slot7   OK         Unconfigured    
+     S640                                                                      
+8    HUS724040AL SAS HDD  4 TB        Encl1 Slot8   OK         Unconfigured    
+     S640                                                                      
+9    HUS724040AL SAS HDD  4 TB        Encl1 Slot9   OK         Unconfigured    
+     S640                                                                      
+11   HDS722020AL SAS HDD  2 TB        Encl1 Slot11  OK         Unconfigured    
+     A330                                                                      
+12   HUS724040AL SAS HDD  4 TB        Encl1 Slot12  OK         Unconfigured    
+     S640                                                                      
+13   ST3146356SS SAS HDD  146 GB      Encl1 Slot13  OK         Unconfigured    
+15   SSD U110    SAS SSD  31 GB       Encl1 Slot15  OK         Unconfigured    
+     32GB                                                                      
+16   ST373455SS  SAS HDD  73 GB       Encl1 Slot16  OK         Unconfigured    
+
+administrator@cli> 
+bgasched
+
+administrator@cli> 
+pool
+No pool in the subsystem
+
+administrator@cli> 
+phydrv
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Unconfigured    
+     S640                                                                      
+2    HDS722020AL SAS HDD  2 TB        Encl1 Slot2   OK         Unconfigured    
+     A330                                                                      
+3    ST373455SS  SAS HDD  73 GB       Encl1 Slot3   OK         Unconfigured    
+4    HUS724040AL SAS HDD  4 TB        Encl1 Slot4   OK         Unconfigured    
+     S640                                                                      
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         Unconfigured    
+7    HUS723020AL SAS HDD  2 TB        Encl1 Slot7   OK         Unconfigured    
+     S640                                                                      
+8    HUS724040AL SAS HDD  4 TB        Encl1 Slot8   OK         Unconfigured    
+     S640                                                                      
+9    HUS724040AL SAS HDD  4 TB        Encl1 Slot9   OK         Unconfigured    
+     S640                                                                      
+11   HDS722020AL SAS HDD  2 TB        Encl1 Slot11  OK         Unconfigured    
+     A330                                                                      
+12   HUS724040AL SAS HDD  4 TB        Encl1 Slot12  OK         Unconfigured    
+     S640                                                                      
+13   ST3146356SS SAS HDD  146 GB      Encl1 Slot13  OK         Unconfigured    
+15   SSD U110    SAS SSD  31 GB       Encl1 Slot15  OK         Unconfigured    
+     32GB                                                                      
+16   ST373455SS  SAS HDD  73 GB       Encl1 Slot16  OK         Unconfigured    
+
+administrator@cli> 
+bgasched
+
+administrator@cli> 
+pool
+No pool in the subsystem
+
+administrator@cli> 
+phydrv
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Unconfigured    
+     S640                                                                      
+2    HDS722020AL SAS HDD  2 TB        Encl1 Slot2   OK         Unconfigured    
+     A330                                                                      
+3    ST373455SS  SAS HDD  73 GB       Encl1 Slot3   OK         Unconfigured    
+4    HUS724040AL SAS HDD  4 TB        Encl1 Slot4   OK         Unconfigured    
+     S640                                                                      
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         Unconfigured    
+7    HUS723020AL SAS HDD  2 TB        Encl1 Slot7   OK         Unconfigured    
+     S640                                                                      
+8    HUS724040AL SAS HDD  4 TB        Encl1 Slot8   OK         Unconfigured    
+     S640                                                                      
+9    HUS724040AL SAS HDD  4 TB        Encl1 Slot9   OK         Unconfigured    
+     S640                                                                      
+11   HDS722020AL SAS HDD  2 TB        Encl1 Slot11  OK         Unconfigured    
+     A330                                                                      
+12   HUS724040AL SAS HDD  4 TB        Encl1 Slot12  OK         Unconfigured    
+     S640                                                                      
+13   ST3146356SS SAS HDD  146 GB      Encl1 Slot13  OK         Unconfigured    
+15   SSD U110    SAS SSD  31 GB       Encl1 Slot15  OK         Unconfigured    
+     32GB                                                                      
+16   ST373455SS  SAS HDD  73 GB       Encl1 Slot16  OK         Unconfigured    
+
+administrator@cli> 
+bgasched
+
+administrator@cli> 
+pool
+No pool in the subsystem
+
+administrator@cli> 
+phydrv
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Unconfigured    
+     S640                                                                      
+2    HDS722020AL SAS HDD  2 TB        Encl1 Slot2   OK         Unconfigured    
+     A330                                                                      
+3    ST373455SS  SAS HDD  73 GB       Encl1 Slot3   OK         Unconfigured    
+4    HUS724040AL SAS HDD  4 TB        Encl1 Slot4   OK         Unconfigured    
+     S640                                                                      
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         Unconfigured    
+7    HUS723020AL SAS HDD  2 TB        Encl1 Slot7   OK         Unconfigured    
+     S640                                                                      
+8    HUS724040AL SAS HDD  4 TB        Encl1 Slot8   OK         Unconfigured    
+     S640                                                                      
+9    HUS724040AL SAS HDD  4 TB        Encl1 Slot9   OK         Unconfigured    
+     S640                                                                      
+11   HDS722020AL SAS HDD  2 TB        Encl1 Slot11  OK         Unconfigured    
+     A330                                                                      
+12   HUS724040AL SAS HDD  4 TB        Encl1 Slot12  OK         Unconfigured    
+     S640                                                                      
+13   ST3146356SS SAS HDD  146 GB      Encl1 Slot13  OK         Unconfigured    
+15   SSD U110    SAS SSD  31 GB       Encl1 Slot15  OK         Unconfigured    
+     32GB                                                                      
+16   ST373455SS  SAS HDD  73 GB       Encl1 Slot16  OK         Unconfigured    
+
+administrator@cli> 
+bgasched
+
+administrator@cli> 
+pool
+No pool in the subsystem
+
+administrator@cli> 
+phydrv
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Unconfigured    
+     S640                                                                      
+2    HDS722020AL SAS HDD  2 TB        Encl1 Slot2   OK         Unconfigured    
+     A330                                                                      
+3    ST373455SS  SAS HDD  73 GB       Encl1 Slot3   OK         Unconfigured    
+4    HUS724040AL SAS HDD  4 TB        Encl1 Slot4   OK         Unconfigured    
+     S640                                                                      
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         Unconfigured    
+7    HUS723020AL SAS HDD  2 TB        Encl1 Slot7   OK         Unconfigured    
+     S640                                                                      
+8    HUS724040AL SAS HDD  4 TB        Encl1 Slot8   OK         Unconfigured    
+     S640                                                                      
+9    HUS724040AL SAS HDD  4 TB        Encl1 Slot9   OK         Unconfigured    
+     S640                                                                      
+11   HDS722020AL SAS HDD  2 TB        Encl1 Slot11  OK         Unconfigured    
+     A330                                                                      
+12   HUS724040AL SAS HDD  4 TB        Encl1 Slot12  OK         Unconfigured    
+     S640                                                                      
+13   ST3146356SS SAS HDD  146 GB      Encl1 Slot13  OK         Unconfigured    
+15   SSD U110    SAS SSD  31 GB       Encl1 Slot15  OK         Unconfigured    
+     32GB                                                                      
+16   ST373455SS  SAS HDD  73 GB       Encl1 Slot16  OK         Unconfigured    
+
+administrator@cli> 
+bgasched
+
+administrator@cli> 
+pool
+No pool in the subsystem
+
+administrator@cli> 
+phydrv
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Unconfigured    
+     S640                                                                      
+2    HDS722020AL SAS HDD  2 TB        Encl1 Slot2   OK         Unconfigured    
+     A330                                                                      
+3    ST373455SS  SAS HDD  73 GB       Encl1 Slot3   OK         Unconfigured    
+4    HUS724040AL SAS HDD  4 TB        Encl1 Slot4   OK         Unconfigured    
+     S640                                                                      
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         Unconfigured    
+7    HUS723020AL SAS HDD  2 TB        Encl1 Slot7   OK         Unconfigured    
+     S640                                                                      
+8    HUS724040AL SAS HDD  4 TB        Encl1 Slot8   OK         Unconfigured    
+     S640                                                                      
+9    HUS724040AL SAS HDD  4 TB        Encl1 Slot9   OK         Unconfigured    
+     S640                                                                      
+11   HDS722020AL SAS HDD  2 TB        Encl1 Slot11  OK         Unconfigured    
+     A330                                                                      
+12   HUS724040AL SAS HDD  4 TB        Encl1 Slot12  OK         Unconfigured    
+     S640                                                                      
+13   ST3146356SS SAS HDD  146 GB      Encl1 Slot13  OK         Unconfigured    
+15   SSD U110    SAS SSD  31 GB       Encl1 Slot15  OK         Unconfigured    
+     32GB                                                                      
+16   ST373455SS  SAS HDD  73 GB       Encl1 Slot16  OK         Unconfigured    
+
+administrator@cli> 
+bgasched
+
+administrator@cli> 
+pool
+No pool in the subsystem
+
+administrator@cli> 
+phydrv
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Unconfigured    
+     S640                                                                      
+2    HDS722020AL SAS HDD  2 TB        Encl1 Slot2   OK         Unconfigured    
+     A330                                                                      
+3    ST373455SS  SAS HDD  73 GB       Encl1 Slot3   OK         Unconfigured    
+4    HUS724040AL SAS HDD  4 TB        Encl1 Slot4   OK         Unconfigured    
+     S640                                                                      
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         Unconfigured    
+7    HUS723020AL SAS HDD  2 TB        Encl1 Slot7   OK         Unconfigured    
+     S640                                                                      
+8    HUS724040AL SAS HDD  4 TB        Encl1 Slot8   OK         Unconfigured    
+     S640                                                                      
+9    HUS724040AL SAS HDD  4 TB        Encl1 Slot9   OK         Unconfigured    
+     S640                                                                      
+11   HDS722020AL SAS HDD  2 TB        Encl1 Slot11  OK         Unconfigured    
+     A330                                                                      
+12   HUS724040AL SAS HDD  4 TB        Encl1 Slot12  OK         Unconfigured    
+     S640                                                                      
+13   ST3146356SS SAS HDD  146 GB      Encl1 Slot13  OK         Unconfigured    
+15   SSD U110    SAS SSD  31 GB       Encl1 Slot15  OK         Unconfigured    
+     32GB                                                                      
+16   ST373455SS  SAS HDD  73 GB       Encl1 Slot16  OK         Unconfigured    
+
+administrator@cli> 
+bgasched
+
+administrator@cli> 
+pool
+No pool in the subsystem
+
+administrator@cli> 
+phydrv
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Unconfigured    
+     S640                                                                      
+2    HDS722020AL SAS HDD  2 TB        Encl1 Slot2   OK         Unconfigured    
+     A330                                                                      
+3    ST373455SS  SAS HDD  73 GB       Encl1 Slot3   OK         Unconfigured    
+4    HUS724040AL SAS HDD  4 TB        Encl1 Slot4   OK         Unconfigured    
+     S640                                                                      
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         Unconfigured    
+7    HUS723020AL SAS HDD  2 TB        Encl1 Slot7   OK         Unconfigured    
+     S640                                                                      
+8    HUS724040AL SAS HDD  4 TB        Encl1 Slot8   OK         Unconfigured    
+     S640                                                                      
+9    HUS724040AL SAS HDD  4 TB        Encl1 Slot9   OK         Unconfigured    
+     S640                                                                      
+11   HDS722020AL SAS HDD  2 TB        Encl1 Slot11  OK         Unconfigured    
+     A330                                                                      
+12   HUS724040AL SAS HDD  4 TB        Encl1 Slot12  OK         Unconfigured    
+     S640                                                                      
+13   ST3146356SS SAS HDD  146 GB      Encl1 Slot13  OK         Unconfigured    
+15   SSD U110    SAS SSD  31 GB       Encl1 Slot15  OK         Unconfigured    
+     32GB                                                                      
+16   ST373455SS  SAS HDD  73 GB       Encl1 Slot16  OK         Unconfigured    
+
+administrator@cli> 
+bgasched
+
+administrator@cli> 
+pool
+No pool in the subsystem
+
+administrator@cli> 
+phydrv
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Unconfigured    
+     S640                                                                      
+2    HDS722020AL SAS HDD  2 TB        Encl1 Slot2   OK         Unconfigured    
+     A330                                                                      
+3    ST373455SS  SAS HDD  73 GB       Encl1 Slot3   OK         Unconfigured    
+4    HUS724040AL SAS HDD  4 TB        Encl1 Slot4   OK         Unconfigured    
+     S640                                                                      
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         Unconfigured    
+7    HUS723020AL SAS HDD  2 TB        Encl1 Slot7   OK         Unconfigured    
+     S640                                                                      
+8    HUS724040AL SAS HDD  4 TB        Encl1 Slot8   OK         Unconfigured    
+     S640                                                                      
+9    HUS724040AL SAS HDD  4 TB        Encl1 Slot9   OK         Unconfigured    
+     S640                                                                      
+11   HDS722020AL SAS HDD  2 TB        Encl1 Slot11  OK         Unconfigured    
+     A330                                                                      
+12   HUS724040AL SAS HDD  4 TB        Encl1 Slot12  OK         Unconfigured    
+     S640                                                                      
+13   ST3146356SS SAS HDD  146 GB      Encl1 Slot13  OK         Unconfigured    
+15   SSD U110    SAS SSD  31 GB       Encl1 Slot15  OK         Unconfigured    
+     32GB                                                                      
+16   ST373455SS  SAS HDD  73 GB       Encl1 Slot16  OK         Unconfigured    
+
+administrator@cli> 
+bgasched
+
+administrator@cli> 
+pool
+No pool in the subsystem
+
+administrator@cli> 
+phydrv
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Unconfigured    
+     S640                                                                      
+2    HDS722020AL SAS HDD  2 TB        Encl1 Slot2   OK         Unconfigured    
+     A330                                                                      
+3    ST373455SS  SAS HDD  73 GB       Encl1 Slot3   OK         Unconfigured    
+4    HUS724040AL SAS HDD  4 TB        Encl1 Slot4   OK         Unconfigured    
+     S640                                                                      
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         Unconfigured    
+7    HUS723020AL SAS HDD  2 TB        Encl1 Slot7   OK         Unconfigured    
+     S640                                                                      
+8    HUS724040AL SAS HDD  4 TB        Encl1 Slot8   OK         Unconfigured    
+     S640                                                                      
+9    HUS724040AL SAS HDD  4 TB        Encl1 Slot9   OK         Unconfigured    
+     S640                                                                      
+11   HDS722020AL SAS HDD  2 TB        Encl1 Slot11  OK         Unconfigured    
+     A330                                                                      
+12   HUS724040AL SAS HDD  4 TB        Encl1 Slot12  OK         Unconfigured    
+     S640                                                                      
+13   ST3146356SS SAS HDD  146 GB      Encl1 Slot13  OK         Unconfigured    
+15   SSD U110    SAS SSD  31 GB       Encl1 Slot15  OK         Unconfigured    
+     32GB                                                                      
+16   ST373455SS  SAS HDD  73 GB       Encl1 Slot16  OK         Unconfigured    
+
+administrator@cli> 
+bgasched
+
+administrator@cli> 
+pool
+No pool in the subsystem
+
+administrator@cli> 
+phydrv
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Unconfigured    
+     S640                                                                      
+2    HDS722020AL SAS HDD  2 TB        Encl1 Slot2   OK         Unconfigured    
+     A330                                                                      
+3    ST373455SS  SAS HDD  73 GB       Encl1 Slot3   OK         Unconfigured    
+4    HUS724040AL SAS HDD  4 TB        Encl1 Slot4   OK         Unconfigured    
+     S640                                                                      
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         Unconfigured    
+7    HUS723020AL SAS HDD  2 TB        Encl1 Slot7   OK         Unconfigured    
+     S640                                                                      
+8    HUS724040AL SAS HDD  4 TB        Encl1 Slot8   OK         Unconfigured    
+     S640                                                                      
+9    HUS724040AL SAS HDD  4 TB        Encl1 Slot9   OK         Unconfigured    
+     S640                                                                      
+11   HDS722020AL SAS HDD  2 TB        Encl1 Slot11  OK         Unconfigured    
+     A330                                                                      
+12   HUS724040AL SAS HDD  4 TB        Encl1 Slot12  OK         Unconfigured    
+     S640                                                                      
+13   ST3146356SS SAS HDD  146 GB      Encl1 Slot13  OK         Unconfigured    
+15   SSD U110    SAS SSD  31 GB       Encl1 Slot15  OK         Unconfigured    
+     32GB                                                                      
+16   ST373455SS  SAS HDD  73 GB       Encl1 Slot16  OK         Unconfigured    
+
+administrator@cli> 
+pool -a add -s "name=testBgasched1, raid=0" -p 1
+
+administrator@cli> 
+pool -a add -s "name=testBgasched2, raid=0" -p 1
+Error (0x4021): Physical drive in use
+Physical drive in use
+
+administrator@cli> 
+bgasched -a add -t rc -s "recurtype=daily"
+
+administrator@cli> 
+bgasched -v -t rc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 22:00                        StartDay: 01/00/1900
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: No End Date                      RecurrenceInterval: 1
+AutoFix: Disabled                       PauseOnError: Disabled
+PoolIds: 0
+
+administrator@cli> 
+bgasched -a add -t rc -s "recurtype=daily"
+Error (0x40010): Schedule already exists for the specified device
+
+administrator@cli> 
+bgasched -v -t rc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 22:00                        StartDay: 01/00/1900
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: No End Date                      RecurrenceInterval: 1
+AutoFix: Disabled                       PauseOnError: Disabled
+PoolIds: 0
+
+administrator@cli> 
+Fail: bgasched -a add -t rc -s "recurtype=monthly,daypattern=dow,wom=2nd,dow=Sun,month=2,endon=10"
+bgasched -a add -t br -s "recurtype=daily"
+
+administrator@cli> 
+bgasched -v -t br
+-------------------------------------------------------------------------------
+Id: 1                                   Type: BatteryRecondition
+StartTime: 02:00                        StartDay: 01/00/1900
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: No End Date                      RecurrenceInterval: 1
+
+administrator@cli> 
+bgasched -a add -t sc -s "recurtype=daily"
+
+administrator@cli> 
+bgasched -v -t sc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: SpareCheck
+StartTime: 22:00                        StartDay: 01/00/1900
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: No End Date                      RecurrenceInterval: 1
+
+administrator@cli> 
+
+<font color="red">Fail: To verify add bgasched </font>
+'result': 'f'
+bgasched
+
+administrator@cli> 
+pool
+===============================================================================
+Id   Name                        TotalCap  UsedCap   FreeCap   OpStatus       
+===============================================================================
+1    testBgasched2               1.83 TB   98.82 KB  1.83 TB   OK              
+
+administrator@cli> 
+phydrv
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Unconfigured    
+     S640                                                                      
+2    HDS722020AL SAS HDD  2 TB        Encl1 Slot2   OK         Pool1           
+     A330                                                                      
+3    ST373455SS  SAS HDD  73 GB       Encl1 Slot3   OK         Unconfigured    
+4    HUS724040AL SAS HDD  4 TB        Encl1 Slot4   OK         Unconfigured    
+     S640                                                                      
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         Unconfigured    
+7    HUS723020AL SAS HDD  2 TB        Encl1 Slot7   OK         Unconfigured    
+     S640                                                                      
+8    HUS724040AL SAS HDD  4 TB        Encl1 Slot8   OK         Unconfigured    
+     S640                                                                      
+9    HUS724040AL SAS HDD  4 TB        Encl1 Slot9   OK         Unconfigured    
+     S640                                                                      
+11   HDS722020AL SAS HDD  2 TB        Encl1 Slot11  OK         Unconfigured    
+     A330                                                                      
+12   HUS724040AL SAS HDD  4 TB        Encl1 Slot12  OK         Unconfigured    
+     S640                                                                      
+13   ST3146356SS SAS HDD  146 GB      Encl1 Slot13  OK         Unconfigured    
+15   SSD U110    SAS SSD  31 GB       Encl1 Slot15  OK         Unconfigured    
+     32GB                                                                      
+16   ST373455SS  SAS HDD  73 GB       Encl1 Slot16  OK         Unconfigured    
+
+administrator@cli> 
+pool -a add -s "name=testBgasched1, raid=0" -p 1
+
+administrator@cli> 
+bgasched -a add -t rc -s "recurtype=daily"
+
+administrator@cli> 
+bgasched -v -t rc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 22:00                        StartDay: 01/00/1900
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: No End Date                      RecurrenceInterval: 1
+AutoFix: Disabled                       PauseOnError: Disabled
+PoolIds: 0,1
+
+administrator@cli> 
+bgasched -a add -t rc -s "recurtype=daily"
+Error (0x40010): Schedule already exists for the specified device
+
+administrator@cli> 
+bgasched -v -t rc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 22:00                        StartDay: 01/00/1900
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: No End Date                      RecurrenceInterval: 1
+AutoFix: Disabled                       PauseOnError: Disabled
+PoolIds: 0,1
+
+administrator@cli> 
+Fail: bgasched -a add -t rc -s "recurtype=monthly,daypattern=dow,wom=2nd,dow=Sun,month=2,endon=10"
+bgasched -a add -t br -s "recurtype=daily"
+
+administrator@cli> 
+bgasched -v -t br
+-------------------------------------------------------------------------------
+Id: 1                                   Type: BatteryRecondition
+StartTime: 02:00                        StartDay: 01/00/1900
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: No End Date                      RecurrenceInterval: 1
+
+administrator@cli> 
+bgasched -a add -t sc -s "recurtype=daily"
+
+administrator@cli> 
+bgasched -v -t sc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: SpareCheck
+StartTime: 22:00                        StartDay: 01/00/1900
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: No End Date                      RecurrenceInterval: 1
+
+administrator@cli> 
+
+<font color="red">Fail: To verify add bgasched </font>
+'result': 'f'
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Daily       02:00  01/00/1900   Disabled              
+SpareCheck          1    Daily       22:00  01/00/1900   Disabled              
+RedundancyCheck     1    Daily       22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Daily       02:00  01/00/1900   Disabled              
+SpareCheck          1    Daily       22:00  01/00/1900   Disabled              
+RedundancyCheck     1    Daily       22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched -a del -t br -i 1
+
+administrator@cli> 
+bgasched -a del -t sc -i 1
+
+administrator@cli> 
+bgasched -a del -t rc -i 1
+
+administrator@cli> 
+pool
+===============================================================================
+Id   Name                        TotalCap  UsedCap   FreeCap   OpStatus       
+===============================================================================
+0    testBgasched1               1.83 TB   270.85 KB 1.83 TB   OK              
+1    testBgasched2               1.83 TB   98.82 KB  1.83 TB   OK              
+
+administrator@cli> 
+pool
+===============================================================================
+Id   Name                        TotalCap  UsedCap   FreeCap   OpStatus       
+===============================================================================
+0    testBgasched1               1.83 TB   270.85 KB 1.83 TB   OK              
+1    testBgasched2               1.83 TB   98.82 KB  1.83 TB   OK              
+
+administrator@cli> 
+add bgasched of daily type
+bgasched -a add -t rc -s "recurtype=daily,poolid=0"
+
+administrator@cli> 
+bgasched -v -t rc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 22:00                        StartDay: 01/00/1900
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: No End Date                      RecurrenceInterval: 1
+AutoFix: Disabled                       PauseOnError: Disabled
+PoolIds: 0
+
+administrator@cli> 
+Fail: bgasched -a add -t rc -s "recurtype=monthly,daypattern=dow,wom=2nd,dow=Sun,month=1,endon=10"
+bgasched -a add -t rc -s "recurtype=daily,poolid=1"
+
+administrator@cli> 
+bgasched -v -t rc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 22:00                        StartDay: 01/00/1900
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: No End Date                      RecurrenceInterval: 1
+AutoFix: Disabled                       PauseOnError: Disabled
+PoolIds: 0
+-------------------------------------------------------------------------------
+Id: 2                                   Type: RedundancyCheck
+StartTime: 22:00                        StartDay: 01/00/1900
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: No End Date                      RecurrenceInterval: 1
+AutoFix: Disabled                       PauseOnError: Disabled
+PoolIds: 1
+
+administrator@cli> 
+Fail: bgasched -a add -t rc -s "recurtype=monthly,daypattern=dow,wom=2nd,dow=Sun,month=2,endon=10"
+bgasched -a add -t br -s "recurtype=daily"
+
+administrator@cli> 
+bgasched -v -t br
+-------------------------------------------------------------------------------
+Id: 1                                   Type: BatteryRecondition
+StartTime: 02:00                        StartDay: 01/00/1900
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: No End Date                      RecurrenceInterval: 1
+
+administrator@cli> 
+Fail: bgasched -a add -t br -s "recurtype=monthly,daypattern=dow,wom=2nd,dow=Sun,month=3,endon=10"
+bgasched -a add -t sc -s "recurtype=daily"
+
+administrator@cli> 
+bgasched -v -t sc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: SpareCheck
+StartTime: 22:00                        StartDay: 01/00/1900
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: No End Date                      RecurrenceInterval: 1
+
+administrator@cli> 
+Fail: bgasched -a add -t sc -s "recurtype=monthly,daypattern=dow,wom=2nd,dow=Sun,month=4,endon=10"
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Daily       02:00  01/00/1900   Disabled              
+SpareCheck          1    Daily       22:00  01/00/1900   Disabled              
+RedundancyCheck     1    Daily       22:00  01/00/1900   Disabled              
+RedundancyCheck     2    Daily       22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Daily       02:00  01/00/1900   Disabled              
+SpareCheck          1    Daily       22:00  01/00/1900   Disabled              
+RedundancyCheck     1    Daily       22:00  01/00/1900   Disabled              
+RedundancyCheck     2    Daily       22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched -a del -t br -i 1
+
+administrator@cli> 
+bgasched -a del -t sc -i 1
+
+administrator@cli> 
+bgasched -a del -t rc -i 1
+
+administrator@cli> 
+bgasched -a del -t rc -i 2
+
+administrator@cli> 
+
+<font color="red">Fail: To verify add bgasched </font>
+'result': 'f'
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     03:00  01/01/2010   Enabled               
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Monthly     03:00  01/01/2010   Enabled               
+
+administrator@cli> 
+bgasched -a del -t br -i 1
+
+administrator@cli> 
+pool
+===============================================================================
+Id   Name                        TotalCap  UsedCap   FreeCap   OpStatus       
+===============================================================================
+0    Ptestbbm                    199.61 GB 35.08 GB  164.53 GB OK              
+
+administrator@cli> 
+pool -a del -f -i 0
+Do you want to delete the pool? (y|n):Do you want to delete the pool? (y|n):
+
+administrator@cli> 
+phydrv
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Unconfigured    
+     S640                                                                      
+2    HDS722020AL SAS HDD  2 TB        Encl1 Slot2   OK         Unconfigured    
+     A330                                                                      
+3    ST373455SS  SAS HDD  73 GB       Encl1 Slot3   OK         Unconfigured    
+4    HUS724040AL SAS HDD  4 TB        Encl1 Slot4   OK         Unconfigured    
+     S640                                                                      
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         Unconfigured    
+7    HUS723020AL SAS HDD  2 TB        Encl1 Slot7   OK         Unconfigured    
+     S640                                                                      
+8    HUS724040AL SAS HDD  4 TB        Encl1 Slot8   OK         Unconfigured    
+     S640                                                                      
+9    HUS724040AL SAS HDD  4 TB        Encl1 Slot9   OK         Unconfigured    
+     S640                                                                      
+11   HDS722020AL SAS HDD  2 TB        Encl1 Slot11  OK         Unconfigured    
+     A330                                                                      
+12   HUS724040AL SAS HDD  4 TB        Encl1 Slot12  OK         Unconfigured    
+     S640                                                                      
+13   ST3146356SS SAS HDD  146 GB      Encl1 Slot13  OK         Unconfigured    
+15   SSD U110    SAS SSD  31 GB       Encl1 Slot15  OK         Unconfigured    
+     32GB                                                                      
+16   ST373455SS  SAS HDD  73 GB       Encl1 Slot16  OK         Unconfigured    
+
+administrator@cli> 
+pool -a add -s "name=testBgasched1, raid=1" -p 1,2
+
+administrator@cli> 
+pool -a add -s "name=testBgasched2, raid=0" -p 3,4
+
+administrator@cli> 
+pool -a add -s "name=testBgasched3, raid=0" -p 5
+
+administrator@cli> 
+pool
+===============================================================================
+Id   Name                        TotalCap  UsedCap   FreeCap   OpStatus       
+===============================================================================
+0    testBgasched1               1.83 TB   98.82 KB  1.83 TB   OK,             
+                                                               Synchronizing   
+1    testBgasched2               133.40 GB 98.82 KB  133.40 GB OK              
+2    testBgasched3               28.41 GB  98.82 KB  28.41 GB  OK              
+
+administrator@cli> 
+add bgasched of daily type
+bgasched -a add -t rc -s "recurtype=daily,poolid=0"
+
+administrator@cli> 
+bgasched -v -t rc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 22:00                        StartDay: 01/00/1900
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: No End Date                      RecurrenceInterval: 1
+AutoFix: Disabled                       PauseOnError: Disabled
+PoolIds: 0
+
+administrator@cli> 
+Fail: bgasched -a add -t rc
+bgasched -a add -t rc -s "recurtype=daily,poolid=0"
+Error (0x40010): Schedule already exists for the specified device
+
+administrator@cli> 
+bgasched -v -t rc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 22:00                        StartDay: 01/00/1900
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: No End Date                      RecurrenceInterval: 1
+AutoFix: Disabled                       PauseOnError: Disabled
+PoolIds: 0
+
+administrator@cli> 
+Fail: bgasched -a add -t rc
+bgasched -a add -t br -s "recurtype=daily"
+
+administrator@cli> 
+bgasched -v -t br
+-------------------------------------------------------------------------------
+Id: 1                                   Type: BatteryRecondition
+StartTime: 02:00                        StartDay: 01/00/1900
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: No End Date                      RecurrenceInterval: 1
+
+administrator@cli> 
+Fail: bgasched -a add -t br
+bgasched -a add -t sc -s "recurtype=daily"
+
+administrator@cli> 
+bgasched -v -t sc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: SpareCheck
+StartTime: 22:00                        StartDay: 01/00/1900
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: No End Date                      RecurrenceInterval: 1
+
+administrator@cli> 
+Fail: bgasched -a add -t sc
+
+<font color="red">Fail: To verify add bgasched </font>
+'result': 'f'
+bgasched
+
+administrator@cli> 
+pool
+===============================================================================
+Id   Name                        TotalCap  UsedCap   FreeCap   OpStatus       
+===============================================================================
+0    testBgasched1               1.83 TB   98.82 KB  1.83 TB   OK,             
+                                                               Synchronizing   
+1    testBgasched2               133.40 GB 98.82 KB  133.40 GB OK              
+2    testBgasched3               28.41 GB  98.82 KB  28.41 GB  OK              
+
+administrator@cli> 
+pool -a del -f -i 0
+Do you want to delete the pool? (y|n):Do you want to delete the pool? (y|n):
+
+administrator@cli> 
+pool -a del -f -i 1
+Do you want to delete the pool? (y|n):Do you want to delete the pool? (y|n):
+
+administrator@cli> 
+pool -a del -f -i 2
+Do you want to delete the pool? (y|n):Do you want to delete the pool? (y|n):
+
+administrator@cli> 
+phydrv
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Unconfigured    
+     S640                                                                      
+2    HDS722020AL SAS HDD  2 TB        Encl1 Slot2   OK         Unconfigured    
+     A330                                                                      
+3    ST373455SS  SAS HDD  73 GB       Encl1 Slot3   OK         Unconfigured    
+4    HUS724040AL SAS HDD  4 TB        Encl1 Slot4   OK         Unconfigured    
+     S640                                                                      
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         Unconfigured    
+7    HUS723020AL SAS HDD  2 TB        Encl1 Slot7   OK         Unconfigured    
+     S640                                                                      
+8    HUS724040AL SAS HDD  4 TB        Encl1 Slot8   OK         Unconfigured    
+     S640                                                                      
+9    HUS724040AL SAS HDD  4 TB        Encl1 Slot9   OK         Unconfigured    
+     S640                                                                      
+11   HDS722020AL SAS HDD  2 TB        Encl1 Slot11  OK         Unconfigured    
+     A330                                                                      
+12   HUS724040AL SAS HDD  4 TB        Encl1 Slot12  OK         Unconfigured    
+     S640                                                                      
+13   ST3146356SS SAS HDD  146 GB      Encl1 Slot13  OK         Unconfigured    
+15   SSD U110    SAS SSD  31 GB       Encl1 Slot15  OK         Unconfigured    
+     32GB                                                                      
+16   ST373455SS  SAS HDD  73 GB       Encl1 Slot16  OK         Unconfigured    
+
+administrator@cli> 
+pool -a add -s "name=testBgasched1, raid=1" -p 1,2
+
+administrator@cli> 
+pool -a add -s "name=testBgasched2, raid=0" -p 3,4
+
+administrator@cli> 
+pool -a add -s "name=testBgasched3, raid=0" -p 5
+
+administrator@cli> 
+pool
+===============================================================================
+Id   Name                        TotalCap  UsedCap   FreeCap   OpStatus       
+===============================================================================
+0    testBgasched1               1.83 TB   98.82 KB  1.83 TB   OK,             
+                                                               Synchronizing   
+1    testBgasched2               133.40 GB 98.82 KB  133.40 GB OK              
+2    testBgasched3               28.41 GB  98.82 KB  28.41 GB  OK              
+
+administrator@cli> 
+add bgasched of daily type
+bgasched -a add -t rc -s "recurtype=daily,poolid=0"
+
+administrator@cli> 
+bgasched -a add -t rc -s "recurtype=daily,poolid=1"
+
+administrator@cli> 
+bgasched -v -t rc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 22:00                        StartDay: 01/00/1900
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: No End Date                      RecurrenceInterval: 1
+AutoFix: Disabled                       PauseOnError: Disabled
+PoolIds: 0
+-------------------------------------------------------------------------------
+Id: 2                                   Type: RedundancyCheck
+StartTime: 22:00                        StartDay: 01/00/1900
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: No End Date                      RecurrenceInterval: 1
+AutoFix: Disabled                       PauseOnError: Disabled
+PoolIds: 1
+
+administrator@cli> 
+Fail: bgasched -a add -t rc
+bgasched -a add -t br -s "recurtype=daily"
+
+administrator@cli> 
+bgasched -v -t br
+-------------------------------------------------------------------------------
+Id: 1                                   Type: BatteryRecondition
+StartTime: 02:00                        StartDay: 01/00/1900
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: No End Date                      RecurrenceInterval: 1
+
+administrator@cli> 
+Fail: bgasched -a add -t br
+bgasched -a add -t sc -s "recurtype=daily"
+
+administrator@cli> 
+bgasched -v -t sc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: SpareCheck
+StartTime: 22:00                        StartDay: 01/00/1900
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: No End Date                      RecurrenceInterval: 1
+
+administrator@cli> 
+Fail: bgasched -a add -t sc
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Daily       02:00  01/00/1900   Disabled              
+SpareCheck          1    Daily       22:00  01/00/1900   Disabled              
+RedundancyCheck     1    Daily       22:00  01/00/1900   Disabled              
+RedundancyCheck     2    Daily       22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Daily       02:00  01/00/1900   Disabled              
+SpareCheck          1    Daily       22:00  01/00/1900   Disabled              
+RedundancyCheck     1    Daily       22:00  01/00/1900   Disabled              
+RedundancyCheck     2    Daily       22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched -a del -t br -i 1
+
+administrator@cli> 
+bgasched -a del -t sc -i 1
+
+administrator@cli> 
+bgasched -a del -t rc -i 1
+
+administrator@cli> 
+bgasched
+
+administrator@cli> 
+pool
+===============================================================================
+Id   Name                        TotalCap  UsedCap   FreeCap   OpStatus       
+===============================================================================
+0    testBgasched1               1.83 TB   98.82 KB  1.83 TB   OK,             
+                                                               Synchronizing   
+1    testBgasched2               133.40 GB 98.82 KB  133.40 GB OK              
+2    testBgasched3               28.41 GB  98.82 KB  28.41 GB  OK              
+
+administrator@cli> 
+pool -a del -f -i 0
+Do you want to delete the pool? (y|n):Do you want to delete the pool? (y|n):
+
+administrator@cli> 
+pool -a del -f -i 1
+Do you want to delete the pool? (y|n):Do you want to delete the pool? (y|n):
+
+administrator@cli> 
+pool -a del -f -i 2
+Do you want to delete the pool? (y|n):Do you want to delete the pool? (y|n):
+
+administrator@cli> 
+phydrv
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Unconfigured    
+     S640                                                                      
+2    HDS722020AL SAS HDD  2 TB        Encl1 Slot2   OK         Unconfigured    
+     A330                                                                      
+3    ST373455SS  SAS HDD  73 GB       Encl1 Slot3   OK         Unconfigured    
+4    HUS724040AL SAS HDD  4 TB        Encl1 Slot4   OK         Unconfigured    
+     S640                                                                      
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         Unconfigured    
+7    HUS723020AL SAS HDD  2 TB        Encl1 Slot7   OK         Unconfigured    
+     S640                                                                      
+8    HUS724040AL SAS HDD  4 TB        Encl1 Slot8   OK         Unconfigured    
+     S640                                                                      
+9    HUS724040AL SAS HDD  4 TB        Encl1 Slot9   OK         Unconfigured    
+     S640                                                                      
+11   HDS722020AL SAS HDD  2 TB        Encl1 Slot11  OK         Unconfigured    
+     A330                                                                      
+12   HUS724040AL SAS HDD  4 TB        Encl1 Slot12  OK         Unconfigured    
+     S640                                                                      
+13   ST3146356SS SAS HDD  146 GB      Encl1 Slot13  OK         Unconfigured    
+15   SSD U110    SAS SSD  31 GB       Encl1 Slot15  OK         Unconfigured    
+     32GB                                                                      
+16   ST373455SS  SAS HDD  73 GB       Encl1 Slot16  OK         Unconfigured    
+
+administrator@cli> 
+pool -a add -s "name=testBgasched1, raid=1" -p 1,2
+
+administrator@cli> 
+pool -a add -s "name=testBgasched2, raid=0" -p 3,4
+
+administrator@cli> 
+pool -a add -s "name=testBgasched3, raid=0" -p 5
+
+administrator@cli> 
+pool
+===============================================================================
+Id   Name                        TotalCap  UsedCap   FreeCap   OpStatus       
+===============================================================================
+0    testBgasched1               1.83 TB   98.82 KB  1.83 TB   OK,             
+                                                               Synchronizing   
+1    testBgasched2               133.40 GB 98.82 KB  133.40 GB OK              
+2    testBgasched3               28.41 GB  98.82 KB  28.41 GB  OK              
+
+administrator@cli> 
+add bgasched of daily type
+bgasched -a add -t rc -s "recurtype=daily,poolid=0"
+
+administrator@cli> 
+bgasched -a add -t rc -s "recurtype=daily,poolid=1"
+
+administrator@cli> 
+bgasched -v -t rc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 22:00                        StartDay: 01/00/1900
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: No End Date                      RecurrenceInterval: 1
+AutoFix: Disabled                       PauseOnError: Disabled
+PoolIds: 0
+-------------------------------------------------------------------------------
+Id: 2                                   Type: RedundancyCheck
+StartTime: 22:00                        StartDay: 01/00/1900
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: No End Date                      RecurrenceInterval: 1
+AutoFix: Disabled                       PauseOnError: Disabled
+PoolIds: 1
+
+administrator@cli> 
+bgasched -a add -t br -s "recurtype=daily"
+
+administrator@cli> 
+bgasched -v -t br
+-------------------------------------------------------------------------------
+Id: 1                                   Type: BatteryRecondition
+StartTime: 02:00                        StartDay: 01/00/1900
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: No End Date                      RecurrenceInterval: 1
+
+administrator@cli> 
+bgasched -a add -t sc -s "recurtype=daily"
+
+administrator@cli> 
+bgasched -v -t sc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: SpareCheck
+StartTime: 22:00                        StartDay: 01/00/1900
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: No End Date                      RecurrenceInterval: 1
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Daily       02:00  01/00/1900   Disabled              
+SpareCheck          1    Daily       22:00  01/00/1900   Disabled              
+RedundancyCheck     1    Daily       22:00  01/00/1900   Disabled              
+RedundancyCheck     2    Daily       22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Daily       02:00  01/00/1900   Disabled              
+SpareCheck          1    Daily       22:00  01/00/1900   Disabled              
+RedundancyCheck     1    Daily       22:00  01/00/1900   Disabled              
+RedundancyCheck     2    Daily       22:00  01/00/1900   Disabled              
+
+administrator@cli> 
+bgasched -a del -t br -i 1
+
+administrator@cli> 
+bgasched -a del -t sc -i 1
+
+administrator@cli> 
+bgasched -a del -t rc -i 1
+
+administrator@cli> 
+bgasched -a del -t rc -i 2
+
+administrator@cli> 
+
+<font color="green">Pass</font>
+'result': 'p'

@@ -21,7 +21,7 @@ def findPdId(c):
     row = result.split('\r\n')
     if 'Error (' not in result:
         for r in range(4, (len(row) -2)):
-            if len(row[r].split()) == 10:
+            if len(row[r].split()) >= 10:
                 if row[r].split()[-1] != 'Unconfigured':
                     pdID1.append(row[r].split()[0])
 
