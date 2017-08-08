@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e03c8b68-9846-4b80-8d73-1c116d755aef" name="Default" comment="" />
+    <list default="true" id="e03c8b68-9846-4b80-8d73-1c116d755aef" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testlink.notes" afterPath="$PROJECT_DIR$/testlink.notes" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bgasched.py" afterPath="$PROJECT_DIR$/bgasched.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cli_scripts.log" afterPath="$PROJECT_DIR$/cli_scripts.log" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,12 +19,14 @@
       <file leaf-file-name="bgasched.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bgasched.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="89" column="21" lean-forward="true" selection-start-line="89" selection-start-column="21" selection-end-line="89" selection-end-column="21" />
+            <state relative-caret-position="380">
+              <caret line="140" column="0" lean-forward="true" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
               <folding>
                 <element signature="e#35#57#0" expanded="true" />
                 <element signature="e#183#526#0" expanded="false" />
-                <element signature="e#630#1140#0" expanded="false" />
+                <element signature="e#859#1312#0" expanded="false" />
+                <element signature="e#1428#2114#0" expanded="false" />
+                <element signature="e#2133#2739#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -38,6 +44,8 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>chapSend_cmd</find>
+      <find>Fail:</find>
+      <find>Fail</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -316,7 +324,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -389,12 +397,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bgasched.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="89" column="21" lean-forward="true" selection-start-line="89" selection-start-column="21" selection-end-line="89" selection-end-column="21" />
+        <state relative-caret-position="380">
+          <caret line="140" column="0" lean-forward="true" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
           <folding>
             <element signature="e#35#57#0" expanded="true" />
             <element signature="e#183#526#0" expanded="false" />
-            <element signature="e#630#1140#0" expanded="false" />
+            <element signature="e#859#1312#0" expanded="false" />
+            <element signature="e#1428#2114#0" expanded="false" />
+            <element signature="e#2133#2739#0" expanded="false" />
           </folding>
         </state>
       </provider>
