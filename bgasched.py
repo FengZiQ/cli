@@ -91,8 +91,7 @@ def verifyBgaschedAdd(c):
     listType = ['Type: RedundancyCheck', 'Type: BatteryRecondition', 'Type: SpareCheck']
     defaultStatus = ['OperationalStatus: Disabled']
     defaultStartTime = ['StartTime: 22:00', 'StartTime: 02:00', 'StartTime: 22:00']
-    dateInfo = SendCmd(c, 'date').split('\r\n')[-3].split()[-2]
-    startDay = 'StartDay: ' + dateInfo[5:7] + '/' + dateInfo[8:10] + '/' + dateInfo[:4]
+    startDay = SendCmd(c, 'date').split('\r\n')[-3].split()[-2]
     # recurtype = ['daily', 'weekly', 'monthly']
 
     # add bgasched of daily type
@@ -183,9 +182,9 @@ def verifyBgaschedMod(c):
         # startTime
         ['00:00', '06:10', '12:20', '23:59'],
         # startFrom
-        ['01/01/2020', '12/31/2020', '01/01/2000', '01/01/2000'],
+        ['01-01-2020', '12-31-2020', '01-01-2000', '01-01-2000'],
         # endOn
-        ['1', '2147483647', '01/01/2000', '12/31/2100'],
+        ['1', '2147483647', '01-01-2000', '12-31-2100'],
         # autoFix
         ['Enable', 'Enable', 'Disable', 'Disable'],
         # pause
@@ -402,16 +401,16 @@ def verifyBgaschedInvalidParameters(c):
                'bgasched -a mod -t sc -s "daypattern=dom,dom=32"',
                'bgasched -a mod -t sc -s "daypattern=dow,wom=x"',
                # mm/dd/yyyy where month's range is 1-12, day's range is 1-31
-               'bgasched -a mod -t sc -s "startfrom=0/1/2017"',
-               'bgasched -a mod -t sc -s "startfrom=13/1/2017"',
-               'bgasched -a mod -t sc -s "startfrom=1/0/2017"',
-               'bgasched -a mod -t sc -s "startfrom=1/32/2017"',
+               'bgasched -a mod -t sc -s "startfrom=0-1-2017"',
+               'bgasched -a mod -t sc -s "startfrom=13-1-2017"',
+               'bgasched -a mod -t sc -s "startfrom=1-0-2017"',
+               'bgasched -a mod -t sc -s "startfrom=1-32-2017"',
                # endOn An integer N indicates after N times,month's range is 1-12 and day's range is 1-31
                'bgasched -a mod -t sc -s "endon=-1"',
-               'bgasched -a mod -t sc -s "endon=0/1/2017"',
-               'bgasched -a mod -t sc -s "endon=13/1/2017"',
-               'bgasched -a mod -t sc -s "endon=1/0/2017"',
-               'bgasched -a mod -t sc -s "endon=1/32/2017"',
+               'bgasched -a mod -t sc -s "endon=0-1-2017"',
+               'bgasched -a mod -t sc -s "endon=13-1-2017"',
+               'bgasched -a mod -t sc -s "endon=1-0-2017"',
+               'bgasched -a mod -t sc -s "endon=1-32-2017"',
                'bgasched -a mod -t rc -s "autofix=x"',
                'bgasched -a mod -t rc -s "pause=x"',
                'bgasched -a del -t x'
@@ -452,13 +451,13 @@ def verifyBgaschedMissingParameters(c):
 if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
-    # verifyBgaschedAdd(c)
-    # verifyBgaschedMod(c)
-    # verifyBgaschedList(c)
-    # verifyBgaschedDel(c)
-    # verifyBgaschedHelp(c)
-    # verifyBgaschedInvalidOption(c)
-    # verifyBgaschedInvalidParameters(c)
+    verifyBgaschedAdd(c)
+    verifyBgaschedMod(c)
+    verifyBgaschedList(c)
+    verifyBgaschedDel(c)
+    verifyBgaschedHelp(c)
+    verifyBgaschedInvalidOption(c)
+    verifyBgaschedInvalidParameters(c)
     verifyBgaschedMissingParameters(c)
     ssh.close()
     elasped = time.clock() - start
