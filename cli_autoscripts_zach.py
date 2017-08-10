@@ -75,9 +75,9 @@ if __name__ == "__main__":
 
     new_adminjl_key = '1e2a6e7af20e5c274174ff68e2ba63a2'
 
-    # # new_testlink="http://192.168.252.175/testlink/lib/api/xmlrpc/v1/xmlrpc.php"
+    # # new_testlink="http://192.168.252.104/testlink/lib/api/xmlrpc/v1/xmlrpc.php"
     #new_ip_testlink = "http://10.10.10.3/testlink/lib/api/xmlrpc/v1/xmlrpc.php"
-    new_ip_testlink = "http://192.168.252.175/testlink/lib/api/xmlrpc/v1/xmlrpc.php"
+    new_ip_testlink = "http://192.168.252.104/testlink/lib/api/xmlrpc/v1/xmlrpc.php"
     tls = testlink.TestlinkAPIClient(new_ip_testlink, new_adminjl_key)
 
     # test case notes
@@ -224,7 +224,7 @@ if __name__ == "__main__":
                         #print tcdict.get(eachtestcase)
                         # list test cases by platform
                         # 2016-12-20
-                        # http://192.168.252.175:8888/browse/AUT-4
+                        # http://192.168.252.104:8888/browse/AUT-4
                         # The test cases in one test case suite should be executed in original order. Otherwise,
                         # some cmd cannot be executed successfully because no requisites are met.
 
@@ -389,7 +389,7 @@ if __name__ == "__main__":
 
                                         if getExecution[0]['status']:
 
-                                            link="http://192.168.252.175/testlink/lib/execute/execPrint.php?id="+str(getExecution[0]['id'])
+                                            link="http://192.168.252.104/testlink/lib/execute/execPrint.php?id="+str(getExecution[0]['id'])
 
 
 
@@ -398,7 +398,7 @@ if __name__ == "__main__":
                                             # parser = URLLister()
                                             # parser.feed(html)
 
-                                            msg=MIMEText(strip_tags(fp.read()).replace(".notprintable { display:none;}","").replace("lnl.php?type=exec=","execPrint.php?id=").replace("<!-- var fRoot = 'http://192.168.252.175/testlink/lib/execute/'; -->",""))
+                                            msg=MIMEText(strip_tags(fp.read()).replace(".notprintable { display:none;}","").replace("lnl.php?type=exec=","execPrint.php?id=").replace("<!-- var fRoot = 'http://192.168.252.104/testlink/lib/execute/'; -->",""))
 
                                             msg[
                                                 'Subject'] = 'Build verification testing on %s is completed, the result is %s, please check the link for detail' % (buildname,TC_Result)

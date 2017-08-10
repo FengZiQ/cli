@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e03c8b68-9846-4b80-8d73-1c116d755aef" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testlink.notes" afterPath="$PROJECT_DIR$/testlink.notes" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bgasched.py" afterPath="$PROJECT_DIR$/bgasched.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cli_autoscripts.py" afterPath="$PROJECT_DIR$/cli_autoscripts.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cli_autoscripts_zach.py" afterPath="$PROJECT_DIR$/cli_autoscripts_zach.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cli_scripts.log" afterPath="$PROJECT_DIR$/cli_scripts.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testlink.notes" afterPath="$PROJECT_DIR$/testlink.notes" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,18 +18,34 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="bgasched.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="bgasched.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/bgasched.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="140" column="0" lean-forward="true" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
+            <state relative-caret-position="92">
+              <caret line="363" column="0" lean-forward="true" selection-start-line="363" selection-start-column="0" selection-end-line="363" selection-end-column="0" />
               <folding>
                 <element signature="e#35#57#0" expanded="true" />
-                <element signature="e#183#526#0" expanded="false" />
-                <element signature="e#859#1312#0" expanded="false" />
-                <element signature="e#1428#2114#0" expanded="false" />
-                <element signature="e#2133#2739#0" expanded="false" />
+                <element signature="e#183#528#0" expanded="false" />
+                <element signature="e#551#758#0" expanded="false" />
+                <element signature="e#790#6764#0" expanded="false" />
+                <element signature="e#6796#12864#0" expanded="false" />
+                <element signature="e#12897#13472#0" expanded="false" />
+                <element signature="e#13504#14625#0" expanded="false" />
+                <element signature="e#14658#15019#0" expanded="false" />
+                <element signature="e#15061#15625#0" expanded="false" />
+                <element signature="e#15671#18014#0" expanded="false" />
+                <element signature="e#18060#18600#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cli_autoscripts.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/cli_autoscripts.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="481">
+              <caret line="105" column="0" lean-forward="true" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -44,8 +62,9 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>chapSend_cmd</find>
-      <find>Fail:</find>
       <find>Fail</find>
+      <find>Fail:</find>
+      <find>175</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -61,6 +80,7 @@
         <option value="$PROJECT_DIR$/chap.py" />
         <option value="$PROJECT_DIR$/bbm.py" />
         <option value="$PROJECT_DIR$/bgasched.py" />
+        <option value="$PROJECT_DIR$/cli_autoscripts_zach.py" />
       </list>
     </option>
   </component>
@@ -121,23 +141,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.bgasched">
-    <configuration default="false" name="test.py" type="tests" factoryName="Unittests" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="cli" />
-      <option name="_new_pattern" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/test.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.cli_autoscripts">
     <configuration default="false" name="bb" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -187,6 +191,42 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="cli" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bgasched.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="cli_autoscripts" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="cli" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cli_autoscripts.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="cli_autoscripts_zach" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="cli" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cli_autoscripts_zach.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -256,18 +296,20 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method />
     </configuration>
-    <list size="4">
-      <item index="0" class="java.lang.String" itemvalue="Python tests.test.py" />
-      <item index="1" class="java.lang.String" itemvalue="Python.bb" />
-      <item index="2" class="java.lang.String" itemvalue="Python.chap" />
-      <item index="3" class="java.lang.String" itemvalue="Python.bgasched" />
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Python.bb" />
+      <item index="1" class="java.lang.String" itemvalue="Python.chap" />
+      <item index="2" class="java.lang.String" itemvalue="Python.bgasched" />
+      <item index="3" class="java.lang.String" itemvalue="Python.cli_autoscripts" />
+      <item index="4" class="java.lang.String" itemvalue="Python.cli_autoscripts_zach" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Python.bgasched" />
-        <item index="1" class="java.lang.String" itemvalue="Python.chap" />
-        <item index="2" class="java.lang.String" itemvalue="Python.bb" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.test.py" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.cli_autoscripts" />
+        <item index="1" class="java.lang.String" itemvalue="Python.cli_autoscripts_zach" />
+        <item index="2" class="java.lang.String" itemvalue="Python.bgasched" />
+        <item index="3" class="java.lang.String" itemvalue="Python.chap" />
+        <item index="4" class="java.lang.String" itemvalue="Python.bb" />
       </list>
     </recent_temporary>
   </component>
@@ -304,7 +346,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38368246" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34950384" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -338,13 +380,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test.py" />
-    <entry file="file://$PROJECT_DIR$/BuildVerification_jenkins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="19" column="25" lean-forward="true" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bb.py" />
     <entry file="file://$PROJECT_DIR$/lunmap.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -371,14 +406,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/about.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="22" column="50" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="122" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/chap.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -395,17 +422,96 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/BuildVerification_jenkins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="858" column="21" lean-forward="false" selection-start-line="858" selection-start-column="21" selection-end-line="858" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ctrl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1520">
+          <caret line="194" column="29" lean-forward="true" selection-start-line="194" selection-start-column="29" selection-end-line="194" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/battery.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="163" column="0" lean-forward="false" selection-start-line="163" selection-start-column="0" selection-end-line="212" selection-end-column="19" />
+          <folding>
+            <element signature="e#420#2199#0" expanded="false" />
+            <element signature="e#2231#4117#0" expanded="false" />
+            <element signature="e#4156#5510#0" expanded="false" />
+            <element signature="e#5542#5963#0" expanded="false" />
+            <element signature="e#6010#6652#0" expanded="false" />
+            <element signature="e#6693#7304#0" expanded="false" />
+            <element signature="e#7349#7984#0" expanded="false" />
+            <element signature="e#8029#8651#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/about.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="26" column="16" lean-forward="false" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/date.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1159">
+          <caret line="16" column="16" lean-forward="true" selection-start-line="16" selection-start-column="16" selection-end-line="16" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cli_autoscripts_zach.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="266" column="0" lean-forward="false" selection-start-line="266" selection-start-column="0" selection-end-line="266" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/bgasched.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="140" column="0" lean-forward="true" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
+        <state relative-caret-position="92">
+          <caret line="363" column="0" lean-forward="true" selection-start-line="363" selection-start-column="0" selection-end-line="363" selection-end-column="0" />
           <folding>
             <element signature="e#35#57#0" expanded="true" />
-            <element signature="e#183#526#0" expanded="false" />
-            <element signature="e#859#1312#0" expanded="false" />
-            <element signature="e#1428#2114#0" expanded="false" />
-            <element signature="e#2133#2739#0" expanded="false" />
+            <element signature="e#183#528#0" expanded="false" />
+            <element signature="e#551#758#0" expanded="false" />
+            <element signature="e#790#6764#0" expanded="false" />
+            <element signature="e#6796#12864#0" expanded="false" />
+            <element signature="e#12897#13472#0" expanded="false" />
+            <element signature="e#13504#14625#0" expanded="false" />
+            <element signature="e#14658#15019#0" expanded="false" />
+            <element signature="e#15061#15625#0" expanded="false" />
+            <element signature="e#15671#18014#0" expanded="false" />
+            <element signature="e#18060#18600#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/-762174762/signal.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1179">
+          <caret line="98" column="7" lean-forward="true" selection-start-line="98" selection-start-column="7" selection-end-line="98" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cli_autoscripts.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="105" column="0" lean-forward="true" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

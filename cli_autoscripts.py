@@ -12,7 +12,6 @@ import testlink
 import subprocess
 import string
 import datetime
-
 #from Buzzer import verifyBuzzerInfo
 
 
@@ -103,7 +102,7 @@ def nonBlockingRawInput(prompt='', timeout=5):
     except AlarmException:
         print ('\nPrompt timeout.  Continuing with default name...')
     signal.signal(signal.SIGALRM, signal.SIG_IGN)
-    return "jacky"
+    return "zach"
 
 
 
@@ -124,7 +123,7 @@ if __name__ == "__main__":
     else:
         new_adminjl_key = robot
 
-    # # new_testlink="http://192.168.252.175/testlink/lib/api/xmlrpc/v1/xmlrpc.php"
+    # # new_testlink="http://192.168.252.104/testlink/lib/api/xmlrpc/v1/xmlrpc.php"
     #new_ip_testlink = "http://10.10.10.3/testlink/lib/api/xmlrpc/v1/xmlrpc.php"
     new_ip_testlink = "http://192.168.252.104/testlink/lib/api/xmlrpc/v1/xmlrpc.php"
     tls = testlink.TestlinkAPIClient(new_ip_testlink, new_adminjl_key)
@@ -132,8 +131,8 @@ if __name__ == "__main__":
     # test case notes
     Notes = 'testlink.notes'
     exectype={"g":-1, "a":1,"c":-2}
-    execinputtype=raw_input("please input what test cases you are going to execute, g --- GUI, a ---- API, c ---- CLI")
-    #execinputtype = "a"
+    #execinputtype=raw_input("please input what test cases you are going to execute, g --- GUI, a ---- API, c ---- CLI")
+    execinputtype = "c"
     if execinputtype=="c":
         c,ssh=ssh_conn()
 
@@ -214,7 +213,7 @@ if __name__ == "__main__":
                             #print tcdict.get(eachtestcase)
                             # list test cases by platform
                             # 2016-12-20
-                            # http://192.168.252.175:8888/browse/AUT-4
+                            # http://192.168.252.104:8888/browse/AUT-4
                             # The test cases in one test case suite should be executed in original order. Otherwise,
                             # some cmd cannot be executed successfully because no requisites are met.
 
@@ -288,8 +287,8 @@ if __name__ == "__main__":
                                             'name'] + " are as following:\n")
                                         start = time.time()
                                         # convert the testsuite name into module that will be imported into
-                                        print testsuitename
                                         TSuiteName = importlib.import_module(testsuitename, package="Tasks")
+                                        # print tls.getTestCase(TC_Platform['tcase_id'])
                                         # if >= 2 steps, 2017-01-06
                                         stepsnum = len(tcsteps)
                                         for i in range(stepsnum):
@@ -298,7 +297,6 @@ if __name__ == "__main__":
                                                 string.replace(string.replace(tcsteps[i]['actions'], '<p>\n\t', ''), '</p>',
                                                                ''),
                                                 '&quot;', '"'))
-                                            print "stepstr,",stepstr
 
                                             func = stepstr.split('\n')
 
@@ -336,7 +334,6 @@ if __name__ == "__main__":
                                                 else:
                                                     step_Result = 'p'
                                                     note = string.replace(note, "'result': 'p'", '')
-
                                             TC_Result_Steps.append(
                                                 {'step_number': str(i + 1), 'result': step_Result, 'notes': note})
 
@@ -359,6 +356,7 @@ if __name__ == "__main__":
                                         buildname = buildnamelist[-1]['name']
 
                                         # TC_Result_Steps=[{'step_number': '0', 'notes': 'step1', 'result': 'f'}, {'step_number': '1', 'notes': 'step2 ', 'result': 'p'}]
+                                        # try:
                                         getExecution = tls.reportTCResult(testcase['tcase_id'], testplan['id'],
                                                                           buildname, TC_Result,
                                                                           'automated test cases', guess=True,
@@ -367,6 +365,8 @@ if __name__ == "__main__":
                                                                           execduration=duration_min,
                                                                           timestamp=Update_timestamp,
                                                                           steps=TC_Result_Steps)
+                                        # except:
+                                        #     pass
 
                                         if TC_Name == "build_verification":
                                             serv = "MjExLjE1MC42NS44MQ=="
