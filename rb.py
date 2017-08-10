@@ -58,6 +58,7 @@ def verifyRbInvalidOption(c):
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
 def verifyRbInvalidParameters(c):
     FailFlag = False
     tolog("<b>Verify rb invalid parameters</b>")
@@ -74,6 +75,7 @@ def verifyRbInvalidParameters(c):
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
 def verifyRbMissingParameters(c):
     FailFlag = False
     tolog("<b>Verify rb missing parameters</b>")
@@ -94,12 +96,9 @@ def verifyRbMissingParameters(c):
 if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
-    verifyRb(c)
-    verifyRbList(c)
-    verifyRbSpecifyInexistentId(c)
-    verifyRbInvalidOption(c)
-    verifyRbInvalidParameters(c)
-    verifyRbMissingParameters(c)
+
+
+
     ssh.close()
     elasped = time.clock() - start
     print "Elasped %s" % elasped

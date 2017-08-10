@@ -61,7 +61,7 @@ def verifyBgaschedAdd(c):
         pdId = []
         pdRow = pdInfo.split('\r\n')
         for i in range(4, (len(pdRow) - 2)):
-            if "Unconfigured" in pdRow[i]:
+            if "Unconfigured" in pdRow[i] and 'HDD' in pdRow[i]:
                 pdId.append(pdRow[i].split()[0])
         if len(pdId) >= 5:
             SendCmd(c, 'pool -a add -s "name=testBgasched1, raid=1" -p ' + pdId[0] + ',' + pdId[1])
@@ -181,10 +181,10 @@ def verifyBgaschedMod(c):
         ['Disable', 'Disable', 'Enable', 'Enable'],
         # startTime
         ['00:00', '06:10', '12:20', '23:59'],
-        # startFrom
-        ['01-01-2020', '12-31-2020', '01-01-2000', '01-01-2000'],
+        # startFrom : year value range 1970~2037
+        ['1970-01-01', '2037-12-31', '2000-01-01', '2000-01-01'],
         # endOn
-        ['1', '2147483647', '01-01-2000', '12-31-2100'],
+        ['1', '255', '1970-01-01', '2037-12-31'],
         # autoFix
         ['Enable', 'Enable', 'Disable', 'Disable'],
         # pause
@@ -400,17 +400,19 @@ def verifyBgaschedInvalidParameters(c):
                'bgasched -a mod -t sc -s "daypattern=dom,dom=0"',
                'bgasched -a mod -t sc -s "daypattern=dom,dom=32"',
                'bgasched -a mod -t sc -s "daypattern=dow,wom=x"',
-               # mm/dd/yyyy where month's range is 1-12, day's range is 1-31
-               'bgasched -a mod -t sc -s "startfrom=0-1-2017"',
-               'bgasched -a mod -t sc -s "startfrom=13-1-2017"',
-               'bgasched -a mod -t sc -s "startfrom=1-0-2017"',
-               'bgasched -a mod -t sc -s "startfrom=1-32-2017"',
-               # endOn An integer N indicates after N times,month's range is 1-12 and day's range is 1-31
+               # mm/dd/yyyy where month's range is 1-12, day's range is 1-31, year value range 1970~2037
+               'bgasched -a mod -t sc -s "startfrom=2017-0-1"',
+               'bgasched -a mod -t sc -s "startfrom=2017-13-1"',
+               'bgasched -a mod -t sc -s "startfrom=2017-1-0"',
+               'bgasched -a mod -t sc -s "startfrom=2017-1-32"',
+               'bgasched -a mod -t sc -s "startfrom=3038-1-1"',
+               # endOn range is 0-255,month's range is 1-12 and day's range is 1-31
                'bgasched -a mod -t sc -s "endon=-1"',
-               'bgasched -a mod -t sc -s "endon=0-1-2017"',
-               'bgasched -a mod -t sc -s "endon=13-1-2017"',
-               'bgasched -a mod -t sc -s "endon=1-0-2017"',
-               'bgasched -a mod -t sc -s "endon=1-32-2017"',
+               'bgasched -a mod -t sc -s "endon=256"',
+               'bgasched -a mod -t sc -s "endon=2017-0-1"',
+               'bgasched -a mod -t sc -s "endon=2017-13-1"',
+               'bgasched -a mod -t sc -s "endon=2017-1-0"',
+               'bgasched -a mod -t sc -s "endon=2017-32-1"',
                'bgasched -a mod -t rc -s "autofix=x"',
                'bgasched -a mod -t rc -s "pause=x"',
                'bgasched -a del -t x'
@@ -447,18 +449,31 @@ def verifyBgaschedMissingParameters(c):
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
 
+def clearUp(c):
+    plInfo = SendCmd(c, 'pool')
+    row = plInfo.split('\r\n')
+    plId = []
+    for i in range(4, len(row) - 2):
+        if len(row[i].split()) >= 9 and 'testBgasched' in row[i]:
+            plId.append(row[i].split()[0])
+
+    for i in plId:
+        SendCmdconfirm(c, 'pool -a del -f -i ' + i)
+
+
 
 if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
     verifyBgaschedAdd(c)
     verifyBgaschedMod(c)
-    verifyBgaschedList(c)
-    verifyBgaschedDel(c)
-    verifyBgaschedHelp(c)
-    verifyBgaschedInvalidOption(c)
+    # verifyBgaschedList(c)
+    # verifyBgaschedDel(c)
+    # verifyBgaschedHelp(c)
+    # verifyBgaschedInvalidOption(c)
     verifyBgaschedInvalidParameters(c)
-    verifyBgaschedMissingParameters(c)
+    # verifyBgaschedMissingParameters(c)
+    clearUp(c)
     ssh.close()
     elasped = time.clock() - start
     print "Elasped %s" % elasped

@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e03c8b68-9846-4b80-8d73-1c116d755aef" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bgasched.py" afterPath="$PROJECT_DIR$/bgasched.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cli_autoscripts_zach.py" afterPath="$PROJECT_DIR$/cli_autoscripts_zach.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cli_scripts.log" afterPath="$PROJECT_DIR$/cli_scripts.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rb.py" afterPath="$PROJECT_DIR$/rb.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testlink.notes" afterPath="$PROJECT_DIR$/testlink.notes" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,32 +17,16 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="cli_autoscripts_zach.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cli_autoscripts_zach.py">
+      <file leaf-file-name="rb.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/rb.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="192" column="0" lean-forward="false" selection-start-line="192" selection-start-column="0" selection-end-line="192" selection-end-column="0" />
+            <state relative-caret-position="176">
+              <caret line="17" column="50" lean-forward="true" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
               <folding>
-                <element signature="e#333#358#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bgasched.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/bgasched.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="463" column="32" lean-forward="true" selection-start-line="463" selection-start-column="32" selection-end-line="463" selection-end-column="32" />
-              <folding>
-                <element signature="e#35#57#0" expanded="true" />
-                <element signature="e#183#528#0" expanded="false" />
-                <element signature="e#551#758#0" expanded="false" />
-                <element signature="e#12809#13384#0" expanded="false" />
-                <element signature="e#13416#14537#0" expanded="false" />
-                <element signature="e#14570#14931#0" expanded="false" />
-                <element signature="e#14973#15537#0" expanded="false" />
-                <element signature="e#17972#18512#0" expanded="false" />
+                <element signature="e#759#1058#0" expanded="false" />
+                <element signature="e#1095#1657#0" expanded="false" />
+                <element signature="e#1697#2283#0" expanded="false" />
+                <element signature="e#2323#2898#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -62,8 +45,8 @@
     <findStrings>
       <find>chapSend_cmd</find>
       <find>Fail</find>
-      <find>Fail:</find>
       <find>175</find>
+      <find>Fail:</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -81,6 +64,7 @@
         <option value="$PROJECT_DIR$/cli_autoscripts.py" />
         <option value="$PROJECT_DIR$/cli_autoscripts_zach.py" />
         <option value="$PROJECT_DIR$/bgasched.py" />
+        <option value="$PROJECT_DIR$/rb.py" />
       </list>
     </option>
   </component>
@@ -141,25 +125,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.cli_autoscripts_zach">
-    <configuration default="false" name="bb" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="cli" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/bb.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.grep_command">
     <configuration default="false" name="chap" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -232,6 +198,24 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
+    <configuration default="false" name="grep_command" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="cli" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/grep_command.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -297,19 +281,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.bb" />
-      <item index="1" class="java.lang.String" itemvalue="Python.chap" />
-      <item index="2" class="java.lang.String" itemvalue="Python.bgasched" />
-      <item index="3" class="java.lang.String" itemvalue="Python.cli_autoscripts" />
-      <item index="4" class="java.lang.String" itemvalue="Python.cli_autoscripts_zach" />
+      <item index="0" class="java.lang.String" itemvalue="Python.chap" />
+      <item index="1" class="java.lang.String" itemvalue="Python.bgasched" />
+      <item index="2" class="java.lang.String" itemvalue="Python.cli_autoscripts" />
+      <item index="3" class="java.lang.String" itemvalue="Python.cli_autoscripts_zach" />
+      <item index="4" class="java.lang.String" itemvalue="Python.grep_command" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.cli_autoscripts_zach" />
-        <item index="1" class="java.lang.String" itemvalue="Python.cli_autoscripts" />
-        <item index="2" class="java.lang.String" itemvalue="Python.bgasched" />
-        <item index="3" class="java.lang.String" itemvalue="Python.chap" />
-        <item index="4" class="java.lang.String" itemvalue="Python.bb" />
+        <item index="0" class="java.lang.String" itemvalue="Python.grep_command" />
+        <item index="1" class="java.lang.String" itemvalue="Python.bgasched" />
+        <item index="2" class="java.lang.String" itemvalue="Python.cli_autoscripts_zach" />
+        <item index="3" class="java.lang.String" itemvalue="Python.cli_autoscripts" />
+        <item index="4" class="java.lang.String" itemvalue="Python.chap" />
       </list>
     </recent_temporary>
   </component>
@@ -339,13 +323,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1272" y="-8" width="1296" height="1040" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2540453" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34178612" sideWeight="0.50323623" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34950384" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34178612" sideWeight="0.49676377" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -515,17 +500,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bgasched.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="463" column="32" lean-forward="true" selection-start-line="463" selection-start-column="32" selection-end-line="463" selection-end-column="32" />
+        <state relative-caret-position="-836">
+          <caret line="409" column="53" lean-forward="true" selection-start-line="409" selection-start-column="53" selection-end-line="409" selection-end-column="53" />
           <folding>
             <element signature="e#35#57#0" expanded="true" />
             <element signature="e#183#528#0" expanded="false" />
             <element signature="e#551#758#0" expanded="false" />
-            <element signature="e#12809#13384#0" expanded="false" />
-            <element signature="e#13416#14537#0" expanded="false" />
-            <element signature="e#14570#14931#0" expanded="false" />
-            <element signature="e#14973#15537#0" expanded="false" />
-            <element signature="e#17972#18512#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/grep_command.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rb.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="17" column="50" lean-forward="true" selection-start-line="17" selection-start-column="50" selection-end-line="17" selection-end-column="50" />
+          <folding>
+            <element signature="e#759#1058#0" expanded="false" />
+            <element signature="e#1095#1657#0" expanded="false" />
+            <element signature="e#1697#2283#0" expanded="false" />
+            <element signature="e#2323#2898#0" expanded="false" />
           </folding>
         </state>
       </provider>
