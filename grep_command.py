@@ -7,7 +7,7 @@ from ssh_connect import ssh_conn
 def grep_command(c):
     list_no_grep = []
     vList_no_grep =[]
-    command = ["about", "battery", "bbm", "bga", "buzz",  "chap", "clone", "ctrl", "date", "encldiag",
+    command = ["about", "battery", "bbm", "bga", "buzz", 'bgasched', "chap", "clone", "ctrl", "date", "encldiag",
                 "enclosure", "event", "export", "factorydefaul", "fc", "import", "initiator", "iscsi",
                 "isns", "logout", "lunmap", "maintenance", "net", "ntp", "password", "pcie", "perfstats",
                 "phydrv", "ping", "pool", "ptiflash", "rb", "rc", "rcache", "sc", "session", "shutdown",
