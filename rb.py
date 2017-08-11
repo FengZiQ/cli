@@ -144,6 +144,8 @@ def bvt_verifyRbStartAndStopAndList(c):
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
 
+    return FailFlag
+
 def bvt_verifyRbInvalidOption(c):
     FailFlag = False
     tolog("<b>Verify rb invalid option</b>")
@@ -164,6 +166,8 @@ def bvt_verifyRbInvalidOption(c):
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
+    return FailFlag
 
 def bvt_verifyRbInvalidParameters(c):
     FailFlag = False
@@ -187,12 +191,15 @@ def bvt_verifyRbInvalidParameters(c):
         if "Error (" not in result or "Invalid setting parameters" not in result:
             FailFlag = True
             tolog('\n<font color="red">Fail: ' + com + ' </font>')
+
     if FailFlag:
         tolog('\n<font color="red">Fail: Verify rb invalid parameters </font>')
         tolog(Fail)
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
+    return FailFlag
 
 def bvt_verifyRbMissingParameters(c):
     FailFlag = False
@@ -216,6 +223,8 @@ def bvt_verifyRbMissingParameters(c):
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
+    return FailFlag
 
 if __name__ == "__main__":
     start = time.clock()

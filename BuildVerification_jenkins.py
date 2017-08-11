@@ -181,6 +181,7 @@ def BuildVerification(c):
         Failflaglist.append(bbm.bvt_verifyBBMList(c))
         Failflaglist.append(bbm.bvt_verifyBBMMissingParameters(c))
         Failflaglist.append(bbm.bvt_verifyBBMSpecifyInexistentId(c))
+        Failflaglist.append(bbm.cleanUp(c))
 
         tolog("Start verifying bga")
         import bga
@@ -350,11 +351,11 @@ def BuildVerification(c):
         Failflaglist.append(isns.bvt_verifyIsnsInvalidParameters(c))
         Failflaglist.append(isns.bvt_verifyIsnsMissingParameters(c))
 
-        tolog("Start verifying logout")
-        import logout
-        Failflaglist.append(logout.bvt_verifyLogoutInvalidOption(c))
-        Failflaglist.append(logout.bvt_verifyLogoutInvalidParameters(c))
-        Failflaglist.append(logout.bvt_verifyLogout(c))
+        # tolog("Start verifying logout")
+        # import logout
+        # Failflaglist.append(logout.bvt_verifyLogoutInvalidOption(c))
+        # Failflaglist.append(logout.bvt_verifyLogoutInvalidParameters(c))
+        # Failflaglist.append(logout.bvt_verifyLogout(c))
 
         tolog("Start verifying lunmap")
         import lunmap

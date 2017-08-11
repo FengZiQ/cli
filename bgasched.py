@@ -165,6 +165,8 @@ def bvt_verifyBgaschedAdd(c):
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
 
+    return FailFlag
+
 def bvt_verifyBgaschedMod(c):
     FailFlag = False
     type = ['rc', 'br', 'sc']
@@ -296,6 +298,8 @@ def bvt_verifyBgaschedMod(c):
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
 
+    return FailFlag
+
 def bvt_verifyBgaschedList(c):
     FailFlag = False
     command = ['bgasched',
@@ -318,6 +322,8 @@ def bvt_verifyBgaschedList(c):
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
+    return FailFlag
 
 def bvt_verifyBgaschedDel(c):
     FailFlag = False
@@ -347,6 +353,8 @@ def bvt_verifyBgaschedDel(c):
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
 
+    return FailFlag
+
 def bvt_verifyBgaschedHelp(c):
     FailFlag = False
     result = SendCmd(c, 'bgasched -h')
@@ -360,6 +368,8 @@ def bvt_verifyBgaschedHelp(c):
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
+    return FailFlag
 
 def bvt_verifyBgaschedInvalidOption(c):
     FailFlag = False
@@ -380,6 +390,8 @@ def bvt_verifyBgaschedInvalidOption(c):
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
+    return FailFlag
 
 def bvt_verifyBgaschedInvalidParameters(c):
     FailFlag = False
@@ -430,6 +442,8 @@ def bvt_verifyBgaschedInvalidParameters(c):
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
 
+    return FailFlag
+
 def bvt_verifyBgaschedMissingParameters(c):
     FailFlag = False
     command = ['bgasched -t ',
@@ -448,6 +462,8 @@ def bvt_verifyBgaschedMissingParameters(c):
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
+    return FailFlag
 
 def bvt_clearUp(c):
     plInfo = SendCmd(c, 'pool')

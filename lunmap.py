@@ -105,6 +105,14 @@ def bvt_verifyLunmapAdd(c):
         FailFlag = True
         tolog('Fail: lunmap -a add -i ' + initID[3] + ' -p snapshot -l ' + cloneID[0] + ' -m 1023')
 
+    if FailFlag:
+        tolog('\n<font color="red">Fail: lunmap add </font>')
+        tolog(Fail)
+    else:
+        tolog('\n<font color="green">Pass</font>')
+        tolog(Pass)
+
+
     return FailFlag
 
 def bvt_verifyLunmap(c):
@@ -127,6 +135,13 @@ def bvt_verifyLunmap(c):
             FailFlag = True
             tolog('lunmap -i ' + i )
 
+    if FailFlag:
+        tolog('\n<font color="red">Fail: lunmap </font>')
+        tolog(Fail)
+    else:
+        tolog('\n<font color="green">Pass</font>')
+        tolog(Pass)
+
     return FailFlag
 
 def bvt_verifyLunmapList(c):
@@ -148,6 +163,13 @@ def bvt_verifyLunmapList(c):
         if 'Error (' in result or 'initiator: ' + i not in result:
             FailFlag = True
             tolog('lunmap -a list -i ' + i )
+
+    if FailFlag:
+        tolog('\n<font color="red">Fail: lunmap list </font>')
+        tolog(Fail)
+    else:
+        tolog('\n<font color="green">Pass</font>')
+        tolog(Pass)
 
     return FailFlag
 
@@ -215,6 +237,13 @@ def bvt_verifyLunmapAddlun(c):
             tolog('Fail: lunmap -a addlun -p clone -i ' + initID[0] + ' -l ' + cID + ' -m ' + str(m) )
         m = m + 1
 
+    if FailFlag:
+        tolog('\n<font color="red">Fail: lunmap addlun </font>')
+        tolog(Fail)
+    else:
+        tolog('\n<font color="green">Pass</font>')
+        tolog(Pass)
+
     return FailFlag
 
 def bvt_verifyLunmapDellun(c):
@@ -266,6 +295,14 @@ def bvt_verifyLunmapDellun(c):
             FailFlag = True
             tolog('Fail: lunmap -a dellun -p clone -i ' + initID[0] + ' -l ' + cID )
 
+    if FailFlag:
+        tolog('\n<font color="red">Fail: lunmap dellun </font>')
+        tolog(Fail)
+    else:
+        tolog('\n<font color="green">Pass</font>')
+        tolog(Pass)
+
+
     return FailFlag
 
 def bvt_verifyLunmapEnable(c):
@@ -292,6 +329,13 @@ def bvt_verifyLunmapEnable(c):
     else:
         tolog(' Precondition failure ')
 
+    if FailFlag:
+        tolog('\n<font color="red">Fail: lunmap enable </font>')
+        tolog(Fail)
+    else:
+        tolog('\n<font color="green">Pass</font>')
+        tolog(Pass)
+
     return FailFlag
 
 def bvt_verifyLunmapDel(c):
@@ -312,6 +356,13 @@ def bvt_verifyLunmapDel(c):
     if 'No LUN mapping entry available' not in checkResult:
         FailFlag = True
         tolog('Fail: lunmap -a del ')
+
+    if FailFlag:
+        tolog('\n<font color="red">Fail: lunmap del </font>')
+        tolog(Fail)
+    else:
+        tolog('\n<font color="green">Pass</font>')
+        tolog(Pass)
 
     return FailFlag
 
@@ -338,6 +389,13 @@ def bvt_verifyLunmapDisable(c):
             tolog('Fail: lunmap -a enable ')
     else:
         tolog(' Precondition failure ')
+
+    if FailFlag:
+        tolog('\n<font color="red">Fail: lunmap disable </font>')
+        tolog(Fail)
+    else:
+        tolog('\n<font color="green">Pass</font>')
+        tolog(Pass)
 
     return FailFlag
 
@@ -367,6 +425,13 @@ def bvt_verifyLunmapSpecifyInexistentId(c):
     else:
         tolog(' Precondition failure ')
 
+    if FailFlag:
+        tolog('\n<font color="red">Fail: lunmap Specify Inexistent Id </font>')
+        tolog(Fail)
+    else:
+        tolog('\n<font color="green">Pass</font>')
+        tolog(Pass)
+
     return FailFlag
 
 def bvt_verifyLunmapInvalidOption(c):
@@ -380,6 +445,13 @@ def bvt_verifyLunmapInvalidOption(c):
         if "Error (" not in result or "Invalid option" not in result:
             FailFlag = True
             tolog('Fail: ' + com )
+
+    if FailFlag:
+        tolog('\n<font color="red">Fail: lunmap invalid option </font>')
+        tolog(Fail)
+    else:
+        tolog('\n<font color="green">Pass</font>')
+        tolog(Pass)
 
     return FailFlag
 
@@ -395,6 +467,13 @@ def bvt_verifyLunmapInvalidParameters(c):
             FailFlag = True
             tolog('Fail: ' + com )
 
+    if FailFlag:
+        tolog('\n<font color="red">Fail: lunmap invalid setting parameters </font>')
+        tolog(Fail)
+    else:
+        tolog('\n<font color="green">Pass</font>')
+        tolog(Pass)
+
     return FailFlag
 
 def bvt_verifyLunmapMissingParameters(c):
@@ -408,6 +487,14 @@ def bvt_verifyLunmapMissingParameters(c):
             FailFlag = True
             tolog('Fail: ' + com )
 
+    if FailFlag:
+        tolog('\n<font color="red">Fail: lunmap missing parameters </font>')
+        tolog(Fail)
+    else:
+        tolog('\n<font color="green">Pass</font>')
+        tolog(Pass)
+
+
     return FailFlag
 
 def bvt_cleanUp(c):
@@ -415,7 +502,7 @@ def bvt_cleanUp(c):
     row = poolInfo.split('\r\n')
     for i in range(4, len(row)):
         if 'Ptestlunmap' in row[i]:
-            SendCmd(c, 'pool -a del -i ' + row[i].split()[0])
+            SendCmdconfirm(c, 'pool -a del -f -i ' + row[i].split()[0])
     else:
         volumeID = []
         volumeInfo = SendCmd(c, 'volume')

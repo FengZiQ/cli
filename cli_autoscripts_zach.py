@@ -335,9 +335,10 @@ if __name__ == "__main__":
                                                 else:
                                                     step_Result = 'p'
                                                     note = string.replace(note, "'result': 'p'", '')
-                                            TC_Result_Steps.append(
+                                                TC_Result_Steps.append(
                                                 {'step_number': str(i + 1), 'result': step_Result, 'notes': note})
 
+                                        TC_Result = ''
                                         for each in TC_Result_Steps:
                                             if each['result'] != 'p':
                                                 TC_Result = 'f'
