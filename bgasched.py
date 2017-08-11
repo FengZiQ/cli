@@ -33,7 +33,7 @@ def findPlId(c):
 
     return pdId
 
-def verifyBgaschedAdd(c):
+def bvt_verifyBgaschedAdd(c):
     FailFlag = False
 
     # precondition
@@ -165,7 +165,7 @@ def verifyBgaschedAdd(c):
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
 
-def verifyBgaschedMod(c):
+def bvt_verifyBgaschedMod(c):
     FailFlag = False
     type = ['rc', 'br', 'sc']
     recurtype = ['daily', 'weekly', 'monthly']
@@ -296,7 +296,7 @@ def verifyBgaschedMod(c):
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
 
-def verifyBgaschedList(c):
+def bvt_verifyBgaschedList(c):
     FailFlag = False
     command = ['bgasched',
                'bgasched -v',
@@ -319,7 +319,7 @@ def verifyBgaschedList(c):
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
 
-def verifyBgaschedDel(c):
+def bvt_verifyBgaschedDel(c):
     FailFlag = False
     bgaSId = findBgaSId(c)
     if len(bgaSId) != 0:
@@ -347,7 +347,7 @@ def verifyBgaschedDel(c):
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
 
-def verifyBgaschedHelp(c):
+def bvt_verifyBgaschedHelp(c):
     FailFlag = False
     result = SendCmd(c, 'bgasched -h')
     if 'Error (' in result or '<action>' not in result:
@@ -361,7 +361,7 @@ def verifyBgaschedHelp(c):
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
 
-def verifyBgaschedInvalidOption(c):
+def bvt_verifyBgaschedInvalidOption(c):
     FailFlag = False
     command = ['bgasched -x',
                'bgasched -a list -x',
@@ -381,7 +381,7 @@ def verifyBgaschedInvalidOption(c):
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
 
-def verifyBgaschedInvalidParameters(c):
+def bvt_verifyBgaschedInvalidParameters(c):
     FailFlag = False
     command = ['bgasched -t x',
                'bgasched -a mod -t x',
@@ -430,7 +430,7 @@ def verifyBgaschedInvalidParameters(c):
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
 
-def verifyBgaschedMissingParameters(c):
+def bvt_verifyBgaschedMissingParameters(c):
     FailFlag = False
     command = ['bgasched -t ',
                'bgasched -a mod -t rc -s',
@@ -449,7 +449,7 @@ def verifyBgaschedMissingParameters(c):
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
 
-def clearUp(c):
+def bvt_clearUp(c):
     plInfo = SendCmd(c, 'pool')
     row = plInfo.split('\r\n')
     plId = []
@@ -465,15 +465,15 @@ def clearUp(c):
 if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
-    verifyBgaschedAdd(c)
-    verifyBgaschedMod(c)
-    # verifyBgaschedList(c)
-    # verifyBgaschedDel(c)
-    # verifyBgaschedHelp(c)
-    # verifyBgaschedInvalidOption(c)
-    verifyBgaschedInvalidParameters(c)
-    # verifyBgaschedMissingParameters(c)
-    clearUp(c)
+    bvt_verifyBgaschedAdd(c)
+    bvt_verifyBgaschedMod(c)
+    bvt_verifyBgaschedList(c)
+    bvt_verifyBgaschedDel(c)
+    bvt_verifyBgaschedHelp(c)
+    bvt_verifyBgaschedInvalidOption(c)
+    bvt_verifyBgaschedInvalidParameters(c)
+    bvt_verifyBgaschedMissingParameters(c)
+    bvt_clearUp(c)
     ssh.close()
     elasped = time.clock() - start
     print "Elasped %s" % elasped
