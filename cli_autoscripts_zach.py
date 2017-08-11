@@ -92,77 +92,140 @@ class AlarmException(Exception):
 def alarmHandler(signum, frame):
     raise AlarmException
 
+# def nonBlockingRawInput(prompt='', timeout=5):
+#     signal.signal(signal.SIGALRM, alarmHandler)
+#     signal.alarm(timeout)
+#     try:
+#         text = raw_input(prompt)
+#         signal.alarm(0)
+#         return text
+#     except AlarmException:
+#         print ('\nPrompt timeout.  Continuing with default name...')
+#     signal.signal(signal.SIGALRM, signal.SIG_IGN)
+#     return "zach"
+
+
 
 if __name__ == "__main__":
 
-    lname = 'zach'
+    # lname=nonBlockingRawInput("Only the test cases assgined to you will be executed, please input your name:",1)
 
+    lname = 'zach'
     jacky = '2e99a3e8bb235adb1c0c06c7e17b13a2'
-    zach = "1e2a6e7af20e5c274174ff68e2ba63a2"
-    hulda = 'bc473e34c21e2fe7161dc8374274744b'
-    robot = "31c13726fc2bae727aa02faaaa574892"
-    if lname == "jacky":
-        new_adminjl_key = jacky
-    elif lname == "zach":
+    zach="1e2a6e7af20e5c274174ff68e2ba63a2"
+    hulda='bc473e34c21e2fe7161dc8374274744b'
+    robot="31c13726fc2bae727aa02faaaa574892"
+    if lname=="jacky":
+        new_adminjl_key= jacky
+    elif lname=="zach":
         new_adminjl_key = zach
-    elif lname == "hulda":
-        new_adminjl_key = hulda
+    elif lname=="hulda":
+        new_adminjl_key=hulda
     else:
         new_adminjl_key = robot
 
+    # # new_testlink="http://192.168.252.104/testlink/lib/api/xmlrpc/v1/xmlrpc.php"
+    #new_ip_testlink = "http://10.10.10.3/testlink/lib/api/xmlrpc/v1/xmlrpc.php"
     new_ip_testlink = "http://192.168.252.104/testlink/lib/api/xmlrpc/v1/xmlrpc.php"
-    # tls = testlink.TestlinkAPIClient(url, key)
     tls = testlink.TestlinkAPIClient(new_ip_testlink, new_adminjl_key)
 
     # test case notes
     Notes = 'testlink.notes'
-    exectype = {"g": -1, "a": 1, "c": -2}
+    exectype={"g":-1, "a":1,"c":-2}
     #execinputtype=raw_input("please input what test cases you are going to execute, g --- GUI, a ---- API, c ---- CLI")
     execinputtype = "c"
-    if execinputtype == "c":
-        c, ssh = ssh_conn()
+    if execinputtype=="c":
+        c,ssh=ssh_conn()
 
+    # print tls.whatArgs('getTestCase')
+
+    # build names to be updated before run this script
+    # TC_build_name_MAC='4.02.0000.01'
+    # TC_build_name_WIN='2.00.0000.16'
+    # executed_number = 0
+    # executed_fail_number = 0
+    # executed_pass_number = 0
+    # get test project
+    # 20161201 add for filtering the project plan that could be executed by other people.
+    # planname = raw_input('please input the test plan name to be executed:')
     cmd = ''
-    stepsnum = 0
+    stepsnum=0
     Notes = 'testlink.notes'
-    NeedRun = False
+    #print tls.whatArgs('getTestCasesForTestSuite')
+    #print tls.whatArgs('createBuild')
+    #print tls.whatArgs("unassignTestCaseExecutionTask")
+    NeedRun=False
 
     for project in tls.getProjects():
+        # print project
         if project['name'] == 'HyperionDS':
-            hastestsuite = False
 
-            testsuiteID = tls.getFirstLevelTestSuitesForTestProject(project['id'])[exectype[execinputtype]]['id']
+            #print tls.getProjectTestPlans
+
+            #print tls.whatArgs('getTestCasesForTestSuite')
+            # get test suites for the project
+            #
+            #print tls.getFirstLevelTestSuitesForTestProject(project['id'])
+            # -2 refers to CLIexecution
+            # -1 refers to GUIexecution
+            # 1 refers to APIexecution
+
+            testsuiteID= tls.getFirstLevelTestSuitesForTestProject(project['id'])[exectype[execinputtype]]['id']
             testsuiteName = tls.getFirstLevelTestSuitesForTestProject(project['id'])[exectype[execinputtype]]['name']
-            testsuite = tls.getTestCasesForTestSuite(testsuiteID, True, 'full')
+            # print testsuiteName
+            hastestsuite=False
+            testsuite=tls.getTestCasesForTestSuite(testsuiteID,True,'full')
 
-            goonflag = False
+            goonflag=False
             for testplan in tls.getProjectTestPlans(project['id']):
                 # changed from 821 to 1426 on April 13th, 2017
-                if testplan["active"] == "1":
-                    if execinputtype == "c" and "cli" in testplan["name"]:
+                if testplan["active"]=="1":
+                    if execinputtype=="c" and "cli" in testplan["name"]:
+                        goonflag=True
+                    elif execinputtype=="g" and "gui" in testplan["name"]:
                         goonflag = True
-                    elif execinputtype == "g" and "gui" in testplan["name"]:
-                        goonflag = True
-                    elif execinputtype == "a" and "api" in testplan["name"]:
-                        goonflag = True
+                    elif execinputtype=="a" and "api" in testplan["name"]:
+                        goonflag =True
                     else:
-                        goonflag = False
+                        goonflag=False
 
+                #if testplan['name'] == '0cli cmd testcases sequence issue':  # 2016.11.24 represent the active test plan testplan['active']=='1' and
+
+                #print testplan['name']
+                # if "BuildVerification" not in testplan["name"] and goonflag:
                 if goonflag:
                     print testplan["name"]
                     tcdict = tls.getTestCasesForTestPlan(testplan['id'])
+                    # list each test case ID
+
+
+
+                    # list each test case by it's test case ID
 
                     if tcdict:
-                        tcdict_x = sorted(tcdict.items())
+                        #tcdict_x = sorted(tcdict.items())
 
 
                         for vaule in tcdict.values():
 
-                            for eachplatform, testcase in vaule.items():
-                                testcaseid = testcase["tcase_id"]
+                            for eachplatform,testcase in vaule.items():
+
+
+                            #print tcdict.get(eachtestcase)
+                            # list test cases by platform
+                            # 2016-12-20
+                            # http://192.168.252.104:8888/browse/AUT-4
+                            # The test cases in one test case suite should be executed in original order. Otherwise,
+                            # some cmd cannot be executed successfully because no requisites are met.
+
+                            # print eachtestcase[1]['6']['platform_id']
+                            #     print testcase
+                                testcaseid=testcase["tcase_id"]
                                 # print eachtestcase
                                 #modified on April 13th, 2017
                                 #TC_Platform = eachtestcase[1]['6']
+                                #
+
 
                                 TC_Platform = eachplatform
 
@@ -185,8 +248,14 @@ if __name__ == "__main__":
 
                                 TC_Result_Steps = list()
                                 stepnote = list()
+                                # Added on April 18th, 2017
+                                # to determine last execution on which build
+                                # if the build id is smaller than current build,
+                                # rerun the test case
+
                                 buildnamelist = tls.getBuildsForTestPlan(testplan['id'])
                                 buildname = buildnamelist[-1]['name']
+
                                 testplanexec = tls.getTestCasesForTestPlan(testplan['id'])
                                 exec_onbuild = TC_exec_on_build
 
@@ -266,7 +335,8 @@ if __name__ == "__main__":
                                                 else:
                                                     step_Result = 'p'
                                                     note = string.replace(note, "'result': 'p'", '')
-                                            TC_Result_Steps.append({'step_number': str(i + 1), 'result': step_Result, 'notes': note})
+                                            TC_Result_Steps.append(
+                                                {'step_number': str(i + 1), 'result': step_Result, 'notes': note})
 
                                         for each in TC_Result_Steps:
                                             if each['result'] != 'p':

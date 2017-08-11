@@ -1,750 +1,3 @@
-<b>add initiator</b>
-initiator -a add -t iscsi -n test.lunmapadd1.com
-Error (0x498B5702): The initiator already exists
-
-administrator@cli> 
-initiator -a add -t iscsi -n test.lunmapadd2.com
-Error (0x498B5702): The initiator already exists
-
-administrator@cli> 
-initiator -a add -t fc -n aa-aa-aa-aa-aa-aa-aa-11
-Error (0x498B5702): The initiator already exists
-
-administrator@cli> 
-initiator -a add -t fc -n aa-aa-aa-aa-aa-aa-aa-12
-Error (0x498B5702): The initiator already exists
-
-administrator@cli> 
-initiator
--------------------------------------------------------------------------------
-Id: 0                                   Type: iscsi
-Name: a.b.com
--------------------------------------------------------------------------------
-Id: 1                                   Type: iscsi
-Name: test.lunmapadd1.com
--------------------------------------------------------------------------------
-Id: 2                                   Type: iscsi
-Name: test.lunmapadd2.com
--------------------------------------------------------------------------------
-Id: 3                                   Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-11
--------------------------------------------------------------------------------
-Id: 4                                   Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-12
--------------------------------------------------------------------------------
-Id: 5                                   Type: iscsi
-Name: iqn.1991-05.com.microsoft:travis-pc
--------------------------------------------------------------------------------
-Id: 6                                   Type: iscsi
-Name: iqn.1991-05.com.microsoft:zach-pc
-
-administrator@cli> 
-<b>add volume</b>
-pool
-===============================================================================
-Id   Name                        TotalCap  UsedCap   FreeCap   OpStatus       
-===============================================================================
-0    testRb                      1.83 TB   98.82 KB  1.83 TB   Critical        
-
-administrator@cli> 
-volume -a add -p 0 -s "name=Vtestlunmap1,capacity=1GB"
-
-administrator@cli> 
-volume -a add -p 0 -s "name=Vtestlunmap2,capacity=1GB"
-
-administrator@cli> 
-volume -a add -p 0 -s "name=Vtestlunmap3,capacity=1GB"
-
-administrator@cli> 
-volume -a add -p 0 -s "name=Vtestlunmap4,capacity=1GB"
-
-administrator@cli> 
-volume -a add -p 0 -s "name=Vtestlunmap5,capacity=1GB"
-
-administrator@cli> 
-volume -a add -p 0 -s "name=Vtestlunmap6,capacity=1GB"
-
-administrator@cli> 
-volume -a add -p 0 -s "name=Vtestlunmap7,capacity=1GB"
-
-administrator@cli> 
-volume -a add -p 0 -s "name=Vtestlunmap8,capacity=1GB"
-
-administrator@cli> 
-volume -a add -p 0 -s "name=Vtestlunmap9,capacity=1GB"
-
-administrator@cli> 
-volume -a add -p 0 -s "name=Vtestlunmap10,capacity=1GB"
-
-administrator@cli> 
-volume -a add -p 0 -s "name=Vtestlunmap11,capacity=1GB"
-
-administrator@cli> 
-volume -a add -p 0 -s "name=Vtestlunmap12,capacity=1GB"
-
-administrator@cli> 
-volume -a add -p 0 -s "name=Vtestlunmap13,capacity=1GB"
-
-administrator@cli> 
-volume -a add -p 0 -s "name=Vtestlunmap14,capacity=1GB"
-
-administrator@cli> 
-volume -a add -p 0 -s "name=Vtestlunmap15,capacity=1GB"
-
-administrator@cli> 
-volume -a add -p 0 -s "name=Vtestlunmap16,capacity=1GB"
-
-administrator@cli> 
-volume -a add -p 0 -s "name=Vtestlunmap17,capacity=1GB"
-
-administrator@cli> 
-volume -a add -p 0 -s "name=Vtestlunmap18,capacity=1GB"
-
-administrator@cli> 
-volume -a add -p 0 -s "name=Vtestlunmap19,capacity=1GB"
-
-administrator@cli> 
-volume -a add -p 0 -s "name=Vtestlunmap20,capacity=1GB"
-
-administrator@cli> 
-volume -a add -p 0 -s "name=Vtestlunmap21,capacity=1GB"
-
-administrator@cli> 
-volume -a add -p 0 -s "name=Vtestlunmap22,capacity=1GB"
-
-administrator@cli> 
-volume -a add -p 0 -s "name=Vtestlunmap23,capacity=1GB"
-
-administrator@cli> 
-volume -a add -p 0 -s "name=Vtestlunmap24,capacity=1GB"
-
-administrator@cli> 
-volume -a add -p 0 -s "name=Vtestlunmap25,capacity=1GB"
-
-administrator@cli> 
-volume -a add -p 0 -s "name=Vtestlunmap26,capacity=1GB"
-
-administrator@cli> 
-volume -a add -p 0 -s "name=Vtestlunmap27,capacity=1GB"
-
-administrator@cli> 
-volume -a add -p 0 -s "name=Vtestlunmap28,capacity=1GB"
-
-administrator@cli> 
-volume -a add -p 0 -s "name=Vtestlunmap29,capacity=1GB"
-
-administrator@cli> 
-volume -a add -p 0 -s "name=Vtestlunmap30,capacity=1GB"
-
-administrator@cli> 
-volume -a add -p 0 -s "name=Vtestlunmap31,capacity=1GB"
-
-administrator@cli> 
-volume -a add -p 0 -s "name=Vtestlunmap32,capacity=1GB"
-
-administrator@cli> 
-volume -a add -p 0 -s "name=Vtestlunmap33,capacity=1GB"
-
-administrator@cli> 
-volume -a add -p 0 -s "name=Vtestlunmap34,capacity=1GB"
-
-administrator@cli> 
-volume
-===============================================================================
-Id   Name                  PoolId TotalCap    UsedCap     Status      OpStatus 
-===============================================================================
-0    Vtestlunmap1          0      1 GB        1 GB        Exported    Critical 
-1    Vtestlunmap2          0      1 GB        1 GB        Exported    Critical 
-2    Vtestlunmap3          0      1 GB        1 GB        Exported    Critical 
-3    Vtestlunmap4          0      1 GB        1 GB        Exported    Critical 
-4    Vtestlunmap5          0      1 GB        1 GB        Exported    Critical 
-5    Vtestlunmap6          0      1 GB        1 GB        Exported    Critical 
-6    Vtestlunmap7          0      1 GB        1 GB        Exported    Critical 
-7    Vtestlunmap8          0      1 GB        1 GB        Exported    Critical 
-8    Vtestlunmap9          0      1 GB        1 GB        Exported    Critical 
-9    Vtestlunmap10         0      1 GB        1 GB        Exported    Critical 
-10   Vtestlunmap11         0      1 GB        1 GB        Exported    Critical 
-11   Vtestlunmap12         0      1 GB        1 GB        Exported    Critical 
-12   Vtestlunmap13         0      1 GB        1 GB        Exported    Critical 
-13   Vtestlunmap14         0      1 GB        1 GB        Exported    Critical 
-14   Vtestlunmap15         0      1 GB        1 GB        Exported    Critical 
-15   Vtestlunmap16         0      1 GB        1 GB        Exported    Critical 
-16   Vtestlunmap17         0      1 GB        1 GB        Exported    Critical 
-17   Vtestlunmap18         0      1 GB        1 GB        Exported    Critical 
-18   Vtestlunmap19         0      1 GB        1 GB        Exported    Critical 
-19   Vtestlunmap20         0      1 GB        1 GB        Exported    Critical 
-20   Vtestlunmap21         0      1 GB        1 GB        Exported    Critical 
-21   Vtestlunmap22         0      1 GB        1 GB        Exported    Critical 
-22   Vtestlunmap23         0      1 GB        1 GB        Exported    Critical 
-23   Vtestlunmap24         0      1 GB        1 GB        Exported    Critical 
-24   Vtestlunmap25         0      1 GB        1 GB        Exported    Critical 
-25   Vtestlunmap26         0      1 GB        1 GB        Exported    Critical 
-26   Vtestlunmap27         0      1 GB        1 GB        Exported    Critical 
-27   Vtestlunmap28         0      1 GB        1 GB        Exported    Critical 
-28   Vtestlunmap29         0      1 GB        1 GB        Exported    Critical 
-29   Vtestlunmap30         0      1 GB        1 GB        Exported    Critical 
-30   Vtestlunmap31         0      1 GB        1 GB        Exported    Critical 
-31   Vtestlunmap32         0      1 GB        1 GB        Exported    Critical 
-32   Vtestlunmap33         0      1 GB        1 GB        Exported    Critical 
-33   Vtestlunmap34         0      1 GB        1 GB        Exported    Critical 
-
-administrator@cli> 
-<b> add snapshot</b>
-snapshot -a add -t volume -d 33 -s "name=testlunmapss1"
-
-administrator@cli> 
-snapshot -a add -t volume -d 33 -s "name=testlunmapss2"
-
-administrator@cli> 
-snapshot -a add -t volume -d 33 -s "name=testlunmapss3"
-
-administrator@cli> 
-snapshot -a add -t volume -d 33 -s "name=testlunmapss4"
-
-administrator@cli> 
-snapshot -a add -t volume -d 33 -s "name=testlunmapss5"
-
-administrator@cli> 
-snapshot -a add -t volume -d 33 -s "name=testlunmapss6"
-
-administrator@cli> 
-snapshot -a add -t volume -d 33 -s "name=testlunmapss7"
-
-administrator@cli> 
-snapshot -a add -t volume -d 33 -s "name=testlunmapss8"
-
-administrator@cli> 
-snapshot -a add -t volume -d 33 -s "name=testlunmapss9"
-
-administrator@cli> 
-snapshot -a add -t volume -d 33 -s "name=testlunmapss10"
-
-administrator@cli> 
-snapshot
-===============================================================================
-Id     Name                 Type       SrcId UsedCap    Status      OpStatus  
-===============================================================================
-0      testlunmapss1        volume     33    8.19 KB    Un-Exported Critical   
-1      testlunmapss2        volume     33    0 Byte     Un-Exported Critical   
-2      testlunmapss3        volume     33    0 Byte     Un-Exported Critical   
-3      testlunmapss4        volume     33    0 Byte     Un-Exported Critical   
-4      testlunmapss5        volume     33    0 Byte     Un-Exported Critical   
-5      testlunmapss6        volume     33    0 Byte     Un-Exported Critical   
-6      testlunmapss7        volume     33    0 Byte     Un-Exported Critical   
-7      testlunmapss8        volume     33    0 Byte     Un-Exported Critical   
-8      testlunmapss9        volume     33    0 Byte     Un-Exported Critical   
-9      testlunmapss10       volume     33    0 Byte     Un-Exported Critical   
-
-administrator@cli> 
-snapshot -a export -i 0
-
-administrator@cli> 
-snapshot -a export -i 1
-
-administrator@cli> 
-snapshot -a export -i 2
-
-administrator@cli> 
-snapshot -a export -i 3
-
-administrator@cli> 
-snapshot -a export -i 4
-
-administrator@cli> 
-snapshot -a export -i 5
-
-administrator@cli> 
-snapshot -a export -i 6
-
-administrator@cli> 
-snapshot -a export -i 7
-
-administrator@cli> 
-snapshot -a export -i 8
-
-administrator@cli> 
-snapshot -a export -i 9
-
-administrator@cli> 
-<b> add clone</b>
-clone -a add -d 9 -s "name=testlunmapcl1"
-
-administrator@cli> 
-clone -a add -d 9 -s "name=testlunmapcl2"
-
-administrator@cli> 
-clone -a add -d 9 -s "name=testlunmapcl3"
-
-administrator@cli> 
-clone -a add -d 9 -s "name=testlunmapcl4"
-
-administrator@cli> 
-clone -a add -d 9 -s "name=testlunmapcl5"
-
-administrator@cli> 
-clone -a add -d 9 -s "name=testlunmapcl6"
-
-administrator@cli> 
-clone -a add -d 9 -s "name=testlunmapcl7"
-
-administrator@cli> 
-clone -a add -d 9 -s "name=testlunmapcl8"
-
-administrator@cli> 
-clone -a add -d 9 -s "name=testlunmapcl9"
-
-administrator@cli> 
-clone -a add -d 9 -s "name=testlunmapcl10"
-
-administrator@cli> 
-clone
-===============================================================================
-Id   Name            Type       SrcId TotalCap   UsedCap    Status     OpStatus
-===============================================================================
-0    testlunmapcl1   volume     9     1 GB       1.02 KB    Exported   Critica 
-                                                                       l       
-1    testlunmapcl2   volume     9     1 GB       1.02 KB    Exported   Critica 
-                                                                       l       
-2    testlunmapcl3   volume     9     1 GB       1.02 KB    Exported   Critica 
-                                                                       l       
-3    testlunmapcl4   volume     9     1 GB       1.02 KB    Exported   Critica 
-                                                                       l       
-4    testlunmapcl5   volume     9     1 GB       1.02 KB    Exported   Critica 
-                                                                       l       
-5    testlunmapcl6   volume     9     1 GB       1.02 KB    Exported   Critica 
-                                                                       l       
-6    testlunmapcl7   volume     9     1 GB       1.02 KB    Exported   Critica 
-                                                                       l       
-7    testlunmapcl8   volume     9     1 GB       1.02 KB    Exported   Critica 
-                                                                       l       
-8    testlunmapcl9   volume     9     1 GB       1.02 KB    Exported   Critica 
-                                                                       l       
-9    testlunmapcl10  volume     9     1 GB       1.02 KB    Exported   Critica 
-                                                                       l       
-
-administrator@cli> 
-<b> To enable lunmap</b>
-lunmap -a enable
-
-administrator@cli> 
- Verify iscsi initiator lunmap
-Verify: lunmap -a add -i 1 -p volume -l 0 -m 0
-lunmap -a add -i 1 -p volume -l 0 -m 0
-
-administrator@cli> 
-lunmap
-LUN Mapping Type : initiator
-LUN mapping and masking : Enabled
-
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
-
-administrator@cli> 
- Verify fc initiator lunmap
-Verify: lunmap -a add -i 3 -p volume -l 0 -m 1
-lunmap -a add -i 3 -p volume -l 0 -m 1
-
-administrator@cli> 
-lunmap
-LUN Mapping Type : initiator
-LUN mapping and masking : Enabled
-
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 3                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-11
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-1                         0                        volume                      
-
-administrator@cli> 
- Verify initiator map snapshot
-Verify: lunmap -a add -i 2 -p snapshot -l 0 -m 1022 
- lunmap -a add -i 2 -p snapshot -l 0 -m 1022
-
-administrator@cli> 
-lunmap
-LUN Mapping Type : initiator
-LUN mapping and masking : Enabled
-
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 2                            Type: iscsi
-Name: test.lunmapadd2.com
-
-===============================================================================
-Lun                       Sid                     Type                         
-===============================================================================
-1022                      0                       snapshot                     
--------------------------------------------------------------------------------
-initiator: 3                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-11
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-1                         0                        volume                      
-
-administrator@cli> 
- Verify initiator map clone 
-Verify: lunmap -a add -i 4 -p clone -l 0 -m 1023 
- lunmap -a add -i 4 -p clone -l 0 -m 1023
-
-administrator@cli> 
-lunmap
-LUN Mapping Type : initiator
-LUN mapping and masking : Enabled
-
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 2                            Type: iscsi
-Name: test.lunmapadd2.com
-
-===============================================================================
-Lun                       Sid                     Type                         
-===============================================================================
-1022                      0                       snapshot                     
--------------------------------------------------------------------------------
-initiator: 3                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-11
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-1                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 4                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-12
-
-===============================================================================
-Lun                        Sid                      Type                       
-===============================================================================
-1023                       0                        clone                      
-
-administrator@cli> 
-Verify lunmap 
-lunmap
-LUN Mapping Type : initiator
-LUN mapping and masking : Enabled
-
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 2                            Type: iscsi
-Name: test.lunmapadd2.com
-
-===============================================================================
-Lun                       Sid                     Type                         
-===============================================================================
-1022                      0                       snapshot                     
--------------------------------------------------------------------------------
-initiator: 3                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-11
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-1                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 4                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-12
-
-===============================================================================
-Lun                        Sid                      Type                       
-===============================================================================
-1023                       0                        clone                      
-
-administrator@cli> 
- lunmap -i 1
-lunmap -i 1
-LUN Mapping Type : initiator
-LUN mapping and masking : Enabled
-
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 2                            Type: iscsi
-Name: test.lunmapadd2.com
-
-===============================================================================
-Lun                       Sid                     Type                         
-===============================================================================
-1022                      0                       snapshot                     
--------------------------------------------------------------------------------
-initiator: 3                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-11
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-1                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 4                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-12
-
-===============================================================================
-Lun                        Sid                      Type                       
-===============================================================================
-1023                       0                        clone                      
-
-administrator@cli> 
- lunmap -i 2
-lunmap -i 2
-LUN Mapping Type : initiator
-LUN mapping and masking : Enabled
-
--------------------------------------------------------------------------------
-initiator: 2                            Type: iscsi
-Name: test.lunmapadd2.com
-
-===============================================================================
-Lun                       Sid                     Type                         
-===============================================================================
-1022                      0                       snapshot                     
--------------------------------------------------------------------------------
-initiator: 3                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-11
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-1                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 4                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-12
-
-===============================================================================
-Lun                        Sid                      Type                       
-===============================================================================
-1023                       0                        clone                      
-
-administrator@cli> 
- lunmap -i 3
-lunmap -i 3
-LUN Mapping Type : initiator
-LUN mapping and masking : Enabled
-
--------------------------------------------------------------------------------
-initiator: 3                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-11
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-1                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 4                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-12
-
-===============================================================================
-Lun                        Sid                      Type                       
-===============================================================================
-1023                       0                        clone                      
-
-administrator@cli> 
- lunmap -i 4
-lunmap -i 4
-LUN Mapping Type : initiator
-LUN mapping and masking : Enabled
-
--------------------------------------------------------------------------------
-initiator: 4                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-12
-
-===============================================================================
-Lun                        Sid                      Type                       
-===============================================================================
-1023                       0                        clone                      
-
-administrator@cli> 
-Verify lunmap -a list 
-lunmap -a list
-LUN Mapping Type : initiator
-LUN mapping and masking : Enabled
-
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 2                            Type: iscsi
-Name: test.lunmapadd2.com
-
-===============================================================================
-Lun                       Sid                     Type                         
-===============================================================================
-1022                      0                       snapshot                     
--------------------------------------------------------------------------------
-initiator: 3                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-11
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-1                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 4                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-12
-
-===============================================================================
-Lun                        Sid                      Type                       
-===============================================================================
-1023                       0                        clone                      
-
-administrator@cli> 
- lunmap -a list -i 1
-lunmap -a list -i 1
-LUN Mapping Type : initiator
-LUN mapping and masking : Enabled
-
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 2                            Type: iscsi
-Name: test.lunmapadd2.com
-
-===============================================================================
-Lun                       Sid                     Type                         
-===============================================================================
-1022                      0                       snapshot                     
--------------------------------------------------------------------------------
-initiator: 3                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-11
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-1                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 4                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-12
-
-===============================================================================
-Lun                        Sid                      Type                       
-===============================================================================
-1023                       0                        clone                      
-
-administrator@cli> 
- lunmap -a list -i 2
-lunmap -a list -i 2
-LUN Mapping Type : initiator
-LUN mapping and masking : Enabled
-
--------------------------------------------------------------------------------
-initiator: 2                            Type: iscsi
-Name: test.lunmapadd2.com
-
-===============================================================================
-Lun                       Sid                     Type                         
-===============================================================================
-1022                      0                       snapshot                     
--------------------------------------------------------------------------------
-initiator: 3                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-11
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-1                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 4                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-12
-
-===============================================================================
-Lun                        Sid                      Type                       
-===============================================================================
-1023                       0                        clone                      
-
-administrator@cli> 
- lunmap -a list -i 3
-lunmap -a list -i 3
-LUN Mapping Type : initiator
-LUN mapping and masking : Enabled
-
--------------------------------------------------------------------------------
-initiator: 3                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-11
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-1                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 4                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-12
-
-===============================================================================
-Lun                        Sid                      Type                       
-===============================================================================
-1023                       0                        clone                      
-
-administrator@cli> 
- lunmap -a list -i 4
-lunmap -a list -i 4
-LUN Mapping Type : initiator
-LUN mapping and masking : Enabled
-
--------------------------------------------------------------------------------
-initiator: 4                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-12
-
-===============================================================================
-Lun                        Sid                      Type                       
-===============================================================================
-1023                       0                        clone                      
-
-administrator@cli> 
  lunmap -a addlun 
 initiator
 -------------------------------------------------------------------------------
@@ -774,82 +27,72 @@ volume
 ===============================================================================
 Id   Name                  PoolId TotalCap    UsedCap     Status      OpStatus 
 ===============================================================================
-0    Vtestlunmap1          0      1 GB        1 GB        Exported    Critical 
-1    Vtestlunmap2          0      1 GB        1 GB        Exported    Critical 
-2    Vtestlunmap3          0      1 GB        1 GB        Exported    Critical 
-3    Vtestlunmap4          0      1 GB        1 GB        Exported    Critical 
-4    Vtestlunmap5          0      1 GB        1 GB        Exported    Critical 
-5    Vtestlunmap6          0      1 GB        1 GB        Exported    Critical 
-6    Vtestlunmap7          0      1 GB        1 GB        Exported    Critical 
-7    Vtestlunmap8          0      1 GB        1 GB        Exported    Critical 
-8    Vtestlunmap9          0      1 GB        1 GB        Exported    Critical 
-9    Vtestlunmap10         0      1 GB        1 GB        Exported    Critical 
-10   Vtestlunmap11         0      1 GB        1 GB        Exported    Critical 
-11   Vtestlunmap12         0      1 GB        1 GB        Exported    Critical 
-12   Vtestlunmap13         0      1 GB        1 GB        Exported    Critical 
-13   Vtestlunmap14         0      1 GB        1 GB        Exported    Critical 
-14   Vtestlunmap15         0      1 GB        1 GB        Exported    Critical 
-15   Vtestlunmap16         0      1 GB        1 GB        Exported    Critical 
-16   Vtestlunmap17         0      1 GB        1 GB        Exported    Critical 
-17   Vtestlunmap18         0      1 GB        1 GB        Exported    Critical 
-18   Vtestlunmap19         0      1 GB        1 GB        Exported    Critical 
-19   Vtestlunmap20         0      1 GB        1 GB        Exported    Critical 
-20   Vtestlunmap21         0      1 GB        1 GB        Exported    Critical 
-21   Vtestlunmap22         0      1 GB        1 GB        Exported    Critical 
-22   Vtestlunmap23         0      1 GB        1 GB        Exported    Critical 
-23   Vtestlunmap24         0      1 GB        1 GB        Exported    Critical 
-24   Vtestlunmap25         0      1 GB        1 GB        Exported    Critical 
-25   Vtestlunmap26         0      1 GB        1 GB        Exported    Critical 
-26   Vtestlunmap27         0      1 GB        1 GB        Exported    Critical 
-27   Vtestlunmap28         0      1 GB        1 GB        Exported    Critical 
-28   Vtestlunmap29         0      1 GB        1 GB        Exported    Critical 
-29   Vtestlunmap30         0      1 GB        1 GB        Exported    Critical 
-30   Vtestlunmap31         0      1 GB        1 GB        Exported    Critical 
-31   Vtestlunmap32         0      1 GB        1 GB        Exported    Critical 
-32   Vtestlunmap33         0      1 GB        1 GB        Exported    Critical 
-33   Vtestlunmap34         0      1 GB        1 GB        Exported    Critical 
+0    Vtestlunmap1          0      1 GB        1 GB        Exported    OK       
+1    Vtestlunmap2          0      1 GB        1 GB        Exported    OK       
+2    Vtestlunmap3          0      1 GB        1 GB        Exported    OK       
+3    Vtestlunmap4          0      1 GB        1 GB        Exported    OK       
+4    Vtestlunmap5          0      1 GB        1 GB        Exported    OK       
+5    Vtestlunmap6          0      1 GB        1 GB        Exported    OK       
+6    Vtestlunmap7          0      1 GB        1 GB        Exported    OK       
+7    Vtestlunmap8          0      1 GB        1 GB        Exported    OK       
+8    Vtestlunmap9          0      1 GB        1 GB        Exported    OK       
+9    Vtestlunmap10         0      1 GB        1 GB        Exported    OK       
+10   Vtestlunmap11         0      1 GB        1 GB        Exported    OK       
+11   Vtestlunmap12         0      1 GB        1 GB        Exported    OK       
+12   Vtestlunmap13         0      1 GB        1 GB        Exported    OK       
+13   Vtestlunmap14         0      1 GB        1 GB        Exported    OK       
+14   Vtestlunmap15         0      1 GB        1 GB        Exported    OK       
+15   Vtestlunmap16         0      1 GB        1 GB        Exported    OK       
+16   Vtestlunmap17         0      1 GB        1 GB        Exported    OK       
+17   Vtestlunmap18         0      1 GB        1 GB        Exported    OK       
+18   Vtestlunmap19         0      1 GB        1 GB        Exported    OK       
+19   Vtestlunmap20         0      1 GB        1 GB        Exported    OK       
+20   Vtestlunmap21         0      1 GB        1 GB        Exported    OK       
+21   Vtestlunmap22         0      1 GB        1 GB        Exported    OK       
+22   Vtestlunmap23         0      1 GB        1 GB        Exported    OK       
+23   Vtestlunmap24         0      1 GB        1 GB        Exported    OK       
+24   Vtestlunmap25         0      1 GB        1 GB        Exported    OK       
+25   Vtestlunmap26         0      1 GB        1 GB        Exported    OK       
+26   Vtestlunmap27         0      1 GB        1 GB        Exported    OK       
+27   Vtestlunmap28         0      1 GB        1 GB        Exported    OK       
+28   Vtestlunmap29         0      1 GB        1 GB        Exported    OK       
+29   Vtestlunmap30         0      1 GB        1 GB        Exported    OK       
+30   Vtestlunmap31         0      1 GB        1 GB        Exported    OK       
+31   Vtestlunmap32         0      1 GB        1 GB        Exported    OK       
+32   Vtestlunmap33         0      1 GB        1 GB        Exported    OK       
+33   Vtestlunmap34         0      1 GB        1 GB        Exported    OK       
 
 administrator@cli> 
 snapshot
 ===============================================================================
 Id     Name                 Type       SrcId UsedCap    Status      OpStatus  
 ===============================================================================
-0      testlunmapss1        volume     33    8.19 KB    Exported    Critical   
-1      testlunmapss2        volume     33    0 Byte     Exported    Critical   
-2      testlunmapss3        volume     33    0 Byte     Exported    Critical   
-3      testlunmapss4        volume     33    0 Byte     Exported    Critical   
-4      testlunmapss5        volume     33    0 Byte     Exported    Critical   
-5      testlunmapss6        volume     33    0 Byte     Exported    Critical   
-6      testlunmapss7        volume     33    0 Byte     Exported    Critical   
-7      testlunmapss8        volume     33    0 Byte     Exported    Critical   
-8      testlunmapss9        volume     33    0 Byte     Exported    Critical   
-9      testlunmapss10       volume     33    0 Byte     Exported    Critical   
+0      testlunmapss1        volume     33    8.19 KB    Exported    OK         
+1      testlunmapss2        volume     33    0 Byte     Exported    OK         
+2      testlunmapss3        volume     33    0 Byte     Exported    OK         
+3      testlunmapss4        volume     33    0 Byte     Exported    OK         
+4      testlunmapss5        volume     33    0 Byte     Exported    OK         
+5      testlunmapss6        volume     33    0 Byte     Exported    OK         
+6      testlunmapss7        volume     33    0 Byte     Exported    OK         
+7      testlunmapss8        volume     33    0 Byte     Exported    OK         
+8      testlunmapss9        volume     33    0 Byte     Exported    OK         
+9      testlunmapss10       volume     33    0 Byte     Exported    OK         
 
 administrator@cli> 
 clone
 ===============================================================================
 Id   Name            Type       SrcId TotalCap   UsedCap    Status     OpStatus
 ===============================================================================
-0    testlunmapcl1   volume     9     1 GB       1.02 KB    Exported   Critica 
-                                                                       l       
-1    testlunmapcl2   volume     9     1 GB       1.02 KB    Exported   Critica 
-                                                                       l       
-2    testlunmapcl3   volume     9     1 GB       1.02 KB    Exported   Critica 
-                                                                       l       
-3    testlunmapcl4   volume     9     1 GB       1.02 KB    Exported   Critica 
-                                                                       l       
-4    testlunmapcl5   volume     9     1 GB       1.02 KB    Exported   Critica 
-                                                                       l       
-5    testlunmapcl6   volume     9     1 GB       1.02 KB    Exported   Critica 
-                                                                       l       
-6    testlunmapcl7   volume     9     1 GB       1.02 KB    Exported   Critica 
-                                                                       l       
-7    testlunmapcl8   volume     9     1 GB       1.02 KB    Exported   Critica 
-                                                                       l       
-8    testlunmapcl9   volume     9     1 GB       1.02 KB    Exported   Critica 
-                                                                       l       
-9    testlunmapcl10  volume     9     1 GB       1.02 KB    Exported   Critica 
-                                                                       l       
+0    testlunmapcl1   volume     9     1 GB       1.02 KB    Exported   OK      
+1    testlunmapcl2   volume     9     1 GB       1.02 KB    Exported   OK      
+2    testlunmapcl3   volume     9     1 GB       1.02 KB    Exported   OK      
+3    testlunmapcl4   volume     9     1 GB       1.02 KB    Exported   OK      
+4    testlunmapcl5   volume     9     1 GB       1.02 KB    Exported   OK      
+5    testlunmapcl6   volume     9     1 GB       1.02 KB    Exported   OK      
+6    testlunmapcl7   volume     9     1 GB       1.02 KB    Exported   OK      
+7    testlunmapcl8   volume     9     1 GB       1.02 KB    Exported   OK      
+8    testlunmapcl9   volume     9     1 GB       1.02 KB    Exported   OK      
+9    testlunmapcl10  volume     9     1 GB       1.02 KB    Exported   OK      
 
 administrator@cli> 
  Verify addlun volume 
@@ -857,18 +100,10 @@ Verify: lunmap -a addlun -p volume -i 2 -l 1 -m 512
 lunmap -a addlun -p volume -i 2 -l 1 -m 512
 
 administrator@cli> 
-lunmap
+lunmap -i 2
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
 -------------------------------------------------------------------------------
 initiator: 2                            Type: iscsi
 Name: test.lunmapadd2.com
@@ -900,18 +135,10 @@ Verify: lunmap -a addlun -p volume -i 2 -l 2 -m 513
 lunmap -a addlun -p volume -i 2 -l 2 -m 513
 
 administrator@cli> 
-lunmap
+lunmap -i 2
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
 -------------------------------------------------------------------------------
 initiator: 2                            Type: iscsi
 Name: test.lunmapadd2.com
@@ -944,18 +171,10 @@ Verify: lunmap -a addlun -p volume -i 2 -l 3 -m 514
 lunmap -a addlun -p volume -i 2 -l 3 -m 514
 
 administrator@cli> 
-lunmap
+lunmap -i 2
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
 -------------------------------------------------------------------------------
 initiator: 2                            Type: iscsi
 Name: test.lunmapadd2.com
@@ -989,18 +208,10 @@ Verify: lunmap -a addlun -p volume -i 2 -l 4 -m 515
 lunmap -a addlun -p volume -i 2 -l 4 -m 515
 
 administrator@cli> 
-lunmap
+lunmap -i 2
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
 -------------------------------------------------------------------------------
 initiator: 2                            Type: iscsi
 Name: test.lunmapadd2.com
@@ -1035,18 +246,10 @@ Verify: lunmap -a addlun -p volume -i 2 -l 5 -m 516
 lunmap -a addlun -p volume -i 2 -l 5 -m 516
 
 administrator@cli> 
-lunmap
+lunmap -i 2
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
 -------------------------------------------------------------------------------
 initiator: 2                            Type: iscsi
 Name: test.lunmapadd2.com
@@ -1082,18 +285,10 @@ Verify: lunmap -a addlun -p volume -i 2 -l 6 -m 517
 lunmap -a addlun -p volume -i 2 -l 6 -m 517
 
 administrator@cli> 
-lunmap
+lunmap -i 2
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
 -------------------------------------------------------------------------------
 initiator: 2                            Type: iscsi
 Name: test.lunmapadd2.com
@@ -1130,18 +325,10 @@ Verify: lunmap -a addlun -p volume -i 2 -l 7 -m 518
 lunmap -a addlun -p volume -i 2 -l 7 -m 518
 
 administrator@cli> 
-lunmap
+lunmap -i 2
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
 -------------------------------------------------------------------------------
 initiator: 2                            Type: iscsi
 Name: test.lunmapadd2.com
@@ -1179,18 +366,10 @@ Verify: lunmap -a addlun -p volume -i 2 -l 8 -m 519
 lunmap -a addlun -p volume -i 2 -l 8 -m 519
 
 administrator@cli> 
-lunmap
+lunmap -i 2
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
 -------------------------------------------------------------------------------
 initiator: 2                            Type: iscsi
 Name: test.lunmapadd2.com
@@ -1229,18 +408,10 @@ Verify: lunmap -a addlun -p volume -i 2 -l 9 -m 520
 lunmap -a addlun -p volume -i 2 -l 9 -m 520
 
 administrator@cli> 
-lunmap
+lunmap -i 2
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
 -------------------------------------------------------------------------------
 initiator: 2                            Type: iscsi
 Name: test.lunmapadd2.com
@@ -1280,18 +451,10 @@ Verify: lunmap -a addlun -p volume -i 2 -l 10 -m 521
 lunmap -a addlun -p volume -i 2 -l 10 -m 521
 
 administrator@cli> 
-lunmap
+lunmap -i 2
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
 -------------------------------------------------------------------------------
 initiator: 2                            Type: iscsi
 Name: test.lunmapadd2.com
@@ -1332,18 +495,10 @@ Verify: lunmap -a addlun -p volume -i 2 -l 11 -m 522
 lunmap -a addlun -p volume -i 2 -l 11 -m 522
 
 administrator@cli> 
-lunmap
+lunmap -i 2
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
 -------------------------------------------------------------------------------
 initiator: 2                            Type: iscsi
 Name: test.lunmapadd2.com
@@ -1385,18 +540,10 @@ Verify: lunmap -a addlun -p volume -i 2 -l 12 -m 523
 lunmap -a addlun -p volume -i 2 -l 12 -m 523
 
 administrator@cli> 
-lunmap
+lunmap -i 2
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
 -------------------------------------------------------------------------------
 initiator: 2                            Type: iscsi
 Name: test.lunmapadd2.com
@@ -1439,18 +586,10 @@ Verify: lunmap -a addlun -p volume -i 2 -l 13 -m 524
 lunmap -a addlun -p volume -i 2 -l 13 -m 524
 
 administrator@cli> 
-lunmap
+lunmap -i 2
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
 -------------------------------------------------------------------------------
 initiator: 2                            Type: iscsi
 Name: test.lunmapadd2.com
@@ -1494,18 +633,10 @@ Verify: lunmap -a addlun -p volume -i 2 -l 14 -m 525
 lunmap -a addlun -p volume -i 2 -l 14 -m 525
 
 administrator@cli> 
-lunmap
+lunmap -i 2
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
 -------------------------------------------------------------------------------
 initiator: 2                            Type: iscsi
 Name: test.lunmapadd2.com
@@ -1550,18 +681,10 @@ Verify: lunmap -a addlun -p volume -i 2 -l 15 -m 526
 lunmap -a addlun -p volume -i 2 -l 15 -m 526
 
 administrator@cli> 
-lunmap
+lunmap -i 2
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
 -------------------------------------------------------------------------------
 initiator: 2                            Type: iscsi
 Name: test.lunmapadd2.com
@@ -1607,18 +730,10 @@ Verify: lunmap -a addlun -p volume -i 2 -l 16 -m 527
 lunmap -a addlun -p volume -i 2 -l 16 -m 527
 
 administrator@cli> 
-lunmap
+lunmap -i 2
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
 -------------------------------------------------------------------------------
 initiator: 2                            Type: iscsi
 Name: test.lunmapadd2.com
@@ -1665,18 +780,10 @@ Verify: lunmap -a addlun -p volume -i 2 -l 17 -m 528
 lunmap -a addlun -p volume -i 2 -l 17 -m 528
 
 administrator@cli> 
-lunmap
+lunmap -i 2
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
 -------------------------------------------------------------------------------
 initiator: 2                            Type: iscsi
 Name: test.lunmapadd2.com
@@ -1724,18 +831,10 @@ Verify: lunmap -a addlun -p volume -i 2 -l 18 -m 529
 lunmap -a addlun -p volume -i 2 -l 18 -m 529
 
 administrator@cli> 
-lunmap
+lunmap -i 2
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
 -------------------------------------------------------------------------------
 initiator: 2                            Type: iscsi
 Name: test.lunmapadd2.com
@@ -1784,18 +883,10 @@ Verify: lunmap -a addlun -p volume -i 2 -l 19 -m 530
 lunmap -a addlun -p volume -i 2 -l 19 -m 530
 
 administrator@cli> 
-lunmap
+lunmap -i 2
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
 -------------------------------------------------------------------------------
 initiator: 2                            Type: iscsi
 Name: test.lunmapadd2.com
@@ -1845,18 +936,10 @@ Verify: lunmap -a addlun -p volume -i 2 -l 20 -m 531
 lunmap -a addlun -p volume -i 2 -l 20 -m 531
 
 administrator@cli> 
-lunmap
+lunmap -i 2
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
 -------------------------------------------------------------------------------
 initiator: 2                            Type: iscsi
 Name: test.lunmapadd2.com
@@ -1907,18 +990,10 @@ Verify: lunmap -a addlun -p volume -i 2 -l 21 -m 532
 lunmap -a addlun -p volume -i 2 -l 21 -m 532
 
 administrator@cli> 
-lunmap
+lunmap -i 2
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
 -------------------------------------------------------------------------------
 initiator: 2                            Type: iscsi
 Name: test.lunmapadd2.com
@@ -1970,18 +1045,10 @@ Verify: lunmap -a addlun -p volume -i 2 -l 22 -m 533
 lunmap -a addlun -p volume -i 2 -l 22 -m 533
 
 administrator@cli> 
-lunmap
+lunmap -i 2
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
 -------------------------------------------------------------------------------
 initiator: 2                            Type: iscsi
 Name: test.lunmapadd2.com
@@ -2034,18 +1101,10 @@ Verify: lunmap -a addlun -p volume -i 2 -l 23 -m 534
 lunmap -a addlun -p volume -i 2 -l 23 -m 534
 
 administrator@cli> 
-lunmap
+lunmap -i 2
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
 -------------------------------------------------------------------------------
 initiator: 2                            Type: iscsi
 Name: test.lunmapadd2.com
@@ -2099,18 +1158,10 @@ Verify: lunmap -a addlun -p volume -i 2 -l 24 -m 535
 lunmap -a addlun -p volume -i 2 -l 24 -m 535
 
 administrator@cli> 
-lunmap
+lunmap -i 2
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
 -------------------------------------------------------------------------------
 initiator: 2                            Type: iscsi
 Name: test.lunmapadd2.com
@@ -2165,18 +1216,10 @@ Verify: lunmap -a addlun -p volume -i 2 -l 25 -m 536
 lunmap -a addlun -p volume -i 2 -l 25 -m 536
 
 administrator@cli> 
-lunmap
+lunmap -i 2
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
 -------------------------------------------------------------------------------
 initiator: 2                            Type: iscsi
 Name: test.lunmapadd2.com
@@ -2232,18 +1275,10 @@ Verify: lunmap -a addlun -p volume -i 2 -l 26 -m 537
 lunmap -a addlun -p volume -i 2 -l 26 -m 537
 
 administrator@cli> 
-lunmap
+lunmap -i 2
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
 -------------------------------------------------------------------------------
 initiator: 2                            Type: iscsi
 Name: test.lunmapadd2.com
@@ -2300,18 +1335,10 @@ Verify: lunmap -a addlun -p volume -i 2 -l 27 -m 538
 lunmap -a addlun -p volume -i 2 -l 27 -m 538
 
 administrator@cli> 
-lunmap
+lunmap -i 2
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
 -------------------------------------------------------------------------------
 initiator: 2                            Type: iscsi
 Name: test.lunmapadd2.com
@@ -2369,18 +1396,10 @@ Verify: lunmap -a addlun -p volume -i 2 -l 28 -m 539
 lunmap -a addlun -p volume -i 2 -l 28 -m 539
 
 administrator@cli> 
-lunmap
+lunmap -i 2
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
 -------------------------------------------------------------------------------
 initiator: 2                            Type: iscsi
 Name: test.lunmapadd2.com
@@ -2439,18 +1458,10 @@ Verify: lunmap -a addlun -p volume -i 2 -l 29 -m 540
 lunmap -a addlun -p volume -i 2 -l 29 -m 540
 
 administrator@cli> 
-lunmap
+lunmap -i 2
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
 -------------------------------------------------------------------------------
 initiator: 2                            Type: iscsi
 Name: test.lunmapadd2.com
@@ -2510,18 +1521,10 @@ Verify: lunmap -a addlun -p volume -i 2 -l 30 -m 541
 lunmap -a addlun -p volume -i 2 -l 30 -m 541
 
 administrator@cli> 
-lunmap
+lunmap -i 2
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
 -------------------------------------------------------------------------------
 initiator: 2                            Type: iscsi
 Name: test.lunmapadd2.com
@@ -2582,18 +1585,10 @@ Verify: lunmap -a addlun -p volume -i 2 -l 31 -m 542
 lunmap -a addlun -p volume -i 2 -l 31 -m 542
 
 administrator@cli> 
-lunmap
+lunmap -i 2
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
 -------------------------------------------------------------------------------
 initiator: 2                            Type: iscsi
 Name: test.lunmapadd2.com
@@ -2655,18 +1650,10 @@ Verify: lunmap -a addlun -p volume -i 2 -l 32 -m 543
 lunmap -a addlun -p volume -i 2 -l 32 -m 543
 
 administrator@cli> 
-lunmap
+lunmap -i 2
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
 -------------------------------------------------------------------------------
 initiator: 2                            Type: iscsi
 Name: test.lunmapadd2.com
@@ -2729,18 +1716,10 @@ Verify: lunmap -a addlun -p volume -i 2 -l 33 -m 544
 lunmap -a addlun -p volume -i 2 -l 33 -m 544
 
 administrator@cli> 
-lunmap
+lunmap -i 2
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
 -------------------------------------------------------------------------------
 initiator: 2                            Type: iscsi
 Name: test.lunmapadd2.com
@@ -2805,7 +1784,7 @@ Verify: lunmap -a addlun -p snapshot -i 1 -l 0 -m 10
 lunmap -a addlun -p snapshot -i 1 -l 0 -m 10
 
 administrator@cli> 
-lunmap
+lunmap -i 1
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
@@ -2881,7 +1860,7 @@ Verify: lunmap -a addlun -p snapshot -i 1 -l 1 -m 11
 lunmap -a addlun -p snapshot -i 1 -l 1 -m 11
 
 administrator@cli> 
-lunmap
+lunmap -i 1
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
@@ -2958,7 +1937,7 @@ Verify: lunmap -a addlun -p snapshot -i 1 -l 2 -m 12
 lunmap -a addlun -p snapshot -i 1 -l 2 -m 12
 
 administrator@cli> 
-lunmap
+lunmap -i 1
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
@@ -3036,7 +2015,7 @@ Verify: lunmap -a addlun -p snapshot -i 1 -l 3 -m 13
 lunmap -a addlun -p snapshot -i 1 -l 3 -m 13
 
 administrator@cli> 
-lunmap
+lunmap -i 1
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
@@ -3115,7 +2094,7 @@ Verify: lunmap -a addlun -p snapshot -i 1 -l 4 -m 14
 lunmap -a addlun -p snapshot -i 1 -l 4 -m 14
 
 administrator@cli> 
-lunmap
+lunmap -i 1
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
@@ -3195,7 +2174,7 @@ Verify: lunmap -a addlun -p snapshot -i 1 -l 5 -m 15
 lunmap -a addlun -p snapshot -i 1 -l 5 -m 15
 
 administrator@cli> 
-lunmap
+lunmap -i 1
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
@@ -3276,7 +2255,7 @@ Verify: lunmap -a addlun -p snapshot -i 1 -l 6 -m 16
 lunmap -a addlun -p snapshot -i 1 -l 6 -m 16
 
 administrator@cli> 
-lunmap
+lunmap -i 1
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
@@ -3358,7 +2337,7 @@ Verify: lunmap -a addlun -p snapshot -i 1 -l 7 -m 17
 lunmap -a addlun -p snapshot -i 1 -l 7 -m 17
 
 administrator@cli> 
-lunmap
+lunmap -i 1
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
@@ -3441,7 +2420,7 @@ Verify: lunmap -a addlun -p snapshot -i 1 -l 8 -m 18
 lunmap -a addlun -p snapshot -i 1 -l 8 -m 18
 
 administrator@cli> 
-lunmap
+lunmap -i 1
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
@@ -3525,7 +2504,7 @@ Verify: lunmap -a addlun -p snapshot -i 1 -l 9 -m 19
 lunmap -a addlun -p snapshot -i 1 -l 9 -m 19
 
 administrator@cli> 
-lunmap
+lunmap -i 1
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
@@ -3611,7 +2590,7 @@ Verify: lunmap -a addlun -p clone -i 1 -l 0 -m 1000
 lunmap -a addlun -p clone -i 1 -l 0 -m 1000
 
 administrator@cli> 
-lunmap
+lunmap -i 1
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
@@ -3693,12 +2672,11 @@ Lun                        Sid                      Type
 1023                       0                        clone                      
 
 administrator@cli> 
-Fail: lunmap -a addlun -p clone -i 1 -l 0 -m 1000
 Verify: lunmap -a addlun -p clone -i 1 -l 1 -m 1001
 lunmap -a addlun -p clone -i 1 -l 1 -m 1001
 
 administrator@cli> 
-lunmap
+lunmap -i 1
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
@@ -3781,12 +2759,11 @@ Lun                        Sid                      Type
 1023                       0                        clone                      
 
 administrator@cli> 
-Fail: lunmap -a addlun -p clone -i 1 -l 1 -m 1001
 Verify: lunmap -a addlun -p clone -i 1 -l 2 -m 1002
 lunmap -a addlun -p clone -i 1 -l 2 -m 1002
 
 administrator@cli> 
-lunmap
+lunmap -i 1
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
@@ -3870,12 +2847,11 @@ Lun                        Sid                      Type
 1023                       0                        clone                      
 
 administrator@cli> 
-Fail: lunmap -a addlun -p clone -i 1 -l 2 -m 1002
 Verify: lunmap -a addlun -p clone -i 1 -l 3 -m 1003
 lunmap -a addlun -p clone -i 1 -l 3 -m 1003
 
 administrator@cli> 
-lunmap
+lunmap -i 1
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
@@ -3960,12 +2936,11 @@ Lun                        Sid                      Type
 1023                       0                        clone                      
 
 administrator@cli> 
-Fail: lunmap -a addlun -p clone -i 1 -l 3 -m 1003
 Verify: lunmap -a addlun -p clone -i 1 -l 4 -m 1004
 lunmap -a addlun -p clone -i 1 -l 4 -m 1004
 
 administrator@cli> 
-lunmap
+lunmap -i 1
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
@@ -4051,12 +3026,11 @@ Lun                        Sid                      Type
 1023                       0                        clone                      
 
 administrator@cli> 
-Fail: lunmap -a addlun -p clone -i 1 -l 4 -m 1004
 Verify: lunmap -a addlun -p clone -i 1 -l 5 -m 1005
 lunmap -a addlun -p clone -i 1 -l 5 -m 1005
 
 administrator@cli> 
-lunmap
+lunmap -i 1
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
@@ -4143,12 +3117,11 @@ Lun                        Sid                      Type
 1023                       0                        clone                      
 
 administrator@cli> 
-Fail: lunmap -a addlun -p clone -i 1 -l 5 -m 1005
 Verify: lunmap -a addlun -p clone -i 1 -l 6 -m 1006
 lunmap -a addlun -p clone -i 1 -l 6 -m 1006
 
 administrator@cli> 
-lunmap
+lunmap -i 1
 LUN Mapping Type : initiator
 LUN mapping and masking : Enabled
 
@@ -4236,1970 +3209,7 @@ Lun                        Sid                      Type
 1023                       0                        clone                      
 
 administrator@cli> 
-Fail: lunmap -a addlun -p clone -i 1 -l 6 -m 1006
 Verify: lunmap -a addlun -p clone -i 1 -l 7 -m 1007
 lunmap -a addlun -p clone -i 1 -l 7 -m 1007
-
-administrator@cli> 
-lunmap
-LUN Mapping Type : initiator
-LUN mapping and masking : Enabled
-
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                     Type                         
-===============================================================================
-0                         0                       volume                       
-10                        0                       snapshot                     
-11                        1                       snapshot                     
-12                        2                       snapshot                     
-13                        3                       snapshot                     
-14                        4                       snapshot                     
-15                        5                       snapshot                     
-16                        6                       snapshot                     
-17                        7                       snapshot                     
-18                        8                       snapshot                     
-19                        9                       snapshot                     
-1000                      0                       clone                        
-1001                      1                       clone                        
-1002                      2                       clone                        
-1003                      3                       clone                        
-1004                      4                       clone                        
-1005                      5                       clone                        
-1006                      6                       clone                        
-1007                      7                       clone                        
--------------------------------------------------------------------------------
-initiator: 2                            Type: iscsi
-Name: test.lunmapadd2.com
-
-===============================================================================
-Lun                       Sid                     Type                         
-===============================================================================
-512                       1                       volume                       
-513                       2                       volume                       
-514                       3                       volume                       
-515                       4                       volume                       
-516                       5                       volume                       
-517                       6                       volume                       
-518                       7                       volume                       
-519                       8                       volume                       
-520                       9                       volume                       
-521                       10                      volume                       
-522                       11                      volume                       
-523                       12                      volume                       
-524                       13                      volume                       
-525                       14                      volume                       
-526                       15                      volume                       
-527                       16                      volume                       
-528                       17                      volume                       
-529                       18                      volume                       
-530                       19                      volume                       
-531                       20                      volume                       
-532                       21                      volume                       
-533                       22                      volume                       
-534                       23                      volume                       
-535                       24                      volume                       
-536                       25                      volume                       
-537                       26                      volume                       
-538                       27                      volume                       
-539                       28                      volume                       
-540                       29                      volume                       
-541                       30                      volume                       
-542                       31                      volume                       
-543                       32                      volume                       
-544                       33                      volume                       
-1022                      0                       snapshot                     
--------------------------------------------------------------------------------
-initiator: 3                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-11
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-1                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 4                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-12
-
-===============================================================================
-Lun                        Sid                      Type                       
-===============================================================================
-1023                       0                        clone                      
-
-administrator@cli> 
-Fail: lunmap -a addlun -p clone -i 1 -l 7 -m 1007
-Verify: lunmap -a addlun -p clone -i 1 -l 8 -m 1008
-lunmap -a addlun -p clone -i 1 -l 8 -m 1008
-
-administrator@cli> 
-lunmap
-LUN Mapping Type : initiator
-LUN mapping and masking : Enabled
-
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                     Type                         
-===============================================================================
-0                         0                       volume                       
-10                        0                       snapshot                     
-11                        1                       snapshot                     
-12                        2                       snapshot                     
-13                        3                       snapshot                     
-14                        4                       snapshot                     
-15                        5                       snapshot                     
-16                        6                       snapshot                     
-17                        7                       snapshot                     
-18                        8                       snapshot                     
-19                        9                       snapshot                     
-1000                      0                       clone                        
-1001                      1                       clone                        
-1002                      2                       clone                        
-1003                      3                       clone                        
-1004                      4                       clone                        
-1005                      5                       clone                        
-1006                      6                       clone                        
-1007                      7                       clone                        
-1008                      8                       clone                        
--------------------------------------------------------------------------------
-initiator: 2                            Type: iscsi
-Name: test.lunmapadd2.com
-
-===============================================================================
-Lun                       Sid                     Type                         
-===============================================================================
-512                       1                       volume                       
-513                       2                       volume                       
-514                       3                       volume                       
-515                       4                       volume                       
-516                       5                       volume                       
-517                       6                       volume                       
-518                       7                       volume                       
-519                       8                       volume                       
-520                       9                       volume                       
-521                       10                      volume                       
-522                       11                      volume                       
-523                       12                      volume                       
-524                       13                      volume                       
-525                       14                      volume                       
-526                       15                      volume                       
-527                       16                      volume                       
-528                       17                      volume                       
-529                       18                      volume                       
-530                       19                      volume                       
-531                       20                      volume                       
-532                       21                      volume                       
-533                       22                      volume                       
-534                       23                      volume                       
-535                       24                      volume                       
-536                       25                      volume                       
-537                       26                      volume                       
-538                       27                      volume                       
-539                       28                      volume                       
-540                       29                      volume                       
-541                       30                      volume                       
-542                       31                      volume                       
-543                       32                      volume                       
-544                       33                      volume                       
-1022                      0                       snapshot                     
--------------------------------------------------------------------------------
-initiator: 3                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-11
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-1                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 4                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-12
-
-===============================================================================
-Lun                        Sid                      Type                       
-===============================================================================
-1023                       0                        clone                      
-
-administrator@cli> 
-Fail: lunmap -a addlun -p clone -i 1 -l 8 -m 1008
-Verify: lunmap -a addlun -p clone -i 1 -l 9 -m 1009
-lunmap -a addlun -p clone -i 1 -l 9 -m 1009
-
-administrator@cli> 
-lunmap
-LUN Mapping Type : initiator
-LUN mapping and masking : Enabled
-
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                     Type                         
-===============================================================================
-0                         0                       volume                       
-10                        0                       snapshot                     
-11                        1                       snapshot                     
-12                        2                       snapshot                     
-13                        3                       snapshot                     
-14                        4                       snapshot                     
-15                        5                       snapshot                     
-16                        6                       snapshot                     
-17                        7                       snapshot                     
-18                        8                       snapshot                     
-19                        9                       snapshot                     
-1000                      0                       clone                        
-1001                      1                       clone                        
-1002                      2                       clone                        
-1003                      3                       clone                        
-1004                      4                       clone                        
-1005                      5                       clone                        
-1006                      6                       clone                        
-1007                      7                       clone                        
-1008                      8                       clone                        
-1009                      9                       clone                        
--------------------------------------------------------------------------------
-initiator: 2                            Type: iscsi
-Name: test.lunmapadd2.com
-
-===============================================================================
-Lun                       Sid                     Type                         
-===============================================================================
-512                       1                       volume                       
-513                       2                       volume                       
-514                       3                       volume                       
-515                       4                       volume                       
-516                       5                       volume                       
-517                       6                       volume                       
-518                       7                       volume                       
-519                       8                       volume                       
-520                       9                       volume                       
-521                       10                      volume                       
-522                       11                      volume                       
-523                       12                      volume                       
-524                       13                      volume                       
-525                       14                      volume                       
-526                       15                      volume                       
-527                       16                      volume                       
-528                       17                      volume                       
-529                       18                      volume                       
-530                       19                      volume                       
-531                       20                      volume                       
-532                       21                      volume                       
-533                       22                      volume                       
-534                       23                      volume                       
-535                       24                      volume                       
-536                       25                      volume                       
-537                       26                      volume                       
-538                       27                      volume                       
-539                       28                      volume                       
-540                       29                      volume                       
-541                       30                      volume                       
-542                       31                      volume                       
-543                       32                      volume                       
-544                       33                      volume                       
-1022                      0                       snapshot                     
--------------------------------------------------------------------------------
-initiator: 3                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-11
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-1                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 4                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-12
-
-===============================================================================
-Lun                        Sid                      Type                       
-===============================================================================
-1023                       0                        clone                      
-
-administrator@cli> 
-Fail: lunmap -a addlun -p clone -i 1 -l 9 -m 1009
-Verify lunmap -a dellun volume 
-initiator
--------------------------------------------------------------------------------
-Id: 0                                   Type: iscsi
-Name: a.b.com
--------------------------------------------------------------------------------
-Id: 1                                   Type: iscsi
-Name: test.lunmapadd1.com
--------------------------------------------------------------------------------
-Id: 2                                   Type: iscsi
-Name: test.lunmapadd2.com
--------------------------------------------------------------------------------
-Id: 3                                   Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-11
--------------------------------------------------------------------------------
-Id: 4                                   Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-12
--------------------------------------------------------------------------------
-Id: 5                                   Type: iscsi
-Name: iqn.1991-05.com.microsoft:travis-pc
--------------------------------------------------------------------------------
-Id: 6                                   Type: iscsi
-Name: iqn.1991-05.com.microsoft:zach-pc
-
-administrator@cli> 
-volume
-===============================================================================
-Id   Name                  PoolId TotalCap    UsedCap     Status      OpStatus 
-===============================================================================
-0    Vtestlunmap1          0      1 GB        1 GB        Exported    Critical 
-1    Vtestlunmap2          0      1 GB        1 GB        Exported    Critical 
-2    Vtestlunmap3          0      1 GB        1 GB        Exported    Critical 
-3    Vtestlunmap4          0      1 GB        1 GB        Exported    Critical 
-4    Vtestlunmap5          0      1 GB        1 GB        Exported    Critical 
-5    Vtestlunmap6          0      1 GB        1 GB        Exported    Critical 
-6    Vtestlunmap7          0      1 GB        1 GB        Exported    Critical 
-7    Vtestlunmap8          0      1 GB        1 GB        Exported    Critical 
-8    Vtestlunmap9          0      1 GB        1 GB        Exported    Critical 
-9    Vtestlunmap10         0      1 GB        1 GB        Exported    Critical 
-10   Vtestlunmap11         0      1 GB        1 GB        Exported    Critical 
-11   Vtestlunmap12         0      1 GB        1 GB        Exported    Critical 
-12   Vtestlunmap13         0      1 GB        1 GB        Exported    Critical 
-13   Vtestlunmap14         0      1 GB        1 GB        Exported    Critical 
-14   Vtestlunmap15         0      1 GB        1 GB        Exported    Critical 
-15   Vtestlunmap16         0      1 GB        1 GB        Exported    Critical 
-16   Vtestlunmap17         0      1 GB        1 GB        Exported    Critical 
-17   Vtestlunmap18         0      1 GB        1 GB        Exported    Critical 
-18   Vtestlunmap19         0      1 GB        1 GB        Exported    Critical 
-19   Vtestlunmap20         0      1 GB        1 GB        Exported    Critical 
-20   Vtestlunmap21         0      1 GB        1 GB        Exported    Critical 
-21   Vtestlunmap22         0      1 GB        1 GB        Exported    Critical 
-22   Vtestlunmap23         0      1 GB        1 GB        Exported    Critical 
-23   Vtestlunmap24         0      1 GB        1 GB        Exported    Critical 
-24   Vtestlunmap25         0      1 GB        1 GB        Exported    Critical 
-25   Vtestlunmap26         0      1 GB        1 GB        Exported    Critical 
-26   Vtestlunmap27         0      1 GB        1 GB        Exported    Critical 
-27   Vtestlunmap28         0      1 GB        1 GB        Exported    Critical 
-28   Vtestlunmap29         0      1 GB        1 GB        Exported    Critical 
-29   Vtestlunmap30         0      1 GB        1 GB        Exported    Critical 
-30   Vtestlunmap31         0      1 GB        1 GB        Exported    Critical 
-31   Vtestlunmap32         0      1 GB        1 GB        Exported    Critical 
-32   Vtestlunmap33         0      1 GB        1 GB        Exported    Critical 
-33   Vtestlunmap34         0      1 GB        1 GB        Exported    Critical 
-
-administrator@cli> 
-lunmap -a dellun -p volume -i 2 -l 33
-
-administrator@cli> 
-lunmap 2
-Error (0x2013): Invalid setting parameters
-invalid setting: 2
-
-administrator@cli> 
- lunmap -a dellun -p snapshot 
-snapshot
-===============================================================================
-Id     Name                 Type       SrcId UsedCap    Status      OpStatus  
-===============================================================================
-0      testlunmapss1        volume     33    8.19 KB    Exported    Critical   
-1      testlunmapss2        volume     33    0 Byte     Exported    Critical   
-2      testlunmapss3        volume     33    0 Byte     Exported    Critical   
-3      testlunmapss4        volume     33    0 Byte     Exported    Critical   
-4      testlunmapss5        volume     33    0 Byte     Exported    Critical   
-5      testlunmapss6        volume     33    0 Byte     Exported    Critical   
-6      testlunmapss7        volume     33    0 Byte     Exported    Critical   
-7      testlunmapss8        volume     33    0 Byte     Exported    Critical   
-8      testlunmapss9        volume     33    0 Byte     Exported    Critical   
-9      testlunmapss10       volume     33    0 Byte     Exported    Critical   
-
-administrator@cli> 
-lunmap -a dellun -p snapshot -i 1 -l 0
-
-administrator@cli> 
-lunmap -i1
-Error (0x2012): Invalid option for the command or the action
-invalid option: -i1
-
-administrator@cli> 
-lunmap -a dellun -p snapshot -i 1 -l 1
-
-administrator@cli> 
-lunmap -i1
-Error (0x2012): Invalid option for the command or the action
-invalid option: -i1
-
-administrator@cli> 
-lunmap -a dellun -p snapshot -i 1 -l 2
-
-administrator@cli> 
-lunmap -i1
-Error (0x2012): Invalid option for the command or the action
-invalid option: -i1
-
-administrator@cli> 
-lunmap -a dellun -p snapshot -i 1 -l 3
-
-administrator@cli> 
-lunmap -i1
-Error (0x2012): Invalid option for the command or the action
-invalid option: -i1
-
-administrator@cli> 
-lunmap -a dellun -p snapshot -i 1 -l 4
-
-administrator@cli> 
-lunmap -i1
-Error (0x2012): Invalid option for the command or the action
-invalid option: -i1
-
-administrator@cli> 
-lunmap -a dellun -p snapshot -i 1 -l 5
-
-administrator@cli> 
-lunmap -i1
-Error (0x2012): Invalid option for the command or the action
-invalid option: -i1
-
-administrator@cli> 
-lunmap -a dellun -p snapshot -i 1 -l 6
-
-administrator@cli> 
-lunmap -i1
-Error (0x2012): Invalid option for the command or the action
-invalid option: -i1
-
-administrator@cli> 
-lunmap -a dellun -p snapshot -i 1 -l 7
-
-administrator@cli> 
-lunmap -i1
-Error (0x2012): Invalid option for the command or the action
-invalid option: -i1
-
-administrator@cli> 
-lunmap -a dellun -p snapshot -i 1 -l 8
-
-administrator@cli> 
-lunmap -i1
-Error (0x2012): Invalid option for the command or the action
-invalid option: -i1
-
-administrator@cli> 
-lunmap -a dellun -p snapshot -i 1 -l 9
-
-administrator@cli> 
-lunmap -i1
-Error (0x2012): Invalid option for the command or the action
-invalid option: -i1
-
-administrator@cli> 
- lunmap -a dellun -p clone 
-clone
-===============================================================================
-Id   Name            Type       SrcId TotalCap   UsedCap    Status     OpStatus
-===============================================================================
-0    testlunmapcl1   volume     9     1 GB       1.02 KB    Exported   Critica 
-                                                                       l       
-1    testlunmapcl2   volume     9     1 GB       1.02 KB    Exported   Critica 
-                                                                       l       
-2    testlunmapcl3   volume     9     1 GB       1.02 KB    Exported   Critica 
-                                                                       l       
-3    testlunmapcl4   volume     9     1 GB       1.02 KB    Exported   Critica 
-                                                                       l       
-4    testlunmapcl5   volume     9     1 GB       1.02 KB    Exported   Critica 
-                                                                       l       
-5    testlunmapcl6   volume     9     1 GB       1.02 KB    Exported   Critica 
-                                                                       l       
-6    testlunmapcl7   volume     9     1 GB       1.02 KB    Exported   Critica 
-                                                                       l       
-7    testlunmapcl8   volume     9     1 GB       1.02 KB    Exported   Critica 
-                                                                       l       
-8    testlunmapcl9   volume     9     1 GB       1.02 KB    Exported   Critica 
-                                                                       l       
-9    testlunmapcl10  volume     9     1 GB       1.02 KB    Exported   Critica 
-                                                                       l       
-
-administrator@cli> 
-lunmap -a dellun -p clone -i 1 -l 0
-
-administrator@cli> 
-lunmap -i 1
-LUN Mapping Type : initiator
-LUN mapping and masking : Enabled
-
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
-1001                      1                        clone                       
-1002                      2                        clone                       
-1003                      3                        clone                       
-1004                      4                        clone                       
-1005                      5                        clone                       
-1006                      6                        clone                       
-1007                      7                        clone                       
-1008                      8                        clone                       
-1009                      9                        clone                       
--------------------------------------------------------------------------------
-initiator: 2                            Type: iscsi
-Name: test.lunmapadd2.com
-
-===============================================================================
-Lun                       Sid                     Type                         
-===============================================================================
-512                       1                       volume                       
-513                       2                       volume                       
-514                       3                       volume                       
-515                       4                       volume                       
-516                       5                       volume                       
-517                       6                       volume                       
-518                       7                       volume                       
-519                       8                       volume                       
-520                       9                       volume                       
-521                       10                      volume                       
-522                       11                      volume                       
-523                       12                      volume                       
-524                       13                      volume                       
-525                       14                      volume                       
-526                       15                      volume                       
-527                       16                      volume                       
-528                       17                      volume                       
-529                       18                      volume                       
-530                       19                      volume                       
-531                       20                      volume                       
-532                       21                      volume                       
-533                       22                      volume                       
-534                       23                      volume                       
-535                       24                      volume                       
-536                       25                      volume                       
-537                       26                      volume                       
-538                       27                      volume                       
-539                       28                      volume                       
-540                       29                      volume                       
-541                       30                      volume                       
-542                       31                      volume                       
-543                       32                      volume                       
-1022                      0                       snapshot                     
--------------------------------------------------------------------------------
-initiator: 3                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-11
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-1                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 4                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-12
-
-===============================================================================
-Lun                        Sid                      Type                       
-===============================================================================
-1023                       0                        clone                      
-
-administrator@cli> 
-Fail: lunmap -a dellun -p clone -i 1 -l 0
-lunmap -a dellun -p clone -i 1 -l 1
-
-administrator@cli> 
-lunmap -i 1
-LUN Mapping Type : initiator
-LUN mapping and masking : Enabled
-
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
-1002                      2                        clone                       
-1003                      3                        clone                       
-1004                      4                        clone                       
-1005                      5                        clone                       
-1006                      6                        clone                       
-1007                      7                        clone                       
-1008                      8                        clone                       
-1009                      9                        clone                       
--------------------------------------------------------------------------------
-initiator: 2                            Type: iscsi
-Name: test.lunmapadd2.com
-
-===============================================================================
-Lun                       Sid                     Type                         
-===============================================================================
-512                       1                       volume                       
-513                       2                       volume                       
-514                       3                       volume                       
-515                       4                       volume                       
-516                       5                       volume                       
-517                       6                       volume                       
-518                       7                       volume                       
-519                       8                       volume                       
-520                       9                       volume                       
-521                       10                      volume                       
-522                       11                      volume                       
-523                       12                      volume                       
-524                       13                      volume                       
-525                       14                      volume                       
-526                       15                      volume                       
-527                       16                      volume                       
-528                       17                      volume                       
-529                       18                      volume                       
-530                       19                      volume                       
-531                       20                      volume                       
-532                       21                      volume                       
-533                       22                      volume                       
-534                       23                      volume                       
-535                       24                      volume                       
-536                       25                      volume                       
-537                       26                      volume                       
-538                       27                      volume                       
-539                       28                      volume                       
-540                       29                      volume                       
-541                       30                      volume                       
-542                       31                      volume                       
-543                       32                      volume                       
-1022                      0                       snapshot                     
--------------------------------------------------------------------------------
-initiator: 3                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-11
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-1                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 4                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-12
-
-===============================================================================
-Lun                        Sid                      Type                       
-===============================================================================
-1023                       0                        clone                      
-
-administrator@cli> 
-Fail: lunmap -a dellun -p clone -i 1 -l 1
-lunmap -a dellun -p clone -i 1 -l 2
-
-administrator@cli> 
-lunmap -i 1
-LUN Mapping Type : initiator
-LUN mapping and masking : Enabled
-
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
-1003                      3                        clone                       
-1004                      4                        clone                       
-1005                      5                        clone                       
-1006                      6                        clone                       
-1007                      7                        clone                       
-1008                      8                        clone                       
-1009                      9                        clone                       
--------------------------------------------------------------------------------
-initiator: 2                            Type: iscsi
-Name: test.lunmapadd2.com
-
-===============================================================================
-Lun                       Sid                     Type                         
-===============================================================================
-512                       1                       volume                       
-513                       2                       volume                       
-514                       3                       volume                       
-515                       4                       volume                       
-516                       5                       volume                       
-517                       6                       volume                       
-518                       7                       volume                       
-519                       8                       volume                       
-520                       9                       volume                       
-521                       10                      volume                       
-522                       11                      volume                       
-523                       12                      volume                       
-524                       13                      volume                       
-525                       14                      volume                       
-526                       15                      volume                       
-527                       16                      volume                       
-528                       17                      volume                       
-529                       18                      volume                       
-530                       19                      volume                       
-531                       20                      volume                       
-532                       21                      volume                       
-533                       22                      volume                       
-534                       23                      volume                       
-535                       24                      volume                       
-536                       25                      volume                       
-537                       26                      volume                       
-538                       27                      volume                       
-539                       28                      volume                       
-540                       29                      volume                       
-541                       30                      volume                       
-542                       31                      volume                       
-543                       32                      volume                       
-1022                      0                       snapshot                     
--------------------------------------------------------------------------------
-initiator: 3                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-11
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-1                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 4                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-12
-
-===============================================================================
-Lun                        Sid                      Type                       
-===============================================================================
-1023                       0                        clone                      
-
-administrator@cli> 
-Fail: lunmap -a dellun -p clone -i 1 -l 2
-lunmap -a dellun -p clone -i 1 -l 3
-
-administrator@cli> 
-lunmap -i 1
-LUN Mapping Type : initiator
-LUN mapping and masking : Enabled
-
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
-1004                      4                        clone                       
-1005                      5                        clone                       
-1006                      6                        clone                       
-1007                      7                        clone                       
-1008                      8                        clone                       
-1009                      9                        clone                       
--------------------------------------------------------------------------------
-initiator: 2                            Type: iscsi
-Name: test.lunmapadd2.com
-
-===============================================================================
-Lun                       Sid                     Type                         
-===============================================================================
-512                       1                       volume                       
-513                       2                       volume                       
-514                       3                       volume                       
-515                       4                       volume                       
-516                       5                       volume                       
-517                       6                       volume                       
-518                       7                       volume                       
-519                       8                       volume                       
-520                       9                       volume                       
-521                       10                      volume                       
-522                       11                      volume                       
-523                       12                      volume                       
-524                       13                      volume                       
-525                       14                      volume                       
-526                       15                      volume                       
-527                       16                      volume                       
-528                       17                      volume                       
-529                       18                      volume                       
-530                       19                      volume                       
-531                       20                      volume                       
-532                       21                      volume                       
-533                       22                      volume                       
-534                       23                      volume                       
-535                       24                      volume                       
-536                       25                      volume                       
-537                       26                      volume                       
-538                       27                      volume                       
-539                       28                      volume                       
-540                       29                      volume                       
-541                       30                      volume                       
-542                       31                      volume                       
-543                       32                      volume                       
-1022                      0                       snapshot                     
--------------------------------------------------------------------------------
-initiator: 3                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-11
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-1                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 4                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-12
-
-===============================================================================
-Lun                        Sid                      Type                       
-===============================================================================
-1023                       0                        clone                      
-
-administrator@cli> 
-Fail: lunmap -a dellun -p clone -i 1 -l 3
-lunmap -a dellun -p clone -i 1 -l 4
-
-administrator@cli> 
-lunmap -i 1
-LUN Mapping Type : initiator
-LUN mapping and masking : Enabled
-
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
-1005                      5                        clone                       
-1006                      6                        clone                       
-1007                      7                        clone                       
-1008                      8                        clone                       
-1009                      9                        clone                       
--------------------------------------------------------------------------------
-initiator: 2                            Type: iscsi
-Name: test.lunmapadd2.com
-
-===============================================================================
-Lun                       Sid                     Type                         
-===============================================================================
-512                       1                       volume                       
-513                       2                       volume                       
-514                       3                       volume                       
-515                       4                       volume                       
-516                       5                       volume                       
-517                       6                       volume                       
-518                       7                       volume                       
-519                       8                       volume                       
-520                       9                       volume                       
-521                       10                      volume                       
-522                       11                      volume                       
-523                       12                      volume                       
-524                       13                      volume                       
-525                       14                      volume                       
-526                       15                      volume                       
-527                       16                      volume                       
-528                       17                      volume                       
-529                       18                      volume                       
-530                       19                      volume                       
-531                       20                      volume                       
-532                       21                      volume                       
-533                       22                      volume                       
-534                       23                      volume                       
-535                       24                      volume                       
-536                       25                      volume                       
-537                       26                      volume                       
-538                       27                      volume                       
-539                       28                      volume                       
-540                       29                      volume                       
-541                       30                      volume                       
-542                       31                      volume                       
-543                       32                      volume                       
-1022                      0                       snapshot                     
--------------------------------------------------------------------------------
-initiator: 3                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-11
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-1                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 4                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-12
-
-===============================================================================
-Lun                        Sid                      Type                       
-===============================================================================
-1023                       0                        clone                      
-
-administrator@cli> 
-Fail: lunmap -a dellun -p clone -i 1 -l 4
-lunmap -a dellun -p clone -i 1 -l 5
-
-administrator@cli> 
-lunmap -i 1
-LUN Mapping Type : initiator
-LUN mapping and masking : Enabled
-
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
-1006                      6                        clone                       
-1007                      7                        clone                       
-1008                      8                        clone                       
-1009                      9                        clone                       
--------------------------------------------------------------------------------
-initiator: 2                            Type: iscsi
-Name: test.lunmapadd2.com
-
-===============================================================================
-Lun                       Sid                     Type                         
-===============================================================================
-512                       1                       volume                       
-513                       2                       volume                       
-514                       3                       volume                       
-515                       4                       volume                       
-516                       5                       volume                       
-517                       6                       volume                       
-518                       7                       volume                       
-519                       8                       volume                       
-520                       9                       volume                       
-521                       10                      volume                       
-522                       11                      volume                       
-523                       12                      volume                       
-524                       13                      volume                       
-525                       14                      volume                       
-526                       15                      volume                       
-527                       16                      volume                       
-528                       17                      volume                       
-529                       18                      volume                       
-530                       19                      volume                       
-531                       20                      volume                       
-532                       21                      volume                       
-533                       22                      volume                       
-534                       23                      volume                       
-535                       24                      volume                       
-536                       25                      volume                       
-537                       26                      volume                       
-538                       27                      volume                       
-539                       28                      volume                       
-540                       29                      volume                       
-541                       30                      volume                       
-542                       31                      volume                       
-543                       32                      volume                       
-1022                      0                       snapshot                     
--------------------------------------------------------------------------------
-initiator: 3                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-11
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-1                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 4                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-12
-
-===============================================================================
-Lun                        Sid                      Type                       
-===============================================================================
-1023                       0                        clone                      
-
-administrator@cli> 
-Fail: lunmap -a dellun -p clone -i 1 -l 5
-lunmap -a dellun -p clone -i 1 -l 6
-
-administrator@cli> 
-lunmap -i 1
-LUN Mapping Type : initiator
-LUN mapping and masking : Enabled
-
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
-1007                      7                        clone                       
-1008                      8                        clone                       
-1009                      9                        clone                       
--------------------------------------------------------------------------------
-initiator: 2                            Type: iscsi
-Name: test.lunmapadd2.com
-
-===============================================================================
-Lun                       Sid                     Type                         
-===============================================================================
-512                       1                       volume                       
-513                       2                       volume                       
-514                       3                       volume                       
-515                       4                       volume                       
-516                       5                       volume                       
-517                       6                       volume                       
-518                       7                       volume                       
-519                       8                       volume                       
-520                       9                       volume                       
-521                       10                      volume                       
-522                       11                      volume                       
-523                       12                      volume                       
-524                       13                      volume                       
-525                       14                      volume                       
-526                       15                      volume                       
-527                       16                      volume                       
-528                       17                      volume                       
-529                       18                      volume                       
-530                       19                      volume                       
-531                       20                      volume                       
-532                       21                      volume                       
-533                       22                      volume                       
-534                       23                      volume                       
-535                       24                      volume                       
-536                       25                      volume                       
-537                       26                      volume                       
-538                       27                      volume                       
-539                       28                      volume                       
-540                       29                      volume                       
-541                       30                      volume                       
-542                       31                      volume                       
-543                       32                      volume                       
-1022                      0                       snapshot                     
--------------------------------------------------------------------------------
-initiator: 3                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-11
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-1                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 4                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-12
-
-===============================================================================
-Lun                        Sid                      Type                       
-===============================================================================
-1023                       0                        clone                      
-
-administrator@cli> 
-Fail: lunmap -a dellun -p clone -i 1 -l 6
-lunmap -a dellun -p clone -i 1 -l 7
-
-administrator@cli> 
-lunmap -i 1
-LUN Mapping Type : initiator
-LUN mapping and masking : Enabled
-
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
-1008                      8                        clone                       
-1009                      9                        clone                       
--------------------------------------------------------------------------------
-initiator: 2                            Type: iscsi
-Name: test.lunmapadd2.com
-
-===============================================================================
-Lun                       Sid                     Type                         
-===============================================================================
-512                       1                       volume                       
-513                       2                       volume                       
-514                       3                       volume                       
-515                       4                       volume                       
-516                       5                       volume                       
-517                       6                       volume                       
-518                       7                       volume                       
-519                       8                       volume                       
-520                       9                       volume                       
-521                       10                      volume                       
-522                       11                      volume                       
-523                       12                      volume                       
-524                       13                      volume                       
-525                       14                      volume                       
-526                       15                      volume                       
-527                       16                      volume                       
-528                       17                      volume                       
-529                       18                      volume                       
-530                       19                      volume                       
-531                       20                      volume                       
-532                       21                      volume                       
-533                       22                      volume                       
-534                       23                      volume                       
-535                       24                      volume                       
-536                       25                      volume                       
-537                       26                      volume                       
-538                       27                      volume                       
-539                       28                      volume                       
-540                       29                      volume                       
-541                       30                      volume                       
-542                       31                      volume                       
-543                       32                      volume                       
-1022                      0                       snapshot                     
--------------------------------------------------------------------------------
-initiator: 3                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-11
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-1                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 4                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-12
-
-===============================================================================
-Lun                        Sid                      Type                       
-===============================================================================
-1023                       0                        clone                      
-
-administrator@cli> 
-Fail: lunmap -a dellun -p clone -i 1 -l 7
-lunmap -a dellun -p clone -i 1 -l 8
-
-administrator@cli> 
-lunmap -i 1
-LUN Mapping Type : initiator
-LUN mapping and masking : Enabled
-
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
-1009                      9                        clone                       
--------------------------------------------------------------------------------
-initiator: 2                            Type: iscsi
-Name: test.lunmapadd2.com
-
-===============================================================================
-Lun                       Sid                     Type                         
-===============================================================================
-512                       1                       volume                       
-513                       2                       volume                       
-514                       3                       volume                       
-515                       4                       volume                       
-516                       5                       volume                       
-517                       6                       volume                       
-518                       7                       volume                       
-519                       8                       volume                       
-520                       9                       volume                       
-521                       10                      volume                       
-522                       11                      volume                       
-523                       12                      volume                       
-524                       13                      volume                       
-525                       14                      volume                       
-526                       15                      volume                       
-527                       16                      volume                       
-528                       17                      volume                       
-529                       18                      volume                       
-530                       19                      volume                       
-531                       20                      volume                       
-532                       21                      volume                       
-533                       22                      volume                       
-534                       23                      volume                       
-535                       24                      volume                       
-536                       25                      volume                       
-537                       26                      volume                       
-538                       27                      volume                       
-539                       28                      volume                       
-540                       29                      volume                       
-541                       30                      volume                       
-542                       31                      volume                       
-543                       32                      volume                       
-1022                      0                       snapshot                     
--------------------------------------------------------------------------------
-initiator: 3                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-11
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-1                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 4                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-12
-
-===============================================================================
-Lun                        Sid                      Type                       
-===============================================================================
-1023                       0                        clone                      
-
-administrator@cli> 
-Fail: lunmap -a dellun -p clone -i 1 -l 8
-lunmap -a dellun -p clone -i 1 -l 9
-
-administrator@cli> 
-lunmap -i 1
-LUN Mapping Type : initiator
-LUN mapping and masking : Enabled
-
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 2                            Type: iscsi
-Name: test.lunmapadd2.com
-
-===============================================================================
-Lun                       Sid                     Type                         
-===============================================================================
-512                       1                       volume                       
-513                       2                       volume                       
-514                       3                       volume                       
-515                       4                       volume                       
-516                       5                       volume                       
-517                       6                       volume                       
-518                       7                       volume                       
-519                       8                       volume                       
-520                       9                       volume                       
-521                       10                      volume                       
-522                       11                      volume                       
-523                       12                      volume                       
-524                       13                      volume                       
-525                       14                      volume                       
-526                       15                      volume                       
-527                       16                      volume                       
-528                       17                      volume                       
-529                       18                      volume                       
-530                       19                      volume                       
-531                       20                      volume                       
-532                       21                      volume                       
-533                       22                      volume                       
-534                       23                      volume                       
-535                       24                      volume                       
-536                       25                      volume                       
-537                       26                      volume                       
-538                       27                      volume                       
-539                       28                      volume                       
-540                       29                      volume                       
-541                       30                      volume                       
-542                       31                      volume                       
-543                       32                      volume                       
-1022                      0                       snapshot                     
--------------------------------------------------------------------------------
-initiator: 3                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-11
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-1                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 4                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-12
-
-===============================================================================
-Lun                        Sid                      Type                       
-===============================================================================
-1023                       0                        clone                      
-
-administrator@cli> 
-Fail: lunmap -a dellun -p clone -i 1 -l 9
-Verify lunmap -a enable when it enable
-lunmap -a enable
-
-administrator@cli> 
-lunmap -a enable
-
-administrator@cli> 
-lunmap
-LUN Mapping Type : initiator
-LUN mapping and masking : Enabled
-
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 2                            Type: iscsi
-Name: test.lunmapadd2.com
-
-===============================================================================
-Lun                       Sid                     Type                         
-===============================================================================
-512                       1                       volume                       
-513                       2                       volume                       
-514                       3                       volume                       
-515                       4                       volume                       
-516                       5                       volume                       
-517                       6                       volume                       
-518                       7                       volume                       
-519                       8                       volume                       
-520                       9                       volume                       
-521                       10                      volume                       
-522                       11                      volume                       
-523                       12                      volume                       
-524                       13                      volume                       
-525                       14                      volume                       
-526                       15                      volume                       
-527                       16                      volume                       
-528                       17                      volume                       
-529                       18                      volume                       
-530                       19                      volume                       
-531                       20                      volume                       
-532                       21                      volume                       
-533                       22                      volume                       
-534                       23                      volume                       
-535                       24                      volume                       
-536                       25                      volume                       
-537                       26                      volume                       
-538                       27                      volume                       
-539                       28                      volume                       
-540                       29                      volume                       
-541                       30                      volume                       
-542                       31                      volume                       
-543                       32                      volume                       
-1022                      0                       snapshot                     
--------------------------------------------------------------------------------
-initiator: 3                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-11
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-1                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 4                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-12
-
-===============================================================================
-Lun                        Sid                      Type                       
-===============================================================================
-1023                       0                        clone                      
-
-administrator@cli> 
-Verify lunmap -a enable when it disable
-lunmap -a disable
-
-administrator@cli> 
-lunmap -a enable
-
-administrator@cli> 
-lunmap
-LUN Mapping Type : initiator
-LUN mapping and masking : Enabled
-
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 2                            Type: iscsi
-Name: test.lunmapadd2.com
-
-===============================================================================
-Lun                       Sid                     Type                         
-===============================================================================
-512                       1                       volume                       
-513                       2                       volume                       
-514                       3                       volume                       
-515                       4                       volume                       
-516                       5                       volume                       
-517                       6                       volume                       
-518                       7                       volume                       
-519                       8                       volume                       
-520                       9                       volume                       
-521                       10                      volume                       
-522                       11                      volume                       
-523                       12                      volume                       
-524                       13                      volume                       
-525                       14                      volume                       
-526                       15                      volume                       
-527                       16                      volume                       
-528                       17                      volume                       
-529                       18                      volume                       
-530                       19                      volume                       
-531                       20                      volume                       
-532                       21                      volume                       
-533                       22                      volume                       
-534                       23                      volume                       
-535                       24                      volume                       
-536                       25                      volume                       
-537                       26                      volume                       
-538                       27                      volume                       
-539                       28                      volume                       
-540                       29                      volume                       
-541                       30                      volume                       
-542                       31                      volume                       
-543                       32                      volume                       
-1022                      0                       snapshot                     
--------------------------------------------------------------------------------
-initiator: 3                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-11
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-1                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 4                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-12
-
-===============================================================================
-Lun                        Sid                      Type                       
-===============================================================================
-1023                       0                        clone                      
-
-administrator@cli> 
-lunmap
-LUN Mapping Type : initiator
-LUN mapping and masking : Enabled
-
--------------------------------------------------------------------------------
-initiator: 1                            Type: iscsi
-Name: test.lunmapadd1.com
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-0                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 2                            Type: iscsi
-Name: test.lunmapadd2.com
-
-===============================================================================
-Lun                       Sid                     Type                         
-===============================================================================
-512                       1                       volume                       
-513                       2                       volume                       
-514                       3                       volume                       
-515                       4                       volume                       
-516                       5                       volume                       
-517                       6                       volume                       
-518                       7                       volume                       
-519                       8                       volume                       
-520                       9                       volume                       
-521                       10                      volume                       
-522                       11                      volume                       
-523                       12                      volume                       
-524                       13                      volume                       
-525                       14                      volume                       
-526                       15                      volume                       
-527                       16                      volume                       
-528                       17                      volume                       
-529                       18                      volume                       
-530                       19                      volume                       
-531                       20                      volume                       
-532                       21                      volume                       
-533                       22                      volume                       
-534                       23                      volume                       
-535                       24                      volume                       
-536                       25                      volume                       
-537                       26                      volume                       
-538                       27                      volume                       
-539                       28                      volume                       
-540                       29                      volume                       
-541                       30                      volume                       
-542                       31                      volume                       
-543                       32                      volume                       
-1022                      0                       snapshot                     
--------------------------------------------------------------------------------
-initiator: 3                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-11
-
-===============================================================================
-Lun                       Sid                      Type                        
-===============================================================================
-1                         0                        volume                      
--------------------------------------------------------------------------------
-initiator: 4                            Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-12
-
-===============================================================================
-Lun                        Sid                      Type                       
-===============================================================================
-1023                       0                        clone                      
-
-administrator@cli> 
-lunmap -a del -i 1
-
-administrator@cli> 
-lunmap -a del -i 2
-
-administrator@cli> 
-lunmap -a del -i 3
-
-administrator@cli> 
-lunmap -a del -i 4
-
-administrator@cli> 
-lunmap
-LUN Mapping Type : initiator
-LUN mapping and masking : Enabled
-
-No LUN mapping entry available
-
-administrator@cli> 
-Verify lunmap -a disable when it enable
-lunmap -a enable
-
-administrator@cli> 
-lunmap -a disable
-
-administrator@cli> 
-lunmap
-LUN Mapping Type : initiator
-LUN mapping and masking : Disabled
-
-No LUN mapping entry available
-
-administrator@cli> 
-Verify lunmap -a disable when it disable
-lunmap -a disable
-
-administrator@cli> 
-lunmap -a disable
-
-administrator@cli> 
-lunmap
-LUN Mapping Type : initiator
-LUN mapping and masking : Disabled
-
-No LUN mapping entry available
-
-administrator@cli> 
- Verify lunmap specify inexistent Id 
-initiator
--------------------------------------------------------------------------------
-Id: 0                                   Type: iscsi
-Name: a.b.com
--------------------------------------------------------------------------------
-Id: 1                                   Type: iscsi
-Name: test.lunmapadd1.com
--------------------------------------------------------------------------------
-Id: 2                                   Type: iscsi
-Name: test.lunmapadd2.com
--------------------------------------------------------------------------------
-Id: 3                                   Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-11
--------------------------------------------------------------------------------
-Id: 4                                   Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-12
--------------------------------------------------------------------------------
-Id: 5                                   Type: iscsi
-Name: iqn.1991-05.com.microsoft:travis-pc
--------------------------------------------------------------------------------
-Id: 6                                   Type: iscsi
-Name: iqn.1991-05.com.microsoft:zach-pc
-
-administrator@cli> 
-volume
-===============================================================================
-Id   Name                  PoolId TotalCap    UsedCap     Status      OpStatus 
-===============================================================================
-0    Vtestlunmap1          0      1 GB        1 GB        Exported    Critical 
-1    Vtestlunmap2          0      1 GB        1 GB        Exported    Critical 
-2    Vtestlunmap3          0      1 GB        1 GB        Exported    Critical 
-3    Vtestlunmap4          0      1 GB        1 GB        Exported    Critical 
-4    Vtestlunmap5          0      1 GB        1 GB        Exported    Critical 
-5    Vtestlunmap6          0      1 GB        1 GB        Exported    Critical 
-6    Vtestlunmap7          0      1 GB        1 GB        Exported    Critical 
-7    Vtestlunmap8          0      1 GB        1 GB        Exported    Critical 
-8    Vtestlunmap9          0      1 GB        1 GB        Exported    Critical 
-9    Vtestlunmap10         0      1 GB        1 GB        Exported    Critical 
-10   Vtestlunmap11         0      1 GB        1 GB        Exported    Critical 
-11   Vtestlunmap12         0      1 GB        1 GB        Exported    Critical 
-12   Vtestlunmap13         0      1 GB        1 GB        Exported    Critical 
-13   Vtestlunmap14         0      1 GB        1 GB        Exported    Critical 
-14   Vtestlunmap15         0      1 GB        1 GB        Exported    Critical 
-15   Vtestlunmap16         0      1 GB        1 GB        Exported    Critical 
-16   Vtestlunmap17         0      1 GB        1 GB        Exported    Critical 
-17   Vtestlunmap18         0      1 GB        1 GB        Exported    Critical 
-18   Vtestlunmap19         0      1 GB        1 GB        Exported    Critical 
-19   Vtestlunmap20         0      1 GB        1 GB        Exported    Critical 
-20   Vtestlunmap21         0      1 GB        1 GB        Exported    Critical 
-21   Vtestlunmap22         0      1 GB        1 GB        Exported    Critical 
-22   Vtestlunmap23         0      1 GB        1 GB        Exported    Critical 
-23   Vtestlunmap24         0      1 GB        1 GB        Exported    Critical 
-24   Vtestlunmap25         0      1 GB        1 GB        Exported    Critical 
-25   Vtestlunmap26         0      1 GB        1 GB        Exported    Critical 
-26   Vtestlunmap27         0      1 GB        1 GB        Exported    Critical 
-27   Vtestlunmap28         0      1 GB        1 GB        Exported    Critical 
-28   Vtestlunmap29         0      1 GB        1 GB        Exported    Critical 
-29   Vtestlunmap30         0      1 GB        1 GB        Exported    Critical 
-30   Vtestlunmap31         0      1 GB        1 GB        Exported    Critical 
-31   Vtestlunmap32         0      1 GB        1 GB        Exported    Critical 
-32   Vtestlunmap33         0      1 GB        1 GB        Exported    Critical 
-33   Vtestlunmap34         0      1 GB        1 GB        Exported    Critical 
-
-administrator@cli> 
-lunmap -a add -i 7 -p volume -l 33 -m 0
-Error (0x498B5202): Invalid initiator index
-
-administrator@cli> 
-lunmap -a add -i 6 -p volume -l 34 -m 0
-Error (0x4100102): Empty query result, please check input parameters. Volume id=[34] is not existed.
-
-administrator@cli> 
- lunmap -a add -i 6 -p volume -l 34 -m 0
-Verify lunmap invalid option
- Verify lunmap -x
-lunmap -x
-Error (0x2012): Invalid option for the command or the action
-invalid option: -x
-
-administrator@cli> 
- Verify lunmap -a list -x
-lunmap -a list -x
-Error (0x2012): Invalid option for the command or the action
-invalid option: -x
-
-administrator@cli> 
- Verify lunmap -a add -x
-lunmap -a add -x
-Error (0x2012): Invalid option for the command or the action
-invalid option: -x
-
-administrator@cli> 
- Verify lunmap -a del -x
-lunmap -a del -x
-Error (0x2012): Invalid option for the command or the action
-invalid option: -x
-
-administrator@cli> 
- Verify lunmap -a addlun -x
-lunmap -a addlun -x
-Error (0x2012): Invalid option for the command or the action
-invalid option: -x
-
-administrator@cli> 
- Verify lunmap -a dellun -x
-lunmap -a dellun -x
-Error (0x2012): Invalid option for the command or the action
-invalid option: -x
-
-administrator@cli> 
- Verify lunmap -a enable -x
-lunmap -a enable -x
-Error (0x2012): Invalid option for the command or the action
-invalid option: -x
-
-administrator@cli> 
- Verify lunmap -a disable -x
-lunmap -a disable -x
-Error (0x2012): Invalid option for the command or the action
-invalid option: -x
-
-administrator@cli> 
-Verify lunmap invalid parameters
- Verify lunmap test
-lunmap test
-Error (0x2013): Invalid setting parameters
-invalid setting: test
-
-administrator@cli> 
- Verify lunmap -a list test
-lunmap -a list test
-Error (0x2013): Invalid setting parameters
-invalid setting: test
-
-administrator@cli> 
- Verify lunmap -a add test
-lunmap -a add test
-Error (0x2013): Invalid setting parameters
-invalid setting: test
-
-administrator@cli> 
- Verify lunmap -a del test
-lunmap -a del test
-Error (0x2013): Invalid setting parameters
-invalid setting: test
-
-administrator@cli> 
- Verify lunmap -a addlun test
-lunmap -a addlun test
-Error (0x2013): Invalid setting parameters
-invalid setting: test
-
-administrator@cli> 
- Verify lunmap -a dellun test
-lunmap -a dellun test
-Error (0x2013): Invalid setting parameters
-invalid setting: test
-
-administrator@cli> 
- Verify lunmap -a enable test
-lunmap -a enable test
-Error (0x2013): Invalid setting parameters
-invalid setting: test
-
-administrator@cli> 
- Verify lunmap -a disable test
-lunmap -a disable test
-Error (0x2013): Invalid setting parameters
-invalid setting: test
-
-administrator@cli> 
-Verify lunmap missing parameters
- Verify lunmap -i
-lunmap -i
-Error (0x403): Missing parameter
--i: missing value
-
-administrator@cli> 
- Verify lunmap -a list -i
-lunmap -a list -i
-Error (0x403): Missing parameter
--i: missing value
-
-administrator@cli> 
- Verify lunmap -a add -i
-lunmap -a add -i
-Error (0x403): Missing parameter
--i: missing value
-
-administrator@cli> 
- Verify lunmap -a del -i
-lunmap -a del -i
-Error (0x403): Missing parameter
--i: missing value
-
-administrator@cli> 
- Verify lunmap -a addlun -i
-lunmap -a addlun -i
-Error (0x403): Missing parameter
--i: missing value
-
-administrator@cli> 
- Verify lunmap -a dellun -i
-lunmap -a dellun -i
-Error (0x403): Missing parameter
--i: missing value
-
-administrator@cli> 
-pool
-===============================================================================
-Id   Name                        TotalCap  UsedCap   FreeCap   OpStatus       
-===============================================================================
-0    testRb                      1.83 TB   35.08 GB  1.80 TB   Critical        
-
-administrator@cli> 
-volume
-===============================================================================
-Id   Name                  PoolId TotalCap    UsedCap     Status      OpStatus 
-===============================================================================
-0    Vtestlunmap1          0      1 GB        1 GB        Exported    Critical 
-1    Vtestlunmap2          0      1 GB        1 GB        Exported    Critical 
-2    Vtestlunmap3          0      1 GB        1 GB        Exported    Critical 
-3    Vtestlunmap4          0      1 GB        1 GB        Exported    Critical 
-4    Vtestlunmap5          0      1 GB        1 GB        Exported    Critical 
-5    Vtestlunmap6          0      1 GB        1 GB        Exported    Critical 
-6    Vtestlunmap7          0      1 GB        1 GB        Exported    Critical 
-7    Vtestlunmap8          0      1 GB        1 GB        Exported    Critical 
-8    Vtestlunmap9          0      1 GB        1 GB        Exported    Critical 
-9    Vtestlunmap10         0      1 GB        1 GB        Exported    Critical 
-10   Vtestlunmap11         0      1 GB        1 GB        Exported    Critical 
-11   Vtestlunmap12         0      1 GB        1 GB        Exported    Critical 
-12   Vtestlunmap13         0      1 GB        1 GB        Exported    Critical 
-13   Vtestlunmap14         0      1 GB        1 GB        Exported    Critical 
-14   Vtestlunmap15         0      1 GB        1 GB        Exported    Critical 
-15   Vtestlunmap16         0      1 GB        1 GB        Exported    Critical 
-16   Vtestlunmap17         0      1 GB        1 GB        Exported    Critical 
-17   Vtestlunmap18         0      1 GB        1 GB        Exported    Critical 
-18   Vtestlunmap19         0      1 GB        1 GB        Exported    Critical 
-19   Vtestlunmap20         0      1 GB        1 GB        Exported    Critical 
-20   Vtestlunmap21         0      1 GB        1 GB        Exported    Critical 
-21   Vtestlunmap22         0      1 GB        1 GB        Exported    Critical 
-22   Vtestlunmap23         0      1 GB        1 GB        Exported    Critical 
-23   Vtestlunmap24         0      1 GB        1 GB        Exported    Critical 
-24   Vtestlunmap25         0      1 GB        1 GB        Exported    Critical 
-25   Vtestlunmap26         0      1 GB        1 GB        Exported    Critical 
-26   Vtestlunmap27         0      1 GB        1 GB        Exported    Critical 
-27   Vtestlunmap28         0      1 GB        1 GB        Exported    Critical 
-28   Vtestlunmap29         0      1 GB        1 GB        Exported    Critical 
-29   Vtestlunmap30         0      1 GB        1 GB        Exported    Critical 
-30   Vtestlunmap31         0      1 GB        1 GB        Exported    Critical 
-31   Vtestlunmap32         0      1 GB        1 GB        Exported    Critical 
-32   Vtestlunmap33         0      1 GB        1 GB        Exported    Critical 
-33   Vtestlunmap34         0      1 GB        1 GB        Exported    Critical 
-
-administrator@cli> 
-volume -a del -i 0 -f
-Do you want to delete the volume? (y|n):[40D[40C[0m[?12l[?25h[?25l[40D[0m[J[0mDo you want to delete the volume? (y|n):[0my[41D[0m
-
-administrator@cli> 
-volume -a del -i 1 -f
-Do you want to delete the volume? (y|n):[40D[40C[0m[?12l[?25h[?25l[40D[0m[J[0mDo you want to delete the volume? (y|n):[0my[41D[0m
-
-administrator@cli> 
-volume -a del -i 2 -f
-Do you want to delete the volume? (y|n):[40D[40C[0m[?12l[?25h[?25l[40D[0m[J[0mDo you want to delete the volume? (y|n):[0my[41D[0m
-
-administrator@cli> 
-volume -a del -i 3 -f
-Do you want to delete the volume? (y|n):[40D[40C[0m[?12l[?25h[?25l[40D[0m[J[0mDo you want to delete the volume? (y|n):[0my[41D[0m
-
-administrator@cli> 
-volume -a del -i 4 -f
-Do you want to delete the volume? (y|n):[40D[40C[0m[?12l[?25h[?25l[40D[0m[J[0mDo you want to delete the volume? (y|n):[0my[41D[0m
-
-administrator@cli> 
-volume -a del -i 5 -f
-Do you want to delete the volume? (y|n):[40D[40C[0m[?12l[?25h[?25l[40D[0m[J[0mDo you want to delete the volume? (y|n):[0my[41D[0m
-
-administrator@cli> 
-volume -a del -i 6 -f
-Do you want to delete the volume? (y|n):[40D[40C[0m[?12l[?25h[?25l[40D[0m[J[0mDo you want to delete the volume? (y|n):[0my[41D[0m
-
-administrator@cli> 
-volume -a del -i 7 -f
-Do you want to delete the volume? (y|n):[40D[40C[0m[?12l[?25h[?25l[40D[0m[J[0mDo you want to delete the volume? (y|n):[0my[41D[0m
-
-administrator@cli> 
-volume -a del -i 8 -f
-Do you want to delete the volume? (y|n):[40D[40C[0m[?12l[?25h[?25l[40D[0m[J[0mDo you want to delete the volume? (y|n):[0my[41D[0m
-
-administrator@cli> 
-volume -a del -i 9 -f
-Do you want to delete the volume? (y|n):[40D[40C[0m[?12l[?25h[?25l[40D[0m[J[0mDo you want to delete the volume? (y|n):[0my[41D[0m
-
-administrator@cli> 
-volume -a del -i 10 -f
-Do you want to delete the volume? (y|n):[40D[40C[0m[?12l[?25h[?25l[40D[0m[J[0mDo you want to delete the volume? (y|n):[0my[41D[0m
-
-administrator@cli> 
-volume -a del -i 11 -f
-Do you want to delete the volume? (y|n):[40D[40C[0m[?12l[?25h[?25l[40D[0m[J[0mDo you want to delete the volume? (y|n):[0my[41D[0m
-
-administrator@cli> 
-volume -a del -i 12 -f
-Do you want to delete the volume? (y|n):[40D[40C[0m[?12l[?25h[?25l[40D[0m[J[0mDo you want to delete the volume? (y|n):[0my[41D[0m
-
-administrator@cli> 
-volume -a del -i 13 -f
-Do you want to delete the volume? (y|n):[40D[40C[0m[?12l[?25h[?25l[40D[0m[J[0mDo you want to delete the volume? (y|n):[0my[41D[0m
-
-administrator@cli> 
-volume -a del -i 14 -f
-Do you want to delete the volume? (y|n):[40D[40C[0m[?12l[?25h[?25l[40D[0m[J[0mDo you want to delete the volume? (y|n):[0my[41D[0m
-
-administrator@cli> 
-volume -a del -i 15 -f
-Do you want to delete the volume? (y|n):[40D[40C[0m[?12l[?25h[?25l[40D[0m[J[0mDo you want to delete the volume? (y|n):[0my[41D[0m
-
-administrator@cli> 
-volume -a del -i 16 -f
-Do you want to delete the volume? (y|n):[40D[40C[0m[?12l[?25h[?25l[40D[0m[J[0mDo you want to delete the volume? (y|n):[0my[41D[0m
-
-administrator@cli> 
-volume -a del -i 17 -f
-Do you want to delete the volume? (y|n):[40D[40C[0m[?12l[?25h[?25l[40D[0m[J[0mDo you want to delete the volume? (y|n):[0my[41D[0m
-
-administrator@cli> 
-volume -a del -i 18 -f
-Do you want to delete the volume? (y|n):[40D[40C[0m[?12l[?25h[?25l[40D[0m[J[0mDo you want to delete the volume? (y|n):[0my[41D[0m
-
-administrator@cli> 
-volume -a del -i 19 -f
-Do you want to delete the volume? (y|n):[40D[40C[0m[?12l[?25h[?25l[40D[0m[J[0mDo you want to delete the volume? (y|n):[0my[41D[0m
-
-administrator@cli> 
-volume -a del -i 20 -f
-Do you want to delete the volume? (y|n):[40D[40C[0m[?12l[?25h[?25l[40D[0m[J[0mDo you want to delete the volume? (y|n):[0my[41D[0m
-
-administrator@cli> 
-volume -a del -i 21 -f
-Do you want to delete the volume? (y|n):[40D[40C[0m[?12l[?25h[?25l[40D[0m[J[0mDo you want to delete the volume? (y|n):[0my[41D[0m
-
-administrator@cli> 
-volume -a del -i 22 -f
-Do you want to delete the volume? (y|n):[40D[40C[0m[?12l[?25h[?25l[40D[0m[J[0mDo you want to delete the volume? (y|n):[0my[41D[0m
-
-administrator@cli> 
-volume -a del -i 23 -f
-Do you want to delete the volume? (y|n):[40D[40C[0m[?12l[?25h[?25l[40D[0m[J[0mDo you want to delete the volume? (y|n):[0my[41D[0m
-
-administrator@cli> 
-volume -a del -i 24 -f
-Do you want to delete the volume? (y|n):[40D[40C[0m[?12l[?25h[?25l[40D[0m[J[0mDo you want to delete the volume? (y|n):[0my[41D[0m
-
-administrator@cli> 
-volume -a del -i 25 -f
-Do you want to delete the volume? (y|n):[40D[40C[0m[?12l[?25h[?25l[40D[0m[J[0mDo you want to delete the volume? (y|n):[0my[41D[0m
-
-administrator@cli> 
-volume -a del -i 26 -f
-Do you want to delete the volume? (y|n):[40D[40C[0m[?12l[?25h[?25l[40D[0m[J[0mDo you want to delete the volume? (y|n):[0my[41D[0m
-
-administrator@cli> 
-volume -a del -i 27 -f
-Do you want to delete the volume? (y|n):[40D[40C[0m[?12l[?25h[?25l[40D[0m[J[0mDo you want to delete the volume? (y|n):[0my[41D[0m
-
-administrator@cli> 
-volume -a del -i 28 -f
-Do you want to delete the volume? (y|n):[40D[40C[0m[?12l[?25h[?25l[40D[0m[J[0mDo you want to delete the volume? (y|n):[0my[41D[0m
-
-administrator@cli> 
-volume -a del -i 29 -f
-Do you want to delete the volume? (y|n):[40D[40C[0m[?12l[?25h[?25l[40D[0m[J[0mDo you want to delete the volume? (y|n):[0my[41D[0m
-
-administrator@cli> 
-volume -a del -i 30 -f
-Do you want to delete the volume? (y|n):[40D[40C[0m[?12l[?25h[?25l[40D[0m[J[0mDo you want to delete the volume? (y|n):[0my[41D[0m
-
-administrator@cli> 
-volume -a del -i 31 -f
-Do you want to delete the volume? (y|n):[40D[40C[0m[?12l[?25h[?25l[40D[0m[J[0mDo you want to delete the volume? (y|n):[0my[41D[0m
-
-administrator@cli> 
-volume -a del -i 32 -f
-Do you want to delete the volume? (y|n):[40D[40C[0m[?12l[?25h[?25l[40D[0m[J[0mDo you want to delete the volume? (y|n):[0my[41D[0m
-
-administrator@cli> 
-volume -a del -i 33 -f
-Do you want to delete the volume? (y|n):[40D[40C[0m[?12l[?25h[?25l[40D[0m[J[0mDo you want to delete the volume? (y|n):[0my[41D[0m
-
-administrator@cli> 
-initiator
--------------------------------------------------------------------------------
-Id: 0                                   Type: iscsi
-Name: a.b.com
--------------------------------------------------------------------------------
-Id: 1                                   Type: iscsi
-Name: test.lunmapadd1.com
--------------------------------------------------------------------------------
-Id: 2                                   Type: iscsi
-Name: test.lunmapadd2.com
--------------------------------------------------------------------------------
-Id: 3                                   Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-11
--------------------------------------------------------------------------------
-Id: 4                                   Type: fc
-Name: aa-aa-aa-aa-aa-aa-aa-12
--------------------------------------------------------------------------------
-Id: 5                                   Type: iscsi
-Name: iqn.1991-05.com.microsoft:travis-pc
--------------------------------------------------------------------------------
-Id: 6                                   Type: iscsi
-Name: iqn.1991-05.com.microsoft:zach-pc
-
-administrator@cli> 
-initiator -a del -i 1
-
-administrator@cli> 
-initiator -a del -i 2
-
-administrator@cli> 
-initiator -a del -i 3
-
-administrator@cli> 
-initiator -a del -i 4
 
 administrator@cli> 
