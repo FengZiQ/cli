@@ -219,8 +219,8 @@ def bvt_verifyBgaschedMod(c):
             if 'Error (' in result or ('OperationalStatus: '
                         + globalSettings[0][i]) not in checkResult or ('StartTime: '
                         + globalSettings[1][i]) not in checkResult or ('StartDay: '
-                        + globalSettings[2][i]) not in checkResult or (''
-                        + globalSettings[3][i]) not in checkResult:
+                        + globalSettings[2][i]) not in checkResult or ('EndOn: '
+                        + globalSettings[3][i][:4]) not in checkResult:
                 FailFlag = True
                 tolog('Fail: ' + 'bgasched -a mod -t ' + t + ' -s "status='
                              + globalSettings[0][i] + ',starttime='

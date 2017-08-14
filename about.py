@@ -13,7 +13,7 @@ def verifyAbout(c):
     FailFlag = False
     tolog("<b>Verify about</b>")
     result = SendCmd(c, "about")
-    if "Version: 12.00.9999.92" not in result:
+    if "Version: " not in result:
         FailFlag = True
         tolog('\n<font color="red">Fail: about</font>')
     if FailFlag:
