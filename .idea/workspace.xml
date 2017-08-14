@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e03c8b68-9846-4b80-8d73-1c116d755aef" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BuildVerification.py" afterPath="$PROJECT_DIR$/BuildVerification.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,18 +13,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="cli_autoscripts_zach.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/cli_autoscripts_zach.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="388" column="63" lean-forward="true" selection-start-line="388" selection-start-column="63" selection-end-line="388" selection-end-column="63" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -63,6 +52,7 @@
         <option value="$PROJECT_DIR$/lunmap.py" />
         <option value="$PROJECT_DIR$/bgasched.py" />
         <option value="$PROJECT_DIR$/rb.py" />
+        <option value="$PROJECT_DIR$/BuildVerification.py" />
       </list>
     </option>
   </component>
@@ -90,7 +80,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -105,11 +94,12 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../gui" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -321,9 +311,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1272" y="-8" width="1296" height="1040" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25809062" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26213592" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34178612" sideWeight="0.50323623" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42668137" sideWeight="0.49676377" order="2" side_tool="false" content_ui="tabs" />
@@ -367,6 +356,14 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/cli_autoscripts_zach.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cli_autoscripts_zach.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6992">
@@ -496,17 +493,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BuildVerification_jenkins.py">
+    <entry file="file://$PROJECT_DIR$/cli_autoscripts_zach.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4948">
-          <caret line="180" column="53" lean-forward="true" selection-start-line="180" selection-start-column="53" selection-end-line="180" selection-end-column="53" />
+        <state relative-caret-position="476">
+          <caret line="400" column="100" lean-forward="false" selection-start-line="400" selection-start-column="100" selection-end-line="400" selection-end-column="100" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cli_autoscripts_zach.py">
+    <entry file="file://$PROJECT_DIR$/BuildVerification.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="388" column="63" lean-forward="true" selection-start-line="388" selection-start-column="63" selection-end-line="388" selection-end-column="63" />
+        <state relative-caret-position="570">
+          <caret line="492" column="22" lean-forward="true" selection-start-line="492" selection-start-column="22" selection-end-line="492" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BuildVerification_jenkins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="414" column="0" lean-forward="false" selection-start-line="414" selection-start-column="0" selection-end-line="431" selection-end-column="64" />
           <folding />
         </state>
       </provider>

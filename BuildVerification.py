@@ -328,7 +328,6 @@ def BuildVerification(c):
             Failflaglist.append(factorydefaults.bvt_factorydefaultsService(c))
             Failflaglist.append(factorydefaults.bvt_factorydefaultsWebserver(c))
             Failflaglist.append(factorydefaults.bvt_factorydefaultsSnmp(c))
-            Failflaglist.append(factorydefaults.bvt_factorydefaultsSsh(c))
             Failflaglist.append(factorydefaults.bvt_factorydefaultsEmail(c))
             Failflaglist.append(factorydefaults.bvt_factorydefaultsNtp(c))
             Failflaglist.append(factorydefaults.bvt_factorydefaultsUser(c))
@@ -388,11 +387,11 @@ def BuildVerification(c):
             Failflaglist.append(isns.bvt_verifyIsnsInvalidParameters(c))
             Failflaglist.append(isns.bvt_verifyIsnsMissingParameters(c))
 
-            tolog("Start verifying logout")
-            import logout
-            Failflaglist.append(logout.bvt_verifyLogoutInvalidOption(c))
-            Failflaglist.append(logout.bvt_verifyLogoutInvalidParameters(c))
-            Failflaglist.append(logout.bvt_verifyLogout(c))
+            # tolog("Start verifying logout")
+            # import logout
+            # Failflaglist.append(logout.bvt_verifyLogoutInvalidOption(c))
+            # Failflaglist.append(logout.bvt_verifyLogoutInvalidParameters(c))
+            # Failflaglist.append(logout.bvt_verifyLogout(c))
 
             tolog("Start verifying lunmap")
             import lunmap
@@ -448,6 +447,25 @@ def BuildVerification(c):
             Failflaglist.append(smart.bvt_verifySmartInvalidOption(c))
             Failflaglist.append(smart.bvt_verifySmartInvalidParameters(c))
             Failflaglist.append(smart.bvt_verifySmartMissingParameters(c))
+
+            tolog('Start verifying bgasched')
+            import bgasched
+            Failflaglist.append(bgasched.bvt_verifyBgaschedAdd(c))
+            Failflaglist.append(bgasched.bvt_verifyBgaschedMod(c))
+            Failflaglist.append(bgasched.bvt_verifyBgaschedList(c))
+            Failflaglist.append(bgasched.bvt_verifyBgaschedDel(c))
+            Failflaglist.append(bgasched.bvt_verifyBgaschedHelp(c))
+            Failflaglist.append(bgasched.bvt_verifyBgaschedInvalidOption(c))
+            Failflaglist.append(bgasched.bvt_verifyBgaschedInvalidParameters(c))
+            Failflaglist.append(bgasched.bvt_verifyBgaschedMissingParameters(c))
+            Failflaglist.append(bgasched.bvt_clearUp(c))
+
+            tolog('Start verifying rb')
+            import rb
+            Failflaglist.append(rb.bvt_verifyRbStartAndStopAndList(c))
+            Failflaglist.append(rb.bvt_verifyRbInvalidOption(c))
+            Failflaglist.append(rb.bvt_verifyRbInvalidParameters(c))
+            Failflaglist.append(rb.bvt_verifyRbMissingParameters(c))
 
         else:
             tolog("Failed to connect server after ptiflash.")
