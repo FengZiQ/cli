@@ -137,36 +137,6 @@ def factorydefaultsPhydrv(c):
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
 
-def factorydefaultsSas(c):
-    FailFlag = False
-    result = SendCmd(c, 'factorydefaults -a restore -t sas')
-    if 'Error (' in result:
-        if 'Command is not supported by this product type' not in result:
-            FailFlag = True
-            tolog('<font color="red">Fail: factorydefaults -a restore -t sas </font>')
-
-    if FailFlag:
-        tolog('\n<font color="red">Fail: factorydefaults -a restore -t sas </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
-
-def factorydefaultsScsi(c):
-    FailFlag = False
-    result = SendCmd(c, 'factorydefaults -a restore -t scsi')
-    if 'Error (' in result:
-        if 'Command is not supported by this product type' not in result:
-            FailFlag = True
-            tolog('<font color="red">Fail: factorydefaults -a restore -t scsi </font>')
-
-    if FailFlag:
-        tolog('\n<font color="red">Fail: factorydefaults -a restore -t scsi </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
-
 def factorydefaultsSubsys(c):
     FailFlag = False
     if factorydefaultsRestoreSetting(c, 'subsys'):
@@ -458,26 +428,6 @@ def bvt_factorydefaultsPhydrv(c):
 
     return FailFlag
 
-def bvt_factorydefaultsSas(c):
-    FailFlag = False
-    result = SendCmd(c, 'factorydefaults -a restore -t sas')
-    if 'Error (' in result:
-        if 'Command is not supported by this product type' not in result:
-            FailFlag = True
-            tolog('Fail: factorydefaults -a restore -t sas ')
-
-    return FailFlag
-
-def bvt_factorydefaultsScsi(c):
-    FailFlag = False
-    result = SendCmd(c, 'factorydefaults -a restore -t scsi')
-    if 'Error (' in result:
-        if 'Command is not supported by this product type' not in result:
-            FailFlag = True
-            tolog('Fail: factorydefaults -a restore -t scsi ')
-
-    return FailFlag
-
 def bvt_factorydefaultsSubsys(c):
     FailFlag = False
     if factorydefaultsRestoreSetting(c, 'subsys'):
@@ -617,8 +567,6 @@ if __name__ == "__main__":
     bvt_factorydefaultsFc(c)
     bvt_factorydefaultsIscsi(c)
     bvt_factorydefaultsPhydrv(c)
-    bvt_factorydefaultsSas(c)
-    bvt_factorydefaultsScsi(c)
     bvt_factorydefaultsSubsys(c)
     bvt_factorydefaultsBgasched(c)
     bvt_factorydefaultsService(c)

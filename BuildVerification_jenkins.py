@@ -284,8 +284,6 @@ def BuildVerification(c):
         Failflaglist.append(factorydefaults.bvt_factorydefaultsFc(c))
         Failflaglist.append(factorydefaults.bvt_factorydefaultsIscsi(c))
         Failflaglist.append(factorydefaults.bvt_factorydefaultsPhydrv(c))
-        Failflaglist.append(factorydefaults.bvt_factorydefaultsSas(c))
-        Failflaglist.append(factorydefaults.bvt_factorydefaultsScsi(c))
         Failflaglist.append(factorydefaults.bvt_factorydefaultsSubsys(c))
         Failflaglist.append(factorydefaults.bvt_factorydefaultsBgasched(c))
         Failflaglist.append(factorydefaults.bvt_factorydefaultsService(c))
