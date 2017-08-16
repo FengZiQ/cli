@@ -175,8 +175,8 @@ if __name__ == "__main__":
             hastestsuite=False
             testsuite=tls.getTestCasesForTestSuite(testsuiteID,True,'full')
 
-            goonflag=False
             for testplan in tls.getProjectTestPlans(project['id']):
+                goonflag = False
                 # changed from 821 to 1426 on April 13th, 2017
                 if testplan["active"]=="1":
                     if execinputtype=="c" and "cli" in testplan["name"]:

@@ -40,13 +40,8 @@ def BuildVerification(c):
     print "currentbuild,",currentbuild
     print "tftpbuildnumber,",tftpbuildnumber
 
-    if ("13." in currentbuild and "13." in tftpbuildnumber) and (int(currentbuild.split(".")[-1])<int(tftpbuildnumber.split(".")[-1])) or (
-        "12.00" in currentbuild and "12.0" in tftpbuildnumber) and (
-        int(currentbuild.split(".")[-1]) < int(tftpbuildnumber.split(".")[-1])) or (
-        "12.01" in currentbuild and "12.1" in tftpbuildnumber) and (
-        int(currentbuild.split(".")[-1]) < int(tftpbuildnumber.split(".")[-1])) or (
-        "12.00" in currentbuild and "12.1" in tftpbuildnumber) or (
-        "12.02" in currentbuild and "12.2" in tftpbuildnumber) :
+    if (("13." in currentbuild and "13." in tftpbuildnumber) and (int(currentbuild.split(".")[-1])<int(tftpbuildnumber.split(".")[-1]))) or (("12.00" in currentbuild and "12.0" in tftpbuildnumber) and (int(currentbuild.split(".")[-1]) < int(tftpbuildnumber.split(".")[-1]))) or (("12.01" in currentbuild and "12.1" in tftpbuildnumber) and (int(currentbuild.split(".")[-1]) < int(tftpbuildnumber.split(".")[-1]))) or (("12.02" in currentbuild and "12.2" in tftpbuildnumber) and
+            (int(currentbuild.split(".")[-1]) < int(tftpbuildnumber.split(".")[-1]))) :
         #filename="d5k-multi-13_0_0000_"+tftpbuildnumber.split(".")[-1]
         if "13." in tftpbuildnumber:
 
@@ -92,7 +87,7 @@ def BuildVerification(c):
         if reconnectflag:
             tolog("Start verifying pool add")
             Failflaglist.append(pool.bvtpoolcreateandlist(c,1))
-            
+
             tolog("Start verifying pool global setting")
             Failflaglist.append(pool.bvtpoolglobalsetting(c))
 
@@ -219,6 +214,7 @@ def BuildVerification(c):
             Failflaglist.append(bbm.bvt_verifyBBMList(c))
             Failflaglist.append(bbm.bvt_verifyBBMMissingParameters(c))
             Failflaglist.append(bbm.bvt_verifyBBMSpecifyInexistentId(c))
+            Failflaglist.append(bbm.bvt_cleanUp(c))
 
             tolog("Start verifying bga")
             import bga
@@ -249,18 +245,18 @@ def BuildVerification(c):
             Failflaglist.append(buzzer.bvt_verifyBuzzerInvalidParameters((c)))
             Failflaglist.append(buzzer.bvt_verifyBuzzerInvalidOption((c)))
 
-            tolog("Start verifying chap")
-            import chap
-            Failflaglist.append(chap.bvt_verifyChapAdd(c))
-            Failflaglist.append(chap.bvt_verifyChap(c))
-            Failflaglist.append(chap.bvt_verifyChapList(c))
-            Failflaglist.append(chap.bvt_verifyChapMod(c))
-            Failflaglist.append(chap.bvt_verifyChapDel(c))
-            Failflaglist.append(chap.bvt_verifyChapHelp(c))
-            Failflaglist.append(chap.bvt_verifyChapSpecifyErrorId(c))
-            Failflaglist.append(chap.bvt_verifyChapInvalidOption(c))
-            Failflaglist.append(chap.bvt_verifyChapInvalidParameters(c))
-            Failflaglist.append(chap.bvt_verifyChapMissingParameters(c))
+            #tolog("Start verifying chap")
+            #import chap
+            #Failflaglist.append(chap.bvt_verifyChapAdd(c))
+            #Failflaglist.append(chap.bvt_verifyChap(c))
+            #Failflaglist.append(chap.bvt_verifyChapList(c))
+            #Failflaglist.append(chap.bvt_verifyChapMod(c))
+            #Failflaglist.append(chap.bvt_verifyChapDel(c))
+            #Failflaglist.append(chap.bvt_verifyChapHelp(c))
+            #Failflaglist.append(chap.bvt_verifyChapSpecifyErrorId(c))
+            #Failflaglist.append(chap.bvt_verifyChapInvalidOption(c))
+            #Failflaglist.append(chap.bvt_verifyChapInvalidParameters(c))
+            #Failflaglist.append(chap.bvt_verifyChapMissingParameters(c))
 
             import ctrl
             tolog("Start verifying ctrl")
