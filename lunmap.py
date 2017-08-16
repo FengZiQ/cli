@@ -21,10 +21,13 @@ def precondition(c):
             initID.append(row[i].split()[0])
 
     tolog("<b>add volume</b>")
-    poolinfo = SendCmd(c, 'pool')
-    if 'No pool in the subsystem' in poolinfo:
-        pdinfo = SendCmd(c, 'phydrv')
-        pdID = [pdinfo.split('\r\n')[4][0]]
+    pdinfo = SendCmd(c, 'phydrv')
+    if 'Pool' not in pdinfo:
+        pdID = []
+        row = pdinfo.split('\r\n')
+        for i in range(4, len(row) - 2):
+            if len(row[i].split()) >= 10 and 'Unconfigured' in row[i] and 'OK' in row[i]:
+                pdID.append(row[i].split()[0])
         SendCmd(c, 'pool -a add -p ' + pdID[0] + ' -s "name=Ptestlunmap,raid=0"')
         for i in range(1, 35):
             SendCmd(c, 'volume -a add -p 0 -s "name=Vtestlunmap' + str(i) + ',capacity=1GB"')
