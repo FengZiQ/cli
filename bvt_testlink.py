@@ -84,8 +84,6 @@ if __name__ == "__main__":
 
     c,ssh=ssh_conn()
 
-    Notes = 'testlink.notes.bvt'
-
 
     # print tls.whatArgs('getTestCase')
 
@@ -132,7 +130,7 @@ if __name__ == "__main__":
 
                 #if testplan['name'] == '0cli cmd testcases sequence issue':  # 2016.11.24 represent the active test plan testplan['active']=='1' and
 
-                print testplan['name']
+                #print testplan['name']
                 if "BuildVerification" in testplan["name"]:
                     tcdict = tls.getTestCasesForTestPlan(testplan['id'])
 
@@ -168,9 +166,9 @@ if __name__ == "__main__":
                                 buildnamelist = tls.getBuildsForTestPlan(testplan['id'])
                                 buildname = buildnamelist[-1]['name']
                                 newbuildnum = open("/home/work/jackyl/Scripts/clitest/buildnum", "r").readline().rstrip()
-                                print "newbuildnum is %s, currentbuild is %s" %(newbuildnum,buildname)
+                                #print "newbuildnum is %s, currentbuild is %s" %(newbuildnum,buildname)
 
-                                if buildname != newbuildnum:
+                                if buildname != newbuildnum and "12.2" in newbuildnum:
 
                                     buildname = tls.createBuild(testplan['id'], newbuildnum, "auto")
 
@@ -213,6 +211,7 @@ if __name__ == "__main__":
                                         # if >= 2 steps, 2017-01-06
                                         stepsnum = len(tcsteps)
                                         for i in range(stepsnum):
+                                            wrongflag = False
                                             open(Notes, 'w').close()
                                             stepstr = (string.replace(
                                                 string.replace(string.replace(tcsteps[i]['actions'], '<p>\n\t', ''), '</p>',
@@ -232,30 +231,78 @@ if __name__ == "__main__":
                                             # the c is changed
                                             # 2016-12-30 to reestablish the ssh connection
 
+
                                             if ssh.get_transport().is_active() != True:
                                                 c, ssh = ssh_conn()
                                             if parameter:
                                                 abc(c, parameter)
                                             else:
-                                                abc(c)
+                                                #print "I am in func"
+                                                try:
+                                                    abc(c)
+                                                # except:
+                                                #     fp = open(Notes, 'r')
+                                                #     note = fp.read()
+                                                #     fp.close()
+                                                #     # determine the execution result that will be updated to testlink.
+                                                #
+                                                #     # On August 17, 2017
+                                                #     # If there's some error in testing scripts
+                                                #     # update the error to execution result
+                                                #
+                                                #     while "'result':" in note:
+                                                #         if "'result': 'f'" in note:
+                                                #             step_Result = 'f'
+                                                #             note = string.replace(note, "'result': 'f'", '')
+                                                #         else:
+                                                #             step_Result = 'p'
+                                                #             note = string.replace(note, "'result': 'p'", '')
+                                                #
+                                                #     else:
+                                                #         # write "'result': 'f'" to the note file
+                                                #         step_Result = 'f'
+                                                #         print "add result if there's no"
+                                                #         with open(Notes, "r+") as f:
+                                                #             content = f.read()
+                                                #             f.write(content + "\n" + "'result': 'f'")
+                                                #             f.close()
+                                                #
+                                                #     TC_Result_Steps.append(
+                                                #         {'step_number': str(i + 1), 'result': step_Result,
+                                                #          'notes': note})
 
-
-
+                                                finally:
                                             # read testcase notes from Notes
-                                            fp = open(Notes, 'r')
-                                            note = fp.read()
-                                            fp.close()
-                                            # determine the execution result that will be updated to testlink.
-                                            while "'result':" in note:
-                                                if "'result': 'f'" in note:
-                                                    step_Result = 'f'
-                                                    note = string.replace(note, "'result': 'f'", '')
-                                                else:
-                                                    step_Result = 'p'
-                                                    note = string.replace(note, "'result': 'p'", '')
+                                                    fp = open(Notes, 'r')
+                                                    note = fp.read()
+                                                    fp.close()
+                                                    # determine the execution result that will be updated to testlink.
 
-                                            TC_Result_Steps.append(
-                                                {'step_number': str(i + 1), 'result': step_Result, 'notes': note})
+                                                    # if "'result':" not in note:
+                                                    #     os.system("echo \'result\': \'f\' >> " + note)
+                                                    #
+                                                    #print "before check result in Notes"
+
+                                                    while "'result':" in note:
+                                                        if "'result': 'f'" in note:
+                                                            step_Result = 'f'
+                                                            note = string.replace(note, "'result': 'f'", '')
+                                                        else:
+                                                            step_Result = 'p'
+                                                            note = string.replace(note, "'result': 'p'", '')
+
+                                                    else:
+                                                    # write "'result': 'f'" to the note file
+                                                        step_Result = 'f'
+                                                        #print "add result if there's no"
+                                                        with open(Notes, "r+") as f:
+                                                            content = f.read()
+                                                            f.write(content + "\n" + "'result': 'f'")
+                                                            f.close()
+
+                                                    TC_Result_Steps.append(
+                                                        {'step_number': str(i + 1), 'result': step_Result, 'notes': note})
+                                        #print TC_Result_Steps
                                         for each in TC_Result_Steps:
                                             if each['result'] != 'p':
                                                 TC_Result = 'f'
@@ -274,6 +321,9 @@ if __name__ == "__main__":
                                         buildname = buildnamelist[-1]['name']
 
                                         # TC_Result_Steps=[{'step_number': '0', 'notes': 'step1', 'result': 'f'}, {'step_number': '1', 'notes': 'step2 ', 'result': 'p'}]
+
+
+
                                         getExecution = tls.reportTCResult(testcase['tcase_id'], testplan['id'],
                                                                           buildname, TC_Result,
                                                                           'automated test cases', guess=True,
@@ -313,7 +363,7 @@ if __name__ == "__main__":
                                                 msg['From'] = 'jacky.li@cn.promise.com'
                                                 msg['To'] = 'jacky.li@cn.promise.com'
                                                 # rec = ['jacky.li@cn.promise.com', 'hulda.zhao@cn.promise.com']
-                                                rec = ['jacky.li@cn.promise.com','zach.feng@cn.promise.com']
+                                                rec = ['jacky.li@cn.promise.com','zach.feng@cn.promise.com','hulda.zhao@cn.promise.com']
                                                 # Send the message via our own SMTP server, but don't include the
                                                 # envelope header.
                                                 u = u.decode('base64')

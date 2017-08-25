@@ -262,7 +262,7 @@ def verifyIscsiDel(c):
 def verifyIscsiSpecifyInexistentId(c):
     FailFlag = False
     tolog("<b> Verify iscsi specify inexistent Id </b>")
-    command = ['iscsi -t portal -i 32',
+    command = ['iscsi -t portal -i 65536',
                'iscsi -t port -r 3 -p 2',
                'iscsi -t port -r 2 -p 3',
                ]
@@ -545,7 +545,7 @@ def bvt_verifyIscsiDel(c):
 def bvt_verifyIscsiSpecifyInexistentId(c):
     FailFlag = False
     tolog(" Verify iscsi specify inexistent Id ")
-    command = ['iscsi -t portal -i 32',
+    command = ['iscsi -t portal -i 65536',
                'iscsi -t port -r 3 -p 2',
                'iscsi -t port -r 2 -p 3',
                ]

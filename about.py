@@ -71,7 +71,7 @@ def bvt_verifyAbout(c):
     FailFlag = False
     tolog("Verify about")
     result = SendCmd(c, "about")
-    if "Version: " not in result:
+    if "Version:" not in result:
         FailFlag = True
         tolog('Fail: about')
 

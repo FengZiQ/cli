@@ -106,7 +106,7 @@ def verifyCtrlModNormativeAlias(c):
         row = ctrlInfo.split("\r\n")[i]
         if row.split()[-2] == "OK" or row.split()[-4][0:2] == "OK":
             CtrlID = row.split()[0]
-            values = 'aaaa1aaaa2aaaa3aaaa4aaaa5aaaa6aaaa7aaaa8aaaa9aaa'
+            values = 'aaaa1aaaa2aaaa3aaaa4aaaa5aaaa6aaaa7aaaa8aaaa9aa'
             result = SendCmd(c, "ctrl -a mod -i " + str(CtrlID) + ' -s "alias = ' + values + '"')
             checkResult = SendCmd(c, "ctrl -v -i " + str(CtrlID))
             if "Error (" in result or values not in checkResult:
@@ -414,7 +414,7 @@ def bvt_verifyCtrlModNormativeAlias(c):
         row = result.split("\r\n")[index]
         if row.split()[-2] == "OK" or row.split()[-4][0:2] == "OK":
             CtrlID = row.split()[0]
-            values = 'aaaa1aaaa2aaaa3aaaa4aaaa5aaaa6aaaa7aaaa8aaaa9aaa'
+            values = 'aaaa1aaaa2aaaa3aaaa4aaaa5aaaa6aaaa7aaaa8aaaa9aa'
             result = SendCmd(c, "ctrl -a mod -i " + str(CtrlID) + ' -s "alias = ' + values + '"')
             checkResult = SendCmd(c, "ctrl -v -i " + str(CtrlID))
             if "Error (" in result or values not in checkResult:

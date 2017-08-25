@@ -202,7 +202,7 @@ def bvt_verifyNtpMod(c):
             FailFlag = True
             tolog(' Fail: ' + 'ntp -a mod -s "ntp=' + v + '"' )
 
-    result = SendCmd(c, 'ntp -a mod -s "ntp=enable,timezone=5:00,server1=210.72.145.44"')
+    SendCmd(c, 'ntp -a mod -s "ntp=enable,timezone=5:00,server1=210.72.145.44"')
     checkResult = SendCmd(c, 'ntp')
     if 'Ntp: Enabled' not in checkResult or "210.72.145.44" not in checkResult:
         FailFlag = True

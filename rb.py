@@ -52,9 +52,9 @@ def bvt_verifyRbStartAndStopAndList(c):
     if 'No spare drive exists' not in spareInfo:
         spareId = []
         spareRow = spareInfo.split('\r\n')
-        for i in range(4, len(spareInfo) - 2):
-            if len(spareRow[i]) >= 8 :
-                spareId.append(spareRow[i].split()[0])
+        for i in range(4, len(spareRow) - 2):
+            # if len(spareRow[i]) >= 8 :
+            spareId.append(spareRow[i].split()[0])
 
         for i in spareId:
             SendCmd(c, 'spare -a del -i ' + i)
@@ -75,7 +75,7 @@ def bvt_verifyRbStartAndStopAndList(c):
             elif rd == '50' or rd == '60':
                 createPool = SendCmd(c, 'pool -a add -s "name=testRb, axle=2, raid=' + rd + '" -p ' + pdId[0]
                                      + ',' + pdId[1] + ',' + pdId[2] + ',' + pdId[3] + ',' + pdId[4] + ','
-                                     + pdId[5] + ',' + pdId[6] + ',' + pdId[7])
+                                     + pdId[5] + ',' + pdId[6] + ',' + pdId[8])
 
                 if 'Error (' in createPool:
                     tolog("To create pool is failed")
@@ -84,7 +84,7 @@ def bvt_verifyRbStartAndStopAndList(c):
             else:
                 createPool = SendCmd(c, 'pool -a add -s "name=testRb, axle=2, raid=' + rd + '" -p ' + pdId[0]
                                      + ',' + pdId[1] + ',' + pdId[2] + ',' + pdId[3] + ',' + pdId[4] + ','
-                                     + pdId[5] + ',' + pdId[6] + ',' + pdId[7])
+                                     + pdId[5] + ',' + pdId[6] + ',' + pdId[8])
                 if 'Error (' in createPool:
                     tolog("To create pool is failed")
                     break
@@ -102,11 +102,11 @@ def bvt_verifyRbStartAndStopAndList(c):
                     tolog('To offline is failed')
                     break
 
-            result = SendCmd(c, 'rb -a start -l 0 -s 0 -p ' + pdId[8])
+            result = SendCmd(c, 'rb -a start -l 0 -s 0 -p ' + pdId[7])
             checkResult = SendCmd(c, 'rb')
             if 'Error (' in result or 'This background activity is not running' in checkResult:
                 FailFlag = True
-                tolog('Fail: ' + 'rb -a start -l 0 -s ' + pdId[0] + ' -p ' + pdId[8])
+                tolog('Fail: ' + 'rb -a start -l 0 -s ' + pdId[0] + ' -p ' + pdId[7])
 
             tolog('verify rb list when rb starting')
             rbList = SendCmd(c, 'rb')

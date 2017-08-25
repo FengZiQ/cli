@@ -32,6 +32,7 @@ def precondition(c):
         for i in range(1, 35):
             SendCmd(c, 'volume -a add -p 0 -s "name=Vtestlunmap' + str(i) + ',capacity=1GB"')
     else:
+        poolinfo = SendCmd(c, 'pool')
         poolID = poolinfo.split('\r\n')[4].split()[0]
         for i in range(1, 35):
             SendCmd(c, 'volume -a add -p ' + poolID + ' -s "name=Vtestlunmap' + str(i) + ',capacity=1GB"')
@@ -294,7 +295,7 @@ def bvt_verifyLunmapDellun(c):
     for cID in cloneID:
         result = SendCmd(c, 'lunmap -a dellun -p clone -i ' + initID[0] + ' -l ' + cID)
         checkResult = SendCmd(c, 'lunmap -i ' + initID[0])
-        if 'Error (' in result or ('    ' + cID + '    ') in checkResult:
+        if 'Error (' in result or (cID + '                        clone') in checkResult:
             FailFlag = True
             tolog('Fail: lunmap -a dellun -p clone -i ' + initID[0] + ' -l ' + cID )
 
@@ -407,26 +408,16 @@ def bvt_verifyLunmapSpecifyInexistentId(c):
     tolog(" Verify lunmap specify inexistent Id ")
     # -i <InitiatorId> (0,2047)
     # -l <Volume ID list> (0,1023)
-    initiatorInfo = SendCmd(c, 'initiator')
-    initID = initiatorInfo.split('Id: ')[-1].split()[0]
 
-    volumeInfo = SendCmd(c, 'volume')
-    volumeID = volumeInfo.split('\r\n')[-3].split()[0]
-    if int(initID) != 2047:
-        result = SendCmd(c, 'lunmap -a add -i ' + str(int(initID)+1) + ' -p volume -l ' + volumeID + ' -m 0')
-        if 'Error (' not in result or 'Invalid initiator index' not in result:
-            FailFlag = True
-            tolog(' lunmap -a add -i ' + str(int(initID)+1) + ' -p volume -l ' + volumeID + ' -m 0')
-    else:
-        tolog(' Precondition failure ')
+    result = SendCmd(c, 'lunmap -a add -i 200 -p volume -l 0 -m 0')
+    if 'Error (' not in result or 'Invalid initiator index' not in result:
+        FailFlag = True
+        tolog(' lunmap -a add -i 200 -p volume -l 0 -m 0')
 
-    if int(volumeID) != 1023:
-        result = SendCmd(c, 'lunmap -a add -i ' + initID + ' -p volume -l ' + str(int(volumeID) + 1) + ' -m 0')
-        if 'Error (' not in result or 'Incorrect Parameters: Volume id' not in result:
-            FailFlag = True
-            tolog(' lunmap -a add -i ' + initID + ' -p volume -l ' + str(int(volumeID) + 1) + ' -m 0')
-    else:
-        tolog(' Precondition failure ')
+    result = SendCmd(c, 'lunmap -a add -i 0 -p volume -l 1000 -m 0')
+    if 'Error (' not in result or 'Volume id=[1000] is not existed' not in result:
+        FailFlag = True
+        tolog(' lunmap -a add -i 0 -p volume -l 1000 -m 0')
 
     if FailFlag:
         tolog('\n<font color="red">Fail: lunmap Specify Inexistent Id </font>')
@@ -527,19 +518,19 @@ def bvt_cleanUp(c):
 if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
-    bvt_verifyLunmapAdd(c)
-    bvt_verifyLunmap(c)
-    bvt_verifyLunmapList(c)
-    bvt_verifyLunmapAddlun(c)
-    bvt_verifyLunmapDellun(c)
-    bvt_verifyLunmapEnable(c)
-    bvt_verifyLunmapDel(c)
-    bvt_verifyLunmapDisable(c)
+    # bvt_verifyLunmapAdd(c)
+    # bvt_verifyLunmap(c)
+    # bvt_verifyLunmapList(c)
+    # bvt_verifyLunmapAddlun(c)
+    # bvt_verifyLunmapDellun(c)
+    # bvt_verifyLunmapEnable(c)
+    # bvt_verifyLunmapDel(c)
+    # bvt_verifyLunmapDisable(c)
     bvt_verifyLunmapSpecifyInexistentId(c)
-    bvt_verifyLunmapInvalidOption(c)
-    bvt_verifyLunmapInvalidParameters(c)
-    bvt_verifyLunmapMissingParameters(c)
-    bvt_cleanUp(c)
+    # bvt_verifyLunmapInvalidOption(c)
+    # bvt_verifyLunmapInvalidParameters(c)
+    # bvt_verifyLunmapMissingParameters(c)
+    # bvt_cleanUp(c)
     ssh.close()
     elasped = time.clock() - start
     print "Elasped %s" % elasped
