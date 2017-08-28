@@ -27,15 +27,16 @@ def BuildVerification(c):
         tolog('sw compiles failure')
         exit()
 
-
     c, ssh = ssh_conn()
     
     import glob
-    files = glob.glob("/var/lib/jenkins/workspace/HyperionDS/build/build/*.ptif")
+
+    # files = glob.glob("/var/lib/jenkins/workspace/HyperionDS/build/build/*.ptif")
+    files = glob.glob("/var/lib/jenkins/workspace/Hyperion-DS_Hulda/build/build/*.ptif")
 
     reconnectflag = False
     for file in files:
-        filename = file.replace("/var/lib/jenkins/workspace/HyperionDS/build/build/","")
+        filename = file.replace("/var/lib/jenkins/workspace/Hyperion-DS_Hulda/build/build/","")
         SendCmdRestart(c,"ptiflash -y -t -s 10.84.2.66 -f "+filename)
         i = 1
         while i < 50:
