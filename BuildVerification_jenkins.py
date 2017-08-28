@@ -20,6 +20,14 @@ Fail = "'result': 'f'"
 def BuildVerification(c):
     Failflag = False
     FailCasesList = []
+
+    # To check whether the sw is compiled successfully
+    size = os.path.getsize('/var/lib/jenkins/workspace/Hyperion-DS_Hulda/sw.log')
+    if size < 6000000:
+        tolog('sw compiles failure')
+        exit()
+
+
     c, ssh = ssh_conn()
     
     import glob
