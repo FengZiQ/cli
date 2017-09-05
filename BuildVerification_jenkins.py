@@ -23,20 +23,22 @@ def BuildVerification(c):
 
     # To check whether the sw is compiled successfully
     size = os.path.getsize('/var/lib/jenkins/workspace/Hyperion-DS_Hulda/sw.log')
+    # size = os.path.getsize('/var/lib/jenkins/workspace/HyperionDS/sw.log')
     if size < 6000000:
         tolog('sw compiles failure')
-        exit()
+        exit(1)
 
     c, ssh = ssh_conn()
-    
+
     import glob
 
     # files = glob.glob("/var/lib/jenkins/workspace/HyperionDS/build/build/*.ptif")
     files = glob.glob("/var/lib/jenkins/workspace/Hyperion-DS_Hulda/build/build/*.ptif")
 
-    reconnectflag = False
+    reconnectflag = True
     for file in files:
         filename = file.replace("/var/lib/jenkins/workspace/Hyperion-DS_Hulda/build/build/","")
+        # filename = file.replace("/var/lib/jenkins/workspace/HyperionDS/build/build/", "")
         SendCmdRestart(c,"ptiflash -y -t -s 10.84.2.66 -f "+filename)
         i = 1
         while i < 50:
@@ -74,11 +76,11 @@ def BuildVerification(c):
         tolog("Start verifying pool global setting")
         if (pool.bvtpoolglobalsetting(c)):
             FailCasesList.append('The case ' + pool.bvtpoolglobalsetting.__name__ + ' failed')
-    
+
         tolog("Start verifying volume add")
         if (pool.bvtvolumecreateandlist(c, 10)):
             FailCasesList.append('The case ' + pool.bvtvolumecreateandlist.__name__ + ' failed')
-        
+
         tolog("Start verifying snapshot add")
         if (pool.bvtsnapshotcreateandlist(c, 2)):
             FailCasesList.append('The case ' + pool.bvtsnapshotcreateandlist.__name__ + ' failed')
@@ -173,7 +175,7 @@ def BuildVerification(c):
 
         if (pool.bvtforcedel(c, "pool")):
             FailCasesList.append('The case ' + pool.bvtforcedel.__name__ + ' failed')
-        
+
         tolog("Start verifying pool create with all raid level and parameters")
         if (pool.bvtpoolcreateverify_newraidlevel(c)):
             FailCasesList.append('The case ' + pool.bvtpoolcreateverify_newraidlevel.__name__ + ' failed')
@@ -218,8 +220,6 @@ def BuildVerification(c):
             FailCasesList.append('The case ' + bbm.bvt_verifyBBM.__name__ + ' failed')
         if (bbm.bvt_verifyBBMClear(c)):
             FailCasesList.append('The case ' + bbm.bvt_verifyBBMClear.__name__ + ' failed')
-        if (bbm.bvt_verifyBBMClearFailedTest(c)):
-            FailCasesList.append('The case ' + bbm.bvt_verifyBBMClearFailedTest.__name__ + ' failed')
         if (bbm.bvt_verifyBBMHelp(c)):
             FailCasesList.append('The case ' + bbm.bvt_verifyBBMHelp.__name__ + ' failed')
         if (bbm.bvt_verifyBBMInvalidOption(c)):
@@ -551,7 +551,7 @@ def BuildVerification(c):
             FailCasesList.append('The case ' + lunmap.bvt_verifyLunmapInvalidParameters.__name__ + ' failed')
         if (lunmap.bvt_verifyLunmapMissingParameters(c)):
             FailCasesList.append('The case ' + lunmap.bvt_verifyLunmapMissingParameters.__name__ + ' failed')
-            
+        lunmap.bvt_cleanUp(c)
 
         tolog("Start verifying ntp")
         import ntp
@@ -643,7 +643,7 @@ def BuildVerification(c):
             FailCasesList.append('The case ' + bgasched.bvt_verifyBgaschedInvalidParameters.__name__ + ' failed')
         if (bgasched.bvt_verifyBgaschedMissingParameters(c)):
             FailCasesList.append('The case ' + bgasched.bvt_verifyBgaschedMissingParameters.__name__ + ' failed')
-        (bgasched.bvt_clearUp(c))
+        bgasched.bvt_clearUp(c)
             
 
         tolog('Start verifying rb')

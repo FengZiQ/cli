@@ -2,7 +2,7 @@
 import paramiko
 import time
 import os
-server = '10.84.2.164'
+server = '10.84.2.116'
 uname = 'administrator'
 pwd = 'password'
 
@@ -36,8 +36,8 @@ def ssh_conn():
         resp = c.recv(2000)
         if resp.decode().endswith('@cli> '):
             break
-    # if c.recv_ready():
-    #     resp = c.recv(9999)
+        # if c.recv_ready():
+        #     resp = c.recv(9999)
 
         # data+=resp
         data = 'administrator@cli> '

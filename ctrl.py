@@ -186,43 +186,33 @@ def verifyCtrlModValuesIsTime(c):
 
 def verifyCtrlModNonstandardValues(c):
     FailFlag = False
-    tolog('<b>Verify ctrl -a mod -i CtrlId -s "Option = Nonstandard Values " </b>')
+    tolog(" verify ctrl alias by character type and length  ")
+
+    # Test data
+    alias = [
+        '',
+        'a' * 48,
+        '1',
+        'test_name123'
+    ]
+
     result = SendCmd(c, "ctrl")
+    totalRow = result.split("\r\n")
+    cId = []
     for index in [4, 5]:
-        row = result.split("\r\n")[index]
+        row = totalRow[index]
         if row.split()[-2] == "OK" or row.split()[-4][0:2] == "OK":
-            CtrlID = row.split()[0]
-            for values in ['123']:
-                option = ["SMART = " + values,
-                          "AdaptiveWBCache = " + values,
-                          "HostCacheFlushing = " + values,
-                          "ForcedReadAhead = " + values,
-                          "SSDTrimSupport = " + values,
-                          "VAAIsupport = " + values,
-                          "Coercion = " + values,
-                          ]
-                for Op in option:
-                    result = SendCmd(c, "ctrl -a mod -i " + str(CtrlID) + " -s " + '"' + Op + '"')
-                    tolog("<b> ctrl -a mod -i " + str(CtrlID) + " -s " + '"' + Op + '" <\b>')
-                    if "Error" not in result or "Invalid setting parameters" not in result:
-                        FailFlag = True
-                        tolog('\n<font color="red">Fail: ctrl -a mod -i ' + str(CtrlID) + ' -s ' + '"' + Op + '"</font>')
+            cId.append(row.split()[0])
 
-            for option in ["powersavingidletime", "powersavingstandbytime", "powersavingstoppedtime"]:
-                for values in [-1, 1441]:
-                    result = SendCmd(c, "ctrl -a mod -i " + str(CtrlID) + ' -s "' + option + " = " + str(values) + '"')
-                    tolog('<b> ctrl -a mod -i ' + str(CtrlID) + ' -s "' + option + " = " + str(values) + '"</b>')
-                    if "Error" not in result or "Invalid setting parameters" not in result:
-                        FailFlag = True
-                        tolog('\n<font color="red"> Fail: ctrl -a mod -i ' + str(CtrlID) + ' -s "' + option + " = " + str(values) + '"</font>')
+    for i in cId:
+        for a in alias:
+            result = SendCmd(c, 'ctrl -a mod -s "alias=' + a + '" -i ' + i)
+            checkResult = SendCmd(c, 'ctrl -v -i ' + i)
 
-            if row.split()[-2] == "OK" or row.split()[-4][0:2] == "OK":
-                CtrlID = row.split()[0]
-                for values in ['aaaa1aaaa2aaaa3aaaa4aaaa5aaaa6aaaa7aaaa8aaaa9aaaa']:
-                    result = SendCmd(c, "ctrl -a mod -i " + str(CtrlID) + ' -s "alias = ' + values + '"')
-                    if "Error (" not in result:
-                        FailFlag = True
-                        tolog('\n<font color="red">Fail: ' + "ctrl -a mod -i " + str(CtrlID) + '-s "alias = "' + values + '"</font>')
+            if 'Error (' in result or a not in checkResult:
+                FailFlag = True
+                tolog('Fail: ' + 'ctrl -a mod -s "alias=' + a + '"')
+
     if FailFlag:
         tolog('\n<font color="red">Fail: Verify ctrl -a mod -i CtrlId -s "Option = Nonstandard Values " </font>')
         tolog(Fail)
@@ -409,23 +399,31 @@ def bvt_verifyCtrlL(c):
 def bvt_verifyCtrlModNormativeAlias(c):
     FailFlag = False
     tolog(" verify ctrl alias by character type and length  ")
+
+    # Test data
+    alias = [
+        '',
+        'a'*48,
+        '1',
+        'test_name123'
+    ]
+
     result = SendCmd(c, "ctrl")
+    totalRow = result.split("\r\n")
+    cId = []
     for index in [4, 5]:
-        row = result.split("\r\n")[index]
+        row = totalRow[index]
         if row.split()[-2] == "OK" or row.split()[-4][0:2] == "OK":
-            CtrlID = row.split()[0]
-            values = 'aaaa1aaaa2aaaa3aaaa4aaaa5aaaa6aaaa7aaaa8aaaa9aa'
-            result = SendCmd(c, "ctrl -a mod -i " + str(CtrlID) + ' -s "alias = ' + values + '"')
-            checkResult = SendCmd(c, "ctrl -v -i " + str(CtrlID))
-            if "Error (" in result or values not in checkResult:
+            cId.append(row.split()[0])
+
+    for i in cId:
+        for a in alias:
+            result = SendCmd(c, 'ctrl -a mod -s "alias=' + a + '" -i ' + i)
+            checkResult = SendCmd(c, 'ctrl -v -i ' + i)
+
+            if 'Error (' in result or a not in checkResult:
                 FailFlag = True
-                tolog('Fail: ctrl -a mod -i ' + str(CtrlID) + ' -s "alias = ' + values + '" ')
-            for values in ['test_12', '12_test', 'test 12', '_', '123', '  TEST  ']:
-                result = SendCmd(c, "ctrl -a mod -i " + str(CtrlID) + " -s " + '"alias = ' + values + '"')
-                checkResult = SendCmd(c, "ctrl -i " + str(CtrlID))
-                if "Error (" in result or values not in checkResult:
-                    FailFlag = True
-                    tolog('Fail: ctrl -a mod -i ' + str(CtrlID) + " -s alias = " + values + '"')
+                tolog('Fail: ' + 'ctrl -a mod -s "alias=' + a + '"')
 
     return FailFlag
 
@@ -465,8 +463,9 @@ def bvt_verifyCtrlModValuesIsTime(c):
     FailFlag = False
     tolog('Verify ctrl -a mod -i CtrlId -s "Option = Time " ')
     result = SendCmd(c, "ctrl")
+    totalRow = result.split("\r\n")
     for index in [4, 5]:
-        row = result.split("\r\n")[index]
+        row = totalRow[index]
         # 2             test         OK                       Active
         # 2             test         OK, BGA Running          Active
         if row.split()[-2] == "OK" or row.split()[-4][0:2] == "OK":
@@ -572,21 +571,21 @@ def bvt_verifyCtrlMissingParameters(c):
 if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
-    bvt_verifyCtrl(c)
-    bvt_verifyCtrlSpecifyId(c)
-    bvt_verifyCtrlSpecifyInexistentId(c)
-    bvt_verifyCtrlList(c)
-    bvt_verifyCtrlV(c)
-    bvt_verifyCtrlListV(c)
-    bvt_verifyCtrlModNormativeAlias(c)
-    bvt_verifyCtrlModValuesIsEnableOrDisable(c)
+    # bvt_verifyCtrl(c)
+    # bvt_verifyCtrlSpecifyId(c)
+    # bvt_verifyCtrlSpecifyInexistentId(c)
+    # bvt_verifyCtrlList(c)
+    # bvt_verifyCtrlV(c)
+    # bvt_verifyCtrlListV(c)
+    # bvt_verifyCtrlModNormativeAlias(c)
+    # bvt_verifyCtrlModValuesIsEnableOrDisable(c)
     bvt_verifyCtrlModValuesIsTime(c)
-    bvt_verifyCtrlClear(c)
-    bvt_verifyCtrlHelp(c)
-    bvt_verifyCtrlInvalidOption(c)
-    bvt_verifyCtrlInvalidParameters(c)
-    bvt_verifyCtrlMissingParameters(c)
-    bvt_verifyCtrlSpecifyInexistentId(c)
+    # bvt_verifyCtrlClear(c)
+    # bvt_verifyCtrlHelp(c)
+    # bvt_verifyCtrlInvalidOption(c)
+    # bvt_verifyCtrlInvalidParameters(c)
+    # bvt_verifyCtrlMissingParameters(c)
+    # bvt_verifyCtrlSpecifyInexistentId(c)
     ssh.close()
     elasped = time.clock() - start
     print "Elasped %s" % elasped

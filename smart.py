@@ -146,12 +146,13 @@ def verifySmartList(c):
 def verifySmartEnable(c):
     FailFlag = False
     tolog("<b> Verify smart -a enable -p pd ID </b>")
-    PdId = random.choice(findPdId(c))
-    for values in ['disable ', 'enable ', 'enable ']:
-        result = SendCmd(c, "smart -a " + values + "-p " + PdId)
-        if "Error (" in result:
-            FailFlag = True
-            tolog('\n<font color="red">Fail: smart -a ' + values + '-p ' + PdId + '</font>')
+    PdId = findPdId(c)
+    for p in PdId:
+        for values in ['disable ', 'enable ', 'enable ']:
+            result = SendCmd(c, "smart -a " + values + "-p " + p)
+            if "Error (" in result:
+                FailFlag = True
+                tolog('\n<font color="red">Fail: smart -a ' + values + '-p ' + p + '</font>')
     if FailFlag:
         tolog('\n<font color="red">Fail: Verify smart -a enable -p pd ID </font>')
         tolog(Fail)
@@ -162,12 +163,13 @@ def verifySmartEnable(c):
 def verifySmartDisable(c):
     FailFlag = False
     tolog("<b> Verify smart -a disable -p pd ID </b>")
-    PdId = random.choice(findPdId(c))
-    for values in ['enable ', 'disable ', 'disable ']:
-        result = SendCmd(c, "smart -a " + values + "-p " + PdId)
-        if "Error (" in result:
-            FailFlag = True
-            tolog('\n<font color="red">Fail: smart -a ' + values + '-p ' + PdId + '</font>')
+    PdId = findPdId(c)
+    for p in PdId:
+        for values in ['enable ', 'disable ', 'disable ']:
+            result = SendCmd(c, "smart -a " + values + "-p " + p)
+            if "Error (" in result:
+                FailFlag = True
+                tolog('\n<font color="red">Fail: smart -a ' + values + '-p ' + p + '</font>')
     if FailFlag:
         tolog('\n<font color="red">Fail: Verify smart -a disable -p pd ID </font>')
         tolog(Fail)
@@ -378,25 +380,27 @@ def bvt_verifySmartList(c):
 
 def bvt_verifySmartEnable(c):
     FailFlag = False
-    tolog(" Verify smart -a enable -p pd ID ")
-    PdId = random.choice(findPdId(c))
-    for values in ['disable ', 'enable ', 'enable ']:
-        result = SendCmd(c, "smart -a " + values + "-p " + PdId)
-        if "Error (" in result:
-            FailFlag = True
-            tolog('Fail: smart -a ' + values + '-p ' + PdId )
+    tolog("<b> Verify smart -a enable -p pd ID </b>")
+    PdId = findPdId(c)
+    for p in PdId:
+        for values in ['disable ', 'enable ', 'enable ']:
+            result = SendCmd(c, "smart -a " + values + "-p " + p)
+            if "Error (" in result:
+                FailFlag = True
+                tolog('\n<font color="red">Fail: smart -a ' + values + '-p ' + p + '</font>')
 
     return FailFlag
 
 def bvt_verifySmartDisable(c):
     FailFlag = False
-    tolog(" Verify smart -a disable -p pd ID ")
-    PdId = random.choice(findPdId(c))
-    for values in ['enable ', 'disable ', 'disable ']:
-        result = SendCmd(c, "smart -a " + values + "-p " + PdId)
-        if "Error (" in result:
-            FailFlag = True
-            tolog('Fail: smart -a ' + values + '-p ' + PdId )
+    tolog("<b> Verify smart -a disable -p pd ID </b>")
+    PdId = findPdId(c)
+    for p in PdId:
+        for values in ['enable ', 'disable ', 'disable ']:
+            result = SendCmd(c, "smart -a " + values + "-p " + p)
+            if "Error (" in result:
+                FailFlag = True
+                tolog('\n<font color="red">Fail: smart -a ' + values + '-p ' + p + '</font>')
 
     return FailFlag
 
@@ -477,7 +481,7 @@ if __name__ == "__main__":
     # bvt_verifySmart(c)
     # bvt_verifySmartV(c)
     # bvt_verifySmartList(c)
-    # bvt_verifySmartEnable(c)
+    bvt_verifySmartEnable(c)
     bvt_verifySmartDisable(c)
     # bvt_verifySmartHelp(c)
     # bvt_verifySmartSpecifyInexistentId(c)
