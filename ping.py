@@ -1,9 +1,9 @@
 # coding=utf-8
-# initial work on 2017.2.20
-# this section includes list pd
+
 from send_cmd import *
 from to_log import *
 from ssh_connect import ssh_conn
+
 Pass = "'result': 'p'"
 Fail = "'result': 'f'"
 
@@ -17,6 +17,8 @@ def verifyPing(c):
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
+    return FailFlag
 
 def verifyPingSpecifyInexistentId(c):
     FailFlag = False
@@ -32,55 +34,89 @@ def verifyPingSpecifyInexistentId(c):
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
 
+    return FailFlag
 
 def verifyPingInvalidOption(c):
     FailFlag = False
     tolog("<b>Verify ping invalid option</b>")
-    command = ['ping -x', 'ping -t fc -x']
+
+    command = [
+        'ping -x',
+        'ping -t fc -x'
+    ]
+
     for com in command:
         tolog('<b> Verify ' + com + '</b>')
+
         result = SendCmd(c, com)
+
         if "Error (" not in result or "Invalid option" not in result:
             FailFlag = True
             tolog('\n<font color="red">Fail: ' + com + ' </font>')
+
     if FailFlag:
         tolog('\n<font color="red">Fail: Verify ping invalid option </font>')
         tolog(Fail)
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
+    return FailFlag
+
 def verifyPingInvalidParameters(c):
     FailFlag = False
     tolog("<b>Verify ping invalid parameters</b>")
-    command = ['ping test', 'ping -t test']
+
+    command = [
+        'ping test',
+        'ping -t test'
+    ]
+
     for com in command:
         tolog('<b> Verify ' + com + '</b>')
+
         result = SendCmd(c, com)
+
         if "Error (" not in result or "Invalid setting parameters" not in result:
             FailFlag = True
             tolog('\n<font color="red">Fail: ' + com + ' </font>')
+
     if FailFlag:
         tolog('\n<font color="red">Fail: Verify ping invalid parameters </font>')
         tolog(Fail)
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
+    return FailFlag
+
 def verifyPingMissingParameters(c):
     FailFlag = False
     tolog("<b>Verify ping missing parameters</b>")
-    command = ['ping', 'ping -t ', 'ping -t iscsi -l']
+
+    command = [
+        'ping',
+        'ping -t ',
+        'ping -t iscsi -l'
+    ]
+
     for com in command:
         tolog('<b> Verify ' + com + '</b>')
+
         result = SendCmd(c, com)
+
         if "Error (" not in result or "Missing parameter" not in result:
             FailFlag = True
             tolog('\n<font color="red">Fail: ' + com + ' </font>')
+
     if FailFlag:
         tolog('\n<font color="red">Fail: Verify ping missing parameters </font>')
         tolog(Fail)
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
+    return FailFlag
 
 if __name__ == "__main__":
     start = time.clock()

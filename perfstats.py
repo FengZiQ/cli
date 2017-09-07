@@ -1,9 +1,9 @@
 # coding=utf-8
-# initial work on 2017.2.20
-# this section includes list pd
+
 from send_cmd import *
 from to_log import *
 from ssh_connect import ssh_conn
+
 Pass = "'result': 'p'"
 Fail = "'result': 'f'"
 
@@ -18,6 +18,8 @@ def verifyPerfstatsStart(c):
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
 
+    return FailFlag
+
 def verifyPerfstats(c):
     FailFlag = False
     tolog("<b>Verify perfstats </b>")
@@ -28,6 +30,8 @@ def verifyPerfstats(c):
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
+    return FailFlag
 
 def verifyPerfstatsList(c):
     FailFlag = False
@@ -40,54 +44,89 @@ def verifyPerfstatsList(c):
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
 
+    return FailFlag
+
 def verifyPerfstatsInvalidOption(c):
     FailFlag = False
     tolog("<b>Verify perfstats invalid option</b>")
-    command = ['perfstats -x', 'perfstats -a list -x', 'perfstats -a start -x']
+
+    command = [
+        'perfstats -x',
+        'perfstats -a list -x',
+        'perfstats -a start -x'
+    ]
+
     for com in command:
         tolog('<b> Verify ' + com + '</b>')
+
         result = SendCmd(c, com)
+
         if "Error (" not in result or "Invalid option" not in result:
             FailFlag = True
             tolog('\n<font color="red">Fail: ' + com + ' </font>')
+
     if FailFlag:
         tolog('\n<font color="red">Fail: Verify perfstats invalid option </font>')
         tolog(Fail)
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
+    return FailFlag
+
 def verifyPerfstatsInvalidParameters(c):
     FailFlag = False
     tolog("<b>Verify perfstats invalid parameters</b>")
-    command = ['perfstats test', 'perfstats -a test']
+
+    command = [
+        'perfstats test',
+        'perfstats -a test'
+    ]
+
     for com in command:
         tolog('<b> Verify ' + com + '</b>')
+
         result = SendCmd(c, com)
+
         if "Error (" not in result or "Invalid setting parameters" not in result:
             FailFlag = True
             tolog('\n<font color="red">Fail: ' + com + ' </font>')
+
     if FailFlag:
         tolog('\n<font color="red">Fail: Verify perfstats invalid parameters </font>')
         tolog(Fail)
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
+    return FailFlag
+
 def verifyPerfstatsMissingParameters(c):
     FailFlag = False
     tolog("<b>Verify perfstats missing parameters</b>")
-    command = ['perfstats -a ', 'perfstats -a list -t']
+
+    command = [
+        'perfstats -a ',
+        'perfstats -a list -t'
+    ]
+
     for com in command:
         tolog('<b> Verify ' + com + '</b>')
+
         result = SendCmd(c, com)
+
         if "Error (" not in result or "Missing parameter" not in result:
             FailFlag = True
             tolog('\n<font color="red">Fail: ' + com + ' </font>')
+
     if FailFlag:
         tolog('\n<font color="red">Fail: Verify perfstats missing parameters </font>')
         tolog(Fail)
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
+    return FailFlag
 
 if __name__ == "__main__":
     start = time.clock()

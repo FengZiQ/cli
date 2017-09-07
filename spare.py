@@ -1,9 +1,9 @@
 # coding=utf-8
-# initial work on 2017.2.20
-# this section includes list pd
+
 from send_cmd import *
 from to_log import *
 from ssh_connect import ssh_conn
+
 Pass = "'result': 'p'"
 Fail = "'result': 'f'"
 
@@ -18,6 +18,8 @@ def verifySpareAdd(c):
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
 
+    return FailFlag
+
 def verifySpare(c):
     FailFlag = False
     tolog("<b>Verify spare </b>")
@@ -28,6 +30,8 @@ def verifySpare(c):
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
+    return FailFlag
 
 def verifySpareList(c):
     FailFlag = False
@@ -40,6 +44,8 @@ def verifySpareList(c):
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
 
+    return FailFlag
+
 def verifySpareDel(c):
     FailFlag = False
     tolog("<b>Verify spare -a del </b>")
@@ -50,6 +56,8 @@ def verifySpareDel(c):
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
+    return FailFlag
 
 def verifySpareSpecifyInexistentId(c):
     FailFlag = False
@@ -64,55 +72,94 @@ def verifySpareSpecifyInexistentId(c):
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
 
+    return FailFlag
 
 def verifySpareInvalidOption(c):
     FailFlag = False
     tolog("<b>Verify spare invalid option</b>")
-    command = ['spare -x', 'spare -a list -x', 'spare -a add -x', 'spare -a del -x']
+
+    command = [
+        'spare -x',
+        'spare -a list -x',
+        'spare -a add -x',
+        'spare -a del -x'
+    ]
+
     for com in command:
         tolog('<b> Verify ' + com + '</b>')
+
         result = SendCmd(c, com)
+
         if "Error (" not in result or "Invalid option" not in result:
             FailFlag = True
             tolog('\n<font color="red">Fail: ' + com + ' </font>')
+
     if FailFlag:
         tolog('\n<font color="red">Fail: Verify spare invalid option </font>')
         tolog(Fail)
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
+    return FailFlag
+
 def verifySpareInvalidParameters(c):
     FailFlag = False
     tolog("<b>Verify spare invalid parameters</b>")
-    command = ['spare test', 'spare -a list test', 'spare -a add test', 'spare -a del test']
+
+    command = [
+        'spare test',
+        'spare -a list test',
+        'spare -a add test',
+        'spare -a del test'
+    ]
+
     for com in command:
         tolog('<b> Verify ' + com + '</b>')
+
         result = SendCmd(c, com)
+
         if "Error (" not in result or "Invalid setting parameters" not in result:
             FailFlag = True
             tolog('\n<font color="red">Fail: ' + com + ' </font>')
+
     if FailFlag:
         tolog('\n<font color="red">Fail: Verify spare invalid parameters </font>')
         tolog(Fail)
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
+    return FailFlag
+
 def verifySpareMissingParameters(c):
     FailFlag = False
     tolog("<b>Verify spare missing parameters</b>")
-    command = ['spare -d ', 'spare -a list -d ', 'spare -a add -p ', 'spare -a del -p']
+
+    command = [
+        'spare -d ',
+        'spare -a list -d ',
+        'spare -a add -p ',
+        'spare -a del -p'
+    ]
+
     for com in command:
         tolog('<b> Verify ' + com + '</b>')
+
         result = SendCmd(c, com)
+
         if "Error (" not in result or "Missing parameter" not in result:
             FailFlag = True
             tolog('\n<font color="red">Fail: ' + com + ' </font>')
+
     if FailFlag:
         tolog('\n<font color="red">Fail: Verify spare missing parameters </font>')
         tolog(Fail)
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
+    return FailFlag
 
 if __name__ == "__main__":
     start = time.clock()

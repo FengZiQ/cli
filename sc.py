@@ -1,9 +1,9 @@
 # coding=utf-8
-# initial work on 2017.2.20
-# this section includes list pd
+
 from send_cmd import *
 from to_log import *
 from ssh_connect import ssh_conn
+
 Pass = "'result': 'p'"
 Fail = "'result': 'f'"
 
@@ -18,6 +18,8 @@ def verifySc(c):
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
 
+    return FailFlag
+
 def verifyScList(c):
     FailFlag = False
     tolog("<b>Verify sc -a list </b>")
@@ -29,6 +31,8 @@ def verifyScList(c):
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
 
+    return FailFlag
+
 def verifyScStart(c):
     FailFlag = False
     tolog("<b>Verify sc -a start </b>")
@@ -39,6 +43,8 @@ def verifyScStart(c):
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
+    return FailFlag
 
 def verifyScSpecifyInexistentId(c):
     FailFlag = False
@@ -52,55 +58,91 @@ def verifyScSpecifyInexistentId(c):
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
 
+    return FailFlag
 
 def verifyScInvalidOption(c):
     FailFlag = False
     tolog("<b>Verify sc invalid option</b>")
-    command = ['sc -x', 'sc -a list -x', 'sc -a start -x']
+
+    command = [
+        'sc -x',
+        'sc -a list -x',
+        'sc -a start -x'
+    ]
+
     for com in command:
         tolog('<b> Verify ' + com + '</b>')
+
         result = SendCmd(c, com)
+
         if "Error (" not in result or "Invalid option" not in result:
             FailFlag = True
             tolog('\n<font color="red">Fail: ' + com + ' </font>')
+
     if FailFlag:
         tolog('\n<font color="red">Fail: Verify sc invalid option </font>')
         tolog(Fail)
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
+    return FailFlag
+
 def verifyScInvalidParameters(c):
     FailFlag = False
     tolog("<b>Verify sc invalid parameters</b>")
-    command = ['sc test', 'sc -a list test', 'sc -a start test']
+
+    command = [
+        'sc test',
+        'sc -a list test',
+        'sc -a start test'
+    ]
+
     for com in command:
         tolog('<b> Verify ' + com + '</b>')
+
         result = SendCmd(c, com)
+
         if "Error (" not in result or "Invalid setting parameters" not in result:
             FailFlag = True
             tolog('\n<font color="red">Fail: ' + com + ' </font>')
+
     if FailFlag:
         tolog('\n<font color="red">Fail: Verify sc invalid parameters </font>')
         tolog(Fail)
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
+    return FailFlag
+
 def verifyScMissingParameters(c):
     FailFlag = False
     tolog("<b>Verify sc missing parameters</b>")
-    command = ['sc -i ', 'sc -a list -i ', 'sc -a start -i ']
+
+    command = [
+        'sc -i ',
+        'sc -a list -i ',
+        'sc -a start -i '
+    ]
+
     for com in command:
         tolog('<b> Verify ' + com + '</b>')
+
         result = SendCmd(c, com)
+
         if "Error (" not in result or "Missing parameter" not in result:
             FailFlag = True
             tolog('\n<font color="red">Fail: ' + com + ' </font>')
+
     if FailFlag:
         tolog('\n<font color="red">Fail: Verify sc missing parameters </font>')
         tolog(Fail)
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
+    return FailFlag
 
 if __name__ == "__main__":
     start = time.clock()

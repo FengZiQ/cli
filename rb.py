@@ -1,9 +1,9 @@
 # coding=utf-8
-# initial work on 2017.2.20
-# this section includes list pd
+
 from send_cmd import *
 from to_log import *
 from ssh_connect import ssh_conn
+
 Pass = "'result': 'p'"
 Fail = "'result': 'f'"
 
@@ -42,7 +42,7 @@ def findPdId(c):
                 pdId.append(pdRow[i].split()[0])
         return pdId
 
-def bvt_verifyRbStartAndStopAndList(c):
+def verifyRbStartAndStopAndList(c):
     FailFlag = False
     tolog("verify rb start")
 
@@ -146,7 +146,7 @@ def bvt_verifyRbStartAndStopAndList(c):
 
     return FailFlag
 
-def bvt_verifyRbInvalidOption(c):
+def verifyRbInvalidOption(c):
     FailFlag = False
     tolog("<b>Verify rb invalid option</b>")
     command = ['rb -x',
@@ -169,7 +169,7 @@ def bvt_verifyRbInvalidOption(c):
 
     return FailFlag
 
-def bvt_verifyRbInvalidParameters(c):
+def verifyRbInvalidParameters(c):
     FailFlag = False
     tolog("<b>Verify rb invalid parameters</b>")
     command = ['rb -a list x',
@@ -201,7 +201,7 @@ def bvt_verifyRbInvalidParameters(c):
 
     return FailFlag
 
-def bvt_verifyRbMissingParameters(c):
+def verifyRbMissingParameters(c):
     FailFlag = False
     tolog("<b>Verify rb missing parameters</b>")
     command = ['rb -a start -l ',
@@ -229,10 +229,10 @@ def bvt_verifyRbMissingParameters(c):
 if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
-    bvt_verifyRbStartAndStopAndList(c)
-    bvt_verifyRbInvalidOption(c)
-    bvt_verifyRbInvalidParameters(c)
-    bvt_verifyRbMissingParameters(c)
+    verifyRbStartAndStopAndList(c)
+    verifyRbInvalidOption(c)
+    verifyRbInvalidParameters(c)
+    verifyRbMissingParameters(c)
     ssh.close()
     elasped = time.clock() - start
     print "Elasped %s" % elasped

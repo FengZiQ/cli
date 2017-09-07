@@ -1,5 +1,4 @@
 # coding=utf-8
-# work on 2017.8.7
 
 from send_cmd import *
 from to_log import *
@@ -33,7 +32,7 @@ def findPlId(c):
 
     return pdId
 
-def bvt_verifyBgaschedAdd(c):
+def verifyBgaschedAdd(c):
     FailFlag = False
 
     # precondition
@@ -167,7 +166,7 @@ def bvt_verifyBgaschedAdd(c):
 
     return FailFlag
 
-def bvt_verifyBgaschedMod(c):
+def verifyBgaschedMod(c):
     FailFlag = False
     type = ['rc', 'br', 'sc']
     recurtype = ['daily', 'weekly', 'monthly']
@@ -300,7 +299,7 @@ def bvt_verifyBgaschedMod(c):
 
     return FailFlag
 
-def bvt_verifyBgaschedList(c):
+def verifyBgaschedList(c):
     FailFlag = False
     command = ['bgasched',
                'bgasched -v',
@@ -325,7 +324,7 @@ def bvt_verifyBgaschedList(c):
 
     return FailFlag
 
-def bvt_verifyBgaschedDel(c):
+def verifyBgaschedDel(c):
     FailFlag = False
     bgaSId = findBgaSId(c)
     if len(bgaSId) != 0:
@@ -355,7 +354,7 @@ def bvt_verifyBgaschedDel(c):
 
     return FailFlag
 
-def bvt_verifyBgaschedHelp(c):
+def verifyBgaschedHelp(c):
     FailFlag = False
     result = SendCmd(c, 'bgasched -h')
     if 'Error (' in result or '<action>' not in result:
@@ -371,7 +370,7 @@ def bvt_verifyBgaschedHelp(c):
 
     return FailFlag
 
-def bvt_verifyBgaschedInvalidOption(c):
+def verifyBgaschedInvalidOption(c):
     FailFlag = False
     command = ['bgasched -x',
                'bgasched -a list -x',
@@ -393,7 +392,7 @@ def bvt_verifyBgaschedInvalidOption(c):
 
     return FailFlag
 
-def bvt_verifyBgaschedInvalidParameters(c):
+def verifyBgaschedInvalidParameters(c):
     FailFlag = False
     command = ['bgasched -t x',
                'bgasched -a mod -t x',
@@ -444,7 +443,7 @@ def bvt_verifyBgaschedInvalidParameters(c):
 
     return FailFlag
 
-def bvt_verifyBgaschedMissingParameters(c):
+def verifyBgaschedMissingParameters(c):
     FailFlag = False
     command = ['bgasched -t ',
                'bgasched -a mod -t rc -s',
@@ -465,7 +464,7 @@ def bvt_verifyBgaschedMissingParameters(c):
 
     return FailFlag
 
-def bvt_clearUp(c):
+def clearUp(c):
     plInfo = SendCmd(c, 'pool')
     row = plInfo.split('\r\n')
     plId = []
@@ -476,20 +475,18 @@ def bvt_clearUp(c):
     for i in plId:
         SendCmdconfirm(c, 'pool -a del -f -i ' + i)
 
-
-
 if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
-    bvt_verifyBgaschedAdd(c)
-    bvt_verifyBgaschedMod(c)
-    bvt_verifyBgaschedList(c)
-    bvt_verifyBgaschedDel(c)
-    bvt_verifyBgaschedHelp(c)
-    bvt_verifyBgaschedInvalidOption(c)
-    bvt_verifyBgaschedInvalidParameters(c)
-    bvt_verifyBgaschedMissingParameters(c)
-    bvt_clearUp(c)
+    verifyBgaschedAdd(c)
+    verifyBgaschedMod(c)
+    verifyBgaschedList(c)
+    verifyBgaschedDel(c)
+    verifyBgaschedHelp(c)
+    verifyBgaschedInvalidOption(c)
+    verifyBgaschedInvalidParameters(c)
+    verifyBgaschedMissingParameters(c)
+    clearUp(c)
     ssh.close()
     elasped = time.clock() - start
     print "Elasped %s" % elasped

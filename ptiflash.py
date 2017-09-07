@@ -1,9 +1,9 @@
 # coding=utf-8
-# initial work on 2017.2.20
-# this section includes list pd
+
 from send_cmd import *
 from to_log import *
 from ssh_connect import ssh_conn
+
 Pass = "'result': 'p'"
 Fail = "'result': 'f'"
 
@@ -18,6 +18,8 @@ def verifyPtiflash(c):
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
 
+    return FailFlag
+
 def verifyPtiflashStart(c):
     FailFlag = False
     tolog("<b>Verify ptiflash -a start </b>")
@@ -29,12 +31,11 @@ def verifyPtiflashStart(c):
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
 
+    return FailFlag
+
 def verifyPtiflashVersioninfo(c):
     FailFlag = False
     tolog("<b>Verify ptiflash -a versioninfo </b>")
-    # result = SendCmd(c, 'ptiflash -a versioninfo')
-    # checkPoint = ['Firmware', 'Ctrl', 'Partition', 'Version', 'BuildDate', 'FlashDate', 'Firmware', '', '', '', '', '', '', '', ]
-
 
     if FailFlag:
         tolog('\n<font color="red">Fail: Verify ptiflash -a versioninfo </font>')
@@ -42,6 +43,8 @@ def verifyPtiflashVersioninfo(c):
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
+    return FailFlag
 
 def verifyPtiflashSpecifyInexistentId(c):
     FailFlag = False
@@ -57,55 +60,92 @@ def verifyPtiflashSpecifyInexistentId(c):
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
 
+    return FailFlag
 
 def verifyPtiflashInvalidOption(c):
     FailFlag = False
     tolog("<b>Verify ptiflash invalid option</b>")
-    command = ['ptiflash -x', 'ptiflash -a start -x', 'ptiflash -a versioninfo -x']
+
+    command = [
+        'ptiflash -x',
+        'ptiflash -a start -x',
+        'ptiflash -a versioninfo -x'
+    ]
+
     for com in command:
         tolog('<b> Verify ' + com + '</b>')
+
         result = SendCmd(c, com)
+
         if "Error (" not in result or "Invalid option" not in result:
             FailFlag = True
             tolog('\n<font color="red">Fail: ' + com + ' </font>')
+
     if FailFlag:
         tolog('\n<font color="red">Fail: Verify ptiflash invalid option </font>')
         tolog(Fail)
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
+    return FailFlag
+
 def verifyPtiflashInvalidParameters(c):
     FailFlag = False
     tolog("<b>Verify ptiflash invalid parameters</b>")
-    command = ['ptiflash test', 'ptiflash -a start test', 'ptiflash -a versioninfo test']
+
+    command = [
+        'ptiflash test',
+        'ptiflash -a start test',
+        'ptiflash -a versioninfo test'
+    ]
+
     for com in command:
         tolog('<b> Verify ' + com + '</b>')
+
         result = SendCmd(c, com)
+
         if "Error (" not in result or "Invalid setting parameters" not in result:
             FailFlag = True
             tolog('\n<font color="red">Fail: ' + com + ' </font>')
+
     if FailFlag:
         tolog('\n<font color="red">Fail: Verify ptiflash invalid parameters </font>')
         tolog(Fail)
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
+    return FailFlag
+
 def verifyPtiflashMissingParameters(c):
     FailFlag = False
     tolog("<b>Verify ptiflash missing parameters</b>")
-    command = [ 'ptiflash -t ', 'ptiflash -t -s ', 'ptiflash -t -s 000.000.000.000 -f', 'ptiflash -a']
+
+    command = [
+        'ptiflash -t ',
+        'ptiflash -t -s ',
+        'ptiflash -t -s 000.000.000.000 -f',
+        'ptiflash -a'
+    ]
+
     for com in command:
         tolog('<b> Verify ' + com + '</b>')
+
         result = SendCmd(c, com)
+
         if "Error (" not in result or "Missing parameter" not in result:
             FailFlag = True
             tolog('\n<font color="red">Fail: ' + com + ' </font>')
+
     if FailFlag:
         tolog('\n<font color="red">Fail: Verify ptiflash missing parameters </font>')
         tolog(Fail)
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
+    return FailFlag
 
 if __name__ == "__main__":
     start = time.clock()

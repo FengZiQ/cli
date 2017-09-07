@@ -1,9 +1,9 @@
 # coding=utf-8
-# initial work on 2017.2.20
-# this section includes list pd
+
 from send_cmd import *
 from to_log import *
 from ssh_connect import ssh_conn
+
 Pass = "'result': 'p'"
 Fail = "'result': 'f'"
 
@@ -18,6 +18,8 @@ def verifyTrunk(c):
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
 
+    return FailFlag
+
 def verifyTrunkList(c):
     FailFlag = False
     tolog("<b>Verify trunk -a list </b>")
@@ -28,6 +30,8 @@ def verifyTrunkList(c):
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
+    return FailFlag
 
 def verifyTrunkAdd(c):
     FailFlag = False
@@ -40,6 +44,8 @@ def verifyTrunkAdd(c):
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
 
+    return FailFlag
+
 def verifyTrunkMod(c):
     FailFlag = False
     tolog("<b>Verify trunk -a mod </b>")
@@ -51,6 +57,8 @@ def verifyTrunkMod(c):
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
 
+    return FailFlag
+
 def verifyTrunkDel(c):
     FailFlag = False
     tolog("<b>Verify trunk -a del </b>")
@@ -61,6 +69,8 @@ def verifyTrunkDel(c):
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
+    return FailFlag
 
 def verifyTrunkSpecifyInexistentId(c):
     FailFlag = False
@@ -74,55 +84,97 @@ def verifyTrunkSpecifyInexistentId(c):
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
 
+    return FailFlag
+
 
 def verifyTrunkInvalidOption(c):
     FailFlag = False
     tolog("<b>Verify trunk invalid option</b>")
-    command = ['trunk -x', 'trunk -a list -x', 'trunk -a add -x', 'trunk -a mod -x', 'trunk -a del -x']
+
+    command = [
+        'trunk -x',
+        'trunk -a list -x',
+        'trunk -a add -x',
+        'trunk -a mod -x',
+        'trunk -a del -x'
+    ]
+
     for com in command:
         tolog('<b> Verify ' + com + '</b>')
+
         result = SendCmd(c, com)
+
         if "Error (" not in result or "Invalid option" not in result:
             FailFlag = True
             tolog('\n<font color="red">Fail: ' + com + ' </font>')
+
     if FailFlag:
         tolog('\n<font color="red">Fail: Verify trunk invalid option </font>')
         tolog(Fail)
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
+    return FailFlag
+
 def verifyTrunkInvalidParameters(c):
     FailFlag = False
     tolog("<b>Verify trunk invalid parameters</b>")
-    command = ['trunk test', 'trunk -a list test', 'trunk -a add -s test', 'trunk -a mod -s test', 'trunk -a del -i test']
+
+    command = [
+        'trunk test',
+        'trunk -a list test',
+        'trunk -a add -s test',
+        'trunk -a mod -s test',
+        'trunk -a del -i test'
+    ]
+
     for com in command:
         tolog('<b> Verify ' + com + '</b>')
+
         result = SendCmd(c, com)
+
         if "Error (" not in result or "Invalid setting parameters" not in result:
             FailFlag = True
             tolog('\n<font color="red">Fail: ' + com + ' </font>')
+
     if FailFlag:
         tolog('\n<font color="red">Fail: Verify trunk invalid parameters </font>')
         tolog(Fail)
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
+    return FailFlag
+
 def verifyTrunkMissingParameters(c):
     FailFlag = False
     tolog("<b>Verify trunk missing parameters</b>")
-    command = ['trunk -a ', 'trunk -a add -s ', 'trunk -a mod -s ', 'trunk -a del -i ']
+
+    command = [
+        'trunk -a ',
+        'trunk -a add -s ',
+        'trunk -a mod -s ',
+        'trunk -a del -i '
+    ]
+
     for com in command:
         tolog('<b> Verify ' + com + '</b>')
+
         result = SendCmd(c, com)
+
         if "Error (" not in result or "Missing parameter" not in result:
             FailFlag = True
             tolog('\n<font color="red">Fail: ' + com + ' </font>')
+
     if FailFlag:
         tolog('\n<font color="red">Fail: Verify trunk missing parameters </font>')
         tolog(Fail)
     else:
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
+
+    return FailFlag
 
 if __name__ == "__main__":
     start = time.clock()

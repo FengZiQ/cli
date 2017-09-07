@@ -2,7 +2,7 @@
 import paramiko
 import time
 import os
-server = '10.84.2.116'
+server = '10.84.2.164'
 uname = 'administrator'
 pwd = 'password'
 

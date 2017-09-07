@@ -1,22 +1,9 @@
-# initial version
-# March 16, 2017
-# architecture
-# 1. getnewbuild from buildserver
-# 2. scp to tftpserver
-# 3. login to hypersion-DS console, execute
-#    ptiflash -t -s 10.84.2.99 -f d5k-multi-12_0_9999_xx.ptif
-#    ptiflash -t -s 10.84.2.99 -f d5k-conf-12_0_9999_48.ptif
-# 4. execute auto script for cli and webgui
-# 5. send email according to the test result
+# coding=utf-8
 
-buildserverurl="http://192.168.208.5/release/hyperion_ds/daily/"
-tftpserver="root@10.84.2.99:/work/tftpboot/"
 import pool
 from time import sleep
-import os
 from send_cmd import *
 from ssh_connect import *
-forBVT = True
 from to_log import *
 
 Pass = "'result': 'p'"
@@ -24,455 +11,665 @@ Fail = "'result': 'f'"
 
 def BuildVerification(c):
 
-    flashimage=False
-    Failflag=False
+    flashimage = False
+    Failflag = False
+
     count = 0
-    Failflaglist = list()
+    FailCasesList = []
     c, ssh = ssh_conn()
 
     versioninfo = SendCmd(c, "about")
 
     currentbuild = versioninfo.split("Version: ")[1][:13]
 
+    tftpbuildnumber = open("/home/work/zach/clitest/buildnum","r").readline().rstrip()
 
+    print "currentbuild,", currentbuild
+    print "tftpbuildnumber,", tftpbuildnumber
 
-    tftpbuildnumber=open("/home/work/jackyl/Scripts/clitest/buildnum","r").readline().rstrip()
-    print "currentbuild,",currentbuild
-    print "tftpbuildnumber,",tftpbuildnumber
+    filename = ''
 
-    if (("13." in currentbuild and "13." in tftpbuildnumber) and (int(currentbuild.split(".")[-1])<int(tftpbuildnumber.split(".")[-1]))) or (("12.00" in currentbuild and "12.0" in tftpbuildnumber) and (int(currentbuild.split(".")[-1]) < int(tftpbuildnumber.split(".")[-1]))) or (("12.01" in currentbuild and "12.1" in tftpbuildnumber) and (int(currentbuild.split(".")[-1]) < int(tftpbuildnumber.split(".")[-1]))) or (("12.02" in currentbuild and "12.2" in tftpbuildnumber) and
-            (int(currentbuild.split(".")[-1]) < int(tftpbuildnumber.split(".")[-1]))) :
-        #filename="d5k-multi-13_0_0000_"+tftpbuildnumber.split(".")[-1]
+    if (("13." in currentbuild and "13." in tftpbuildnumber)
+        and (int(currentbuild.split(".")[-1]) < int(tftpbuildnumber.split(".")[-1]))) \
+            or (("12.00" in currentbuild and "12.0" in tftpbuildnumber)
+                and (int(currentbuild.split(".")[-1]) < int(tftpbuildnumber.split(".")[-1]))) \
+            or (("12.01" in currentbuild and "12.1" in tftpbuildnumber)
+                and (int(currentbuild.split(".")[-1]) < int(tftpbuildnumber.split(".")[-1]))) \
+            or (("12.02" in currentbuild and "12.2" in tftpbuildnumber)
+                and (int(currentbuild.split(".")[-1]) < int(tftpbuildnumber.split(".")[-1]))):
+
         if "13." in tftpbuildnumber:
-
             filename = "d5k-multi-13_0_0000_" + tftpbuildnumber.split(".")[-1]
+
         elif "12.0" in tftpbuildnumber:
-
             filename = "d5k-multi-12_0_9999_" + tftpbuildnumber.split(".")[-1]
+
         elif "12.1" in tftpbuildnumber:
-
             filename = "d5k-multi-12_1_9999_" + tftpbuildnumber.split(".")[-1]
-        elif "12.2" in tftpbuildnumber:
 
+        elif "12.2" in tftpbuildnumber:
             filename = "d5k-multi-12_2_9999_" + tftpbuildnumber.split(".")[-1]
 
         tolog("%s will be updated to the %s" % (filename, server))
         flashimage = True
-        SendCmdRestart(c,"ptiflash -y -t -s 10.84.2.99 -f "+filename+".ptif")
-
-
-
+        SendCmdRestart(c, "ptiflash -y -t -s 10.84.2.99 -f "+filename+".ptif")
 
     if flashimage:
-        i=1
-        while i< 160:
+        i = 1
+        while i < 160:
             # wait for rebooting
-           tolog("ptiflash is in progress, please wait, %d seconds elapse" %i)
-           i+=1
+           tolog("ptiflash is in progress, please wait, %d seconds elapse" % i)
+           i += 1
            sleep(1)
 
-    # check if ssh connection is ok.
-    # wait for another 40 seconds
-        reconnectflag=False
+        # check if ssh connection is ok.
+        # wait for another 40 seconds
+        reconnectflag = False
+
         for x in range(30):
             try:
-                c,ssh=ssh_conn()
-                reconnectflag=True
+                c,ssh = ssh_conn()
+                reconnectflag = True
                 break
             except Exception, e:
                 print e
                 sleep(4)
 
-
         if reconnectflag:
+            import pool
             tolog("Start verifying pool add")
-            Failflaglist.append(pool.bvtpoolcreateandlist(c,1))
-
-            tolog("Start verifying pool global setting")
-            Failflaglist.append(pool.bvtpoolglobalsetting(c))
-
-            tolog("Start verifying volume add")
-            Failflaglist.append(pool.bvtvolumecreateandlist(c,10))
-
-            tolog("Start verifying snapshot add")
-            Failflaglist.append(pool.bvtsnapshotcreateandlist(c,2))
-
-            tolog("Start verifying clone add")
-            Failflaglist.append(pool.bvtclonecreateandlist(c,2))
-
-
-            tolog("Start verifying delete clone")
-            Failflaglist.append( pool.bvtclonedelete(c))
-
-            tolog("Start verifying delete snapshot")
-            Failflaglist.append( pool.bvtsnapshotdelete(c))
-
-            tolog("Start verifying delete volume")
-            Failflaglist.append( pool.bvtvolumedel(c))
-
-            tolog("Start verifying delete pool")
-            Failflaglist.append(pool.bvtpooldel(c))
-
-
-            tolog("Start verifying pool add for a second time")
-            Failflaglist.append(pool.bvtpoolcreateandlist(c, 0))
-
-            tolog("Start verifying pool global setting")
-            Failflaglist.append(pool.bvtpoolglobalsetting(c))
-
-            tolog("Start verifying volume add many")
-            Failflaglist.append(pool.bvtvolumeaddmany(c, 2))
-
-            tolog("Start verifying snapshot add")
-            Failflaglist.append(pool.bvtsnapshotcreateandlist(c, 2))
-
-            tolog("Start verifying clone add")
-            Failflaglist.append(pool.bvtclonecreateandlist(c, 2))
-
-            tolog("Start verifying clone export/unexport")
-            Failflaglist.append(pool.bvtexportunexport(c, "clone"))
-
-            tolog("Start verifying snapshot export/unexport")
-            Failflaglist.append(pool.bvtexportunexport(c, "snapshot"))
-
-            tolog("Start verifying volume export/unexport")
-            Failflaglist.append(pool.bvtexportunexport(c, "volume"))
-
-
-
-            tolog("Start verifying pool force delete")
-            Failflaglist.append(pool.bvtforcedel(c, "pool"))
-
-
-            tolog("Start verifying pool add for 3rd time")
-            Failflaglist.append(pool.bvtpoolcreateandlist(c, 2))
+            if (pool.bvtpoolcreateandlist(c, 1)):
+                FailCasesList.append('The case ' + pool.bvtpoolcreateandlist.__name__ + ' failed')
 
             tolog("Start verifying spare add")
-            Failflaglist.append(pool.bvtsparedrvcreate(c, 2))
+            if (pool.bvtsparedrvcreate(c, 2)):
+                FailCasesList.append('The case ' + pool.bvtsparedrvcreate.__name__ + ' failed')
 
             tolog("Start verifying delete spare")
-            Failflaglist.append(pool.bvtsparedelete(c))
+            if (pool.bvtsparedelete(c)):
+                FailCasesList.append('The case ' + pool.bvtsparedelete.__name__ + ' failed')
 
-
-            tolog("Start verifying pool extend")
-            Failflaglist.append(pool.bvtpoolmodifyandlist(c))
+            tolog("Start verifying pool global setting")
+            if (pool.bvtpoolglobalsetting(c)):
+                FailCasesList.append('The case ' + pool.bvtpoolglobalsetting.__name__ + ' failed')
 
             tolog("Start verifying volume add")
-            Failflaglist.append(pool.bvtvolumecreateandlist(c, 10))
+            if (pool.bvtvolumecreateandlist(c, 10)):
+                FailCasesList.append('The case ' + pool.bvtvolumecreateandlist.__name__ + ' failed')
 
             tolog("Start verifying snapshot add")
-            Failflaglist.append(pool.bvtsnapshotcreateandlist(c, 2))
+            if (pool.bvtsnapshotcreateandlist(c, 2)):
+                FailCasesList.append('The case ' + pool.bvtsnapshotcreateandlist.__name__ + ' failed')
 
             tolog("Start verifying clone add")
-            Failflaglist.append(pool.bvtclonecreateandlist(c, 2))
+            if (pool.bvtclonecreateandlist(c, 2)):
+                FailCasesList.append('The case ' + pool.bvtclonecreateandlist.__name__ + ' failed')
+
+            tolog("Start verifying delete clone")
+            if (pool.bvtclonedelete(c)):
+                FailCasesList.append('The case ' + pool.bvtclonedelete.__name__ + ' failed')
+
+            tolog("Start verifying delete snapshot")
+            if (pool.bvtsnapshotdelete(c)):
+                FailCasesList.append('The case ' + pool.bvtsnapshotdelete.__name__ + ' failed')
+
+            tolog("Start verifying delete volume")
+            if (pool.bvtvolumedel(c)):
+                FailCasesList.append('The case ' + pool.bvtvolumedel.__name__ + ' failed')
+
+            tolog("Start verifying delete pool")
+            if (pool.bvtpooldel(c)):
+                FailCasesList.append('The case ' + pool.bvtpooldel.__name__ + ' failed')
+
+            tolog("Start verifying pool add for a second time")
+            if (pool.bvtpoolcreateandlist(c, 0)):
+                FailCasesList.append('The case ' + pool.bvtpoolcreateandlist.__name__ + ' failed')
+
+            tolog("Start verifying pool global setting")
+            if (pool.bvtpoolglobalsetting(c)):
+                FailCasesList.append('The case ' + pool.bvtpoolglobalsetting.__name__ + ' failed')
+
+            tolog("Start verifying volume add many")
+            if (pool.bvtvolumeaddmany(c, 2)):
+                FailCasesList.append('The case ' + pool.bvtvolumeaddmany.__name__ + ' failed')
+
+            tolog("Start verifying snapshot add")
+            if (pool.bvtsnapshotcreateandlist(c, 2)):
+                FailCasesList.append('The case ' + pool.bvtsnapshotcreateandlist.__name__ + ' failed')
+
+            tolog("Start verifying clone add")
+            if (pool.bvtclonecreateandlist(c, 2)):
+                FailCasesList.append('The case ' + pool.bvtclonecreateandlist.__name__ + ' failed')
+
+            tolog("Start verifying clone export/unexport")
+            if (pool.bvtexportunexport(c, "clone")):
+                FailCasesList.append('The case ' + pool.bvtexportunexport.__name__ + ' failed')
+
+            tolog("Start verifying snapshot export/unexport")
+            if (pool.bvtexportunexport(c, "snapshot")):
+                FailCasesList.append('The case ' + pool.bvtexportunexport.__name__ + ' failed')
+
+            tolog("Start verifying volume export/unexport")
+            if (pool.bvtexportunexport(c, "volume")):
+                FailCasesList.append('The case ' + pool.bvtexportunexport.__name__ + ' failed')
+
+            tolog("Start verifying pool force delete")
+            if (pool.bvtforcedel(c, "pool")):
+                FailCasesList.append('The case ' + pool.bvtforcedel.__name__ + ' failed')
+
+            tolog("Start verifying pool add for 3rd time")
+            if (pool.bvtpoolcreateandlist(c, 2)):
+                FailCasesList.append('The case ' + pool.bvtpoolcreateandlist.__name__ + ' failed')
+
+            tolog("Start verifying pool extend")
+            if (pool.bvtpoolmodifyandlist(c)):
+                FailCasesList.append('The case ' + pool.bvtpoolmodifyandlist.__name__ + ' failed')
+
+            tolog("Start verifying volume add")
+            if (pool.bvtvolumecreateandlist(c, 10)):
+                FailCasesList.append('The case ' + pool.bvtvolumecreateandlist.__name__ + ' failed')
+
+            tolog("Start verifying snapshot add")
+            if (pool.bvtsnapshotcreateandlist(c, 2)):
+                FailCasesList.append('The case ' + pool.bvtsnapshotcreateandlist.__name__ + ' failed')
+
+            tolog("Start verifying clone add")
+            if (pool.bvtclonecreateandlist(c, 2)):
+                FailCasesList.append('The case ' + pool.bvtclonecreateandlist.__name__ + ' failed')
 
             tolog("Start verifying clone force delete")
-            Failflaglist.append(pool.bvtforcedel(c, "clone"))
+            if (pool.bvtforcedel(c, "clone")):
+                FailCasesList.append('The case ' + pool.bvtforcedel.__name__ + ' failed')
 
             tolog("Start verifying snapshot force delete")
-            Failflaglist.append(pool.bvtforcedel(c, "snapshot"))
+            if (pool.bvtforcedel(c, "snapshot")):
+                FailCasesList.append('The case ' + pool.bvtforcedel.__name__ + ' failed')
 
             tolog("Start verifying volume force delete")
-            Failflaglist.append(pool.bvtforcedel(c, "volume"))
+            if (pool.bvtforcedel(c, "volume")):
+                FailCasesList.append('The case ' + pool.bvtforcedel.__name__ + ' failed')
 
-
-            Failflaglist.append(pool.bvtforcedel(c, "pool"))
+            if (pool.bvtforcedel(c, "pool")):
+                FailCasesList.append('The case ' + pool.bvtforcedel.__name__ + ' failed')
 
             tolog("Start verifying pool create with all raid level and parameters")
-            Failflaglist.append(pool.bvtpoolcreateverify_newraidlevel(c))
-
+            if (pool.bvtpoolcreateverify_newraidlevel(c)):
+                FailCasesList.append('The case ' + pool.bvtpoolcreateverify_newraidlevel.__name__ + ' failed')
 
             tolog("Start verifying pool output error")
-            Failflaglist.append(pool.bvtpoolcreateverifyoutputerror_newraidlevel(c))
+            if (pool.bvtpoolcreateverifyoutputerror_newraidlevel(c)):
+                FailCasesList.append(
+                    'The case ' + pool.bvtpoolcreateverifyoutputerror_newraidlevel.__name__ + ' failed')
 
             tolog("Start verifying about")
             import about
-            Failflaglist.append(about.bvt_verifyAbout(c))
-            Failflaglist.append(about.bvt_verifyAboutHelp(c))
-            Failflaglist.append(about.bvt_verifyAboutInvalidOption(c))
-            Failflaglist.append(about.bvt_verifyAboutInvalidParameters(c))
+            if (about.verifyAbout(c)):
+                FailCasesList.append('The case ' + about.verifyAbout.__name__ + ' failed')
+            if (about.verifyAboutHelp(c)):
+                FailCasesList.append('The case ' + about.verifyAboutHelp.__name__ + ' failed')
+            if (about.verifyAboutInvalidOption(c)):
+                FailCasesList.append('The case ' + about.verifyAboutInvalidOption.__name__ + ' failed')
+            if (about.verifyAboutInvalidParameters(c)):
+                FailCasesList.append('The case ' + about.verifyAboutInvalidParameters.__name__ + ' failed')
 
             tolog("Start verifying battery")
             import battery
-            Failflaglist.append(battery.bvt_verifyBattery(c))
-            Failflaglist.append(battery.bvt_verifyBatteryList(c))
-            Failflaglist.append(battery.bvt_verifyBatteryRecondition(c))
-            Failflaglist.append(battery.bvt_verifyBatteryHelp(c))
-            Failflaglist.append(battery.bvt_verifyBatterySpecifyInexistentId(c))
-            Failflaglist.append(battery.bvt_verifyBatteryInvalidOption(c))
-            Failflaglist.append(battery.bvt_verifyBatteryInvalidParameters(c))
-            Failflaglist.append(battery.bvt_verifyBatteryMissingParameters(c))
+            if (battery.verifyBattery(c)):
+                FailCasesList.append('The case ' + battery.verifyBattery.__name__ + ' failed')
+            if (battery.verifyBatteryList(c)):
+                FailCasesList.append('The case ' + battery.verifyBatteryList.__name__ + ' failed')
+            if (battery.verifyBatteryRecondition(c)):
+                FailCasesList.append('The case ' + battery.verifyBatteryRecondition.__name__ + ' failed')
+            if (battery.verifyBatteryHelp(c)):
+                FailCasesList.append('The case ' + battery.verifyBatteryHelp.__name__ + ' failed')
+            if (battery.verifyBatterySpecifyInexistentId(c)):
+                FailCasesList.append('The case ' + battery.verifyBatterySpecifyInexistentId.__name__ + ' failed')
+            if (battery.verifyBatteryInvalidOption(c)):
+                FailCasesList.append('The case ' + battery.verifyBatteryInvalidOption.__name__ + ' failed')
+            if (battery.verifyBatteryInvalidParameters(c)):
+                FailCasesList.append('The case ' + battery.verifyBatteryInvalidParameters.__name__ + ' failed')
+            if (battery.verifyBatteryMissingParameters(c)):
+                FailCasesList.append('The case ' + battery.verifyBatteryMissingParameters.__name__ + ' failed')
 
             tolog("Start verifying BBM")
             import bbm
-            Failflaglist.append(bbm.bvt_verifyBBM(c))
-            Failflaglist.append(bbm.bvt_verifyBBMClear(c))
-            Failflaglist.append(bbm.bvt_verifyBBMClearFailedTest(c))
-            Failflaglist.append(bbm.bvt_verifyBBMHelp(c))
-            Failflaglist.append(bbm.bvt_verifyBBMInvalidOption(c))
-            Failflaglist.append(bbm.bvt_verifyBBMInvalidParameters(c))
-            Failflaglist.append(bbm.bvt_verifyBBMList(c))
-            Failflaglist.append(bbm.bvt_verifyBBMMissingParameters(c))
-            Failflaglist.append(bbm.bvt_verifyBBMSpecifyInexistentId(c))
-            Failflaglist.append(bbm.bvt_cleanUp(c))
+            if (bbm.verifyBBM(c)):
+                FailCasesList.append('The case ' + bbm.verifyBBM.__name__ + ' failed')
+            if (bbm.verifyBBMClear(c)):
+                FailCasesList.append('The case ' + bbm.verifyBBMClear.__name__ + ' failed')
+            if (bbm.verifyBBMHelp(c)):
+                FailCasesList.append('The case ' + bbm.verifyBBMHelp.__name__ + ' failed')
+            if (bbm.verifyBBMInvalidOption(c)):
+                FailCasesList.append('The case ' + bbm.verifyBBMInvalidOption.__name__ + ' failed')
+            if (bbm.verifyBBMInvalidParameters(c)):
+                FailCasesList.append('The case ' + bbm.verifyBBMInvalidParameters.__name__ + ' failed')
+            if (bbm.verifyBBMList(c)):
+                FailCasesList.append('The case ' + bbm.verifyBBMList.__name__ + ' failed')
+            if (bbm.verifyBBMMissingParameters(c)):
+                FailCasesList.append('The case ' + bbm.verifyBBMMissingParameters.__name__ + ' failed')
+            if (bbm.verifyBBMSpecifyInexistentId(c)):
+                FailCasesList.append('The case ' + bbm.verifyBBMSpecifyInexistentId.__name__ + ' failed')
+            (bbm.cleanUp(c))
 
             tolog("Start verifying bga")
             import bga
-            Failflaglist.append(bga.bvt_verifyBga(c))
-            Failflaglist.append(bga.bvt_verifyBgaList(c))
-            Failflaglist.append(bga.bvt_verifyBgaMod(c))
-            Failflaglist.append(bga.bvt_verifyBgaHelp(c))
-            Failflaglist.append(bga.bvt_verifyBgaInvalidOption(c))
-            Failflaglist.append(bga.bvt_verifyBgaInvalidParameters(c))
-            Failflaglist.append(bga.bvt_verifyBgaMissingParameters(c))
+            if (bga.verifyBga(c)):
+                FailCasesList.append('The case ' + bga.verifyBga.__name__ + ' failed')
+            if (bga.verifyBgaList(c)):
+                FailCasesList.append('The case ' + bga.verifyBgaList.__name__ + ' failed')
+            if (bga.verifyBgaMod(c)):
+                FailCasesList.append('The case ' + bga.verifyBgaMod.__name__ + ' failed')
+            if (bga.verifyBgaHelp(c)):
+                FailCasesList.append('The case ' + bga.verifyBgaHelp.__name__ + ' failed')
+            if (bga.verifyBgaInvalidOption(c)):
+                FailCasesList.append('The case ' + bga.verifyBgaInvalidOption.__name__ + ' failed')
+            if (bga.verifyBgaInvalidParameters(c)):
+                FailCasesList.append('The case ' + bga.verifyBgaInvalidParameters.__name__ + ' failed')
+            if (bga.verifyBgaMissingParameters(c)):
+                FailCasesList.append('The case ' + bga.verifyBgaMissingParameters.__name__ + ' failed')
 
             tolog("Start verifying buzzer")
             import buzzer
-            Failflaglist.append(buzzer.bvt_verifyBuzzerDisableAndSilentTurnOn((c)))
-            Failflaglist.append(buzzer.bvt_verifyBuzzerEnableAndSilentTurnOn((c)))
-            Failflaglist.append(buzzer.bvt_verifyBuzzerEnableAndSoundingTurnOn((c)))
-            Failflaglist.append(buzzer.bvt_verifyBuzzerDisableAndSilentTurnOff((c)))
-            Failflaglist.append(buzzer.bvt_verifyBuzzerEnableAndSilentTurnOff((c)))
-            Failflaglist.append(buzzer.bvt_verifyBuzzerEnableAndSoundingTurnOff((c)))
-            Failflaglist.append(buzzer.bvt_verifyBuzzerDisableAndSilentEnable((c)))
-            Failflaglist.append(buzzer.bvt_verifyBuzzerEnableAndSilentEnable((c)))
-            Failflaglist.append(buzzer.bvt_verifyBuzzerEnableAndSoundingEnable((c)))
-            Failflaglist.append(buzzer.bvt_verifyBuzzerEnableAndSoundingDisable((c)))
-            Failflaglist.append(buzzer.bvt_verifyBuzzerEnableAndSilentDisable((c)))
-            Failflaglist.append(buzzer.bvt_verifyBuzzerDisableAndSilentDisable((c)))
-            Failflaglist.append(buzzer.bvt_verifyBuzzerInfo((c)))
-            Failflaglist.append(buzzer.bvt_verifyBuzzerHelp((c)))
-            Failflaglist.append(buzzer.bvt_verifyBuzzerInvalidParameters((c)))
-            Failflaglist.append(buzzer.bvt_verifyBuzzerInvalidOption((c)))
+            if (buzzer.verifyBuzzerDisableAndSilentTurnOn((c))):
+                FailCasesList.append('The case ' + buzzer.verifyBuzzerDisableAndSilentTurnOn.__name__ + ' failed')
+            if (buzzer.verifyBuzzerEnableAndSilentTurnOn((c))):
+                FailCasesList.append('The case ' + buzzer.verifyBuzzerEnableAndSilentTurnOn.__name__ + ' failed')
+            if (buzzer.verifyBuzzerEnableAndSoundingTurnOn((c))):
+                FailCasesList.append('The case ' + buzzer.verifyBuzzerEnableAndSoundingTurnOn.__name__ + ' failed')
+            if (buzzer.verifyBuzzerDisableAndSilentTurnOff((c))):
+                FailCasesList.append('The case ' + buzzer.verifyBuzzerDisableAndSilentTurnOff.__name__ + ' failed')
+            if (buzzer.verifyBuzzerEnableAndSilentTurnOff((c))):
+                FailCasesList.append('The case ' + buzzer.verifyBuzzerEnableAndSilentTurnOff.__name__ + ' failed')
+            if (buzzer.verifyBuzzerEnableAndSoundingTurnOff((c))):
+                FailCasesList.append('The case ' + buzzer.verifyBuzzerEnableAndSoundingTurnOff.__name__ + ' failed')
+            if (buzzer.verifyBuzzerDisableAndSilentEnable((c))):
+                FailCasesList.append('The case ' + buzzer.verifyBuzzerDisableAndSilentEnable.__name__ + ' failed')
+            if (buzzer.verifyBuzzerEnableAndSilentEnable((c))):
+                FailCasesList.append('The case ' + buzzer.verifyBuzzerEnableAndSilentEnable.__name__ + ' failed')
+            if (buzzer.verifyBuzzerEnableAndSoundingEnable((c))):
+                FailCasesList.append('The case ' + buzzer.verifyBuzzerEnableAndSoundingEnable.__name__ + ' failed')
+            if (buzzer.verifyBuzzerEnableAndSoundingDisable((c))):
+                FailCasesList.append('The case ' + buzzer.verifyBuzzerEnableAndSoundingDisable.__name__ + ' failed')
+            if (buzzer.verifyBuzzerEnableAndSilentDisable((c))):
+                FailCasesList.append('The case ' + buzzer.verifyBuzzerEnableAndSilentDisable.__name__ + ' failed')
+            if (buzzer.verifyBuzzerDisableAndSilentDisable((c))):
+                FailCasesList.append('The case ' + buzzer.verifyBuzzerDisableAndSilentDisable.__name__ + ' failed')
+            if (buzzer.verifyBuzzerInfo((c))):
+                FailCasesList.append('The case ' + buzzer.verifyBuzzerInfo.__name__ + ' failed')
+            if (buzzer.verifyBuzzerHelp((c))):
+                FailCasesList.append('The case ' + buzzer.verifyBuzzerHelp.__name__ + ' failed')
+            if (buzzer.verifyBuzzerInvalidParameters((c))):
+                FailCasesList.append('The case ' + buzzer.verifyBuzzerInvalidParameters.__name__ + ' failed')
+            if (buzzer.verifyBuzzerInvalidOption((c))):
+                FailCasesList.append('The case ' + buzzer.verifyBuzzerInvalidOption.__name__ + ' failed')
 
-            #tolog("Start verifying chap")
-            #import chap
-            #Failflaglist.append(chap.bvt_verifyChapAdd(c))
-            #Failflaglist.append(chap.bvt_verifyChap(c))
-            #Failflaglist.append(chap.bvt_verifyChapList(c))
-            #Failflaglist.append(chap.bvt_verifyChapMod(c))
-            #Failflaglist.append(chap.bvt_verifyChapDel(c))
-            #Failflaglist.append(chap.bvt_verifyChapHelp(c))
-            #Failflaglist.append(chap.bvt_verifyChapSpecifyErrorId(c))
-            #Failflaglist.append(chap.bvt_verifyChapInvalidOption(c))
-            #Failflaglist.append(chap.bvt_verifyChapInvalidParameters(c))
-            #Failflaglist.append(chap.bvt_verifyChapMissingParameters(c))
+            # tolog("Start verifying chap")
+            # import chap
+            # (chap.verifyChapAdd(c))
+            # (chap.verifyChap(c))
+            # (chap.verifyChapList(c))
+            # (chap.verifyChapMod(c))
+            # (chap.verifyChapDel(c))
+            # (chap.verifyChapHelp(c))
+            # (chap.verifyChapSpecifyErrorId(c))
+            # (chap.verifyChapInvalidOption(c))
+            # (chap.verifyChapInvalidParameters(c))
+            # (chap.verifyChapMissingParameters(c))
 
             import ctrl
             tolog("Start verifying ctrl")
-            Failflaglist.append(ctrl.bvt_verifyCtrl(c))
-            Failflaglist.append(ctrl.bvt_verifyCtrlSpecifyId(c))
-            Failflaglist.append(ctrl.bvt_verifyCtrlSpecifyInexistentId(c))
-            Failflaglist.append(ctrl.bvt_verifyCtrlList(c))
-            Failflaglist.append(ctrl.bvt_verifyCtrlV(c))
-            Failflaglist.append(ctrl.bvt_verifyCtrlListV(c))
-            Failflaglist.append(ctrl.bvt_verifyCtrlModNormativeAlias(c))
-            Failflaglist.append(ctrl.bvt_verifyCtrlModValuesIsEnableOrDisable(c))
-            Failflaglist.append(ctrl.bvt_verifyCtrlModValuesIsTime(c))
-            Failflaglist.append(ctrl.bvt_verifyCtrlClear(c))
-            Failflaglist.append(ctrl.bvt_verifyCtrlHelp(c))
-            Failflaglist.append(ctrl.bvt_verifyCtrlInvalidOption(c))
-            Failflaglist.append(ctrl.bvt_verifyCtrlInvalidParameters(c))
-            Failflaglist.append(ctrl.bvt_verifyCtrlMissingParameters(c))
-            Failflaglist.append(ctrl.bvt_verifyCtrlSpecifyInexistentId(c))
+            if (ctrl.verifyCtrl(c)):
+                FailCasesList.append('The case ' + ctrl.verifyCtrl.__name__ + ' failed')
+            if (ctrl.verifyCtrlSpecifyId(c)):
+                FailCasesList.append('The case ' + ctrl.verifyCtrlSpecifyId.__name__ + ' failed')
+            if (ctrl.verifyCtrlSpecifyInexistentId(c)):
+                FailCasesList.append('The case ' + ctrl.verifyCtrlSpecifyInexistentId.__name__ + ' failed')
+            if (ctrl.verifyCtrlList(c)):
+                FailCasesList.append('The case ' + ctrl.verifyCtrlList.__name__ + ' failed')
+            if (ctrl.verifyCtrlV(c)):
+                FailCasesList.append('The case ' + ctrl.verifyCtrlV.__name__ + ' failed')
+            if (ctrl.verifyCtrlListV(c)):
+                FailCasesList.append('The case ' + ctrl.verifyCtrlListV.__name__ + ' failed')
+            if (ctrl.verifyCtrlModNormativeAlias(c)):
+                FailCasesList.append('The case ' + ctrl.verifyCtrlModNormativeAlias.__name__ + ' failed')
+            if (ctrl.verifyCtrlModValuesIsEnableOrDisable(c)):
+                FailCasesList.append('The case ' + ctrl.verifyCtrlModValuesIsEnableOrDisable.__name__ + ' failed')
+            if (ctrl.verifyCtrlModValuesIsTime(c)):
+                FailCasesList.append('The case ' + ctrl.verifyCtrlModValuesIsTime.__name__ + ' failed')
+            if (ctrl.verifyCtrlClear(c)):
+                FailCasesList.append('The case ' + ctrl.verifyCtrlClear.__name__ + ' failed')
+            if (ctrl.verifyCtrlHelp(c)):
+                FailCasesList.append('The case ' + ctrl.verifyCtrlHelp.__name__ + ' failed')
+            if (ctrl.verifyCtrlInvalidOption(c)):
+                FailCasesList.append('The case ' + ctrl.verifyCtrlInvalidOption.__name__ + ' failed')
+            if (ctrl.verifyCtrlInvalidParameters(c)):
+                FailCasesList.append('The case ' + ctrl.verifyCtrlInvalidParameters.__name__ + ' failed')
+            if (ctrl.verifyCtrlMissingParameters(c)):
+                FailCasesList.append('The case ' + ctrl.verifyCtrlMissingParameters.__name__ + ' failed')
+            if (ctrl.verifyCtrlSpecifyInexistentId(c)):
+                FailCasesList.append('The case ' + ctrl.verifyCtrlSpecifyInexistentId.__name__ + ' failed')
 
             tolog("Start verifying encldiag")
             import encldiag
-            Failflaglist.append(encldiag.bvt_verifyEncldiag(c))
-            Failflaglist.append(encldiag.bvt_verifyEncldiagList(c))
-            Failflaglist.append(encldiag.bvt_verifyEncldiagHelp(c))
-            Failflaglist.append(encldiag.bvt_verifyEncldiagSpecifyInexistentId(c))
-            Failflaglist.append(encldiag.bvt_verifyEncldiagInvalidOption(c))
-            Failflaglist.append(encldiag.bvt_verifyEncldiagInvalidParameters(c))
-            Failflaglist.append(encldiag.bvt_verifyEncldiagMissingParameters(c))
+            if (encldiag.verifyEncldiag(c)):
+                FailCasesList.append('The case ' + encldiag.verifyEncldiag.__name__ + ' failed')
+            if (encldiag.verifyEncldiagList(c)):
+                FailCasesList.append('The case ' + encldiag.verifyEncldiagList.__name__ + ' failed')
+            if (encldiag.verifyEncldiagHelp(c)):
+                FailCasesList.append('The case ' + encldiag.verifyEncldiagHelp.__name__ + ' failed')
+            if (encldiag.verifyEncldiagSpecifyInexistentId(c)):
+                FailCasesList.append('The case ' + encldiag.verifyEncldiagSpecifyInexistentId.__name__ + ' failed')
+            if (encldiag.verifyEncldiagInvalidOption(c)):
+                FailCasesList.append('The case ' + encldiag.verifyEncldiagInvalidOption.__name__ + ' failed')
+            if (encldiag.verifyEncldiagInvalidParameters(c)):
+                FailCasesList.append('The case ' + encldiag.verifyEncldiagInvalidParameters.__name__ + ' failed')
+            if (encldiag.verifyEncldiagMissingParameters(c)):
+                FailCasesList.append('The case ' + encldiag.verifyEncldiagMissingParameters.__name__ + ' failed')
 
             tolog("Start verifying enclosure")
             import enclosure
-            Failflaglist.append(enclosure.bvt_verifyEnclosure(c))
-            Failflaglist.append(enclosure.bvt_verifyEnclosureList(c))
-            Failflaglist.append(enclosure.bvt_verifyEnclosureMod(c))
-            Failflaglist.append(enclosure.bvt_verifyEnclosureLocate(c))
-            Failflaglist.append(enclosure.bvt_verifyEnclosureHelp(c))
-            Failflaglist.append(enclosure.bvt_verifEnclosureSpecifyInexistentId(c))
-            Failflaglist.append(enclosure.bvt_verifyEnclosureInvalidOption(c))
-            Failflaglist.append(enclosure.bvt_verifyEnclosureInvalidParameters(c))
-            Failflaglist.append(enclosure.bvt_verifyEnclosureMissingParameters(c))
+            if (enclosure.verifyEnclosure(c)):
+                FailCasesList.append('The case ' + enclosure.verifyEnclosure.__name__ + ' failed')
+            if (enclosure.verifyEnclosureList(c)):
+                FailCasesList.append('The case ' + enclosure.verifyEnclosureList.__name__ + ' failed')
+            if (enclosure.verifyEnclosureMod(c)):
+                FailCasesList.append('The case ' + enclosure.verifyEnclosureMod.__name__ + ' failed')
+            if (enclosure.verifyEnclosureLocate(c)):
+                FailCasesList.append('The case ' + enclosure.verifyEnclosureLocate.__name__ + ' failed')
+            if (enclosure.verifyEnclosureHelp(c)):
+                FailCasesList.append('The case ' + enclosure.verifyEnclosureHelp.__name__ + ' failed')
+            if (enclosure.verifEnclosureSpecifyInexistentId(c)):
+                FailCasesList.append('The case ' + enclosure.verifEnclosureSpecifyInexistentId.__name__ + ' failed')
+            if (enclosure.verifyEnclosureInvalidOption(c)):
+                FailCasesList.append('The case ' + enclosure.verifyEnclosureInvalidOption.__name__ + ' failed')
+            if (enclosure.verifyEnclosureInvalidParameters(c)):
+                FailCasesList.append('The case ' + enclosure.verifyEnclosureInvalidParameters.__name__ + ' failed')
+            if (enclosure.verifyEnclosureMissingParameters(c)):
+                FailCasesList.append('The case ' + enclosure.verifyEnclosureMissingParameters.__name__ + ' failed')
 
             tolog("Start verifying event")
             import event
-            Failflaglist.append(event.bvt_verifyEvent(c))
-            Failflaglist.append(event.bvt_verifyEventList(c))
-            Failflaglist.append(event.bvt_verifyEventClear(c))
-            Failflaglist.append(event.bvt_verifyEventHelp(c))
-            Failflaglist.append(event.bvt_verifEventSpecifyInexistentId(c))
-            Failflaglist.append(event.bvt_verifyEventInvalidOption(c))
-            Failflaglist.append(event.bvt_verifyEventInvalidParameters(c))
-            Failflaglist.append(event.bvt_verifyEventMissingParameters(c))
+            if (event.verifyEvent(c)):
+                FailCasesList.append('The case ' + event.verifyEvent.__name__ + ' failed')
+            if (event.verifyEventList(c)):
+                FailCasesList.append('The case ' + event.verifyEventList.__name__ + ' failed')
+            if (event.verifyEventClear(c)):
+                FailCasesList.append('The case ' + event.verifyEventClear.__name__ + ' failed')
+            if (event.verifyEventHelp(c)):
+                FailCasesList.append('The case ' + event.verifyEventHelp.__name__ + ' failed')
+            if (event.verifEventSpecifyInexistentId(c)):
+                FailCasesList.append('The case ' + event.verifEventSpecifyInexistentId.__name__ + ' failed')
+            if (event.verifyEventInvalidOption(c)):
+                FailCasesList.append('The case ' + event.verifyEventInvalidOption.__name__ + ' failed')
+            if (event.verifyEventInvalidParameters(c)):
+                FailCasesList.append('The case ' + event.verifyEventInvalidParameters.__name__ + ' failed')
+            if (event.verifyEventMissingParameters(c)):
+                FailCasesList.append('The case ' + event.verifyEventMissingParameters.__name__ + ' failed')
 
             tolog("Start verifying factorydefaults")
             import factorydefaults
-            Failflaglist.append(factorydefaults.bvt_factorydefaultsBga(c))
-            Failflaglist.append(factorydefaults.bvt_factorydefaultsCtrl(c))
-            Failflaglist.append(factorydefaults.bvt_factorydefaultsEncl(c))
-            Failflaglist.append(factorydefaults.bvt_factorydefaultsFc(c))
-            Failflaglist.append(factorydefaults.bvt_factorydefaultsIscsi(c))
-            Failflaglist.append(factorydefaults.bvt_factorydefaultsPhydrv(c))
-            Failflaglist.append(factorydefaults.bvt_factorydefaultsSubsys(c))
-            Failflaglist.append(factorydefaults.bvt_factorydefaultsBgasched(c))
-            Failflaglist.append(factorydefaults.bvt_factorydefaultsService(c))
-            Failflaglist.append(factorydefaults.bvt_factorydefaultsWebserver(c))
-            Failflaglist.append(factorydefaults.bvt_factorydefaultsSnmp(c))
-            Failflaglist.append(factorydefaults.bvt_factorydefaultsEmail(c))
-            Failflaglist.append(factorydefaults.bvt_factorydefaultsNtp(c))
-            Failflaglist.append(factorydefaults.bvt_factorydefaultsUser(c))
-            Failflaglist.append(factorydefaults.bvt_factorydefaultsUps(c))
-            Failflaglist.append(factorydefaults.bvt_factorydefaultsSyslog(c))
-            Failflaglist.append(factorydefaults.bvt_verifyFactorydefaultsHelp(c))
-            Failflaglist.append(factorydefaults.bvt_verifyFactorydefaultsInvalidOption(c))
-            Failflaglist.append(factorydefaults.bvt_verifyFactorydefaultsInvalidParameters(c))
-            Failflaglist.append(factorydefaults.bvt_verifyFactorydefaultsMissingParameters(c))
+            if (factorydefaults.factorydefaultsBga(c)):
+                FailCasesList.append('The case ' + factorydefaults.factorydefaultsBga.__name__ + ' failed')
+            if (factorydefaults.factorydefaultsCtrl(c)):
+                FailCasesList.append('The case ' + factorydefaults.factorydefaultsCtrl.__name__ + ' failed')
+            if (factorydefaults.factorydefaultsEncl(c)):
+                FailCasesList.append('The case ' + factorydefaults.factorydefaultsEncl.__name__ + ' failed')
+            if (factorydefaults.factorydefaultsFc(c)):
+                FailCasesList.append('The case ' + factorydefaults.factorydefaultsFc.__name__ + ' failed')
+            if (factorydefaults.factorydefaultsIscsi(c)):
+                FailCasesList.append('The case ' + factorydefaults.factorydefaultsIscsi.__name__ + ' failed')
+            if (factorydefaults.factorydefaultsPhydrv(c)):
+                FailCasesList.append('The case ' + factorydefaults.factorydefaultsPhydrv.__name__ + ' failed')
+            if (factorydefaults.factorydefaultsSubsys(c)):
+                FailCasesList.append('The case ' + factorydefaults.factorydefaultsSubsys.__name__ + ' failed')
+            if (factorydefaults.factorydefaultsBgasched(c)):
+                FailCasesList.append('The case ' + factorydefaults.factorydefaultsBgasched.__name__ + ' failed')
+            if (factorydefaults.factorydefaultsService(c)):
+                FailCasesList.append('The case ' + factorydefaults.factorydefaultsService.__name__ + ' failed')
+            if (factorydefaults.factorydefaultsWebserver(c)):
+                FailCasesList.append('The case ' + factorydefaults.factorydefaultsWebserver.__name__ + ' failed')
+            if (factorydefaults.factorydefaultsSnmp(c)):
+                FailCasesList.append('The case ' + factorydefaults.factorydefaultsSnmp.__name__ + ' failed')
+            if (factorydefaults.factorydefaultsEmail(c)):
+                FailCasesList.append('The case ' + factorydefaults.factorydefaultsEmail.__name__ + ' failed')
+            if (factorydefaults.factorydefaultsNtp(c)):
+                FailCasesList.append('The case ' + factorydefaults.factorydefaultsNtp.__name__ + ' failed')
+            if (factorydefaults.factorydefaultsUser(c)):
+                FailCasesList.append('The case ' + factorydefaults.factorydefaultsUser.__name__ + ' failed')
+            if (factorydefaults.factorydefaultsUps(c)):
+                FailCasesList.append('The case ' + factorydefaults.factorydefaultsUps.__name__ + ' failed')
+            if (factorydefaults.factorydefaultsSyslog(c)):
+                FailCasesList.append('The case ' + factorydefaults.factorydefaultsSyslog.__name__ + ' failed')
+            if (factorydefaults.verifyFactorydefaultsHelp(c)):
+                FailCasesList.append('The case ' + factorydefaults.verifyFactorydefaultsHelp.__name__ + ' failed')
+            if (factorydefaults.verifyFactorydefaultsInvalidOption(c)):
+                FailCasesList.append(
+                    'The case ' + factorydefaults.verifyFactorydefaultsInvalidOption.__name__ + ' failed')
+            if (factorydefaults.verifyFactorydefaultsInvalidParameters(c)):
+                FailCasesList.append(
+                    'The case ' + factorydefaults.verifyFactorydefaultsInvalidParameters.__name__ + ' failed')
+            if (factorydefaults.verifyFactorydefaultsMissingParameters(c)):
+                FailCasesList.append(
+                    'The case ' + factorydefaults.verifyFactorydefaultsMissingParameters.__name__ + ' failed')
 
             tolog("Start verifying fc")
             import fc
-            Failflaglist.append(fc.bvt_verifyFc(c))
-            Failflaglist.append(fc.bvt_verifyFcList(c))
-            Failflaglist.append(fc.bvt_verifyFcListV(c))
-            Failflaglist.append(fc.bvt_verifyFcMod(c))
-            Failflaglist.append(fc.bvt_verifyFcReset(c))
-            Failflaglist.append(fc.bvt_verifyFcClear(c))
-            Failflaglist.append(fc.bvt_verifyFcInvalidOption(c))
-            Failflaglist.append(fc.bvt_verifyFcInvalidParameters(c))
-            Failflaglist.append(fc.bvt_verifyFcMissingParameters(c))
+            if (fc.verifyFc(c)):
+                FailCasesList.append('The case ' + fc.verifyFc.__name__ + ' failed')
+            if (fc.verifyFcList(c)):
+                FailCasesList.append('The case ' + fc.verifyFcList.__name__ + ' failed')
+            if (fc.verifyFcListV(c)):
+                FailCasesList.append('The case ' + fc.verifyFcListV.__name__ + ' failed')
+            if (fc.verifyFcMod(c)):
+                FailCasesList.append('The case ' + fc.verifyFcMod.__name__ + ' failed')
+            if (fc.verifyFcReset(c)):
+                FailCasesList.append('The case ' + fc.verifyFcReset.__name__ + ' failed')
+            if (fc.verifyFcClear(c)):
+                FailCasesList.append('The case ' + fc.verifyFcClear.__name__ + ' failed')
+            if (fc.verifyFcInvalidOption(c)):
+                FailCasesList.append('The case ' + fc.verifyFcInvalidOption.__name__ + ' failed')
+            if (fc.verifyFcInvalidParameters(c)):
+                FailCasesList.append('The case ' + fc.verifyFcInvalidParameters.__name__ + ' failed')
+            if (fc.verifyFcMissingParameters(c)):
+                FailCasesList.append('The case ' + fc.verifyFcMissingParameters.__name__ + ' failed')
 
             tolog("Start verifying help")
             import help
-            Failflaglist.append(help.bvt_verifyHelp(c))
+            if (help.verifyHelp(c)):
+                FailCasesList.append('The case ' + help.verifyHelp.__name__ + ' failed')
 
             tolog("Start verifying initiator")
             import initiator
-            Failflaglist.append(initiator.bvt_verifyInitiatorAdd(c))
-            Failflaglist.append(initiator.bvt_verifyInitiator(c))
-            Failflaglist.append(initiator.bvt_verifyInitiatorList(c))
-            Failflaglist.append(initiator.bvt_verifyInitiatorDel(c))
-            Failflaglist.append(initiator.bvt_verifyInitiatorSpecifyInexistentId(c))
-            Failflaglist.append(initiator.bvt_verifyInitiatorInvalidOption(c))
-            Failflaglist.append(initiator.bvt_verifyInitiatorInvalidParameters(c))
-            Failflaglist.append(initiator.bvt_verifyInitiatorMissingParameters(c))
+            if (initiator.verifyInitiatorAdd(c)):
+                FailCasesList.append('The case ' + initiator.verifyInitiatorAdd.__name__ + ' failed')
+            if (initiator.verifyInitiator(c)):
+                FailCasesList.append('The case ' + initiator.verifyInitiator.__name__ + ' failed')
+            if (initiator.verifyInitiatorList(c)):
+                FailCasesList.append('The case ' + initiator.verifyInitiatorList.__name__ + ' failed')
+            if (initiator.verifyInitiatorDel(c)):
+                FailCasesList.append('The case ' + initiator.verifyInitiatorDel.__name__ + ' failed')
+            if (initiator.verifyInitiatorSpecifyInexistentId(c)):
+                FailCasesList.append('The case ' + initiator.verifyInitiatorSpecifyInexistentId.__name__ + ' failed')
+            if (initiator.verifyInitiatorInvalidOption(c)):
+                FailCasesList.append('The case ' + initiator.verifyInitiatorInvalidOption.__name__ + ' failed')
+            if (initiator.verifyInitiatorInvalidParameters(c)):
+                FailCasesList.append('The case ' + initiator.verifyInitiatorInvalidParameters.__name__ + ' failed')
+            if (initiator.verifyInitiatorMissingParameters(c)):
+                FailCasesList.append('The case ' + initiator.verifyInitiatorMissingParameters.__name__ + ' failed')
 
             tolog("Start verifying iscsi")
             import iscsi
-            Failflaglist.append(iscsi.bvt_verifyIscsi(c))
-            Failflaglist.append(iscsi.bvt_verifyIscsiList(c))
-            Failflaglist.append(iscsi.bvt_verifyIscsiAdd(c))
-            Failflaglist.append(iscsi.bvt_verifyIscsiMod(c))
-            Failflaglist.append(iscsi.bvt_verifyIscsiDel(c))
-            Failflaglist.append(iscsi.bvt_verifyIscsiSpecifyInexistentId(c))
-            Failflaglist.append(iscsi.bvt_verifyIscsiInvalidOption(c))
-            Failflaglist.append(iscsi.bvt_verifyIscsiInvalidParameters(c))
-            Failflaglist.append(iscsi.bvt_verifyIscsiMissingParameters(c))
+            if (iscsi.verifyIscsi(c)):
+                FailCasesList.append('The case ' + iscsi.verifyIscsi.__name__ + ' failed')
+            if (iscsi.verifyIscsiList(c)):
+                FailCasesList.append('The case ' + iscsi.verifyIscsiList.__name__ + ' failed')
+            if (iscsi.verifyIscsiAdd(c)):
+                FailCasesList.append('The case ' + iscsi.verifyIscsiAdd.__name__ + ' failed')
+            if (iscsi.verifyIscsiMod(c)):
+                FailCasesList.append('The case ' + iscsi.verifyIscsiMod.__name__ + ' failed')
+            if (iscsi.verifyIscsiDel(c)):
+                FailCasesList.append('The case ' + iscsi.verifyIscsiDel.__name__ + ' failed')
+            if (iscsi.verifyIscsiSpecifyInexistentId(c)):
+                FailCasesList.append('The case ' + iscsi.verifyIscsiSpecifyInexistentId.__name__ + ' failed')
+            if (iscsi.verifyIscsiInvalidOption(c)):
+                FailCasesList.append('The case ' + iscsi.verifyIscsiInvalidOption.__name__ + ' failed')
+            if (iscsi.verifyIscsiInvalidParameters(c)):
+                FailCasesList.append('The case ' + iscsi.verifyIscsiInvalidParameters.__name__ + ' failed')
+            if (iscsi.verifyIscsiMissingParameters(c)):
+                FailCasesList.append('The case ' + iscsi.verifyIscsiMissingParameters.__name__ + ' failed')
 
             tolog("Start verifying isns")
             import isns
-            Failflaglist.append(isns.bvt_verifyIsns(c))
-            Failflaglist.append(isns.bvt_verifyIsnsList(c))
-            Failflaglist.append(isns.bvt_verifyIsnsMod(c))
-            Failflaglist.append(isns.bvt_verifyIsnsSpecifyInexistentId(c))
-            Failflaglist.append(isns.bvt_verifyIsnsInvalidOption(c))
-            Failflaglist.append(isns.bvt_verifyIsnsInvalidParameters(c))
-            Failflaglist.append(isns.bvt_verifyIsnsMissingParameters(c))
-
-            # tolog("Start verifying logout")
-            # import logout
-            # Failflaglist.append(logout.bvt_verifyLogoutInvalidOption(c))
-            # Failflaglist.append(logout.bvt_verifyLogoutInvalidParameters(c))
-            # Failflaglist.append(logout.bvt_verifyLogout(c))
+            if (isns.verifyIsns(c)):
+                FailCasesList.append('The case ' + isns.verifyIsns.__name__ + ' failed')
+            if (isns.verifyIsnsList(c)):
+                FailCasesList.append('The case ' + isns.verifyIsnsList.__name__ + ' failed')
+            if (isns.verifyIsnsMod(c)):
+                FailCasesList.append('The case ' + isns.verifyIsnsMod.__name__ + ' failed')
+            if (isns.verifyIsnsSpecifyInexistentId(c)):
+                FailCasesList.append('The case ' + isns.verifyIsnsSpecifyInexistentId.__name__ + ' failed')
+            if (isns.verifyIsnsInvalidOption(c)):
+                FailCasesList.append('The case ' + isns.verifyIsnsInvalidOption.__name__ + ' failed')
+            if (isns.verifyIsnsInvalidParameters(c)):
+                FailCasesList.append('The case ' + isns.verifyIsnsInvalidParameters.__name__ + ' failed')
+            if (isns.verifyIsnsMissingParameters(c)):
+                FailCasesList.append('The case ' + isns.verifyIsnsMissingParameters.__name__ + ' failed')
 
             tolog("Start verifying lunmap")
             import lunmap
-            Failflaglist.append(lunmap.bvt_verifyLunmapAdd(c))
-            Failflaglist.append(lunmap.bvt_verifyLunmap(c))
-            Failflaglist.append(lunmap.bvt_verifyLunmapList(c))
-            Failflaglist.append(lunmap.bvt_verifyLunmapAddlun(c))
-            Failflaglist.append(lunmap.bvt_verifyLunmapDellun(c))
-            Failflaglist.append(lunmap.bvt_verifyLunmapEnable(c))
-            Failflaglist.append(lunmap.bvt_verifyLunmapDel(c))
-            Failflaglist.append(lunmap.bvt_verifyLunmapDisable(c))
-            Failflaglist.append(lunmap.bvt_verifyLunmapSpecifyInexistentId(c))
-            Failflaglist.append(lunmap.bvt_verifyLunmapInvalidOption(c))
-            Failflaglist.append(lunmap.bvt_verifyLunmapInvalidParameters(c))
-            Failflaglist.append(lunmap.bvt_verifyLunmapMissingParameters(c))
+            if (lunmap.verifyLunmapAdd(c)):
+                FailCasesList.append('The case ' + lunmap.verifyLunmapAdd.__name__ + ' failed')
+            if (lunmap.verifyLunmap(c)):
+                FailCasesList.append('The case ' + lunmap.verifyLunmap.__name__ + ' failed')
+            if (lunmap.verifyLunmapList(c)):
+                FailCasesList.append('The case ' + lunmap.verifyLunmapList.__name__ + ' failed')
+            if (lunmap.verifyLunmapAddlun(c)):
+                FailCasesList.append('The case ' + lunmap.verifyLunmapAddlun.__name__ + ' failed')
+            if (lunmap.verifyLunmapDellun(c)):
+                FailCasesList.append('The case ' + lunmap.verifyLunmapDellun.__name__ + ' failed')
+            if (lunmap.verifyLunmapEnable(c)):
+                FailCasesList.append('The case ' + lunmap.verifyLunmapEnable.__name__ + ' failed')
+            if (lunmap.verifyLunmapDel(c)):
+                FailCasesList.append('The case ' + lunmap.verifyLunmapDel.__name__ + ' failed')
+            if (lunmap.verifyLunmapDisable(c)):
+                FailCasesList.append('The case ' + lunmap.verifyLunmapDisable.__name__ + ' failed')
+            if (lunmap.verifyLunmapSpecifyInexistentId(c)):
+                FailCasesList.append('The case ' + lunmap.verifyLunmapSpecifyInexistentId.__name__ + ' failed')
+            if (lunmap.verifyLunmapInvalidOption(c)):
+                FailCasesList.append('The case ' + lunmap.verifyLunmapInvalidOption.__name__ + ' failed')
+            if (lunmap.verifyLunmapInvalidParameters(c)):
+                FailCasesList.append('The case ' + lunmap.verifyLunmapInvalidParameters.__name__ + ' failed')
+            if (lunmap.verifyLunmapMissingParameters(c)):
+                FailCasesList.append('The case ' + lunmap.verifyLunmapMissingParameters.__name__ + ' failed')
+            lunmap.cleanUp(c)
 
             tolog("Start verifying ntp")
             import ntp
-            Failflaglist.append(ntp.bvt_verifyNtpMod(c))
-            Failflaglist.append(ntp.bvt_verifyNtp(c))
-            Failflaglist.append(ntp.bvt_verifyNtpList(c))
-            Failflaglist.append(ntp.bvt_verifyNtpTest(c))
-            Failflaglist.append(ntp.bvt_verifyNtpSync(c))
-            Failflaglist.append(ntp.bvt_verifyNtpInvalidOption(c))
-            Failflaglist.append(ntp.bvt_verifyNtpInvalidParameters(c))
-            Failflaglist.append(ntp.bvt_verifyNtpMissingParameters(c))
+            if (ntp.verifyNtpMod(c)):
+                FailCasesList.append('The case ' + ntp.verifyNtpMod.__name__ + ' failed')
+            if (ntp.verifyNtp(c)):
+                FailCasesList.append('The case ' + ntp.verifyNtp.__name__ + ' failed')
+            if (ntp.verifyNtpList(c)):
+                FailCasesList.append('The case ' + ntp.verifyNtpList.__name__ + ' failed')
+            if (ntp.verifyNtpTest(c)):
+                FailCasesList.append('The case ' + ntp.verifyNtpTest.__name__ + ' failed')
+            if (ntp.verifyNtpSync(c)):
+                FailCasesList.append('The case ' + ntp.verifyNtpSync.__name__ + ' failed')
+            if (ntp.verifyNtpInvalidOption(c)):
+                FailCasesList.append('The case ' + ntp.verifyNtpInvalidOption.__name__ + ' failed')
+            if (ntp.verifyNtpInvalidParameters(c)):
+                FailCasesList.append('The case ' + ntp.verifyNtpInvalidParameters.__name__ + ' failed')
+            if (ntp.verifyNtpMissingParameters(c)):
+                FailCasesList.append('The case ' + ntp.verifyNtpMissingParameters.__name__ + ' failed')
 
             tolog("Start verifying password")
             import password
-            Failflaglist.append(password.bvt_verifyChangePassword(c))
-            Failflaglist.append(password.bvt_verifyPasswordSpecifyInexistentUsername(c))
-            Failflaglist.append(password.bvt_verifyPasswordInvalidOption(c))
-            Failflaglist.append(password.bvt_verifyPasswordInvalidParameters(c))
-            Failflaglist.append(password.bvt_verifyPasswordMissingParameters(c))
+            if (password.verifyChangePassword(c)):
+                FailCasesList.append('The case ' + password.verifyChangePassword.__name__ + ' failed')
+            if (password.verifyPasswordSpecifyInexistentUsername(c)):
+                FailCasesList.append(
+                    'The case ' + password.verifyPasswordSpecifyInexistentUsername.__name__ + ' failed')
+            if (password.verifyPasswordInvalidOption(c)):
+                FailCasesList.append('The case ' + password.verifyPasswordInvalidOption.__name__ + ' failed')
+            if (password.verifyPasswordInvalidParameters(c)):
+                FailCasesList.append('The case ' + password.verifyPasswordInvalidParameters.__name__ + ' failed')
+            if (password.verifyPasswordMissingParameters(c)):
+                FailCasesList.append('The case ' + password.verifyPasswordMissingParameters.__name__ + ' failed')
 
             tolog("Start verifying pcie")
             import pcie
-            Failflaglist.append(pcie.bvt_verifyPcie(c))
-            Failflaglist.append(pcie.bvt_verifyPcielist(c))
-            Failflaglist.append(pcie.bvt_verifyPcieInvalidOption(c))
-            Failflaglist.append(pcie.bvt_verifyPcieInvalidParameters(c))
-            Failflaglist.append(pcie.bvt_verifyPcieMissingParameters(c))
+            if (pcie.verifyPcie(c)):
+                FailCasesList.append('The case ' + pcie.verifyPcie.__name__ + ' failed')
+            if (pcie.verifyPcielist(c)):
+                FailCasesList.append('The case ' + pcie.verifyPcielist.__name__ + ' failed')
+            if (pcie.verifyPcieInvalidOption(c)):
+                FailCasesList.append('The case ' + pcie.verifyPcieInvalidOption.__name__ + ' failed')
+            if (pcie.verifyPcieInvalidParameters(c)):
+                FailCasesList.append('The case ' + pcie.verifyPcieInvalidParameters.__name__ + ' failed')
+            if (pcie.verifyPcieMissingParameters(c)):
+                FailCasesList.append('The case ' + pcie.verifyPcieMissingParameters.__name__ + ' failed')
 
             tolog("Start verifying smart")
             import smart
-            Failflaglist.append(smart.bvt_verifySmart(c))
-            Failflaglist.append(smart.bvt_verifySmartV(c))
-            Failflaglist.append(smart.bvt_verifySmartList(c))
-            Failflaglist.append(smart.bvt_verifySmartEnable(c))
-            Failflaglist.append(smart.bvt_verifySmartDisable(c))
-            Failflaglist.append(smart.bvt_verifySmartHelp(c))
-            Failflaglist.append(smart.bvt_verifySmartSpecifyInexistentId(c))
-            Failflaglist.append(smart.bvt_verifySmartInvalidOption(c))
-            Failflaglist.append(smart.bvt_verifySmartInvalidParameters(c))
-            Failflaglist.append(smart.bvt_verifySmartMissingParameters(c))
+            if (smart.verifySmart(c)):
+                FailCasesList.append('The case ' + smart.verifySmart.__name__ + ' failed')
+            if (smart.verifySmartV(c)):
+                FailCasesList.append('The case ' + smart.verifySmartV.__name__ + ' failed')
+            if (smart.verifySmartList(c)):
+                FailCasesList.append('The case ' + smart.verifySmartList.__name__ + ' failed')
+            if (smart.verifySmartEnable(c)):
+                FailCasesList.append('The case ' + smart.verifySmartEnable.__name__ + ' failed')
+            if (smart.verifySmartDisable(c)):
+                FailCasesList.append('The case ' + smart.verifySmartDisable.__name__ + ' failed')
+            if (smart.verifySmartHelp(c)):
+                FailCasesList.append('The case ' + smart.verifySmartHelp.__name__ + ' failed')
+            if (smart.verifySmartSpecifyInexistentId(c)):
+                FailCasesList.append('The case ' + smart.verifySmartSpecifyInexistentId.__name__ + ' failed')
+            if (smart.verifySmartInvalidOption(c)):
+                FailCasesList.append('The case ' + smart.verifySmartInvalidOption.__name__ + ' failed')
+            if (smart.verifySmartInvalidParameters(c)):
+                FailCasesList.append('The case ' + smart.verifySmartInvalidParameters.__name__ + ' failed')
+            if (smart.verifySmartMissingParameters(c)):
+                FailCasesList.append('The case ' + smart.verifySmartMissingParameters.__name__ + ' failed')
 
             tolog('Start verifying bgasched')
             import bgasched
-            Failflaglist.append(bgasched.bvt_verifyBgaschedAdd(c))
-            Failflaglist.append(bgasched.bvt_verifyBgaschedMod(c))
-            Failflaglist.append(bgasched.bvt_verifyBgaschedList(c))
-            Failflaglist.append(bgasched.bvt_verifyBgaschedDel(c))
-            Failflaglist.append(bgasched.bvt_verifyBgaschedHelp(c))
-            Failflaglist.append(bgasched.bvt_verifyBgaschedInvalidOption(c))
-            Failflaglist.append(bgasched.bvt_verifyBgaschedInvalidParameters(c))
-            Failflaglist.append(bgasched.bvt_verifyBgaschedMissingParameters(c))
-            Failflaglist.append(bgasched.bvt_clearUp(c))
+            if (bgasched.verifyBgaschedAdd(c)):
+                FailCasesList.append('The case ' + bgasched.verifyBgaschedAdd.__name__ + ' failed')
+            if (bgasched.verifyBgaschedMod(c)):
+                FailCasesList.append('The case ' + bgasched.verifyBgaschedMod.__name__ + ' failed')
+            if (bgasched.verifyBgaschedList(c)):
+                FailCasesList.append('The case ' + bgasched.verifyBgaschedList.__name__ + ' failed')
+            if (bgasched.verifyBgaschedDel(c)):
+                FailCasesList.append('The case ' + bgasched.verifyBgaschedDel.__name__ + ' failed')
+            if (bgasched.verifyBgaschedHelp(c)):
+                FailCasesList.append('The case ' + bgasched.verifyBgaschedHelp.__name__ + ' failed')
+            if (bgasched.verifyBgaschedInvalidOption(c)):
+                FailCasesList.append('The case ' + bgasched.verifyBgaschedInvalidOption.__name__ + ' failed')
+            if (bgasched.verifyBgaschedInvalidParameters(c)):
+                FailCasesList.append('The case ' + bgasched.verifyBgaschedInvalidParameters.__name__ + ' failed')
+            if (bgasched.verifyBgaschedMissingParameters(c)):
+                FailCasesList.append('The case ' + bgasched.verifyBgaschedMissingParameters.__name__ + ' failed')
+            bgasched.clearUp(c)
 
             tolog('Start verifying rb')
             import rb
-            Failflaglist.append(rb.bvt_verifyRbStartAndStopAndList(c))
-            Failflaglist.append(rb.bvt_verifyRbInvalidOption(c))
-            Failflaglist.append(rb.bvt_verifyRbInvalidParameters(c))
-            Failflaglist.append(rb.bvt_verifyRbMissingParameters(c))
+            if (rb.verifyRbStartAndStopAndList(c)):
+                FailCasesList.append('The case ' + rb.verifyRbStartAndStopAndList.__name__ + ' failed')
+            if (rb.verifyRbInvalidOption(c)):
+                FailCasesList.append('The case ' + rb.verifyRbInvalidOption.__name__ + ' failed')
+            if (rb.verifyRbInvalidParameters(c)):
+                FailCasesList.append('The case ' + rb.verifyRbInvalidParameters.__name__ + ' failed')
+            if (rb.verifyRbMissingParameters(c)):
+                FailCasesList.append('The case ' + rb.verifyRbMissingParameters.__name__ + ' failed')
 
         else:
             tolog("Failed to connect server after ptiflash.")
-            Failflaglist.append(True)
 
-        for flag in Failflaglist:
-            if flag == False:
-                # Failflag = True
-                count += 1
-            else:
-                Failflag = True
-
-                tolog("The %d case in BuildVerifiation failed" % (count + 1))
+        if len(FailCasesList) != 0:
+            Failflag = True
+            for f in FailCasesList:
+                tolog(f)
 
         if Failflag:
             tolog(Fail)
@@ -483,12 +680,9 @@ def BuildVerification(c):
         tolog(Pass)
 
     c.close()
-def About(c):
-    SendCmd(c,"about")
-    tolog(Pass)
-if __name__ == "__main__":
 
-    start=time.clock()
-    c,ssh=ssh_conn()
+if __name__ == "__main__":
+    start = time.clock()
+    c,ssh = ssh_conn()
     BuildVerification(c)
     c.close()

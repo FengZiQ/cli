@@ -1,9 +1,9 @@
 # coding=utf-8
-# initial work on 2017.2.20
-# this section includes list pd
+
 from send_cmd import *
 from to_log import *
 from ssh_connect import *
+
 Pass = "'result': 'p'"
 Fail = "'result': 'f'"
 
@@ -74,7 +74,7 @@ def precondition(c):
 
     return initID, volumeID, snapshotID, cloneID
 
-def bvt_verifyLunmapAdd(c):
+def verifyLunmapAdd(c):
     FailFlag = False
     initID, volumeID, snapshotID, cloneID = precondition(c)
     tolog(' Verify iscsi initiator lunmap')
@@ -119,7 +119,7 @@ def bvt_verifyLunmapAdd(c):
 
     return FailFlag
 
-def bvt_verifyLunmap(c):
+def verifyLunmap(c):
     FailFlag = False
     tolog("Verify lunmap ")
     result = SendCmd(c, 'lunmap')
@@ -148,7 +148,7 @@ def bvt_verifyLunmap(c):
 
     return FailFlag
 
-def bvt_verifyLunmapList(c):
+def verifyLunmapList(c):
     FailFlag = False
     tolog("Verify lunmap -a list ")
     result = SendCmd(c, 'lunmap -a list')
@@ -177,7 +177,7 @@ def bvt_verifyLunmapList(c):
 
     return FailFlag
 
-def bvt_verifyLunmapAddlun(c):
+def verifyLunmapAddlun(c):
     FailFlag = False
     tolog(' lunmap -a addlun ')
     initID = []
@@ -250,7 +250,7 @@ def bvt_verifyLunmapAddlun(c):
 
     return FailFlag
 
-def bvt_verifyLunmapDellun(c):
+def verifyLunmapDellun(c):
     FailFlag = False
     tolog("Verify lunmap -a dellun volume ")
     initID = []
@@ -309,7 +309,7 @@ def bvt_verifyLunmapDellun(c):
 
     return FailFlag
 
-def bvt_verifyLunmapEnable(c):
+def verifyLunmapEnable(c):
     FailFlag = False
     tolog("Verify lunmap -a enable when it enable")
     p1 = SendCmd(c, 'lunmap -a enable')
@@ -342,7 +342,7 @@ def bvt_verifyLunmapEnable(c):
 
     return FailFlag
 
-def bvt_verifyLunmapDel(c):
+def verifyLunmapDel(c):
     FailFlag = False
     result = SendCmd(c, 'lunmap')
     lunmapID = []
@@ -370,7 +370,7 @@ def bvt_verifyLunmapDel(c):
 
     return FailFlag
 
-def bvt_verifyLunmapDisable(c):
+def verifyLunmapDisable(c):
     FailFlag = False
     tolog("Verify lunmap -a disable when it enable")
     p1 = SendCmd(c, 'lunmap -a enable')
@@ -403,7 +403,7 @@ def bvt_verifyLunmapDisable(c):
 
     return FailFlag
 
-def bvt_verifyLunmapSpecifyInexistentId(c):
+def verifyLunmapSpecifyInexistentId(c):
     FailFlag = False
     tolog(" Verify lunmap specify inexistent Id ")
     # -i <InitiatorId> (0,2047)
@@ -428,7 +428,7 @@ def bvt_verifyLunmapSpecifyInexistentId(c):
 
     return FailFlag
 
-def bvt_verifyLunmapInvalidOption(c):
+def verifyLunmapInvalidOption(c):
     FailFlag = False
     tolog("Verify lunmap invalid option")
     command = ['lunmap -x', 'lunmap -a list -x', 'lunmap -a add -x', 'lunmap -a del -x',
@@ -449,7 +449,7 @@ def bvt_verifyLunmapInvalidOption(c):
 
     return FailFlag
 
-def bvt_verifyLunmapInvalidParameters(c):
+def verifyLunmapInvalidParameters(c):
     FailFlag = False
     tolog("Verify lunmap invalid parameters")
     command = ['lunmap test', 'lunmap -a list test', 'lunmap -a add test', 'lunmap -a del test',
@@ -470,7 +470,7 @@ def bvt_verifyLunmapInvalidParameters(c):
 
     return FailFlag
 
-def bvt_verifyLunmapMissingParameters(c):
+def verifyLunmapMissingParameters(c):
     FailFlag = False
     tolog("Verify lunmap missing parameters")
     command = ['lunmap -i', 'lunmap -a list -i', 'lunmap -a add -i', 'lunmap -a del -i', 'lunmap -a addlun -i', 'lunmap -a dellun -i']
@@ -491,7 +491,7 @@ def bvt_verifyLunmapMissingParameters(c):
 
     return FailFlag
 
-def bvt_cleanUp(c):
+def cleanUp(c):
     poolInfo = SendCmd(c, 'pool')
     row = poolInfo.split('\r\n')
     for i in range(4, len(row)):
@@ -513,24 +513,22 @@ def bvt_cleanUp(c):
         if 'test.lunmapadd' in row[i] or 'aa-aa-aa-aa-aa-aa-aa-1' in row[i]:
             SendCmd(c, 'initiator -a del -i ' + row[i].split()[0])
 
-
-
 if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
-    # bvt_verifyLunmapAdd(c)
-    # bvt_verifyLunmap(c)
-    # bvt_verifyLunmapList(c)
-    # bvt_verifyLunmapAddlun(c)
-    # bvt_verifyLunmapDellun(c)
-    # bvt_verifyLunmapEnable(c)
-    # bvt_verifyLunmapDel(c)
-    # bvt_verifyLunmapDisable(c)
-    bvt_verifyLunmapSpecifyInexistentId(c)
-    # bvt_verifyLunmapInvalidOption(c)
-    # bvt_verifyLunmapInvalidParameters(c)
-    # bvt_verifyLunmapMissingParameters(c)
-    # bvt_cleanUp(c)
+    verifyLunmapAdd(c)
+    verifyLunmap(c)
+    verifyLunmapList(c)
+    verifyLunmapAddlun(c)
+    verifyLunmapDellun(c)
+    verifyLunmapEnable(c)
+    verifyLunmapDel(c)
+    verifyLunmapDisable(c)
+    verifyLunmapSpecifyInexistentId(c)
+    verifyLunmapInvalidOption(c)
+    verifyLunmapInvalidParameters(c)
+    verifyLunmapMissingParameters(c)
+    cleanUp(c)
     ssh.close()
     elasped = time.clock() - start
     print "Elasped %s" % elasped
