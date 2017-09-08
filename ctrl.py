@@ -1,11 +1,9 @@
 # coding=utf-8
-# initial work on 2017.2.20
-# this section includes list pd
+
 from send_cmd import *
 from to_log import *
 from ssh_connect import ssh_conn
-import random
-import re
+
 Pass = "'result': 'p'"
 Fail = "'result': 'f'"
 
@@ -147,7 +145,7 @@ def verifyCtrlModNormativeAlias(c):
     # Test data
     alias = [
         '',
-        'a' * 48,
+        'a' * 47,
         '1',
         'test_name123'
     ]

@@ -28,7 +28,7 @@ class URLLister(SGMLParser):
         self.urls = []
 
     def start_a(self, attrs):
-        href = [v for k, v in attrs if k=='href']
+        href = [v for k, v in attrs if k =='href']
         if href:
             self.urls.extend(href)
 
@@ -60,7 +60,7 @@ if __name__ == "__main__":
 
     cmd = ''
     stepsnum = 0
-    Notes = '/home/work/jackyl/Scripts/clitest/testlink.notes'
+    Notes = '/home/work/zach/clitest/testlink.notes'
 
     NeedRun = False
 
@@ -209,17 +209,17 @@ if __name__ == "__main__":
 
                                         getExecution = tls.reportTCResult(testcase['tcase_id'], testplan['id'],
                                                                           buildname, TC_Result,
-                                                                          'automated test cases', guess = True,
-                                                                          testcaseexternalid = testcase['external_id'],
-                                                                          platformname = testcase['platform_name'],
-                                                                          execduration = duration_min,
-                                                                          timestamp = Update_timestamp,
-                                                                          steps = TC_Result_Steps)
+                                                                          'automated test cases', guess=True,
+                                                                          testcaseexternalid=testcase['external_id'],
+                                                                          platformname=testcase['platform_name'],
+                                                                          execduration=duration_min,
+                                                                          timestamp=Update_timestamp,
+                                                                          steps=TC_Result_Steps)
 
                                         if TC_Name == "build_verification":
-                                            serv = "MjExLjE1MC42NS44MQ=="
-                                            u = "amFja3kubGlAY24ucHJvbWlzZS5jb20="
-                                            p = "NzcwMjE0WHA="
+                                            serv = "211.150.65.81"
+                                            u = "hulda.zhao@cn.promise.com"
+                                            p = "ptb123456"
                                             import smtplib
                                             import urllib
 
@@ -243,15 +243,15 @@ if __name__ == "__main__":
                                                 msg[
                                                     'Subject'] = 'Build verification testing on %s is completed, the result is %s, please check the link for detail' % (
                                                 buildname, TC_Result)
-                                                msg['From'] = 'jacky.li@cn.promise.com'
-                                                msg['To'] = 'jacky.li@cn.promise.com'
-                                                # rec = ['jacky.li@cn.promise.com', 'hulda.zhao@cn.promise.com']
-                                                rec = ['jacky.li@cn.promise.com','zach.feng@cn.promise.com','hulda.zhao@cn.promise.com']
+                                                msg['From'] = 'hulda.zhao@cn.promise.com'
+                                                msg['To'] = 'hulda.zhao@cn.promise.com'
+                                                # rec = ['ken.hou@cn.promise.com', 'hulda.zhao@cn.promise.com']
+                                                rec = ['zach.feng@cn.promise.com','hulda.zhao@cn.promise.com']
                                                 # Send the message via our own SMTP server, but don't include the
                                                 # envelope header.
-                                                u = u.decode('base64')
-                                                serv = serv.decode('base64')
-                                                p = p.decode('base64')
+                                                u = u
+                                                serv = serv
+                                                p = p
 
                                                 s = smtplib.SMTP(serv)
                                                 s.login(u, p)

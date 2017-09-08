@@ -663,6 +663,33 @@ def BuildVerification(c):
             if (rb.verifyRbMissingParameters(c)):
                 FailCasesList.append('The case ' + rb.verifyRbMissingParameters.__name__ + ' failed')
 
+            tolog('Start verifying NASShare')
+            import nasShare
+            if (nasShare.addNASShare(c)):
+                FailCasesList.append('The case ' + nasShare.addNASShare.__name__ + ' failed')
+            if (nasShare.listNASShare(c)):
+                FailCasesList.append('The case ' + nasShare.listNASShare.__name__ + ' failed')
+            if (nasShare.listVerboseNASShare(c)):
+                FailCasesList.append('The case ' + nasShare.listVerboseNASShare.__name__ + ' failed')
+            if (nasShare.modNASShare(c)):
+                FailCasesList.append('The case ' + nasShare.modNASShare.__name__ + ' failed')
+            if (nasShare.mountNASShare(c)):
+                FailCasesList.append('The case ' + nasShare.mountNASShare.__name__ + ' failed')
+            if (nasShare.unmountNASShare(c)):
+                FailCasesList.append('The case ' + nasShare.unmountNASShare.__name__ + ' failed')
+            if (nasShare.helpNASShare(c)):
+                FailCasesList.append('The case ' + nasShare.helpNASShare.__name__ + ' failed')
+            if (nasShare.failedTest_InexistentId(c)):
+                FailCasesList.append('The case ' + nasShare.failedTest_InexistentId.__name__ + ' failed')
+            if (nasShare.failedTest_InvalidOption(c)):
+                FailCasesList.append('The case ' + nasShare.failedTest_InvalidOption.__name__ + ' failed')
+            if (nasShare.failedTest_InvalidParameters(c)):
+                FailCasesList.append('The case ' + nasShare.failedTest_InvalidParameters.__name__ + ' failed')
+            if (nasShare.failedTest_MissingParameters(c)):
+                FailCasesList.append('The case ' + nasShare.failedTest_MissingParameters.__name__ + ' failed')
+            if (nasShare.deleteNASShare(c)):
+                FailCasesList.append('The case ' + nasShare.deleteNASShare.__name__ + ' failed')
+
         else:
             tolog("Failed to connect server after ptiflash.")
 

@@ -12,8 +12,8 @@ def BuildVerification(c):
     FailCasesList = []
 
     # To check whether the sw is compiled successfully
-    size = os.path.getsize('/var/lib/jenkins/workspace/Hyperion-DS_Hulda/sw.log')
-    # size = os.path.getsize('/var/lib/jenkins/workspace/HyperionDS/sw.log')
+    # size = os.path.getsize('/var/lib/jenkins/workspace/Hyperion-DS_Hulda/sw.log')
+    size = os.path.getsize('/var/lib/jenkins/workspace/HyperionDS/sw.log')
     if size < 6000000:
         tolog('sw compiles failure')
         exit(1)
@@ -22,13 +22,14 @@ def BuildVerification(c):
 
     import glob
 
-    # files = glob.glob("/var/lib/jenkins/workspace/HyperionDS/build/build/*.ptif")
-    files = glob.glob("/var/lib/jenkins/workspace/Hyperion-DS_Hulda/build/build/*.ptif")
+    files = glob.glob("/var/lib/jenkins/workspace/HyperionDS/build/build/*.ptif")
+    # files = glob.glob("/var/lib/jenkins/workspace/Hyperion-DS_Hulda/build/build/*.ptif")
 
-    reconnectflag = True
+    reconnectflag = False
+
     for file in files:
-        filename = file.replace("/var/lib/jenkins/workspace/Hyperion-DS_Hulda/build/build/","")
-        # filename = file.replace("/var/lib/jenkins/workspace/HyperionDS/build/build/", "")
+        # filename = file.replace("/var/lib/jenkins/workspace/Hyperion-DS_Hulda/build/build/","")
+        filename = file.replace("/var/lib/jenkins/workspace/HyperionDS/build/build/", "")
         SendCmdRestart(c,"ptiflash -y -t -s 10.84.2.66 -f "+filename)
         i = 1
         while i < 50:
@@ -632,6 +633,34 @@ def BuildVerification(c):
             FailCasesList.append('The case ' + rb.verifyRbInvalidParameters.__name__ + ' failed')
         if (rb.verifyRbMissingParameters(c)):
             FailCasesList.append('The case ' + rb.verifyRbMissingParameters.__name__ + ' failed')
+            
+        tolog('Start verifying NASShare')    
+        import nasShare
+        if (nasShare.addNASShare(c)):
+            FailCasesList.append('The case ' + nasShare.addNASShare.__name__ + ' failed')
+        if (nasShare.listNASShare(c)):
+            FailCasesList.append('The case ' + nasShare.listNASShare.__name__ + ' failed')
+        if (nasShare.listVerboseNASShare(c)):
+            FailCasesList.append('The case ' + nasShare.listVerboseNASShare.__name__ + ' failed')
+        if (nasShare.modNASShare(c)):
+            FailCasesList.append('The case ' + nasShare.modNASShare.__name__ + ' failed')
+        if (nasShare.mountNASShare(c)):
+            FailCasesList.append('The case ' + nasShare.mountNASShare.__name__ + ' failed')
+        if (nasShare.unmountNASShare(c)):
+            FailCasesList.append('The case ' + nasShare.unmountNASShare.__name__ + ' failed')
+        if (nasShare.helpNASShare(c)):
+            FailCasesList.append('The case ' + nasShare.helpNASShare.__name__ + ' failed')
+        if (nasShare.failedTest_InexistentId(c)):
+            FailCasesList.append('The case ' + nasShare.failedTest_InexistentId.__name__ + ' failed')
+        if (nasShare.failedTest_InvalidOption(c)):
+            FailCasesList.append('The case ' + nasShare.failedTest_InvalidOption.__name__ + ' failed')
+        if (nasShare.failedTest_InvalidParameters(c)):
+            FailCasesList.append('The case ' + nasShare.failedTest_InvalidParameters.__name__ + ' failed')
+        if (nasShare.failedTest_MissingParameters(c)):
+            FailCasesList.append('The case ' + nasShare.failedTest_MissingParameters.__name__ + ' failed')
+        if (nasShare.deleteNASShare(c)):
+            FailCasesList.append('The case ' + nasShare.deleteNASShare.__name__ + ' failed')
+        
 
     if len(FailCasesList) != 0:
         for f in FailCasesList:
