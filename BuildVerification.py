@@ -14,7 +14,6 @@ def BuildVerification(c):
     flashimage = False
     Failflag = False
 
-    count = 0
     FailCasesList = []
     c, ssh = ssh_conn()
 
@@ -22,6 +21,7 @@ def BuildVerification(c):
 
     currentbuild = versioninfo.split("Version: ")[1][:13]
 
+    # tftpbuildnumber = open("/home/work/huldaz/Hyperion_ds_build/Scripts/clitest/buildnum", "r").readline().rstrip()
     tftpbuildnumber = open("/home/work/zach/clitest/buildnum","r").readline().rstrip()
 
     print "currentbuild,", currentbuild
@@ -689,6 +689,29 @@ def BuildVerification(c):
                 FailCasesList.append('The case ' + nasShare.failedTest_MissingParameters.__name__ + ' failed')
             if (nasShare.deleteNASShare(c)):
                 FailCasesList.append('The case ' + nasShare.deleteNASShare.__name__ + ' failed')
+
+            tolog('Start verifying volume')
+            import volume
+            if (volume.addVolume(c)):
+                FailCasesList.append('The case ' + volume.addVolume.__name__ + ' failed')
+            if (volume.listVolume(c)):
+                FailCasesList.append('The case ' + volume.listVolume.__name__ + ' failed')
+            if (volume.modVolume(c)):
+                FailCasesList.append('The case ' + volume.modVolume.__name__ + ' failed')
+            if (volume.exportVolume(c)):
+                FailCasesList.append('The case ' + volume.exportVolume.__name__ + ' failed')
+            if (volume.unexportVolume(c)):
+                FailCasesList.append('The case ' + volume.unexportVolume.__name__ + ' failed')
+            if (volume.invaildName(c)):
+                FailCasesList.append('The case ' + volume.invaildName.__name__ + ' failed')
+            if (volume.invalidParameter(c)):
+                FailCasesList.append('The case ' + volume.invalidParameter.__name__ + ' failed')
+            if (volume.invalidOption(c)):
+                FailCasesList.append('The case ' + volume.invalidOption.__name__ + ' failed')
+            if (volume.missingParameter(c)):
+                FailCasesList.append('The case ' + volume.missingParameter.__name__ + ' failed')
+            if (volume.deleteVolume(c)):
+                FailCasesList.append('The case ' + volume.deleteVolume.__name__ + ' failed')
 
         else:
             tolog("Failed to connect server after ptiflash.")
