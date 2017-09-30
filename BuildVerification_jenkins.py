@@ -623,16 +623,16 @@ def BuildVerification(c):
             FailCasesList.append('The case ' + bgasched.verifyBgaschedMissingParameters.__name__ + ' failed')
         bgasched.clearUp(c)
 
-        tolog('Start verifying rb')
-        import rb
-        if (rb.verifyRbStartAndStopAndList(c)):
-            FailCasesList.append('The case ' + rb.verifyRbStartAndStopAndList.__name__ + ' failed')
-        if (rb.verifyRbInvalidOption(c)):
-            FailCasesList.append('The case ' + rb.verifyRbInvalidOption.__name__ + ' failed')
-        if (rb.verifyRbInvalidParameters(c)):
-            FailCasesList.append('The case ' + rb.verifyRbInvalidParameters.__name__ + ' failed')
-        if (rb.verifyRbMissingParameters(c)):
-            FailCasesList.append('The case ' + rb.verifyRbMissingParameters.__name__ + ' failed')
+        # tolog('Start verifying rb')
+        # import rb
+        # if (rb.verifyRbStartAndStopAndList(c)):
+        #     FailCasesList.append('The case ' + rb.verifyRbStartAndStopAndList.__name__ + ' failed')
+        # if (rb.verifyRbInvalidOption(c)):
+        #     FailCasesList.append('The case ' + rb.verifyRbInvalidOption.__name__ + ' failed')
+        # if (rb.verifyRbInvalidParameters(c)):
+        #     FailCasesList.append('The case ' + rb.verifyRbInvalidParameters.__name__ + ' failed')
+        # if (rb.verifyRbMissingParameters(c)):
+        #     FailCasesList.append('The case ' + rb.verifyRbMissingParameters.__name__ + ' failed')
             
         tolog('Start verifying NASShare')    
         import nasShare

@@ -1,120 +1,48 @@
-Verify to del volume 
+==================================precondition====================================
 
-volume
+phydrv
 ===============================================================================
-Id   Name                  PoolId TotalCap    UsedCap     Status      OpStatus 
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
 ===============================================================================
-0    tttt_tttt_tttt_tttt_t 0      1 GB        8.19 KB     Exported    OK,      
-     ttt_tttt_12                                                      Synchron 
-                                                                      izing    
-1    TN                    0      2 GB        2 GB        Un-Exported OK,      
-                                                                      Synchron 
-                                                                      izing    
-2    NNNNNNNNNNNNNNNNNNNNN 0      1 TB        8.19 KB     Exported    OK,      
-     NNNNNNNNNN                                                       Synchron 
-                                                                      izing    
-3    ttttttttttttttttttttt 0      2 TB        2 TB        Exported    OK,      
-     ttttttttttt                                                      Synchron 
-                                                                      izing    
-4    Test_name             0      1 GB        8.19 KB     Exported    OK,      
-                                                                      Synchron 
-                                                                      izing    
-5    1_n                   0      1 GB        1 GB        Exported    OK,      
-                                                                      Synchron 
-                                                                      izing    
-6    test                  0      999.98 MB   8.19 KB     Exported    OK,      
-                                                                      Synchron 
-                                                                      izing    
-7    _name_                0      999.95 MB   999.95 MB   Exported    OK,      
-                                                                      Synchron 
-                                                                      izing    
-8    12                    0      999.95 MB   8.19 KB     Exported    OK,      
-                                                                      Synchron 
-                                                                      izing    
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Pool0           
+     S640                                                                      
+2    HDS722020AL SAS HDD  2 TB        Encl1 Slot2   OK         Pool0           
+     A330                                                                      
+3    ST373455SS  SAS HDD  73 GB       Encl1 Slot3   OK         Pool0           
+4    HUS724040AL SAS HDD  4 TB        Encl1 Slot4   OK         Pool0           
+     S640                                                                      
+5    ST336754SS  SAS HDD  36 GB       Encl1 Slot5   OK         Pool0           
+6    MAX3036RC   SAS HDD  36 GB       Encl1 Slot6   OK         Pool0           
+7    HUS723020AL SAS HDD  2 TB        Encl1 Slot7   OK         Pool0           
+     S640                                                                      
+8    HUS724040AL SAS HDD  4 TB        Encl1 Slot8   OK         Pool0           
+     S640                                                                      
+9    HUS724040AL SAS HDD  4 TB        Encl1 Slot9   OK         Pool0           
+     S640                                                                      
+10   HUA723020AL SAS HDD  2 TB        Encl1 Slot10  OK         Pool0           
+     A640                                                                      
+11   HDS722020AL SAS HDD  2 TB        Encl1 Slot11  OK         Pool0           
+     A330                                                                      
+12   HUS724040AL SAS HDD  4 TB        Encl1 Slot12  OK         Pool0           
+     S640                                                                      
+13   ST3146356SS SAS HDD  146 GB      Encl1 Slot13  OK         Pool0           
+14   HUA723020AL SAS HDD  2 TB        Encl1 Slot14  OK         Pool0           
+     A640                                                                      
+15   ST380815AS  SAS HDD  79 GB       Encl1 Slot15  OK         Pool0           
+16   ST373455SS  SAS HDD  73 GB       Encl1 Slot16  OK         Pool0           
 
 administrator@cli> 
-
-Expect: delete volume 0
-
-volume -a del -y -f -i 0
+pool -a del -f -y -i 0
 
 administrator@cli> 
-
-Actual: volume 0 is deleted 
+===================================precondition====================================
 
-
-Expect: delete volume 1
-
-volume -a del -y -f -i 1
+spare -a add -t g -p 1
 
 administrator@cli> 
-
-Actual: volume 1 is deleted 
-
-
-Expect: delete volume 2
-
-volume -a del -y -f -i 2
+pool -a add -s "name=failed_test,raid=5" -p 1,2,3,4
+Error (0x4021): Physical drive in use
+Physical drive in use
 
 administrator@cli> 
-
-Actual: volume 2 is deleted 
-
-
-Expect: delete volume 3
-
-volume -a del -y -f -i 3
-
-administrator@cli> 
-
-Actual: volume 3 is deleted 
-
-
-Expect: delete volume 4
-
-volume -a del -y -f -i 4
-
-administrator@cli> 
-
-Actual: volume 4 is deleted 
-
-
-Expect: delete volume 5
-
-volume -a del -y -f -i 5
-
-administrator@cli> 
-
-Actual: volume 5 is deleted 
-
-
-Expect: delete volume 6
-
-volume -a del -y -f -i 6
-
-administrator@cli> 
-
-Actual: volume 6 is deleted 
-
-
-Expect: delete volume 7
-
-volume -a del -y -f -i 7
-
-administrator@cli> 
-
-Actual: volume 7 is deleted 
-
-
-Expect: delete volume 8
-
-volume -a del -y -f -i 8
-
-administrator@cli> 
-
-Actual: volume 8 is deleted 
-
 'result': 'p'
-pool -a del -y -f -i 0
-
-administrator@cli> 
