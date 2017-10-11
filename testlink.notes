@@ -45,4 +45,4077 @@ Error (0x4021): Physical drive in use
 Physical drive in use
 
 administrator@cli> 
+spare -a del -i 0
+
+administrator@cli> 
 'result': 'p'
+user -a add -t nas -u test_group_0123456789
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[44D[0m
+[J[?7h[0m[?12l[?25h[?2004lRetype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004l
+administrator@cli> 
+user -a add -t nas -u test_group_0
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[44D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+
+administrator@cli> 
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> 
+user -a add -t nas -u test_group_1
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+user -a add -t nas -u test_group_3
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> 
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Local#123
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> Local#123
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> 
+user -a add -t nas -u test_group_5
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[44D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> 
+user -a add -t nas -u test_group_6
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[44D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+
+administrator@cli> 
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> 
+user -a add -t nas -u test_group_7
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+user -a add -t nas -u test_group_9
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[44D[0m
+[J[?7h[0m[?12l[?25h[?2004lRetype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004l
+administrator@cli> 
+user -a add -t nas -u test_group_0
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+Error (0x4100104): Incorrect parameters: NAS user [test_group_0] already exists.
+
+administrator@cli> 
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_1
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_3
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+user -a add -t nas -u test_group_5
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_7
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+user -a add -t nas -u test_group_9
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_0
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004lRetype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l
+administrator@cli> 
+user -a add -t nas -u test_group_1
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004lRetype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+000000
+
+administrator@cli> 
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_2
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_4
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+user -a add -t nas -u test_group_6
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+user -a add -t nas -u test_group_8
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+user -a add -t nas -u test_group_0
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004lRetype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_1
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_2
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004lRetype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+
+administrator@cli> 
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_3
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_5
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_7
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_9
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+000000
+
+administrator@cli> 
+group -a add -g a
+
+administrator@cli> 
+group -a add -g a
+
+administrator@cli> 
+group -a add -g 12
+
+administrator@cli> 
+group -a add -g test_test_test_test_test_test
+
+administrator@cli> 
+group -a add -g name_name_name_name_name_name_
+
+administrator@cli> 
+'result': 'p'
+Expect: add group a
+
+group -a add -g a
+
+administrator@cli> 
+Actual: group a is added
+Expect: add group 12
+
+group -a add -g 12
+
+administrator@cli> 
+Actual: group 12 is added
+Expect: add group test_test_test_test_test_test
+
+group -a add -g test_test_test_test_test_test
+
+administrator@cli> 
+Actual: group test_test_test_test_test_test is added
+Expect: add group name_name_name_name_name_name_
+
+group -a add -g name_name_name_name_name_name_
+
+administrator@cli> 
+Actual: group name_name_name_name_name_name_ is added
+'result': 'p'
+
+Expect: add group a
+
+group -a add -g a
+
+administrator@cli> 
+Actual: group a is added
+
+Expect: add group 12
+
+group -a add -g 12
+
+administrator@cli> 
+Actual: group 12 is added
+
+Expect: add group test_test_test_test_test_test
+
+group -a add -g test_test_test_test_test_test
+
+administrator@cli> 
+Actual: group test_test_test_test_test_test is added
+
+Expect: add group name_name_name_name_name_name_
+
+group -a add -g name_name_name_name_name_name_
+
+administrator@cli> 
+Actual: group name_name_name_name_name_name_ is added
+'result': 'p'
+
+Expect: add group a
+
+group -a add -g a
+
+administrator@cli> 
+
+Actual: group a is added
+
+Expect: add group 12
+
+group -a add -g 12
+
+administrator@cli> 
+
+Actual: group 12 is added
+
+Expect: add group test_test_test_test_test_test
+
+group -a add -g test_test_test_test_test_test
+
+administrator@cli> 
+
+Actual: group test_test_test_test_test_test is added
+
+Expect: add group name_name_name_name_name_name_
+
+group -a add -g name_name_name_name_name_name_
+
+administrator@cli> 
+
+Actual: group name_name_name_name_name_name_ is added
+'result': 'p'
+user -a add -t nas -u test_group_0
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004lRetype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x4100104): Incorrect parameters: NAS user [test_group_0] already exists.
+
+administrator@cli> 
+user -a add -t nas -u test_group_1
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+Error (0x4100104): Incorrect parameters: NAS user [test_group_1] already exists.
+
+administrator@cli> 
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_2
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+user -a add -t nas -u test_group_0
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_1
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004lRetype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+
+administrator@cli> 
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_2
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+user -a add -t nas -u test_group_0
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l
+administrator@cli> 
+user -a add -t nas -u test_group_1
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_0
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x4100104): Incorrect parameters: NAS user [test_group_0] already exists.
+
+administrator@cli> 
+user -a add -t nas -u test_group_1
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_0
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_1
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004lRetype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l
+administrator@cli> 
+user -a add -t nas -u test_group_0
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[43D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000000
+Error (0x4100104): Incorrect parameters: NAS user [test_group_0] already exists.
+
+administrator@cli> Error (0x401): Invalid command or request
+
+invalid command: 0000000
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 0000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_1
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000002
+0000002
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[43D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+0000002
+Error (0x401): Invalid command or request
+invalid command: 0000002
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 0000002
+
+administrator@cli> 
+user -a add -t nas -u test_group_0
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004lRetype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[43D[0m
+[J[?7h[0m[?12l[?25h[?2004l
+administrator@cli> 
+user -a add -t nas -u test_group_1
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004lRetype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[43D[0m
+[J[?7h[0m[?12l[?25h[?2004l
+administrator@cli> 
+user -a add -t nas -u test_group_2
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000002
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[43D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000002
+
+administrator@cli> 
+Error (0x401): Invalid command or request
+invalid command: 0000002
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 0000002
+
+administrator@cli> 
+user -a add -t nas -u test_group_3
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000004
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[43D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+user -a add -t nas -u test_group_0
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l
+administrator@cli> 
+user -a add -t nas -u test_group_1
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004lRetype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l
+administrator@cli> 
+user -a add -t nas -u test_group_2
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004l222222
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l
+administrator@cli> 
+user -a add -t nas -u test_group_3
+Error (0x401): Invalid command or request
+invalid command: 222222
+
+administrator@cli> 
+====================================precondition=====================================
+
+user -a add -t nas -u test_group_0
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[43D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000000
+Error (0x4100104): Incorrect parameters: NAS user [test_group_0] already exists.
+
+administrator@cli> 
+Error (0x401): Invalid command or request
+invalid command: 0000000
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 0000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_1
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000002
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[43D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+0000002
+Error (0x401): Invalid command or request
+invalid command: 0000002
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 0000002
+
+administrator@cli> 
+user -a add -t nas -u test_group_3
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000004
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[43D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+0000004
+Error (0x401): Invalid command or request
+invalid command: 0000004
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 0000004
+
+administrator@cli> 
+user -a add -t nas -u test_group_5
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000006
+0000006
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[43D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+user -a add -t nas -u test_group_7
+Error (0x401): Invalid command or request
+invalid command: 0000006
+
+administrator@cli> Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004lRetype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[43D[0m
+[J[?7h[0m[?12l[?25h[?2004l
+administrator@cli> 
+user -a add -t nas -u test_group_8
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000008
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[43D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000008
+
+administrator@cli> 
+Error (0x401): Invalid command or request
+invalid command: 0000008
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 0000008
+
+administrator@cli> 
+user -a add -t nas -u test_group_9
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[46D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Local#123
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+
+====================================precondition=====================================
+====================================precondition=====================================
+
+user -a add -t nas -u test_group_0
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[43D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000000
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 0000000
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 0000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_1
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000001
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[43D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000001
+
+administrator@cli> 
+Error (0x401): Invalid command or request
+invalid command: 0000001
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 0000001
+
+administrator@cli> 
+user -a add -t nas -u test_group_2
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004lRetype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[43D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+user -a add -t nas -u test_group_4
+Error (0x401): Invalid command or request
+invalid command: 0000003
+
+administrator@cli> 
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000005
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[43D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+0000005
+Error (0x401): Invalid command or request
+invalid command: 0000005
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 0000005
+
+administrator@cli> 
+user -a add -t nas -u test_group_6
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000007
+0000007
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[43D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+0000007
+Error (0x401): Invalid command or request
+invalid command: 0000007
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 0000007
+
+administrator@cli> 
+user -a add -t nas -u test_group_8
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004lRetype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[43D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000009
+0000009
+Error (0x203): Two passwords do not match
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 0000009
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 0000009
+
+administrator@cli> 
+0000009
+Error (0x401): Invalid command or request
+invalid command: 0000009
+
+administrator@cli> 
+
+====================================precondition=====================================
+====================================precondition=====================================
+
+user -a add -t nas -u test_group_0
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004lRetype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[43D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000000
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 0000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_1
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000001
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[43D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000001
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 0000001
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 0000001
+
+administrator@cli> 
+user -a add -t nas -u test_group_2
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004lRetype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[43D[0m
+[J[?7h[0m[?12l[?25h[?2004l
+administrator@cli> 
+user -a add -t nas -u test_group_3
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000003
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[43D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000003
+0000003
+
+administrator@cli> 
+Error (0x401): Invalid command or request
+invalid command: 0000003
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 0000003
+
+administrator@cli> 
+user -a add -t nas -u test_group_4
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000005
+0000005
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[43D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 0000005
+Error (0x401): Invalid command or request
+invalid command: 0000005
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 0000005
+
+administrator@cli> 
+user -a add -t nas -u test_group_6
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000006
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[43D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000006
+
+administrator@cli> 
+Error (0x401): Invalid command or request
+invalid command: 0000006
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 0000006
+
+administrator@cli> 
+user -a add -t nas -u test_group_7
+user -a add -t nas -u test_group_8
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000008
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[43D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+0000008
+Error (0x401): Invalid command or request
+invalid command: 0000008
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 0000008
+
+administrator@cli> 
+user -a add -t nas -u test_group_9
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[46D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+
+====================================precondition=====================================
+====================================precondition=====================================
+
+user -a add -t nas -u test_group_0
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004lRetype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[43D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000000
+Error (0x4100104): Incorrect parameters: NAS user [test_group_0] already exists.
+
+administrator@cli> 
+Error (0x401): Invalid command or request
+invalid command: 0000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_1
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000002
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[43D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+0000002
+Error (0x401): Invalid command or request
+invalid command: 0000002
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 0000002
+
+administrator@cli> 
+====================================precondition=====================================
+
+user -a add -t nas -u test_group_0
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[43D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000000
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 0000000
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 0000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_1
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004lRetype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[43D[0m
+[J[?7h[0m[?12l[?25h[?2004l
+administrator@cli> 
+user -a add -t nas -u test_group_2
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000002
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[43D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000002
+
+administrator@cli> 
+Error (0x401): Invalid command or request
+invalid command: 0000002
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 0000002
+
+administrator@cli> 
+user -a add -t nas -u test_group_3
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004l0000004
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[43D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+user -t nas
+Error (0x401): Invalid command or request
+invalid command: 0000004
+
+administrator@cli> 
+
+====================================precondition=====================================
+====================================precondition=====================================
+
+user -a add -t nas -u test_group_0
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[44D[0m
+[J[?7h[0m[?12l[?25h[?2004lRetype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x4100104): Incorrect parameters: NAS user [test_group_0] already exists.
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_1
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[44D[0m
+[J[?7h[0m[?12l[?25h[?2004lRetype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x4100104): Incorrect parameters: NAS user [test_group_1] already exists.
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_2
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[44D[0m
+[J[?7h[0m[?12l[?25h[?2004lRetype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x4100104): Incorrect parameters: NAS user [test_group_2] already exists.
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_3
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[44D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+
+administrator@cli> 
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_4
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -t nas
+===============================================================================
+UserName           DisplayName       Department      Telephone      Email      
+===============================================================================
+test_group_0                                                                   
+test_group_1                                                                   
+test_group_2                                                                   
+test_group_3                                                                   
+
+administrator@cli> 
+
+====================================precondition=====================================
+====================================precondition=====================================
+
+user -a add -t nas -u test_group_0
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[44D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_1
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[44D[0m
+[J[?7h[0m[?12l[?25h[?2004lRetype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004l
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_2
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[44D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+
+administrator@cli> 
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_3
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Local#123
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Error (0x203): Two passwords do not match
+
+administrator@cli> 
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> 
+user -a add -t nas -u test_group_4
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Local#123
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+user -t nas
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> 
+
+====================================precondition=====================================
+====================================precondition=====================================
+
+user -a add -t nas -u test_group_0
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+Error (0x4100104): Incorrect parameters: NAS user [test_group_0] already exists.
+
+administrator@cli> 
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_1
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Local#123
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+user -a add -t nas -u test_group_2
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> 
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+Local#123
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> 
+user -a add -t nas -u test_group_3
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+user -a add -t nas -u test_group_4
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> 
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Local#123
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+Local#123
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> 
+
+====================================precondition=====================================
+====================================precondition=====================================
+
+user -a add -t nas -u test_group_0
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_1
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Local#123
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+Local#123
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> 
+user -a add -t nas -u test_group_2
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Local#123
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+Local#123
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> 
+user -a add -t nas -u test_group_3
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Local#123
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+user -a add -t nas -u test_group_4
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> 
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+user -t nas
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> 
+
+====================================precondition=====================================
+====================================precondition=====================================
+
+user -a add -t nas -u test_group_0
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[44D[0m
+[J[?7h[0m[?12l[?25h[?2004lRetype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+
+administrator@cli> 
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_1
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Local#123
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+Local#123
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_2
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Local#123
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+Local#123
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_3
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Local#123
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+Local#123
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_4
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004lRetype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> Local#123
+Local#123
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -t nas
+===============================================================================
+UserName           DisplayName       Department      Telephone      Email      
+===============================================================================
+test_group_0                                                                   
+
+administrator@cli> 
+
+====================================precondition=====================================
+====================================precondition=====================================
+
+user -a add -t nas -u test_group_0
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[44D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+
+administrator@cli> 
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_1
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+Local#123
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_2
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Local#123
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_3
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[44D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+
+administrator@cli> 
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_4
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -t nas
+===============================================================================
+UserName           DisplayName       Department      Telephone      Email      
+===============================================================================
+test_group_0                                                                   
+test_group_3                                                                   
+
+administrator@cli> 
+
+====================================precondition=====================================
+====================================precondition=====================================
+
+user -a add -t nas -u test_group_0
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x4100104): Incorrect parameters: NAS user [test_group_0] already exists.
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_1
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_3
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+
+====================================precondition=====================================
+====================================precondition=====================================
+
+user -a add -t nas -u test_group_0
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_1
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l
+administrator@cli> 
+user -a add -t nas -u test_group_2
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_4
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Local#123
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+Local#123
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> 
+
+====================================precondition=====================================
+====================================precondition=====================================
+
+
+user -a add -t nas -u test_group_0
+
+user -a add -t nas -u test_group_1
+
+user -a add -t nas -u test_group_2
+
+user -a add -t nas -u test_group_3
+
+user -a add -t nas -u test_group_4
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Error (0x203): Two passwords do not match
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: local#123
+
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> 
+
+====================================precondition=====================================
+====================================precondition=====================================
+
+user -a add -t nas -u test_group_0
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004lRetype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l
+administrator@cli> 
+user -a add -t nas -u test_group_1
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004lRetype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l
+administrator@cli> 
+user -a add -t nas -u test_group_2
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004lRetype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+
+administrator@cli> 
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> user -a add -t nas -u test_group_3
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004lRetype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l
+administrator@cli> 
+user -a add -t nas -u test_group_4
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004lRetype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -t nas
+===============================================================================
+UserName           DisplayName       Department      Telephone      Email      
+===============================================================================
+test_group_0                                                                   
+test_group_1                                                                   
+test_group_2                                                                   
+test_group_3                                                                   
+test_group_4                                                                   
+
+administrator@cli> 
+
+====================================precondition=====================================
+====================================precondition=====================================
+
+user -a add -t nas -u test_group_0
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004lRetype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+
+administrator@cli> 
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_1
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+Error (0x203): Two passwords do not match
+
+administrator@cli> 
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_3
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+user -t nas
+===============================================================================
+UserName           DisplayName       Department      Telephone      Email      
+===============================================================================
+test_group_0                                                                   
+
+administrator@cli> 
+
+====================================precondition=====================================
+====================================precondition=====================================
+
+user -a add -t nas -u test_group_0
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+
+administrator@cli> 
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_1
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_3
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[69D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+000000
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+
+====================================precondition=====================================
+group -a add -g add_group_and_user -u "user=['test_ACL_0', 'test_ACL_1', 'test_ACL_2', 'test_ACL_3', 'test_ACL_4', 'test_ACL_5', 'test_ACL_6', 'test_ACL_7', 'test_ACL_8', 'test_ACL_9', 'test_ACL_10', 'test_ACL_11', 'test_ACL_12', 'test_ACL_13', 'test_ACL_14', 'test_ACL_15', 'test_ACL_16', 'test_ACL_17', 'test_ACL_18', 'test_ACL_19']
+Error (0x2001): Output line is too long
+
+administrator@cli> 
+group -a add -g add_group_and_user -u "user=['test_ACL_0', 'test_ACL_1', 'test_ACL_2', 'test_ACL_3', 'test_ACL_4']"
+Error (0x2014): Setting parameters too long
+-u: invalid setting user=['test_ACL_0', 'test_ACL_1', 'test_ACL_2', 'test_ACL_3', 'test_ACL_4']
+
+administrator@cli> 
+group -a add -g add_group_and_user -u "user=[test_ACL_0, test_ACL_1, test_ACL_2, test_ACL_3, test_ACL_4]"
+Error (0x2014): Setting parameters too long
+-u: invalid setting user=[test_ACL_0, test_ACL_1, test_ACL_2, test_ACL_3, test_ACL_4]
+
+administrator@cli> 
+group -a add -g add_group_and_user -u "user=[test_ACL_0, test_ACL_1, test_ACL_2]"
+Error (0x2014): Setting parameters too long
+-u: invalid setting user=[test_ACL_0, test_ACL_1, test_ACL_2]
+
+administrator@cli> 
+group -a add -g add_group_and_user -u "user=[test_ACL_0]"
+Error (0x402): Invalid parameter
+Failed to find the user user=[test_ACL_0]
+
+administrator@cli> 
+group -a add -g add_group_and_user -u "user=[test_ACL_0, test_ACL_1]"
+Error (0x4100104): Incorrect parameters: There is editing/running task now.
+
+administrator@cli> 
+group -a add -g add_group_and_user -u "user=[test_ACL_0, test_ACL_1]"
+Error (0x402): Invalid parameter
+Failed to find the user user=[test_ACL_0
+
+administrator@cli> 
+group -a add -g add_group_and_user -u "[test_ACL_0, test_ACL_1]"
+Error (0x4100104): Incorrect parameters: There is editing/running task now.
+
+administrator@cli> 
+group -a add -g add_group_and_user -u "[test_ACL_0, test_ACL_1]"
+Error (0x402): Invalid parameter
+Failed to find the user [test_ACL_0
+
+administrator@cli> 
+group -a add -g add_group_and_user -u "test_ACL_0, test_ACL_1"
+Error (0x402): Invalid parameter
+Failed to find the user  test_ACL_1
+
+administrator@cli> 
+group -a add -g add_group_and_user -u "test_group_0,test_group_1,test_group_2"
+Error (0x2014): Setting parameters too long
+-u: invalid setting test_group_0,test_group_1,test_group_2
+
+administrator@cli> 
+group -a add -g add_group_and_user -u "test_group_0,test_group_1"
+
+administrator@cli> 
+user -a add -t nas -u test_group_0
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+Error (0x4100104): Incorrect parameters: NAS user [test_group_0] already exists.
+
+administrator@cli> 
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+user -a add -t nas -u test_group_1
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[79C[0m*[0m
+[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[20D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> Local#123
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> 
+user -a add -t nas -u test_group_0
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+[J[?7h[0m[?12l[?25h[?2004l000000
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[42D[0m
+[J[?7h[0m[?12l[?25h[?2004l
+administrator@cli> 
+user -a add -t nas -u test_group_1
+Error (0x401): Invalid command or request
+invalid command: 000000
+
+administrator@cli> 
+Enter password for the new ds user:[35D[35C[0m[?12l[?25h[?25l[35D[0m[J[0mEnter password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[79C[0m*[0m
+[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[20D[0m
+[J[?7h[0m[?12l[?25h[?2004lLocal#123
+Local#123
+Retype password for the new ds user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mRetype password for the new ds user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x203): Two passwords do not match
+
+administrator@cli> 
+group -a add -g add_group_and_user -u "test_group_0,test_group_1"
+
+administrator@cli> 
+add group and user
+
+group -a add -g add_group_and_user -u "test_group_0,test_group_1"
+
+administrator@cli> 
+Actual: group and user are added
+
+add group and user
+
+group -a add -g add_group_and_user -u "test_group_0,test_group_1"
+
+administrator@cli> 
+Actual: group and user are added
+
+'result': 'p'
+
+Expect: add group a
+
+group -a add -g a
+
+administrator@cli> 
+
+Actual: group a is added
+
+Expect: add group 12
+
+group -a add -g 12
+
+administrator@cli> 
+
+Actual: group 12 is added
+
+Expect: add group test_test_test_test_test_test
+
+group -a add -g test_test_test_test_test_test
+
+administrator@cli> 
+
+Actual: group test_test_test_test_test_test is added
+
+Expect: add group name_name_name_name_name_name_
+
+group -a add -g name_name_name_name_name_name_
+
+administrator@cli> 
+
+Actual: group name_name_name_name_name_name_ is added
+'result': 'p'
+add group and user
+
+group -a add -g add_group_and_user -u "test_group_0,test_group_1"
+Error (0x402): Invalid parameter
+User did not in the group
+
+administrator@cli> 
+Fail: group -a add -g add_group_and_user -u "test_group_0,test_group_1"
+Error (0x402): Invalid parameter
+User did not in the group
+
+administrator@cli> 
+
+'result': 'f'
+group -a adduser -g a -u "test_group_0,test_group_1
+Error (0x2015): Missing quote in parameters
+
+administrator@cli> 
+group -a adduser -g a -u "test_group_0,test_group_1"
+Error (0x4100104): Incorrect parameters: There is editing/running task now.
+
+administrator@cli> 
+group -a adduser -g a -u "test_group_0,test_group_1"
+
+administrator@cli> 
+Expect: add user into group a
+
+group -a adduser -g a -u "test_group_0,test_group_1"
+
+administrator@cli> 
+Actual: the user are added into group a
+
+Expect: add user into group a
+
+group -a adduser -g a -u "test_group_0,test_group_1"
+Error (0x402): Invalid parameter
+User did not in the group
+
+administrator@cli> 
+Fail: group -a adduser -g a -u "test_group_0,test_group_1"
+Error (0x402): Invalid parameter
+User did not in the group
+
+administrator@cli> 
+
+'result': 'f'
+Expect: list all of group
+
+group
+===============================================================================
+Id              GroupName                                description           
+===============================================================================
+1003            12                                                             
+1002            a                                                              
+1001            add_group_and_user                                             
+1005            name_name_name_name_name_name_                                 
+1004            test_test_test_test_test_test                                  
+100             users                                                          
+
+administrator@cli> 
+Actual: all of group is listed
+
+Expect: list group a
+
+group -g a
+===============================================================================
+Id                     GroupName                  description                  
+===============================================================================
+1002                   a                                                       
+
+administrator@cli> 
+Actual: the group a is listed
+
+Expect: list group 12
+
+group -g 12
+Group not found
+
+administrator@cli> 
+Actual: the group 12 is listed
+
+Expect: list group test_test_test_test_test_test
+
+group -g test_test_test_test_test_test
+Group not found
+
+administrator@cli> 
+Actual: the group test_test_test_test_test_test is listed
+
+Expect: list group name_name_name_name_name_name_
+
+group -g name_name_name_name_name_name_
+Group not found
+
+administrator@cli> 
+Actual: the group name_name_name_name_name_name_ is listed
+
+'result': 'p'
+Expect: list all of group
+
+group
+===============================================================================
+Id              GroupName                                description           
+===============================================================================
+1003            12                                                             
+1002            a                                                              
+1001            add_group_and_user                                             
+1005            name_name_name_name_name_name_                                 
+1004            test_test_test_test_test_test                                  
+100             users                                                          
+
+administrator@cli> 
+Actual: all of group is listed
+
+
+Expect: list group a
+
+group -g a
+===============================================================================
+Id                     GroupName                  description                  
+===============================================================================
+1002                   a                                                       
+
+administrator@cli> 
+Actual: the group a is listed
+
+
+Expect: list group 12
+
+group -g 12
+Group not found
+
+administrator@cli> 
+Actual: the group 12 is listed
+
+
+Expect: list group test_test_test_test_test_test
+
+group -g test_test_test_test_test_test
+Group not found
+
+administrator@cli> 
+Actual: the group test_test_test_test_test_test is listed
+
+
+Expect: list group name_name_name_name_name_name_
+
+group -g name_name_name_name_name_name_
+Group not found
+
+administrator@cli> 
+Actual: the group name_name_name_name_name_name_ is listed
+
+'result': 'p'
+Expect: list all of group
+
+group
+===============================================================================
+Id              GroupName                                description           
+===============================================================================
+1003            12                                                             
+1002            a                                                              
+1001            add_group_and_user                                             
+1005            name_name_name_name_name_name_                                 
+1004            test_test_test_test_test_test                                  
+100             users                                                          
+
+administrator@cli> 
+Actual: all of group is listed
+
+
+Expect: list group a
+
+group -g a
+===============================================================================
+Id                     GroupName                  description                  
+===============================================================================
+1002                   a                                                       
+
+administrator@cli> 
+
+Actual: the group a is listed
+
+
+Expect: list group 12
+
+group -g 12
+Group not found
+
+administrator@cli> 
+
+Actual: the group 12 is listed
+
+
+Expect: list group test_test_test_test_test_test
+
+group -g test_test_test_test_test_test
+Group not found
+
+administrator@cli> 
+
+Actual: the group test_test_test_test_test_test is listed
+
+
+Expect: list group name_name_name_name_name_name_
+
+group -g name_name_name_name_name_name_
+Group not found
+
+administrator@cli> 
+
+Actual: the group name_name_name_name_name_name_ is listed
+
+'result': 'p'
+Expect: list all of group
+
+group
+===============================================================================
+Id              GroupName                                description           
+===============================================================================
+1003            12                                                             
+1002            a                                                              
+1001            add_group_and_user                                             
+1005            name_name_name_name_name_name_                                 
+1004            test_test_test_test_test_test                                  
+100             users                                                          
+
+administrator@cli> 
+Actual: all of group is listed
+
+
+Expect: list group a
+
+group -g a
+===============================================================================
+Id                     GroupName                  description                  
+===============================================================================
+1002                   a                                                       
+
+administrator@cli> 
+
+Actual: the group a is listed
+
+
+Expect: list group 12
+
+group -g 12
+Group not found
+
+administrator@cli> 
+Fail: group -g 12
+Group not found
+
+administrator@cli> 
+
+
+Expect: list group test_test_test_test_test_test
+
+group -g test_test_test_test_test_test
+Group not found
+
+administrator@cli> 
+Fail: group -g test_test_test_test_test_test
+Group not found
+
+administrator@cli> 
+
+
+Expect: list group name_name_name_name_name_name_
+
+group -g name_name_name_name_name_name_
+Group not found
+
+administrator@cli> 
+Fail: group -g name_name_name_name_name_name_
+Group not found
+
+administrator@cli> 
+
+'result': 'f'
+Expect: list all of group by verbose mode
+
+group -v
+-------------------------------------------------------------------------------
+GroupName: 12                           Gid: 1003
+Description:                            UserList: 
+-------------------------------------------------------------------------------
+GroupName: a                            Gid: 1002
+Description:                            UserList: test_group_0,test_group_1
+-------------------------------------------------------------------------------
+GroupName: add_group_and_user           Gid: 1001
+Description:                            UserList: test_group_0,test_group_1
+-------------------------------------------------------------------------------
+GroupName: name_name_name_name_name_name_
+Gid: 1005                               Description: 
+UserList: 
+-------------------------------------------------------------------------------
+GroupName: test_test_test_test_test_test
+Gid: 1004                               Description: 
+UserList: 
+-------------------------------------------------------------------------------
+GroupName: users                        Gid: 100
+UserList: 
+test_group_0,test_group_1,test_group_2,test_group_3,test_group_4,test_group_5,t
+est_group_6,test_group_7,test_group_8,test_group_9
+Description: 
+
+administrator@cli> 
+Actual: all of group is listed by verbose mode
+
+
+Expect: list group a by verbose mode
+
+group -v -g a
+-------------------------------------------------------------------------------
+GroupName: a                            Gid: 1002
+Description:                            UserList: test_group_0,test_group_1
+
+administrator@cli> 
+
+Actual: the group a is listed by verbose mode
+
+
+Expect: list group 12 by verbose mode
+
+group -v -g 12
+Group not found
+
+administrator@cli> 
+Fail: group -v -g 12
+Group not found
+
+administrator@cli> 
+
+
+Expect: list group test_test_test_test_test_test by verbose mode
+
+group -v -g test_test_test_test_test_test
+Group not found
+
+administrator@cli> 
+Fail: group -v -g test_test_test_test_test_test
+Group not found
+
+administrator@cli> 
+
+
+Expect: list group name_name_name_name_name_name_ by verbose mode
+
+group -v -g name_name_name_name_name_name_
+Group not found
+
+administrator@cli> 
+Fail: group -v -g name_name_name_name_name_name_
+Group not found
+
+administrator@cli> 
+
+'result': 'f'
+Expect: list all of group
+
+group
+===============================================================================
+Id              GroupName                                description           
+===============================================================================
+1003            12                                                             
+1002            a                                                              
+1001            add_group_and_user                                             
+1005            name_name_name_name_name_name_                                 
+1004            test_test_test_test_test_test                                  
+100             users                                                          
+
+administrator@cli> 
+Actual: all of group is listed
+
+
+Expect: list group a
+
+group -g a
+===============================================================================
+Id                     GroupName                  description                  
+===============================================================================
+1002                   a                                                       
+
+administrator@cli> 
+
+Actual: the group a is listed
+
+
+Expect: list group 12
+
+group -g 12
+Group not found
+
+administrator@cli> 
+Fail: group -g 12
+Group not found
+
+administrator@cli> 
+
+
+Expect: list group test_test_test_test_test_test
+
+group -g test_test_test_test_test_test
+Group not found
+
+administrator@cli> 
+Fail: group -g test_test_test_test_test_test
+Group not found
+
+administrator@cli> 
+
+
+Expect: list group name_name_name_name_name_name_
+
+group -g name_name_name_name_name_name_
+Group not found
+
+administrator@cli> 
+Fail: group -g name_name_name_name_name_name_
+Group not found
+
+administrator@cli> 
+
+'result': 'f'
+group -a mod -g a -s "desc=banfdfadfgfgja"
+
+administrator@cli> 
+Expect: add description for group a
+
+group -a mod -g a -s "desc=this is the test group"
+
+administrator@cli> 
+group -v -g a
+-------------------------------------------------------------------------------
+GroupName: a                            Gid: 1002
+Description: this is the test group     UserList: test_group_0,test_group_1
+
+administrator@cli> 
+
+Actual: add successfully description for group
+
+'result': 'p'
+Expect: add description for group a
+
+group -a mod -g a -s "desc=this is the test group"
+
+administrator@cli> 
+group -v -g a
+-------------------------------------------------------------------------------
+GroupName: a                            Gid: 1002
+Description: this is the test group     UserList: test_group_0,test_group_1
+
+administrator@cli> 
+
+Actual: add successfully description for group
+
+'result': 'p'
+delete user from user of group
+
+group -g user -v
+Error (0x4100102): Empty query result, please check input parameters. Query result is empty at sqlite_getdict(). errmsg = Traceback (most recent call last):
+File "/islavista/sw/python/nas/core/db.py", line 237, in sqlite_getdict
+    for i, value in enumerate(row): # May raise TypeError and ValueError.
+TypeError: 'NoneType' object is not iterable
+
+administrator@cli> 
+Expect: delete user from user of group
+
+group -g users -v
+-------------------------------------------------------------------------------
+GroupName: users                        Gid: 100
+UserList: 
+test_group_0,test_group_1,test_group_2,test_group_3,test_group_4,test_group_5,t
+est_group_6,test_group_7,test_group_8,test_group_9
+Description: 
+
+administrator@cli> 
+Expect: delete user from users of group
+
+group -g users -v
+-------------------------------------------------------------------------------
+GroupName: users                        Gid: 100
+UserList: 
+test_group_0,test_group_1,test_group_2,test_group_3,test_group_4,test_group_5,t
+est_group_6,test_group_7,test_group_8,test_group_9
+Description: 
+
+administrator@cli> 
+Expect: delete user from users of group
+
+group -g users -v
+-------------------------------------------------------------------------------
+GroupName: users                        Gid: 100
+UserList: 
+test_group_0,test_group_1,test_group_2,test_group_3,test_group_4,test_group_5,t
+est_group_6,test_group_7,test_group_8,test_group_9
+Description: 
+
+administrator@cli> 
+Expect: delete user from users of group
+
+group -g users -v
+-------------------------------------------------------------------------------
+GroupName: users                        Gid: 100
+UserList: 
+test_group_0,test_group_1,test_group_2,test_group_3,test_group_4,test_group_5,t
+est_group_6,test_group_7,test_group_8,test_group_9
+Description: 
+
+administrator@cli> 
+Expect: delete user from users of group
+
+group -g users -v
+-------------------------------------------------------------------------------
+GroupName: users                        Gid: 100
+UserList: 
+test_group_0,test_group_1,test_group_2,test_group_3,test_group_4,test_group_5,t
+est_group_6,test_group_7,test_group_8,test_group_9
+Description: 
+
+administrator@cli> 
+Expect: delete user from users of group
+
+group -g users -v
+-------------------------------------------------------------------------------
+GroupName: users                        Gid: 100
+UserList: 
+test_group_0,test_group_1,test_group_2,test_group_3,test_group_4,test_group_5,t
+est_group_6,test_group_7,test_group_8,test_group_9
+Description: 
+
+administrator@cli> 
+Expect: delete user from users of group
+
+group -g users -v
+-------------------------------------------------------------------------------
+GroupName: users                        Gid: 100
+UserList: 
+test_group_0,test_group_1,test_group_2,test_group_3,test_group_4,test_group_5,t
+est_group_6,test_group_7,test_group_8,test_group_9
+Description: 
+
+administrator@cli> 
+Expect: delete user from users of group
+
+group -g users -v
+-------------------------------------------------------------------------------
+GroupName: users                        Gid: 100
+UserList: 
+test_group_0,test_group_1,test_group_2,test_group_3,test_group_4,test_group_5,t
+est_group_6,test_group_7,test_group_8,test_group_9
+Description: 
+
+administrator@cli> 
+Expect: delete user from users of group
+
+group -g users -v
+-------------------------------------------------------------------------------
+GroupName: users                        Gid: 100
+UserList: 
+test_group_0,test_group_1,test_group_2,test_group_3,test_group_4,test_group_5,t
+est_group_6,test_group_7,test_group_8,test_group_9
+Description: 
+
+administrator@cli> 
+Expect: delete user from users of group
+
+group -g users -v
+-------------------------------------------------------------------------------
+GroupName: users                        Gid: 100
+UserList: 
+test_group_0,test_group_1,test_group_2,test_group_3,test_group_4,test_group_5,t
+est_group_6,test_group_7,test_group_8,test_group_9
+Description: 
+
+administrator@cli> 
+group -a deluser -g users -u  test_group_0
+Error (0x4100104): Incorrect parameters: The grp_name parameter [users] is reserved by system.
+
+administrator@cli> 
+Fail; group -a deluser -g users -u  test_group_0
+Error (0x4100104): Incorrect parameters: The grp_name parameter [users] is reserved by system.
+
+administrator@cli> 
+
+'result': 'f'
+Expect: delete user from a of group
+
+group -v -g a
+-------------------------------------------------------------------------------
+GroupName: a                            Gid: 1002
+Description: this is the test group     UserList: test_group_0,test_group_1
+
+administrator@cli> 
+group -a deluser -g a -u  test_group_0
+
+administrator@cli> 
+group -v -g a
+-------------------------------------------------------------------------------
+GroupName: a                            Gid: 1002
+Description:                            UserList: test_group_1
+
+administrator@cli> 
+
+Actual:  test_group_0 is deleted from users of group
+
+'result': 'p'
+Expect: delete user from a of group
+
+group -v -g a
+-------------------------------------------------------------------------------
+GroupName: a                            Gid: 1002
+Description:                            UserList: test_group_1
+
+administrator@cli> 
+group -a deluser -g a -u  test_group_1administrator@cli> 
+Error (0x402): Invalid parameter
+Failed to find the user test_group_1administrator@cli>
+
+administrator@cli> 
+Fail; group -a deluser -g a -u  test_group_1administrator@cli> 
+Error (0x402): Invalid parameter
+Failed to find the user test_group_1administrator@cli>
+
+administrator@cli> 
+
+'result': 'f'
+Expect: delete user from a of group
+
+group -v -g a
+-------------------------------------------------------------------------------
+GroupName: a                            Gid: 1002
+Description:                            UserList: test_group_1
+
+administrator@cli> 
+Expect: delete user from a of group
+
+group -v -g a
+-------------------------------------------------------------------------------
+GroupName: a                            Gid: 1002
+Description:                            UserList: test_group_1
+
+administrator@cli> 
+Expect: delete user from a of group
+
+group -v -g a
+-------------------------------------------------------------------------------
+GroupName: a                            Gid: 1002
+Description:                            UserList: test_group_1
+
+administrator@cli> 
+Expect: delete user from a of group
+
+group -v -g a
+-------------------------------------------------------------------------------
+GroupName: a                            Gid: 1002
+Description:                            UserList: test_group_1
+
+administrator@cli> 
+group -a deluser -g a -u  test_group_1
+Error (0x4100104): Incorrect parameters: There is editing/running task now.
+
+administrator@cli> 
+Fail; group -a deluser -g a -u  test_group_1
+Error (0x4100104): Incorrect parameters: There is editing/running task now.
+
+administrator@cli> 
+
+'result': 'f'
+Expect: delete user from a of group
+
+group -v -g a
+-------------------------------------------------------------------------------
+GroupName: a                            Gid: 1002
+Description:                            UserList: test_group_1
+
+administrator@cli> 
+group -a deluser -g a -u  test_group_1
+
+administrator@cli> 
+group -v -g a
+Group not found
+
+administrator@cli> 
+
+Actual:  test_group_1 is deleted from users of group
+
+'result': 'p'
+Expect: add user into group a
+
+group -a adduser -g a -u "test_group_0,test_group_1"
+
+administrator@cli> 
+Actual: the user are added into group a
+
+'result': 'p'
+Expect: delete user from a of group
+
+group -v -g a
+-------------------------------------------------------------------------------
+GroupName: a                            Gid: 1002
+Description:                            UserList: test_group_0,test_group_1
+
+administrator@cli> 
+group -a deluser -g a -u  test_group_0,test_group_1
+
+administrator@cli> 
+group -v -g a
+Group not found
+
+administrator@cli> 
+
+Actual:  test_group_0,test_group_1 is deleted from users of group
+
+'result': 'p'
+Expect: delete group a
+
+group -a del -g a
+
+administrator@cli> 
+
+Actual: the a of group is deleted
+
+Expect: delete group 12
+
+group -a del -g 12
+
+administrator@cli> 
+
+Actual: the 12 of group is deleted
+
+Expect: delete group test_test_test_test_test_test
+
+group -a del -g test_test_test_test_test_test
+
+administrator@cli> 
+
+Actual: the test_test_test_test_test_test of group is deleted
+
+Expect: delete group name_name_name_name_name_name_
+
+group -a del -g name_name_name_name_name_name_
+
+administrator@cli> 
+
+Actual: the name_name_name_name_name_name_ of group is deleted
+
+'result': 'p'
+group -g invalid_name
+Error (0x4100102): Empty query result, please check input parameters. Query result is empty at sqlite_getdict(). errmsg = Traceback (most recent call last):
+File "/islavista/sw/python/nas/core/db.py", line 237, in sqlite_getdict
+    for i, value in enumerate(row): # May raise TypeError and ValueError.
+TypeError: 'NoneType' object is not iterable
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+group -v -g invalid_name
+Error (0x4100102): Empty query result, please check input parameters. Query result is empty at sqlite_getdict(). errmsg = Traceback (most recent call last):
+File "/islavista/sw/python/nas/core/db.py", line 237, in sqlite_getdict
+    for i, value in enumerate(row): # May raise TypeError and ValueError.
+TypeError: 'NoneType' object is not iterable
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+group -a add -g a*
+Error (0x4100104): Incorrect parameters: The parameter [grp_name] contains invalid character.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+group -a add -g test_test_test_test_test_test_1
+Error (0x4100104): Incorrect parameters: The parameter [grp_name] length is over 30 bytes.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+group -a add -g users
+Error (0x4100104): Incorrect parameters: The grp_name parameter [users] is reserved by system.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+'result': 'p'
+group -g invalid_name
+Error (0x4100102): Empty query result, please check input parameters. Query result is empty at sqlite_getdict(). errmsg = Traceback (most recent call last):
+File "/islavista/sw/python/nas/core/db.py", line 237, in sqlite_getdict
+    for i, value in enumerate(row): # May raise TypeError and ValueError.
+TypeError: 'NoneType' object is not iterable
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+group -v -g invalid_name
+Error (0x4100102): Empty query result, please check input parameters. Query result is empty at sqlite_getdict(). errmsg = Traceback (most recent call last):
+File "/islavista/sw/python/nas/core/db.py", line 237, in sqlite_getdict
+    for i, value in enumerate(row): # May raise TypeError and ValueError.
+TypeError: 'NoneType' object is not iterable
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+group -a add -g a*
+Error (0x4100104): Incorrect parameters: The parameter [grp_name] contains invalid character.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+group -a add -g test_test_test_test_test_test_1
+Error (0x4100104): Incorrect parameters: The parameter [grp_name] length is over 30 bytes.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+group -a add -g add_group_and_user
+
+administrator@cli> 
+Fail: group -a add -g add_group_and_user
+
+administrator@cli> 
+
+'result': 'f'
+group -g invalid_setting_name
+Error (0x4100102): Empty query result, please check input parameters. Query result is empty at sqlite_getdict(). errmsg = Traceback (most recent call last):
+File "/islavista/sw/python/nas/core/db.py", line 237, in sqlite_getdict
+    for i, value in enumerate(row): # May raise TypeError and ValueError.
+TypeError: 'NoneType' object is not iterable
+
+administrator@cli> 
+Fail: please check out error information
+
+group -v -g invalid_setting_name
+Error (0x4100102): Empty query result, please check input parameters. Query result is empty at sqlite_getdict(). errmsg = Traceback (most recent call last):
+File "/islavista/sw/python/nas/core/db.py", line 237, in sqlite_getdict
+    for i, value in enumerate(row): # May raise TypeError and ValueError.
+TypeError: 'NoneType' object is not iterable
+
+administrator@cli> 
+Fail: please check out error information
+
+group -a add -g a*
+Error (0x4100104): Incorrect parameters: The parameter [grp_name] contains invalid character.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+group -a add -g test_test_test_test_test_test_1
+Error (0x4100104): Incorrect parameters: The parameter [grp_name] length is over 30 bytes.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+group -a mod -g invalid_setting_name -s "desc=test"
+Error (0x4100104): Incorrect parameters: NAS group [invalid_setting_name] doesn't exist.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+group -a adduser -g add_group_and_user -u invalid_setting_name
+Error (0x402): Invalid parameter
+Failed to find the user invalid_setting_name
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+group -a deluser -g add_group_and_user -u invalid_setting_name
+Error (0x4100104): Incorrect parameters: There is editing/running task now.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+group -a del -g invalid_setting_name
+Error (0x4100104): Incorrect parameters: NAS group [invalid_setting_name] doesn't exist.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+'result': 'f'
+Expect: list group that doesn't exist
+
+group -g invalid_setting_name
+Error (0x4100102): Empty query result, please check input parameters. Query result is empty at sqlite_getdict(). errmsg = Traceback (most recent call last):
+File "/islavista/sw/python/nas/core/db.py", line 237, in sqlite_getdict
+    for i, value in enumerate(row): # May raise TypeError and ValueError.
+TypeError: 'NoneType' object is not iterable
+
+administrator@cli> 
+Fail: please check out error information
+
+Expect: list group that doesn't exist
+
+group -v -g invalid_setting_name
+Error (0x4100102): Empty query result, please check input parameters. Query result is empty at sqlite_getdict(). errmsg = Traceback (most recent call last):
+File "/islavista/sw/python/nas/core/db.py", line 237, in sqlite_getdict
+    for i, value in enumerate(row): # May raise TypeError and ValueError.
+TypeError: 'NoneType' object is not iterable
+
+administrator@cli> 
+Fail: please check out error information
+
+Expect: add group that name contains special character
+
+group -a add -g a*
+Error (0x4100104): Incorrect parameters: There is editing/running task now.
+
+administrator@cli> 
+Fail: please check out error information
+
+Expect: add group that name length is more than 30
+
+group -a add -g test_test_test_test_test_test_1
+Error (0x4100104): Incorrect parameters: There is editing/running task now.
+
+administrator@cli> 
+Fail: please check out error information
+
+Expect: mod group that doesn't exist
+
+group -a mod -g invalid_setting_name -s "desc=test"
+Error (0x4100104): Incorrect parameters: NAS group [invalid_setting_name] doesn't exist.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: add user that doesn't exist
+
+group -a adduser -g add_group_and_user -u invalid_setting_name
+Error (0x4100104): Incorrect parameters: There is editing/running task now.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: delete user that doesn't exist
+
+group -a deluser -g add_group_and_user -u invalid_setting_name
+Error (0x4100104): Incorrect parameters: There is editing/running task now.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: delete group that doesn't exist
+
+group -a del -g invalid_setting_name
+Error (0x4100104): Incorrect parameters: NAS group [invalid_setting_name] doesn't exist.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+'result': 'f'
+group -a cancel
+
+administrator@cli> 
+Expect: list group that doesn't exist
+
+group -g invalid_setting_name
+Error (0x4100102): Empty query result, please check input parameters. Query result is empty at sqlite_getdict(). errmsg = Traceback (most recent call last):
+File "/islavista/sw/python/nas/core/db.py", line 237, in sqlite_getdict
+    for i, value in enumerate(row): # May raise TypeError and ValueError.
+TypeError: 'NoneType' object is not iterable
+
+administrator@cli> 
+Fail: please check out error information
+
+group -a cancel
+
+administrator@cli> 
+Expect: list group that doesn't exist
+
+group -v -g invalid_setting_name
+Error (0x4100102): Empty query result, please check input parameters. Query result is empty at sqlite_getdict(). errmsg = Traceback (most recent call last):
+File "/islavista/sw/python/nas/core/db.py", line 237, in sqlite_getdict
+    for i, value in enumerate(row): # May raise TypeError and ValueError.
+TypeError: 'NoneType' object is not iterable
+
+administrator@cli> 
+Fail: please check out error information
+
+group -a cancel
+
+administrator@cli> 
+Expect: add group that name contains special character
+
+group -a add -g a*
+Error (0x4100104): Incorrect parameters: The parameter [grp_name] contains invalid character.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+group -a cancel
+
+administrator@cli> 
+Expect: add group that name length is more than 30
+
+group -a add -g test_test_test_test_test_test_1
+Error (0x4100104): Incorrect parameters: The parameter [grp_name] length is over 30 bytes.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+group -a cancel
+
+administrator@cli> 
+Expect: mod group that doesn't exist
+
+group -a mod -g invalid_setting_name -s "desc=test"
+Error (0x4100104): Incorrect parameters: NAS group [invalid_setting_name] doesn't exist.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+group -a cancel
+
+administrator@cli> 
+Expect: add user that doesn't exist
+
+group -a adduser -g add_group_and_user -u invalid_setting_name
+Error (0x402): Invalid parameter
+Failed to find the user invalid_setting_name
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+group -a cancel
+
+administrator@cli> 
+Expect: delete user that doesn't exist
+
+group -a deluser -g add_group_and_user -u invalid_setting_name
+Error (0x402): Invalid parameter
+Failed to find the user invalid_setting_name
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+group -a cancel
+
+administrator@cli> 
+Expect: delete group that doesn't exist
+
+group -a del -g invalid_setting_name
+Error (0x4100104): Incorrect parameters: NAS group [invalid_setting_name] doesn't exist.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+'result': 'f'
+Expect: group -x
+
+group -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: group -a test
+
+group -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|add|mod|del|adduser|deluser)
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: group -a add -x
+
+group -a add -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: group -a adduser -x
+
+group -a adduser -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+'result': 'p'
+Expect: group -x
+
+group -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: group -a add -x
+
+group -a add -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: group -a adduser -x
+
+group -a adduser -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: group -a deluser -x
+
+group -a deluser -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: group -a del -x
+
+group -a del -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: group -a mod -x
+
+group -a mod -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+'result': 'p'
+Expect: error information contains--Invalid option
+
+group -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains--Invalid option
+
+group -a add -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains--Invalid option
+
+group -a adduser -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains--Invalid option
+
+group -a deluser -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains--Invalid option
+
+group -a del -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains--Invalid option
+
+group -a mod -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+'result': 'p'
+group -a cancel
+
+administrator@cli> 
+Expect: error information contains--invalid setting parameter
+
+group -g invalid_setting_name
+Error (0x4100102): Empty query result, please check input parameters. Query result is empty at sqlite_getdict(). errmsg = Traceback (most recent call last):
+File "/islavista/sw/python/nas/core/db.py", line 237, in sqlite_getdict
+    for i, value in enumerate(row): # May raise TypeError and ValueError.
+TypeError: 'NoneType' object is not iterable
+
+administrator@cli> 
+Fail: please check out error information
+
+group -a cancel
+
+administrator@cli> 
+Expect: error information contains--invalid setting parameter
+
+group -v -g invalid_setting_name
+Error (0x4100102): Empty query result, please check input parameters. Query result is empty at sqlite_getdict(). errmsg = Traceback (most recent call last):
+File "/islavista/sw/python/nas/core/db.py", line 237, in sqlite_getdict
+    for i, value in enumerate(row): # May raise TypeError and ValueError.
+TypeError: 'NoneType' object is not iterable
+
+administrator@cli> 
+Fail: please check out error information
+
+group -a cancel
+
+administrator@cli> 
+Expect: error information contains--The parameter [grp_name] contains invalid character
+
+group -a add -g a*
+Error (0x4100104): Incorrect parameters: The parameter [grp_name] contains invalid character.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+group -a cancel
+
+administrator@cli> 
+Expect: error information contains--The parameter [grp_name] length is over 30 bytes.
+
+group -a add -g test_test_test_test_test_test_1
+Error (0x4100104): Incorrect parameters: The parameter [grp_name] length is over 30 bytes.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+group -a cancel
+
+administrator@cli> 
+Expect: error information contains--NAS group [invalid_setting_name] doesn't exist.
+
+group -a mod -g invalid_setting_name -s "desc=test"
+Error (0x4100104): Incorrect parameters: NAS group [invalid_setting_name] doesn't exist.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+group -a cancel
+
+administrator@cli> 
+Expect: error information contains--Failed to find the user
+
+group -a adduser -g add_group_and_user -u invalid_setting_name
+Error (0x402): Invalid parameter
+Failed to find the user invalid_setting_name
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+group -a cancel
+
+administrator@cli> 
+Expect: error information contains--Failed to find the user
+
+group -a deluser -g add_group_and_user -u invalid_setting_name
+Error (0x402): Invalid parameter
+Failed to find the user invalid_setting_name
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+group -a cancel
+
+administrator@cli> 
+Expect: error information contains--NAS group [invalid_setting_name] doesn't exist
+
+group -a del -g invalid_setting_name
+Error (0x4100104): Incorrect parameters: NAS group [invalid_setting_name] doesn't exist.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+group -a cancel
+
+administrator@cli> 
+Expect: error information contains--invalid setting parameter
+
+group -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|add|mod|del|adduser|deluser)
+
+administrator@cli> 
+Fail: please check out error information
+
+'result': 'f'
+group -a cancel
+
+administrator@cli> 
+Expect: error information contains--invalid setting parameter
+
+group -g invalid_setting_name
+Error (0x4100102): Empty query result, please check input parameters. Query result is empty at sqlite_getdict(). errmsg = Traceback (most recent call last):
+File "/islavista/sw/python/nas/core/db.py", line 237, in sqlite_getdict
+    for i, value in enumerate(row): # May raise TypeError and ValueError.
+TypeError: 'NoneType' object is not iterable
+
+administrator@cli> 
+Fail: please check out error information
+
+group -a cancel
+
+administrator@cli> 
+Expect: error information contains--invalid setting parameter
+
+group -v -g invalid_setting_name
+Error (0x4100102): Empty query result, please check input parameters. Query result is empty at sqlite_getdict(). errmsg = Traceback (most recent call last):
+File "/islavista/sw/python/nas/core/db.py", line 237, in sqlite_getdict
+    for i, value in enumerate(row): # May raise TypeError and ValueError.
+TypeError: 'NoneType' object is not iterable
+
+administrator@cli> 
+Fail: please check out error information
+
+group -a cancel
+
+administrator@cli> 
+Expect: error information contains--The parameter [grp_name] contains invalid character
+
+group -a add -g a*
+Error (0x4100104): Incorrect parameters: The parameter [grp_name] contains invalid character.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+group -a cancel
+
+administrator@cli> 
+Expect: error information contains--The parameter [grp_name] length is over 30 bytes.
+
+group -a add -g test_test_test_test_test_test_1
+Error (0x4100104): Incorrect parameters: The parameter [grp_name] length is over 30 bytes.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+group -a cancel
+
+administrator@cli> 
+Expect: error information contains--NAS group [invalid_setting_name] doesn't exist.
+
+group -a mod -g invalid_setting_name -s "desc=test"
+Error (0x4100104): Incorrect parameters: NAS group [invalid_setting_name] doesn't exist.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+group -a cancel
+
+administrator@cli> 
+Expect: error information contains--Failed to find the user
+
+group -a adduser -g add_group_and_user -u invalid_setting_name
+Error (0x402): Invalid parameter
+Failed to find the user invalid_setting_name
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+group -a cancel
+
+administrator@cli> 
+Expect: error information contains--Failed to find the user
+
+group -a deluser -g add_group_and_user -u invalid_setting_name
+Error (0x402): Invalid parameter
+Failed to find the user invalid_setting_name
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+group -a cancel
+
+administrator@cli> 
+Expect: error information contains--NAS group [invalid_setting_name] doesn't exist
+
+group -a del -g invalid_setting_name
+Error (0x4100104): Incorrect parameters: NAS group [invalid_setting_name] doesn't exist.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+group -a cancel
+
+administrator@cli> 
+Expect: error information contains--Invalid setting parameters
+
+group -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|add|mod|del|adduser|deluser)
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+'result': 'f'
+Expect: error information contains--
+
+group -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains--
+
+group -a add
+Error (0x403): Missing parameter
+missing parameter '-g' for '-a add'
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains--
+
+group -a add -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains--
+
+group -a add -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains--
+
+group -a mod
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains--
+
+group -a mod -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains--
+
+group -a mod -g users -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains--
+
+group -a adduser
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a adduser'
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains--
+
+group -a adduser -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains--
+
+group -a adduser -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains--
+
+group -a deluser
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a deluser'
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains--
+
+group -a deluser -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains--
+
+group -a deluser -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains--
+
+group -a del
+Error (0x403): Missing parameter
+missing parameter '-g' for '-a del'
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains--
+
+group -a del -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+'result': 'p'
+Expect: error information contains Missing parameter
+
+group -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains Missing parameter
+
+group -a add
+Error (0x403): Missing parameter
+missing parameter '-g' for '-a add'
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains Missing parameter
+
+group -a add -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains Missing parameter
+
+group -a add -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains Missing parameter
+
+group -a mod
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains Missing parameter
+
+group -a mod -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains Missing parameter
+
+group -a mod -g users -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains Missing parameter
+
+group -a adduser
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a adduser'
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains Missing parameter
+
+group -a adduser -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains Missing parameter
+
+group -a adduser -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains Missing parameter
+
+group -a deluser
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a deluser'
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains Missing parameter
+
+group -a deluser -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains Missing parameter
+
+group -a deluser -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains Missing parameter
+
+group -a del
+Error (0x403): Missing parameter
+missing parameter '-g' for '-a del'
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains Missing parameter
+
+group -a del -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+'result': 'p'
+Expect: error information contains Missing parameter
+
+group -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains Missing parameter
+
+group -a add
+Error (0x403): Missing parameter
+missing parameter '-g' for '-a add'
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains Missing parameter
+
+group -a add -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains Missing parameter
+
+group -a add -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains Missing parameter
+
+group -a mod
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains Missing parameter
+
+group -a mod -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains Missing parameter
+
+group -a mod -g users -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains Missing parameter
+
+group -a adduser
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a adduser'
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains Missing parameter
+
+group -a adduser -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains Missing parameter
+
+group -a adduser -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains Missing parameter
+
+group -a deluser
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a deluser'
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains Missing parameter
+
+group -a deluser -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains Missing parameter
+
+group -a deluser -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains Missing parameter
+
+group -a del
+Error (0x403): Missing parameter
+missing parameter '-g' for '-a del'
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains Missing parameter
+
+group -a del -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+'result': 'p'
+Expect: error information contains The grp_name parameter [users] is reserved by system.
+
+group -a add -g users
+Error (0x4100104): Incorrect parameters: There is editing/running task now.
+
+administrator@cli> 
+Fail: please check out error information
+
+Expect: error information contains The grp_name parameter [users] is reserved by system.
+
+group -a del -g users
+Error (0x4100104): Incorrect parameters: The grp_name parameter [users] is reserved by system.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains The grp_name parameter [users] is reserved by system.
+
+group -a mod -g users -s "desc=deafult group"
+Error (0x4100104): Incorrect parameters: The grp_name parameter [users] is reserved by system.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains 
+
+group -a del -g add_group_and_user
+Error (0x4100104): Incorrect parameters: Can't delete group [add_group_and_user], please remove members first.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+'result': 'f'
+Expect: error information contains The grp_name parameter [users] is reserved by system.
+
+group -a add -g users
+Error (0x4100104): Incorrect parameters: There is editing/running task now.
+
+administrator@cli> 
+Fail: please check out error information
+
+Expect: error information contains The grp_name parameter [users] is reserved by system.
+
+group -a del -g users
+Error (0x4100104): Incorrect parameters: The grp_name parameter [users] is reserved by system.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains The grp_name parameter [users] is reserved by system.
+
+group -a mod -g users -s "desc=deafult group"
+Error (0x4100104): Incorrect parameters: The grp_name parameter [users] is reserved by system.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains 
+
+group -a del -g add_group_and_user
+Error (0x4100104): Incorrect parameters: Can't delete group [add_group_and_user], please remove members first.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+'result': 'f'
+Expect: error information contains The grp_name parameter [users] is reserved by system.
+
+group -a add -g users
+Error (0x4100104): Incorrect parameters: The grp_name parameter [users] is reserved by system.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains The grp_name parameter [users] is reserved by system.
+
+group -a del -g users
+Error (0x4100104): Incorrect parameters: The grp_name parameter [users] is reserved by system.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains The grp_name parameter [users] is reserved by system.
+
+group -a mod -g users -s "desc=deafult group"
+Error (0x4100104): Incorrect parameters: The grp_name parameter [users] is reserved by system.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains 
+
+group -a del -g add_group_and_user
+Error (0x4100104): Incorrect parameters: Can't delete group [add_group_and_user], please remove members first.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+'result': 'p'
+Expect: error information contains The grp_name parameter [users] is reserved by system.
+
+group -a add -g users
+Error (0x4100104): Incorrect parameters: The grp_name parameter [users] is reserved by system.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains The grp_name parameter [users] is reserved by system.
+
+group -a del -g users
+Error (0x4100104): Incorrect parameters: The grp_name parameter [users] is reserved by system.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains The grp_name parameter [users] is reserved by system.
+
+group -a mod -g users -s "desc=deafult group"
+Error (0x4100104): Incorrect parameters: The grp_name parameter [users] is reserved by system.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains please remove members first
+
+group -a del -g add_group_and_user
+Error (0x4100104): Incorrect parameters: Can't delete group [add_group_and_user], please remove members first.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains The grp_name parameter [users] is reserved by system.
+
+group -a add -g users
+Error (0x4100104): Incorrect parameters: The grp_name parameter [users] is reserved by system.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains The grp_name parameter [users] is reserved by system.
+
+group -a del -g users
+Error (0x4100104): Incorrect parameters: The grp_name parameter [users] is reserved by system.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains The grp_name parameter [users] is reserved by system.
+
+group -a mod -g users -s "desc=deafult group"
+Error (0x4100104): Incorrect parameters: The grp_name parameter [users] is reserved by system.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+Expect: error information contains please remove members first
+
+group -a del -g add_group_and_user
+Error (0x4100104): Incorrect parameters: Can't delete group [add_group_and_user], please remove members first.
+
+administrator@cli> 
+
+Actual: hints error and corrects it
+
+group -a adduser -g add_group_and_user -u invalid_user
+Error (0x402): Invalid parameter
+Failed to find the user invalid_user
+
+administrator@cli> 
+group -a adduser -g add_group_and_user -u test_group_0
+Error (0x4100104): Incorrect parameters: There is editing/running task now.
+
+administrator@cli> 
+
+Fail: group -a adduser -g add_group_and_user -u test_group_0
+Error (0x4100104): Incorrect parameters: There is editing/running task now.
+
+administrator@cli> 
+
+'result': 'f'
