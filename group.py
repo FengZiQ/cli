@@ -32,6 +32,8 @@ def add_group_and_verify_name(c):
 
     command.result()
 
+    return command.FailFlag
+
 
 def add_group_and_user(c):
     # precondition
@@ -56,6 +58,8 @@ def add_group_and_user(c):
 
     command.result()
 
+    return command.FailFlag
+
 
 def add_user_into_group(c):
     # test data
@@ -75,6 +79,8 @@ def add_user_into_group(c):
         tolog('Actual: the user are added into group ' + table.cell(1, 0).value + '\r\n')
 
     command.result()
+
+    return command.FailFlag
 
 
 def list_group(c):
@@ -109,6 +115,8 @@ def list_group(c):
 
     command.result()
 
+    return command.FailFlag
+
 
 def list_group_by_verbose_mode(c):
     # test data
@@ -142,6 +150,8 @@ def list_group_by_verbose_mode(c):
 
     command.result()
 
+    return command.FailFlag
+
 
 def modify_group(c):
     # test data
@@ -168,6 +178,8 @@ def modify_group(c):
             tolog('\r\nActual: add successfully description for group\r\n')
 
     command.result()
+
+    return command.FailFlag
 
 
 def delete_user_from_group(c):
@@ -203,6 +215,8 @@ def delete_user_from_group(c):
 
     command.result()
 
+    return command.FailFlag
+
 
 def delete_group(c):
     # test data
@@ -224,6 +238,8 @@ def delete_group(c):
             tolog('\r\nActual: the ' + table.cell(i, 0).value + ' of group is deleted\r\n')
 
     command.result()
+
+    return command.FailFlag
 
 
 def invalid_setting_parameter(c):
@@ -256,6 +272,8 @@ def invalid_setting_parameter(c):
 
     command.result()
 
+    return command.FailFlag
+
 
 def invalid_option(c):
     # test data
@@ -285,6 +303,8 @@ def invalid_option(c):
 
     command.result()
 
+    return command.FailFlag
+
 
 def missing_parameter(c):
     # test data
@@ -313,6 +333,8 @@ def missing_parameter(c):
                 tolog('\r\nActual: hints error and corrects it\r\n')
 
     command.result()
+
+    return command.FailFlag
 
 
 def failed_process(c):
@@ -353,9 +375,12 @@ def failed_process(c):
             tolog('\r\nFail: ' + result2 + '\r\n')
 
     # clean up environment
+    SendCmd(c, 'group -a cancel')
     clean_up_environment()
 
     command.result()
+
+    return command.FailFlag
 
 
 def clean_up_environment():
@@ -385,6 +410,7 @@ if __name__ == "__main__":
     invalid_option(c)
     missing_parameter(c)
     failed_process(c)
+    clean_up_environment()
 
     ssh.close()
     elasped = time.clock() - start

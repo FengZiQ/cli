@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e03c8b68-9846-4b80-8d73-1c116d755aef" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/group.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/group.xlsx" afterPath="$PROJECT_DIR$/data/group.xlsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cli_scripts.log" afterPath="$PROJECT_DIR$/cli_scripts.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/command.py" afterPath="$PROJECT_DIR$/command.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/group.py" afterPath="$PROJECT_DIR$/group.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testlink.notes" afterPath="$PROJECT_DIR$/testlink.notes" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,34 +22,24 @@
       <file leaf-file-name="group.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/group.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="317" column="18" lean-forward="false" selection-start-line="317" selection-start-column="4" selection-end-line="317" selection-end-column="18" />
+            <state relative-caret-position="-335">
+              <caret line="153" column="0" lean-forward="true" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
               <folding>
                 <element signature="e#31#53#0" expanded="true" />
-                <element signature="e#239#776#0" expanded="false" />
-                <element signature="e#810#1377#0" expanded="false" />
-                <element signature="e#1412#1946#0" expanded="false" />
-                <element signature="e#1972#2789#0" expanded="false" />
-                <element signature="e#2831#3718#0" expanded="false" />
-                <element signature="e#3746#4502#0" expanded="false" />
-                <element signature="e#4540#5440#0" expanded="false" />
-                <element signature="e#5468#6018#0" expanded="false" />
-                <element signature="e#6059#6828#0" expanded="false" />
-                <element signature="e#6858#7555#0" expanded="false" />
-                <element signature="e#7588#8288#0" expanded="false" />
-                <element signature="e#8318#9427#0" expanded="false" />
-                <element signature="e#9462#9746#0" expanded="false" />
+                <element signature="e#239#805#0" expanded="false" />
+                <element signature="e#839#1435#0" expanded="false" />
+                <element signature="e#1470#2033#0" expanded="false" />
+                <element signature="e#2059#2905#0" expanded="false" />
+                <element signature="e#2947#3863#0" expanded="false" />
+                <element signature="e#3891#4676#0" expanded="false" />
+                <element signature="e#4714#5643#0" expanded="false" />
+                <element signature="e#5671#6250#0" expanded="false" />
+                <element signature="e#6291#7089#0" expanded="false" />
+                <element signature="e#7119#7845#0" expanded="false" />
+                <element signature="e#7878#8607#0" expanded="false" />
+                <element signature="e#8637#9809#0" expanded="false" />
+                <element signature="e#9844#10128#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cli_autoscripts_zach.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cli_autoscripts_zach.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="322" column="49" lean-forward="false" selection-start-line="322" selection-start-column="49" selection-end-line="322" selection-end-column="49" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -86,8 +78,10 @@
       <find>.value</find>
       <find>Spare</find>
       <find>/home/work/zach/clitest/data/volume.xlsx</find>
-      <find>Fail:</find>
       <find>fail:</find>
+      <find>Fail:</find>
+      <find>True</find>
+      <find>print</find>
     </findStrings>
     <replaceStrings>
       <replace>(c)):</replace>
@@ -112,7 +106,6 @@
         <option value="$PROJECT_DIR$/iscsi.py" />
         <option value="$PROJECT_DIR$/isns.py" />
         <option value="$PROJECT_DIR$/logout.py" />
-        <option value="$PROJECT_DIR$/lunmap.py" />
         <option value="$PROJECT_DIR$/net.py" />
         <option value="$PROJECT_DIR$/ntp.py" />
         <option value="$PROJECT_DIR$/password.py" />
@@ -149,11 +142,12 @@
         <option value="$PROJECT_DIR$/spare.py" />
         <option value="$PROJECT_DIR$/to_log.py" />
         <option value="$PROJECT_DIR$/find_pd_id.py" />
-        <option value="$PROJECT_DIR$/command.py" />
         <option value="$PROJECT_DIR$/find_un_pd_id.py" />
         <option value="$PROJECT_DIR$/../webAPI/pool_api.py" />
         <option value="$PROJECT_DIR$/pool.py" />
         <option value="$PROJECT_DIR$/send_cmd.py" />
+        <option value="$PROJECT_DIR$/lunmap.py" />
+        <option value="$PROJECT_DIR$/command.py" />
         <option value="$PROJECT_DIR$/group.py" />
       </list>
     </option>
@@ -215,7 +209,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.group">
+  <component name="RunManager" selected="Python.cli_autoscripts_zach">
     <configuration default="false" name="pool" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -229,24 +223,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="cli" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pool.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="command" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="cli" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/command.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -301,6 +277,24 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="cli" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/group.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="lunmap" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="cli" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lunmap.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -372,18 +366,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.pool" />
-      <item index="1" class="java.lang.String" itemvalue="Python.command" />
-      <item index="2" class="java.lang.String" itemvalue="Python.pool_api" />
-      <item index="3" class="java.lang.String" itemvalue="Python.cli_autoscripts_zach" />
-      <item index="4" class="java.lang.String" itemvalue="Python.group" />
+      <item index="1" class="java.lang.String" itemvalue="Python.pool_api" />
+      <item index="2" class="java.lang.String" itemvalue="Python.cli_autoscripts_zach" />
+      <item index="3" class="java.lang.String" itemvalue="Python.group" />
+      <item index="4" class="java.lang.String" itemvalue="Python.lunmap" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.group" />
-        <item index="1" class="java.lang.String" itemvalue="Python.cli_autoscripts_zach" />
-        <item index="2" class="java.lang.String" itemvalue="Python.pool" />
-        <item index="3" class="java.lang.String" itemvalue="Python.pool_api" />
-        <item index="4" class="java.lang.String" itemvalue="Python.command" />
+        <item index="0" class="java.lang.String" itemvalue="Python.cli_autoscripts_zach" />
+        <item index="1" class="java.lang.String" itemvalue="Python.group" />
+        <item index="2" class="java.lang.String" itemvalue="Python.lunmap" />
+        <item index="3" class="java.lang.String" itemvalue="Python.pool" />
+        <item index="4" class="java.lang.String" itemvalue="Python.pool_api" />
       </list>
     </recent_temporary>
   </component>
@@ -420,11 +414,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34178612" sideWeight="0.50323623" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.47248182" sideWeight="0.49676377" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26272067" sideWeight="0.49676377" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39771548" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39771548" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -464,25 +458,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="92" />
+      <option name="time" value="95" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/rb.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="133" column="33" lean-forward="false" selection-start-line="133" selection-start-column="33" selection-end-line="133" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rcache.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="508">
@@ -684,14 +664,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/command.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="4" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/find_un_pd_id.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="254">
@@ -816,33 +788,62 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lunmap.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="522" column="25" lean-forward="true" selection-start-line="522" selection-start-column="25" selection-end-line="522" selection-end-column="25" />
+          <folding>
+            <element signature="e#159#2743#0" expanded="false" />
+            <element signature="e#2773#4942#0" expanded="false" />
+            <element signature="e#4969#5688#0" expanded="false" />
+            <element signature="e#5719#6491#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/remote.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-190">
+          <caret line="7" column="30" lean-forward="true" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cli_autoscripts_zach.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="322" column="49" lean-forward="false" selection-start-line="322" selection-start-column="49" selection-end-line="322" selection-end-column="49" />
+        <state relative-caret-position="152">
+          <caret line="303" column="70" lean-forward="true" selection-start-line="303" selection-start-column="70" selection-end-line="303" selection-end-column="70" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/group.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="317" column="18" lean-forward="false" selection-start-line="317" selection-start-column="4" selection-end-line="317" selection-end-column="18" />
+        <state relative-caret-position="-335">
+          <caret line="153" column="0" lean-forward="true" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
           <folding>
             <element signature="e#31#53#0" expanded="true" />
-            <element signature="e#239#776#0" expanded="false" />
-            <element signature="e#810#1377#0" expanded="false" />
-            <element signature="e#1412#1946#0" expanded="false" />
-            <element signature="e#1972#2789#0" expanded="false" />
-            <element signature="e#2831#3718#0" expanded="false" />
-            <element signature="e#3746#4502#0" expanded="false" />
-            <element signature="e#4540#5440#0" expanded="false" />
-            <element signature="e#5468#6018#0" expanded="false" />
-            <element signature="e#6059#6828#0" expanded="false" />
-            <element signature="e#6858#7555#0" expanded="false" />
-            <element signature="e#7588#8288#0" expanded="false" />
-            <element signature="e#8318#9427#0" expanded="false" />
-            <element signature="e#9462#9746#0" expanded="false" />
+            <element signature="e#239#805#0" expanded="false" />
+            <element signature="e#839#1435#0" expanded="false" />
+            <element signature="e#1470#2033#0" expanded="false" />
+            <element signature="e#2059#2905#0" expanded="false" />
+            <element signature="e#2947#3863#0" expanded="false" />
+            <element signature="e#3891#4676#0" expanded="false" />
+            <element signature="e#4714#5643#0" expanded="false" />
+            <element signature="e#5671#6250#0" expanded="false" />
+            <element signature="e#6291#7089#0" expanded="false" />
+            <element signature="e#7119#7845#0" expanded="false" />
+            <element signature="e#7878#8607#0" expanded="false" />
+            <element signature="e#8637#9809#0" expanded="false" />
+            <element signature="e#9844#10128#0" expanded="false" />
           </folding>
         </state>
       </provider>

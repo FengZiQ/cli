@@ -14,8 +14,8 @@ class Command():
     def result(self):
         if self.FailFlag:
             tolog(Fail)
+            self.FailFlag = False
         else:
             tolog(Pass)
-
 
 command = Command()
