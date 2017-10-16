@@ -410,7 +410,6 @@ if __name__ == "__main__":
     invalid_option(c)
     missing_parameter(c)
     failed_process(c)
-    clean_up_environment()
 
     ssh.close()
     elasped = time.clock() - start

@@ -1,55 +1,151 @@
-Expect: error information contains The grp_name parameter [users] is reserved by system.
+Expect: error message should contain: Missing parameter
 
-group -a add -g users
-Error (0x4100104): Incorrect parameters: The grp_name parameter [users] is reserved by system.
+protocol -a
+Error (0x403): Missing parameter
+-a: missing value
 
 administrator@cli> 
 
-Actual: hints error and corrects it
+Actual: missing parameter test is successful
 
-Expect: error information contains The grp_name parameter [users] is reserved by system.
+Expect: error message should contain: Missing parameter
 
-group -a del -g users
-Error (0x4100104): Incorrect parameters: The grp_name parameter [users] is reserved by system.
+protocol -t
+Error (0x403): Missing parameter
+-t: missing value
 
 administrator@cli> 
 
-Actual: hints error and corrects it
+Actual: missing parameter test is successful
 
-Expect: error information contains The grp_name parameter [users] is reserved by system.
+Expect: error message should contain: Missing parameter
 
-group -a mod -g users -s "desc=deafult group"
-Error (0x4100104): Incorrect parameters: The grp_name parameter [users] is reserved by system.
+protocol -t nasshare -d
+Error (0x403): Missing parameter
+-d: missing value
 
 administrator@cli> 
 
-Actual: hints error and corrects it
+Actual: missing parameter test is successful
 
-Expect: error information contains please remove members first
+Expect: error message should contain: Missing parameter
 
-group -a del -g add_group_and_user
-Error (0x4100104): Incorrect parameters: Can't delete group [add_group_and_user], please remove members first.
+protocol -t nasshare -d 0 -n
+Error (0x403): Missing parameter
+-n: missing value
 
 administrator@cli> 
 
-Actual: hints error and corrects it
+Actual: missing parameter test is successful
 
-group -a adduser -g add_group_and_user -u invalid_user
-Error (0x402): Invalid parameter
-Failed to find the user invalid_user
-
-administrator@cli> 
-group -a adduser -g add_group_and_user -u test_group_0
-Error (0x4100104): Incorrect parameters: There is editing/running task now.
-
-administrator@cli> 
-
-Fail: group -a adduser -g add_group_and_user -u test_group_0
-Error (0x4100104): Incorrect parameters: There is editing/running task now.
-
-administrator@cli> 
+Expect: error message should contain: Missing parameter
 
-group -a cancel
+protocol -a mod
+Error (0x403): Missing parameter
+missing parameter '-n' for '-a mod'
 
 administrator@cli> 
-'result': 'f'
+
+Actual: missing parameter test is successful
+
+Expect: error message should contain: Missing parameter
+
+protocol -a mod -n
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+
+Actual: missing parameter test is successful
+
+Expect: error message should contain: Missing parameter
+
+protocol -a mod -n ftp
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+
+Actual: missing parameter test is successful
+
+Expect: error message should contain: Missing parameter
+
+protocol -a mod -n ftp -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Actual: missing parameter test is successful
+
+Expect: error message should contain: Missing parameter
+
+protocol -a mod -n nfs -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Actual: missing parameter test is successful
+
+Expect: error message should contain: Missing parameter
+
+protocol -a mod -n smb -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Actual: missing parameter test is successful
+
+Expect: error message should contain: Missing parameter
+
+protocol -a reset -n
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+
+Actual: missing parameter test is successful
+
+Expect: error message should contain: Missing parameter
+
+protocol -a enable
+Error (0x403): Missing parameter
+missing parameter '-n' for '-a enable'
+
+administrator@cli> 
+
+Actual: missing parameter test is successful
+
+Expect: error message should contain: Missing parameter
+
+protocol -a enable -n
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+
+Actual: missing parameter test is successful
+
+Expect: error message should contain: Missing parameter
+
+protocol -a disable
+Error (0x403): Missing parameter
+missing parameter '-n' for '-a disable'
+
+administrator@cli> 
+
+Actual: missing parameter test is successful
+
+Expect: error message should contain: Missing parameter
+
+protocol -a disable -n
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+
+Actual: missing parameter test is successful
+
+'result': 'p'
