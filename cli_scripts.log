@@ -1,3 +1,593 @@
+2017-10-17 09:18:29: 'result': 'p'
+2017-10-17 09:18:29: 
+Actual: nfs is reset
+
+2017-10-17 09:18:29: protocol -n nfs
+-------------------------------------------------------------------------------
+Status: Enabled                         mountd port: 56789
+PortmapperPort: 111                     nfsd port: 2049
+rpc.statd port: 56790                   rpc.lockd port: 56791
+
+administrator@cli> 
+2017-10-17 09:18:29: protocol -a reset -n nfs
+
+administrator@cli> 
+2017-10-17 09:18:29: Expect: reset nfs
+
+2017-10-17 09:18:29: 
+Actual: smb is reset
+
+2017-10-17 09:18:29: protocol -n smb
+-------------------------------------------------------------------------------
+Status: Enabled                         Desc: Hyperion NAS
+Workgroup: WORKGROUP                    NtAcl: no
+
+administrator@cli> 
+2017-10-17 09:18:29: protocol -a reset -n smb
+
+administrator@cli> 
+2017-10-17 09:18:28: Expect: reset smb
+
+2017-10-17 09:18:28: 
+Actual: ftp is reset
+
+2017-10-17 09:18:28: protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Enabled                         CmdPort: 21
+EncryptType: SFTP                       PassiveStart: 60001
+PassiveEnd: 65000                       Charset: utf8
+DwRate: 0                               UpRate: 0
+
+administrator@cli> 
+2017-10-17 09:18:28: protocol -a reset -n ftp
+
+administrator@cli> 
+2017-10-17 09:18:28: Expect: reset ftp
+
+2017-10-17 09:18:27: 'result': 'f'
+2017-10-17 09:18:27: 
+Fail: ftp does not reset
+
+2017-10-17 09:18:27: 
+Fail: nfs does not reset
+
+2017-10-17 09:18:27: 
+Fail: smb does not reset
+
+2017-10-17 09:18:27: protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Enabled                         CmdPort: 21
+EncryptType: SFTP                       PassiveStart: 60001
+PassiveEnd: 65000                       Charset: utf8
+DwRate: 0                               UpRate: 0
+
+administrator@cli> 
+2017-10-17 09:18:27: protocol -n nfs
+-------------------------------------------------------------------------------
+Status: Enabled                         mountd port: 56789
+PortmapperPort: 111                     nfsd port: 2049
+rpc.statd port: 56790                   rpc.lockd port: 56791
+
+administrator@cli> 
+2017-10-17 09:18:27: protocol -n smb
+-------------------------------------------------------------------------------
+Status: Enabled                         Desc: Hyperion NAS
+Workgroup: WORKGROUP                    NtAcl: no
+
+administrator@cli> 
+2017-10-17 09:18:27: protocol -a reset
+
+administrator@cli> 
+2017-10-17 09:18:27: 'result': 'p'
+2017-10-17 09:18:27: 
+Actual: modify successfully
+
+2017-10-17 09:18:27: protocol -n nfs
+-------------------------------------------------------------------------------
+Status: Enabled                         mountd port: 65533
+PortmapperPort: 111                     nfsd port: 2049
+rpc.statd port: 65534                   rpc.lockd port: 65535
+
+administrator@cli> 
+2017-10-17 09:18:27: protocol -a mod -n nfs -s "port=65533"
+
+administrator@cli> 
+2017-10-17 09:18:27: 
+Actual: modify successfully
+
+2017-10-17 09:18:27: protocol -n nfs
+-------------------------------------------------------------------------------
+Status: Enabled                         mountd port: 65532
+PortmapperPort: 111                     nfsd port: 2049
+rpc.statd port: 65533                   rpc.lockd port: 65534
+
+administrator@cli> 
+2017-10-17 09:18:27: protocol -a mod -n nfs -s "port=65532"
+
+administrator@cli> 
+2017-10-17 09:18:26: 
+Actual: modify successfully
+
+2017-10-17 09:18:26: protocol -n nfs
+-------------------------------------------------------------------------------
+Status: Enabled                         mountd port: 1025
+PortmapperPort: 111                     nfsd port: 2049
+rpc.statd port: 1026                    rpc.lockd port: 1027
+
+administrator@cli> 
+2017-10-17 09:18:26: protocol -a mod -n nfs -s "port=1025"
+
+administrator@cli> 
+2017-10-17 09:18:26: 
+Actual: modify successfully
+
+2017-10-17 09:18:26: protocol -n nfs
+-------------------------------------------------------------------------------
+Status: Enabled                         mountd port: 1024
+PortmapperPort: 111                     nfsd port: 2049
+rpc.statd port: 1025                    rpc.lockd port: 1026
+
+administrator@cli> 
+2017-10-17 09:18:26: protocol -a mod -n nfs -s "port=1024"
+
+administrator@cli> 
+2017-10-17 09:18:26: 'result': 'p'
+2017-10-17 09:18:26: 
+Actual: modify successfully
+
+2017-10-17 09:18:26: protocol -n smb
+-------------------------------------------------------------------------------
+Status: Enabled                         Desc: #*&%*()((&@&
+Workgroup: 1                            NtAcl: no
+
+administrator@cli> 
+2017-10-17 09:18:26: protocol -a mod -n smb -s "desc=#*&%*()((&@&,workgroup=1"
+
+administrator@cli> 
+2017-10-17 09:18:25: 
+Actual: modify successfully
+
+2017-10-17 09:18:25: protocol -n smb
+-------------------------------------------------------------------------------
+Status: Enabled                         Desc: this action is test
+Workgroup: test_group                   NtAcl: no
+
+administrator@cli> 
+2017-10-17 09:18:25: protocol -a mod -n smb -s "desc=this action is test,workgroup=test_group"
+
+administrator@cli> 
+2017-10-17 09:18:25: 'result': 'p'
+2017-10-17 09:18:25: 
+Actual: modify successfully
+
+2017-10-17 09:18:25: protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Enabled                         CmdPort: 65535
+EncryptType: SFTP                       PassiveStart: 65533
+PassiveEnd: 65534                       Charset: zh_cn
+DwRate: 10000                           UpRate: 10000
+
+administrator@cli> 
+2017-10-17 09:18:25: protocol -a mod -n ftp -s "charset=zh_cn"
+
+administrator@cli> 
+2017-10-17 09:18:25: 
+Actual: modify successfully
+
+2017-10-17 09:18:25: protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Enabled                         CmdPort: 65535
+EncryptType: SFTP                       PassiveStart: 65533
+PassiveEnd: 65534                       Charset: zh_tw
+DwRate: 10000                           UpRate: 10000
+
+administrator@cli> 
+2017-10-17 09:18:25: protocol -a mod -n ftp -s "encrypt=sftp, port=65535,startport=65533,endport=65534,charset=zh_tw,dwrate=10000,uprate=10000"
+
+administrator@cli> 
+2017-10-17 09:18:25: 
+Actual: modify successfully
+
+2017-10-17 09:18:25: protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Enabled                         CmdPort: 65534
+EncryptType: Implicit                   PassiveStart: 65534
+PassiveEnd: 65535                       Charset: ko_kr
+DwRate: 100000                          UpRate: 100000
+
+administrator@cli> 
+2017-10-17 09:18:25: protocol -a mod -n ftp -s "encrypt=implicit, port=65534,startport=65534,endport=65535,charset=ko_kr,dwrate=100000,uprate=100000"
+
+administrator@cli> 
+2017-10-17 09:18:25: 
+Actual: modify successfully
+
+2017-10-17 09:18:25: protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Enabled                         CmdPort: 2
+EncryptType: Explicit                   PassiveStart: 1025
+PassiveEnd: 1026                        Charset: ja_jp
+DwRate: 1                               UpRate: 0
+
+administrator@cli> 
+2017-10-17 09:18:25: protocol -a mod -n ftp -s "encrypt=explicit, port=2,startport=1025,endport=1026,charset=ja_jp,dwrate=1,uprate=0"
+
+administrator@cli> 
+2017-10-17 09:18:24: 
+Actual: modify successfully
+
+2017-10-17 09:18:24: protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Enabled                         CmdPort: 1
+EncryptType: Standard FTP               PassiveStart: 1024
+PassiveEnd: 1025                        Charset: utf8
+DwRate: 0                               UpRate: 0
+
+administrator@cli> 
+2017-10-17 09:18:24: protocol -a mod -n ftp -s "encrypt=standard, port=1,startport=1024,endport=1025,charset=utf8,dwrate=0,uprate=0"
+
+administrator@cli> 
+2017-10-17 09:18:24: 'result': 'f'
+2017-10-17 09:18:24: 
+Fail: protocol -t clone -d 0 -n tm
+
+2017-10-17 09:18:24: protocol -t clone -d 0 -n tm
+Error (0x4100104): Incorrect parameters: Wrong up_type.
+
+administrator@cli> 
+2017-10-17 09:18:24: Expect: list clone of tm protocol
+
+2017-10-17 09:18:24: 
+Fail: protocol -t snapshot -d 0 -n tm
+
+2017-10-17 09:18:24: protocol -t snapshot -d 0 -n tm
+Error (0x4100104): Incorrect parameters: Wrong up_type.
+
+administrator@cli> 
+2017-10-17 09:18:24: Expect: list snapshot of tm protocol
+
+2017-10-17 09:18:24: 
+Actual: nasshare of tm protocol is listed
+
+2017-10-17 09:18:24: protocol -t nasshare -d 0 -n tm
+===============================================================================
+Protocol Name                           Status                                 
+===============================================================================
+TM                                      Disabled                               
+
+administrator@cli> 
+2017-10-17 09:18:24: Expect: list nasshare of tm protocol
+
+2017-10-17 09:18:24: 
+Actual: NFS of protocol is listed
+
+2017-10-17 09:18:24: protocol -n NFS
+-------------------------------------------------------------------------------
+Status: Enabled                         mountd port: 56789
+PortmapperPort: 111                     nfsd port: 2049
+rpc.statd port: 56790                   rpc.lockd port: 56791
+
+administrator@cli> 
+2017-10-17 09:18:24: Expect: list NFS of protocol
+
+2017-10-17 09:18:24: 
+Actual: FTP of protocol is listed
+
+2017-10-17 09:18:24: protocol -n FTP
+-------------------------------------------------------------------------------
+Status: Enabled                         CmdPort: 21
+EncryptType: SFTP                       PassiveStart: 60001
+PassiveEnd: 65000                       Charset: utf8
+DwRate: 0                               UpRate: 0
+
+administrator@cli> 
+2017-10-17 09:18:24: Expect: list FTP of protocol
+
+2017-10-17 09:18:24: 
+Actual: SMB of protocol is listed
+
+2017-10-17 09:18:24: protocol -n SMB
+-------------------------------------------------------------------------------
+Status: Enabled                         Desc: Hyperion NAS
+Workgroup: WORKGROUP                    NtAcl: no
+
+administrator@cli> 
+2017-10-17 09:18:24: Expect: list SMB of protocol
+
+2017-10-17 09:15:50: 'result': 'f'
+2017-10-17 09:15:50: 
+Fail: please check out protocol status
+
+2017-10-17 09:15:50: protocol -n nfs
+-------------------------------------------------------------------------------
+Status: Enabled                         mountd port: 56789
+PortmapperPort: 111                     nfsd port: 2049
+rpc.statd port: 56790                   rpc.lockd port: 56791
+
+administrator@cli> 
+2017-10-17 09:15:50: protocol -a reset -n nfs
+
+administrator@cli> 
+2017-10-17 09:15:50: Expect: reset nfs
+
+2017-10-17 09:15:50: 
+Fail: please check out protocol status
+
+2017-10-17 09:15:50: protocol -n smb
+-------------------------------------------------------------------------------
+Status: Enabled                         Desc: Hyperion NAS
+Workgroup: WORKGROUP                    NtAcl: no
+
+administrator@cli> 
+2017-10-17 09:15:50: protocol -a reset -n smb
+
+administrator@cli> 
+2017-10-17 09:15:49: Expect: reset smb
+
+2017-10-17 09:15:49: 
+Fail: please check out protocol status
+
+2017-10-17 09:15:49: protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Enabled                         CmdPort: 21
+EncryptType: SFTP                       PassiveStart: 60001
+PassiveEnd: 65000                       Charset: utf8
+DwRate: 0                               UpRate: 0
+
+administrator@cli> 
+2017-10-17 09:15:49: protocol -a reset -n ftp
+
+administrator@cli> 
+2017-10-17 09:15:49: Expect: reset ftp
+
+2017-10-17 09:15:48: 'result': 'p'
+2017-10-17 09:15:48: Actual: ftp successfully reset
+
+2017-10-17 09:15:48: Actual: nfs successfully reset
+
+2017-10-17 09:15:48: 
+Actual: smb successfully reset
+
+2017-10-17 09:15:48: protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Disabled                        CmdPort: 21
+EncryptType: SFTP                       PassiveStart: 60001
+PassiveEnd: 65000                       Charset: utf8
+DwRate: 0                               UpRate: 0
+
+administrator@cli> 
+2017-10-17 09:15:48: protocol -n nfs
+-------------------------------------------------------------------------------
+Status: Disabled                        mountd port: 56789
+PortmapperPort: 111                     nfsd port: 2049
+rpc.statd port: 56790                   rpc.lockd port: 56791
+
+administrator@cli> 
+2017-10-17 09:15:48: protocol -n smb
+-------------------------------------------------------------------------------
+Status: Disabled                        Desc: Hyperion NAS
+Workgroup: WORKGROUP                    NtAcl: no
+
+administrator@cli> 
+2017-10-17 09:15:48: protocol -a reset
+
+administrator@cli> 
+2017-10-17 09:15:48: 'result': 'p'
+2017-10-17 09:15:48: 
+Actual: modify successfully
+
+2017-10-17 09:15:48: protocol -n nfs
+-------------------------------------------------------------------------------
+Status: Disabled                        mountd port: 65533
+PortmapperPort: 111                     nfsd port: 2049
+rpc.statd port: 65534                   rpc.lockd port: 65535
+
+administrator@cli> 
+2017-10-17 09:15:48: protocol -a mod -n nfs -s "port=65533"
+
+administrator@cli> 
+2017-10-17 09:15:47: 
+Actual: modify successfully
+
+2017-10-17 09:15:47: protocol -n nfs
+-------------------------------------------------------------------------------
+Status: Disabled                        mountd port: 65532
+PortmapperPort: 111                     nfsd port: 2049
+rpc.statd port: 65533                   rpc.lockd port: 65534
+
+administrator@cli> 
+2017-10-17 09:15:47: protocol -a mod -n nfs -s "port=65532"
+
+administrator@cli> 
+2017-10-17 09:15:47: 
+Actual: modify successfully
+
+2017-10-17 09:15:47: protocol -n nfs
+-------------------------------------------------------------------------------
+Status: Disabled                        mountd port: 1025
+PortmapperPort: 111                     nfsd port: 2049
+rpc.statd port: 1026                    rpc.lockd port: 1027
+
+administrator@cli> 
+2017-10-17 09:15:47: protocol -a mod -n nfs -s "port=1025"
+
+administrator@cli> 
+2017-10-17 09:15:47: 
+Actual: modify successfully
+
+2017-10-17 09:15:47: protocol -n nfs
+-------------------------------------------------------------------------------
+Status: Disabled                        mountd port: 1024
+PortmapperPort: 111                     nfsd port: 2049
+rpc.statd port: 1025                    rpc.lockd port: 1026
+
+administrator@cli> 
+2017-10-17 09:15:47: protocol -a mod -n nfs -s "port=1024"
+
+administrator@cli> 
+2017-10-17 09:15:47: 'result': 'p'
+2017-10-17 09:15:47: 
+Actual: modify successfully
+
+2017-10-17 09:15:47: protocol -n smb
+-------------------------------------------------------------------------------
+Status: Disabled                        Desc: #*&%*()((&@&
+Workgroup: 1                            NtAcl: no
+
+administrator@cli> 
+2017-10-17 09:15:47: protocol -a mod -n smb -s "desc=#*&%*()((&@&,workgroup=1"
+
+administrator@cli> 
+2017-10-17 09:15:47: 
+Actual: modify successfully
+
+2017-10-17 09:15:47: protocol -n smb
+-------------------------------------------------------------------------------
+Status: Disabled                        Desc: this action is test
+Workgroup: test_group                   NtAcl: no
+
+administrator@cli> 
+2017-10-17 09:15:47: protocol -a mod -n smb -s "desc=this action is test,workgroup=test_group"
+
+administrator@cli> 
+2017-10-17 09:15:47: 'result': 'p'
+2017-10-17 09:15:47: 
+Actual: modify successfully
+
+2017-10-17 09:15:47: protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Disabled                        CmdPort: 65535
+EncryptType: SFTP                       PassiveStart: 65533
+PassiveEnd: 65534                       Charset: zh_cn
+DwRate: 10000                           UpRate: 10000
+
+administrator@cli> 
+2017-10-17 09:15:47: protocol -a mod -n ftp -s "charset=zh_cn"
+
+administrator@cli> 
+2017-10-17 09:15:46: 
+Actual: modify successfully
+
+2017-10-17 09:15:46: protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Disabled                        CmdPort: 65535
+EncryptType: SFTP                       PassiveStart: 65533
+PassiveEnd: 65534                       Charset: zh_tw
+DwRate: 10000                           UpRate: 10000
+
+administrator@cli> 
+2017-10-17 09:15:46: protocol -a mod -n ftp -s "encrypt=sftp, port=65535,startport=65533,endport=65534,charset=zh_tw,dwrate=10000,uprate=10000"
+
+administrator@cli> 
+2017-10-17 09:15:46: 
+Actual: modify successfully
+
+2017-10-17 09:15:46: protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Disabled                        CmdPort: 65534
+EncryptType: Implicit                   PassiveStart: 65534
+PassiveEnd: 65535                       Charset: ko_kr
+DwRate: 100000                          UpRate: 100000
+
+administrator@cli> 
+2017-10-17 09:15:46: protocol -a mod -n ftp -s "encrypt=implicit, port=65534,startport=65534,endport=65535,charset=ko_kr,dwrate=100000,uprate=100000"
+
+administrator@cli> 
+2017-10-17 09:15:46: 
+Actual: modify successfully
+
+2017-10-17 09:15:46: protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Disabled                        CmdPort: 2
+EncryptType: Explicit                   PassiveStart: 1025
+PassiveEnd: 1026                        Charset: ja_jp
+DwRate: 1                               UpRate: 0
+
+administrator@cli> 
+2017-10-17 09:15:46: protocol -a mod -n ftp -s "encrypt=explicit, port=2,startport=1025,endport=1026,charset=ja_jp,dwrate=1,uprate=0"
+
+administrator@cli> 
+2017-10-17 09:15:46: 
+Actual: modify successfully
+
+2017-10-17 09:15:46: protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Disabled                        CmdPort: 1
+EncryptType: Standard FTP               PassiveStart: 1024
+PassiveEnd: 1025                        Charset: utf8
+DwRate: 0                               UpRate: 0
+
+administrator@cli> 
+2017-10-17 09:15:46: protocol -a mod -n ftp -s "encrypt=standard, port=1,startport=1024,endport=1025,charset=utf8,dwrate=0,uprate=0"
+
+administrator@cli> 
+2017-10-17 09:15:46: 'result': 'f'
+2017-10-17 09:15:46: 
+Fail: protocol -t clone -d 0 -n tm
+
+2017-10-17 09:15:46: protocol -t clone -d 0 -n tm
+Error (0x4100104): Incorrect parameters: Wrong up_type.
+
+administrator@cli> 
+2017-10-17 09:15:46: Expect: list clone of tm protocol
+
+2017-10-17 09:15:46: 
+Fail: protocol -t snapshot -d 0 -n tm
+
+2017-10-17 09:15:46: protocol -t snapshot -d 0 -n tm
+Error (0x4100104): Incorrect parameters: Wrong up_type.
+
+administrator@cli> 
+2017-10-17 09:15:46: Expect: list snapshot of tm protocol
+
+2017-10-17 09:15:46: 
+Actual: nasshare of tm protocol is listed
+
+2017-10-17 09:15:46: protocol -t nasshare -d 0 -n tm
+===============================================================================
+Protocol Name                           Status                                 
+===============================================================================
+TM                                      Disabled                               
+
+administrator@cli> 
+2017-10-17 09:15:46: Expect: list nasshare of tm protocol
+
+2017-10-17 09:15:46: 
+Actual: NFS of protocol is listed
+
+2017-10-17 09:15:46: protocol -n NFS
+-------------------------------------------------------------------------------
+Status: Disabled                        mountd port: 56789
+PortmapperPort: 111                     nfsd port: 2049
+rpc.statd port: 56790                   rpc.lockd port: 56791
+
+administrator@cli> 
+2017-10-17 09:15:46: Expect: list NFS of protocol
+
+2017-10-17 09:15:46: 
+Actual: FTP of protocol is listed
+
+2017-10-17 09:15:46: protocol -n FTP
+-------------------------------------------------------------------------------
+Status: Disabled                        CmdPort: 21
+EncryptType: SFTP                       PassiveStart: 60001
+PassiveEnd: 65000                       Charset: utf8
+DwRate: 0                               UpRate: 0
+
+administrator@cli> 
+2017-10-17 09:15:46: Expect: list FTP of protocol
+
+2017-10-17 09:15:46: 
+Actual: SMB of protocol is listed
+
+2017-10-17 09:15:46: protocol -n SMB
+-------------------------------------------------------------------------------
+Status: Disabled                        Desc: Hyperion NAS
+Workgroup: WORKGROUP                    NtAcl: no
+
+administrator@cli> 
+2017-10-17 09:15:46: Expect: list SMB of protocol
+
 2017-10-16 11:23:03: 'result': 'p'
 2017-10-16 11:23:02: 
 Actual: missing parameter test is successful
