@@ -1,1 +1,1 @@
-swmgt ¨Ca mod ¨Cn cli ¨Cs ¡°rawinput=enable/disable¡±
+swmgt -a mod -n cli -s "rawinput=enable"

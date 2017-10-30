@@ -11,6 +11,7 @@ import random
 Pass = "'result': 'p'"
 Fail = "'result': 'f'"
 
+
 def findPoolId(c):
     pdinfo = SendCmd(c, 'phydrv')
 
@@ -35,6 +36,7 @@ def findPoolId(c):
         poolId = ['0']
 
     return poolId
+
 
 def addVolume(c):
     FailFlag = False
@@ -84,6 +86,7 @@ def addVolume(c):
         tolog(Pass)
 
     return FailFlag
+
 
 def listVolume(c):
     FailFlag = False
@@ -155,6 +158,7 @@ def listVolume(c):
 
     return FailFlag
 
+
 def modVolume(c):
     FailFlag = False
     tolog('\r\nVerify: modify volume\r\n')
@@ -185,6 +189,7 @@ def modVolume(c):
         tolog(Pass)
 
     return FailFlag
+
 
 def exportVolume(c):
     FailFlag = False
@@ -235,6 +240,7 @@ def exportVolume(c):
         tolog(Pass)
 
     return FailFlag
+
 
 def unexportVolume(c):
     FailFlag = False
@@ -288,6 +294,7 @@ def unexportVolume(c):
 
     return FailFlag
 
+
 def invaildName(c):
     FailFlag = False
     tolog('\r\nVerify: invalid setting name\r\n')
@@ -313,6 +320,7 @@ def invaildName(c):
         tolog(Pass)
 
     return FailFlag
+
 
 def invalidParameter(c):
     FailFlag = False
@@ -349,6 +357,7 @@ def invalidParameter(c):
 
     return FailFlag
 
+
 def invalidOption(c):
     FailFlag = False
     tolog('\r\nVerify: invalid setting option')
@@ -379,6 +388,7 @@ def invalidOption(c):
 
     return FailFlag
 
+
 def missingParameter(c):
     FailFlag = False
     tolog('\r\nVerify: invalid setting option')
@@ -408,6 +418,7 @@ def missingParameter(c):
         tolog(Pass)
 
     return FailFlag
+
 
 def deleteVolume(c):
     FailFlag = False
@@ -442,6 +453,7 @@ def deleteVolume(c):
     SendCmd(c, 'pool -a del -y -f -i 0')
 
     return FailFlag
+
 
 if __name__ == "__main__":
     start = time.clock()

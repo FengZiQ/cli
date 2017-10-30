@@ -19,7 +19,7 @@ class cli_test():
 
         for i in range(1, table.nrows):
 
-            tolog('Expect: ' + table.cell(i, 1).value + '\r\n')
+            tolog('\r\nExpect: ' + table.cell(i, 1).value + '\r\n')
             result = SendCmd(c, table.cell(i, 0).value)
             time.sleep(hold_time)
 
@@ -49,7 +49,7 @@ class cli_test():
 
         for i in range(1, table.nrows):
 
-            tolog('Expect: ' + table.cell(i, 1).value + '\r\n')
+            tolog('\r\nExpect: ' + table.cell(i, 1).value + '\r\n')
             result = SendCmd(c, table.cell(i, 0).value)
 
             if 'Error (' in result:
@@ -77,7 +77,7 @@ class cli_test():
 
         for i in range(1, table.nrows):
 
-            tolog('Expect: ' + table.cell(i, 1).value + '\r\n')
+            tolog('\r\nExpect: ' + table.cell(i, 1).value + '\r\n')
             result = SendCmd(c, table.cell(i, 0).value)
 
             if 'Error (' in result:
@@ -97,7 +97,7 @@ class cli_test():
 
         for i in range(1, table.nrows):
 
-            tolog('Expect: ' + table.cell(i, 1).value + '\r\n')
+            tolog('\r\nExpect: ' + table.cell(i, 1).value + '\r\n')
             result = SendCmd(c, table.cell(i, 0).value)
             time.sleep(hold_time)
 
@@ -127,7 +127,7 @@ class cli_test():
 
         for i in range(1, table.nrows):
 
-            tolog('Expect: ' + table.cell(i, 1).value + '\r\n')
+            tolog('\r\nExpect: ' + table.cell(i, 1).value + '\r\n')
             result = SendCmd(c, table.cell(i, 0).value)
             time.sleep(hold_time)
 

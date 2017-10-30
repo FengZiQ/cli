@@ -98,6 +98,16 @@ def missing_parameter(c):
 
     cli_test.failed_test(c, data, 'missing_parameter')
 
+    # clean up environment
+    # delete pool
+    server.webapi('delete', 'pool/0?force=1')
+
+    # delete nas user
+    for i in range(10):
+        server.webapi('delete', 'dsuser/test_quota_' + str(i))
+
+    # delete nas group
+    server.webapi('delete', 'dsgroup/test_quota_group')
 
 if __name__ == "__main__":
     start = time.clock()
