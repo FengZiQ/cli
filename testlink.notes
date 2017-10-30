@@ -1,7 +1,7 @@
 
 Expect: Missing parameter
 
-clone -i
+snapshot -i
 Error (0x403): Missing parameter
 -i: missing value
 
@@ -9,744 +9,7 @@ administrator@cli>
 
 Expect: Missing parameter
 
-clone -a add
-Error (0x403): Missing parameter
-missing parameter '-s' for '-a add'
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-clone -a add -d
-Error (0x403): Missing parameter
--d: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-clone -a add -d 0 -s
-Error (0x403): Missing parameter
--s: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-clone -a mod
-Error (0x403): Missing parameter
-missing parameter '-s' for '-a mod'
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-clone -a mod -i 
-Error (0x403): Missing parameter
--i: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-clone -a mod -i 0 -s
-Error (0x403): Missing parameter
--s: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-clone -a export
-Error (0x403): Missing parameter
-missing parameter '-i' for '-a export'
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-clone -a export -i
-Error (0x403): Missing parameter
--i: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-clone -a unexport
-Error (0x403): Missing parameter
-missing parameter '-i' for '-a unexport'
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-clone -a unexport -i
-Error (0x403): Missing parameter
--i: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-clone -a del
-Error (0x403): Missing parameter
-missing parameter '-i' for '-a del'
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-clone -a del -i
-Error (0x403): Missing parameter
--i: missing value
-
-administrator@cli> 
-'result': 'p'
-
-Expect: permisions of everyone should be 0 on nasshare
-
-acl -a add -d 0 -t nasshare -s "role=everyone,acl=ro"
-
-administrator@cli> 
-acl -t nasshare -d 0
-===============================================================================
-Role      UIDorGID  Name                                            ACL       
-===============================================================================
-everyone  N/A       everyone                                        ro         
-
-administrator@cli> 
-
-Expect: permisions of everyone should be rw on nasshare
-
-acl -a add -d 0 -t nasshare -s "role=everyone,acl=rw"
-
-administrator@cli> 
-acl -t nasshare -d 0
-===============================================================================
-Role      UIDorGID  Name                                            ACL       
-===============================================================================
-everyone  N/A       everyone                                        rw         
-
-administrator@cli> 
-
-Expect: permisions of everyone should be deny only on nasshare
-
-acl -a add -d 0 -t nasshare -s "role=everyone,acl=deny"
-
-administrator@cli> 
-acl -t nasshare -d 0
-===============================================================================
-Role      UIDorGID  Name                                            ACL       
-===============================================================================
-everyone  N/A       everyone                                        deny       
-
-administrator@cli> 
-
-Expect: permisions of everyone should be 0 on clone
-
-acl -a add -d 0 -t clone -s "role=everyone,acl=ro"
-
-administrator@cli> 
-acl -t clone -d 0
-===============================================================================
-Role      UIDorGID  Name                                            ACL       
-===============================================================================
-everyone  N/A       everyone                                        ro         
-
-administrator@cli> 
-
-Expect: permisions of everyone should be rw on clone
-
-acl -a add -d 0 -t clone -s "role=everyone,acl=rw"
-
-administrator@cli> 
-acl -t clone -d 0
-===============================================================================
-Role      UIDorGID  Name                                            ACL       
-===============================================================================
-everyone  N/A       everyone                                        rw         
-
-administrator@cli> 
-
-Expect: permisions of everyone should be deny only on clone
-
-acl -a add -d 0 -t clone -s "role=everyone,acl=deny"
-
-administrator@cli> 
-acl -t clone -d 0
-===============================================================================
-Role      UIDorGID  Name                                            ACL       
-===============================================================================
-everyone  N/A       everyone                                        deny       
-
-administrator@cli> 
-
-Expect: signle nas user should can set ro permissions on nasshare
-
-acl -a add -d 0 -t nasshare -s "role=user,acl=ro,name=test_acl_0"
-
-administrator@cli> 
-acl -t nasshare -d 0
-===============================================================================
-Role      UIDorGID  Name                                            ACL       
-===============================================================================
-everyone  N/A       everyone                                        deny       
-user      1001      test_acl_0                                      ro         
-
-administrator@cli> 
-
-Expect: signle nas user should can set rw permissions on nasshare
-
-acl -a add -d 0 -t nasshare -s "role=user,acl=rw,name=test_acl_1"
-
-administrator@cli> 
-acl -t nasshare -d 0
-===============================================================================
-Role      UIDorGID  Name                                            ACL       
-===============================================================================
-everyone  N/A       everyone                                        deny       
-user      1001      test_acl_0                                      ro         
-user      1002      test_acl_1                                      rw         
-
-administrator@cli> 
-
-Expect: signle nas user should can set deny permissions on nasshare
-
-acl -a add -d 0 -t nasshare -s "role=user,acl=deny,name=test_acl_2"
-
-administrator@cli> 
-acl -t nasshare -d 0
-===============================================================================
-Role      UIDorGID  Name                                            ACL       
-===============================================================================
-everyone  N/A       everyone                                        deny       
-user      1001      test_acl_0                                      ro         
-user      1002      test_acl_1                                      rw         
-user      1003      test_acl_2                                      deny       
-
-administrator@cli> 
-
-Expect: signle nas user should can set ro permissions on clone
-
-acl -a add -d 0 -t clone -s "role=user,acl=ro,name=test_acl_0"
-
-administrator@cli> 
-acl -t clone -d 0
-===============================================================================
-Role      UIDorGID  Name                                            ACL       
-===============================================================================
-everyone  N/A       everyone                                        deny       
-user      1001      test_acl_0                                      ro         
-
-administrator@cli> 
-
-Expect: signle nas user should can set rw permissions on clone
-
-acl -a add -d 0 -t clone -s "role=user,acl=rw,name=test_acl_1"
-
-administrator@cli> 
-acl -t clone -d 0
-===============================================================================
-Role      UIDorGID  Name                                            ACL       
-===============================================================================
-everyone  N/A       everyone                                        deny       
-user      1001      test_acl_0                                      ro         
-user      1002      test_acl_1                                      rw         
-
-administrator@cli> 
-
-Expect: signle nas user should can set deny permissions on clone
-
-acl -a add -d 0 -t clone -s "role=user,acl=deny,name=test_acl_2"
-
-administrator@cli> 
-acl -t clone -d 0
-===============================================================================
-Role      UIDorGID  Name                                            ACL       
-===============================================================================
-everyone  N/A       everyone                                        deny       
-user      1001      test_acl_0                                      ro         
-user      1002      test_acl_1                                      rw         
-user      1003      test_acl_2                                      deny       
-
-administrator@cli> 
-
-Expect: signle nas group should can set ro permissions on nasshare
-
-acl -a add -d 0 -t nasshare -s "role=group,acl=ro,name=test_acl_group_0"
-
-administrator@cli> 
-acl -t nasshare -d 0
-===============================================================================
-Role      UIDorGID  Name                                            ACL       
-===============================================================================
-everyone  N/A       everyone                                        deny       
-user      1001      test_acl_0                                      ro         
-user      1002      test_acl_1                                      rw         
-user      1003      test_acl_2                                      deny       
-
-administrator@cli> 
-
-Fail: please check out test-acl_group_0                                      ro
-
-
-Expect: signle nas group should can set rw permissions on nasshare
-
-acl -a add -d 0 -t nasshare -s "role=group,acl=rw,name=test_acl_group_1"
-
-administrator@cli> 
-acl -t nasshare -d 0
-===============================================================================
-Role      UIDorGID  Name                                            ACL       
-===============================================================================
-everyone  N/A       everyone                                        deny       
-user      1001      test_acl_0                                      ro         
-user      1002      test_acl_1                                      rw         
-user      1003      test_acl_2                                      deny       
-
-administrator@cli> 
-
-Fail: please check out test-acl_group_1                                      rw
-
-
-Expect: signle nas group should can set deny permissions on nasshare
-
-acl -a add -d 0 -t nasshare -s "role=group,acl=deny,name=test_acl_group_2"
-
-administrator@cli> 
-acl -t nasshare -d 0
-===============================================================================
-Role      UIDorGID  Name                                            ACL       
-===============================================================================
-everyone  N/A       everyone                                        deny       
-user      1001      test_acl_0                                      ro         
-user      1002      test_acl_1                                      rw         
-user      1003      test_acl_2                                      deny       
-
-administrator@cli> 
-
-Fail: please check out test-acl_group_2                                      deny
-
-
-Expect: signle nas group should can set ro permissions on clone
-
-acl -a add -d 0 -t clone -s "role=group,acl=ro,name=test_acl_group_0"
-
-administrator@cli> 
-acl -t clone -d 0
-===============================================================================
-Role      UIDorGID  Name                                            ACL       
-===============================================================================
-everyone  N/A       everyone                                        deny       
-user      1001      test_acl_0                                      ro         
-user      1002      test_acl_1                                      rw         
-user      1003      test_acl_2                                      deny       
-
-administrator@cli> 
-
-Fail: please check out test-acl_group_0                                      ro
-
-
-Expect: signle nas group should can set rw permissions on clone
-
-acl -a add -d 0 -t clone -s "role=group,acl=rw,name=test_acl_group_1"
-
-administrator@cli> 
-acl -t clone -d 0
-===============================================================================
-Role      UIDorGID  Name                                            ACL       
-===============================================================================
-everyone  N/A       everyone                                        deny       
-user      1001      test_acl_0                                      ro         
-user      1002      test_acl_1                                      rw         
-user      1003      test_acl_2                                      deny       
-
-administrator@cli> 
-
-Fail: please check out test-acl_group_1                                      rw
-
-
-Expect: signle nas group should can set deny permissions on clone
-
-acl -a add -d 0 -t clone -s "role=group,acl=deny,name=test_acl_group_2"
-
-administrator@cli> 
-acl -t clone -d 0
-===============================================================================
-Role      UIDorGID  Name                                            ACL       
-===============================================================================
-everyone  N/A       everyone                                        deny       
-user      1001      test_acl_0                                      ro         
-user      1002      test_acl_1                                      rw         
-user      1003      test_acl_2                                      deny       
-
-administrator@cli> 
-
-Fail: please check out test-acl_group_2                                      deny
-
-'result': 'f'
-
-Expect: list acl settings of nasshare type
-
-acl -t nasshare -d 0
-===============================================================================
-Role      UIDorGID  Name                                            ACL       
-===============================================================================
-everyone  N/A       everyone                                        deny       
-user      1001      test_acl_0                                      ro         
-user      1002      test_acl_1                                      rw         
-user      1003      test_acl_2                                      deny       
-
-administrator@cli> 
-
-Expect: list acl settings of clone type
-
-acl -t clone -d 0
-===============================================================================
-Role      UIDorGID  Name                                            ACL       
-===============================================================================
-everyone  N/A       everyone                                        deny       
-user      1001      test_acl_0                                      ro         
-user      1002      test_acl_1                                      rw         
-user      1003      test_acl_2                                      deny       
-
-administrator@cli> 
-'result': 'p'
-
-Expect: list acl settings of specific nasshare type by verbose mode
-
-acl -v -t nasshare -d 0
--------------------------------------------------------------------------------
-Role: everyone                          UIDorGID: N/A
-ACL: deny                               Status: ready
-UsernameOrGroupname: everyone
--------------------------------------------------------------------------------
-Role: user                              UIDorGID: 1001
-ACL: ro                                 Status: ready
-UsernameOrGroupname: test_acl_0
--------------------------------------------------------------------------------
-Role: user                              UIDorGID: 1002
-ACL: rw                                 Status: ready
-UsernameOrGroupname: test_acl_1
--------------------------------------------------------------------------------
-Role: user                              UIDorGID: 1003
-ACL: deny                               Status: ready
-UsernameOrGroupname: test_acl_2
-
-administrator@cli> 
-
-Expect: list acl settings of specific clone type by verbose mode
-
-acl -v -t clone -d 0
--------------------------------------------------------------------------------
-Role: everyone                          UIDorGID: N/A
-ACL: deny                               Status: ready
-UsernameOrGroupname: everyone
--------------------------------------------------------------------------------
-Role: user                              UIDorGID: 1001
-ACL: ro                                 Status: ready
-UsernameOrGroupname: test_acl_0
--------------------------------------------------------------------------------
-Role: user                              UIDorGID: 1002
-ACL: rw                                 Status: ready
-UsernameOrGroupname: test_acl_1
--------------------------------------------------------------------------------
-Role: user                              UIDorGID: 1003
-ACL: deny                               Status: ready
-UsernameOrGroupname: test_acl_2
-
-administrator@cli> 
-'result': 'p'
-
-Expect: refresh acl of clone type
-
-acl -a refresh -d 0 -t clone
-
-administrator@cli> 
-
-Expect: refresh acl of nasshare type
-
-acl -a refresh -d 0 -t nasshare
-
-administrator@cli> 
-'result': 'p'
-
-Expect: acl of nasshare type should be modified ro in users
-
-acl -a mod -d 0 -t nasshare -s "role=user,name=test_acl_0,acl=ro"
-
-administrator@cli> 
-acl -d 0 -t nasshare
-===============================================================================
-Role      UIDorGID  Name                                            ACL       
-===============================================================================
-everyone  N/A       everyone                                        deny       
-user      1001      test_acl_0                                      ro         
-user      1002      test_acl_1                                      rw         
-user      1003      test_acl_2                                      deny       
-
-administrator@cli> 
-
-Expect: acl of nasshare type should be modified rw in users
-
-acl -a mod -d 0 -t nasshare -s "role=user,name=test_acl_0,acl=rw"
-
-administrator@cli> 
-acl -d 0 -t nasshare
-===============================================================================
-Role      UIDorGID  Name                                            ACL       
-===============================================================================
-everyone  N/A       everyone                                        deny       
-user      1001      test_acl_0                                      rw         
-user      1002      test_acl_1                                      rw         
-user      1003      test_acl_2                                      deny       
-
-administrator@cli> 
-
-Expect: acl of nasshare type should be modified deny in users
-
-acl -a mod -d 0 -t nasshare -s "role=user,name=test_acl_0,acl=deny"
-
-administrator@cli> 
-acl -d 0 -t nasshare
-===============================================================================
-Role      UIDorGID  Name                                            ACL       
-===============================================================================
-everyone  N/A       everyone                                        deny       
-user      1001      test_acl_0                                      deny       
-user      1002      test_acl_1                                      rw         
-user      1003      test_acl_2                                      deny       
-
-administrator@cli> 
-
-Expect: acl of clone type should be modified rw in users
-
-acl -a mod -d 0 -t clone -s "role=user,name=test_acl_0,acl=ro"
-
-administrator@cli> 
-acl -d 0 -t clone
-===============================================================================
-Role      UIDorGID  Name                                            ACL       
-===============================================================================
-everyone  N/A       everyone                                        deny       
-user      1001      test_acl_0                                      ro         
-user      1002      test_acl_1                                      rw         
-user      1003      test_acl_2                                      deny       
-
-administrator@cli> 
-
-Expect: acl of clone type should be modified rw in users
-
-acl -a mod -d 0 -t clone -s "role=user,name=test_acl_0,acl=rw"
-
-administrator@cli> 
-acl -d 0 -t clone
-===============================================================================
-Role      UIDorGID  Name                                            ACL       
-===============================================================================
-everyone  N/A       everyone                                        deny       
-user      1001      test_acl_0                                      rw         
-user      1002      test_acl_1                                      rw         
-user      1003      test_acl_2                                      deny       
-
-administrator@cli> 
-
-Expect: acl of clone type should be modified rw in users
-
-acl -a mod -d 0 -t clone -s "role=user,name=test_acl_0,acl=deny"
-
-administrator@cli> 
-acl -d 0 -t clone
-===============================================================================
-Role      UIDorGID  Name                                            ACL       
-===============================================================================
-everyone  N/A       everyone                                        deny       
-user      1001      test_acl_0                                      deny       
-user      1002      test_acl_1                                      rw         
-user      1003      test_acl_2                                      deny       
-
-administrator@cli> 
-
-Expect: acl of nasshare type should be modified ro in group
-
-acl -a mod -d 0 -t nasshare -s "role=group,name=test_acl_group_0,acl=ro"
-
-administrator@cli> 
-acl -d 0 -t nasshare
-===============================================================================
-Role      UIDorGID  Name                                            ACL       
-===============================================================================
-everyone  N/A       everyone                                        deny       
-user      1001      test_acl_0                                      deny       
-user      1002      test_acl_1                                      rw         
-user      1003      test_acl_2                                      deny       
-group     1004      test_acl_group_0                                ro         
-
-administrator@cli> 
-
-Expect: acl of nasshare type should be modified rw in group
-
-acl -a mod -d 0 -t nasshare -s "role=group,name=test_acl_group_0,acl=rw"
-
-administrator@cli> 
-acl -d 0 -t nasshare
-===============================================================================
-Role      UIDorGID  Name                                            ACL       
-===============================================================================
-everyone  N/A       everyone                                        deny       
-user      1001      test_acl_0                                      deny       
-user      1002      test_acl_1                                      rw         
-user      1003      test_acl_2                                      deny       
-group     1004      test_acl_group_0                                rw         
-
-administrator@cli> 
-
-Expect: acl of nasshare type should be modified deny in group
-
-acl -a mod -d 0 -t nasshare -s "role=group,name=test_acl_group_0,acl=deny"
-
-administrator@cli> 
-acl -d 0 -t nasshare
-===============================================================================
-Role      UIDorGID  Name                                            ACL       
-===============================================================================
-everyone  N/A       everyone                                        deny       
-user      1001      test_acl_0                                      deny       
-user      1002      test_acl_1                                      rw         
-user      1003      test_acl_2                                      deny       
-group     1004      test_acl_group_0                                deny       
-
-administrator@cli> 
-
-Expect: acl of clone type should be modified rw in group
-
-acl -a mod -d 0 -t clone -s "role=group,name=test_acl_group_0,acl=ro"
-
-administrator@cli> 
-acl -d 0 -t clone
-===============================================================================
-Role      UIDorGID  Name                                            ACL       
-===============================================================================
-everyone  N/A       everyone                                        deny       
-user      1001      test_acl_0                                      deny       
-user      1002      test_acl_1                                      rw         
-user      1003      test_acl_2                                      deny       
-group     1004      test_acl_group_0                                ro         
-
-administrator@cli> 
-
-Expect: acl of clone type should be modified rw in group
-
-acl -a mod -d 0 -t clone -s "role=group,name=test_acl_group_0,acl=rw"
-
-administrator@cli> 
-acl -d 0 -t clone
-===============================================================================
-Role      UIDorGID  Name                                            ACL       
-===============================================================================
-everyone  N/A       everyone                                        deny       
-user      1001      test_acl_0                                      deny       
-user      1002      test_acl_1                                      rw         
-user      1003      test_acl_2                                      deny       
-group     1004      test_acl_group_0                                rw         
-
-administrator@cli> 
-
-Expect: acl of clone type should be modified rw in group
-
-acl -a mod -d 0 -t clone -s "role=group,name=test_acl_group_0,acl=deny"
-
-administrator@cli> 
-acl -d 0 -t clone
-===============================================================================
-Role      UIDorGID  Name                                            ACL       
-===============================================================================
-everyone  N/A       everyone                                        deny       
-user      1001      test_acl_0                                      deny       
-user      1002      test_acl_1                                      rw         
-user      1003      test_acl_2                                      deny       
-group     1004      test_acl_group_0                                deny       
-
-administrator@cli> 
-'result': 'p'
-
-Expect: delete specific user acl setting on nasshare type
-
-acl -a del -t nasshare -d 0 -s "role=user,name=test_acl_2"
-Error (0x2012): Invalid option for the command or the action
-'-s': not applicable for '-a del'
-
-administrator@cli> 
-
-Fail: acl -a del -t nasshare -d 0 -s "role=user,name=test_acl_2"
-
-
-Expect: delete specific user acl setting on clone type
-
-acl -a del -t clone -d 0 -s "role=user,name=test_acl_2"
-Error (0x2012): Invalid option for the command or the action
-'-s': not applicable for '-a del'
-
-administrator@cli> 
-
-Fail: acl -a del -t clone -d 0 -s "role=user,name=test_acl_2"
-
-
-Expect: delete specific group acl setting on nasshare type
-
-acl -a del -t nasshare -d -s "role=group,name=test_acl_group_2"
-Error (0x2012): Invalid option for the command or the action
-invalid option: -s
-
-administrator@cli> 
-
-Fail: acl -a del -t nasshare -d -s "role=group,name=test_acl_group_2"
-
-
-Expect: delete specific group acl setting on clone type
-
-acl -a del -t clone -d 0 -s "role=group,name=test_acl_group_2"
-Error (0x2012): Invalid option for the command or the action
-'-s': not applicable for '-a del'
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-acl -d
-Error (0x403): Missing parameter
--d: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-acl -d 0 -t
-Error (0x403): Missing parameter
--t: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-acl -a
-Error (0x403): Missing parameter
--a: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-acl -a add -d
-Error (0x403): Missing parameter
--d: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-acl -a add -d 0 
+snapshot -a add
 Error (0x403): Missing parameter
 missing parameter '-t' for '-a add'
 
@@ -754,47 +17,7 @@ administrator@cli>
 
 Expect: Missing parameter
 
-acl -a add -d 0 -t 
-Error (0x403): Missing parameter
--t: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-acl -a add -d 0 -t nasshare 
-Error (0x403): Missing parameter
-missing parameter '-s' for '-a add'
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-acl -a add -d 0 -t nasshare -s
-Error (0x403): Missing parameter
--s: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-acl -a add -d 0 -t clone
-Error (0x403): Missing parameter
-missing parameter '-s' for '-a add'
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-acl -a add -d 0 -t clone -s
-Error (0x403): Missing parameter
--s: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-acl -a mod -d
+snapshot -a add -d
 Error (0x403): Missing parameter
 -d: missing value
 
@@ -802,23 +25,15 @@ administrator@cli>
 
 Expect: Missing parameter
 
-acl -a mod -d 0 
+snapshot -a add -d 0 -s
 Error (0x403): Missing parameter
-missing parameter '-t' for '-a mod'
+-s: missing value
 
 administrator@cli> 
 
 Expect: Missing parameter
 
-acl -a mod -d 0 -t 
-Error (0x403): Missing parameter
--t: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-acl -a mod -d 0 -t nasshare 
+snapshot -a mod
 Error (0x403): Missing parameter
 missing parameter '-s' for '-a mod'
 
@@ -826,7 +41,15 @@ administrator@cli>
 
 Expect: Missing parameter
 
-acl -a mod -d 0 -t nasshare -s
+snapshot -a mod -i 
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+snapshot -a mod -i 0 -s
 Error (0x403): Missing parameter
 -s: missing value
 
@@ -834,113 +57,65 @@ administrator@cli>
 
 Expect: Missing parameter
 
-acl -a mod -d 0 -t clone
+snapshot -a export
 Error (0x403): Missing parameter
-missing parameter '-s' for '-a mod'
+missing parameter '-i' for '-a export'
 
 administrator@cli> 
 
 Expect: Missing parameter
 
-acl -a mod -d 0 -t clone -s
+snapshot -a export -i
 Error (0x403): Missing parameter
--s: missing value
+-i: missing value
 
 administrator@cli> 
 
 Expect: Missing parameter
 
-acl -a refresh
+snapshot -a unexport
 Error (0x403): Missing parameter
-missing parameter '-t' for '-a refresh'
+missing parameter '-i' for '-a unexport'
 
 administrator@cli> 
 
 Expect: Missing parameter
 
-acl -a refresh -d
+snapshot -a unexport -i
 Error (0x403): Missing parameter
--d: missing value
+-i: missing value
 
 administrator@cli> 
 
 Expect: Missing parameter
 
-acl -a refresh -d 0 -t
+snapshot -a del
 Error (0x403): Missing parameter
--t: missing value
+missing parameter '-i' for '-a del'
 
 administrator@cli> 
 
 Expect: Missing parameter
 
-acl -a del -d
+snapshot -a del -i
 Error (0x403): Missing parameter
--d: missing value
+-i: missing value
 
 administrator@cli> 
 
 Expect: Missing parameter
 
-acl -a del -d 0 
+snapshot -a rollback
 Error (0x403): Missing parameter
-missing parameter '-t' for '-a del'
+missing parameter '-i' for '-a rollback'
 
 administrator@cli> 
 
 Expect: Missing parameter
 
-acl -a del -d 0 -t 
+snapshot -a rollback -i
 Error (0x403): Missing parameter
--t: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-acl -a del -d 0 -t nasshare -s
-Error (0x403): Missing parameter
--s: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-acl -a del -d 0 -t clone -s
-Error (0x403): Missing parameter
--s: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-acl -a cancel
-Error (0x403): Missing parameter
-missing parameter '-t' for '-a cancel'
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-acl -a cancel -d
-Error (0x403): Missing parameter
--d: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-acl -a clear -d
-Error (0x403): Missing parameter
--d: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-acl -a clear
-Error (0x403): Missing parameter
-missing parameter '-t' for '-a clear'
+-i: missing value
 
 administrator@cli> 
 'result': 'p'

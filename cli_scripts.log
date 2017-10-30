@@ -1,3 +1,3608 @@
+2017-10-30 16:54:28: 'result': 'p'
+2017-10-30 16:54:28: snapshot -a rollback -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-10-30 16:54:28: 
+Expect: Missing parameter
+
+2017-10-30 16:54:28: snapshot -a rollback
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a rollback'
+
+administrator@cli> 
+2017-10-30 16:54:28: 
+Expect: Missing parameter
+
+2017-10-30 16:54:28: snapshot -a del -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-10-30 16:54:28: 
+Expect: Missing parameter
+
+2017-10-30 16:54:28: snapshot -a del
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a del'
+
+administrator@cli> 
+2017-10-30 16:54:28: 
+Expect: Missing parameter
+
+2017-10-30 16:54:28: snapshot -a unexport -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-10-30 16:54:28: 
+Expect: Missing parameter
+
+2017-10-30 16:54:28: snapshot -a unexport
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a unexport'
+
+administrator@cli> 
+2017-10-30 16:54:28: 
+Expect: Missing parameter
+
+2017-10-30 16:54:28: snapshot -a export -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-10-30 16:54:28: 
+Expect: Missing parameter
+
+2017-10-30 16:54:28: snapshot -a export
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a export'
+
+administrator@cli> 
+2017-10-30 16:54:28: 
+Expect: Missing parameter
+
+2017-10-30 16:54:28: snapshot -a mod -i 0 -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2017-10-30 16:54:28: 
+Expect: Missing parameter
+
+2017-10-30 16:54:28: snapshot -a mod -i 
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-10-30 16:54:28: 
+Expect: Missing parameter
+
+2017-10-30 16:54:28: snapshot -a mod
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+2017-10-30 16:54:28: 
+Expect: Missing parameter
+
+2017-10-30 16:54:28: snapshot -a add -d 0 -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2017-10-30 16:54:28: 
+Expect: Missing parameter
+
+2017-10-30 16:54:28: snapshot -a add -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+2017-10-30 16:54:28: 
+Expect: Missing parameter
+
+2017-10-30 16:54:28: snapshot -a add
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a add'
+
+administrator@cli> 
+2017-10-30 16:54:28: 
+Expect: Missing parameter
+
+2017-10-30 16:54:28: snapshot -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-10-30 16:54:28: 
+Expect: Missing parameter
+
+2017-10-30 16:54:28: 'result': 'p'
+2017-10-30 16:54:28: snapshot -a del -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-10-30 16:54:27: 
+Expect: Invalid option for the command or the action
+
+2017-10-30 16:54:27: snapshot -a rollback -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-10-30 16:54:27: 
+Expect: Invalid option for the command or the action
+
+2017-10-30 16:54:27: snapshot -a unexport -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-10-30 16:54:27: 
+Expect: Invalid option for the command or the action
+
+2017-10-30 16:54:27: snapshot -a export -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-10-30 16:54:27: 
+Expect: Invalid option for the command or the action
+
+2017-10-30 16:54:27: snapshot -a mod -i 3 -s "test=test_name"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+2017-10-30 16:54:27: 
+Expect: Invalid option for the command or the action
+
+2017-10-30 16:54:27: snapshot -a mod -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-10-30 16:54:27: 
+Expect: Invalid option for the command or the action
+
+2017-10-30 16:54:27: snapshot -a add -d 0 -s "test=test_name"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+2017-10-30 16:54:27: 
+Expect: Invalid option for the command or the action
+
+2017-10-30 16:54:27: snapshot -a add -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-10-30 16:54:27: 
+Expect: Invalid option for the command or the action
+
+2017-10-30 16:54:27: snapshot -i -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-10-30 16:54:27: 
+Expect: Invalid option for the command or the action
+
+2017-10-30 16:54:27: snapshot -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-10-30 16:54:27: 
+Expect: Invalid option for the command or the action
+
+2017-10-30 16:54:27: 'result': 'f'
+2017-10-30 16:54:27: snapshot -a del -i 100
+Error (0x4100102): Empty query result, please check input parameters. Snapshot id=[100] is not existed.
+
+administrator@cli> 
+2017-10-30 16:54:27: 
+Expect: Snapshot id=[100] is not existed
+
+2017-10-30 16:54:27: snapshot -a del test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 16:54:26: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:54:26: snapshot -a rollback -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2017-10-30 16:54:26: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:54:26: snapshot -a rollback -i 100
+Error (0x4100102): Empty query result, please check input parameters. Snapshot id=[100] is not existed.
+
+administrator@cli> 
+2017-10-30 16:54:26: 
+Expect: Snapshot id=[100] is not existed
+
+2017-10-30 16:54:26: snapshot -a rollback test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 16:54:26: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:54:26: snapshot -a unexport test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 16:54:26: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:54:26: snapshot -a export test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 16:54:26: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:54:26: snapshot -a mod -i 0 -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+2017-10-30 16:54:26: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:54:26: snapshot -a mod -i 0 -s "name=test_test_test_test_test_test_333"
+Error (0x2014): Setting parameters too long
+name: invalid setting test_test_test_test_test_test_333
+
+administrator@cli> 
+2017-10-30 16:54:26: 
+Expect: Setting parameters too long
+
+2017-10-30 16:54:26: snapshot -a mod -i 100 -s "name=test"
+Error (0x4100102): Empty query result, please check input parameters. Snapshot id=[100] is not existed.
+
+administrator@cli> 
+2017-10-30 16:54:26: 
+Expect: Snapshot id=[100] is not existed
+
+2017-10-30 16:54:26: snapshot -a mod test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 16:54:26: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:54:26: snapshot -a add -d 0 -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+2017-10-30 16:54:26: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:54:26: snapshot -a add -t volume -d 0 -s "name=test_test_test_test_test_test_333"
+Error (0x2014): Setting parameters too long
+name: invalid setting test_test_test_test_test_test_333
+
+administrator@cli> 
+2017-10-30 16:54:26: 
+Expect: Setting parameters too long
+
+2017-10-30 16:54:26: snapshot -a add -t nasshare -d 0 -s "name=test_test_test_test_test_test_333"
+Error (0x2014): Setting parameters too long
+name: invalid setting test_test_test_test_test_test_333
+
+administrator@cli> 
+2017-10-30 16:54:25: 
+Expect: Setting parameters too long
+
+2017-10-30 16:54:25: snapshot -a add -t volume -d 100 -s "name=test"
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[100] is not existed.
+
+administrator@cli> 
+2017-10-30 16:54:25: 
+Expect: Volume id=[100] is not existed
+
+2017-10-30 16:54:25: 
+Fail: please check out NASShare id=[100] is not existed
+
+2017-10-30 16:54:25: snapshot -a add -t nasshare -d 100 -s "name=test"
+Error (0x4100102): Empty query result, please check input parameters. Share Disk id=[100] is not existed.
+
+administrator@cli> 
+2017-10-30 16:54:25: 
+Expect: NASShare id=[100] is not existed
+
+2017-10-30 16:54:25: snapshot -a add test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 16:54:25: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:54:25: snapshot -v -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2017-10-30 16:54:25: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:54:25: snapshot -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2017-10-30 16:54:25: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:54:25: snapshot test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 16:54:24: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:54:24: 'result': 'p'
+2017-10-30 16:54:24: snapshot
+===============================================================================
+Id     Name                 Type       SrcId UsedCap    Status      OpStatus  
+===============================================================================
+4      test_volume_rollback volume     0     0 Byte     Un-Exported OK,        
+                                                                    Synchroni  
+                                                                    zing       
+5      test_nas_rollback    nasshare   0     0 Byte     Un-Mounted  OK,        
+                                                                    Synchroni  
+                                                                    zing       
+
+administrator@cli> 
+2017-10-30 16:54:24: snapshot -a del -i 3 -f -y
+
+administrator@cli> 
+2017-10-30 16:54:24: 
+Expect: volume type snapshot of id 2 should be forced deleted
+
+2017-10-30 16:54:24: snapshot
+===============================================================================
+Id     Name                 Type       SrcId UsedCap    Status      OpStatus  
+===============================================================================
+3      __test_test_test_tes volume     0     0 Byte     Un-Exported OK,        
+       t_test_test_                                                 Synchroni  
+                                                                    zing       
+4      test_volume_rollback volume     0     0 Byte     Un-Exported OK,        
+                                                                    Synchroni  
+                                                                    zing       
+5      test_nas_rollback    nasshare   0     0 Byte     Un-Mounted  OK,        
+                                                                    Synchroni  
+                                                                    zing       
+
+administrator@cli> 
+2017-10-30 16:54:24: snapshot -a del -i 2 -f -y
+
+administrator@cli> 
+2017-10-30 16:54:23: 
+Expect: nasshare type snapshot of id 1 should be forced deleted
+
+2017-10-30 16:54:23: snapshot
+===============================================================================
+Id     Name                 Type       SrcId UsedCap    Status      OpStatus  
+===============================================================================
+2      test_test_test_test_ nasshare   0     0 Byte     Un-Mounted  OK,        
+       test_test_1                                                  Synchroni  
+                                                                    zing       
+3      __test_test_test_tes volume     0     0 Byte     Un-Exported OK,        
+       t_test_test_                                                 Synchroni  
+                                                                    zing       
+4      test_volume_rollback volume     0     0 Byte     Un-Exported OK,        
+                                                                    Synchroni  
+                                                                    zing       
+5      test_nas_rollback    nasshare   0     0 Byte     Un-Mounted  OK,        
+                                                                    Synchroni  
+                                                                    zing       
+
+administrator@cli> 
+2017-10-30 16:54:23: snapshot -a del -i 1
+
+administrator@cli> 
+2017-10-30 16:54:22: 
+Expect: volume type snapshot of id 0 should be deleted
+
+2017-10-30 16:54:22: snapshot
+===============================================================================
+Id     Name                 Type       SrcId UsedCap    Status      OpStatus  
+===============================================================================
+1      _test_test_test_test volume     0     8.19 KB    Un-Exported OK,        
+       _test_test__                                                 Synchroni  
+                                                                    zing       
+2      test_test_test_test_ nasshare   0     0 Byte     Un-Mounted  OK,        
+       test_test_1                                                  Synchroni  
+                                                                    zing       
+3      __test_test_test_tes volume     0     0 Byte     Un-Exported OK,        
+       t_test_test_                                                 Synchroni  
+                                                                    zing       
+4      test_volume_rollback volume     0     0 Byte     Un-Exported OK,        
+                                                                    Synchroni  
+                                                                    zing       
+5      test_nas_rollback    nasshare   0     0 Byte     Un-Mounted  OK,        
+                                                                    Synchroni  
+                                                                    zing       
+
+administrator@cli> 
+2017-10-30 16:54:22: snapshot -a del -i 0
+
+administrator@cli> 
+2017-10-30 16:54:21: 
+Expect: nasshare type snapshot of id 0 should be deleted
+
+2017-10-30 16:54:20: 'result': 'p'
+2017-10-30 16:54:20: snapshot -a rollback -i 5
+
+administrator@cli> 
+2017-10-30 16:54:20: 
+Expect: snapshot of nasshare type should be rollbacked
+
+2017-10-30 16:54:20: snapshot -a rollback -i 4
+
+administrator@cli> 
+2017-10-30 16:54:19: 
+Expect: snapshot of volume type should be rollbacked
+
+2017-10-30 16:54:18: 'result': 'f'
+2017-10-30 16:54:18: 
+Fail: snapshot -a umount -i 2
+
+2017-10-30 16:54:17: snapshot -a umount -i 2
+Error (0x2013): Invalid setting parameters
+-a: invalid setting umount (list|add|mod|del|export|unexport|rollback)
+
+administrator@cli> 
+2017-10-30 16:54:17: 
+Expect: snapshot of nasshare should be modified mount to umount
+
+2017-10-30 16:54:17: 
+Fail: snapshot -a mount -i 2
+
+2017-10-30 16:54:16: snapshot -a mount -i 2
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mount (list|add|mod|del|export|unexport|rollback)
+
+administrator@cli> 
+2017-10-30 16:54:16: 
+Expect: snapshot of nasshare should be modified umount to mount
+
+2017-10-30 16:54:16: 'result': 'p'
+2017-10-30 16:54:16: snapshot -v -i 3
+-------------------------------------------------------------------------------
+Id: 3                                   Name: __test_test_test_test_test_test_
+Type: volume                            SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+UsedCapacity: 0 Byte                    CreateDate: 2017-10-31 04:50:37
+
+administrator@cli> 
+2017-10-30 16:54:15: snapshot -a unexport -i 3
+
+administrator@cli> 
+2017-10-30 16:54:14: 
+Expect: snapshot of volume should be modified export to unexport
+
+2017-10-30 16:54:14: snapshot -v -i 3
+-------------------------------------------------------------------------------
+Id: 3                                   Name: __test_test_test_test_test_test_
+Type: volume                            SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Exported                        ExportedId: 1
+ExportedWWN: 22b9000155eb1f90           OperationalStatus: OK, Synchronizing
+UsedCapacity: 0 Byte                    CreateDate: 2017-10-31 04:50:37
+
+administrator@cli> 
+2017-10-30 16:54:13: snapshot -a export -i 3
+
+administrator@cli> 
+2017-10-30 16:54:12: 
+Expect: snapshot of volume should be modified unexport to export
+
+2017-10-30 16:54:12: 'result': 'p'
+2017-10-30 16:54:12: snapshot -v -i 1
+-------------------------------------------------------------------------------
+Id: 1                                   Name: _test_test_test_test_test_test__
+Type: volume                            SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+UsedCapacity: 8.19 KB                   CreateDate: 2017-10-31 04:50:34
+
+administrator@cli> 
+2017-10-30 16:54:11: snapshot -a mod -i 1 -s "name=_test_test_test_test_test_test__"
+
+administrator@cli> 
+2017-10-30 16:54:11: 
+Expect: snapshot of nasshare type should be modified name of 32 char
+
+2017-10-30 16:54:11: snapshot -v -i 1
+-------------------------------------------------------------------------------
+Id: 1                                   Name: 1_test_test_test_test_test_test
+Type: volume                            SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+UsedCapacity: 8.19 KB                   CreateDate: 2017-10-31 04:50:34
+
+administrator@cli> 
+2017-10-30 16:54:10: snapshot -a mod -i 1 -s "name=1_test_test_test_test_test_test"
+
+administrator@cli> 
+2017-10-30 16:54:09: 
+Expect: snapshot of nasshare type should be modified name of 31 char
+
+2017-10-30 16:54:09: snapshot -v -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   Name: 12
+Type: nasshare                          SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Mounted                      OperationalStatus: OK, Synchronizing
+UsedCapacity: 19.46 KB                  CreateDate: 2017-10-31 04:50:32
+
+administrator@cli> 
+2017-10-30 16:54:08: snapshot -a mod -i 0 -s "name=12"
+
+administrator@cli> 
+2017-10-30 16:54:08: 
+Expect: snapshot of nasshare type should be modified name of 2 char
+
+2017-10-30 16:54:08: snapshot -v -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   Name: t
+Type: nasshare                          SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Mounted                      OperationalStatus: OK, Synchronizing
+UsedCapacity: 19.46 KB                  CreateDate: 2017-10-31 04:50:32
+
+administrator@cli> 
+2017-10-30 16:54:07: snapshot -a mod -i 0 -s "name=t"
+
+administrator@cli> 
+2017-10-30 16:54:06: 
+Expect: snapshot of nasshare type should be modified name of l char
+
+2017-10-30 16:54:06: 'result': 'p'
+2017-10-30 16:54:06: snapshot -i 0 -v
+-------------------------------------------------------------------------------
+Id: 0                                   Name: 1
+Type: nasshare                          SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Mounted                      OperationalStatus: OK, Synchronizing
+UsedCapacity: 19.46 KB                  CreateDate: 2017-10-31 04:50:32
+
+administrator@cli> 
+2017-10-30 16:54:06: 
+Expect: snapshot of id 0 should be listed by verbose mode
+
+2017-10-30 16:54:06: snapshot -v
+-------------------------------------------------------------------------------
+Id: 0                                   Name: 1
+Type: nasshare                          SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Mounted                      OperationalStatus: OK, Synchronizing
+UsedCapacity: 19.46 KB                  CreateDate: 2017-10-31 04:50:32
+-------------------------------------------------------------------------------
+Id: 1                                   Name: ab
+Type: volume                            SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+UsedCapacity: 8.19 KB                   CreateDate: 2017-10-31 04:50:34
+-------------------------------------------------------------------------------
+Id: 2                                   Name: test_test_test_test_test_test_1
+Type: nasshare                          SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Mounted                      OperationalStatus: OK, Synchronizing
+UsedCapacity: 0 Byte                    CreateDate: 2017-10-31 04:50:36
+-------------------------------------------------------------------------------
+Id: 3                                   Name: __test_test_test_test_test_test_
+Type: volume                            SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+UsedCapacity: 0 Byte                    CreateDate: 2017-10-31 04:50:37
+
+administrator@cli> 
+2017-10-30 16:54:06: 
+Expect: All of snapshot should be listed by verbose mode
+
+2017-10-30 16:54:06: 'result': 'p'
+2017-10-30 16:54:06: snapshot -i 0
+===============================================================================
+Id     Name                 Type       SrcId UsedCap    Status      OpStatus  
+===============================================================================
+0      1                    nasshare   0     19.46 KB   Un-Mounted  OK,        
+                                                                    Synchroni  
+                                                                    zing       
+
+administrator@cli> 
+2017-10-30 16:54:06: 
+Expect: snapshot of id 0 should be listed
+
+2017-10-30 16:54:06: snapshot
+===============================================================================
+Id     Name                 Type       SrcId UsedCap    Status      OpStatus  
+===============================================================================
+0      1                    nasshare   0     19.46 KB   Un-Mounted  OK,        
+                                                                    Synchroni  
+                                                                    zing       
+1      ab                   volume     0     8.19 KB    Un-Exported OK,        
+                                                                    Synchroni  
+                                                                    zing       
+2      test_test_test_test_ nasshare   0     0 Byte     Un-Mounted  OK,        
+       test_test_1                                                  Synchroni  
+                                                                    zing       
+3      __test_test_test_tes volume     0     0 Byte     Un-Exported OK,        
+       t_test_test_                                                 Synchroni  
+                                                                    zing       
+
+administrator@cli> 
+2017-10-30 16:54:06: 
+Expect: All of snapshot should be listed
+
+2017-10-30 16:54:06: 'result': 'p'
+2017-10-30 16:54:06: snapshot -v -i 3
+-------------------------------------------------------------------------------
+Id: 3                                   Name: __test_test_test_test_test_test_
+Type: volume                            SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+UsedCapacity: 0 Byte                    CreateDate: 2017-10-31 04:50:37
+
+administrator@cli> 
+2017-10-30 16:54:05: snapshot -a add -t volume -d 0 -s "name=__test_test_test_test_test_test_"
+
+administrator@cli> 
+2017-10-30 16:54:04: 
+Expect: snapshot of volume should be created when name is the under line +alp and length is 32
+
+2017-10-30 16:54:04: snapshot -v -i 2
+-------------------------------------------------------------------------------
+Id: 2                                   Name: test_test_test_test_test_test_1
+Type: nasshare                          SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Mounted                      OperationalStatus: OK, Synchronizing
+UsedCapacity: 0 Byte                    CreateDate: 2017-10-31 04:50:36
+
+administrator@cli> 
+2017-10-30 16:54:03: snapshot -a add -t nasshare -d 0 -s "name=test_test_test_test_test_test_1"
+
+administrator@cli> 
+2017-10-30 16:54:03: 
+Expect: snapshot of nasshare should be created when name is the alp+under line+num,length is 31
+
+2017-10-30 16:54:03: snapshot -v -i 1
+-------------------------------------------------------------------------------
+Id: 1                                   Name: ab
+Type: volume                            SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+UsedCapacity: 8.19 KB                   CreateDate: 2017-10-31 04:50:34
+
+administrator@cli> 
+2017-10-30 16:54:02: snapshot -a add -t volume -d 0 -s "name=ab"
+
+administrator@cli> 
+2017-10-30 16:54:01: 
+Expect: snapshot of volume should be created when name is the alp and length is 2
+
+2017-10-30 16:54:01: snapshot -v -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   Name: 1
+Type: nasshare                          SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Mounted                      OperationalStatus: OK, Synchronizing
+UsedCapacity: 19.46 KB                  CreateDate: 2017-10-31 04:50:32
+
+administrator@cli> 
+2017-10-30 16:54:00: snapshot -a add -t nasshare -d 0 -s "name=1"
+
+administrator@cli> 
+2017-10-30 16:53:59: 
+Expect: snapshot of nasshare type should be created when name is the num and length is 1
+
+2017-10-30 16:50:33: 'result': 'p'
+2017-10-30 16:50:33: snapshot -a rollback -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-10-30 16:50:33: 
+Expect: Missing parameter
+
+2017-10-30 16:50:33: snapshot -a rollback
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a rollback'
+
+administrator@cli> 
+2017-10-30 16:50:33: 
+Expect: Missing parameter
+
+2017-10-30 16:50:33: snapshot -a del -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-10-30 16:50:33: 
+Expect: Missing parameter
+
+2017-10-30 16:50:33: snapshot -a del
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a del'
+
+administrator@cli> 
+2017-10-30 16:50:33: 
+Expect: Missing parameter
+
+2017-10-30 16:50:33: snapshot -a unexport -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-10-30 16:50:33: 
+Expect: Missing parameter
+
+2017-10-30 16:50:33: snapshot -a unexport
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a unexport'
+
+administrator@cli> 
+2017-10-30 16:50:33: 
+Expect: Missing parameter
+
+2017-10-30 16:50:33: snapshot -a export -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-10-30 16:50:33: 
+Expect: Missing parameter
+
+2017-10-30 16:50:33: snapshot -a export
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a export'
+
+administrator@cli> 
+2017-10-30 16:50:33: 
+Expect: Missing parameter
+
+2017-10-30 16:50:33: snapshot -a mod -i 0 -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2017-10-30 16:50:33: 
+Expect: Missing parameter
+
+2017-10-30 16:50:33: snapshot -a mod -i 
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-10-30 16:50:32: 
+Expect: Missing parameter
+
+2017-10-30 16:50:32: snapshot -a mod
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+2017-10-30 16:50:32: 
+Expect: Missing parameter
+
+2017-10-30 16:50:32: snapshot -a add -d 0 -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2017-10-30 16:50:32: 
+Expect: Missing parameter
+
+2017-10-30 16:50:32: snapshot -a add -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+2017-10-30 16:50:32: 
+Expect: Missing parameter
+
+2017-10-30 16:50:32: snapshot -a add
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a add'
+
+administrator@cli> 
+2017-10-30 16:50:32: 
+Expect: Missing parameter
+
+2017-10-30 16:50:32: snapshot -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-10-30 16:50:32: 
+Expect: Missing parameter
+
+2017-10-30 16:50:32: 'result': 'p'
+2017-10-30 16:50:32: snapshot -a del -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-10-30 16:50:32: 
+Expect: Invalid option for the command or the action
+
+2017-10-30 16:50:32: snapshot -a rollback -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-10-30 16:50:32: 
+Expect: Invalid option for the command or the action
+
+2017-10-30 16:50:32: snapshot -a unexport -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-10-30 16:50:32: 
+Expect: Invalid option for the command or the action
+
+2017-10-30 16:50:32: snapshot -a export -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-10-30 16:50:32: 
+Expect: Invalid option for the command or the action
+
+2017-10-30 16:50:32: snapshot -a mod -i 3 -s "test=test_name"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+2017-10-30 16:50:32: 
+Expect: Invalid option for the command or the action
+
+2017-10-30 16:50:32: snapshot -a mod -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-10-30 16:50:32: 
+Expect: Invalid option for the command or the action
+
+2017-10-30 16:50:32: snapshot -a add -d 0 -s "test=test_name"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+2017-10-30 16:50:32: 
+Expect: Invalid option for the command or the action
+
+2017-10-30 16:50:32: snapshot -a add -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-10-30 16:50:32: 
+Expect: Invalid option for the command or the action
+
+2017-10-30 16:50:32: snapshot -i -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-10-30 16:50:32: 
+Expect: Invalid option for the command or the action
+
+2017-10-30 16:50:32: snapshot -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-10-30 16:50:31: 
+Expect: Invalid option for the command or the action
+
+2017-10-30 16:50:31: 'result': 'f'
+2017-10-30 16:50:31: snapshot -a del -i 100
+Error (0x4100102): Empty query result, please check input parameters. Snapshot id=[100] is not existed.
+
+administrator@cli> 
+2017-10-30 16:50:31: 
+Expect: Snapshot id=[100] is not existed
+
+2017-10-30 16:50:31: snapshot -a del test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 16:50:31: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:50:31: snapshot -a rollback -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2017-10-30 16:50:31: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:50:31: 
+Fail: please check out Can't rollback Snapshot due to there exists newer ones
+
+2017-10-30 16:50:31: snapshot -a rollback -i 0
+Error (0x4100102): Empty query result, please check input parameters. Snapshot id=[0] is not existed.
+
+administrator@cli> 
+2017-10-30 16:50:31: 
+Expect: Can't rollback Snapshot due to there exists newer ones
+
+2017-10-30 16:50:31: snapshot -a rollback test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 16:50:31: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:50:31: snapshot -a unexport test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 16:50:31: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:50:31: snapshot -a export test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 16:50:31: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:50:31: snapshot -a mod -i 0 -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+2017-10-30 16:50:31: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:50:31: snapshot -a mod -i 0 -s "name=test_test_test_test_test_test_333"
+Error (0x2014): Setting parameters too long
+name: invalid setting test_test_test_test_test_test_333
+
+administrator@cli> 
+2017-10-30 16:50:31: 
+Expect: Setting parameters too long
+
+2017-10-30 16:50:31: snapshot -a mod -i 100 -s "name=test"
+Error (0x4100102): Empty query result, please check input parameters. Snapshot id=[100] is not existed.
+
+administrator@cli> 
+2017-10-30 16:50:30: 
+Expect: Snapshot id=[100] is not existed
+
+2017-10-30 16:50:30: snapshot -a mod test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 16:50:30: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:50:30: snapshot -a add -d 0 -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+2017-10-30 16:50:30: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:50:30: snapshot -a add -t volume -d 0 -s "name=test_test_test_test_test_test_333"
+Error (0x2014): Setting parameters too long
+name: invalid setting test_test_test_test_test_test_333
+
+administrator@cli> 
+2017-10-30 16:50:30: 
+Expect: Setting parameters too long
+
+2017-10-30 16:50:30: snapshot -a add -t nasshare -d 0 -s "name=test_test_test_test_test_test_333"
+Error (0x2014): Setting parameters too long
+name: invalid setting test_test_test_test_test_test_333
+
+administrator@cli> 
+2017-10-30 16:50:30: 
+Expect: Setting parameters too long
+
+2017-10-30 16:50:30: snapshot -a add -t volume -d 100 -s "name=test"
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[100] is not existed.
+
+administrator@cli> 
+2017-10-30 16:50:30: 
+Expect: Volume id=[100] is not existed
+
+2017-10-30 16:50:30: 
+Fail: please check out NASShare id=[100] is not existed
+
+2017-10-30 16:50:29: snapshot -a add -t nasshare -d 100 -s "name=test"
+Error (0x4100102): Empty query result, please check input parameters. Share Disk id=[100] is not existed.
+
+administrator@cli> 
+2017-10-30 16:50:29: 
+Expect: NASShare id=[100] is not existed
+
+2017-10-30 16:50:29: snapshot -a add test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 16:50:29: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:50:29: snapshot -v -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2017-10-30 16:50:29: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:50:29: snapshot -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2017-10-30 16:50:29: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:50:29: snapshot test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 16:50:29: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:50:29: 'result': 'p'
+2017-10-30 16:50:29: snapshot
+===============================================================================
+Id     Name                 Type       SrcId UsedCap    Status      OpStatus  
+===============================================================================
+4      test_volume_rollback volume     0     0 Byte     Un-Exported OK,        
+                                                                    Synchroni  
+                                                                    zing       
+5      test_nas_rollback    nasshare   0     0 Byte     Un-Mounted  OK,        
+                                                                    Synchroni  
+                                                                    zing       
+
+administrator@cli> 
+2017-10-30 16:50:29: snapshot -a del -i 3 -f -y
+
+administrator@cli> 
+2017-10-30 16:50:28: 
+Expect: volume type snapshot of id 2 should be forced deleted
+
+2017-10-30 16:50:28: snapshot
+===============================================================================
+Id     Name                 Type       SrcId UsedCap    Status      OpStatus  
+===============================================================================
+3      __test_test_test_tes volume     0     0 Byte     Un-Exported OK,        
+       t_test_test_                                                 Synchroni  
+                                                                    zing       
+4      test_volume_rollback volume     0     0 Byte     Un-Exported OK,        
+                                                                    Synchroni  
+                                                                    zing       
+5      test_nas_rollback    nasshare   0     0 Byte     Un-Mounted  OK,        
+                                                                    Synchroni  
+                                                                    zing       
+
+administrator@cli> 
+2017-10-30 16:50:28: snapshot -a del -i 2 -f -y
+
+administrator@cli> 
+2017-10-30 16:50:27: 
+Expect: nasshare type snapshot of id 1 should be forced deleted
+
+2017-10-30 16:50:27: snapshot
+===============================================================================
+Id     Name                 Type       SrcId UsedCap    Status      OpStatus  
+===============================================================================
+2      test_test_test_test_ nasshare   0     0 Byte     Un-Mounted  OK,        
+       test_test_1                                                  Synchroni  
+                                                                    zing       
+3      __test_test_test_tes volume     0     0 Byte     Un-Exported OK,        
+       t_test_test_                                                 Synchroni  
+                                                                    zing       
+4      test_volume_rollback volume     0     0 Byte     Un-Exported OK,        
+                                                                    Synchroni  
+                                                                    zing       
+5      test_nas_rollback    nasshare   0     0 Byte     Un-Mounted  OK,        
+                                                                    Synchroni  
+                                                                    zing       
+
+administrator@cli> 
+2017-10-30 16:50:27: snapshot -a del -i 1
+
+administrator@cli> 
+2017-10-30 16:50:27: 
+Expect: volume type snapshot of id 0 should be deleted
+
+2017-10-30 16:50:27: snapshot
+===============================================================================
+Id     Name                 Type       SrcId UsedCap    Status      OpStatus  
+===============================================================================
+1      _test_test_test_test volume     0     8.19 KB    Un-Exported OK,        
+       _test_test__                                                 Synchroni  
+                                                                    zing       
+2      test_test_test_test_ nasshare   0     0 Byte     Un-Mounted  OK,        
+       test_test_1                                                  Synchroni  
+                                                                    zing       
+3      __test_test_test_tes volume     0     0 Byte     Un-Exported OK,        
+       t_test_test_                                                 Synchroni  
+                                                                    zing       
+4      test_volume_rollback volume     0     0 Byte     Un-Exported OK,        
+                                                                    Synchroni  
+                                                                    zing       
+5      test_nas_rollback    nasshare   0     0 Byte     Un-Mounted  OK,        
+                                                                    Synchroni  
+                                                                    zing       
+
+administrator@cli> 
+2017-10-30 16:50:27: snapshot -a del -i 0
+
+administrator@cli> 
+2017-10-30 16:50:26: 
+Expect: nasshare type snapshot of id 0 should be deleted
+
+2017-10-30 16:50:25: 'result': 'p'
+2017-10-30 16:50:25: snapshot -a rollback -i 5
+
+administrator@cli> 
+2017-10-30 16:50:24: 
+Expect: snapshot of nasshare type should be rollbacked
+
+2017-10-30 16:50:24: snapshot -a rollback -i 4
+
+administrator@cli> 
+2017-10-30 16:50:24: 
+Expect: snapshot of volume type should be rollbacked
+
+2017-10-30 16:50:23: 'result': 'f'
+2017-10-30 16:50:23: 
+Fail: snapshot -a umount -i 2
+
+2017-10-30 16:50:22: snapshot -a umount -i 2
+Error (0x2013): Invalid setting parameters
+-a: invalid setting umount (list|add|mod|del|export|unexport|rollback)
+
+administrator@cli> 
+2017-10-30 16:50:22: 
+Expect: snapshot of nasshare should be modified mount to umount
+
+2017-10-30 16:50:22: 
+Fail: snapshot -a mount -i 2
+
+2017-10-30 16:50:21: snapshot -a mount -i 2
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mount (list|add|mod|del|export|unexport|rollback)
+
+administrator@cli> 
+2017-10-30 16:50:21: 
+Expect: snapshot of nasshare should be modified umount to mount
+
+2017-10-30 16:50:20: 'result': 'p'
+2017-10-30 16:50:20: snapshot -v -i 3
+-------------------------------------------------------------------------------
+Id: 3                                   Name: __test_test_test_test_test_test_
+Type: volume                            SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+UsedCapacity: 0 Byte                    CreateDate: 2017-10-31 04:46:42
+
+administrator@cli> 
+2017-10-30 16:50:19: snapshot -a unexport -i 3
+
+administrator@cli> 
+2017-10-30 16:50:19: 
+Expect: snapshot of volume should be modified export to unexport
+
+2017-10-30 16:50:19: snapshot -v -i 3
+-------------------------------------------------------------------------------
+Id: 3                                   Name: __test_test_test_test_test_test_
+Type: volume                            SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Exported                        ExportedId: 1
+ExportedWWN: 227a00015599835f           OperationalStatus: OK, Synchronizing
+UsedCapacity: 0 Byte                    CreateDate: 2017-10-31 04:46:42
+
+administrator@cli> 
+2017-10-30 16:50:18: snapshot -a export -i 3
+
+administrator@cli> 
+2017-10-30 16:50:17: 
+Expect: snapshot of volume should be modified unexport to export
+
+2017-10-30 16:50:17: 'result': 'p'
+2017-10-30 16:50:17: snapshot -v -i 1
+-------------------------------------------------------------------------------
+Id: 1                                   Name: _test_test_test_test_test_test__
+Type: volume                            SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+UsedCapacity: 8.19 KB                   CreateDate: 2017-10-31 04:46:39
+
+administrator@cli> 
+2017-10-30 16:50:16: snapshot -a mod -i 1 -s "name=_test_test_test_test_test_test__"
+
+administrator@cli> 
+2017-10-30 16:50:15: 
+Expect: snapshot of nasshare type should be modified name of 32 char
+
+2017-10-30 16:50:15: snapshot -v -i 1
+-------------------------------------------------------------------------------
+Id: 1                                   Name: 1_test_test_test_test_test_test
+Type: volume                            SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+UsedCapacity: 8.19 KB                   CreateDate: 2017-10-31 04:46:39
+
+administrator@cli> 
+2017-10-30 16:50:14: snapshot -a mod -i 1 -s "name=1_test_test_test_test_test_test"
+
+administrator@cli> 
+2017-10-30 16:50:14: 
+Expect: snapshot of nasshare type should be modified name of 31 char
+
+2017-10-30 16:50:14: snapshot -v -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   Name: 12
+Type: nasshare                          SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Mounted                      OperationalStatus: OK, Synchronizing
+UsedCapacity: 19.46 KB                  CreateDate: 2017-10-31 04:46:37
+
+administrator@cli> 
+2017-10-30 16:50:13: snapshot -a mod -i 0 -s "name=12"
+
+administrator@cli> 
+2017-10-30 16:50:12: 
+Expect: snapshot of nasshare type should be modified name of 2 char
+
+2017-10-30 16:50:12: snapshot -v -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   Name: t
+Type: nasshare                          SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Mounted                      OperationalStatus: OK, Synchronizing
+UsedCapacity: 19.46 KB                  CreateDate: 2017-10-31 04:46:37
+
+administrator@cli> 
+2017-10-30 16:50:11: snapshot -a mod -i 0 -s "name=t"
+
+administrator@cli> 
+2017-10-30 16:50:11: 
+Expect: snapshot of nasshare type should be modified name of l char
+
+2017-10-30 16:50:11: 'result': 'p'
+2017-10-30 16:50:11: snapshot -i 0 -v
+-------------------------------------------------------------------------------
+Id: 0                                   Name: 1
+Type: nasshare                          SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Mounted                      OperationalStatus: OK, Synchronizing
+UsedCapacity: 19.46 KB                  CreateDate: 2017-10-31 04:46:37
+
+administrator@cli> 
+2017-10-30 16:50:11: 
+Expect: snapshot of id 0 should be listed by verbose mode
+
+2017-10-30 16:50:11: snapshot -v
+-------------------------------------------------------------------------------
+Id: 0                                   Name: 1
+Type: nasshare                          SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Mounted                      OperationalStatus: OK, Synchronizing
+UsedCapacity: 19.46 KB                  CreateDate: 2017-10-31 04:46:37
+-------------------------------------------------------------------------------
+Id: 1                                   Name: ab
+Type: volume                            SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+UsedCapacity: 8.19 KB                   CreateDate: 2017-10-31 04:46:39
+-------------------------------------------------------------------------------
+Id: 2                                   Name: test_test_test_test_test_test_1
+Type: nasshare                          SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Mounted                      OperationalStatus: OK, Synchronizing
+UsedCapacity: 0 Byte                    CreateDate: 2017-10-31 04:46:40
+-------------------------------------------------------------------------------
+Id: 3                                   Name: __test_test_test_test_test_test_
+Type: volume                            SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+UsedCapacity: 0 Byte                    CreateDate: 2017-10-31 04:46:42
+
+administrator@cli> 
+2017-10-30 16:50:11: 
+Expect: All of snapshot should be listed by verbose mode
+
+2017-10-30 16:50:11: 'result': 'p'
+2017-10-30 16:50:11: snapshot -i 0
+===============================================================================
+Id     Name                 Type       SrcId UsedCap    Status      OpStatus  
+===============================================================================
+0      1                    nasshare   0     19.46 KB   Un-Mounted  OK,        
+                                                                    Synchroni  
+                                                                    zing       
+
+administrator@cli> 
+2017-10-30 16:50:11: 
+Expect: snapshot of id 0 should be listed
+
+2017-10-30 16:50:11: snapshot
+===============================================================================
+Id     Name                 Type       SrcId UsedCap    Status      OpStatus  
+===============================================================================
+0      1                    nasshare   0     19.46 KB   Un-Mounted  OK,        
+                                                                    Synchroni  
+                                                                    zing       
+1      ab                   volume     0     8.19 KB    Un-Exported OK,        
+                                                                    Synchroni  
+                                                                    zing       
+2      test_test_test_test_ nasshare   0     0 Byte     Un-Mounted  OK,        
+       test_test_1                                                  Synchroni  
+                                                                    zing       
+3      __test_test_test_tes volume     0     0 Byte     Un-Exported OK,        
+       t_test_test_                                                 Synchroni  
+                                                                    zing       
+
+administrator@cli> 
+2017-10-30 16:50:11: 
+Expect: All of snapshot should be listed
+
+2017-10-30 16:50:11: 'result': 'p'
+2017-10-30 16:50:11: snapshot -v -i 3
+-------------------------------------------------------------------------------
+Id: 3                                   Name: __test_test_test_test_test_test_
+Type: volume                            SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+UsedCapacity: 0 Byte                    CreateDate: 2017-10-31 04:46:42
+
+administrator@cli> 
+2017-10-30 16:50:10: snapshot -a add -t volume -d 0 -s "name=__test_test_test_test_test_test_"
+
+administrator@cli> 
+2017-10-30 16:50:09: 
+Expect: snapshot of volume should be created when name is the under line +alp and length is 32
+
+2017-10-30 16:50:09: snapshot -v -i 2
+-------------------------------------------------------------------------------
+Id: 2                                   Name: test_test_test_test_test_test_1
+Type: nasshare                          SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Mounted                      OperationalStatus: OK, Synchronizing
+UsedCapacity: 0 Byte                    CreateDate: 2017-10-31 04:46:40
+
+administrator@cli> 
+2017-10-30 16:50:08: snapshot -a add -t nasshare -d 0 -s "name=test_test_test_test_test_test_1"
+
+administrator@cli> 
+2017-10-30 16:50:07: 
+Expect: snapshot of nasshare should be created when name is the alp+under line+num,length is 31
+
+2017-10-30 16:50:07: snapshot -v -i 1
+-------------------------------------------------------------------------------
+Id: 1                                   Name: ab
+Type: volume                            SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+UsedCapacity: 8.19 KB                   CreateDate: 2017-10-31 04:46:39
+
+administrator@cli> 
+2017-10-30 16:50:06: snapshot -a add -t volume -d 0 -s "name=ab"
+
+administrator@cli> 
+2017-10-30 16:50:06: 
+Expect: snapshot of volume should be created when name is the alp and length is 2
+
+2017-10-30 16:50:06: snapshot -v -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   Name: 1
+Type: nasshare                          SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Mounted                      OperationalStatus: OK, Synchronizing
+UsedCapacity: 19.46 KB                  CreateDate: 2017-10-31 04:46:37
+
+administrator@cli> 
+2017-10-30 16:50:05: snapshot -a add -t nasshare -d 0 -s "name=1"
+
+administrator@cli> 
+2017-10-30 16:50:04: 
+Expect: snapshot of nasshare type should be created when name is the num and length is 1
+
+2017-10-30 16:41:33: 'result': 'p'
+2017-10-30 16:41:33: snapshot -a del -i 100
+Error (0x4100102): Empty query result, please check input parameters. Snapshot id=[100] is not existed.
+
+administrator@cli> 
+2017-10-30 16:41:33: 
+Expect: id=[100] is not existed
+
+2017-10-30 16:41:33: snapshot -a del test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 16:41:33: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:41:33: snapshot -a rollback -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2017-10-30 16:41:33: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:41:33: snapshot -a rollback -i 0
+Error (0x4101307): Can't rollback Snapshot due to there exists newer ones.
+
+administrator@cli> 
+2017-10-30 16:41:33: 
+Expect: Can't rollback Snapshot due to there exists newer ones
+
+2017-10-30 16:41:33: snapshot -a rollback test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 16:41:32: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:41:32: snapshot -a unexport test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 16:41:32: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:41:32: snapshot -a export test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 16:41:32: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:41:32: snapshot -a mod -i 0 -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+2017-10-30 16:41:32: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:41:32: snapshot -a mod -i 0 -s "name=test_test_test_test_test_test_333"
+Error (0x2014): Setting parameters too long
+name: invalid setting test_test_test_test_test_test_333
+
+administrator@cli> 
+2017-10-30 16:41:32: 
+Expect: Setting parameters too long
+
+2017-10-30 16:41:32: snapshot -a mod -i 100 -s "name=test"
+Error (0x4100102): Empty query result, please check input parameters. Snapshot id=[100] is not existed.
+
+administrator@cli> 
+2017-10-30 16:41:32: 
+Expect: id=[100] is not existed
+
+2017-10-30 16:41:32: snapshot -a mod test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 16:41:32: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:41:32: snapshot -a add -d 0 -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+2017-10-30 16:41:32: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:41:32: snapshot -a add -t volume -d 0 -s "name=test_test_test_test_test_test_333"
+Error (0x2014): Setting parameters too long
+name: invalid setting test_test_test_test_test_test_333
+
+administrator@cli> 
+2017-10-30 16:41:32: 
+Expect: Setting parameters too long
+
+2017-10-30 16:41:32: snapshot -a add -t nasshare -d 0 -s "name=test_test_test_test_test_test_333"
+Error (0x2014): Setting parameters too long
+name: invalid setting test_test_test_test_test_test_333
+
+administrator@cli> 
+2017-10-30 16:41:32: 
+Expect: Setting parameters too long
+
+2017-10-30 16:41:32: snapshot -a add -t volume -d 100 -s "name=test"
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[100] is not existed.
+
+administrator@cli> 
+2017-10-30 16:41:32: 
+Expect: id=[100] is not existed
+
+2017-10-30 16:41:32: snapshot -a add -t nasshare -d 100 -s "name=test"
+Error (0x4100102): Empty query result, please check input parameters. Share Disk id=[100] is not existed.
+
+administrator@cli> 
+2017-10-30 16:41:31: 
+Expect: id=[100] is not existed
+
+2017-10-30 16:41:31: snapshot -a add test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 16:41:31: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:41:31: snapshot -v -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2017-10-30 16:41:31: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:41:31: snapshot -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2017-10-30 16:41:31: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:41:31: snapshot test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 16:41:31: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:21:50: 'result': 'p'
+2017-10-30 16:21:50: snapshot -a rollback -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-10-30 16:21:50: 
+Expect: Missing parameter
+
+2017-10-30 16:21:50: snapshot -a rollback
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a rollback'
+
+administrator@cli> 
+2017-10-30 16:21:50: 
+Expect: Missing parameter
+
+2017-10-30 16:21:50: snapshot -a del -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-10-30 16:21:50: 
+Expect: Missing parameter
+
+2017-10-30 16:21:50: snapshot -a del
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a del'
+
+administrator@cli> 
+2017-10-30 16:21:50: 
+Expect: Missing parameter
+
+2017-10-30 16:21:50: snapshot -a unexport -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-10-30 16:21:50: 
+Expect: Missing parameter
+
+2017-10-30 16:21:50: snapshot -a unexport
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a unexport'
+
+administrator@cli> 
+2017-10-30 16:21:50: 
+Expect: Missing parameter
+
+2017-10-30 16:21:50: snapshot -a export -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-10-30 16:21:49: 
+Expect: Missing parameter
+
+2017-10-30 16:21:49: snapshot -a export
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a export'
+
+administrator@cli> 
+2017-10-30 16:21:49: 
+Expect: Missing parameter
+
+2017-10-30 16:21:49: snapshot -a mod -i 0 -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2017-10-30 16:21:49: 
+Expect: Missing parameter
+
+2017-10-30 16:21:49: snapshot -a mod -i 
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-10-30 16:21:49: 
+Expect: Missing parameter
+
+2017-10-30 16:21:49: snapshot -a mod
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+2017-10-30 16:21:49: 
+Expect: Missing parameter
+
+2017-10-30 16:21:49: snapshot -a add -d 0 -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2017-10-30 16:21:49: 
+Expect: Missing parameter
+
+2017-10-30 16:21:49: snapshot -a add -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+2017-10-30 16:21:49: 
+Expect: Missing parameter
+
+2017-10-30 16:21:49: snapshot -a add
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a add'
+
+administrator@cli> 
+2017-10-30 16:21:49: 
+Expect: Missing parameter
+
+2017-10-30 16:21:49: snapshot -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-10-30 16:21:49: 
+Expect: Missing parameter
+
+2017-10-30 16:20:24: 'result': 'p'
+2017-10-30 16:20:24: snapshot -a del -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-10-30 16:20:24: 
+Expect: Invalid option for the command or the action
+
+2017-10-30 16:20:24: snapshot -a rollback -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-10-30 16:20:24: 
+Expect: Invalid option for the command or the action
+
+2017-10-30 16:20:24: snapshot -a unexport -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-10-30 16:20:24: 
+Expect: Invalid option for the command or the action
+
+2017-10-30 16:20:24: snapshot -a export -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-10-30 16:20:24: 
+Expect: Invalid option for the command or the action
+
+2017-10-30 16:20:24: snapshot -a mod -i 3 -s "test=test_name"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+2017-10-30 16:20:24: 
+Expect: Invalid option for the command or the action
+
+2017-10-30 16:20:24: snapshot -a mod -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-10-30 16:20:24: 
+Expect: Invalid option for the command or the action
+
+2017-10-30 16:20:24: snapshot -a add -d 0 -s "test=test_name"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+2017-10-30 16:20:24: 
+Expect: Invalid option for the command or the action
+
+2017-10-30 16:20:24: snapshot -a add -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-10-30 16:20:24: 
+Expect: Invalid option for the command or the action
+
+2017-10-30 16:20:24: snapshot -i -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-10-30 16:20:23: 
+Expect: Invalid option for the command or the action
+
+2017-10-30 16:20:23: snapshot -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-10-30 16:20:23: 
+Expect: Invalid option for the command or the action
+
+2017-10-30 16:12:43: 'result': 'p'
+2017-10-30 16:12:43: snapshot -a del -i 100
+Error (0x4100102): Empty query result, please check input parameters. Snapshot id=[100] is not existed.
+
+administrator@cli> 
+2017-10-30 16:12:43: 
+Expect: id=[100] is not existed
+
+2017-10-30 16:12:43: snapshot -a del test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 16:12:43: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:12:43: snapshot -a rollback -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2017-10-30 16:12:43: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:12:43: snapshot -a rollback -i 0
+Error (0x4101307): Can't rollback Snapshot due to there exists newer ones.
+
+administrator@cli> 
+2017-10-30 16:12:43: 
+Expect: Can't rollback Snapshot due to there exists newer ones
+
+2017-10-30 16:12:43: snapshot -a rollback test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 16:12:43: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:12:43: snapshot -a unexport test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 16:12:43: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:12:43: snapshot -a export test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 16:12:43: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:12:43: snapshot -a mod -i 0 -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+2017-10-30 16:12:43: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:12:42: snapshot -a mod -i 0 -s "name=test_test_test_test_test_test_333"
+Error (0x2014): Setting parameters too long
+name: invalid setting test_test_test_test_test_test_333
+
+administrator@cli> 
+2017-10-30 16:12:42: 
+Expect: Setting parameters too long
+
+2017-10-30 16:12:42: snapshot -a mod -i 100 -s "name=test"
+Error (0x4100102): Empty query result, please check input parameters. Snapshot id=[100] is not existed.
+
+administrator@cli> 
+2017-10-30 16:12:42: 
+Expect: id=[100] is not existed
+
+2017-10-30 16:12:42: snapshot -a mod test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 16:12:42: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:12:42: snapshot -a add -d 0 -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+2017-10-30 16:12:42: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:12:42: snapshot -a add -t volume -d 0 -s "name=test_test_test_test_test_test_333"
+Error (0x2014): Setting parameters too long
+name: invalid setting test_test_test_test_test_test_333
+
+administrator@cli> 
+2017-10-30 16:12:42: 
+Expect: Setting parameters too long
+
+2017-10-30 16:12:42: snapshot -a add -t nasshare -d 0 -s "name=test_test_test_test_test_test_333"
+Error (0x2014): Setting parameters too long
+name: invalid setting test_test_test_test_test_test_333
+
+administrator@cli> 
+2017-10-30 16:12:42: 
+Expect: Setting parameters too long
+
+2017-10-30 16:12:42: snapshot -a add -t volume -d 100 -s "name=test"
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[100] is not existed.
+
+administrator@cli> 
+2017-10-30 16:12:42: 
+Expect: id=[100] is not existed
+
+2017-10-30 16:12:42: snapshot -a add -t nasshare -d 100 -s "name=test"
+Error (0x4100102): Empty query result, please check input parameters. Share Disk id=[100] is not existed.
+
+administrator@cli> 
+2017-10-30 16:12:42: 
+Expect: id=[100] is not existed
+
+2017-10-30 16:12:42: snapshot -a add test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 16:12:41: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:12:41: snapshot -v -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2017-10-30 16:12:41: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:12:41: snapshot -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2017-10-30 16:12:41: 
+Expect: Invalid setting parameters
+
+2017-10-30 16:12:41: snapshot test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 16:12:41: 
+Expect: Invalid setting parameters
+
+2017-10-30 14:58:40: 'result': 'p'
+2017-10-30 14:58:40: snapshot -a del -i 100
+Error (0x4100102): Empty query result, please check input parameters. Snapshot id=[100] is not existed.
+
+administrator@cli> 
+2017-10-30 14:58:40: 
+Expect: id=[100] is not existed
+
+2017-10-30 14:58:40: snapshot -a del test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 14:58:40: 
+Expect: Invalid setting parameters
+
+2017-10-30 14:58:40: snapshot -a rollback -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2017-10-30 14:58:40: 
+Expect: Invalid setting parameters
+
+2017-10-30 14:58:40: snapshot -a rollback -i 0
+Error (0x4101307): Can't rollback Snapshot due to there exists newer ones.
+
+administrator@cli> 
+2017-10-30 14:58:40: 
+Expect: Can't rollback Snapshot due to there exists newer ones
+
+2017-10-30 14:58:40: snapshot -a rollback test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 14:58:40: 
+Expect: Invalid setting parameters
+
+2017-10-30 14:58:40: snapshot -a unexport test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 14:58:40: 
+Expect: Invalid setting parameters
+
+2017-10-30 14:58:40: snapshot -a export test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 14:58:40: 
+Expect: Invalid setting parameters
+
+2017-10-30 14:58:40: snapshot -a mod -i 0 -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+2017-10-30 14:58:40: 
+Expect: Invalid setting parameters
+
+2017-10-30 14:58:39: snapshot -a mod -i 0 -s "name=test_test_test_test_test_test_333"
+Error (0x2014): Setting parameters too long
+name: invalid setting test_test_test_test_test_test_333
+
+administrator@cli> 
+2017-10-30 14:58:39: 
+Expect: Setting parameters too long
+
+2017-10-30 14:58:39: snapshot -a mod -i 100 -s "name=test"
+Error (0x4100102): Empty query result, please check input parameters. Snapshot id=[100] is not existed.
+
+administrator@cli> 
+2017-10-30 14:58:39: 
+Expect: id=[100] is not existed
+
+2017-10-30 14:58:39: snapshot -a mod test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 14:58:39: 
+Expect: Invalid setting parameters
+
+2017-10-30 14:58:39: snapshot -a add -d 0 -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+2017-10-30 14:58:39: 
+Expect: Invalid setting parameters
+
+2017-10-30 14:58:39: snapshot -a add -t volume -d 0 -s "name=test_test_test_test_test_test_333"
+Error (0x2014): Setting parameters too long
+name: invalid setting test_test_test_test_test_test_333
+
+administrator@cli> 
+2017-10-30 14:58:39: 
+Expect: Setting parameters too long
+
+2017-10-30 14:58:39: snapshot -a add -t nasshare -d 0 -s "name=test_test_test_test_test_test_333"
+Error (0x2014): Setting parameters too long
+name: invalid setting test_test_test_test_test_test_333
+
+administrator@cli> 
+2017-10-30 14:58:39: 
+Expect: Setting parameters too long
+
+2017-10-30 14:58:39: snapshot -a add -t volume -d 100 -s "name=test"
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[100] is not existed.
+
+administrator@cli> 
+2017-10-30 14:58:39: 
+Expect: id=[100] is not existed
+
+2017-10-30 14:58:39: snapshot -a add -t nasshare -d 100 -s "name=test"
+Error (0x4100102): Empty query result, please check input parameters. Share Disk id=[100] is not existed.
+
+administrator@cli> 
+2017-10-30 14:58:38: 
+Expect: id=[100] is not existed
+
+2017-10-30 14:58:38: snapshot -a add test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 14:58:38: 
+Expect: Invalid setting parameters
+
+2017-10-30 14:58:38: snapshot -v -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2017-10-30 14:58:38: 
+Expect: Invalid setting parameters
+
+2017-10-30 14:58:38: snapshot -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2017-10-30 14:58:38: 
+Expect: Invalid setting parameters
+
+2017-10-30 14:58:38: snapshot test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 14:58:38: 
+Expect: Invalid setting parameters
+
+2017-10-30 14:57:03: 'result': 'f'
+2017-10-30 14:57:03: snapshot -a del -i 100
+Error (0x4100102): Empty query result, please check input parameters. Snapshot id=[100] is not existed.
+
+administrator@cli> 
+2017-10-30 14:57:02: 
+Expect: id=[100] is not existed
+
+2017-10-30 14:57:02: snapshot -a del test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 14:57:02: 
+Expect: Invalid setting parameters
+
+2017-10-30 14:57:02: 
+Fail: please check out Can't rollback Snapshot due to there exists newer ones
+
+2017-10-30 14:57:02: snapshot -a rollback -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2017-10-30 14:57:02: 
+Expect: Can't rollback Snapshot due to there exists newer ones
+
+2017-10-30 14:57:02: 
+Fail: please check out Invalid setting parameters
+
+2017-10-30 14:57:02: snapshot -a rollback -i 0
+Error (0x4101307): Can't rollback Snapshot due to there exists newer ones.
+
+administrator@cli> 
+2017-10-30 14:57:02: 
+Expect: Invalid setting parameters
+
+2017-10-30 14:57:02: snapshot -a rollback test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 14:57:02: 
+Expect: Invalid setting parameters
+
+2017-10-30 14:57:02: snapshot -a unexport test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 14:57:02: 
+Expect: Invalid setting parameters
+
+2017-10-30 14:57:02: snapshot -a export test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 14:57:02: 
+Expect: Invalid setting parameters
+
+2017-10-30 14:57:02: snapshot -a mod -i 0 -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+2017-10-30 14:57:02: 
+Expect: Invalid setting parameters
+
+2017-10-30 14:57:02: snapshot -a mod -i 0 -s "name=test_test_test_test_test_test_333"
+Error (0x2014): Setting parameters too long
+name: invalid setting test_test_test_test_test_test_333
+
+administrator@cli> 
+2017-10-30 14:57:02: 
+Expect: Setting parameters too long
+
+2017-10-30 14:57:02: snapshot -a mod -i 100 -s "name=test"
+Error (0x4100102): Empty query result, please check input parameters. Snapshot id=[100] is not existed.
+
+administrator@cli> 
+2017-10-30 14:57:02: 
+Expect: id=[100] is not existed
+
+2017-10-30 14:57:02: snapshot -a mod test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 14:57:02: 
+Expect: Invalid setting parameters
+
+2017-10-30 14:57:02: snapshot -a add -d 0 -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+2017-10-30 14:57:02: 
+Expect: Invalid setting parameters
+
+2017-10-30 14:57:02: snapshot -a add -t volume -d 0 -s "name=test_test_test_test_test_test_333"
+Error (0x2014): Setting parameters too long
+name: invalid setting test_test_test_test_test_test_333
+
+administrator@cli> 
+2017-10-30 14:57:01: 
+Expect: Setting parameters too long
+
+2017-10-30 14:57:01: snapshot -a add -t nasshare -d 0 -s "name=test_test_test_test_test_test_333"
+Error (0x2014): Setting parameters too long
+name: invalid setting test_test_test_test_test_test_333
+
+administrator@cli> 
+2017-10-30 14:57:01: 
+Expect: Setting parameters too long
+
+2017-10-30 14:57:01: snapshot -a add -t volume -d 100 -s "name=test"
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[100] is not existed.
+
+administrator@cli> 
+2017-10-30 14:57:01: 
+Expect: id=[100] is not existed
+
+2017-10-30 14:57:01: snapshot -a add -t nasshare -d 100 -s "name=test"
+Error (0x4100102): Empty query result, please check input parameters. Share Disk id=[100] is not existed.
+
+administrator@cli> 
+2017-10-30 14:57:01: 
+Expect: id=[100] is not existed
+
+2017-10-30 14:57:01: snapshot -a add test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 14:57:01: 
+Expect: Invalid setting parameters
+
+2017-10-30 14:57:01: 
+Fail: snapshot -i 100
+
+2017-10-30 14:57:01: snapshot -i 100
+No snapshot exists
+
+administrator@cli> 
+2017-10-30 14:57:01: 
+Expect: id=[100] is not existed
+
+2017-10-30 14:57:01: snapshot -v -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2017-10-30 14:57:01: 
+Expect: Invalid setting parameters
+
+2017-10-30 14:57:01: snapshot -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2017-10-30 14:57:01: 
+Expect: Invalid setting parameters
+
+2017-10-30 14:57:01: snapshot test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 14:57:00: 
+Expect: Invalid setting parameters
+
+2017-10-30 14:56:19: snapshot -i 100
+No snapshot exists
+
+administrator@cli> 
+2017-10-30 14:56:19: 
+Expect: id=[100] is not existed
+
+2017-10-30 14:56:19: 
+Fail: snapshot -v -i test
+
+2017-10-30 14:56:19: snapshot -v -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2017-10-30 14:56:19: 
+Expect: Invalid setting parameters
+
+2017-10-30 14:56:19: 
+Fail: snapshot -i test
+
+2017-10-30 14:56:19: snapshot -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2017-10-30 14:56:18: 
+Expect: Invalid setting parameters
+
+2017-10-30 14:56:18: 
+Fail: snapshot test
+
+2017-10-30 14:56:18: snapshot test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 14:56:18: 
+Expect: Invalid setting parameters
+
+2017-10-30 14:55:39: snapshot -i 100
+No snapshot exists
+
+administrator@cli> 
+2017-10-30 14:55:39: 
+Expect: id=[100] is not existed
+
+2017-10-30 14:55:39: 
+Fail: snapshot -v -i test
+
+2017-10-30 14:55:39: snapshot -v -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2017-10-30 14:55:39: 
+Expect: Invalid setting parameters
+
+2017-10-30 14:55:39: 
+Fail: snapshot -i test
+
+2017-10-30 14:55:39: snapshot -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2017-10-30 14:55:39: 
+Expect: Invalid setting parameters
+
+2017-10-30 14:55:39: 
+Fail: snapshot test
+
+2017-10-30 14:55:39: snapshot test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-30 14:55:39: 
+Expect: Invalid setting parameters
+
+2017-10-30 14:46:04: 'result': 'p'
+2017-10-30 14:46:04: snapshot -a rollback -i 5
+
+administrator@cli> 
+2017-10-30 14:46:03: 
+Expect: snapshot of nasshare type should be rollbacked
+
+2017-10-30 14:46:03: snapshot -a rollback -i 4
+
+administrator@cli> 
+2017-10-30 14:46:03: 
+Expect: snapshot of volume type should be rollbacked
+
+2017-10-30 14:28:24: 'result': 'f'
+2017-10-30 14:28:24: 
+Fail: snapshot -a umount -i 2
+
+2017-10-30 14:28:23: snapshot -a umount -i 2
+Error (0x2013): Invalid setting parameters
+-a: invalid setting umount (list|add|mod|del|export|unexport|rollback)
+
+administrator@cli> 
+2017-10-30 14:28:23: 
+Expect: snapshot of nasshare should be modified mount to umount
+
+2017-10-30 14:28:23: 
+Fail: snapshot -a mount -i 2
+
+2017-10-30 14:28:22: snapshot -a mount -i 2
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mount (list|add|mod|del|export|unexport|rollback)
+
+administrator@cli> 
+2017-10-30 14:28:22: 
+Expect: snapshot of nasshare should be modified umount to mount
+
+2017-10-30 14:21:16: 'result': 'p'
+2017-10-30 14:21:16: snapshot -v -i 3
+-------------------------------------------------------------------------------
+Id: 3                                   Name: __test_test_test_test_test_test_
+Type: volume                            SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+UsedCapacity: 0 Byte                    CreateDate: 2017-10-31 02:06:22
+
+administrator@cli> 
+2017-10-30 14:21:15: snapshot -a unexport -i 3
+
+administrator@cli> 
+2017-10-30 14:21:15: 
+Expect: snapshot of volume should be modified export to unexport
+
+2017-10-30 14:21:15: snapshot -v -i 3
+-------------------------------------------------------------------------------
+Id: 3                                   Name: __test_test_test_test_test_test_
+Type: volume                            SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Exported                        ExportedId: 1
+ExportedWWN: 221600015561597e           OperationalStatus: OK, Synchronizing
+UsedCapacity: 0 Byte                    CreateDate: 2017-10-31 02:06:22
+
+administrator@cli> 
+2017-10-30 14:21:14: snapshot -a export -i 3
+
+administrator@cli> 
+2017-10-30 14:21:13: 
+Expect: snapshot of volume should be modified unexport to export
+
+2017-10-30 14:19:02: 'result': 'p'
+2017-10-30 14:19:02: snapshot -v -i 1
+-------------------------------------------------------------------------------
+Id: 1                                   Name: _test_test_test_test_test_test__
+Type: volume                            SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+UsedCapacity: 8.19 KB                   CreateDate: 2017-10-31 02:06:19
+
+administrator@cli> 
+2017-10-30 14:19:01: snapshot -a mod -i 1 -s "name=_test_test_test_test_test_test__"
+
+administrator@cli> 
+2017-10-30 14:19:01: 
+Expect: snapshot of nasshare type should be modified name of 32 char
+
+2017-10-30 14:19:01: snapshot -v -i 1
+-------------------------------------------------------------------------------
+Id: 1                                   Name: 1_test_test_test_test_test_test
+Type: volume                            SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+UsedCapacity: 8.19 KB                   CreateDate: 2017-10-31 02:06:19
+
+administrator@cli> 
+2017-10-30 14:19:00: snapshot -a mod -i 1 -s "name=1_test_test_test_test_test_test"
+
+administrator@cli> 
+2017-10-30 14:18:59: 
+Expect: snapshot of nasshare type should be modified name of 31 char
+
+2017-10-30 14:18:59: snapshot -v -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   Name: 12
+Type: nasshare                          SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Mounted                      OperationalStatus: OK, Synchronizing
+UsedCapacity: 19.46 KB                  CreateDate: 2017-10-31 02:06:18
+
+administrator@cli> 
+2017-10-30 14:18:58: snapshot -a mod -i 0 -s "name=12"
+
+administrator@cli> 
+2017-10-30 14:18:58: 
+Expect: snapshot of nasshare type should be modified name of 2 char
+
+2017-10-30 14:18:58: snapshot -v -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   Name: t
+Type: nasshare                          SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Mounted                      OperationalStatus: OK, Synchronizing
+UsedCapacity: 19.46 KB                  CreateDate: 2017-10-31 02:06:18
+
+administrator@cli> 
+2017-10-30 14:18:57: snapshot -a mod -i 0 -s "name=t"
+
+administrator@cli> 
+2017-10-30 14:18:57: 
+Expect: snapshot of nasshare type should be modified name of l char
+
+2017-10-30 14:16:07: 'result': 'p'
+2017-10-30 14:16:07: snapshot -i 0 -v
+-------------------------------------------------------------------------------
+Id: 0                                   Name: 1
+Type: nasshare                          SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Mounted                      OperationalStatus: OK, Synchronizing
+UsedCapacity: 19.46 KB                  CreateDate: 2017-10-31 02:06:18
+
+administrator@cli> 
+2017-10-30 14:16:07: 
+Expect: snapshot of id 0 should be listed by verbose mode
+
+2017-10-30 14:16:07: snapshot -v
+-------------------------------------------------------------------------------
+Id: 0                                   Name: 1
+Type: nasshare                          SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Mounted                      OperationalStatus: OK, Synchronizing
+UsedCapacity: 19.46 KB                  CreateDate: 2017-10-31 02:06:18
+-------------------------------------------------------------------------------
+Id: 1                                   Name: ab
+Type: volume                            SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+UsedCapacity: 8.19 KB                   CreateDate: 2017-10-31 02:06:19
+-------------------------------------------------------------------------------
+Id: 2                                   Name: test_test_test_test_test_test_1
+Type: nasshare                          SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Mounted                      OperationalStatus: OK, Synchronizing
+UsedCapacity: 0 Byte                    CreateDate: 2017-10-31 02:06:21
+-------------------------------------------------------------------------------
+Id: 3                                   Name: __test_test_test_test_test_test_
+Type: volume                            SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+UsedCapacity: 0 Byte                    CreateDate: 2017-10-31 02:06:22
+
+administrator@cli> 
+2017-10-30 14:16:07: 
+Expect: All of snapshot should be listed by verbose mode
+
+2017-10-30 14:13:12: 'result': 'p'
+2017-10-30 14:13:12: snapshot -i 0
+===============================================================================
+Id     Name                 Type       SrcId UsedCap    Status      OpStatus  
+===============================================================================
+0      1                    nasshare   0     19.46 KB   Un-Mounted  OK,        
+                                                                    Synchroni  
+                                                                    zing       
+
+administrator@cli> 
+2017-10-30 14:13:12: 
+Expect: snapshot of id 0 should be listed
+
+2017-10-30 14:13:12: snapshot
+===============================================================================
+Id     Name                 Type       SrcId UsedCap    Status      OpStatus  
+===============================================================================
+0      1                    nasshare   0     19.46 KB   Un-Mounted  OK,        
+                                                                    Synchroni  
+                                                                    zing       
+1      ab                   volume     0     8.19 KB    Un-Exported OK,        
+                                                                    Synchroni  
+                                                                    zing       
+2      test_test_test_test_ nasshare   0     0 Byte     Un-Mounted  OK,        
+       test_test_1                                                  Synchroni  
+                                                                    zing       
+3      __test_test_test_tes volume     0     0 Byte     Un-Exported OK,        
+       t_test_test_                                                 Synchroni  
+                                                                    zing       
+
+administrator@cli> 
+2017-10-30 14:13:12: 
+Expect: All of snapshot should be listed
+
+2017-10-30 14:12:44: 'result': 'f'
+2017-10-30 14:12:44: 
+Fail: please check out TotalCap
+
+2017-10-30 14:12:44: snapshot -i 0
+===============================================================================
+Id     Name                 Type       SrcId UsedCap    Status      OpStatus  
+===============================================================================
+0      1                    nasshare   0     19.46 KB   Un-Mounted  OK,        
+                                                                    Synchroni  
+                                                                    zing       
+
+administrator@cli> 
+2017-10-30 14:12:44: 
+Expect: snapshot of id 0 should be listed
+
+2017-10-30 14:12:44: 
+Fail: please check out TotalCap
+
+2017-10-30 14:12:44: snapshot
+===============================================================================
+Id     Name                 Type       SrcId UsedCap    Status      OpStatus  
+===============================================================================
+0      1                    nasshare   0     19.46 KB   Un-Mounted  OK,        
+                                                                    Synchroni  
+                                                                    zing       
+1      ab                   volume     0     8.19 KB    Un-Exported OK,        
+                                                                    Synchroni  
+                                                                    zing       
+2      test_test_test_test_ nasshare   0     0 Byte     Un-Mounted  OK,        
+       test_test_1                                                  Synchroni  
+                                                                    zing       
+3      __test_test_test_tes volume     0     0 Byte     Un-Exported OK,        
+       t_test_test_                                                 Synchroni  
+                                                                    zing       
+
+administrator@cli> 
+2017-10-30 14:12:44: 
+Expect: All of snapshot should be listed
+
+2017-10-30 14:09:51: 'result': 'p'
+2017-10-30 14:09:51: snapshot -v -i 3
+-------------------------------------------------------------------------------
+Id: 3                                   Name: __test_test_test_test_test_test_
+Type: volume                            SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+UsedCapacity: 0 Byte                    CreateDate: 2017-10-31 02:06:22
+
+administrator@cli> 
+2017-10-30 14:09:50: snapshot -a add -t volume -d 0 -s "name=__test_test_test_test_test_test_"
+
+administrator@cli> 
+2017-10-30 14:09:50: 
+Expect: snapshot of volume should be created when name is the under line +alp and length is 32
+
+2017-10-30 14:09:50: snapshot -v -i 2
+-------------------------------------------------------------------------------
+Id: 2                                   Name: test_test_test_test_test_test_1
+Type: nasshare                          SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Mounted                      OperationalStatus: OK, Synchronizing
+UsedCapacity: 0 Byte                    CreateDate: 2017-10-31 02:06:21
+
+administrator@cli> 
+2017-10-30 14:09:49: snapshot -a add -t nasshare -d 0 -s "name=test_test_test_test_test_test_1"
+
+administrator@cli> 
+2017-10-30 14:09:48: 
+Expect: snapshot of nasshare should be created when name is the alp+under line+num,length is 31
+
+2017-10-30 14:09:48: snapshot -v -i 1
+-------------------------------------------------------------------------------
+Id: 1                                   Name: ab
+Type: volume                            SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+UsedCapacity: 8.19 KB                   CreateDate: 2017-10-31 02:06:19
+
+administrator@cli> 
+2017-10-30 14:09:47: snapshot -a add -t volume -d 0 -s "name=ab"
+
+administrator@cli> 
+2017-10-30 14:09:47: 
+Expect: snapshot of volume should be created when name is the alp and length is 2
+
+2017-10-30 14:09:47: snapshot -v -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   Name: 1
+Type: nasshare                          SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Mounted                      OperationalStatus: OK, Synchronizing
+UsedCapacity: 19.46 KB                  CreateDate: 2017-10-31 02:06:18
+
+administrator@cli> 
+2017-10-30 14:09:46: snapshot -a add -t nasshare -d 0 -s "name=1"
+
+administrator@cli> 
+2017-10-30 14:09:45: 
+Expect: snapshot of nasshare type should be created when name is the num and length is 1
+
+2017-10-30 14:08:50: 'result': 'p'
+2017-10-30 14:08:50: snapshot
+===============================================================================
+Id     Name                 Type       SrcId UsedCap    Status      OpStatus  
+===============================================================================
+3      __test_test_test_tes volume     0     0 Byte     Un-Exported OK,        
+       t_test_test_                                                 Synchroni  
+                                                                    zing       
+
+administrator@cli> 
+2017-10-30 14:08:50: snapshot -a del -i 2 -f -y
+
+administrator@cli> 
+2017-10-30 14:08:50: 
+Expect: snapshot of id 2 should be forced deleted
+
+2017-10-30 14:08:50: snapshot
+===============================================================================
+Id     Name                 Type       SrcId UsedCap    Status      OpStatus  
+===============================================================================
+2      test_test_test_test_ nasshare   0     0 Byte     Un-Mounted  OK,        
+       test_test_1                                                  Synchroni  
+                                                                    zing       
+3      __test_test_test_tes volume     0     0 Byte     Un-Exported OK,        
+       t_test_test_                                                 Synchroni  
+                                                                    zing       
+
+administrator@cli> 
+2017-10-30 14:08:50: snapshot -a del -i 1 -f -y
+
+administrator@cli> 
+2017-10-30 14:08:49: 
+Expect: snapshot of id 1 should be forced deleted
+
+2017-10-30 14:08:49: snapshot
+===============================================================================
+Id     Name                 Type       SrcId UsedCap    Status      OpStatus  
+===============================================================================
+1      ab                   volume     0     8.19 KB    Un-Exported OK,        
+                                                                    Synchroni  
+                                                                    zing       
+2      test_test_test_test_ nasshare   0     0 Byte     Un-Mounted  OK,        
+       test_test_1                                                  Synchroni  
+                                                                    zing       
+3      __test_test_test_tes volume     0     0 Byte     Un-Exported OK,        
+       t_test_test_                                                 Synchroni  
+                                                                    zing       
+
+administrator@cli> 
+2017-10-30 14:08:49: snapshot -a del -i 0
+
+administrator@cli> 
+2017-10-30 14:08:48: 
+Expect: snapshot of id 0 should be deleted
+
+2017-10-30 13:58:51: 'result': 'f'
+2017-10-30 13:58:51: 
+Fail: please check out TotalCapacity: 2 GB
+
+2017-10-30 13:58:51: snapshot -v -i 3
+-------------------------------------------------------------------------------
+Id: 3                                   Name: __test_test_test_test_test_test_
+Type: volume                            SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+UsedCapacity: 0 Byte                    CreateDate: 2017-10-31 01:55:22
+
+administrator@cli> 
+2017-10-30 13:58:50: snapshot -a add -t volume -d 0 -s "name=__test_test_test_test_test_test_"
+
+administrator@cli> 
+2017-10-30 13:58:50: 
+Expect: snapshot of volume should be created when name is the under line +alp and length is 32
+
+2017-10-30 13:58:50: 
+Fail: please check out TotalCapacity: 2 GB
+
+2017-10-30 13:58:50: snapshot -v -i 2
+-------------------------------------------------------------------------------
+Id: 2                                   Name: test_test_test_test_test_test_1
+Type: nasshare                          SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Mounted                      OperationalStatus: OK, Synchronizing
+UsedCapacity: 0 Byte                    CreateDate: 2017-10-31 01:55:21
+
+administrator@cli> 
+2017-10-30 13:58:49: snapshot -a add -t nasshare -d 0 -s "name=test_test_test_test_test_test_1"
+
+administrator@cli> 
+2017-10-30 13:58:48: 
+Expect: snapshot of nasshare should be created when name is the alp+under line+num,length is 31
+
+2017-10-30 13:58:48: 
+Fail: please check out TotalCapacity: 2 GB
+
+2017-10-30 13:58:48: snapshot -v -i 1
+-------------------------------------------------------------------------------
+Id: 1                                   Name: ab
+Type: volume                            SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+UsedCapacity: 8.19 KB                   CreateDate: 2017-10-31 01:55:19
+
+administrator@cli> 
+2017-10-30 13:58:47: snapshot -a add -t volume -d 0 -s "name=ab"
+
+administrator@cli> 
+2017-10-30 13:58:47: 
+Expect: snapshot of volume should be created when name is the alp and length is 2
+
+2017-10-30 13:58:47: 
+Fail: please check out TotalCapacity: 2 GB
+
+2017-10-30 13:58:46: snapshot -v -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   Name: 1
+Type: nasshare                          SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Mounted                      OperationalStatus: OK, Synchronizing
+UsedCapacity: 19.46 KB                  CreateDate: 2017-10-31 01:55:17
+
+administrator@cli> 
+2017-10-30 13:58:45: snapshot -a add -t nasshare -d 0 -s "name=1"
+
+administrator@cli> 
+2017-10-30 13:58:45: 
+Expect: snapshot of nasshare type should be created when name is the num and length is 1
+
+2017-10-30 13:56:52: 'result': 'f'
+2017-10-30 13:56:52: 
+Fail: please check out TotalCapacity: 2 GB
+
+2017-10-30 13:56:52: 
+Fail: please check out Type: volume
+
+2017-10-30 13:56:52: 
+Fail: please check out Name: __test_test_test_test_test_test_
+
+2017-10-30 13:56:52: sanpshot -v -i 3
+Error (0x401): Invalid command or request
+invalid command: sanpshot
+
+administrator@cli> 
+2017-10-30 13:56:51: snapshot -a add -t volume -d 0 -s "name=__test_test_test_test_test_test_"
+
+administrator@cli> 
+2017-10-30 13:56:51: 
+Expect: snapshot of volume should be created when name is the under line +alp and length is 32
+
+2017-10-30 13:56:51: 
+Fail: please check out TotalCapacity: 2 GB
+
+2017-10-30 13:56:51: 
+Fail: please check out Type: nasshare
+
+2017-10-30 13:56:51: 
+Fail: please check out Name: test_test_test_test_test_test_1
+
+2017-10-30 13:56:51: sanpshot -v -i 2
+Error (0x401): Invalid command or request
+invalid command: sanpshot
+
+administrator@cli> 
+2017-10-30 13:56:50: snapshot -a add -t nasshare -d 0 -s "name=test_test_test_test_test_test_1"
+
+administrator@cli> 
+2017-10-30 13:56:49: 
+Expect: snapshot of nasshare should be created when name is the alp+under line+num,length is 31
+
+2017-10-30 13:56:49: 
+Fail: please check out TotalCapacity: 2 GB
+
+2017-10-30 13:56:49: 
+Fail: please check out Type: volume
+
+2017-10-30 13:56:49: 
+Fail: please check out Name: ab
+
+2017-10-30 13:56:49: sanpshot -v -i 1
+Error (0x401): Invalid command or request
+invalid command: sanpshot
+
+administrator@cli> 
+2017-10-30 13:56:48: snapshot -a add -t volume -d 0 -s "name=ab"
+
+administrator@cli> 
+2017-10-30 13:56:47: 
+Expect: snapshot of volume should be created when name is the alp and length is 2
+
+2017-10-30 13:56:47: 
+Fail: please check out TotalCapacity: 2 GB
+
+2017-10-30 13:56:47: 
+Fail: please check out Type: nasshare
+
+2017-10-30 13:56:47: 
+Fail: please check out Name: 1
+
+2017-10-30 13:56:47: sanpshot -v -i 0
+Error (0x401): Invalid command or request
+invalid command: sanpshot
+
+administrator@cli> 
+2017-10-30 13:56:46: snapshot -a add -t nasshare -d 0 -s "name=1"
+
+administrator@cli> 
+2017-10-30 13:56:46: 
+Expect: snapshot of nasshare type should be created when name is the num and length is 1
+
+2017-10-30 13:53:56: 'result': 'f'
+2017-10-30 13:53:56: 
+Fail: snapshot -a add -t 1 -s "name=__test_test_test_test_test_test_"
+
+2017-10-30 13:53:55: snapshot -a add -t 1 -s "name=__test_test_test_test_test_test_"
+Error (0x2013): Invalid setting parameters
+-t: invalid setting 1 (volume|nasshare)
+
+administrator@cli> 
+2017-10-30 13:53:55: 
+Expect: snapshot of volume should be created when name is the under line +alp and length is 32
+
+2017-10-30 13:53:55: 
+Fail: snapshot -a add -t 0 -s "name=test_test_test_test_test_test_1"
+
+2017-10-30 13:53:54: snapshot -a add -t 0 -s "name=test_test_test_test_test_test_1"
+Error (0x2013): Invalid setting parameters
+-t: invalid setting 0 (volume|nasshare)
+
+administrator@cli> 
+2017-10-30 13:53:54: 
+Expect: snapshot of nasshare should be created when name is the alp+under line+num,length is 31
+
+2017-10-30 13:53:54: 
+Fail: snapshot -a add -t 1 -s "name=ab"
+
+2017-10-30 13:53:53: snapshot -a add -t 1 -s "name=ab"
+Error (0x2013): Invalid setting parameters
+-t: invalid setting 1 (volume|nasshare)
+
+administrator@cli> 
+2017-10-30 13:53:53: 
+Expect: snapshot of volume should be created when name is the alp and length is 2
+
+2017-10-30 13:53:53: 
+Fail: snapshot -a add -t 0 -s "name=1"
+
+2017-10-30 13:53:52: snapshot -a add -t 0 -s "name=1"
+Error (0x2013): Invalid setting parameters
+-t: invalid setting 0 (volume|nasshare)
+
+administrator@cli> 
+2017-10-30 13:53:52: 
+Expect: snapshot of nasshare type should be created when name is the num and length is 1
+
+2017-10-30 13:53:03: 'result': 'f'
+2017-10-30 13:53:03: 
+Fail: sanpshot -a add -t 1 -s "name=__test_test_test_test_test_test_"
+
+2017-10-30 13:53:02: sanpshot -a add -t 1 -s "name=__test_test_test_test_test_test_"
+Error (0x401): Invalid command or request
+invalid command: sanpshot
+
+administrator@cli> 
+2017-10-30 13:53:02: 
+Expect: snapshot of volume should be created when name is the under line +alp and length is 32
+
+2017-10-30 13:53:02: 
+Fail: sanpshot -a add -t 0 -s "name=test_test_test_test_test_test_1"
+
+2017-10-30 13:53:01: sanpshot -a add -t 0 -s "name=test_test_test_test_test_test_1"
+Error (0x401): Invalid command or request
+invalid command: sanpshot
+
+administrator@cli> 
+2017-10-30 13:53:01: 
+Expect: snapshot of nasshare should be created when name is the alp+under line+num,length is 31
+
+2017-10-30 13:53:01: 
+Fail: sanpshot -a add -t 1 -s "name=ab"
+
+2017-10-30 13:53:00: sanpshot -a add -t 1 -s "name=ab"
+Error (0x401): Invalid command or request
+invalid command: sanpshot
+
+administrator@cli> 
+2017-10-30 13:53:00: 
+Expect: snapshot of volume should be created when name is the alp and length is 2
+
+2017-10-30 13:53:00: 
+Fail: sanpshot -a add -t 0 -s "name=1"
+
+2017-10-30 13:52:59: sanpshot -a add -t 0 -s "name=1"
+Error (0x401): Invalid command or request
+invalid command: sanpshot
+
+administrator@cli> 
+2017-10-30 13:52:59: 
+Expect: snapshot of nasshare type should be created when name is the num and length is 1
+
+2017-10-30 13:52:42: 'result': 'p'
+2017-10-30 13:52:42: acl -a clear
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a clear'
+
+administrator@cli> 
+2017-10-30 13:52:42: 
+Expect: Missing parameter
+
+2017-10-30 13:52:42: acl -a clear -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+2017-10-30 13:52:41: 
+Expect: Missing parameter
+
+2017-10-30 13:52:41: acl -a cancel -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+2017-10-30 13:52:41: 
+Expect: Missing parameter
+
+2017-10-30 13:52:41: acl -a cancel
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a cancel'
+
+administrator@cli> 
+2017-10-30 13:52:41: 
+Expect: Missing parameter
+
+2017-10-30 13:52:41: acl -a del -d 0 -t clone -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2017-10-30 13:52:41: 
+Expect: Missing parameter
+
+2017-10-30 13:52:41: acl -a del -d 0 -t nasshare -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2017-10-30 13:52:41: 
+Expect: Missing parameter
+
+2017-10-30 13:52:41: acl -a del -d 0 -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2017-10-30 13:52:41: 
+Expect: Missing parameter
+
+2017-10-30 13:52:41: acl -a del -d 0 
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a del'
+
+administrator@cli> 
+2017-10-30 13:52:41: 
+Expect: Missing parameter
+
+2017-10-30 13:52:41: acl -a del -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+2017-10-30 13:52:41: 
+Expect: Missing parameter
+
+2017-10-30 13:52:41: acl -a refresh -d 0 -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2017-10-30 13:52:41: 
+Expect: Missing parameter
+
+2017-10-30 13:52:41: acl -a refresh -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+2017-10-30 13:52:41: 
+Expect: Missing parameter
+
+2017-10-30 13:52:41: acl -a refresh
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a refresh'
+
+administrator@cli> 
+2017-10-30 13:52:41: 
+Expect: Missing parameter
+
+2017-10-30 13:52:41: acl -a mod -d 0 -t clone -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2017-10-30 13:52:41: 
+Expect: Missing parameter
+
+2017-10-30 13:52:41: acl -a mod -d 0 -t clone
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+2017-10-30 13:52:41: 
+Expect: Missing parameter
+
+2017-10-30 13:52:41: acl -a mod -d 0 -t nasshare -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2017-10-30 13:52:41: 
+Expect: Missing parameter
+
+2017-10-30 13:52:41: acl -a mod -d 0 -t nasshare 
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+2017-10-30 13:52:41: 
+Expect: Missing parameter
+
+2017-10-30 13:52:41: acl -a mod -d 0 -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2017-10-30 13:52:41: 
+Expect: Missing parameter
+
+2017-10-30 13:52:41: acl -a mod -d 0 
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a mod'
+
+administrator@cli> 
+2017-10-30 13:52:41: 
+Expect: Missing parameter
+
+2017-10-30 13:52:41: acl -a mod -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+2017-10-30 13:52:41: 
+Expect: Missing parameter
+
+2017-10-30 13:52:41: acl -a add -d 0 -t clone -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2017-10-30 13:52:41: 
+Expect: Missing parameter
+
+2017-10-30 13:52:41: acl -a add -d 0 -t clone
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a add'
+
+administrator@cli> 
+2017-10-30 13:52:41: 
+Expect: Missing parameter
+
+2017-10-30 13:52:41: acl -a add -d 0 -t nasshare -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2017-10-30 13:52:41: 
+Expect: Missing parameter
+
+2017-10-30 13:52:41: acl -a add -d 0 -t nasshare 
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a add'
+
+administrator@cli> 
+2017-10-30 13:52:40: 
+Expect: Missing parameter
+
+2017-10-30 13:52:40: acl -a add -d 0 -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2017-10-30 13:52:40: 
+Expect: Missing parameter
+
+2017-10-30 13:52:40: acl -a add -d 0 
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a add'
+
+administrator@cli> 
+2017-10-30 13:52:40: 
+Expect: Missing parameter
+
+2017-10-30 13:52:40: acl -a add -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+2017-10-30 13:52:40: 
+Expect: Missing parameter
+
+2017-10-30 13:52:40: acl -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+2017-10-30 13:52:40: 
+Expect: Missing parameter
+
+2017-10-30 13:52:40: acl -d 0 -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2017-10-30 13:52:40: 
+Expect: Missing parameter
+
+2017-10-30 13:52:40: acl -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+2017-10-30 13:52:40: 
+Expect: Missing parameter
+
+2017-10-30 13:52:18: 
+Expect: acl of nasshare type should be modified deny in users
+
+2017-10-30 13:52:18: acl -d 0 -t nasshare
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      rw         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+
+administrator@cli> 
+2017-10-30 13:52:15: acl -a mod -d 0 -t nasshare -s "role=user,name=test_acl_0,acl=rw"
+
+administrator@cli> 
+2017-10-30 13:52:14: 
+Expect: acl of nasshare type should be modified rw in users
+
+2017-10-30 13:52:14: acl -d 0 -t nasshare
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+
+administrator@cli> 
+2017-10-30 13:52:11: acl -a mod -d 0 -t nasshare -s "role=user,name=test_acl_0,acl=ro"
+
+administrator@cli> 
+2017-10-30 13:52:11: 
+Expect: acl of nasshare type should be modified ro in users
+
+2017-10-30 13:52:10: 'result': 'p'
+2017-10-30 13:52:10: acl -a refresh -d 0 -t nasshare
+
+administrator@cli> 
+2017-10-30 13:52:10: 
+Expect: refresh acl of nasshare type
+
+2017-10-30 13:52:10: acl -a refresh -d 0 -t clone
+
+administrator@cli> 
+2017-10-30 13:52:10: 
+Expect: refresh acl of clone type
+
+2017-10-30 13:52:10: 'result': 'p'
+2017-10-30 13:52:10: acl -v -t clone -d 0
+-------------------------------------------------------------------------------
+Role: everyone                          UIDorGID: N/A
+ACL: deny                               Status: ready
+UsernameOrGroupname: everyone
+-------------------------------------------------------------------------------
+Role: user                              UIDorGID: 1001
+ACL: ro                                 Status: ready
+UsernameOrGroupname: test_acl_0
+-------------------------------------------------------------------------------
+Role: user                              UIDorGID: 1002
+ACL: rw                                 Status: ready
+UsernameOrGroupname: test_acl_1
+-------------------------------------------------------------------------------
+Role: user                              UIDorGID: 1003
+ACL: deny                               Status: ready
+UsernameOrGroupname: test_acl_2
+
+administrator@cli> 
+2017-10-30 13:52:10: 
+Expect: list acl settings of specific clone type by verbose mode
+
+2017-10-30 13:52:10: acl -v -t nasshare -d 0
+-------------------------------------------------------------------------------
+Role: everyone                          UIDorGID: N/A
+ACL: deny                               Status: ready
+UsernameOrGroupname: everyone
+-------------------------------------------------------------------------------
+Role: user                              UIDorGID: 1001
+ACL: ro                                 Status: ready
+UsernameOrGroupname: test_acl_0
+-------------------------------------------------------------------------------
+Role: user                              UIDorGID: 1002
+ACL: rw                                 Status: ready
+UsernameOrGroupname: test_acl_1
+-------------------------------------------------------------------------------
+Role: user                              UIDorGID: 1003
+ACL: deny                               Status: ready
+UsernameOrGroupname: test_acl_2
+
+administrator@cli> 
+2017-10-30 13:52:10: 
+Expect: list acl settings of specific nasshare type by verbose mode
+
+2017-10-30 13:52:10: 'result': 'p'
+2017-10-30 13:52:10: acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+
+administrator@cli> 
+2017-10-30 13:52:10: 
+Expect: list acl settings of clone type
+
+2017-10-30 13:52:09: acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+
+administrator@cli> 
+2017-10-30 13:52:09: 
+Expect: list acl settings of nasshare type
+
+2017-10-30 13:52:09: 'result': 'f'
+2017-10-30 13:52:09: 
+Fail: please check out test-acl_group_2                                      deny
+
+2017-10-30 13:52:09: acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+
+administrator@cli> 
+2017-10-30 13:52:06: acl -a add -d 0 -t clone -s "role=group,acl=deny,name=test_acl_group_2"
+
+administrator@cli> 
+2017-10-30 13:52:06: 
+Expect: signle nas group should can set deny permissions on clone
+
+2017-10-30 13:52:06: 
+Fail: please check out test-acl_group_1                                      rw
+
+2017-10-30 13:52:06: acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+
+administrator@cli> 
+2017-10-30 13:52:03: acl -a add -d 0 -t clone -s "role=group,acl=rw,name=test_acl_group_1"
+
+administrator@cli> 
+2017-10-30 13:52:02: 
+Expect: signle nas group should can set rw permissions on clone
+
+2017-10-30 13:52:02: 
+Fail: please check out test-acl_group_0                                      ro
+
+2017-10-30 13:52:02: acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+
+administrator@cli> 
+2017-10-30 13:51:59: acl -a add -d 0 -t clone -s "role=group,acl=ro,name=test_acl_group_0"
+
+administrator@cli> 
+2017-10-30 13:51:59: 
+Expect: signle nas group should can set ro permissions on clone
+
+2017-10-30 13:51:59: 
+Fail: please check out test-acl_group_2                                      deny
+
+2017-10-30 13:51:59: acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+
+administrator@cli> 
+2017-10-30 13:51:56: acl -a add -d 0 -t nasshare -s "role=group,acl=deny,name=test_acl_group_2"
+
+administrator@cli> 
+2017-10-30 13:51:56: 
+Expect: signle nas group should can set deny permissions on nasshare
+
+2017-10-30 13:51:56: 
+Fail: please check out test-acl_group_1                                      rw
+
+2017-10-30 13:51:56: acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+
+administrator@cli> 
+2017-10-30 13:51:53: acl -a add -d 0 -t nasshare -s "role=group,acl=rw,name=test_acl_group_1"
+
+administrator@cli> 
+2017-10-30 13:51:53: 
+Expect: signle nas group should can set rw permissions on nasshare
+
+2017-10-30 13:51:53: 
+Fail: please check out test-acl_group_0                                      ro
+
+2017-10-30 13:51:53: acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+
+administrator@cli> 
+2017-10-30 13:51:50: acl -a add -d 0 -t nasshare -s "role=group,acl=ro,name=test_acl_group_0"
+
+administrator@cli> 
+2017-10-30 13:51:49: 
+Expect: signle nas group should can set ro permissions on nasshare
+
+2017-10-30 13:51:49: acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+
+administrator@cli> 
+2017-10-30 13:51:46: acl -a add -d 0 -t clone -s "role=user,acl=deny,name=test_acl_2"
+
+administrator@cli> 
+2017-10-30 13:51:46: 
+Expect: signle nas user should can set deny permissions on clone
+
+2017-10-30 13:51:46: acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+
+administrator@cli> 
+2017-10-30 13:51:43: acl -a add -d 0 -t clone -s "role=user,acl=rw,name=test_acl_1"
+
+administrator@cli> 
+2017-10-30 13:51:43: 
+Expect: signle nas user should can set rw permissions on clone
+
+2017-10-30 13:51:43: acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+
+administrator@cli> 
+2017-10-30 13:51:39: acl -a add -d 0 -t clone -s "role=user,acl=ro,name=test_acl_0"
+
+administrator@cli> 
+2017-10-30 13:51:39: 
+Expect: signle nas user should can set ro permissions on clone
+
+2017-10-30 13:51:39: acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+
+administrator@cli> 
+2017-10-30 13:51:36: acl -a add -d 0 -t nasshare -s "role=user,acl=deny,name=test_acl_2"
+
+administrator@cli> 
+2017-10-30 13:51:36: 
+Expect: signle nas user should can set deny permissions on nasshare
+
+2017-10-30 13:51:36: acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+
+administrator@cli> 
+2017-10-30 13:51:33: acl -a add -d 0 -t nasshare -s "role=user,acl=rw,name=test_acl_1"
+
+administrator@cli> 
+2017-10-30 13:51:32: 
+Expect: signle nas user should can set rw permissions on nasshare
+
+2017-10-30 13:51:32: acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+
+administrator@cli> 
+2017-10-30 13:51:29: acl -a add -d 0 -t nasshare -s "role=user,acl=ro,name=test_acl_0"
+
+administrator@cli> 
+2017-10-30 13:51:29: 
+Expect: signle nas user should can set ro permissions on nasshare
+
+2017-10-30 13:51:29: acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+
+administrator@cli> 
+2017-10-30 13:51:26: acl -a add -d 0 -t clone -s "role=everyone,acl=deny"
+
+administrator@cli> 
+2017-10-30 13:51:25: 
+Expect: permisions of everyone should be deny only on clone
+
+2017-10-30 13:51:25: acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+2017-10-30 13:51:22: acl -a add -d 0 -t clone -s "role=everyone,acl=rw"
+
+administrator@cli> 
+2017-10-30 13:51:22: 
+Expect: permisions of everyone should be rw on clone
+
+2017-10-30 13:51:22: acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        ro         
+
+administrator@cli> 
+2017-10-30 13:51:19: acl -a add -d 0 -t clone -s "role=everyone,acl=ro"
+
+administrator@cli> 
+2017-10-30 13:51:18: 
+Expect: permisions of everyone should be 0 on clone
+
+2017-10-30 13:51:18: acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+
+administrator@cli> 
+2017-10-30 13:51:15: acl -a add -d 0 -t nasshare -s "role=everyone,acl=deny"
+
+administrator@cli> 
+2017-10-30 13:51:15: 
+Expect: permisions of everyone should be deny only on nasshare
+
+2017-10-30 13:51:15: acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+2017-10-30 13:51:12: acl -a add -d 0 -t nasshare -s "role=everyone,acl=rw"
+
+administrator@cli> 
+2017-10-30 13:51:12: 
+Expect: permisions of everyone should be rw on nasshare
+
+2017-10-30 13:51:11: acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        ro         
+
+administrator@cli> 
+2017-10-30 13:51:08: acl -a add -d 0 -t nasshare -s "role=everyone,acl=ro"
+
+administrator@cli> 
+2017-10-30 13:51:08: 
+Expect: permisions of everyone should be 0 on nasshare
+
 2017-10-30 13:38:31: 'result': 'p'
 2017-10-30 13:38:31: acl -a clear
 Error (0x403): Missing parameter
