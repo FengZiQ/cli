@@ -1,142 +1,82 @@
-# coding=utf-8
+# coding = utf-8
+# 2017.10.31
 
-from send_cmd import *
-from to_log import *
 from ssh_connect import ssh_conn
+import time
+from cli_test import cli_test
+from remote import server
+from find_unconfigured_pd_id import find_pd_id
 
-Pass = "'result': 'p'"
-Fail = "'result': 'f'"
+data = 'data/perfstats.xlsx'
 
-def verifyPerfstatsStart(c):
-    FailFlag = False
-    tolog("<b>Verify perfstats -a start </b>")
 
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify perfstats -a start </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
+def precondition():
+    pdId = find_pd_id()
+    # create pool
+    server.webapi('post', 'pool', {"name": "test_perf_pool", "pds": pdId[:3], "raid_level": "raid5"})
 
-    return FailFlag
+    # create nasShare
+    server.webapi('post', 'nasshare', {'pool_id': 0, 'name': 'test_perf_nas', 'capacity': '2GB'})
+    # create snapshot of NASShare type
+    server.webapi('post', 'snapshot', {"name": "test_snap_nas_perf", "type": 'nasshare', "source_id": 0})
+    # create clone of NASShare type
+    server.webapi('post', 'clone', {"source_id": 0, "name": 'test_perf_nas'})
 
-def verifyPerfstats(c):
-    FailFlag = False
-    tolog("<b>Verify perfstats </b>")
+    # create volume
+    server.webapi('post', 'volume', {'pool_id': 0, 'name': 'test_perf_volume', 'capacity': '2GB'})
+    # create snapshot of volume type
+    server.webapi('post', 'snapshot', {"name": "test_snap_vol_perf", "type": 'volume', "source_id": 0})
+    # create clone of volume type
+    server.webapi('post', 'clone', {"source_id": 1, "name": 'test_perf_vol'})
 
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify perfstats </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
 
-    return FailFlag
+def clean_up_environment():
 
-def verifyPerfstatsList(c):
-    FailFlag = False
-    tolog("<b>Verify perfstats -a list </b>")
+    server.webapi('delete', 'pool/0?force=1')
 
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify perfstats -a list </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
 
-    return FailFlag
+def start_perfstats(c):
+    # precondition
+    precondition()
 
-def verifyPerfstatsInvalidOption(c):
-    FailFlag = False
-    tolog("<b>Verify perfstats invalid option</b>")
+    cli_test.other(c, data, 'start_perfstats')
 
-    command = [
-        'perfstats -x',
-        'perfstats -a list -x',
-        'perfstats -a start -x'
-    ]
 
-    for com in command:
-        tolog('<b> Verify ' + com + '</b>')
+def list_perfstats(c):
+    # precondition
+    server.webapi('post', 'perfstatsstart')
 
-        result = SendCmd(c, com)
+    cli_test.list(c, data, 'list_perfstats')
 
-        if "Error (" not in result or "Invalid option" not in result:
-            FailFlag = True
-            tolog('\n<font color="red">Fail: ' + com + ' </font>')
 
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify perfstats invalid option </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
+def invalid_setting_parameter(c):
 
-    return FailFlag
+    cli_test.failed_test(c, data, 'invalid_setting_parameter')
 
-def verifyPerfstatsInvalidParameters(c):
-    FailFlag = False
-    tolog("<b>Verify perfstats invalid parameters</b>")
 
-    command = [
-        'perfstats test',
-        'perfstats -a test'
-    ]
+def invalid_option(c):
 
-    for com in command:
-        tolog('<b> Verify ' + com + '</b>')
+    cli_test.failed_test(c, data, 'invalid_option')
 
-        result = SendCmd(c, com)
 
-        if "Error (" not in result or "Invalid setting parameters" not in result:
-            FailFlag = True
-            tolog('\n<font color="red">Fail: ' + com + ' </font>')
+def missing_parameter(c):
 
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify perfstats invalid parameters </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
+    cli_test.failed_test(c, data, 'missing_parameter')
 
-    return FailFlag
+    # clean up environment
+    clean_up_environment()
 
-def verifyPerfstatsMissingParameters(c):
-    FailFlag = False
-    tolog("<b>Verify perfstats missing parameters</b>")
-
-    command = [
-        'perfstats -a ',
-        'perfstats -a list -t'
-    ]
-
-    for com in command:
-        tolog('<b> Verify ' + com + '</b>')
-
-        result = SendCmd(c, com)
-
-        if "Error (" not in result or "Missing parameter" not in result:
-            FailFlag = True
-            tolog('\n<font color="red">Fail: ' + com + ' </font>')
-
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify perfstats missing parameters </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
-
-    return FailFlag
 
 if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
-    verifyPerfstatsStart(c)
-    verifyPerfstats(c)
-    verifyPerfstatsList(c)
-    verifyPerfstatsInvalidOption(c)
-    verifyPerfstatsInvalidParameters(c)
-    verifyPerfstatsMissingParameters(c)
+
+    start_perfstats(c)
+    list_perfstats(c)
+    invalid_setting_parameter(c)
+    invalid_option(c)
+    missing_parameter(c)
+
     ssh.close()
     elasped = time.clock() - start
     print "Elasped %s" % elasped

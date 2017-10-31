@@ -1,121 +1,17 @@
 
 Expect: Missing parameter
 
-snapshot -i
+perfstats -t
 Error (0x403): Missing parameter
--i: missing value
+-t: missing value
 
 administrator@cli> 
 
 Expect: Missing parameter
 
-snapshot -a add
+perfstats -a
 Error (0x403): Missing parameter
-missing parameter '-t' for '-a add'
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-snapshot -a add -d
-Error (0x403): Missing parameter
--d: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-snapshot -a add -d 0 -s
-Error (0x403): Missing parameter
--s: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-snapshot -a mod
-Error (0x403): Missing parameter
-missing parameter '-s' for '-a mod'
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-snapshot -a mod -i 
-Error (0x403): Missing parameter
--i: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-snapshot -a mod -i 0 -s
-Error (0x403): Missing parameter
--s: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-snapshot -a export
-Error (0x403): Missing parameter
-missing parameter '-i' for '-a export'
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-snapshot -a export -i
-Error (0x403): Missing parameter
--i: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-snapshot -a unexport
-Error (0x403): Missing parameter
-missing parameter '-i' for '-a unexport'
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-snapshot -a unexport -i
-Error (0x403): Missing parameter
--i: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-snapshot -a del
-Error (0x403): Missing parameter
-missing parameter '-i' for '-a del'
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-snapshot -a del -i
-Error (0x403): Missing parameter
--i: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-snapshot -a rollback
-Error (0x403): Missing parameter
-missing parameter '-i' for '-a rollback'
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-snapshot -a rollback -i
-Error (0x403): Missing parameter
--i: missing value
+-a: missing value
 
 administrator@cli> 
 'result': 'p'

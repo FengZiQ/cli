@@ -1,3 +1,1389 @@
+2017-10-31 11:10:33: 'result': 'p'
+2017-10-31 11:10:33: perfstats -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+2017-10-31 11:10:33: 
+Expect: Missing parameter
+
+2017-10-31 11:10:33: perfstats -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2017-10-31 11:10:33: 
+Expect: Missing parameter
+
+2017-10-31 11:10:33: 'result': 'p'
+2017-10-31 11:10:33: perfstats -a -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-10-31 11:10:33: 
+Expect: Invalid option for the command or the action
+
+2017-10-31 11:10:33: perfstats -t -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-10-31 11:10:33: 
+Expect: Invalid option for the command or the action
+
+2017-10-31 11:10:33: perfstats -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-10-31 11:10:33: 
+Expect: Invalid option for the command or the action
+
+2017-10-31 11:10:33: 'result': 'f'
+2017-10-31 11:10:33: 
+Fail: perfstats -t logdrv
+
+2017-10-31 11:10:33: perfstats -t logdrv
+-------------------------------------------------------------------------------
+Logical drive Performance Statistics
+-------------------------------------------------------------------------------
+Id: 0                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+
+administrator@cli> 
+2017-10-31 11:10:33: 
+Expect: Invalid setting parameters
+
+2017-10-31 11:10:33: perfstats -a start test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-31 11:10:33: 
+Expect: Invalid setting parameters
+
+2017-10-31 11:10:33: perfstats -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|start)
+
+administrator@cli> 
+2017-10-31 11:10:32: 
+Expect: Invalid setting parameters
+
+2017-10-31 11:10:32: perfstats -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (ctrl|logdrv|phydrv|all)
+
+administrator@cli> 
+2017-10-31 11:10:32: 
+Expect: Invalid setting parameters
+
+2017-10-31 11:10:32: perfstats test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-31 11:10:32: 
+Expect: Invalid setting parameters
+
+2017-10-31 11:10:32: 'result': 'f'
+2017-10-31 11:10:32: 
+Fail: please check out Port Performance Statistics
+
+2017-10-31 11:10:32: perfstats
+-------------------------------------------------------------------------------
+Controller Performance Statistics
+-------------------------------------------------------------------------------
+Id: 2                                   CacheUsage: 0
+DirtyCache: 0
+-------------------------------------------------------------------------------
+Physical Drive Performance Statistics
+-------------------------------------------------------------------------------
+Id: 1                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 2                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 3                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 4                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 5                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 6                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 7                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 8                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 9                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 10                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 11                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 12                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 13                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 14                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 15                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 16                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Logical drive Performance Statistics
+-------------------------------------------------------------------------------
+CtrlId: 1                               PortId: 1
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 1                               PortId: 2
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 1                               PortId: 3
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 1                               PortId: 4
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+Logical drive Performance Statistics
+-------------------------------------------------------------------------------
+Id: 0                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+
+administrator@cli> 
+2017-10-31 11:10:32: 
+Expect: list all of the performance statistics
+
+2017-10-31 11:10:32: 
+Fail: please check out Port Performance Statistics
+
+2017-10-31 11:10:32: perfstats -t all
+-------------------------------------------------------------------------------
+Controller Performance Statistics
+-------------------------------------------------------------------------------
+Id: 2                                   CacheUsage: 0
+DirtyCache: 0
+-------------------------------------------------------------------------------
+Physical Drive Performance Statistics
+-------------------------------------------------------------------------------
+Id: 1                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 2                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 3                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 4                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 5                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 6                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 7                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 8                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 9                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 10                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 11                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 12                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 13                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 14                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 15                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 16                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Logical drive Performance Statistics
+-------------------------------------------------------------------------------
+CtrlId: 1                               PortId: 1
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 1                               PortId: 2
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 1                               PortId: 3
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 1                               PortId: 4
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+Logical drive Performance Statistics
+-------------------------------------------------------------------------------
+Id: 0                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+
+administrator@cli> 
+2017-10-31 11:10:32: 
+Expect: list all of the performance statistics
+
+2017-10-31 11:10:32: 
+Fail: perfstats -t port
+
+2017-10-31 11:10:32: perfstats -t port
+Error (0x2013): Invalid setting parameters
+-t: invalid setting port (ctrl|logdrv|phydrv|all)
+
+administrator@cli> 
+2017-10-31 11:10:32: 
+Expect: list the performance statistics of port
+
+2017-10-31 11:10:32: perfstats -t phydrv
+-------------------------------------------------------------------------------
+Physical Drive Performance Statistics
+-------------------------------------------------------------------------------
+Id: 1                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 2                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 3                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 4                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 5                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 6                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 7                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 8                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 9                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 10                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 11                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 12                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 13                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 14                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 15                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 16                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+
+administrator@cli> 
+2017-10-31 11:10:32: 
+Expect: list the performance statistics of phydrv
+
+2017-10-31 11:10:32: perfstats -t ctrl
+-------------------------------------------------------------------------------
+Controller Performance Statistics
+-------------------------------------------------------------------------------
+Id: 2                                   CacheUsage: 0
+DirtyCache: 0
+
+administrator@cli> 
+2017-10-31 11:10:32: 
+Expect: list the performance statistics of ctrl
+
+2017-10-31 11:10:32: 'result': 'p'
+2017-10-31 11:10:32: perfstats -a start
+
+administrator@cli> 
+2017-10-31 11:10:31: 
+Expect: Starts the performance statistics
+
+2017-10-31 10:54:28: 'result': 'p'
+2017-10-31 10:54:28: perfstats -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+2017-10-31 10:54:28: 
+Expect: Missing parameter
+
+2017-10-31 10:54:28: perfstats -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2017-10-31 10:54:28: 
+Expect: Missing parameter
+
+2017-10-31 10:53:58: 'result': 'p'
+2017-10-31 10:53:58: perfstats -a -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-10-31 10:53:58: 
+Expect: Invalid option for the command or the action
+
+2017-10-31 10:53:58: perfstats -t -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-10-31 10:53:58: 
+Expect: Invalid option for the command or the action
+
+2017-10-31 10:53:58: perfstats -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-10-31 10:53:58: 
+Expect: Invalid option for the command or the action
+
+2017-10-31 10:53:35: 'result': 'f'
+2017-10-31 10:53:35: 
+Fail: please check out Invalid setting parameters
+
+2017-10-31 10:53:35: perfstats -t logdrv
+Error (0x49925102): Performance statistics process is not started
+
+administrator@cli> 
+2017-10-31 10:53:35: 
+Expect: Invalid setting parameters
+
+2017-10-31 10:53:35: perfstats -a start test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-31 10:53:35: 
+Expect: Invalid setting parameters
+
+2017-10-31 10:53:35: perfstats -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|start)
+
+administrator@cli> 
+2017-10-31 10:53:35: 
+Expect: Invalid setting parameters
+
+2017-10-31 10:53:35: perfstats -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (ctrl|logdrv|phydrv|all)
+
+administrator@cli> 
+2017-10-31 10:53:35: 
+Expect: Invalid setting parameters
+
+2017-10-31 10:53:35: perfstats test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-31 10:53:35: 
+Expect: Invalid setting parameters
+
+2017-10-31 10:52:57: 'result': 'p'
+2017-10-31 10:52:57: perfstats -a start test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-31 10:52:57: 
+Expect: Invalid setting parameters
+
+2017-10-31 10:52:57: perfstats -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|start)
+
+administrator@cli> 
+2017-10-31 10:52:57: 
+Expect: Invalid setting parameters
+
+2017-10-31 10:52:57: perfstats -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (ctrl|logdrv|phydrv|all)
+
+administrator@cli> 
+2017-10-31 10:52:57: 
+Expect: Invalid setting parameters
+
+2017-10-31 10:52:57: perfstats test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-31 10:52:57: 
+Expect: Invalid setting parameters
+
+2017-10-31 10:52:02: 'result': 'p'
+2017-10-31 10:52:02: perfstats -a -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-10-31 10:52:02: 
+Expect: Invalid option for the command or the action
+
+2017-10-31 10:52:02: perfstats -t -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-10-31 10:52:02: 
+Expect: Invalid option for the command or the action
+
+2017-10-31 10:52:02: perfstats -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-10-31 10:52:02: 
+Expect: Invalid option for the command or the action
+
+2017-10-31 10:52:02: 'result': 'p'
+2017-10-31 10:52:02: perfstats -a start test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-31 10:52:02: 
+Expect: Invalid setting parameters
+
+2017-10-31 10:52:02: perfstats -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|start)
+
+administrator@cli> 
+2017-10-31 10:52:02: 
+Expect: Invalid setting parameters
+
+2017-10-31 10:52:02: perfstats -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (ctrl|logdrv|phydrv|all)
+
+administrator@cli> 
+2017-10-31 10:52:02: 
+Expect: Invalid setting parameters
+
+2017-10-31 10:52:02: perfstats test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-10-31 10:52:02: 
+Expect: Invalid setting parameters
+
+2017-10-31 10:44:36: 'result': 'f'
+2017-10-31 10:44:36: 
+Fail: please check out Port Performance Statistics
+
+2017-10-31 10:44:36: perfstats
+-------------------------------------------------------------------------------
+Controller Performance Statistics
+-------------------------------------------------------------------------------
+Id: 2                                   CacheUsage: 0
+DirtyCache: 0
+-------------------------------------------------------------------------------
+Physical Drive Performance Statistics
+-------------------------------------------------------------------------------
+Id: 1                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 2                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 3                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 4                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 5                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 6                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 7                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 8                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 9                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 10                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 11                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 12                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 13                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 14                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 15                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 16                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Logical drive Performance Statistics
+-------------------------------------------------------------------------------
+CtrlId: 1                               PortId: 1
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 1                               PortId: 2
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 1                               PortId: 3
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 1                               PortId: 4
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+Logical drive Performance Statistics
+-------------------------------------------------------------------------------
+Id: 0                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+
+administrator@cli> 
+2017-10-31 10:44:35: 
+Expect: list all of the performance statistics
+
+2017-10-31 10:44:35: 
+Fail: please check out Port Performance Statistics
+
+2017-10-31 10:44:35: perfstats -t all
+-------------------------------------------------------------------------------
+Controller Performance Statistics
+-------------------------------------------------------------------------------
+Id: 2                                   CacheUsage: 0
+DirtyCache: 0
+-------------------------------------------------------------------------------
+Physical Drive Performance Statistics
+-------------------------------------------------------------------------------
+Id: 1                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 2                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 3                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 4                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 5                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 6                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 7                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 8                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 9                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 10                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 11                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 12                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 13                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 14                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 15                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 16                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Logical drive Performance Statistics
+-------------------------------------------------------------------------------
+CtrlId: 1                               PortId: 1
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 1                               PortId: 2
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 1                               PortId: 3
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 1                               PortId: 4
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+Logical drive Performance Statistics
+-------------------------------------------------------------------------------
+Id: 0                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+
+administrator@cli> 
+2017-10-31 10:44:35: 
+Expect: list all of the performance statistics
+
+2017-10-31 10:44:35: 
+Fail: perfstats -t port
+
+2017-10-31 10:44:35: perfstats -t port
+Error (0x2013): Invalid setting parameters
+-t: invalid setting port (ctrl|logdrv|phydrv|all)
+
+administrator@cli> 
+2017-10-31 10:44:35: 
+Expect: list the performance statistics of port
+
+2017-10-31 10:44:35: perfstats -t phydrv
+-------------------------------------------------------------------------------
+Physical Drive Performance Statistics
+-------------------------------------------------------------------------------
+Id: 1                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 2                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 3                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 4                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 5                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 6                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 7                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 8                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 9                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 10                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 11                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 12                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 13                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 14                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 15                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 16                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+
+administrator@cli> 
+2017-10-31 10:44:35: 
+Expect: list the performance statistics of phydrv
+
+2017-10-31 10:44:35: perfstats -t ctrl
+-------------------------------------------------------------------------------
+Controller Performance Statistics
+-------------------------------------------------------------------------------
+Id: 2                                   CacheUsage: 0
+DirtyCache: 0
+
+administrator@cli> 
+2017-10-31 10:44:35: 
+Expect: list the performance statistics of ctrl
+
+2017-10-31 10:35:54: 'result': 'f'
+2017-10-31 10:35:54: perfstats
+-------------------------------------------------------------------------------
+Controller Performance Statistics
+-------------------------------------------------------------------------------
+Id: 2                                   CacheUsage: 0
+DirtyCache: 0
+-------------------------------------------------------------------------------
+Physical Drive Performance Statistics
+-------------------------------------------------------------------------------
+Id: 1                                   MaxLantency: 20
+MinLantency: 0                          AverLatency: 4
+IoReq: 295                              BandWidth: 27262976
+-------------------------------------------------------------------------------
+Id: 2                                   MaxLantency: 30
+MinLantency: 0                          AverLatency: 3
+IoReq: 297                              BandWidth: 27459584
+-------------------------------------------------------------------------------
+Id: 3                                   MaxLantency: 20
+MinLantency: 0                          AverLatency: 3
+IoReq: 293                              BandWidth: 27131904
+-------------------------------------------------------------------------------
+Id: 4                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 5                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 6                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 7                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 8                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 9                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 10                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 11                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 12                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 13                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 14                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 15                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 16                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Logical drive Performance Statistics
+-------------------------------------------------------------------------------
+CtrlId: 1                               PortId: 1
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 1                               PortId: 2
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 1                               PortId: 3
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 1                               PortId: 4
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+Logical drive Performance Statistics
+-------------------------------------------------------------------------------
+Id: 0                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+
+administrator@cli> 
+2017-10-31 10:35:53: 
+Expect: list all of the performance statistics
+
+2017-10-31 10:35:53: perfstats -t all
+-------------------------------------------------------------------------------
+Controller Performance Statistics
+-------------------------------------------------------------------------------
+Id: 2                                   CacheUsage: 0
+DirtyCache: 0
+-------------------------------------------------------------------------------
+Physical Drive Performance Statistics
+-------------------------------------------------------------------------------
+Id: 1                                   MaxLantency: 20
+MinLantency: 0                          AverLatency: 4
+IoReq: 295                              BandWidth: 27262976
+-------------------------------------------------------------------------------
+Id: 2                                   MaxLantency: 30
+MinLantency: 0                          AverLatency: 3
+IoReq: 297                              BandWidth: 27459584
+-------------------------------------------------------------------------------
+Id: 3                                   MaxLantency: 20
+MinLantency: 0                          AverLatency: 3
+IoReq: 293                              BandWidth: 27131904
+-------------------------------------------------------------------------------
+Id: 4                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 5                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 6                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 7                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 8                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 9                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 10                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 11                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 12                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 13                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 14                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 15                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 16                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Logical drive Performance Statistics
+-------------------------------------------------------------------------------
+CtrlId: 1                               PortId: 1
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 1                               PortId: 2
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 1                               PortId: 3
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 1                               PortId: 4
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+MaxLantency: 0                          MinLantency: 0
+AverLatency: 0                          IoReq: 0
+BandWidth: 0
+-------------------------------------------------------------------------------
+Logical drive Performance Statistics
+-------------------------------------------------------------------------------
+Id: 0                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+
+administrator@cli> 
+2017-10-31 10:35:53: 
+Expect: list all of the performance statistics
+
+2017-10-31 10:35:53: 
+Fail: perfstats -t port
+
+2017-10-31 10:35:53: perfstats -t port
+Error (0x2013): Invalid setting parameters
+-t: invalid setting port (ctrl|logdrv|phydrv|all)
+
+administrator@cli> 
+2017-10-31 10:35:53: 
+Expect: list the performance statistics of port
+
+2017-10-31 10:35:53: perfstats -t phydrv
+-------------------------------------------------------------------------------
+Physical Drive Performance Statistics
+-------------------------------------------------------------------------------
+Id: 1                                   MaxLantency: 20
+MinLantency: 0                          AverLatency: 4
+IoReq: 295                              BandWidth: 27262976
+-------------------------------------------------------------------------------
+Id: 2                                   MaxLantency: 30
+MinLantency: 0                          AverLatency: 3
+IoReq: 297                              BandWidth: 27459584
+-------------------------------------------------------------------------------
+Id: 3                                   MaxLantency: 20
+MinLantency: 0                          AverLatency: 3
+IoReq: 293                              BandWidth: 27131904
+-------------------------------------------------------------------------------
+Id: 4                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 5                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 6                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 7                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 8                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 9                                   MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 10                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 11                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 12                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 13                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 14                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 15                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+-------------------------------------------------------------------------------
+Id: 16                                  MaxLantency: 0
+MinLantency: 0                          AverLatency: 0
+IoReq: 0                                BandWidth: 0
+
+administrator@cli> 
+2017-10-31 10:35:53: 
+Expect: list the performance statistics of phydrv
+
+2017-10-31 10:35:53: perfstats -t ctrl
+-------------------------------------------------------------------------------
+Controller Performance Statistics
+-------------------------------------------------------------------------------
+Id: 2                                   CacheUsage: 0
+DirtyCache: 0
+
+administrator@cli> 
+2017-10-31 10:35:53: 
+Expect: list the performance statistics of ctrl
+
+2017-10-31 10:35:46: 'result': 'p'
+2017-10-31 10:35:46: perfstats -a start
+
+administrator@cli> 
+2017-10-31 10:35:46: 
+Expect: Starts the performance statistics
+
+2017-10-31 10:33:37: 'result': 'f'
+2017-10-31 10:33:37: 
+Fail: perfstats
+
+2017-10-31 10:33:37: perfstats
+Error (0x49925102): Performance statistics process is not started
+
+administrator@cli> 
+2017-10-31 10:33:37: 
+Expect: list all of the performance statistics
+
+2017-10-31 10:33:36: 
+Fail: perfstats -t all
+
+2017-10-31 10:33:36: perfstats -t all
+Error (0x49925102): Performance statistics process is not started
+
+administrator@cli> 
+2017-10-31 10:33:36: 
+Expect: list all of the performance statistics
+
+2017-10-31 10:33:36: 
+Fail: perfstats -t port
+
+2017-10-31 10:33:36: perfstats -t port
+Error (0x2013): Invalid setting parameters
+-t: invalid setting port (ctrl|logdrv|phydrv|all)
+
+administrator@cli> 
+2017-10-31 10:33:36: 
+Expect: list the performance statistics of port
+
+2017-10-31 10:33:36: 
+Fail: perfstats -t phydrv
+
+2017-10-31 10:33:36: perfstats -t phydrv
+Error (0x49925102): Performance statistics process is not started
+
+administrator@cli> 
+2017-10-31 10:33:36: 
+Expect: list the performance statistics of phydrv
+
+2017-10-31 10:33:36: 
+Fail: perfstats -t ctrl
+
+2017-10-31 10:33:36: perfstats -t ctrl
+Error (0x49925102): Performance statistics process is not started
+
+administrator@cli> 
+2017-10-31 10:33:36: 
+Expect: list the performance statistics of ctrl
+
+2017-10-31 10:28:26: 'result': 'p'
+2017-10-31 10:28:26: perfstats -a start
+
+administrator@cli> 
+2017-10-31 10:28:25: 
+Expect: Starts the performance statistics
+
 2017-10-30 16:54:28: 'result': 'p'
 2017-10-30 16:54:28: snapshot -a rollback -i
 Error (0x403): Missing parameter
