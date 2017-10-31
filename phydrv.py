@@ -1,226 +1,57 @@
-# coding=utf-8
+# coding = utf-8
+# 2017.10.31
 
-from send_cmd import *
-from to_log import *
 from ssh_connect import ssh_conn
+import time
+from cli_test import cli_test
+from remote import server
+from find_unconfigured_pd_id import find_pd_id
 
-Pass = "'result': 'p'"
-Fail = "'result': 'f'"
+data = 'data/phydrv.xlsx'
 
-def verifyPhydrv(c):
-    FailFlag = False
-    tolog("<b>Verify phydrv </b>")
 
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify phydrv </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
+def precondition():
+    pdId = find_pd_id()
+    # create pool
+    server.webapi('post', 'pool', {"name": "test_perf_pool", "pds": pdId[:3], "raid_level": "raid5"})
 
-    return FailFlag
 
-def verifyPhydrvList(c):
-    FailFlag = False
-    tolog("<b>Verify phydrv -a list </b>")
 
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify phydrv -a list</font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
+def clean_up_environment():
 
-    return FailFlag
+    server.webapi('delete', 'pool/0?force=1')
 
-def verifyPhydrvMod(c):
-    FailFlag = False
-    tolog("<b>Verify phydrv -a mod </b>")
 
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify phydrv -a mod </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
 
-    return FailFlag
 
-def verifyPhydrvLocate(c):
-    FailFlag = False
-    tolog("<b>Verify phydrv -a locate</b>")
+def invalid_setting_parameter(c):
 
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify phydrv -a locate </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
+    cli_test.failed_test(c, data, 'invalid_setting_parameter')
 
-    return FailFlag
 
-def verifyPhydrvOnline(c):
-    FailFlag = False
-    tolog("<b>Verify phydrv -a online</b>")
+def invalid_option(c):
 
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify phydrv -a online </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
+    cli_test.failed_test(c, data, 'invalid_option')
 
-    return FailFlag
 
-def verifyPhydrvOffline(c):
-    FailFlag = False
-    tolog("<b>Verify phydrv -a offline</b>")
+def missing_parameter(c):
 
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify phydrv -a offline </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
+    cli_test.failed_test(c, data, 'missing_parameter')
 
-    return FailFlag
+    # clean up environment
+    clean_up_environment()
 
-def verifyPhydrvClear(c):
-    FailFlag = False
-    tolog("<b>Verify phydrv -a clear</b>")
-
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify phydrv -a clear </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
-
-    return FailFlag
-
-def verifyPhydrvSpecifyInexistentId(c):
-    FailFlag = False
-    tolog("<b> Verify phydrv specify inexistent Id </b>")
-    # -p <PD ID> (1,512)
-
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify phydrv specify inexistent Id </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
-
-    return FailFlag
-
-def verifyPhydrvInvalidOption(c):
-    FailFlag = False
-    tolog("<b>Verify phydrv invalid option</b>")
-
-    command = [
-        'phydrv -x',
-        'phydrv -a list -x',
-        'phydrv -a mod -x',
-        'phydrv -a locate -x',
-        'phydrv -a online -x',
-        'phydrv -a offline -x',
-        'phydrv -a clear -x'
-    ]
-
-    for com in command:
-        tolog('<b> Verify ' + com + '</b>')
-
-        result = SendCmd(c, com)
-
-        if "Error (" not in result or "Invalid option" not in result:
-            FailFlag = True
-            tolog('\n<font color="red">Fail: ' + com + ' </font>')
-
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify phydrv invalid option </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
-
-    return FailFlag
-
-def verifyPhydrvInvalidParameters(c):
-    FailFlag = False
-    tolog("<b>Verify phydrv invalid parameters</b>")
-
-    command = [
-        'phydrv test',
-        'phydrv -a list test',
-        'phydrv -a mod test',
-        'phydrv -a locate test',
-        'phydrv -a online test',
-        'phydrv -a offline test',
-        'phydrv -a clear test'
-    ]
-
-    for com in command:
-        tolog('<b> Verify ' + com + '</b>')
-
-        result = SendCmd(c, com)
-
-        if "Error (" not in result or "Invalid setting parameters" not in result:
-            FailFlag = True
-            tolog('\n<font color="red">Fail: ' + com + ' </font>')
-
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify phydrv invalid parameters </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
-
-    return FailFlag
-
-def verifyPhydrvMissingParameters(c):
-    FailFlag = False
-    tolog("<b>Verify phydrv missing parameters</b>")
-
-    command = [
-        'phydrv -p',
-        'phydrv -a list -p',
-        'phydrv -a mod -s',
-        'phydrv -a locate -p',
-        'phydrv -a online -p',
-        'phydrv -a offline -p'
-    ]
-
-    for com in command:
-        tolog('<b> Verify ' + com + '</b>')
-
-        result = SendCmd(c, com)
-
-        if "Error (" not in result or "Missing parameter" not in result:
-            FailFlag = True
-            tolog('\n<font color="red">Fail: ' + com + ' </font>')
-
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify phydrv missing parameters </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
-
-    return FailFlag
 
 if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
-    verifyPhydrv(c)
-    verifyPhydrvList(c)
-    verifyPhydrvMod(c)
-    verifyPhydrvLocate(c)
-    verifyPhydrvOnline(c)
-    verifyPhydrvOffline(c)
-    verifyPhydrvClear(c)
-    verifyPhydrvSpecifyInexistentId(c)
-    verifyPhydrvInvalidOption(c)
-    verifyPhydrvInvalidParameters(c)
-    verifyPhydrvMissingParameters(c)
+
+
+
+    invalid_setting_parameter(c)
+    invalid_option(c)
+    missing_parameter(c)
+
     ssh.close()
     elasped = time.clock() - start
     print "Elasped %s" % elasped
