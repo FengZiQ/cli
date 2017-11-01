@@ -1,3 +1,648 @@
+2017-11-01 11:58:54: 'result': 'p'
+2017-11-01 11:58:54: rb -a stop -l 0 -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2017-11-01 11:58:54: 
+Expect: Missing parameter
+
+2017-11-01 11:58:54: rb -a stop -l 0
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a stop'
+
+administrator@cli> 
+2017-11-01 11:58:54: 
+Expect: Missing parameter
+
+2017-11-01 11:58:54: rb -a stop -l
+Error (0x403): Missing parameter
+-l: missing value
+
+administrator@cli> 
+2017-11-01 11:58:54: 
+Expect: Missing parameter
+
+2017-11-01 11:58:54: rb -a stop
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a stop'
+
+administrator@cli> 
+2017-11-01 11:58:54: 
+Expect: Missing parameter
+
+2017-11-01 11:58:54: rb -a start -l 0 -s 2 -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2017-11-01 11:58:54: 
+Expect: Missing parameter
+
+2017-11-01 11:58:54: rb -a start -l 0 -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2017-11-01 11:58:54: 
+Expect: Missing parameter
+
+2017-11-01 11:58:54: rb -a start -l 0
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a start'
+
+administrator@cli> 
+2017-11-01 11:58:54: 
+Expect: Missing parameter
+
+2017-11-01 11:58:54: rb -a start -l
+Error (0x403): Missing parameter
+-l: missing value
+
+administrator@cli> 
+2017-11-01 11:58:53: 
+Expect: Missing parameter
+
+2017-11-01 11:58:53: rb -a start
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a start'
+
+administrator@cli> 
+2017-11-01 11:58:53: 
+Expect: Missing parameter
+
+2017-11-01 11:56:42: 'result': 'p'
+2017-11-01 11:56:42: rb -a stop -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-01 11:56:42: 
+Expect: Invalid option for the command or the action
+
+2017-11-01 11:56:42: rb -a start -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-01 11:56:42: 
+Expect: Invalid option for the command or the action
+
+2017-11-01 11:56:42: rb -a -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-01 11:56:42: 
+Expect: Invalid option for the command or the action
+
+2017-11-01 11:56:42: rb -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-01 11:56:42: 
+Expect: Invalid option for the command or the action
+
+2017-11-01 11:55:20: 'result': 'p'
+2017-11-01 11:55:20: rb -a stop -l 0 -s 100
+Error (0x402): Invalid parameter
+Invalid phydrv sequence number
+
+administrator@cli> 
+2017-11-01 11:55:20: 
+Expect: Invalid phydrv sequence number
+
+2017-11-01 11:55:20: rb -a stop -l 100 -s 2
+Error (0x2013): Invalid setting parameters
+-l: invalid setting 100 (0,31)
+
+administrator@cli> 
+2017-11-01 11:55:20: 
+Expect: Invalid setting parameters
+
+2017-11-01 11:55:20: rb -a stop -l 10 -s 2
+Error (0x4100102): Empty query result, please check input parameters. Pool id=[10] is not existed.
+
+administrator@cli> 
+2017-11-01 11:55:20: 
+Expect: Pool id=[10] is not existed
+
+2017-11-01 11:55:20: rb -a stop test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-01 11:55:20: 
+Expect: Invalid setting parameters
+
+2017-11-01 11:55:20: rb -a start -l 0 -s 100 -p 12
+Error (0x402): Invalid parameter
+Invalid phydrv sequence number
+
+administrator@cli> 
+2017-11-01 11:55:20: 
+Expect: Invalid phydrv sequence number
+
+2017-11-01 11:55:20: rb -a start -l 100 -s 2 -p 12
+Error (0x2013): Invalid setting parameters
+-l: invalid setting 100 (0,31)
+
+administrator@cli> 
+2017-11-01 11:55:19: 
+Expect: Invalid setting parameters
+
+2017-11-01 11:55:19: rb -a start -l 10 -s 2 -p 12
+Error (0x4100102): Empty query result, please check input parameters. Pool id=[10] is not existed.
+
+administrator@cli> 
+2017-11-01 11:55:19: 
+Expect: Pool id=[10] is not existed
+
+2017-11-01 11:55:19: rb -a start test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-01 11:55:19: 
+Expect: Invalid setting parameters
+
+2017-11-01 11:55:19: rb -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|start|stop)
+
+administrator@cli> 
+2017-11-01 11:55:19: 
+Expect: Invalid setting parameters
+
+2017-11-01 11:55:19: rb test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-01 11:55:19: 
+Expect: Invalid setting parameters
+
+2017-11-01 11:27:33: 'result': 'p'
+2017-11-01 11:27:33: rb -a stop -l 0 -s 100
+Error (0x402): Invalid parameter
+Invalid phydrv sequence number
+
+administrator@cli> 
+2017-11-01 11:27:33: 
+Expect: 
+
+2017-11-01 11:27:33: rb -a stop -l 100 -s 2
+Error (0x2013): Invalid setting parameters
+-l: invalid setting 100 (0,31)
+
+administrator@cli> 
+2017-11-01 11:27:33: 
+Expect: 
+
+2017-11-01 11:27:33: rb -a stop -l 10 -s 2
+Error (0x4100102): Empty query result, please check input parameters. Pool id=[10] is not existed.
+
+administrator@cli> 
+2017-11-01 11:27:33: 
+Expect: 
+
+2017-11-01 11:27:33: rb -a stop test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-01 11:27:32: 
+Expect: 
+
+2017-11-01 11:27:32: rb -a start -l 0 -s 100 -p 12
+Error (0x402): Invalid parameter
+Invalid phydrv sequence number
+
+administrator@cli> 
+2017-11-01 11:27:32: 
+Expect: 
+
+2017-11-01 11:27:32: rb -a start -l 100 -s 2 -p 12
+Error (0x2013): Invalid setting parameters
+-l: invalid setting 100 (0,31)
+
+administrator@cli> 
+2017-11-01 11:27:32: 
+Expect: 
+
+2017-11-01 11:27:32: rb -a start -l 10 -s 2 -p 12
+Error (0x4100102): Empty query result, please check input parameters. Pool id=[10] is not existed.
+
+administrator@cli> 
+2017-11-01 11:27:32: 
+Expect: 
+
+2017-11-01 11:27:32: rb -a start test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-01 11:27:32: 
+Expect: Invalid setting parameters
+
+2017-11-01 11:27:32: rb -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|start|stop)
+
+administrator@cli> 
+2017-11-01 11:27:32: 
+Expect: 
+
+2017-11-01 11:27:32: rb test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-01 11:27:32: 
+Expect: 
+
+2017-11-01 11:26:46: 'result': 'p'
+2017-11-01 11:26:46: rb -a stop -l 0 -s 100
+Error (0x402): Invalid parameter
+Invalid phydrv sequence number
+
+administrator@cli> 
+2017-11-01 11:26:46: 
+Expect: 
+
+2017-11-01 11:26:46: rb -a stop -l 100 -s 2
+Error (0x2013): Invalid setting parameters
+-l: invalid setting 100 (0,31)
+
+administrator@cli> 
+2017-11-01 11:26:46: 
+Expect: 
+
+2017-11-01 11:26:46: rb -a stop test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-01 11:26:46: 
+Expect: 
+
+2017-11-01 11:26:46: rb -a start -l 0 -s 100 -p 12
+Error (0x402): Invalid parameter
+Invalid phydrv sequence number
+
+administrator@cli> 
+2017-11-01 11:26:46: 
+Expect: 
+
+2017-11-01 11:26:46: rb -a start -l 100 -s 2 -p 12
+Error (0x2013): Invalid setting parameters
+-l: invalid setting 100 (0,31)
+
+administrator@cli> 
+2017-11-01 11:26:46: 
+Expect: 
+
+2017-11-01 11:26:46: rb -a start test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-01 11:26:46: 
+Expect: Invalid setting parameters
+
+2017-11-01 11:26:46: rb -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|start|stop)
+
+administrator@cli> 
+2017-11-01 11:26:46: 
+Expect: 
+
+2017-11-01 11:26:46: rb test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-01 11:26:46: 
+Expect: 
+
+2017-11-01 11:25:44: 'result': 'p'
+2017-11-01 11:25:43: rb
+-------------------------------------------------------------------------------
+PoolId: 0
+===============================================================================
+PdId                    Percentage                   Status                    
+===============================================================================
+12                      0                            Running                   
+
+administrator@cli> 
+2017-11-01 11:25:40: rb -a start -l 0 -s 2 -p 12
+
+administrator@cli> 
+2017-11-01 11:25:38: 
+Expect: rb should start
+
+2017-11-01 11:25:38: phydrv -p 3
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+3    ST373455SS  SAS HDD  73 GB       Encl1 Slot3   Forced     Pool0           
+                                                    Offline                    
+
+administrator@cli> 
+2017-11-01 11:25:34: phydrv -a offline -p 3
+
+administrator@cli> 
+2017-11-01 11:25:33: 
+Expect: pd 3 is offline
+
+2017-11-01 11:19:52: 'result': 'p'
+2017-11-01 11:19:52: rb
+This background activity is not running.
+administrator@cli> 
+2017-11-01 11:19:49: rb -a stop -l 0 -s 2
+
+administrator@cli> 
+2017-11-01 11:19:47: 
+Expect: rb process should be stoped
+
+2017-11-01 11:19:37: 'result': 'p'
+2017-11-01 11:19:37: rb
+-------------------------------------------------------------------------------
+PoolId: 0
+===============================================================================
+PdId                    Percentage                   Status                    
+===============================================================================
+12                      0                            Running                   
+
+administrator@cli> 
+2017-11-01 11:19:37: 
+Expect: rb process should be displaied
+
+2017-11-01 11:19:27: 'result': 'p'
+2017-11-01 11:19:27: rb
+-------------------------------------------------------------------------------
+PoolId: 0
+===============================================================================
+PdId                    Percentage                   Status                    
+===============================================================================
+12                      0                            Running                   
+
+administrator@cli> 
+2017-11-01 11:19:24: rb -a start -l 0 -s 2 -p 12
+
+administrator@cli> 
+2017-11-01 11:19:21: 
+Expect: rb should start
+
+2017-11-01 11:19:21: phydrv -p 3
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+3    ST373455SS  SAS HDD  73 GB       Encl1 Slot3   Forced     Pool0           
+                                                    Offline                    
+
+administrator@cli> 
+2017-11-01 11:19:18: phydrv -a offline -p 3
+
+administrator@cli> 
+2017-11-01 11:19:17: 
+Expect: pd 3 is offline
+
+2017-11-01 11:13:05: 'result': 'p'
+2017-11-01 11:13:05: rb
+-------------------------------------------------------------------------------
+PoolId: 0
+===============================================================================
+PdId                    Percentage                   Status                    
+===============================================================================
+8                       0                            Running                   
+
+administrator@cli> 
+2017-11-01 11:13:02: rb -a start -l 0 -s 2 -p 8
+
+administrator@cli> 
+2017-11-01 11:13:00: 
+Expect: rb should start
+
+2017-11-01 11:13:00: phydrv -p 3
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+3    ST373455SS  SAS HDD  73 GB       Encl1 Slot3   Forced     Pool0           
+                                                    Offline                    
+
+administrator@cli> 
+2017-11-01 11:12:56: phydrv -a offline -p 3
+
+administrator@cli> 
+2017-11-01 11:12:56: 
+Expect: pd 3 is offline
+
+2017-11-01 11:10:53: 'result': 'p'
+2017-11-01 11:10:53: rb
+-------------------------------------------------------------------------------
+PoolId: 0
+===============================================================================
+PdId                    Percentage                   Status                    
+===============================================================================
+12                      0                            Running                   
+
+administrator@cli> 
+2017-11-01 11:10:50: rb -a start -l 0 -s 2 -p 12
+
+administrator@cli> 
+2017-11-01 11:10:48: 
+Expect: rb should start
+
+2017-11-01 11:10:47: phydrv -p 3
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+3    ST373455SS  SAS HDD  73 GB       Encl1 Slot3   Forced     Pool0           
+                                                    Offline                    
+
+administrator@cli> 
+2017-11-01 11:10:44: phydrv -a offline -p 3
+
+administrator@cli> 
+2017-11-01 11:10:43: 
+Expect: pd 3 is offline
+
+2017-11-01 11:09:59: 'result': 'p'
+2017-11-01 11:09:59: rb
+-------------------------------------------------------------------------------
+PoolId: 0
+===============================================================================
+PdId                    Percentage                   Status                    
+===============================================================================
+10                      0                            Running                   
+
+administrator@cli> 
+2017-11-01 11:09:56: rb -a start -l 0 -s 2 -p 10
+
+administrator@cli> 
+2017-11-01 11:09:54: 
+Expect: rb should start
+
+2017-11-01 11:09:53: phydrv -p 3
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+3    ST373455SS  SAS HDD  73 GB       Encl1 Slot3   Forced     Pool0           
+                                                    Offline                    
+
+administrator@cli> 
+2017-11-01 11:09:50: phydrv -a offline -p 3
+
+administrator@cli> 
+2017-11-01 11:09:50: 
+Expect: pd 3 is offline
+
+2017-11-01 11:05:29: 'result': 'f'
+2017-11-01 11:05:29: 
+Fail: rb -a start -l 0 -s 2 -p 10
+
+2017-11-01 11:05:26: rb -a start -l 0 -s 2 -p 10
+Error (0x4100102): Empty query result, please check input parameters. Pool id=[0] is not existed.
+
+administrator@cli> 
+2017-11-01 11:05:25: 
+Expect: rb should start
+
+2017-11-01 11:05:25: 
+Fail: phydrv -a offline -p 3
+
+2017-11-01 11:05:22: phydrv -a offline -p 3
+Error (0x4023): Invalid physical drive id
+This physical drive is not configured
+
+administrator@cli> 
+2017-11-01 11:05:22: 
+Expect: pd 3 is offline
+
+2017-11-01 11:04:47: 'result': 'p'
+2017-11-01 11:04:47: rb
+-------------------------------------------------------------------------------
+PoolId: 0
+===============================================================================
+PdId                    Percentage                   Status                    
+===============================================================================
+8                       0                            Running                   
+
+administrator@cli> 
+2017-11-01 11:04:44: rb -a start -l 0 -s 2 -p 8
+
+administrator@cli> 
+2017-11-01 11:04:41: 
+Expect: rb should start
+
+2017-11-01 11:04:41: phydrv -p 3
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+3    ST373455SS  SAS HDD  73 GB       Encl1 Slot3   Forced     Pool0           
+                                                    Offline                    
+
+administrator@cli> 
+2017-11-01 11:04:38: phydrv -a offline -p 3
+
+administrator@cli> 
+2017-11-01 11:04:37: 
+Expect: pd 3 is offline
+
+2017-11-01 11:04:10: 'result': 'p'
+2017-11-01 11:04:10: rb
+-------------------------------------------------------------------------------
+PoolId: 0
+===============================================================================
+PdId                    Percentage                   Status                    
+===============================================================================
+4                       0                            Running                   
+
+administrator@cli> 
+2017-11-01 11:04:07: rb -a start -l 0 -s 1 -p 4
+
+administrator@cli> 
+2017-11-01 11:04:05: 
+Expect: rb should start
+
+2017-11-01 11:04:05: phydrv -p 2
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+2    HDS722020AL SAS HDD  2 TB        Encl1 Slot2   Forced     Pool0           
+     A330                                           Offline                    
+
+administrator@cli> 
+2017-11-01 11:04:01: phydrv -a offline -p 2
+
+administrator@cli> 
+2017-11-01 11:04:01: 
+Expect: pd 2 is offline
+
+2017-11-01 11:02:40: 'result': 'f'
+2017-11-01 11:02:40: rb
+-------------------------------------------------------------------------------
+PoolId: 0
+===============================================================================
+PdId                    Percentage                   Status                    
+===============================================================================
+4                       0                            Running                   
+
+administrator@cli> 
+2017-11-01 11:02:37: rb -a start -l 0 -s 1 -p 4
+
+administrator@cli> 
+2017-11-01 11:02:35: 
+Expect: rb should start
+
+2017-11-01 11:02:35: 
+Fail: please check out offline
+
+2017-11-01 11:02:34: phydrv -p 2
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+2    HDS722020AL SAS HDD  2 TB        Encl1 Slot2   Forced     Pool0           
+     A330                                           Offline                    
+
+administrator@cli> 
+2017-11-01 11:02:31: phydrv -a offline -p 2
+
+administrator@cli> 
+2017-11-01 11:02:31: 
+Expect: pd 2 is offline
+
+2017-11-01 10:43:00: 'result': 'f'
+2017-11-01 10:43:00: rb -v
+Error (0x2012): Invalid option for the command or the action
+invalid option: -v
+
+administrator@cli> 
+2017-11-01 10:42:57: rb -a start -l 0 -s 1 -p 4
+
+administrator@cli> 
+2017-11-01 10:42:54: 
+Expect: rb should start
+
+2017-11-01 10:42:54: 
+Fail: please check out offline
+
+2017-11-01 10:42:54: phydrv -p 3
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+3    ST373455SS  SAS HDD  73 GB       Encl1 Slot3   OK         Unconfigured    
+
+administrator@cli> 
+2017-11-01 10:42:51: phydrv -a offline -p 2
+
+administrator@cli> 
+2017-11-01 10:42:51: 
+Expect: pd 3 is offline
+
 2017-11-01 10:01:37: 'result': 'p'
 2017-11-01 10:01:37: phydrv -a clear
 Error (0x403): Missing parameter
