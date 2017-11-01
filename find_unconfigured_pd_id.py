@@ -26,6 +26,10 @@ def find_pd_id(physical_capacity = None):
         for spare in spareInfo:
             server.webapiurl('delete', 'spare', str(spare["id"]))
 
+    # delete cache
+    server.webapi('post', 'rcache/detach', {"pd_list": [16]})
+    server.webapi('post', 'wcache/detach', {"id": 'detach'})
+
     # find pd id
     pdResponse = server.webapi('get', 'phydrv')
     pdInfo = json.loads(pdResponse["text"])

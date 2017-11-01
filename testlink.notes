@@ -1,17 +1,113 @@
 
 Expect: Missing parameter
 
-perfstats -t
+phydrv -p
 Error (0x403): Missing parameter
--t: missing value
+-p: missing value
 
 administrator@cli> 
 
 Expect: Missing parameter
 
-perfstats -a
+phydrv -c
 Error (0x403): Missing parameter
--a: missing value
+-c: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+phydrv -a mod
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+phydrv -a mod -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+phydrv -a mod -p 1 -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+phydrv -a mod -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+phydrv -a mod -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+phydrv -a mod -d all -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+phydrv -a mod -d sata -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+phydrv -a mod -d sas -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+phydrv -a locate
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a locate'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+phydrv -a offline
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a offline'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+phydrv -a online
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a online'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+phydrv -a clear
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a clear'
 
 administrator@cli> 
 'result': 'p'

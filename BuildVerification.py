@@ -653,15 +653,15 @@ def BuildVerification(c):
             bgasched.clearUp(c)
 
             tolog('Start verifying rb')
-            import rb
-            if (rb.verifyRbStartAndStopAndList(c)):
-                FailCasesList.append('The case ' + rb.verifyRbStartAndStopAndList.__name__ + ' failed')
-            if (rb.verifyRbInvalidOption(c)):
-                FailCasesList.append('The case ' + rb.verifyRbInvalidOption.__name__ + ' failed')
-            if (rb.verifyRbInvalidParameters(c)):
-                FailCasesList.append('The case ' + rb.verifyRbInvalidParameters.__name__ + ' failed')
-            if (rb.verifyRbMissingParameters(c)):
-                FailCasesList.append('The case ' + rb.verifyRbMissingParameters.__name__ + ' failed')
+            import rb_old
+            if (rb_old.verifyRbStartAndStopAndList(c)):
+                FailCasesList.append('The case ' + rb_old.verifyRbStartAndStopAndList.__name__ + ' failed')
+            if (rb_old.verifyRbInvalidOption(c)):
+                FailCasesList.append('The case ' + rb_old.verifyRbInvalidOption.__name__ + ' failed')
+            if (rb_old.verifyRbInvalidParameters(c)):
+                FailCasesList.append('The case ' + rb_old.verifyRbInvalidParameters.__name__ + ' failed')
+            if (rb_old.verifyRbMissingParameters(c)):
+                FailCasesList.append('The case ' + rb_old.verifyRbMissingParameters.__name__ + ' failed')
 
             tolog('Start verifying NASShare')
             import nasShare
