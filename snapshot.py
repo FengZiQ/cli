@@ -45,6 +45,8 @@ def list_snapshot_by_verbose_mode(c):
 
 
 def mod_snapshot(c):
+    # precondition
+    server.webapi('post', 'snapshot/2/unmount')
 
     cli_test.setting(c, data, 'mod_snapshot', 1)
 

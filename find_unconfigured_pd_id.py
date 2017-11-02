@@ -52,4 +52,10 @@ def find_pd_id(physical_capacity = None):
             if pd["cfg_status"] == 'Unconfigured' and pd["physical_capacity"] == '4 TB' and pd["media_type"] == 'HDD':
                 pd_id.append(pd["id"])
 
+    elif physical_capacity == '32GB':
+
+        for pd in pdInfo:
+            if pd["cfg_status"] == 'Unconfigured' and pd["physical_capacity"] == '32 GB' and pd["media_type"] == 'HDD':
+                pd_id.append(pd["id"])
+
     return pd_id

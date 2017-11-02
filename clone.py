@@ -49,6 +49,8 @@ def list_clone_verbose_mode(c):
 
 
 def mod_clone(c):
+    # precondition
+    server.webapi('post', 'clone/2/unmount')
 
     cli_test.setting(c, data, 'mod_clone', 1)
 

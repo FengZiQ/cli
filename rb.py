@@ -96,6 +96,9 @@ def missing_parameter(c):
 
     cli_test.failed_test(c, data, 'missing_parameter')
 
+    # clean up environment
+    server.webapi('delete', 'pool/0?force=1')
+
 
 if __name__ == "__main__":
     start = time.clock()

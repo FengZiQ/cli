@@ -148,4 +148,8 @@ class cli_test():
         else:
             tolog(Pass)
 
+    def need_manual_test(self):
+
+        tolog('\r\nneed manual test\r\n')
+
 cli_test = cli_test()

@@ -9,6 +9,7 @@ import time
 Pass = "'result': 'p'"
 Fail = "'result': 'f'"
 
+
 def findPoolId(c):
     pdInfo = SendCmd(c, 'phydrv')
     pdId = []
@@ -33,6 +34,7 @@ def findPoolId(c):
 
     plId = '0'
     return plId
+
 
 def addNASShare(c):
     Failflag = False
@@ -95,6 +97,7 @@ def addNASShare(c):
 
     return Failflag
 
+
 def listNASShare(c):
     Failflag = False
     # list all of NASShare
@@ -135,6 +138,7 @@ def listNASShare(c):
         tolog(Pass)
 
     return Failflag
+
 
 def listVerboseNASShare(c):
     Failflag = False
@@ -177,6 +181,7 @@ def listVerboseNASShare(c):
         tolog(Pass)
 
     return Failflag
+
 
 def modNASShare(c):
     Failflag = False
@@ -229,6 +234,7 @@ def modNASShare(c):
         tolog(Pass)
 
     return Failflag
+
 
 def mountNASShare(c):
     Failflag = False
@@ -283,6 +289,7 @@ def mountNASShare(c):
 
     return Failflag
 
+
 def unmountNASShare(c):
     Failflag = False
     tolog('Un-Mount NASShare \r\n')
@@ -335,6 +342,7 @@ def unmountNASShare(c):
 
     return Failflag
 
+
 def helpNASShare(c):
     Failflag = False
 
@@ -352,6 +360,7 @@ def helpNASShare(c):
         tolog(Pass)
 
     return Failflag
+
 
 def failedTest_InexistentId(c):
     Failflag = False
@@ -389,6 +398,7 @@ def failedTest_InexistentId(c):
 
     return Failflag
 
+
 def failedTest_InvalidOption(c):
     Failflag = False
     tolog('To input inexistent option \r\n')
@@ -418,6 +428,7 @@ def failedTest_InvalidOption(c):
         tolog(Pass)
 
     return Failflag
+
 
 def failedTest_InvalidParameters(c):
     Failflag = False
@@ -455,6 +466,7 @@ def failedTest_InvalidParameters(c):
 
     return Failflag
 
+
 def failedTest_MissingParameters(c):
     Failflag = False
     tolog('Verify missing parameter \r\n')
@@ -490,6 +502,7 @@ def failedTest_MissingParameters(c):
         tolog(Pass)
 
     return Failflag
+
 
 def deleteNASShare(c):
     Failflag = False
@@ -528,6 +541,7 @@ def deleteNASShare(c):
     SendCmd(c, 'pool -a del -y -f -i 0')
 
     return Failflag
+
 
 if __name__ == "__main__":
     start = time.clock()
