@@ -1,3 +1,942 @@
+2017-11-03 16:00:07: 'result': 'p'
+2017-11-03 16:00:07: ping -t fc -l 1 -p 3 -d WWPN
+Error (0x403): Missing parameter
+missing parameter '-i' for '-t fc'
+
+administrator@cli> 
+2017-11-03 16:00:07: 
+Expect: Missing parameter
+
+2017-11-03 16:00:07: ping -t fc
+Error (0x403): Missing parameter
+missing parameter '-l' for '-t fc'
+
+administrator@cli> 
+2017-11-03 16:00:07: 
+Expect: Missing parameter
+
+2017-11-03 16:00:07: ping -t mgmt -p 
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2017-11-03 16:00:07: 
+Expect: Missing parameter
+
+2017-11-03 16:00:07: ping -t mgmt
+Error (0x403): Missing parameter
+missing parameter '-i' for '-t mgmt'
+
+administrator@cli> 
+2017-11-03 16:00:07: 
+Expect: Missing parameter
+
+2017-11-03 16:00:07: ping -t iscsi -l 2 -p 1 -i 
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-11-03 16:00:07: 
+Expect: Missing parameter
+
+2017-11-03 16:00:07: ping -t iscsi -l 2 -p 
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2017-11-03 16:00:07: 
+Expect: Missing parameter
+
+2017-11-03 16:00:07: ping -t iscsi -l 
+Error (0x403): Missing parameter
+-l: missing value
+
+administrator@cli> 
+2017-11-03 16:00:07: 
+Expect: Missing parameter
+
+2017-11-03 16:00:07: ping -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2017-11-03 16:00:07: 
+Expect: Missing parameter
+
+2017-11-03 16:00:07: ping
+Error (0x403): Missing parameter
+missing parameter '-i' for '-t mgmt'
+
+administrator@cli> 
+2017-11-03 16:00:07: 
+Expect: Missing parameter
+
+2017-11-03 16:00:06: 'result': 'p'
+2017-11-03 16:00:06: ping -t fc -l 1 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-03 16:00:06: 
+Expect: Invalid option for the command or the action
+
+2017-11-03 16:00:06: ping -t fc -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-03 16:00:06: 
+Expect: Invalid option for the command or the action
+
+2017-11-03 16:00:06: ping -t mgmt -p 2 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-03 16:00:06: 
+Expect: Invalid option for the command or the action
+
+2017-11-03 16:00:06: ping -t mgmt -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-03 16:00:06: 
+Expect: Invalid option for the command or the action
+
+2017-11-03 16:00:05: ping -t iscsi -l 2 -p 3 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-03 16:00:05: 
+Expect: Invalid option for the command or the action
+
+2017-11-03 16:00:05: ping -t iscsi -l 2 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-03 16:00:05: 
+Expect: Invalid option for the command or the action
+
+2017-11-03 16:00:05: ping -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-03 16:00:05: 
+Expect: Invalid option for the command or the action
+
+2017-11-03 16:00:05: 'result': 'f'
+2017-11-03 16:00:05: ping -t fc -l 1 -p 3 -d WWPN test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-03 16:00:05: 
+Expect: Invalid setting parameters
+
+2017-11-03 16:00:05: ping -t fc test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-03 16:00:05: 
+Expect: Invalid setting parameters
+
+2017-11-03 16:00:05: ping -t mgmt -p test
+Error (0x2013): Invalid setting parameters
+-p: invalid setting test
+
+administrator@cli> 
+2017-11-03 16:00:05: 
+Expect: Invalid setting parameters
+
+2017-11-03 16:00:05: ping -t mgmt test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-03 16:00:05: 
+Expect: Invalid setting parameters
+
+2017-11-03 16:00:05: 
+Fail: please check out invalid setting 5 (1,2)
+
+2017-11-03 16:00:05: ping -t iscsi -l 2 -p 5 -i 10.84.2.99
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 5 (1,4)
+
+administrator@cli> 
+2017-11-03 16:00:04: 
+Expect: invalid setting 5 (1,2)
+
+2017-11-03 16:00:04: 
+Fail: ping -t iscsi -l 2 -p 3 -i 10.84.2.99
+
+2017-11-03 16:00:04: ping -t iscsi -l 2 -p 3 -i 10.84.2.99
+unexpected error
+please send service report to your administrator
+administrator@cli> 
+2017-11-03 16:00:04: 
+Expect: Invalid setting parameters
+
+2017-11-03 16:00:04: ping -t iscsi -l 3 -p 1 -i 10.84.2.99
+Error (0x2013): Invalid setting parameters
+-l: invalid setting 3 (1,2)
+
+administrator@cli> 
+2017-11-03 16:00:04: 
+Expect: Invalid setting parameters
+
+2017-11-03 16:00:03: ping -t iscsi -l 2 -p test -i 10.84.2.99
+Error (0x2013): Invalid setting parameters
+-p: invalid setting test
+
+administrator@cli> 
+2017-11-03 16:00:03: 
+Expect: Invalid setting parameters
+
+2017-11-03 16:00:03: ping -t iscsi -l test -p 1 -i 10.84.2.99
+Error (0x2013): Invalid setting parameters
+-l: invalid setting test
+
+administrator@cli> 
+2017-11-03 16:00:03: 
+Expect: Invalid setting parameters
+
+2017-11-03 16:00:03: ping -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (iscsi|mgmt|fc)
+
+administrator@cli> 
+2017-11-03 16:00:03: 
+Expect: Invalid setting parameters
+
+2017-11-03 16:00:03: ping test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-03 16:00:03: 
+Expect: Invalid setting parameters
+
+2017-11-03 16:00:03: 'result': 'f'
+2017-11-03 16:00:03: 
+Fail: please check out Ping succeeded
+
+2017-11-03 16:00:03: ping -t fc -l 1 -p 3 -d FCID -i 0x010b00
+Ping failed.
+
+administrator@cli> 
+2017-11-03 16:00:03: 
+Expect: Ping should be successed when destination type is FCID
+
+2017-11-03 16:00:03: 
+Fail: please check out Ping succeeded
+
+2017-11-03 16:00:03: ping -t fc -l 1 -p 3 -d WWPN -i 26-02-00-01-55-00-00-00
+Ping failed.
+
+administrator@cli> 
+2017-11-03 16:00:03: 
+Expect: Ping should be successed when destination type is WWPN
+
+2017-11-03 16:00:03: 'result': 'p'
+2017-11-03 16:00:03: ping -t mgmt -i 10.84.2.99 -c 50
+Ping succeeded.
+
+administrator@cli> 
+2017-11-03 15:59:13: 
+Expect: packet count is 50(65535)
+
+2017-11-03 15:59:13: ping -t mgmt -p 2 -i 10.84.2.99 -c 20
+Ping succeeded.
+
+administrator@cli> 
+2017-11-03 15:58:53: 
+Expect: packet count is 20(65534)
+
+2017-11-03 15:58:52: ping -t mgmt -i 10.84.2.99 -c 2
+Ping succeeded.
+
+administrator@cli> 
+2017-11-03 15:58:51: 
+Expect: packet count is 2
+
+2017-11-03 15:58:51: ping -t mgmt -p 2 -i 10.84.2.99 -c 1
+Ping succeeded.
+
+administrator@cli> 
+2017-11-03 15:58:51: 
+Expect: ping of mgmt type should pass by port 2
+
+2017-11-03 15:58:51: ping -t mgmt -p 1 -i 10.84.2.99
+Ping succeeded.
+
+administrator@cli> 
+2017-11-03 15:58:51: 
+Expect: ping of mgmt type should pass by port 1
+
+2017-11-03 15:58:51: ping -t mgmt -i 10.84.2.99
+Ping succeeded.
+
+administrator@cli> 
+2017-11-03 15:58:51: 
+Expect: ping of mgmt type should pass by default port
+
+2017-11-03 15:58:51: 'result': 'f'
+2017-11-03 15:58:51: 
+Fail: ping -t iscsi -l 1 -p 2 -i 10.84.2.99 -c 20
+
+2017-11-03 15:58:51: ping -t iscsi -l 1 -p 2 -i 10.84.2.99 -c 20
+unexpected error
+please send service report to your administrator
+administrator@cli> 
+2017-11-03 15:58:51: 
+Expect: ping of iscsi type by port 2 should pass
+
+2017-11-03 15:58:50: 
+Fail: ping -t iscsi -l 1 -p 1 -i 10.84.2.99
+
+2017-11-03 15:58:50: ping -t iscsi -l 1 -p 1 -i 10.84.2.99
+unexpected error
+please send service report to your administrator
+administrator@cli> 
+2017-11-03 15:58:50: 
+Expect: ping of iscsi type by port 1 should pass
+
+2017-11-03 13:11:07: 'result': 'p'
+2017-11-03 13:11:07: ping -t fc -l 1 -p 3 -d WWPN
+Error (0x403): Missing parameter
+missing parameter '-i' for '-t fc'
+
+administrator@cli> 
+2017-11-03 13:11:07: 
+Expect: Missing parameter
+
+2017-11-03 13:11:07: ping -t fc
+Error (0x403): Missing parameter
+missing parameter '-l' for '-t fc'
+
+administrator@cli> 
+2017-11-03 13:11:07: 
+Expect: Missing parameter
+
+2017-11-03 13:11:07: ping -t mgmt -p 
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2017-11-03 13:11:07: 
+Expect: Missing parameter
+
+2017-11-03 13:11:07: ping -t mgmt
+Error (0x403): Missing parameter
+missing parameter '-i' for '-t mgmt'
+
+administrator@cli> 
+2017-11-03 13:11:06: 
+Expect: Missing parameter
+
+2017-11-03 13:11:06: ping -t iscsi -l 2 -p 1 -i 
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-11-03 13:11:06: 
+Expect: Missing parameter
+
+2017-11-03 13:11:06: ping -t iscsi -l 2 -p 
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2017-11-03 13:11:06: 
+Expect: Missing parameter
+
+2017-11-03 13:11:06: ping -t iscsi -l 
+Error (0x403): Missing parameter
+-l: missing value
+
+administrator@cli> 
+2017-11-03 13:11:06: 
+Expect: Missing parameter
+
+2017-11-03 13:11:06: ping -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2017-11-03 13:11:06: 
+Expect: Missing parameter
+
+2017-11-03 13:11:06: ping
+Error (0x403): Missing parameter
+missing parameter '-i' for '-t mgmt'
+
+administrator@cli> 
+2017-11-03 13:11:06: 
+Expect: Missing parameter
+
+2017-11-03 13:10:44: 
+Expect: packet count is 20(65534)
+
+2017-11-03 13:10:43: ping -t mgmt -i 10.84.2.99 -c 2
+Ping succeeded.
+
+administrator@cli> 
+2017-11-03 13:10:42: 
+Expect: packet count is 2
+
+2017-11-03 13:10:42: ping -t mgmt -p 2 -i 10.84.2.99 -c 1
+Ping succeeded.
+
+administrator@cli> 
+2017-11-03 13:10:42: 
+Expect: ping of mgmt type should pass by port 2
+
+2017-11-03 13:10:42: ping -t mgmt -p 1 -i 10.84.2.99
+Ping succeeded.
+
+administrator@cli> 
+2017-11-03 13:10:42: 
+Expect: ping of mgmt type should pass by port 1
+
+2017-11-03 13:10:42: ping -t mgmt -i 10.84.2.99
+Ping succeeded.
+
+administrator@cli> 
+2017-11-03 13:10:42: 
+Expect: ping of mgmt type should pass by default port
+
+2017-11-03 13:10:42: 'result': 'f'
+2017-11-03 13:10:42: 
+Fail: ping -t iscsi -l 1 -p 2 -i 10.84.2.99 -c 20
+
+2017-11-03 13:10:42: ping -t iscsi -l 1 -p 2 -i 10.84.2.99 -c 20
+unexpected error
+please send service report to your administrator
+administrator@cli> 
+2017-11-03 13:10:42: 
+Expect: ping of iscsi type by port 2 should pass
+
+2017-11-03 13:10:42: 
+Fail: ping -t iscsi -l 1 -p 1 -i 10.84.2.99
+
+2017-11-03 13:10:42: ping -t iscsi -l 1 -p 1 -i 10.84.2.99
+unexpected error
+please send service report to your administrator
+administrator@cli> 
+2017-11-03 13:10:42: 
+Expect: ping of iscsi type by port 1 should pass
+
+2017-11-03 13:10:01: 'result': 'f'
+2017-11-03 13:10:01: ping -t fc -l 1 -p 3 -d WWPN
+Error (0x403): Missing parameter
+missing parameter '-i' for '-t fc'
+
+administrator@cli> 
+2017-11-03 13:10:01: 
+Expect: Missing parameter
+
+2017-11-03 13:10:01: ping -t fc
+Error (0x403): Missing parameter
+missing parameter '-l' for '-t fc'
+
+administrator@cli> 
+2017-11-03 13:10:01: 
+Expect: Missing parameter
+
+2017-11-03 13:10:01: ping -t mgmt -p 
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2017-11-03 13:10:01: 
+Expect: Missing parameter
+
+2017-11-03 13:10:01: ping -t mgmt
+Error (0x403): Missing parameter
+missing parameter '-i' for '-t mgmt'
+
+administrator@cli> 
+2017-11-03 13:10:01: 
+Expect: Missing parameter
+
+2017-11-03 13:10:01: 
+Fail: please check out Missing parameter
+
+2017-11-03 13:10:01: ping -t iscsi -l 3 -p 1 -i 
+Error (0x2013): Invalid setting parameters
+-l: invalid setting 3 (1,2)
+
+administrator@cli> 
+2017-11-03 13:10:01: 
+Expect: Missing parameter
+
+2017-11-03 13:10:01: ping -t iscsi -l 2 -p 
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2017-11-03 13:10:01: 
+Expect: Missing parameter
+
+2017-11-03 13:10:01: ping -t iscsi -l 
+Error (0x403): Missing parameter
+-l: missing value
+
+administrator@cli> 
+2017-11-03 13:10:00: 
+Expect: Missing parameter
+
+2017-11-03 13:10:00: ping -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2017-11-03 13:10:00: 
+Expect: Missing parameter
+
+2017-11-03 13:10:00: ping
+Error (0x403): Missing parameter
+missing parameter '-i' for '-t mgmt'
+
+administrator@cli> 
+2017-11-03 13:10:00: 
+Expect: Missing parameter
+
+2017-11-03 13:09:35: 
+Expect: packet count is 20(65534)
+
+2017-11-03 13:09:35: ping -t mgmt -i 10.84.2.99 -c 2
+Ping succeeded.
+
+administrator@cli> 
+2017-11-03 13:09:34: 
+Expect: packet count is 2
+
+2017-11-03 13:09:34: ping -t mgmt -p 2 -i 10.84.2.99 -c 1
+Ping succeeded.
+
+administrator@cli> 
+2017-11-03 13:09:34: 
+Expect: ping of mgmt type should pass by port 2
+
+2017-11-03 13:09:34: ping -t mgmt -p 1 -i 10.84.2.99
+Ping succeeded.
+
+administrator@cli> 
+2017-11-03 13:09:34: 
+Expect: ping of mgmt type should pass by port 1
+
+2017-11-03 13:09:34: ping -t mgmt -i 10.84.2.99
+Ping succeeded.
+
+administrator@cli> 
+2017-11-03 13:09:34: 
+Expect: ping of mgmt type should pass by default port
+
+2017-11-03 13:09:34: 'result': 'f'
+2017-11-03 13:09:34: 
+Fail: ping -t iscsi -l 1 -p 2 -i 10.84.2.99 -c 20
+
+2017-11-03 13:09:33: ping -t iscsi -l 1 -p 2 -i 10.84.2.99 -c 20
+unexpected error
+please send service report to your administrator
+administrator@cli> 
+2017-11-03 13:09:33: 
+Expect: ping of iscsi type by port 2 should pass
+
+2017-11-03 13:09:33: 
+Fail: ping -t iscsi -l 1 -p 1 -i 10.84.2.99
+
+2017-11-03 13:09:33: ping -t iscsi -l 1 -p 1 -i 10.84.2.99
+unexpected error
+please send service report to your administrator
+administrator@cli> 
+2017-11-03 13:09:32: 
+Expect: ping of iscsi type by port 1 should pass
+
+2017-11-03 13:09:09: 'result': 'f'
+2017-11-03 13:09:09: ping -t fc -l 1 -p 3 -d WWPN
+Error (0x403): Missing parameter
+missing parameter '-i' for '-t fc'
+
+administrator@cli> 
+2017-11-03 13:09:09: 
+Expect: Missing parameter
+
+2017-11-03 13:09:09: ping -t fc
+Error (0x403): Missing parameter
+missing parameter '-l' for '-t fc'
+
+administrator@cli> 
+2017-11-03 13:09:09: 
+Expect: Missing parameter
+
+2017-11-03 13:09:09: ping -t mgmt -p 
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2017-11-03 13:09:09: 
+Expect: Missing parameter
+
+2017-11-03 13:09:09: ping -t mgmt
+Error (0x403): Missing parameter
+missing parameter '-i' for '-t mgmt'
+
+administrator@cli> 
+2017-11-03 13:09:09: 
+Expect: Missing parameter
+
+2017-11-03 13:09:09: 
+Fail: please check out Missing parameter
+
+2017-11-03 13:09:09: ping -t iscsi -l 3 -p 1 -i 
+Error (0x2013): Invalid setting parameters
+-l: invalid setting 3 (1,2)
+
+administrator@cli> 
+2017-11-03 13:09:08: 
+Expect: Missing parameter
+
+2017-11-03 13:09:08: ping -t iscsi -l 2 -p 
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2017-11-03 13:09:08: 
+Expect: Missing parameter
+
+2017-11-03 13:09:08: ping -t iscsi -l 
+Error (0x403): Missing parameter
+-l: missing value
+
+administrator@cli> 
+2017-11-03 13:09:08: 
+Expect: Missing parameter
+
+2017-11-03 13:09:08: ping -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2017-11-03 13:09:08: 
+Expect: Missing parameter
+
+2017-11-03 13:09:08: ping
+Error (0x403): Missing parameter
+missing parameter '-i' for '-t mgmt'
+
+administrator@cli> 
+2017-11-03 13:09:08: 
+Expect: Missing parameter
+
+2017-11-03 13:06:47: 'result': 'p'
+2017-11-03 13:06:47: ping -t fc -l 1 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-03 13:06:47: 
+Expect: Invalid option for the command or the action
+
+2017-11-03 13:06:47: ping -t fc -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-03 13:06:47: 
+Expect: Invalid option for the command or the action
+
+2017-11-03 13:06:47: ping -t mgmt -p 2 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-03 13:06:47: 
+Expect: Invalid option for the command or the action
+
+2017-11-03 13:06:47: ping -t mgmt -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-03 13:06:47: 
+Expect: Invalid option for the command or the action
+
+2017-11-03 13:06:47: ping -t iscsi -l 2 -p 3 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-03 13:06:47: 
+Expect: Invalid option for the command or the action
+
+2017-11-03 13:06:47: ping -t iscsi -l 2 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-03 13:06:47: 
+Expect: Invalid option for the command or the action
+
+2017-11-03 13:06:47: ping -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-03 13:06:47: 
+Expect: Invalid option for the command or the action
+
+2017-11-03 11:20:20: 'result': 'f'
+2017-11-03 11:20:20: 
+Fail: please check out Ping succeeded
+
+2017-11-03 11:20:20: ping -t fc -l 1 -p 3 -d FCID -i 0x010b00
+Ping failed.
+
+administrator@cli> 
+2017-11-03 11:20:20: 
+Expect: Ping should be successed when destination type is FCID
+
+2017-11-03 11:20:20: 
+Fail: please check out Ping succeeded
+
+2017-11-03 11:20:20: ping -t fc -l 1 -p 3 -d WWPN -i 26-02-00-01-55-00-00-00
+Ping failed.
+
+administrator@cli> 
+2017-11-03 11:20:20: 
+Expect: Ping should be successed when destination type is WWPN
+
+2017-11-03 11:16:13: 'result': 'f'
+2017-11-03 11:16:13: ping -t fc -l 1 -p 3 -d WWPN test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-03 11:16:12: 
+Expect: Invalid setting parameters
+
+2017-11-03 11:16:12: ping -t fc test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-03 11:16:12: 
+Expect: Invalid setting parameters
+
+2017-11-03 11:16:12: ping -t mgmt -p test
+Error (0x2013): Invalid setting parameters
+-p: invalid setting test
+
+administrator@cli> 
+2017-11-03 11:16:12: 
+Expect: Invalid setting parameters
+
+2017-11-03 11:16:12: ping -t mgmt test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-03 11:16:12: 
+Expect: Invalid setting parameters
+
+2017-11-03 11:16:12: 
+Fail: please check out invalid setting 5 (1,2)
+
+2017-11-03 11:16:12: ping -t iscsi -l 2 -p 5 -i 10.84.2.99
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 5 (1,4)
+
+administrator@cli> 
+2017-11-03 11:16:12: 
+Expect: invalid setting 5 (1,2)
+
+2017-11-03 11:16:12: 
+Fail: ping -t iscsi -l 2 -p 3 -i 10.84.2.99
+
+2017-11-03 11:16:12: ping -t iscsi -l 2 -p 3 -i 10.84.2.99
+unexpected error
+please send service report to your administrator
+administrator@cli> 
+2017-11-03 11:16:12: 
+Expect: Invalid setting parameters
+
+2017-11-03 11:16:12: ping -t iscsi -l 3 -p 1 -i 10.84.2.99
+Error (0x2013): Invalid setting parameters
+-l: invalid setting 3 (1,2)
+
+administrator@cli> 
+2017-11-03 11:16:12: 
+Expect: Invalid setting parameters
+
+2017-11-03 11:16:12: ping -t iscsi -l 2 -p test -i 10.84.2.99
+Error (0x2013): Invalid setting parameters
+-p: invalid setting test
+
+administrator@cli> 
+2017-11-03 11:16:12: 
+Expect: Invalid setting parameters
+
+2017-11-03 11:16:12: ping -t iscsi -l test -p 1 -i 10.84.2.99
+Error (0x2013): Invalid setting parameters
+-l: invalid setting test
+
+administrator@cli> 
+2017-11-03 11:16:12: 
+Expect: Invalid setting parameters
+
+2017-11-03 11:16:12: ping -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (iscsi|mgmt|fc)
+
+administrator@cli> 
+2017-11-03 11:16:12: 
+Expect: Invalid setting parameters
+
+2017-11-03 11:16:12: ping test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-03 11:16:11: 
+Expect: Invalid setting parameters
+
+2017-11-03 11:07:00: 'result': 'f'
+2017-11-03 11:07:00: 
+Fail: please check out Ping succeeded
+
+2017-11-03 11:07:00: ping -t fc -l 1 -p 3 -d WWPN -i 26-02-00-01-55-00-00-00
+Ping failed.
+
+administrator@cli> 
+2017-11-03 11:07:00: 
+Expect: Ping succeeded
+
+2017-11-03 11:05:58: 'result': 'p'
+2017-11-03 11:05:57: ping -t fc -l 1 -p 3 -d WWPN -i 26-02-00-01-55-00-00-00
+Ping failed.
+
+administrator@cli> 
+2017-11-03 11:05:57: 
+Expect: Ping succeeded
+
+2017-11-03 10:21:22: 'result': 'p'
+2017-11-03 10:21:22: ping -t mgmt -i 10.84.2.99 -c 50
+Ping succeeded.
+
+administrator@cli> 
+2017-11-03 10:20:32: 
+Expect: packet count is 50(65535)
+
+2017-11-03 10:20:32: ping -t mgmt -p 2 -i 10.84.2.99 -c 20
+Ping succeeded.
+
+administrator@cli> 
+2017-11-03 10:20:13: 
+Expect: packet count is 20(65534)
+
+2017-11-03 10:20:13: ping -t mgmt -i 10.84.2.99 -c 2
+Ping succeeded.
+
+administrator@cli> 
+2017-11-03 10:20:11: 
+Expect: packet count is 2
+
+2017-11-03 10:20:11: ping -t mgmt -p 2 -i 10.84.2.99 -c 1
+Ping succeeded.
+
+administrator@cli> 
+2017-11-03 10:20:11: 
+Expect: ping of mgmt type should pass by port 2
+
+2017-11-03 10:20:11: ping -t mgmt -p 1 -i 10.84.2.99
+Ping succeeded.
+
+administrator@cli> 
+2017-11-03 10:20:11: 
+Expect: ping of mgmt type should pass by port 1
+
+2017-11-03 10:20:11: ping -t mgmt -i 10.84.2.99
+Ping succeeded.
+
+administrator@cli> 
+2017-11-03 10:20:11: 
+Expect: ping of mgmt type should pass by default port
+
+2017-11-03 10:15:24: 
+Expect: packet count is 65534
+
+2017-11-03 10:15:24: ping -t mgmt -i 10.84.2.99 -c 2
+Ping succeeded.
+
+administrator@cli> 
+2017-11-03 10:15:23: 
+Expect: packet count is 2
+
+2017-11-03 10:15:23: ping -t mgmt -p 2 -i 10.84.2.99 -c 1
+Ping succeeded.
+
+administrator@cli> 
+2017-11-03 10:15:22: 
+Expect: ping of mgmt type should pass by port 2
+
+2017-11-03 10:15:22: ping -t mgmt -p 1 -i 10.84.2.99
+Ping succeeded.
+
+administrator@cli> 
+2017-11-03 10:15:22: 
+Expect: ping of mgmt type should pass by port 1
+
+2017-11-03 10:15:22: ping -t mgmt -i 10.84.2.99
+Ping succeeded.
+
+administrator@cli> 
+2017-11-03 10:15:22: 
+Expect: ping of mgmt type should pass by default port
+
+2017-11-03 09:55:15: 'result': 'f'
+2017-11-03 09:55:15: 
+Fail: ping -t iscsi -l 1 -p 2 -i 192.168.1.1 -c 5
+
+2017-11-03 09:55:15: ping -t iscsi -l 1 -p 2 -i 192.168.1.1 -c 5
+unexpected error
+please send service report to your administrator
+administrator@cli> 
+2017-11-03 09:55:15: 
+Expect: ping of iscsi type by port 2 should pass
+
+2017-11-03 09:55:15: 
+Fail: ping -t iscsi -l 1 -p 1 -i 192.168.252.164
+
+2017-11-03 09:55:15: ping -t iscsi -l 1 -p 1 -i 192.168.252.164
+unexpected error
+please send service report to your administrator
+administrator@cli> 
+2017-11-03 09:55:15: 
+Expect: ping of iscsi type by port 1 should pass
+
+2017-11-03 09:53:19: 'result': 'p'
+2017-11-03 09:53:19: ping -t iscsi -l 1 -p 2 -i 192.168.1.1 -c 5
+unexpected error
+please send service report to your administrator
+administrator@cli> 
+2017-11-03 09:53:19: 
+Expect: ping of iscsi type by port 2 should pass
+
+2017-11-03 09:53:19: ping -t iscsi -l 1 -p 1 -i 192.168.252.164
+unexpected error
+please send service report to your administrator
+administrator@cli> 
+2017-11-03 09:53:19: 
+Expect: ping of iscsi type by port 1 should pass
+
 2017-11-02 17:39:35: 'result': 'p'
 2017-11-02 17:39:35: snapshot -a rollback -i
 Error (0x403): Missing parameter

@@ -23,7 +23,7 @@ class cli_test():
             result = SendCmd(c, table.cell(i, 0).value)
             time.sleep(hold_time)
 
-            if 'Error (' in result:
+            if 'Error (' in result or 'unexpected error' in result:
 
                 self.FailFlag = True
                 tolog('\r\nFail: ' + table.cell(i, 0).value + '\r\n')
@@ -52,7 +52,7 @@ class cli_test():
             tolog('\r\nExpect: ' + table.cell(i, 1).value + '\r\n')
             result = SendCmd(c, table.cell(i, 0).value)
 
-            if 'Error (' in result:
+            if 'Error (' in result or 'unexpected error' in result:
 
                 self.FailFlag = True
                 tolog('\r\nFail: ' + table.cell(i, 0).value + '\r\n')
@@ -80,7 +80,7 @@ class cli_test():
             tolog('\r\nExpect: ' + table.cell(i, 1).value + '\r\n')
             result = SendCmd(c, table.cell(i, 0).value)
 
-            if 'Error (' in result:
+            if 'Error (' in result  or 'unexpected error' in result:
 
                 self.FailFlag = True
                 tolog('\r\nFail: ' + table.cell(i, 0).value + '\r\n')
@@ -101,7 +101,7 @@ class cli_test():
             result = SendCmd(c, table.cell(i, 0).value)
             time.sleep(hold_time)
 
-            if 'Error (' in result:
+            if 'Error (' in result or 'unexpected error' in result:
 
                 self.FailFlag = True
                 tolog('\r\nFail: ' + table.cell(i, 0).value + '\r\n')
@@ -131,7 +131,7 @@ class cli_test():
             result = SendCmd(c, table.cell(i, 0).value)
             time.sleep(hold_time)
 
-            if 'Error (' not in result:
+            if 'Error (' not in result or 'unexpected error' in result:
 
                 self.FailFlag = True
                 tolog('\r\nFail: ' + table.cell(i, 0).value + '\r\n')

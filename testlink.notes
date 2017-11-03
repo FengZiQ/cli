@@ -1,7 +1,39 @@
 
 Expect: Missing parameter
 
-snapshot -i
+ping
+Error (0x403): Missing parameter
+missing parameter '-i' for '-t mgmt'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+ping -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+ping -t iscsi -l 
+Error (0x403): Missing parameter
+-l: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+ping -t iscsi -l 2 -p 
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+ping -t iscsi -l 2 -p 1 -i 
 Error (0x403): Missing parameter
 -i: missing value
 
@@ -9,113 +41,33 @@ administrator@cli>
 
 Expect: Missing parameter
 
-snapshot -a add
+ping -t mgmt
 Error (0x403): Missing parameter
-missing parameter '-t' for '-a add'
+missing parameter '-i' for '-t mgmt'
 
 administrator@cli> 
 
 Expect: Missing parameter
 
-snapshot -a add -d
+ping -t mgmt -p 
 Error (0x403): Missing parameter
--d: missing value
+-p: missing value
 
 administrator@cli> 
 
 Expect: Missing parameter
 
-snapshot -a add -d 0 -s
+ping -t fc
 Error (0x403): Missing parameter
--s: missing value
+missing parameter '-l' for '-t fc'
 
 administrator@cli> 
 
 Expect: Missing parameter
 
-snapshot -a mod
+ping -t fc -l 1 -p 3 -d WWPN
 Error (0x403): Missing parameter
-missing parameter '-s' for '-a mod'
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-snapshot -a mod -i 
-Error (0x403): Missing parameter
--i: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-snapshot -a mod -i 0 -s
-Error (0x403): Missing parameter
--s: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-snapshot -a export
-Error (0x403): Missing parameter
-missing parameter '-i' for '-a export'
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-snapshot -a export -i
-Error (0x403): Missing parameter
--i: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-snapshot -a unexport
-Error (0x403): Missing parameter
-missing parameter '-i' for '-a unexport'
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-snapshot -a unexport -i
-Error (0x403): Missing parameter
--i: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-snapshot -a del
-Error (0x403): Missing parameter
-missing parameter '-i' for '-a del'
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-snapshot -a del -i
-Error (0x403): Missing parameter
--i: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-snapshot -a rollback
-Error (0x403): Missing parameter
-missing parameter '-i' for '-a rollback'
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-snapshot -a rollback -i
-Error (0x403): Missing parameter
--i: missing value
+missing parameter '-i' for '-t fc'
 
 administrator@cli> 
 'result': 'p'
