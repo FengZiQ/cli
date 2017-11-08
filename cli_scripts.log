@@ -1,3 +1,426 @@
+2017-11-08 17:18:54: 'result': 'p'
+2017-11-08 17:18:54: volume -v -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   Name: tttt_tttt_tttt_tttt_tttt_tttt_32
+PoolId: 0                               PoolName: test_volume_pool
+Status: Exported                        ExportedId: 0
+ExportedWWN: 22ae00015564c7e1           OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 5.23 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 512 Bytes                        Sector: 512 Bytes
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2017-11-09 05:11:29
+PreferCtrlId: 2
+
+administrator@cli> 
+2017-11-08 17:18:53: volume -a mod -s "name=tttt_tttt_tttt_tttt_tttt_tttt_32,thinprov=disable" -i 0
+
+administrator@cli> 
+2017-11-08 17:18:52: 
+Expect: volume name is 32 char and thinprov is disable
+
+2017-11-08 17:18:52: volume -v -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   Name: tttt_tttt_tttt_tttt_tttt_tttt31
+PoolId: 0                               PoolName: test_volume_pool
+Status: Exported                        ExportedId: 0
+ExportedWWN: 22ae00015564c7e1           OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 8.19 KB
+PoolAvailableCapacity: 5.23 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 512 Bytes                        Sector: 512 Bytes
+SyncMode: standard                      ThinProv: Enabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2017-11-09 05:11:29
+PreferCtrlId: 2
+
+administrator@cli> 
+2017-11-08 17:18:51: volume -a mod -s "name=tttt_tttt_tttt_tttt_tttt_tttt31,thinprov=enable" -i 0
+
+administrator@cli> 
+2017-11-08 17:18:50: 
+Expect: volume name is 31 char and thinprov is enable
+
+2017-11-08 17:18:50: volume -v -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   Name: 98
+PoolId: 0                               PoolName: test_volume_pool
+Status: Exported                        ExportedId: 0
+ExportedWWN: 22ae00015564c7e1           OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 8.19 KB
+PoolAvailableCapacity: 5.23 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 512 Bytes                        Sector: 512 Bytes
+SyncMode: standard                      ThinProv: Enabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2017-11-09 05:11:29
+PreferCtrlId: 2
+
+administrator@cli> 
+2017-11-08 17:18:49: volume -a mod -s "name=98,thinprov=enable,logbias=latency" -i 0
+
+administrator@cli> 
+2017-11-08 17:18:49: 
+Expect: volume name is 2 char and thinprov is enable
+
+2017-11-08 17:18:49: volume -v -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   Name: T
+PoolId: 0                               PoolName: test_volume_pool
+Status: Exported                        ExportedId: 0
+ExportedWWN: 22ae00015564c7e1           OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 5.23 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 512 Bytes                        Sector: 512 Bytes
+SyncMode: standard                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2017-11-09 05:11:29
+PreferCtrlId: 2
+
+administrator@cli> 
+2017-11-08 17:18:48: volume -a mod -s "name=T,thinprov=disable,logbias=throughput" -i 0
+
+administrator@cli> 
+2017-11-08 17:18:47: 
+Expect: volume name is 1 char and thinprov is disable
+
+2017-11-08 17:15:05: 'result': 'p'
+2017-11-08 17:15:05: 
+Actual: volume 12 is added 
+
+2017-11-08 17:15:05: volume -v -i 8
+-------------------------------------------------------------------------------
+Id: 8                                   Name: 12
+PoolId: 0                               PoolName: test_volume_pool
+Status: Exported                        ExportedId: 8
+ExportedWWN: 22dc000155b68671           OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 8.19 KB
+PoolAvailableCapacity: 5.23 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 128 KB                           Sector: 4 KB
+SyncMode: disabled                      ThinProv: Enabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2017-11-09 05:11:42
+PreferCtrlId: 2
+
+administrator@cli> 
+2017-11-08 17:15:04: volume -a add -p 0 -s "name=12,capacity=1GB,block=128KB,sector=4KB,sync=disabled,thinprov=Enable,logbias=throughput"
+
+administrator@cli> 
+2017-11-08 17:15:03: 
+Expect: Add volume by name 12
+
+2017-11-08 17:15:03: 
+Actual: volume _name_ is added 
+
+2017-11-08 17:15:03: volume -v -i 7
+-------------------------------------------------------------------------------
+Id: 7                                   Name: _name_
+PoolId: 0                               PoolName: test_volume_pool
+Status: Exported                        ExportedId: 7
+ExportedWWN: 22cd0001550869a5           OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 5.23 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+SyncMode: always                        ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2017-11-09 05:11:40
+PreferCtrlId: 2
+
+administrator@cli> 
+2017-11-08 17:15:02: volume -a add -p 0 -s "name=_name_,capacity=1GB,block=64KB,sector=4KB,sync=always,thinprov=Disable,logbias=throughput"
+
+administrator@cli> 
+2017-11-08 17:15:02: 
+Expect: Add volume by name _name_
+
+2017-11-08 17:15:02: 
+Actual: volume test is added 
+
+2017-11-08 17:15:01: volume -v -i 6
+-------------------------------------------------------------------------------
+Id: 6                                   Name: test
+PoolId: 0                               PoolName: test_volume_pool
+Status: Exported                        ExportedId: 6
+ExportedWWN: 22db0001550d9fcf           OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.98 MB                UsedCapacity: 8.19 KB
+PoolAvailableCapacity: 5.24 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 32 KB                            Sector: 2 KB
+SyncMode: standard                      ThinProv: Enabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2017-11-09 05:11:38
+PreferCtrlId: 2
+
+administrator@cli> 
+2017-11-08 17:15:00: volume -a add -p 0 -s "name=test,capacity=1GB,block=32KB,sector=2KB,sync=standard,thinprov=Enable,logbias=latency"
+
+administrator@cli> 
+2017-11-08 17:15:00: 
+Expect: Add volume by name test
+
+2017-11-08 17:15:00: 
+Actual: volume 1_n is added 
+
+2017-11-08 17:15:00: volume -v -i 5
+-------------------------------------------------------------------------------
+Id: 5                                   Name: 1_n
+PoolId: 0                               PoolName: test_volume_pool
+Status: Exported                        ExportedId: 5
+ExportedWWN: 2221000155adee33           OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 5.24 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 16 KB                            Sector: 1 KB
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2017-11-09 05:11:37
+PreferCtrlId: 2
+
+administrator@cli> 
+2017-11-08 17:14:59: volume -a add -p 0 -s "name=1_n,capacity=1GB,block=16KB,sector=1KB,sync=disabled,thinprov=Disable,logbias=throughput"
+
+administrator@cli> 
+2017-11-08 17:14:58: 
+Expect: Add volume by name 1_n
+
+2017-11-08 17:14:58: 
+Actual: volume Test_name is added 
+
+2017-11-08 17:14:58: volume -v -i 4
+-------------------------------------------------------------------------------
+Id: 4                                   Name: Test_name
+PoolId: 0                               PoolName: test_volume_pool
+Status: Exported                        ExportedId: 4
+ExportedWWN: 2237000155115b7f           OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 8.19 KB
+PoolAvailableCapacity: 5.24 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+SyncMode: always                        ThinProv: Enabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2017-11-09 05:11:35
+PreferCtrlId: 2
+
+administrator@cli> 
+2017-11-08 17:14:57: volume -a add -p 0 -s "name=Test_name,capacity=1GB,block=8KB,sector=512B,sync=always,thinprov=Enable,logbias=latency"
+
+administrator@cli> 
+2017-11-08 17:14:57: 
+Expect: Add volume by name Test_name
+
+2017-11-08 17:14:57: 
+Actual: volume tttttttttttttttttttttttttttttttt is added 
+
+2017-11-08 17:14:57: volume -v -i 3
+-------------------------------------------------------------------------------
+Id: 3                                   Name: tttttttttttttttttttttttttttttttt
+PoolId: 0                               PoolName: test_volume_pool
+Status: Exported                        ExportedId: 3
+ExportedWWN: 2214000155a16f23           OperationalStatus: OK, Synchronizing
+TotalCapacity: 2 TB                     UsedCapacity: 2 TB
+PoolAvailableCapacity: 5.24 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 4 KB                             Sector: 4 KB
+SyncMode: standard                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2017-11-09 05:11:33
+PreferCtrlId: 2
+
+administrator@cli> 
+2017-11-08 17:14:55: volume -a add -p 0 -s "name=tttttttttttttttttttttttttttttttt,capacity=2TB,block=4KB,sector=4KB,sync=standard,thinprov=Disable,logbias=throughput"
+
+administrator@cli> 
+2017-11-08 17:14:55: 
+Expect: Add volume by name tttttttttttttttttttttttttttttttt
+
+2017-11-08 17:14:55: 
+Actual: volume NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN is added 
+
+2017-11-08 17:14:55: volume -v -i 2
+-------------------------------------------------------------------------------
+Id: 2                                   Name: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+PoolId: 0                               PoolName: test_volume_pool
+Status: Exported                        ExportedId: 2
+ExportedWWN: 2242000155c14077           OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 TB                     UsedCapacity: 8.19 KB
+PoolAvailableCapacity: 7.30 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 2 KB                             Sector: 2 KB
+SyncMode: disabled                      ThinProv: Enabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2017-11-09 05:11:32
+PreferCtrlId: 2
+
+administrator@cli> 
+2017-11-08 17:14:54: volume -a add -p 0 -s "name=NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN,capacity=1TB,block=2KB,sector=2KB,sync=disabled,thinprov=Enable,logbias=latency"
+
+administrator@cli> 
+2017-11-08 17:14:53: 
+Expect: Add volume by name NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+
+2017-11-08 17:14:53: 
+Actual: volume TN is added 
+
+2017-11-08 17:14:53: volume -v -i 1
+-------------------------------------------------------------------------------
+Id: 1                                   Name: TN
+PoolId: 0                               PoolName: test_volume_pool
+Status: Exported                        ExportedId: 1
+ExportedWWN: 22780001552ab87c           OperationalStatus: OK, Synchronizing
+TotalCapacity: 2 GB                     UsedCapacity: 2 GB
+PoolAvailableCapacity: 7.30 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 1 KB                             Sector: 1 KB
+SyncMode: always                        ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2017-11-09 05:11:30
+PreferCtrlId: 2
+
+administrator@cli> 
+2017-11-08 17:14:52: volume -a add -p 0 -s "name=TN,capacity=2GB,block=1KB,sector=1KB,sync=always,thinprov=Disable,logbias=throughput"
+
+administrator@cli> 
+2017-11-08 17:14:52: 
+Expect: Add volume by name TN
+
+2017-11-08 17:14:52: 
+Actual: volume n is added 
+
+2017-11-08 17:14:52: volume -v -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   Name: n
+PoolId: 0                               PoolName: test_volume_pool
+Status: Exported                        ExportedId: 0
+ExportedWWN: 22ae00015564c7e1           OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 8.19 KB
+PoolAvailableCapacity: 7.30 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 512 Bytes                        Sector: 512 Bytes
+SyncMode: standard                      ThinProv: Enabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2017-11-09 05:11:29
+PreferCtrlId: 2
+
+administrator@cli> 
+2017-11-08 17:14:51: volume -a add -p 0 -s "name=n,capacity=1GB,block=512B,sector=512B,sync=standard,thinprov=Enable,logbias=latency"
+
+administrator@cli> 
+2017-11-08 17:14:50: 
+Expect: Add volume by name n
+
+2017-11-08 17:14:45: Verify: add volume
+
+2017-11-08 17:14:12: 'result': 'f'
+2017-11-08 17:14:12: Fail: volume -a add -p 0 -s "name=12,capacity=1GB,block=128KB,sector=4KB,sync=disabled,thinprov=Enable"logbias=throughput"
+
+2017-11-08 17:14:12: volume -a add -p 0 -s "name=12,capacity=1GB,block=128KB,sector=4KB,sync=disabled,thinprov=Enable"logbias=throughput"
+Error (0x2013): Invalid setting parameters
+invalid setting: "name=12,capacity=1GB,block=128KB,sector=4KB,sync=disabled,thinprov=Enable"logbias=throughput"
+
+administrator@cli> 
+2017-11-08 17:14:12: 
+Expect: Add volume by name 12
+
+2017-11-08 17:14:12: Fail: volume -a add -p 0 -s "name=_name_,capacity=1GB,block=64KB,sector=4KB,sync=always,thinprov=Disable"logbias=throughput"
+
+2017-11-08 17:14:12: volume -a add -p 0 -s "name=_name_,capacity=1GB,block=64KB,sector=4KB,sync=always,thinprov=Disable"logbias=throughput"
+Error (0x2013): Invalid setting parameters
+invalid setting: "name=_name_,capacity=1GB,block=64KB,sector=4KB,sync=always,thinprov=Disable"logbias=throughput"
+
+administrator@cli> 
+2017-11-08 17:14:12: 
+Expect: Add volume by name _name_
+
+2017-11-08 17:14:12: Fail: volume -a add -p 0 -s "name=test,capacity=1GB,block=32KB,sector=2KB,sync=standard,thinprov=Enable"logbias=latency"
+
+2017-11-08 17:14:11: volume -a add -p 0 -s "name=test,capacity=1GB,block=32KB,sector=2KB,sync=standard,thinprov=Enable"logbias=latency"
+Error (0x2013): Invalid setting parameters
+invalid setting: "name=test,capacity=1GB,block=32KB,sector=2KB,sync=standard,thinprov=Enable"logbias=latency"
+
+administrator@cli> 
+2017-11-08 17:14:11: 
+Expect: Add volume by name test
+
+2017-11-08 17:14:11: Fail: volume -a add -p 0 -s "name=1_n,capacity=1GB,block=16KB,sector=1KB,sync=disabled,thinprov=Disable"logbias=throughput"
+
+2017-11-08 17:14:11: volume -a add -p 0 -s "name=1_n,capacity=1GB,block=16KB,sector=1KB,sync=disabled,thinprov=Disable"logbias=throughput"
+Error (0x2013): Invalid setting parameters
+invalid setting: "name=1_n,capacity=1GB,block=16KB,sector=1KB,sync=disabled,thinprov=Disable"logbias=throughput"
+
+administrator@cli> 
+2017-11-08 17:14:11: 
+Expect: Add volume by name 1_n
+
+2017-11-08 17:14:11: Fail: volume -a add -p 0 -s "name=Test_name,capacity=1GB,block=8KB,sector=512B,sync=always,thinprov=Enable"logbias=latency"
+
+2017-11-08 17:14:11: volume -a add -p 0 -s "name=Test_name,capacity=1GB,block=8KB,sector=512B,sync=always,thinprov=Enable"logbias=latency"
+Error (0x2013): Invalid setting parameters
+invalid setting: "name=Test_name,capacity=1GB,block=8KB,sector=512B,sync=always,thinprov=Enable"logbias=latency"
+
+administrator@cli> 
+2017-11-08 17:14:11: 
+Expect: Add volume by name Test_name
+
+2017-11-08 17:14:11: Fail: volume -a add -p 0 -s "name=tttttttttttttttttttttttttttttttt,capacity=2TB,block=4KB,sector=4KB,sync=standard,thinprov=Disable"logbias=throughput"
+
+2017-11-08 17:14:11: volume -a add -p 0 -s "name=tttttttttttttttttttttttttttttttt,capacity=2TB,block=4KB,sector=4KB,sync=standard,thinprov=Disable"logbias=throughput"
+Error (0x2013): Invalid setting parameters
+invalid setting: "name=tttttttttttttttttttttttttttttttt,capacity=2TB,block=4KB,sector=4KB,sync=standard,thinprov=Disable"logbias=throughput"
+
+administrator@cli> 
+2017-11-08 17:14:11: 
+Expect: Add volume by name tttttttttttttttttttttttttttttttt
+
+2017-11-08 17:14:11: Fail: volume -a add -p 0 -s "name=NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN,capacity=1TB,block=2KB,sector=2KB,sync=disabled,thinprov=Enable"logbias=latency"
+
+2017-11-08 17:14:11: volume -a add -p 0 -s "name=NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN,capacity=1TB,block=2KB,sector=2KB,sync=disabled,thinprov=Enable"logbias=latency"
+Error (0x2013): Invalid setting parameters
+invalid setting: "name=NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN,capacity=1TB,block=2KB,sector=2KB,sync=disabled,thinprov=Enable"logbias=latency"
+
+administrator@cli> 
+2017-11-08 17:14:11: 
+Expect: Add volume by name NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+
+2017-11-08 17:14:11: Fail: volume -a add -p 0 -s "name=TN,capacity=2GB,block=1KB,sector=1KB,sync=always,thinprov=Disable"logbias=throughput"
+
+2017-11-08 17:14:11: volume -a add -p 0 -s "name=TN,capacity=2GB,block=1KB,sector=1KB,sync=always,thinprov=Disable"logbias=throughput"
+Error (0x2013): Invalid setting parameters
+invalid setting: "name=TN,capacity=2GB,block=1KB,sector=1KB,sync=always,thinprov=Disable"logbias=throughput"
+
+administrator@cli> 
+2017-11-08 17:14:11: 
+Expect: Add volume by name TN
+
+2017-11-08 17:14:11: Fail: volume -a add -p 0 -s "name=n,capacity=1GB,block=512B,sector=512B,sync=standard,thinprov=Enable"logbias=latency"
+
+2017-11-08 17:14:11: volume -a add -p 0 -s "name=n,capacity=1GB,block=512B,sector=512B,sync=standard,thinprov=Enable"logbias=latency"
+Error (0x2013): Invalid setting parameters
+invalid setting: "name=n,capacity=1GB,block=512B,sector=512B,sync=standard,thinprov=Enable"logbias=latency"
+
+administrator@cli> 
+2017-11-08 17:14:10: 
+Expect: Add volume by name n
+
+2017-11-08 17:14:04: Verify: add volume
+
 2017-11-08 17:07:39: 'result': 'f'
 2017-11-08 17:07:38: No NASShare can be used
 2017-11-08 17:07:38: Fail: To modify NASShare 0 is failed

@@ -37,7 +37,8 @@ def addVolume(c):
                str(table.cell(0, 2).value) + '=' + str(table.cell(i, 2).value) + ',' + \
                str(table.cell(0, 3).value) + '=' + str(table.cell(i, 3).value) + ',' + \
                str(table.cell(0, 4).value) + '=' + str(table.cell(i, 4).value) + ',' + \
-               str(table.cell(0, 5).value) + '=' + str(table.cell(i, 5).value) + '"'
+               str(table.cell(0, 5).value) + '=' + str(table.cell(i, 5).value) + ',' + \
+               str(table.cell(0, 6).value) + '=' + str(table.cell(i, 6).value) + '"'
 
         tolog('\r\nExpect: Add volume by name ' + table.cell(i, 0).value + '\r\n')
         result = SendCmd(c, command)
@@ -56,6 +57,9 @@ def addVolume(c):
                 FailFlag = True
                 tolog('\r\nFail: please check out volume sync\r\n')
             elif table.cell(i, 5).value not in checkResult:
+                FailFlag = True
+                tolog('\r\nFail: please check out volume thinprov\r\n')
+            elif table.cell(i, 6).value not in checkResult:
                 FailFlag = True
                 tolog('\r\nFail: please check out volume thinprov\r\n')
             else:
