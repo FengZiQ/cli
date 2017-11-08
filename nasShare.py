@@ -5,32 +5,18 @@ from send_cmd import *
 from to_log import *
 from ssh_connect import ssh_conn
 import time
+from remote import server
+from find_unconfigured_pd_id import find_pd_id
 
 Pass = "'result': 'p'"
 Fail = "'result': 'f'"
 
 
-def findPoolId(c):
-    pdInfo = SendCmd(c, 'phydrv')
-    pdId = []
-    poolId = []
-    if 'Pool' in pdInfo:
-        poolInfo = SendCmd(c, 'pool')
-        poolRow = poolInfo.split('\r\n')
-        for row in poolRow:
-            if len(row.split()) >= 9:
-                poolId.append(row.split()[0])
-        for i in poolId:
-            SendCmd(c, 'pool -a del -y -f -i ' + i)
-        findPoolId(c)
-    else:
-        pdRows = pdInfo.split('\r\n')
-        for row in pdRows:
-            if len(row.split()) >= 10 and "HDD" in row and 'Unconfigured' in row:
-                pdId.append(row.split()[0])
-
-    if len(pdId) >= 3:
-        SendCmd(c, 'pool -a add -s "name=TestNASShare,raid=5" -p ' + pdId[0] + ',' + pdId[1] + ',' + pdId[3])
+def findPoolId():
+    # precondition
+    pdId = find_pd_id('4TB')
+    # create pool
+    server.webapi('post', 'pool', {"name": "test_NASShare_pool", "pds": pdId[:3], "raid_level": "raid5"})
 
     plId = '0'
     return plId
@@ -41,13 +27,14 @@ def addNASShare(c):
     tolog('Add NASShare \r\n')
 
     # test data
-    poolId = findPoolId(c)
+    poolId = findPoolId()
     parameters = {
         "name": ['X', '1_a', 'N'*32],
         "capacity": ['1GB', '2GB', '1TB'],
         "recsize": ['128KB', '512B', '1MB'],
         "sync": ['always', 'standard', 'disabled'],
-        "logbias": ['latency', 'throughput', 'throughput']
+        "logbias": ['latency', 'throughput', 'throughput'],
+        "compress": ['off', 'fast', 'optimized']
     }
     capacity = ['TotalCapacity: 1 GB', 'TotalCapacity: 2 GB', 'TotalCapacity: 1 TB']
     recsize = ['RecordSize: 128 KB', 'RecordSize: 512 Bytes', 'RecordSize: 1 MB']
@@ -57,7 +44,8 @@ def addNASShare(c):
         'capacity=' + parameters["capacity"][i] + ',' + \
         'recsize='+ parameters["recsize"][i] + ',' + \
         'sync=' + parameters["sync"][i] + ',' + \
-        'logbias=' + parameters["logbias"][i]
+        'logbias=' + parameters["logbias"][i] + ',' + \
+        'compress=' + parameters["compress"][i]
 
         tolog('Expect: NASShare settings are ' + settings + '\r\n')
 
@@ -186,45 +174,40 @@ def listVerboseNASShare(c):
 def modNASShare(c):
     Failflag = False
     tolog('Modify NASShare \r\n')
+    # precondition
+    server.webapi('post', 'nasshare/0/unmount')
 
     # test data
     parameters = {
         "name": ['test_modify', '1', 'N'*31],
-        "capacity": ['1GB', '2GB', '1TB']
+        "capacity": ['1GB', '2GB', '1TB'],
+        "compress": ['off', 'fast', 'optimized']
     }
     capacity = ['TotalCapacity: 1 GB', 'TotalCapacity: 2 GB', 'TotalCapacity: 1 TB']
 
-    nasShareId = []
-    nasShareInfo = SendCmd(c, 'nasshare')
-    totalRow = nasShareInfo.split('\r\n')
+    for i in range(3):
+        settings = 'name=' + parameters["name"][i] + ',' + \
+        'capacity=' + parameters["capacity"][i] + ',' + \
+        'compress=' + parameters["compress"][i]
 
-    for row in totalRow:
-        if len(row.split()) >= 9:
-            nasShareId.append(row.split()[0])
+        tolog('Expect: The NASShare 0 can be modified \r\n')
 
-    if len(nasShareId) > 0:
-        for i in range(3):
-            settings = 'name=' + parameters["name"][i] + ',' + \
-            'capacity=' + parameters["capacity"][i]
+        result = SendCmd(c, 'nasshare -a mod -i 0 -s "' + settings + '"')
+        checkResult = SendCmd(c, 'nasshare -v -i 0')
 
-            tolog('Expect: The NASShare ' + nasShareId[0] + ' can be modified \r\n')
+        if 'Error (' in result:
+            Failflag = True
+            tolog('Fail: To modify NASShare 0 is failed')
+        else:
+            tolog('Actual: The NASShare 0 is modified \r\n')
 
-            result = SendCmd(c, 'nasshare -a mod -i ' + nasShareId[0] + ' -s "' + settings + '"')
-            checkResult = SendCmd(c, 'nasshare -v -i ' + nasShareId[0])
-
-            if 'Error (' in result:
+            if parameters["name"][i] not in checkResult:
                 Failflag = True
-                tolog('Fail: To modify NASShare ' + nasShareId[0] + ' is failed')
-            else:
-                tolog('Actual: The NASShare ' + nasShareId[0] + ' is modified \r\n')
+                tolog('Fail: please checkout parameter ' + parameters["name"][i] + '\r\n')
 
-                if parameters["name"][i] not in checkResult:
-                    Failflag = True
-                    tolog('Fail: please checkout parameter ' + parameters["name"][i] + '\r\n')
-
-                if capacity[i] not in checkResult:
-                    Failflag = True
-                    tolog('Fail: please checkout parameter ' + parameters["capacity"][i] + '\r\n')
+            if capacity[i] not in checkResult:
+                Failflag = True
+                tolog('Fail: please checkout parameter ' + parameters["capacity"][i] + '\r\n')
     else:
         tolog('No NASShare can be used')
 
@@ -546,18 +529,18 @@ def deleteNASShare(c):
 if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
-    addNASShare(c)
-    listNASShare(c)
-    listVerboseNASShare(c)
+    # addNASShare(c)
+    # listNASShare(c)
+    # listVerboseNASShare(c)
     modNASShare(c)
-    mountNASShare(c)
-    unmountNASShare(c)
-    helpNASShare(c)
-    failedTest_InexistentId(c)
-    failedTest_InvalidOption(c)
-    failedTest_InvalidParameters(c)
-    failedTest_MissingParameters(c)
-    deleteNASShare(c)
+    # mountNASShare(c)
+    # unmountNASShare(c)
+    # helpNASShare(c)
+    # failedTest_InexistentId(c)
+    # failedTest_InvalidOption(c)
+    # failedTest_InvalidParameters(c)
+    # failedTest_MissingParameters(c)
+    # deleteNASShare(c)
     ssh.close()
     elasped = time.clock() - start
     print "Elasped %s" % elasped

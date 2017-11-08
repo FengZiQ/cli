@@ -7,42 +7,23 @@ from ssh_connect import ssh_conn
 import time
 import xlrd
 import random
+from cli_test import cli_test
+from remote import server
+from find_unconfigured_pd_id import find_pd_id
 
 Pass = "'result': 'p'"
 Fail = "'result': 'f'"
 
-
-def findPoolId(c):
-    pdinfo = SendCmd(c, 'phydrv')
-
-    poolId = []
-
-    if 'Pool' in pdinfo:
-        poolInfo = SendCmd(c, 'pool')
-        row = poolInfo.split('\r\n')
-
-        for i in range(4, len(row)-2):
-            if len(row[i].split()) >= 8:
-                poolId.append(row[i].split()[0])
-
-        for i in poolId:
-            SendCmd(c, 'pool -a del -y -f -i ' + i)
-
-        SendCmd(c, 'pool -a add -s "name=test_volume,raid=5" -p 4,9,8')
-        poolId = ['0']
-
-    else:
-        SendCmd(c, 'pool -a add -s "name=test_volume,raid=5" -p 4,9,8')
-        poolId = ['0']
-
-    return poolId
-
+data = 'data/volume.xlsx'
 
 def addVolume(c):
     FailFlag = False
     tolog('Verify: add volume\r\n')
 
-    findPoolId(c)
+    # precondition
+    pdId = find_pd_id('4TB')
+    # create pool
+    server.webapi('post', 'pool', {"name": "test_volume_pool", "pds": pdId[:3], "raid_level": "raid5"})
 
     data = xlrd.open_workbook("data/volume.xlsx")
 
@@ -160,35 +141,8 @@ def listVolume(c):
 
 
 def modVolume(c):
-    FailFlag = False
-    tolog('\r\nVerify: modify volume\r\n')
 
-    data = xlrd.open_workbook("data/volume.xlsx")
-
-    table = data.sheet_by_name('modVolume')
-
-    for i in range(1, table.nrows):
-        tolog('Expect: To modify name is ' + table.cell(i, 0).value + '\r\n')
-
-        result = SendCmd(c, 'volume -a mod -i 0 -s "name=' + table.cell(i, 0).value + '"')
-
-        if 'Error (' in result:
-            FailFlag = True
-            tolog('Fail: volume -a mod -i 0 -s "name=' + table.cell(i, 0).value + '"')
-        else:
-            checkResult = SendCmd(c, 'volume -v -i 0')
-            if table.cell(i, 0).value not in checkResult:
-                FailFlag = True
-                tolog('\r\nFail: please check out volume name\r\n')
-            else:
-                tolog('\r\nActual: volume name is modified\r\n')
-
-    if FailFlag:
-        tolog(Fail)
-    else:
-        tolog(Pass)
-
-    return FailFlag
+    cli_test.setting(c, data, 'modVolume', 1)
 
 
 def exportVolume(c):

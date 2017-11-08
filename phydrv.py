@@ -2,7 +2,7 @@
 # 2017.10.31
 
 from ssh_connect import ssh_conn
-import time
+import time, json
 from cli_test import cli_test
 from remote import server
 from find_unconfigured_pd_id import find_pd_id
@@ -12,6 +12,7 @@ data = 'data/phydrv.xlsx'
 
 def precondition():
     pdId = find_pd_id()
+    ssd_id = []
 
     # create pool
     server.webapi('post', 'pool', {"name": "test_phy_0", "pds": [pdId[0]], "raid_level": "RAID0"})
@@ -22,8 +23,15 @@ def precondition():
     server.webapi('post', 'spare', {"pd_id": pdId[5], "dedicated": 'dedicated', "revertible": 0, "pool_list": [0]})
 
     # create cache
-    server.webapi('post', 'rcache/attach', {"pd_list": [16]})
-    server.webapi('post', 'wcache/attach', {"pd_list": [5, 6], "pool_list": []})
+    pd_request = server.webapi('get', 'phydrv')
+    pd_info = json.loads(pd_request["text"])
+
+    for info in pd_info:
+        if info["media_type"] == 'SSD':
+            ssd_id.append(info["id"])
+
+    server.webapi('post', 'rcache/attach', {"pd_list": [ssd_id[0]]})
+    server.webapi('post', 'wcache/attach', {"pd_list": ssd_id[1:], "pool_list": []})
 
 
 def list_phydrv(c):
