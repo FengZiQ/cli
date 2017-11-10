@@ -19,6 +19,8 @@ def raid1_start_rb(c):
 
     cli_test.setting(c, data, 'raid1_start_rb', 3)
 
+    return cli_test.FailFlag
+
 
 def raid5_start_rb(c):
     # precondition
@@ -28,6 +30,8 @@ def raid5_start_rb(c):
     server.webapi('post', 'pool', {"name": "test_rb_5", "pds": pdId[:3], "raid_level": "raid5"})
 
     cli_test.setting(c, data, 'raid5_start_rb', 3)
+
+    return cli_test.FailFlag
 
 
 def raid6_start_rb(c):
@@ -39,6 +43,8 @@ def raid6_start_rb(c):
 
     cli_test.setting(c, data, 'raid6_start_rb', 3)
 
+    return cli_test.FailFlag
+
 
 def raid10_start_rb(c):
     # precondition
@@ -48,6 +54,8 @@ def raid10_start_rb(c):
     server.webapi('post', 'pool', {"name": "test_rb_10", "pds": pdId[:4], "raid_level": "raid10"})
 
     cli_test.setting(c, data, 'raid10_start_rb', 3)
+
+    return cli_test.FailFlag
 
 
 def raid50_start_rb(c):
@@ -60,6 +68,8 @@ def raid50_start_rb(c):
 
     cli_test.setting(c, data, 'raid50_start_rb', 3)
 
+    return cli_test.FailFlag
+
 
 def raid60_start_rb(c):
     # precondition
@@ -71,25 +81,35 @@ def raid60_start_rb(c):
 
     cli_test.setting(c, data, 'raid60_start_rb', 3)
 
+    return cli_test.FailFlag
+
 
 def list_rb(c):
 
     cli_test.list(c, data, 'list_rb')
+
+    return cli_test.FailFlag
 
 
 def stop_rb(c):
 
     cli_test.setting(c, data, 'stop_rb', 3)
 
+    return cli_test.FailFlag
+
 
 def invalid_setting_parameter(c):
 
     cli_test.failed_test(c, data, 'invalid_setting_parameter')
 
+    return cli_test.FailFlag
+
 
 def invalid_option(c):
 
     cli_test.failed_test(c, data, 'invalid_option')
+
+    return cli_test.FailFlag
 
 
 def missing_parameter(c):
@@ -98,6 +118,8 @@ def missing_parameter(c):
 
     # clean up environment
     server.webapi('delete', 'pool/0?force=1')
+
+    return cli_test.FailFlag
 
 
 if __name__ == "__main__":

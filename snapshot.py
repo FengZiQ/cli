@@ -33,15 +33,21 @@ def add_snapshot(c):
 
     cli_test.setting(c, data, 'add_snapshot', 1)
 
+    return cli_test.FailFlag
+
 
 def list_snapshot(c):
 
     cli_test.list(c, data, 'list_snapshot')
 
+    return cli_test.FailFlag
+
 
 def list_snapshot_by_verbose_mode(c):
 
     cli_test.list(c, data, 'list_snapshot_by_verbose_mode')
+
+    return cli_test.FailFlag
 
 
 def mod_snapshot(c):
@@ -50,6 +56,8 @@ def mod_snapshot(c):
 
     cli_test.setting(c, data, 'mod_snapshot', 1)
 
+    return cli_test.FailFlag
+
 
 def export_unexport_snapshot(c):
     # precondition
@@ -57,12 +65,16 @@ def export_unexport_snapshot(c):
 
     cli_test.setting(c, data, 'export_unexport_snapshot', 1)
 
+    return cli_test.FailFlag
+
 
 def mount_umount_snapshot(c):
     # precondition
     server.webapi('post', 'snapshot/2/unmount')
 
     cli_test.setting(c, data, 'mount_umount_snapshot', 1)
+
+    return cli_test.FailFlag
 
 
 def rollback_snapshot(c):
@@ -73,6 +85,8 @@ def rollback_snapshot(c):
 
     cli_test.other(c, data, 'rollback_snapshot')
 
+    return cli_test.FailFlag
+
 
 def del_snapshot(c):
     # precondition: create clone
@@ -81,15 +95,21 @@ def del_snapshot(c):
 
     cli_test.delete(c, data, 'del_snapshot')
 
+    return cli_test.FailFlag
+
 
 def invalid_setting_parameter(c):
 
     cli_test.failed_test(c, data, 'invalid_setting_parameter')
 
+    return cli_test.FailFlag
+
 
 def invalid_option(c):
 
     cli_test.failed_test(c, data, 'invalid_option')
+
+    return cli_test.FailFlag
 
 
 def missing_parameter(c):
@@ -98,6 +118,8 @@ def missing_parameter(c):
 
     # clean up environment
     clean_up_environment()
+
+    return cli_test.FailFlag
 
 
 if __name__ == "__main__":

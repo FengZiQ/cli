@@ -13,6 +13,7 @@ class cli_test():
 
     FailFlag = False
 
+    # use to add, mod, and so on
     def setting(self, c, data_file_name, sheet_name, hold_time=0):
         data = xlrd.open_workbook(data_file_name)
         table = data.sheet_by_name(sheet_name)
@@ -43,6 +44,7 @@ class cli_test():
         else:
             tolog(Pass)
 
+    # use to list and so on
     def list(self, c, data_file_name, sheet_name):
         data = xlrd.open_workbook(data_file_name)
         table = data.sheet_by_name(sheet_name)
@@ -71,6 +73,7 @@ class cli_test():
         else:
             tolog(Pass)
 
+    # use to verify nothing returned values action
     def other(self, c, data_file_name, sheet_name):
         data = xlrd.open_workbook(data_file_name)
         table = data.sheet_by_name(sheet_name)
@@ -91,6 +94,7 @@ class cli_test():
         else:
             tolog(Pass)
 
+    # use to del
     def delete(self, c, data_file_name, sheet_name, hold_time=0):
         data = xlrd.open_workbook(data_file_name)
         table = data.sheet_by_name(sheet_name)
@@ -121,6 +125,7 @@ class cli_test():
         else:
             tolog(Pass)
 
+    # use to verify failed test
     def failed_test(self, c, data_file_name, sheet_name, hold_time=0):
         data = xlrd.open_workbook(data_file_name)
         table = data.sheet_by_name(sheet_name)
@@ -138,9 +143,11 @@ class cli_test():
 
             else:
 
-                if table.cell(i, 1).value not in result:
-                    self.FailFlag = True
-                    tolog('\r\nFail: please check out ' + table.cell(i, 1).value + '\r\n')
+                for j in range(1, table.ncols):
+
+                    if table.cell(i, j).value not in result:
+                        self.FailFlag = True
+                        tolog('\r\nFail: please check out ' + table.cell(i, j).value + '\r\n')
 
         if self.FailFlag:
             tolog(Fail)
@@ -148,6 +155,7 @@ class cli_test():
         else:
             tolog(Pass)
 
+    # marks a manual execution case
     def need_manual_test(self):
 
         tolog('\r\nneed manual test\r\n')

@@ -34,12 +34,16 @@ def clean_up_environment():
 
     server.webapi('delete', 'pool/0?force=1')
 
+    return cli_test.FailFlag
+
 
 def start_perfstats(c):
     # precondition
     precondition()
 
     cli_test.other(c, data, 'start_perfstats')
+
+    return cli_test.FailFlag
 
 
 def list_perfstats(c):
@@ -48,15 +52,21 @@ def list_perfstats(c):
 
     cli_test.list(c, data, 'list_perfstats')
 
+    return cli_test.FailFlag
+
 
 def invalid_setting_parameter(c):
 
     cli_test.failed_test(c, data, 'invalid_setting_parameter')
 
+    return cli_test.FailFlag
+
 
 def invalid_option(c):
 
     cli_test.failed_test(c, data, 'invalid_option')
+
+    return cli_test.FailFlag
 
 
 def missing_parameter(c):
@@ -65,6 +75,8 @@ def missing_parameter(c):
 
     # clean up environment
     clean_up_environment()
+
+    return cli_test.FailFlag
 
 
 if __name__ == "__main__":

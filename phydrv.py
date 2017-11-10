@@ -40,20 +40,28 @@ def list_phydrv(c):
 
     cli_test.list(c, data, 'list_phydrv')
 
+    return cli_test.FailFlag
+
 
 def list_phydrv_by_verbose_mode(c):
 
     cli_test.list(c, data, 'list_phydrv_by_verbose_mode')
+
+    return cli_test.FailFlag
 
 
 def mod_phydrv(c):
 
     cli_test.setting(c, data, 'mod_phydrv', 1)
 
+    return cli_test.FailFlag
+
 
 def locate_phydrv(c):
 
     cli_test.other(c, data, 'locate_phydrv')
+
+    return cli_test.FailFlag
 
 
 def online_offline_phydrv(c):
@@ -62,6 +70,8 @@ def online_offline_phydrv(c):
     server.webapi('post', 'pool', {"name": "test_phy_2", "pds": pdId[:3], "raid_level": "raid5"})
 
     cli_test.setting(c, data, 'online_offline_phydrv', 3)
+
+    return cli_test.FailFlag
 
 
 def clear_phydrv(c):
@@ -72,23 +82,30 @@ def clear_phydrv(c):
 
     cli_test.setting(c, data, 'clear_phydrv', 3)
 
+    return cli_test.FailFlag
+
 
 def invalid_setting_parameter(c):
+    # precondition
+    find_pd_id()
 
     cli_test.failed_test(c, data, 'invalid_setting_parameter')
+
+    return cli_test.FailFlag
 
 
 def invalid_option(c):
 
     cli_test.failed_test(c, data, 'invalid_option')
 
+    return cli_test.FailFlag
+
 
 def missing_parameter(c):
 
     cli_test.failed_test(c, data, 'missing_parameter')
 
-    # clean up environment
-    find_pd_id()
+    return cli_test.FailFlag
 
 
 if __name__ == "__main__":

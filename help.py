@@ -14,6 +14,7 @@ def verifyHelp(c):
 
     command = [
         "about",
+        "acl",
         "battery",
         "bbm",
         "bga",
@@ -29,6 +30,7 @@ def verifyHelp(c):
         "export",
         "factorydefaul",
         "fc",
+        "group",
         "import",
         "initiator",
         "iscsi",
@@ -46,6 +48,7 @@ def verifyHelp(c):
         "ping",
         "pool",
         "ptiflash",
+        "quota",
         "rb",
         "rc",
         "rcache",

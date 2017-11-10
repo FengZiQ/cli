@@ -176,19 +176,23 @@ def modNASShare(c):
     tolog('Modify NASShare \r\n')
     # precondition
     server.webapi('post', 'nasshare/0/unmount')
+    time.sleep(3)
 
     # test data
     parameters = {
         "name": ['test_modify', '1', 'N'*31],
         "capacity": ['1GB', '2GB', '1TB'],
-        "compress": ['off', 'fast', 'optimized']
+        "compress": ['off', 'fast', 'optimized'],
+        "recsize": ['128KB', '512B', '1MB']
     }
     capacity = ['TotalCapacity: 1 GB', 'TotalCapacity: 2 GB', 'TotalCapacity: 1 TB']
+    recsize = ['RecordSize: 128 KB', 'RecordSize: 512 Byte', 'RecordSize: 1 MB']
 
     for i in range(3):
         settings = 'name=' + parameters["name"][i] + ',' + \
         'capacity=' + parameters["capacity"][i] + ',' + \
-        'compress=' + parameters["compress"][i]
+        'compress=' + parameters["compress"][i] + ',' + \
+        'recsize=' + parameters["recsize"][i]
 
         tolog('Expect: The NASShare 0 can be modified \r\n')
 
@@ -208,6 +212,15 @@ def modNASShare(c):
             if capacity[i] not in checkResult:
                 Failflag = True
                 tolog('Fail: please checkout parameter ' + parameters["capacity"][i] + '\r\n')
+
+            if parameters["compress"][i] not in checkResult:
+                Failflag = True
+                tolog('Fail: please checkout parameter ' + parameters["compress"][i] + '\r\n')
+
+            if recsize[i] not in checkResult:
+                Failflag = True
+                tolog('Fail: please checkout parameter ' + parameters["recsize"][i] + '\r\n')
+
     else:
         tolog('No NASShare can be used')
 
@@ -529,18 +542,18 @@ def deleteNASShare(c):
 if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
-    # addNASShare(c)
-    # listNASShare(c)
-    # listVerboseNASShare(c)
+    addNASShare(c)
+    listNASShare(c)
+    listVerboseNASShare(c)
     modNASShare(c)
-    # mountNASShare(c)
-    # unmountNASShare(c)
-    # helpNASShare(c)
-    # failedTest_InexistentId(c)
-    # failedTest_InvalidOption(c)
-    # failedTest_InvalidParameters(c)
-    # failedTest_MissingParameters(c)
-    # deleteNASShare(c)
+    mountNASShare(c)
+    unmountNASShare(c)
+    helpNASShare(c)
+    failedTest_InexistentId(c)
+    failedTest_InvalidOption(c)
+    failedTest_InvalidParameters(c)
+    failedTest_MissingParameters(c)
+    deleteNASShare(c)
     ssh.close()
     elasped = time.clock() - start
     print "Elasped %s" % elasped
