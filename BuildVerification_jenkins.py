@@ -721,6 +721,29 @@ def BuildVerification(c):
         if (nasShare.deleteNASShare(c)):
             FailCasesList.append('The case ' + nasShare.deleteNASShare.__name__ + ' failed')
 
+        tolog('Start verifying acl')
+        import acl
+        if (acl.set_acl(c)):
+            FailCasesList.append('The case ' + acl.set_acl.__name__ + ' failed')
+        if (acl.list_acl(c)):
+            FailCasesList.append('The case ' + acl.list_acl.__name__ + ' failed')
+        if (acl.list_acl_by_verbose_mode(c)):
+            FailCasesList.append('The case ' + acl.list_acl_by_verbose_mode.__name__ + ' failed')
+        if (acl.refresh_acl(c)):
+            FailCasesList.append('The case ' + acl.refresh_acl.__name__ + ' failed')
+        if (acl.acl_unset(c)):
+            FailCasesList.append('The case ' + acl.acl_unset.__name__ + ' failed')
+        if (acl.clear_acl(c)):
+            FailCasesList.append('The case ' + acl.clear_acl.__name__ + ' failed')
+        if (acl.cancel_acl(c)):
+            FailCasesList.append('The case ' + acl.cancel_acl.__name__ + ' failed')
+        if (acl.invalid_setting_parameter(c)):
+            FailCasesList.append('The case ' + acl.invalid_setting_parameter.__name__ + ' failed')
+        if (acl.invalid_option(c)):
+            FailCasesList.append('The case ' + acl.invalid_option.__name__ + ' failed')
+        if (acl.missing_parameter(c)):
+            FailCasesList.append('The case ' + acl.missing_parameter.__name__ + ' failed')
+
     if len(FailCasesList) != 0:
         for f in FailCasesList:
             tolog(f)

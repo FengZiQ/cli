@@ -1,5 +1,6 @@
 # coding = utf-8
 # 2017.10.25
+# 2017.11.10
 
 from ssh_connect import ssh_conn
 import time
@@ -70,14 +71,14 @@ def clean_up_environment():
         server.webapi('delete', 'dsgroup/test_acl_group_' + str(i))
 
 
-def add_acl(c):
+def set_acl(c):
     # precondition
     precondition()
 
     server.webapi('post', 'acl/editcancel/nasshare_0')
     server.webapi('post', 'acl/editcancel/clone_0')
 
-    cli_test.setting(c, data, 'add_acl', 3)
+    cli_test.setting(c, data, 'set_acl', 5)
 
 
 def list_acl(c):
@@ -95,20 +96,9 @@ def refresh_acl(c):
     cli_test.other(c, data, 'refresh_acl')
 
 
-def mod_acl(c):
-    # precondition
-    server.webapi('post', 'acl/editcancel/nasshare_0')
-    server.webapi('post', 'acl/editcancel/clone_0')
+def acl_unset(c):
 
-    cli_test.setting(c, data, 'mod_acl', 3)
-
-
-def del_acl(c):
-    # precondition
-    server.webapi('post', 'acl/editcancel/nasshare_0')
-    server.webapi('post', 'acl/editcancel/clone_0')
-
-    cli_test.delete(c, data, 'del_acl', 2)
+    cli_test.delete(c, data, 'acl_unset', 3)
 
 
 def clear_acl(c):
@@ -149,12 +139,11 @@ if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
 
-    add_acl(c)
+    set_acl(c)
     list_acl(c)
     list_acl_by_verbose_mode(c)
     refresh_acl(c)
-    mod_acl(c)
-    del_acl(c)
+    acl_unset(c)
     clear_acl(c)
     cancel_acl(c)
     invalid_setting_parameter(c)

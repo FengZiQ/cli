@@ -5,9 +5,9 @@
 buildserverurl="http://192.168.208.5/release/hyperion_ds/daily/"
 fcsserverurl="http://192.168.208.5/release/hyperion_ds/fcs/"
 tftpserver="root@10.84.2.99:/work/tftpboot/"
-serv = "MjExLjE1MC42NS44MQ=="
-u = "amFja3kubGlAY24ucHJvbWlzZS5jb20="
-p = "NzcwMjE0WHA="
+serv = "211.150.65.81"
+u = "emFjaC5mZW5nQGNuLnByb21pc2UuY29t"
+p = "ZmVuZzEyMw=="
 
 import requests
 from bs4 import BeautifulSoup
@@ -227,7 +227,7 @@ if __name__ == "__main__":
         # os.system("scp /root/buildnum root@192.168.252.106:/opt/testlink-1.9.16-0/apache2/htdocs/srvpool/")
         # os.system("scp /work/jackyl/buildnum root@192.168.252.106:/opt/testlink-1.9.16-0/apache2/htdocs/srvpool/")
         time.sleep(1)
-        os.system("scp /root/buildnum root@10.84.2.66:/home/work/jackyl/Scripts/clitest/")
+        os.system("scp /root/buildnum root@10.84.2.66:/home/work/zach/clitest/")
         # os.system("scp /work/jackyl/buildnum root@10.84.2.66:/home/work/jackyl/Scripts/clitest/")
         time.sleep(1)
         # Create a text/plain message
@@ -237,18 +237,22 @@ if __name__ == "__main__":
         # me == the sender's email address
         # you == the recipient's email address
         msg['Subject'] = 'New build is available at 10.84.2.99:/work/tftpboot/, please see the %s for detail' % textfile
-        msg['From'] = 'jacky.li@cn.promise.com'
-        msg['To'] = 'jacky.li@cn.promise.com'
+        msg['From'] = 'zach.feng@cn.promise.com'
+        msg['To'] = 'zach.feng@cn.promise.com'
         # Send the message via our own SMTP server, but don't include the
-        rec = ['ken.hou@cn.promise.com','tracy.you@cn.promise.com','travis.tang@cn.promise.com','xin.wang@cn.promise.com','lily.zhao@cn.promise.com','lisa.xu@cn.promise.com','jacky.li@cn.promise.com','zach.feng@cn.promise.com','socrates.su@cn.promise.com','paul.diao@cn.promise.com','hulda.zhao@cn.promise.com']
-        #rec = ['zach.feng@cn.promise.com','jacky.li@cn.promise.com','hulda.zhao@cn.promise.com']
-        # Send the message via our own SMTP server, but don't include the
-        # Send the message via our own SMTP server, but don't include the
-        # envelope header.
+        rec = [
+            'ken.hou@cn.promise.com',
+            'tracy.you@cn.promise.com',
+            'travis.tang@cn.promise.com',
+            'lily.zhao@cn.promise.com',
+            'lisa.xu@cn.promise.com',
+            'zach.feng@cn.promise.com',
+            'socrates.su@cn.promise.com',
+            'hulda.zhao@cn.promise.com',
+            'theo.zhang@cn.promise.com'
+        ]
         u=u.decode('base64')
-        serv=serv.decode('base64')
         p=p.decode('base64')
-
 
         s = smtplib.SMTP(serv)
         s.login(u,p)

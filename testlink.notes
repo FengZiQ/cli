@@ -19868,3 +19868,5253 @@ snapshot -a rollback -i 1
 
 administrator@cli> 
 'result': 'p'
+
+Expect: permisions of everyone should be 0 on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=ro"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Fail: please check out everyone                                        ro
+
+
+Expect: permisions of everyone should be rw on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=rw"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Expect: permisions of everyone should be deny only on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=deny"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Fail: please check out everyone                                        deny
+
+
+Expect: permisions of everyone should be 0 on clone
+
+acl -a set -d 0 -t clone -s "role=everyone,acl=ro"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Fail: please check out everyone                                        ro
+
+
+Expect: permisions of everyone should be rw on clone
+
+acl -a set -d 0 -t clone -s "role=everyone,acl=rw"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Expect: permisions of everyone should be deny only on clone
+
+acl -a set -d 0 -t clone -s "role=everyone,acl=deny"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Fail: please check out everyone                                        deny
+
+
+Expect: signle nas user should can set ro permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=ro,name=test_acl_0"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1013      test_acl_0                                      ro         
+
+administrator@cli> 
+
+Expect: signle nas user should can set rw permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=rw,name=test_acl_1"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1013      test_acl_0                                      ro         
+user      1014      test_acl_1                                      rw         
+
+administrator@cli> 
+
+Expect: signle nas user should can set deny permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=deny,name=test_acl_2"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1013      test_acl_0                                      ro         
+user      1014      test_acl_1                                      rw         
+user      1015      test_acl_2                                      deny       
+
+administrator@cli> 
+
+Expect: signle nas user should can set ro permissions on clone
+
+acl -a set -d 0 -t clone -s "role=user,acl=ro,name=test_acl_0"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1013      test_acl_0                                      ro         
+
+administrator@cli> 
+
+Expect: signle nas user should can set rw permissions on clone
+
+acl -a set -d 0 -t clone -s "role=user,acl=rw,name=test_acl_1"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1013      test_acl_0                                      ro         
+user      1014      test_acl_1                                      rw         
+
+administrator@cli> 
+
+Expect: signle nas user should can set deny permissions on clone
+
+acl -a set -d 0 -t clone -s "role=user,acl=deny,name=test_acl_2"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1013      test_acl_0                                      ro         
+user      1014      test_acl_1                                      rw         
+user      1015      test_acl_2                                      deny       
+
+administrator@cli> 
+
+Expect: signle nas group should can set ro permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=group,acl=ro,name=test_acl_group_0"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1013      test_acl_0                                      ro         
+user      1014      test_acl_1                                      rw         
+user      1015      test_acl_2                                      deny       
+group     1009      test_acl_group_0                                ro         
+
+administrator@cli> 
+
+Fail: please check out test-acl_group_0                                      ro
+
+
+Expect: signle nas group should can set rw permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=group,acl=rw,name=test_acl_group_1"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1013      test_acl_0                                      ro         
+user      1014      test_acl_1                                      rw         
+user      1015      test_acl_2                                      deny       
+group     1009      test_acl_group_0                                ro         
+group     1010      test_acl_group_1                                rw         
+
+administrator@cli> 
+
+Fail: please check out test-acl_group_1                                      rw
+
+
+Expect: signle nas group should can set deny permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=group,acl=deny,name=test_acl_group_2"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1013      test_acl_0                                      ro         
+user      1014      test_acl_1                                      rw         
+user      1015      test_acl_2                                      deny       
+group     1009      test_acl_group_0                                ro         
+group     1010      test_acl_group_1                                rw         
+group     1011      test_acl_group_2                                deny       
+
+administrator@cli> 
+
+Fail: please check out test-acl_group_2                                      deny
+
+
+Expect: signle nas group should can set ro permissions on clone
+
+acl -a set -d 0 -t clone -s "role=group,acl=ro,name=test_acl_group_0"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1013      test_acl_0                                      ro         
+user      1014      test_acl_1                                      rw         
+user      1015      test_acl_2                                      deny       
+group     1009      test_acl_group_0                                ro         
+
+administrator@cli> 
+
+Fail: please check out test-acl_group_0                                      ro
+
+
+Expect: signle nas group should can set rw permissions on clone
+
+acl -a set -d 0 -t clone -s "role=group,acl=rw,name=test_acl_group_1"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1013      test_acl_0                                      ro         
+user      1014      test_acl_1                                      rw         
+user      1015      test_acl_2                                      deny       
+group     1009      test_acl_group_0                                ro         
+group     1010      test_acl_group_1                                rw         
+
+administrator@cli> 
+
+Fail: please check out test-acl_group_1                                      rw
+
+
+Expect: signle nas group should can set deny permissions on clone
+
+acl -a set -d 0 -t clone -s "role=group,acl=deny,name=test_acl_group_2"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1013      test_acl_0                                      ro         
+user      1014      test_acl_1                                      rw         
+user      1015      test_acl_2                                      deny       
+group     1009      test_acl_group_0                                ro         
+group     1010      test_acl_group_1                                rw         
+group     1011      test_acl_group_2                                deny       
+
+administrator@cli> 
+
+Fail: please check out test-acl_group_2                                      deny
+
+'result': 'f'
+
+Expect: permisions of everyone should be 0 on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=ro"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Fail: please check out ro
+
+
+Expect: permisions of everyone should be rw on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=rw"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Expect: permisions of everyone should be deny only on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=deny"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Fail: please check out deny
+
+
+Expect: permisions of everyone should be unset only on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=unset"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Fail: please check out unset
+
+
+Expect: permisions of everyone should be 0 on clone
+
+acl -a set -d 0 -t clone -s "role=everyone,acl=ro"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Fail: please check out ro
+
+
+Expect: permisions of everyone should be rw on clone
+
+acl -a set -d 0 -t clone -s "role=everyone,acl=rw"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Expect: permisions of everyone should be deny only on clone
+
+acl -a set -d 0 -t clone -s "role=everyone,acl=deny"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Fail: please check out deny
+
+
+Expect: permisions of everyone should be unset only on nasshare
+
+acl -a set -d 0 -t clone -s "role=everyone,acl=unset"
+
+administrator@cli> 
+acl -t clnoe -d 0
+Error (0x2013): Invalid setting parameters
+-t: invalid setting clnoe (nasshare|clone)
+
+administrator@cli> 
+
+Fail: please check out unset
+
+
+Expect: signle nas user should can set ro permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=ro,name=test_acl_0"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1013      test_acl_0                                      ro         
+
+administrator@cli> 
+
+Expect: signle nas user should can set rw permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=rw,name=test_acl_1"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1013      test_acl_0                                      ro         
+user      1014      test_acl_1                                      rw         
+
+administrator@cli> 
+
+Expect: signle nas user should can set deny permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=deny,name=test_acl_2"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1013      test_acl_0                                      ro         
+user      1014      test_acl_1                                      rw         
+user      1015      test_acl_2                                      deny       
+
+administrator@cli> 
+
+Expect: signle nas user should can set unset permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=unset,name=test_acl_3"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1013      test_acl_0                                      ro         
+user      1014      test_acl_1                                      rw         
+user      1015      test_acl_2                                      deny       
+
+administrator@cli> 
+
+Fail: please check out test_acl_2                                      unset
+
+
+Expect: signle nas user should can set ro permissions on clone
+
+acl -a set -d 0 -t clone -s "role=user,acl=ro,name=test_acl_4"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1017      test_acl_4                                      ro         
+
+administrator@cli> 
+
+Expect: signle nas user should can set rw permissions on clone
+
+acl -a set -d 0 -t clone -s "role=user,acl=rw,name=test_acl_5"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1017      test_acl_4                                      ro         
+user      1018      test_acl_5                                      rw         
+
+administrator@cli> 
+
+Expect: signle nas user should can set deny permissions on clone
+
+acl -a set -d 0 -t clone -s "role=user,acl=deny,name=test_acl_6"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1017      test_acl_4                                      ro         
+user      1018      test_acl_5                                      rw         
+user      1019      test_acl_6                                      deny       
+
+administrator@cli> 
+
+Expect: signle nas user should can set unset permissions on clone
+
+acl -a set -d 0 -t clone -s "role=user,acl=unset,name=test_acl_7"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1017      test_acl_4                                      ro         
+user      1018      test_acl_5                                      rw         
+user      1019      test_acl_6                                      deny       
+
+administrator@cli> 
+
+Fail: please check out test_acl_7                                      unset
+
+
+Expect: signle nas group should can set ro permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=group,acl=ro,name=test_acl_group_0"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1013      test_acl_0                                      ro         
+user      1014      test_acl_1                                      rw         
+user      1015      test_acl_2                                      deny       
+group     1009      test_acl_group_0                                ro         
+
+administrator@cli> 
+
+Fail: please check out test-acl_group_0                                      ro
+
+
+Expect: signle nas group should can set rw permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=group,acl=rw,name=test_acl_group_1"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1013      test_acl_0                                      ro         
+user      1014      test_acl_1                                      rw         
+user      1015      test_acl_2                                      deny       
+group     1009      test_acl_group_0                                ro         
+group     1010      test_acl_group_1                                rw         
+
+administrator@cli> 
+
+Fail: please check out test-acl_group_1                                      rw
+
+
+Expect: signle nas group should can set deny permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=group,acl=deny,name=test_acl_group_2"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1013      test_acl_0                                      ro         
+user      1014      test_acl_1                                      rw         
+user      1015      test_acl_2                                      deny       
+group     1009      test_acl_group_0                                ro         
+group     1010      test_acl_group_1                                rw         
+group     1011      test_acl_group_2                                deny       
+
+administrator@cli> 
+
+Fail: please check out test-acl_group_2                                      deny
+
+
+Expect: signle nas group should can set unset permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=group,acl=unset,name=test_acl_group_3"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1013      test_acl_0                                      ro         
+user      1014      test_acl_1                                      rw         
+user      1015      test_acl_2                                      deny       
+group     1009      test_acl_group_0                                ro         
+group     1010      test_acl_group_1                                rw         
+group     1011      test_acl_group_2                                deny       
+
+administrator@cli> 
+
+Fail: please check out test-acl_group_3                                      unset
+
+
+Expect: signle nas group should can set ro permissions on clone
+
+acl -a set -d 0 -t clone -s "role=group,acl=ro,name=test_acl_group_4"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1017      test_acl_4                                      ro         
+user      1018      test_acl_5                                      rw         
+user      1019      test_acl_6                                      deny       
+
+administrator@cli> 
+
+Fail: please check out test-acl_group_4                                      ro
+
+
+Expect: signle nas group should can set rw permissions on clone
+
+acl -a set -d 0 -t clone -s "role=group,acl=rw,name=test_acl_group_5"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1017      test_acl_4                                      ro         
+user      1018      test_acl_5                                      rw         
+user      1019      test_acl_6                                      deny       
+group     1013      test_acl_group_4                                ro         
+group     1014      test_acl_group_5                                rw         
+
+administrator@cli> 
+
+Fail: please check out test-acl_group_5                                      rw
+
+
+Expect: signle nas group should can set deny permissions on clone
+
+acl -a set -d 0 -t clone -s "role=group,acl=deny,name=test_acl_group_6"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1017      test_acl_4                                      ro         
+user      1018      test_acl_5                                      rw         
+user      1019      test_acl_6                                      deny       
+group     1013      test_acl_group_4                                ro         
+group     1014      test_acl_group_5                                rw         
+group     1015      test_acl_group_6                                deny       
+
+administrator@cli> 
+
+Fail: please check out test-acl_group_6                                      deny
+
+
+Expect: signle nas group should can set unset permissions on clone
+
+acl -a set -d 0 -t clone -s "role=group,acl=unset,name=test_acl_group_7"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1017      test_acl_4                                      ro         
+user      1018      test_acl_5                                      rw         
+user      1019      test_acl_6                                      deny       
+group     1013      test_acl_group_4                                ro         
+group     1014      test_acl_group_5                                rw         
+group     1015      test_acl_group_6                                deny       
+
+administrator@cli> 
+
+Fail: please check out test-acl_group_7                                      unset
+
+'result': 'f'
+
+Expect: permisions of everyone should be 0 on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=ro"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Fail: please check out ro
+
+
+Expect: permisions of everyone should be rw on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=rw"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Expect: permisions of everyone should be deny only on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=deny"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Fail: please check out deny
+
+
+Expect: permisions of everyone should be unset only on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=unset"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Fail: please check out unset
+
+
+Expect: permisions of everyone should be 0 on clone
+
+acl -a set -d 0 -t clone -s "role=everyone,acl=ro"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Fail: please check out ro
+
+
+Expect: permisions of everyone should be rw on clone
+
+acl -a set -d 0 -t clone -s "role=everyone,acl=rw"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Expect: permisions of everyone should be deny only on clone
+
+acl -a set -d 0 -t clone -s "role=everyone,acl=deny"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Fail: please check out deny
+
+
+Expect: permisions of everyone should be unset only on nasshare
+
+acl -a set -d 0 -t clone -s "role=everyone,acl=unset"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Fail: please check out unset
+
+
+Expect: signle nas user should can set ro permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=ro,name=test_acl_0"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1001      test_acl_0                                      ro         
+
+administrator@cli> 
+
+Expect: signle nas user should can set rw permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=rw,name=test_acl_1"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1001      test_acl_0                                      ro         
+
+administrator@cli> 
+
+Fail: please check out test_acl_1                                      rw
+
+
+Expect: signle nas user should can set deny permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=deny,name=test_acl_2"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+
+administrator@cli> 
+
+Expect: signle nas user should can set unset permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=unset,name=test_acl_3"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+
+administrator@cli> 
+
+Fail: please check out test_acl_3                                      unset
+
+
+Expect: signle nas user should can set ro permissions on clone
+
+acl -a set -d 0 -t clone -s "role=user,acl=ro,name=test_acl_4"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1005      test_acl_4                                      ro         
+
+administrator@cli> 
+
+Expect: signle nas user should can set rw permissions on clone
+
+acl -a set -d 0 -t clone -s "role=user,acl=rw,name=test_acl_5"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1005      test_acl_4                                      ro         
+user      1006      test_acl_5                                      rw         
+
+administrator@cli> 
+
+Expect: signle nas user should can set deny permissions on clone
+
+acl -a set -d 0 -t clone -s "role=user,acl=deny,name=test_acl_6"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1005      test_acl_4                                      ro         
+user      1006      test_acl_5                                      rw         
+
+administrator@cli> 
+
+Fail: please check out test_acl_6                                      deny
+
+
+Expect: signle nas user should can set unset permissions on clone
+
+acl -a set -d 0 -t clone -s "role=user,acl=unset,name=test_acl_7"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1005      test_acl_4                                      ro         
+user      1006      test_acl_5                                      rw         
+user      1007      test_acl_6                                      deny       
+
+administrator@cli> 
+
+Fail: please check out test_acl_7                                      unset
+
+
+Expect: signle nas group should can set ro permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=group,acl=ro,name=test_acl_group_0"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+
+administrator@cli> 
+
+Fail: please check out test_acl_group_0                                ro
+
+
+Expect: signle nas group should can set rw permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=group,acl=rw,name=test_acl_group_1"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+group     1001      test_acl_group_0                                ro         
+group     1002      test_acl_group_1                                rw         
+
+administrator@cli> 
+
+Expect: signle nas group should can set deny permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=group,acl=deny,name=test_acl_group_2"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+group     1001      test_acl_group_0                                ro         
+group     1002      test_acl_group_1                                rw         
+group     1003      test_acl_group_2                                deny       
+
+administrator@cli> 
+
+Expect: signle nas group should can set unset permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=group,acl=unset,name=test_acl_group_3"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+group     1001      test_acl_group_0                                ro         
+group     1002      test_acl_group_1                                rw         
+group     1003      test_acl_group_2                                deny       
+
+administrator@cli> 
+
+Fail: please check out test_acl_group_2                                unset
+
+
+Expect: signle nas group should can set ro permissions on clone
+
+acl -a set -d 0 -t clone -s "role=group,acl=ro,name=test_acl_group_4"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1005      test_acl_4                                      ro         
+user      1006      test_acl_5                                      rw         
+user      1007      test_acl_6                                      deny       
+group     1005      test_acl_group_4                                ro         
+
+administrator@cli> 
+
+Expect: signle nas group should can set rw permissions on clone
+
+acl -a set -d 0 -t clone -s "role=group,acl=rw,name=test_acl_group_5"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1005      test_acl_4                                      ro         
+user      1006      test_acl_5                                      rw         
+user      1007      test_acl_6                                      deny       
+group     1005      test_acl_group_4                                ro         
+group     1006      test_acl_group_5                                rw         
+
+administrator@cli> 
+
+Expect: signle nas group should can set deny permissions on clone
+
+acl -a set -d 0 -t clone -s "role=group,acl=deny,name=test_acl_group_6"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1005      test_acl_4                                      ro         
+user      1006      test_acl_5                                      rw         
+user      1007      test_acl_6                                      deny       
+group     1005      test_acl_group_4                                ro         
+group     1006      test_acl_group_5                                rw         
+group     1007      test_acl_group_6                                deny       
+
+administrator@cli> 
+
+Expect: signle nas group should can set unset permissions on clone
+
+acl -a set -d 0 -t clone -s "role=group,acl=unset,name=test_acl_group_7"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1005      test_acl_4                                      ro         
+user      1006      test_acl_5                                      rw         
+user      1007      test_acl_6                                      deny       
+group     1005      test_acl_group_4                                ro         
+group     1006      test_acl_group_5                                rw         
+group     1007      test_acl_group_6                                deny       
+
+administrator@cli> 
+
+Fail: please check out test_acl_group_7                                unset
+
+'result': 'f'
+
+Expect: permisions of everyone should be 0 on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=ro"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Fail: please check out ro
+
+
+Expect: permisions of everyone should be rw on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=rw"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Expect: permisions of everyone should be deny only on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=deny"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Fail: please check out deny
+
+
+Expect: permisions of everyone should be unset only on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=unset"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Fail: please check out unset
+
+
+Expect: permisions of everyone should be 0 on clone
+
+acl -a set -d 0 -t clone -s "role=everyone,acl=ro"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Fail: please check out ro
+
+
+Expect: permisions of everyone should be rw on clone
+
+acl -a set -d 0 -t clone -s "role=everyone,acl=rw"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Expect: permisions of everyone should be deny only on clone
+
+acl -a set -d 0 -t clone -s "role=everyone,acl=deny"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Fail: please check out deny
+
+
+Expect: permisions of everyone should be unset only on nasshare
+
+acl -a set -d 0 -t clone -s "role=everyone,acl=unset"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Fail: please check out unset
+
+
+Expect: signle nas user should can set ro permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=ro,name=test_acl_0"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1001      test_acl_0                                      ro         
+
+administrator@cli> 
+
+Expect: signle nas user should can set rw permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=rw,name=test_acl_1"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+
+administrator@cli> 
+
+Expect: signle nas user should can set deny permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=deny,name=test_acl_2"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+
+administrator@cli> 
+
+Expect: signle nas user should can set unset permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=unset,name=test_acl_3"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+
+administrator@cli> 
+
+Fail: please check out test_acl_3                                      unset
+
+
+Expect: signle nas user should can set ro permissions on clone
+
+acl -a set -d 0 -t clone -s "role=user,acl=ro,name=test_acl_4"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1005      test_acl_4                                      ro         
+
+administrator@cli> 
+
+Expect: signle nas user should can set rw permissions on clone
+
+acl -a set -d 0 -t clone -s "role=user,acl=rw,name=test_acl_5"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1005      test_acl_4                                      ro         
+user      1006      test_acl_5                                      rw         
+
+administrator@cli> 
+
+Expect: signle nas user should can set deny permissions on clone
+
+acl -a set -d 0 -t clone -s "role=user,acl=deny,name=test_acl_6"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1005      test_acl_4                                      ro         
+user      1006      test_acl_5                                      rw         
+user      1007      test_acl_6                                      deny       
+
+administrator@cli> 
+
+Expect: signle nas user should can set unset permissions on clone
+
+acl -a set -d 0 -t clone -s "role=user,acl=unset,name=test_acl_7"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1005      test_acl_4                                      ro         
+user      1006      test_acl_5                                      rw         
+user      1007      test_acl_6                                      deny       
+
+administrator@cli> 
+
+Fail: please check out test_acl_7                                      unset
+
+
+Expect: signle nas group should can set ro permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=group,acl=ro,name=test_acl_group_0"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+group     1001      test_acl_group_0                                ro         
+
+administrator@cli> 
+
+Expect: signle nas group should can set rw permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=group,acl=rw,name=test_acl_group_1"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+group     1001      test_acl_group_0                                ro         
+group     1002      test_acl_group_1                                rw         
+
+administrator@cli> 
+
+Expect: signle nas group should can set deny permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=group,acl=deny,name=test_acl_group_2"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+group     1001      test_acl_group_0                                ro         
+group     1002      test_acl_group_1                                rw         
+group     1003      test_acl_group_2                                deny       
+
+administrator@cli> 
+
+Expect: signle nas group should can set unset permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=group,acl=unset,name=test_acl_group_3"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+group     1001      test_acl_group_0                                ro         
+group     1002      test_acl_group_1                                rw         
+group     1003      test_acl_group_2                                deny       
+
+administrator@cli> 
+
+Fail: please check out test_acl_group_2                                unset
+
+
+Expect: signle nas group should can set ro permissions on clone
+
+acl -a set -d 0 -t clone -s "role=group,acl=ro,name=test_acl_group_4"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1005      test_acl_4                                      ro         
+user      1006      test_acl_5                                      rw         
+user      1007      test_acl_6                                      deny       
+group     1005      test_acl_group_4                                ro         
+
+administrator@cli> 
+
+Expect: signle nas group should can set rw permissions on clone
+
+acl -a set -d 0 -t clone -s "role=group,acl=rw,name=test_acl_group_5"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1005      test_acl_4                                      ro         
+user      1006      test_acl_5                                      rw         
+user      1007      test_acl_6                                      deny       
+group     1005      test_acl_group_4                                ro         
+group     1006      test_acl_group_5                                rw         
+
+administrator@cli> 
+
+Expect: signle nas group should can set deny permissions on clone
+
+acl -a set -d 0 -t clone -s "role=group,acl=deny,name=test_acl_group_6"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1005      test_acl_4                                      ro         
+user      1006      test_acl_5                                      rw         
+user      1007      test_acl_6                                      deny       
+group     1005      test_acl_group_4                                ro         
+group     1006      test_acl_group_5                                rw         
+group     1007      test_acl_group_6                                deny       
+
+administrator@cli> 
+
+Expect: signle nas group should can set unset permissions on clone
+
+acl -a set -d 0 -t clone -s "role=group,acl=unset,name=test_acl_group_7"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1005      test_acl_4                                      ro         
+user      1006      test_acl_5                                      rw         
+user      1007      test_acl_6                                      deny       
+group     1005      test_acl_group_4                                ro         
+group     1006      test_acl_group_5                                rw         
+group     1007      test_acl_group_6                                deny       
+
+administrator@cli> 
+
+Fail: please check out test_acl_group_7                                unset
+
+'result': 'f'
+
+Expect: list acl settings of nasshare type
+
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+group     1001      test_acl_group_0                                ro         
+group     1002      test_acl_group_1                                rw         
+group     1003      test_acl_group_2                                deny       
+
+administrator@cli> 
+
+Expect: list acl settings of clone type
+
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1005      test_acl_4                                      ro         
+user      1006      test_acl_5                                      rw         
+user      1007      test_acl_6                                      deny       
+group     1005      test_acl_group_4                                ro         
+group     1006      test_acl_group_5                                rw         
+group     1007      test_acl_group_6                                deny       
+
+administrator@cli> 
+'result': 'p'
+
+Expect: list acl settings of specific nasshare type by verbose mode
+
+acl -v -t nasshare -d 0
+-------------------------------------------------------------------------------
+Role: everyone                          UIDorGID: N/A
+ACL: rw                                 Status: ready
+UsernameOrGroupname: everyone
+-------------------------------------------------------------------------------
+Role: user                              UIDorGID: 1001
+ACL: ro                                 Status: ready
+UsernameOrGroupname: test_acl_0
+-------------------------------------------------------------------------------
+Role: user                              UIDorGID: 1002
+ACL: rw                                 Status: ready
+UsernameOrGroupname: test_acl_1
+-------------------------------------------------------------------------------
+Role: user                              UIDorGID: 1003
+ACL: deny                               Status: ready
+UsernameOrGroupname: test_acl_2
+-------------------------------------------------------------------------------
+Role: group                             UIDorGID: 1001
+ACL: ro                                 Status: ready
+UsernameOrGroupname: test_acl_group_0
+-------------------------------------------------------------------------------
+Role: group                             UIDorGID: 1002
+ACL: rw                                 Status: ready
+UsernameOrGroupname: test_acl_group_1
+-------------------------------------------------------------------------------
+Role: group                             UIDorGID: 1003
+ACL: deny                               Status: ready
+UsernameOrGroupname: test_acl_group_2
+
+administrator@cli> 
+
+Expect: list acl settings of specific clone type by verbose mode
+
+acl -v -t clone -d 0
+-------------------------------------------------------------------------------
+Role: everyone                          UIDorGID: N/A
+ACL: rw                                 Status: ready
+UsernameOrGroupname: everyone
+-------------------------------------------------------------------------------
+Role: user                              UIDorGID: 1005
+ACL: ro                                 Status: ready
+UsernameOrGroupname: test_acl_4
+-------------------------------------------------------------------------------
+Role: user                              UIDorGID: 1006
+ACL: rw                                 Status: ready
+UsernameOrGroupname: test_acl_5
+-------------------------------------------------------------------------------
+Role: user                              UIDorGID: 1007
+ACL: deny                               Status: ready
+UsernameOrGroupname: test_acl_6
+-------------------------------------------------------------------------------
+Role: group                             UIDorGID: 1005
+ACL: ro                                 Status: ready
+UsernameOrGroupname: test_acl_group_4
+-------------------------------------------------------------------------------
+Role: group                             UIDorGID: 1006
+ACL: rw                                 Status: ready
+UsernameOrGroupname: test_acl_group_5
+-------------------------------------------------------------------------------
+Role: group                             UIDorGID: 1007
+ACL: deny                               Status: ready
+UsernameOrGroupname: test_acl_group_6
+
+administrator@cli> 
+'result': 'p'
+
+Expect: refresh acl of clone type
+
+acl -a refresh -d 0 -t clone
+
+administrator@cli> 
+
+Expect: refresh acl of nasshare type
+
+acl -a refresh -d 0 -t nasshare
+
+administrator@cli> 
+'result': 'p'
+
+Expect: permisions of everyone should be 0 on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=ro"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Fail: please check out ro
+
+
+Expect: permisions of everyone should be rw on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=rw"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Expect: permisions of everyone should be deny only on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=deny"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Fail: please check out deny
+
+
+Expect: permisions of everyone should be 0 on clone
+
+acl -a set -d 0 -t clone -s "role=everyone,acl=ro"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Fail: please check out ro
+
+
+Expect: permisions of everyone should be rw on clone
+
+acl -a set -d 0 -t clone -s "role=everyone,acl=rw"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Expect: permisions of everyone should be deny only on clone
+
+acl -a set -d 0 -t clone -s "role=everyone,acl=deny"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Fail: please check out deny
+
+
+Expect: signle nas user should can set ro permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=ro,name=test_acl_0"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1001      test_acl_0                                      ro         
+
+administrator@cli> 
+
+Expect: signle nas user should can set rw permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=rw,name=test_acl_1"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+
+administrator@cli> 
+
+Expect: signle nas user should can set deny permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=deny,name=test_acl_2"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+
+administrator@cli> 
+
+Expect: signle nas user should can set ro permissions on clone
+
+acl -a set -d 0 -t clone -s "role=user,acl=ro,name=test_acl_4"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1005      test_acl_4                                      ro         
+
+administrator@cli> 
+
+Expect: signle nas user should can set rw permissions on clone
+
+acl -a set -d 0 -t clone -s "role=user,acl=rw,name=test_acl_5"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1005      test_acl_4                                      ro         
+user      1006      test_acl_5                                      rw         
+
+administrator@cli> 
+
+Expect: signle nas user should can set deny permissions on clone
+
+acl -a set -d 0 -t clone -s "role=user,acl=deny,name=test_acl_6"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1005      test_acl_4                                      ro         
+user      1006      test_acl_5                                      rw         
+user      1007      test_acl_6                                      deny       
+
+administrator@cli> 
+
+Expect: signle nas group should can set ro permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=group,acl=ro,name=test_acl_group_0"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+group     1001      test_acl_group_0                                ro         
+
+administrator@cli> 
+
+Expect: signle nas group should can set rw permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=group,acl=rw,name=test_acl_group_1"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+group     1001      test_acl_group_0                                ro         
+group     1002      test_acl_group_1                                rw         
+
+administrator@cli> 
+
+Expect: signle nas group should can set deny permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=group,acl=deny,name=test_acl_group_2"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+group     1001      test_acl_group_0                                ro         
+group     1002      test_acl_group_1                                rw         
+group     1003      test_acl_group_2                                deny       
+
+administrator@cli> 
+
+Expect: signle nas group should can set ro permissions on clone
+
+acl -a set -d 0 -t clone -s "role=group,acl=ro,name=test_acl_group_4"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1005      test_acl_4                                      ro         
+user      1006      test_acl_5                                      rw         
+user      1007      test_acl_6                                      deny       
+group     1005      test_acl_group_4                                ro         
+
+administrator@cli> 
+
+Expect: signle nas group should can set rw permissions on clone
+
+acl -a set -d 0 -t clone -s "role=group,acl=rw,name=test_acl_group_5"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1005      test_acl_4                                      ro         
+user      1006      test_acl_5                                      rw         
+user      1007      test_acl_6                                      deny       
+group     1005      test_acl_group_4                                ro         
+group     1006      test_acl_group_5                                rw         
+
+administrator@cli> 
+
+Expect: signle nas group should can set deny permissions on clone
+
+acl -a set -d 0 -t clone -s "role=group,acl=deny,name=test_acl_group_6"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1005      test_acl_4                                      ro         
+user      1006      test_acl_5                                      rw         
+user      1007      test_acl_6                                      deny       
+group     1005      test_acl_group_4                                ro         
+group     1006      test_acl_group_5                                rw         
+group     1007      test_acl_group_6                                deny       
+
+administrator@cli> 
+'result': 'f'
+
+Expect: permisions of everyone should be 0 on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=ro"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Fail: please check out ro
+
+
+Expect: permisions of everyone should be rw on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=rw"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Expect: permisions of everyone should be deny only on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=deny"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Fail: please check out deny
+
+
+Expect: permisions of everyone should be 0 on clone
+
+acl -a set -d 0 -t clone -s "role=everyone,acl=ro"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Fail: please check out ro
+
+
+Expect: permisions of everyone should be rw on clone
+
+acl -a set -d 0 -t clone -s "role=everyone,acl=rw"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Expect: permisions of everyone should be deny only on clone
+
+acl -a set -d 0 -t clone -s "role=everyone,acl=deny"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Fail: please check out deny
+
+
+Expect: signle nas user should can set ro permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=ro,name=test_acl_0"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1001      test_acl_0                                      ro         
+
+administrator@cli> 
+
+Expect: signle nas user should can set rw permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=rw,name=test_acl_1"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+
+administrator@cli> 
+
+Expect: signle nas user should can set deny permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=deny,name=test_acl_2"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+
+administrator@cli> 
+
+Expect: signle nas user should can set ro permissions on clone
+
+acl -a set -d 0 -t clone -s "role=user,acl=ro,name=test_acl_4"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1005      test_acl_4                                      ro         
+
+administrator@cli> 
+
+Expect: signle nas user should can set rw permissions on clone
+
+acl -a set -d 0 -t clone -s "role=user,acl=rw,name=test_acl_5"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1005      test_acl_4                                      ro         
+user      1006      test_acl_5                                      rw         
+
+administrator@cli> 
+
+Expect: signle nas user should can set deny permissions on clone
+
+acl -a set -d 0 -t clone -s "role=user,acl=deny,name=test_acl_6"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1005      test_acl_4                                      ro         
+user      1006      test_acl_5                                      rw         
+user      1007      test_acl_6                                      deny       
+
+administrator@cli> 
+
+Expect: signle nas group should can set ro permissions on nasshare
+
+acl -a set -d 1 -t nasshare -s "role=group,acl=ro,name=test_acl_group_0"
+
+administrator@cli> 
+acl -t nasshare -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1001      test_acl_group_0                                ro         
+
+administrator@cli> 
+
+Expect: signle nas group should can set rw permissions on nasshare
+
+acl -a set -d 1 -t nasshare -s "role=group,acl=rw,name=test_acl_group_1"
+
+administrator@cli> 
+acl -t nasshare -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1001      test_acl_group_0                                ro         
+group     1002      test_acl_group_1                                rw         
+
+administrator@cli> 
+
+Expect: signle nas group should can set deny permissions on nasshare
+
+acl -a set -d 1 -t nasshare -s "role=group,acl=deny,name=test_acl_group_2"
+
+administrator@cli> 
+acl -t nasshare -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1001      test_acl_group_0                                ro         
+group     1002      test_acl_group_1                                rw         
+group     1003      test_acl_group_2                                deny       
+
+administrator@cli> 
+
+Expect: signle nas group should can set ro permissions on clone
+
+acl -a set -d 1 -t clone -s "role=group,acl=ro,name=test_acl_group_4"
+
+administrator@cli> 
+acl -t clone -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1005      test_acl_group_4                                ro         
+
+administrator@cli> 
+
+Expect: signle nas group should can set rw permissions on clone
+
+acl -a set -d 1 -t clone -s "role=group,acl=rw,name=test_acl_group_5"
+
+administrator@cli> 
+acl -t clone -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1005      test_acl_group_4                                ro         
+group     1006      test_acl_group_5                                rw         
+
+administrator@cli> 
+
+Expect: signle nas group should can set deny permissions on clone
+
+acl -a set -d 1 -t clone -s "role=group,acl=deny,name=test_acl_group_6"
+
+administrator@cli> 
+acl -t clone -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1005      test_acl_group_4                                ro         
+group     1006      test_acl_group_5                                rw         
+group     1007      test_acl_group_6                                deny       
+
+administrator@cli> 
+'result': 'f'
+
+Expect: signle nas user should can set unset permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=unset,name=test_acl_2"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+
+administrator@cli> 
+
+Expect: signle nas group should can set unset permissions on nasshare
+
+acl -a set -d 1 -t nasshare -s "role=group,acl=unset,name=test_acl_group_2"
+
+administrator@cli> 
+acl -t nasshare -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1001      test_acl_group_0                                ro         
+group     1002      test_acl_group_1                                rw         
+
+administrator@cli> 
+
+Expect: signle nas user should can set unset permissions on clone
+
+acl -a set -d 0 -t clone -s "role=user,acl=unset,name=test_acl_6"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1005      test_acl_4                                      ro         
+user      1006      test_acl_5                                      rw         
+
+administrator@cli> 
+
+Expect: signle nas group should can set unset permissions on clone
+
+acl -a set -d 1 -t clone -s "role=group,acl=unset,name=test_acl_group_6"
+
+administrator@cli> 
+acl -t clone -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1005      test_acl_group_4                                ro         
+group     1006      test_acl_group_5                                rw         
+
+administrator@cli> 
+
+Expect: permisions of everyone should be unset only on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=unset"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+
+administrator@cli> 
+
+Expect: permisions of everyone should be unset only on nasshare
+
+acl -a set -d 0 -t clone -s "role=everyone,acl=unset"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+user      1005      test_acl_4                                      ro         
+user      1006      test_acl_5                                      rw         
+
+administrator@cli> 
+'result': 'p'
+
+Expect: all acl settings are cleared on specific nasshare
+
+acl -a clear -t nasshare -d 0
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Expect: all acl settings are cleared on specific clone
+
+acl -a clear -t clone -d 0
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+'result': 'p'
+
+Expect: add nasshare acl is deny for everyone
+
+acl -a add -d 0 -t nasshare -s "role=everyone,acl=deny"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: acl -a add -d 0 -t nasshare -s "role=everyone,acl=deny"
+
+
+Expect: to add action is canceled on nasshare
+
+acl -a cancel -t nasshare -d 0
+
+administrator@cli> 
+
+Expect: add clone acl is deny for everyone
+
+acl -a add -d 0 -t clone -s "role=everyone,acl=deny"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: acl -a add -d 0 -t clone -s "role=everyone,acl=deny"
+
+
+Expect: to add action is canceled on clone
+
+acl -a cancel -t clone -d 0
+
+administrator@cli> 
+'result': 'f'
+
+Expect: Invalid setting parameters
+
+acl test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+
+Expect: not existed
+
+acl -d 100 -t nasshare
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: not existed
+
+acl -d 100 -t clone
+Error (0x4100102): Empty query result, please check input parameters. Clone id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -d 0 -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (nasshare|clone)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a add -d test -t clone -s "role=group,name=users,acl=ro"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: id=[100] is not existed
+
+acl -a add -d 100 -t nasshare -s "role=user,name=admin,acl=rw"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out id=[100] is not existed
+
+
+Expect: id=[100] is not existed
+
+acl -a add -d 100 -t clone -s "role=user,name=admin,acl=rw"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out id=[100] is not existed
+
+
+Expect: id=[100] is not existed
+
+acl -a add -d 100 -t nasshare -s "role=group,name=users,acl=rw"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out id=[100] is not existed
+
+
+Expect: id=[100] is not existed
+
+acl -a add -d 100 -t clone -s "role=group,name=users,acl=rw"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out id=[100] is not existed
+
+
+Expect: Invalid setting parameters
+
+acl -a add -d 0 -t test -s "role=user,name=admin,acl=rw"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a add -d 0 -t nasshare -s "role=test,name=admin,acl=rw"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a add -d 0 -t clone -s "role=test,name=admin,acl=rw"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: User or group not found
+
+acl -a add -d 0 -t nasshare -s "role=user,name=test,acl=rw"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out User or group not found
+
+
+Expect: User or group not found
+
+acl -a add -d 0 -t clone -s "role=user,name=test,acl=rw"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out User or group not found
+
+
+Expect: User or group not found
+
+acl -a add -d 0 -t nasshare -s "role=group,name=test,acl=rw"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out User or group not found
+
+
+Expect: User or group not found
+
+acl -a add -d 0 -t clone -s "role=group,name=test,acl=rw"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out User or group not found
+
+
+Expect: Invalid setting parameters
+
+acl -a add -d 0 -t clone -s "role=user,name=test_acl_0,acl=test"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a add -d 0 -t nasshare -s "role=user,name=test_acl_0,acl=test"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a add -d 0 -t clone -s "role=group,name=users,acl=test"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a add -d 0 -t nasshare -s "role=group,name=users,acl=test"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a mod test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: User or group not found
+
+acl -a mod -d 0 -t nasshare -s "role=user,name=test,acl=rw"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out User or group not found
+
+
+Expect: User or group not found
+
+acl -a mod -d 0 -t clone -s "role=user,name=test,acl=rw"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out User or group not found
+
+
+Expect: User or group not found
+
+acl -a mod -d 0 -t nasshare -s "role=group,name=test,acl=rw"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out User or group not found
+
+
+Expect: User or group not found
+
+acl -a mod -d 0 -t clone -s "role=group,name=test,acl=rw"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out User or group not found
+
+
+Expect: Invalid setting parameters
+
+acl -a mod -d 0 -t nasshare -s "role=user,name=admin,acl=test"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a mod -d 0 -t clone -s "role=group,name=users,acl=test"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a refresh test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a refresh -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (nasshare|clone)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a del test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting del (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a del -d 0 -t test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting del (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a del -d 0 -t nasshare test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting del (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a del -d 0 -t clone test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting del (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a del -d 0 -t nasshare -s "role=test,name=admin"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting del (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a del -d 0 -t clone -s "role=test,name=admin"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting del (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: User or group not found
+
+acl -a del -d 0 -t nasshare -s "role=user,name=test"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting del (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out User or group not found
+
+
+Expect: User or group not found
+
+acl -a del -d 0 -t clone -s "role=user,name=test"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting del (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out User or group not found
+
+
+Expect: User or group not found
+
+acl -a del -d 0 -t nasshare -s "role=group,name=test"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting del (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out User or group not found
+
+
+Expect: User or group not found
+
+acl -a del -d 0 -t clone -s "role=group,name=test"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting del (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out User or group not found
+
+
+Expect: Invalid setting parameters
+
+acl -a add -d 0 -t nasshare -s ""
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a add -d 0 -t clone -s ""
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a mod -d 0 -t nasshare -s ""
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a mod -d 0 -t clone -s ""
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a clear -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a cancel -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+'result': 'f'
+
+Expect: Invalid option for the command or the action
+
+acl -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -d 0 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a add -test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Invalid option for the command or the action
+
+
+Expect: Invalid option for the command or the action
+
+acl -a add -d 0 -test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Invalid option for the command or the action
+
+
+Expect: Invalid option for the command or the action
+
+acl -a add -d 0 -nasshare -s "test=user,user=adimin,acl=rw"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Invalid option for the command or the action
+
+
+Expect: Invalid option for the command or the action
+
+acl -a add -d 0 -clone -s "test=user,user=adimin,acl=rw"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Invalid option for the command or the action
+
+
+Expect: Invalid option for the command or the action
+
+acl -a add -d 0 -nasshare -s "role=user,test=adimin,acl=rw"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Invalid option for the command or the action
+
+
+Expect: Invalid option for the command or the action
+
+acl -a add -d 0 -clone -s "role=group,test=adimin,acl=rw"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Invalid option for the command or the action
+
+
+Expect: Invalid option for the command or the action
+
+acl -a mod -test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Invalid option for the command or the action
+
+
+Expect: Invalid option for the command or the action
+
+acl -a mod -d 0 -test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Invalid option for the command or the action
+
+
+Expect: Invalid option for the command or the action
+
+acl -a mod -d 0 -nasshare -s "test=user,user=adimin,acl=rw"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Invalid option for the command or the action
+
+
+Expect: Invalid option for the command or the action
+
+acl -a mod -d 0 -clone -s "test=user,user=adimin,acl=rw"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Invalid option for the command or the action
+
+
+Expect: Invalid option for the command or the action
+
+acl -a mod -d 0 -nasshare -s "role=user,test=adimin,acl=rw"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Invalid option for the command or the action
+
+
+Expect: Invalid option for the command or the action
+
+acl -a mod -d 0 -clone -s "role=group,test=adimin,acl=rw"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Invalid option for the command or the action
+
+
+Expect: Invalid option for the command or the action
+
+acl -a refresh -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a del -test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting del (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Invalid option for the command or the action
+
+
+Expect: Invalid option for the command or the action
+
+acl -a del -d 0 -nasshare -s "test=user,user=adimin"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting del (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Invalid option for the command or the action
+
+
+Expect: Invalid option for the command or the action
+
+acl -a del -d 0 -clone -s "test=user,user=adimin"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting del (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Invalid option for the command or the action
+
+
+Expect: Invalid option for the command or the action
+
+acl -a del -d 0 -nasshare -s "role=user,test=adimin"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting del (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Invalid option for the command or the action
+
+
+Expect: Invalid option for the command or the action
+
+acl -a del -d 0 -clone -s "role=group,test=adimin"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting del (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Invalid option for the command or the action
+
+
+Expect: Invalid option for the command or the action
+
+acl -a clear -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a clear -t nasshare -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a cancel -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a cancel -t clone -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+'result': 'f'
+
+Expect: Missing parameter
+
+acl -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -d 0 -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a add -d
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Missing parameter
+
+
+Expect: Missing parameter
+
+acl -a add -d 0 
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Missing parameter
+
+
+Expect: Missing parameter
+
+acl -a add -d 0 -t 
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Missing parameter
+
+
+Expect: Missing parameter
+
+acl -a add -d 0 -t nasshare 
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Missing parameter
+
+
+Expect: Missing parameter
+
+acl -a add -d 0 -t nasshare -s
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Missing parameter
+
+
+Expect: Missing parameter
+
+acl -a add -d 0 -t clone
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Missing parameter
+
+
+Expect: Missing parameter
+
+acl -a add -d 0 -t clone -s
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Missing parameter
+
+
+Expect: Missing parameter
+
+acl -a mod -d
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Missing parameter
+
+
+Expect: Missing parameter
+
+acl -a mod -d 0 
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Missing parameter
+
+
+Expect: Missing parameter
+
+acl -a mod -d 0 -t 
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Missing parameter
+
+
+Expect: Missing parameter
+
+acl -a mod -d 0 -t nasshare 
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Missing parameter
+
+
+Expect: Missing parameter
+
+acl -a mod -d 0 -t nasshare -s
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Missing parameter
+
+
+Expect: Missing parameter
+
+acl -a mod -d 0 -t clone
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Missing parameter
+
+
+Expect: Missing parameter
+
+acl -a mod -d 0 -t clone -s
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Missing parameter
+
+
+Expect: Missing parameter
+
+acl -a refresh
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a refresh'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a refresh -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a refresh -d 0 -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a del -d
+Error (0x2013): Invalid setting parameters
+-a: invalid setting del (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Missing parameter
+
+
+Expect: Missing parameter
+
+acl -a del -d 0 
+Error (0x2013): Invalid setting parameters
+-a: invalid setting del (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Missing parameter
+
+
+Expect: Missing parameter
+
+acl -a del -d 0 -t 
+Error (0x2013): Invalid setting parameters
+-a: invalid setting del (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Missing parameter
+
+
+Expect: Missing parameter
+
+acl -a del -d 0 -t nasshare -s
+Error (0x2013): Invalid setting parameters
+-a: invalid setting del (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Missing parameter
+
+
+Expect: Missing parameter
+
+acl -a del -d 0 -t clone -s
+Error (0x2013): Invalid setting parameters
+-a: invalid setting del (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: please check out Missing parameter
+
+
+Expect: Missing parameter
+
+acl -a cancel
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a cancel'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a cancel -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a clear -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a clear
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a clear'
+
+administrator@cli> 
+'result': 'f'
+
+Expect: Invalid setting parameters
+
+acl test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+
+Expect: not existed
+
+acl -d 100 -t nasshare
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: not existed
+
+acl -d 100 -t clone
+Error (0x4100102): Empty query result, please check input parameters. Clone id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -d 0 -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (nasshare|clone)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d test -t clone -s "role=group,name=users,acl=ro"
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+
+Expect: id=[100] is not existed
+
+acl -a set -d 100 -t nasshare -s "role=user,name=admin,acl=rw"
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: id=[100] is not existed
+
+acl -a set -d 100 -t clone -s "role=user,name=admin,acl=rw"
+Error (0x4100102): Empty query result, please check input parameters. Clone id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: id=[100] is not existed
+
+acl -a set -d 100 -t nasshare -s "role=group,name=users,acl=rw"
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: id=[100] is not existed
+
+acl -a set -d 100 -t clone -s "role=group,name=users,acl=rw"
+Error (0x4100102): Empty query result, please check input parameters. Clone id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t test -s "role=user,name=admin,acl=rw"
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (nasshare|clone)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t nasshare -s "role=test,name=admin,acl=rw"
+Error (0x2013): Invalid setting parameters
+role: invalid setting test (everyone|user|group)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t clone -s "role=test,name=admin,acl=rw"
+Error (0x2013): Invalid setting parameters
+role: invalid setting test (everyone|user|group)
+
+administrator@cli> 
+
+Expect: User or group not found
+
+acl -a set -d 0 -t nasshare -s "role=user,name=test,acl=rw"
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[0] is not existed.
+
+administrator@cli> 
+
+Fail: please check out User or group not found
+
+
+Expect: User or group not found
+
+acl -a set -d 0 -t clone -s "role=user,name=test,acl=rw"
+Error (0x4100102): Empty query result, please check input parameters. Clone id=[0] is not existed.
+
+administrator@cli> 
+
+Fail: please check out User or group not found
+
+
+Expect: User or group not found
+
+acl -a set -d 0 -t nasshare -s "role=group,name=test,acl=rw"
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[0] is not existed.
+
+administrator@cli> 
+
+Fail: please check out User or group not found
+
+
+Expect: User or group not found
+
+acl -a set -d 0 -t clone -s "role=group,name=test,acl=rw"
+Error (0x4100102): Empty query result, please check input parameters. Clone id=[0] is not existed.
+
+administrator@cli> 
+
+Fail: please check out User or group not found
+
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t clone -s "role=user,name=test_acl_0,acl=test"
+Error (0x2013): Invalid setting parameters
+acl: invalid setting test (unset|deny|ro|rw)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t nasshare -s "role=user,name=test_acl_0,acl=test"
+Error (0x2013): Invalid setting parameters
+acl: invalid setting test (unset|deny|ro|rw)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t clone -s "role=group,name=users,acl=test"
+Error (0x2013): Invalid setting parameters
+acl: invalid setting test (unset|deny|ro|rw)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t nasshare -s "role=group,name=users,acl=test"
+Error (0x2013): Invalid setting parameters
+acl: invalid setting test (unset|deny|ro|rw)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a refresh test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a refresh -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (nasshare|clone)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a mod -d 0 -t nasshare -s ""
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a mod -d 0 -t clone -s ""
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a clear -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a cancel -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+'result': 'f'
+
+Expect: permisions of everyone should be 0 on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=ro"
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[0] is not existed.
+
+administrator@cli> 
+
+Fail: acl -a set -d 0 -t nasshare -s "role=everyone,acl=ro"
+
+
+Expect: permisions of everyone should be rw on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=rw"
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[0] is not existed.
+
+administrator@cli> 
+
+Fail: acl -a set -d 0 -t nasshare -s "role=everyone,acl=rw"
+
+
+Expect: permisions of everyone should be deny only on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=deny"
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[0] is not existed.
+
+administrator@cli> 
+
+Fail: acl -a set -d 0 -t nasshare -s "role=everyone,acl=deny"
+
+
+Expect: permisions of everyone should be 0 on clone
+
+acl -a set -d 0 -t clone -s "role=everyone,acl=ro"
+Error (0x4100102): Empty query result, please check input parameters. Clone id=[0] is not existed.
+
+administrator@cli> 
+
+Fail: acl -a set -d 0 -t clone -s "role=everyone,acl=ro"
+
+
+Expect: permisions of everyone should be rw on clone
+
+acl -a set -d 0 -t clone -s "role=everyone,acl=rw"
+Error (0x4100102): Empty query result, please check input parameters. Clone id=[0] is not existed.
+
+administrator@cli> 
+
+Fail: acl -a set -d 0 -t clone -s "role=everyone,acl=rw"
+
+
+Expect: permisions of everyone should be deny only on clone
+
+acl -a set -d 0 -t clone -s "role=everyone,acl=deny"
+Error (0x4100102): Empty query result, please check input parameters. Clone id=[0] is not existed.
+
+administrator@cli> 
+
+Fail: acl -a set -d 0 -t clone -s "role=everyone,acl=deny"
+
+
+Expect: signle nas user should can set ro permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=ro,name=test_acl_0"
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[0] is not existed.
+
+administrator@cli> 
+
+Fail: acl -a set -d 0 -t nasshare -s "role=user,acl=ro,name=test_acl_0"
+
+
+Expect: signle nas user should can set rw permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=rw,name=test_acl_1"
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[0] is not existed.
+
+administrator@cli> 
+
+Fail: acl -a set -d 0 -t nasshare -s "role=user,acl=rw,name=test_acl_1"
+
+
+Expect: signle nas user should can set deny permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=deny,name=test_acl_2"
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[0] is not existed.
+
+administrator@cli> 
+
+Expect: add nasshare acl is deny for everyone
+
+acl -a add -d 0 -t nasshare -s "role=everyone,acl=deny"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: acl -a add -d 0 -t nasshare -s "role=everyone,acl=deny"
+
+
+Expect: to add action is canceled on nasshare
+
+acl -a cancel -t nasshare -d 0
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[0] is not existed.
+
+administrator@cli> 
+
+Fail: acl -a cancel -t nasshare -d 0
+
+
+Expect: add clone acl is deny for everyone
+
+acl -a add -d 0 -t clone -s "role=everyone,acl=deny"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: acl -a add -d 0 -t clone -s "role=everyone,acl=deny"
+
+
+Expect: to add action is canceled on clone
+
+acl -a cancel -t clone -d 0
+Error (0x4100102): Empty query result, please check input parameters. Clone id=[0] is not existed.
+
+administrator@cli> 
+
+Fail: acl -a cancel -t clone -d 0
+
+'result': 'f'
+
+Expect: add nasshare acl is deny for everyone
+
+acl -a add -d 0 -t nasshare -s "role=everyone,acl=deny"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: acl -a add -d 0 -t nasshare -s "role=everyone,acl=deny"
+
+
+Expect: to add action is canceled on nasshare
+
+acl -a cancel -t nasshare -d 0
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[0] is not existed.
+
+administrator@cli> 
+
+Expect: permisions of everyone should be 0 on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=ro"
+
+administrator@cli> 
+
+Expect: all acl settings are cleared on specific nasshare
+
+acl -a clear -t nasshare -d 0
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Expect: all acl settings are cleared on specific clone
+
+acl -a clear -t clone -d 0
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+'result': 'p'
+
+Expect: add nasshare acl is deny for everyone
+
+acl -a add -d 0 -t nasshare -s "role=everyone,acl=deny"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: acl -a add -d 0 -t nasshare -s "role=everyone,acl=deny"
+
+
+Expect: to add action is canceled on nasshare
+
+acl -a cancel -t nasshare -d 0
+
+administrator@cli> 
+
+Expect: add clone acl is deny for everyone
+
+acl -a add -d 0 -t clone -s "role=everyone,acl=deny"
+Error (0x2013): Invalid setting parameters
+-a: invalid setting add (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Fail: acl -a add -d 0 -t clone -s "role=everyone,acl=deny"
+
+
+Expect: to add action is canceled on clone
+
+acl -a cancel -t clone -d 0
+
+administrator@cli> 
+'result': 'f'
+
+Expect: add nasshare acl is deny for everyone
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=deny"
+
+administrator@cli> 
+
+Expect: to add action is canceled on nasshare
+
+acl -a cancel -t nasshare -d 0
+
+administrator@cli> 
+
+Expect: add clone acl is deny for everyone
+
+acl -a set -d 0 -t clone -s "role=everyone,acl=deny"
+
+administrator@cli> 
+
+Expect: to add action is canceled on clone
+
+acl -a cancel -t clone -d 0
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Invalid setting parameters
+
+acl test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+
+Expect: not existed
+
+acl -d 100 -t nasshare
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: not existed
+
+acl -d 100 -t clone
+Error (0x4100102): Empty query result, please check input parameters. Clone id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -d 0 -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (nasshare|clone)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d test -t clone -s "role=group,name=users,acl=ro"
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+
+Expect: id=[100] is not existed
+
+acl -a set -d 100 -t nasshare -s "role=user,name=admin,acl=rw"
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: id=[100] is not existed
+
+acl -a set -d 100 -t clone -s "role=user,name=admin,acl=rw"
+Error (0x4100102): Empty query result, please check input parameters. Clone id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: id=[100] is not existed
+
+acl -a set -d 100 -t nasshare -s "role=group,name=users,acl=rw"
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: id=[100] is not existed
+
+acl -a set -d 100 -t clone -s "role=group,name=users,acl=rw"
+Error (0x4100102): Empty query result, please check input parameters. Clone id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t test -s "role=user,name=admin,acl=rw"
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (nasshare|clone)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t nasshare -s "role=test,name=admin,acl=rw"
+Error (0x2013): Invalid setting parameters
+role: invalid setting test (everyone|user|group)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t clone -s "role=test,name=admin,acl=rw"
+Error (0x2013): Invalid setting parameters
+role: invalid setting test (everyone|user|group)
+
+administrator@cli> 
+
+Expect: User or group not found
+
+acl -a set -d 0 -t nasshare -s "role=user,name=test,acl=rw"
+Error (0x4100104): Incorrect parameters: NAS user [test] doesn't exist.
+
+administrator@cli> 
+
+Fail: please check out User or group not found
+
+
+Expect: User or group not found
+
+acl -a set -d 0 -t clone -s "role=user,name=test,acl=rw"
+Error (0x4100104): Incorrect parameters: NAS user [test] doesn't exist.
+
+administrator@cli> 
+
+Fail: please check out User or group not found
+
+
+Expect: User or group not found
+
+acl -a set -d 0 -t nasshare -s "role=group,name=test,acl=rw"
+Error (0x4100104): Incorrect parameters: NAS group [test] doesn't exist.
+
+administrator@cli> 
+
+Fail: please check out User or group not found
+
+
+Expect: User or group not found
+
+acl -a set -d 0 -t clone -s "role=group,name=test,acl=rw"
+Error (0x4100104): Incorrect parameters: NAS group [test] doesn't exist.
+
+administrator@cli> 
+
+Fail: please check out User or group not found
+
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t clone -s "role=user,name=test_acl_0,acl=test"
+Error (0x2013): Invalid setting parameters
+acl: invalid setting test (unset|deny|ro|rw)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t nasshare -s "role=user,name=test_acl_0,acl=test"
+Error (0x2013): Invalid setting parameters
+acl: invalid setting test (unset|deny|ro|rw)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t clone -s "role=group,name=users,acl=test"
+Error (0x2013): Invalid setting parameters
+acl: invalid setting test (unset|deny|ro|rw)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t nasshare -s "role=group,name=users,acl=test"
+Error (0x2013): Invalid setting parameters
+acl: invalid setting test (unset|deny|ro|rw)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a refresh test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a refresh -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (nasshare|clone)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a mod -d 0 -t nasshare -s ""
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a mod -d 0 -t clone -s ""
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a clear -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a cancel -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+'result': 'f'
+
+Expect: Invalid setting parameters
+
+acl test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+
+Expect: not existed
+
+acl -d 100 -t nasshare
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: not existed
+
+acl -d 100 -t clone
+Error (0x4100102): Empty query result, please check input parameters. Clone id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -d 0 -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (nasshare|clone)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d test -t clone -s "role=group,name=users,acl=ro"
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+
+Expect: id=[100] is not existed
+
+acl -a set -d 100 -t nasshare -s "role=user,name=admin,acl=rw"
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: id=[100] is not existed
+
+acl -a set -d 100 -t clone -s "role=user,name=admin,acl=rw"
+Error (0x4100102): Empty query result, please check input parameters. Clone id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: id=[100] is not existed
+
+acl -a set -d 100 -t nasshare -s "role=group,name=users,acl=rw"
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: id=[100] is not existed
+
+acl -a set -d 100 -t clone -s "role=group,name=users,acl=rw"
+Error (0x4100102): Empty query result, please check input parameters. Clone id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t test -s "role=user,name=admin,acl=rw"
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (nasshare|clone)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t nasshare -s "role=test,name=admin,acl=rw"
+Error (0x2013): Invalid setting parameters
+role: invalid setting test (everyone|user|group)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t clone -s "role=test,name=admin,acl=rw"
+Error (0x2013): Invalid setting parameters
+role: invalid setting test (everyone|user|group)
+
+administrator@cli> 
+
+Expect: NAS user [test] doesn't exist
+
+acl -a set -d 0 -t nasshare -s "role=user,name=test,acl=rw"
+Error (0x4100104): Incorrect parameters: NAS user [test] doesn't exist.
+
+administrator@cli> 
+
+Expect: NAS user [test] doesn't exist
+
+acl -a set -d 0 -t clone -s "role=user,name=test,acl=rw"
+Error (0x4100104): Incorrect parameters: NAS user [test] doesn't exist.
+
+administrator@cli> 
+
+Expect: NAS user [test] doesn't exist
+
+acl -a set -d 0 -t nasshare -s "role=group,name=test,acl=rw"
+Error (0x4100104): Incorrect parameters: NAS group [test] doesn't exist.
+
+administrator@cli> 
+
+Fail: please check out NAS user [test] doesn't exist
+
+
+Expect: NAS user [test] doesn't exist
+
+acl -a set -d 0 -t clone -s "role=group,name=test,acl=rw"
+Error (0x4100104): Incorrect parameters: NAS group [test] doesn't exist.
+
+administrator@cli> 
+
+Fail: please check out NAS user [test] doesn't exist
+
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t clone -s "role=user,name=test_acl_0,acl=test"
+Error (0x2013): Invalid setting parameters
+acl: invalid setting test (unset|deny|ro|rw)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t nasshare -s "role=user,name=test_acl_0,acl=test"
+Error (0x2013): Invalid setting parameters
+acl: invalid setting test (unset|deny|ro|rw)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t clone -s "role=group,name=users,acl=test"
+Error (0x2013): Invalid setting parameters
+acl: invalid setting test (unset|deny|ro|rw)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t nasshare -s "role=group,name=users,acl=test"
+Error (0x2013): Invalid setting parameters
+acl: invalid setting test (unset|deny|ro|rw)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a refresh test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a refresh -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (nasshare|clone)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a mod -d 0 -t nasshare -s ""
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a mod -d 0 -t clone -s ""
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a clear -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a cancel -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+'result': 'f'
+
+Expect: Invalid setting parameters
+
+acl test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+
+Expect: not existed
+
+acl -d 100 -t nasshare
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: not existed
+
+acl -d 100 -t clone
+Error (0x4100102): Empty query result, please check input parameters. Clone id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -d 0 -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (nasshare|clone)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d test -t clone -s "role=group,name=users,acl=ro"
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+
+Expect: id=[100] is not existed
+
+acl -a set -d 100 -t nasshare -s "role=user,name=admin,acl=rw"
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: id=[100] is not existed
+
+acl -a set -d 100 -t clone -s "role=user,name=admin,acl=rw"
+Error (0x4100102): Empty query result, please check input parameters. Clone id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: id=[100] is not existed
+
+acl -a set -d 100 -t nasshare -s "role=group,name=users,acl=rw"
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: id=[100] is not existed
+
+acl -a set -d 100 -t clone -s "role=group,name=users,acl=rw"
+Error (0x4100102): Empty query result, please check input parameters. Clone id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t test -s "role=user,name=admin,acl=rw"
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (nasshare|clone)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t nasshare -s "role=test,name=admin,acl=rw"
+Error (0x2013): Invalid setting parameters
+role: invalid setting test (everyone|user|group)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t clone -s "role=test,name=admin,acl=rw"
+Error (0x2013): Invalid setting parameters
+role: invalid setting test (everyone|user|group)
+
+administrator@cli> 
+
+Expect: NAS user [test] doesn't exist
+
+acl -a set -d 0 -t nasshare -s "role=user,name=test,acl=rw"
+Error (0x4100104): Incorrect parameters: NAS user [test] doesn't exist.
+
+administrator@cli> 
+
+Expect: NAS user [test] doesn't exist
+
+acl -a set -d 0 -t clone -s "role=user,name=test,acl=rw"
+Error (0x4100104): Incorrect parameters: NAS user [test] doesn't exist.
+
+administrator@cli> 
+
+Expect: NAS group [test] doesn't exist
+
+acl -a set -d 0 -t nasshare -s "role=group,name=test,acl=rw"
+Error (0x4100104): Incorrect parameters: NAS group [test] doesn't exist.
+
+administrator@cli> 
+
+Expect: NAS group [test] doesn't exist
+
+acl -a set -d 0 -t clone -s "role=group,name=test,acl=rw"
+Error (0x4100104): Incorrect parameters: NAS group [test] doesn't exist.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t clone -s "role=user,name=test_acl_0,acl=test"
+Error (0x2013): Invalid setting parameters
+acl: invalid setting test (unset|deny|ro|rw)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t nasshare -s "role=user,name=test_acl_0,acl=test"
+Error (0x2013): Invalid setting parameters
+acl: invalid setting test (unset|deny|ro|rw)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t clone -s "role=group,name=users,acl=test"
+Error (0x2013): Invalid setting parameters
+acl: invalid setting test (unset|deny|ro|rw)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t nasshare -s "role=group,name=users,acl=test"
+Error (0x2013): Invalid setting parameters
+acl: invalid setting test (unset|deny|ro|rw)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a refresh test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a refresh -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (nasshare|clone)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a mod -d 0 -t nasshare -s ""
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a mod -d 0 -t clone -s ""
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a clear -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a cancel -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Invalid option for the command or the action
+
+acl -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -d 0 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a set -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a set -d 0 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a set -d 0 -nasshare -s "test=user,user=adimin,acl=rw"
+Error (0x2012): Invalid option for the command or the action
+invalid option: -nasshare
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a set -d 0 -clone -s "test=user,user=adimin,acl=rw"
+Error (0x2012): Invalid option for the command or the action
+invalid option: -clone
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a set -d 0 -nasshare -s "role=user,test=adimin,acl=rw"
+Error (0x2012): Invalid option for the command or the action
+invalid option: -nasshare
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a set -d 0 -clone -s "role=group,test=adimin,acl=rw"
+Error (0x2012): Invalid option for the command or the action
+invalid option: -clone
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a refresh -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a clear -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a clear -t nasshare -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a cancel -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a cancel -t clone -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Missing parameter
+
+acl -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -d 0 -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a set -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a set -d 0 
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a set'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a set -d 0 -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a set -d 0 -t nasshare 
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a set'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a set -d 0 -t nasshare -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a set -d 0 -t clone
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a set'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a set -d 0 -t clone -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a refresh
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a refresh'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a refresh -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a refresh -d 0 -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a cancel
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a cancel'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a cancel -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a clear -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a clear
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a clear'
+
+administrator@cli> 
+'result': 'p'
+Add NASShare 
+
+Expect: NASShare settings are name=X,capacity=1GB,recsize=128KB,sync=always,logbias=latency,compress=off
+
+nasshare -a add -p 0 -s "name=X,capacity=1GB,recsize=128KB,sync=always,logbias=latency,compress=off"
+
+administrator@cli> 
+nasshare -v -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   Name: X
+PoolId: 0                               PoolName: test_NASShare_pool
+SyncMode: always                        TotalCapacity: 1 GB
+UsedCapacity: 0 Byte                    PoolAvailableCapacity: 7.30 TB
+WrittenCapacityAfterSnapshot: 19.46 KB  ShareProtocol: 
+TimeMachine: Enabled                    RecordSize: 128 KB
+Compress: off                           Ratio: 1.00x
+Logbias: latency                        RedundantMetaData: all
+ThinProv: Enabled                       CopiesOfNewData: 1
+PreferCtrlId: 2                         Status: Mounted
+OperationalStatus: OK, Synchronizing    QuotaStatus: ready
+ACLStatus: ready
+
+administrator@cli> 
+Actual: NASShare is added successful 
+
+Expect: NASShare settings are name=1_a,capacity=2GB,recsize=512B,sync=standard,logbias=throughput,compress=fast
+
+nasshare -a add -p 0 -s "name=1_a,capacity=2GB,recsize=512B,sync=standard,logbias=throughput,compress=fast"
+Error (0x2013): Invalid setting parameters
+compress: invalid setting fast (off|lz4|gzip|zle)
+
+administrator@cli> 
+nasshare -v -i 1
+-i: specific nas share not exists
+
+administrator@cli> 
+Fail: NASShare settings are name=1_a,capacity=2GB,recsize=512B,sync=standard,logbias=throughput,compress=fast
+
+Expect: NASShare settings are name=NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN,capacity=1TB,recsize=1MB,sync=disabled,logbias=throughput,compress=optimized
+
+nasshare -a add -p 0 -s "name=NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN,capacity=1TB,recsize=1MB,sync=disabled,logbias=throughput,compress=optimized"
+Error (0x2013): Invalid setting parameters
+compress: invalid setting optimized (off|lz4|gzip|zle)
+
+administrator@cli> 
+nasshare -v -i 2
+-i: specific nas share not exists
+
+administrator@cli> 
+Fail: NASShare settings are name=NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN,capacity=1TB,recsize=1MB,sync=disabled,logbias=throughput,compress=optimized
+
+'result': 'f'
+List all of NASShare 
+
+Expect: list all of NASShare 
+
+nasshare
+===============================================================================
+Id   Name                  PoolId TotalCap    UsedCap     Status      OpStatus 
+===============================================================================
+0    X                     0      1 GB        0 Byte      Mounted     OK,      
+                                                                      Synchron 
+                                                                      izing    
+
+administrator@cli> 
+Actual: all of NASShare are listed 
+
+To list specify NASShare 
+
+Expect: To list 0 NASShare 
+
+nasshare -i 0
+===============================================================================
+Id   Name                  PoolId TotalCap    UsedCap     Status      OpStatus 
+===============================================================================
+0    X                     0      1 GB        0 Byte      Mounted     OK,      
+                                                                      Synchron 
+                                                                      izing    
+
+administrator@cli> 
+Actual: NASShare 0 is listed
+'result': 'p'
+List all of NASShare by verbose model 
+
+nasshare
+===============================================================================
+Id   Name                  PoolId TotalCap    UsedCap     Status      OpStatus 
+===============================================================================
+0    X                     0      1 GB        0 Byte      Mounted     OK,      
+                                                                      Synchron 
+                                                                      izing    
+
+administrator@cli> 
+Expect: list all of NASShare by verbose model 
+
+nasshare -v
+-------------------------------------------------------------------------------
+Id: 0                                   Name: X
+PoolId: 0                               PoolName: test_NASShare_pool
+SyncMode: always                        TotalCapacity: 1 GB
+UsedCapacity: 0 Byte                    PoolAvailableCapacity: 7.30 TB
+WrittenCapacityAfterSnapshot: 19.46 KB  ShareProtocol: 
+TimeMachine: Enabled                    RecordSize: 128 KB
+Compress: off                           Ratio: 1.00x
+Logbias: latency                        RedundantMetaData: all
+ThinProv: Enabled                       CopiesOfNewData: 1
+PreferCtrlId: 2                         Status: Mounted
+OperationalStatus: OK, Synchronizing    QuotaStatus: ready
+ACLStatus: ready
+
+administrator@cli> 
+Actual: all of NASShare by verbose model are listed 
+
+To list specify NASShare by verbose model 
+
+Expect: To list 0 NASShare by verbose model 
+
+nasshare -v -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   Name: X
+PoolId: 0                               PoolName: test_NASShare_pool
+SyncMode: always                        TotalCapacity: 1 GB
+UsedCapacity: 0 Byte                    PoolAvailableCapacity: 7.30 TB
+WrittenCapacityAfterSnapshot: 19.46 KB  ShareProtocol: 
+TimeMachine: Enabled                    RecordSize: 128 KB
+Compress: off                           Ratio: 1.00x
+Logbias: latency                        RedundantMetaData: all
+ThinProv: Enabled                       CopiesOfNewData: 1
+PreferCtrlId: 2                         Status: Mounted
+OperationalStatus: OK, Synchronizing    QuotaStatus: ready
+ACLStatus: ready
+
+administrator@cli> 
+Actual: NASShare by verbose model 0 is listed
+'result': 'p'
+Modify NASShare 
+
+Expect: The NASShare 0 can be modified 
+
+nasshare -a mod -i 0 -s "name=test_modify,capacity=1GB,compress=off,recsize=128KB"
+
+administrator@cli> 
+nasshare -v -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   Name: test_modify
+PoolId: 0                               PoolName: test_NASShare_pool
+SyncMode: always                        TotalCapacity: 1 GB
+UsedCapacity: 0 Byte                    PoolAvailableCapacity: 7.30 TB
+WrittenCapacityAfterSnapshot: 19.46 KB  ShareProtocol: 
+TimeMachine: Enabled                    RecordSize: 128 KB
+Compress: off                           Ratio: 1.00x
+Logbias: latency                        RedundantMetaData: all
+ThinProv: Enabled                       CopiesOfNewData: 1
+PreferCtrlId: 2                         Status: Un-Mounted
+OperationalStatus: OK, Synchronizing    QuotaStatus: ready
+ACLStatus: ready
+
+administrator@cli> 
+Actual: The NASShare 0 is modified 
+
+Expect: The NASShare 0 can be modified 
+
+nasshare -a mod -i 0 -s "name=1,capacity=2GB,compress=fast,recsize=512B"
+Error (0x2013): Invalid setting parameters
+compress: invalid setting fast (off|lz4|gzip|zle)
+
+administrator@cli> 
+nasshare -v -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   Name: test_modify
+PoolId: 0                               PoolName: test_NASShare_pool
+SyncMode: always                        TotalCapacity: 1 GB
+UsedCapacity: 0 Byte                    PoolAvailableCapacity: 7.30 TB
+WrittenCapacityAfterSnapshot: 19.46 KB  ShareProtocol: 
+TimeMachine: Enabled                    RecordSize: 128 KB
+Compress: off                           Ratio: 1.00x
+Logbias: latency                        RedundantMetaData: all
+ThinProv: Enabled                       CopiesOfNewData: 1
+PreferCtrlId: 2                         Status: Un-Mounted
+OperationalStatus: OK, Synchronizing    QuotaStatus: ready
+ACLStatus: ready
+
+administrator@cli> 
+Fail: To modify NASShare 0 is failed
+Expect: The NASShare 0 can be modified 
+
+nasshare -a mod -i 0 -s "name=NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN,capacity=1TB,compress=optimized,recsize=1MB"
+Error (0x2013): Invalid setting parameters
+compress: invalid setting optimized (off|lz4|gzip|zle)
+
+administrator@cli> 
+nasshare -v -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   Name: test_modify
+PoolId: 0                               PoolName: test_NASShare_pool
+SyncMode: always                        TotalCapacity: 1 GB
+UsedCapacity: 0 Byte                    PoolAvailableCapacity: 7.30 TB
+WrittenCapacityAfterSnapshot: 19.46 KB  ShareProtocol: 
+TimeMachine: Enabled                    RecordSize: 128 KB
+Compress: off                           Ratio: 1.00x
+Logbias: latency                        RedundantMetaData: all
+ThinProv: Enabled                       CopiesOfNewData: 1
+PreferCtrlId: 2                         Status: Un-Mounted
+OperationalStatus: OK, Synchronizing    QuotaStatus: ready
+ACLStatus: ready
+
+administrator@cli> 
+Fail: To modify NASShare 0 is failed
+No NASShare can be used
+'result': 'f'
+Mounted NASShare 
+
+nasshare
+===============================================================================
+Id   Name                  PoolId TotalCap    UsedCap     Status      OpStatus 
+===============================================================================
+0    test_modify           0      1 GB        0 Byte      Un-Mounted  OK,      
+                                                                      Synchron 
+                                                                      izing    
+
+administrator@cli> 
+Expect: Mount NASShare 0
+
+nasshare -a mount -i 0
+
+administrator@cli> 
+nasshare -i 0
+===============================================================================
+Id   Name                  PoolId TotalCap    UsedCap     Status      OpStatus 
+===============================================================================
+0    test_modify           0      1 GB        0 Byte      Mounted     OK,      
+                                                                      Synchron 
+                                                                      izing    
+
+administrator@cli> 
+Actual: NASShare 0 is mounted
+
+'result': 'p'
+Un-Mount NASShare 
+
+nasshare
+===============================================================================
+Id   Name                  PoolId TotalCap    UsedCap     Status      OpStatus 
+===============================================================================
+0    test_modify           0      1 GB        0 Byte      Mounted     OK,      
+                                                                      Synchron 
+                                                                      izing    
+
+administrator@cli> 
+Expect: Un-Mount NASShare 0
+
+nasshare -a unmount -i 0
+
+administrator@cli> 
+nasshare -i 0
+===============================================================================
+Id   Name                  PoolId TotalCap    UsedCap     Status      OpStatus 
+===============================================================================
+0    test_modify           0      1 GB        0 Byte      Un-Mounted  OK,      
+                                                                      Synchron 
+                                                                      izing    
+
+administrator@cli> 
+Actual: NASShare 0 is unmounted
+
+'result': 'p'
+Verify NASShare help document
+
+nasshare -h
+nasshare
+
+Usage:
+   nasshare [-a action] [-i <nasshare id>] [-v]
+   nasshare -a list [-i <nasshare id>] [-v]
+   nasshare -a add -p <pool id> -s "<list of nasshare params>"
+   nasshare -a mod -i <nasshare id> -s "<list of nasshare params>"
+   nasshare -a del -i <nasshare id>
+   nasshare -a mount -i <nasshare id>
+   nasshare -a unmount -i <nasshare id>
+
+Summary:
+    The nasshare command allow user to view, add, delete, modify, mount and
+    un-mount NAS share.
+
+Options:
+
+-a <action>          Specifies which action to perform
+    list             (Default) List NAS share information.
+    add              Add a NAS share.
+    del              Delete an existing NAS share.
+    mod              Change the settings for a NAS share.
+    mount            Mount NAS share.
+    unmount          Un-mount NAS share.
+
+-p <pool id>         The disk pool ID. Valid values are 0-255.
+                     Only valid for add or list action.
+
+-i <nasshare id>     The NAS share ID.
+
+-s "<option>=<value>"
+    name             The name of the NAS Share.
+
+    capacity         Used to specify the capacity of NAS Share.
+                     For add action, if not specified, it means to use the max
+                     available capacity of the pool
+                     For mod action, it means to extend capacity of the NAS
+                     share. It must be larger than original capacity.
+
+    recsize          NAS share record size. 512B to 1MB, default is 128KB
+
+    compress         Compression method.
+      off            (Default)
+      lz4            fast
+      gzip           optimized
+      zle            zero length encoding
+
+    sync=            Sync mode.
+      standard
+      always         (Default)
+      disabled
+
+    logbias=         Slog behavior
+      latency        (Default)
+      throughput
+
+    thinprov=        Thin-provision supported or not.
+      enable         (Default)
+      disable
+
+Examples:
+    nasshare -a list -v
+    nasshare -a add -p 1 -s "name=sd, capacity=10gb"
+    nasshare -a mod -i 1 -s "name=sd2, capacity=20gb"
+    nasshare -a del -i 1
+    nasshare -a mount -i 1
+    nasshare -a unmount -i 1
+Type ' | grep "word1,word2,..."' at the end of each command, to display 
+filtered info.
+
+administrator@cli> 
+'result': 'p'
+To specify inexistent id 
+
+Expect: To hint id is not existent 
+
+nasshare -a add -p 100 -s "name=failTest, capacity=2GB"
+Error (0x4100102): Empty query result, please check input parameters. Pool id=[100] is not existed.
+
+administrator@cli> 
+nasshare -a mod -i 100 -s "name=test"
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[100] is not existed.
+
+administrator@cli> 
+nasshare -a mount -i 100
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[100] is not existed.
+
+administrator@cli> 
+nasshare -a unmount -i 100
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[100] is not existed.
+
+administrator@cli> 
+nasshare -a del -i 100
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[100] is not existed.
+
+administrator@cli> 
+nasshare -i 100
+-i: specific nas share not exists
+
+administrator@cli> 
+
+Actual: To hint and correct error 
+
+'result': 'p'
+To input inexistent option 
+
+Expect: To input inexistent option will hint invalid option 
+
+nasshare -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+nasshare -a add -p 100 -s "option=failTest, test=2GB"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: option
+
+administrator@cli> 
+nasshare -a mod -i 100 -s "invalid=test"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: invalid
+
+administrator@cli> 
+nasshare -a mount -x 100
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+nasshare -a unmount -x 100nasshare -a del -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Actual: It will hint and correct error when inputs inexistent option 
+
+'result': 'p'
+To input invalid parameter 
+
+Expect: To hint error message that contains invalid parameter 
+
+nasshare x
+Error (0x2013): Invalid setting parameters
+invalid setting: x
+
+administrator@cli> 
+nasshare -a add -p 0 -s "name=%$^&@^$, capacity=2GB"
+Error (0x2013): Invalid setting parameters
+name contain only alphanumeric characters and underscores
+
+administrator@cli> 
+nasshare -a add -p 0 -s "name=test, capacity=x"
+Error (0x2013): Invalid setting parameters
+invalid setting: x
+
+administrator@cli> 
+nasshare -a add -p 0 -s "name=test, capacity=2GB, recsize=x"
+Error (0x2013): Invalid setting parameters
+recsize: invalid setting x (512b|1kb|2kb|4kb|8kb|16kb|32kb|64kb|128kb|256kb|512kb|1mb)
+
+administrator@cli> 
+nasshare -a add -p 0 -s "name=test, capacity=2GB, sync=x"
+Error (0x2013): Invalid setting parameters
+sync: invalid setting x (standard|always|disabled)
+
+administrator@cli> 
+nasshare -a add -p 0 -s "name=test, capacity=2GB, logbias=x"
+Error (0x2013): Invalid setting parameters
+logbias: invalid setting x (latency|throughput)
+
+administrator@cli> 
+nasshare -a mod -i 0 -s "name=@$%&*"
+Error (0x2013): Invalid setting parameters
+name contain only alphanumeric characters and underscores
+
+administrator@cli> 
+nasshare -a mod -i 0 -s "capacity=x"
+Error (0x2013): Invalid setting parameters
+invalid setting: x
+
+administrator@cli> 
+nasshare -a mount x
+Error (0x2013): Invalid setting parameters
+invalid setting: x
+
+administrator@cli> 
+nasshare -a unmount xnasshare -a del x
+Error (0x2013): Invalid setting parameters
+invalid setting: xnasshare
+
+administrator@cli> 
+
+Actual: To hint error and correct error 
+
+'result': 'p'
+Verify missing parameter 
+
+Expect: To hint error message that contains missing parameter 
+
+nasshare -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+nasshare -a add
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a add'
+
+administrator@cli> 
+nasshare -a add -p 0 -s 
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+nasshare -a mod -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+nasshare -a mod -i 0 -s 
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+nasshare -a mount
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a mount'
+
+administrator@cli> 
+nasshare -a mount -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+nasshare -a unmount
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a unmount'
+
+administrator@cli> 
+nasshare -a unmount -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+nasshare -a del
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a del'
+
+administrator@cli> 
+nasshare -a del -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Actual: To hint error and correct error
+'result': 'p'
+nasshare
+===============================================================================
+Id   Name                  PoolId TotalCap    UsedCap     Status      OpStatus 
+===============================================================================
+0    test_modify           0      1 GB        0 Byte      Un-Mounted  OK,      
+                                                                      Synchron 
+                                                                      izing    
+
+administrator@cli> 
+To delete NASShare 
+
+Expect: delete NASShare 0
+
+nasshare -a del -i 0
+
+administrator@cli> 
+nasshare
+No nas share exists
+
+administrator@cli> 
+Actual: NASShare 0 is deleted 
+
+'result': 'p'
+
+clean up environment 
+
+pool -a del -y -f -i 0
+
+administrator@cli> 
