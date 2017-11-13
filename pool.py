@@ -3,7 +3,7 @@
 
 from ssh_connect import ssh_conn
 import time
-from cli_test import cli_test
+from cli_test import *
 from remote import server
 from find_unconfigured_pd_id import find_pd_id
 
@@ -15,9 +15,9 @@ def add_pool_raid0(c):
     # precondition
     find_pd_id()
 
-    cli_test.setting(c, data, 'add_pool_raid0', 3)
+    cli_setting.setting(c, data, 'add_pool_raid0', 3)
 
-    return cli_test.FailFlag
+    return cli_setting.FailFlag
 
 
 def add_pool_raid1(c):
@@ -25,9 +25,9 @@ def add_pool_raid1(c):
     # precondition
     find_pd_id()
 
-    cli_test.setting(c, data, 'add_pool_raid1', 3)
+    cli_setting.setting(c, data, 'add_pool_raid1', 3)
 
-    return cli_test.FailFlag
+    return cli_setting.FailFlag
 
 
 def add_pool_raid5(c):
@@ -35,9 +35,9 @@ def add_pool_raid5(c):
     # precondition
     find_pd_id()
 
-    cli_test.setting(c, data, 'add_pool_raid5', 3)
+    cli_setting.setting(c, data, 'add_pool_raid5', 3)
 
-    return cli_test.FailFlag
+    return cli_setting.FailFlag
 
 
 def add_pool_raid6(c):
@@ -45,9 +45,9 @@ def add_pool_raid6(c):
     # precondition
     find_pd_id()
 
-    cli_test.setting(c, data, 'add_pool_raid6', 3)
+    cli_setting.setting(c, data, 'add_pool_raid6', 3)
 
-    return cli_test.FailFlag
+    return cli_setting.FailFlag
 
 
 def add_pool_raid10(c):
@@ -55,9 +55,9 @@ def add_pool_raid10(c):
     # precondition
     find_pd_id()
 
-    cli_test.setting(c, data, 'add_pool_raid10', 3)
+    cli_setting.setting(c, data, 'add_pool_raid10', 3)
 
-    return cli_test.FailFlag
+    return cli_setting.FailFlag
 
 
 def add_pool_raid50(c):
@@ -65,9 +65,9 @@ def add_pool_raid50(c):
     # precondition
     find_pd_id()
 
-    cli_test.setting(c, data, 'add_pool_raid50', 3)
+    cli_setting.setting(c, data, 'add_pool_raid50', 3)
 
-    return cli_test.FailFlag
+    return cli_setting.FailFlag
 
 
 def add_pool_raid60(c):
@@ -75,9 +75,9 @@ def add_pool_raid60(c):
     # precondition
     find_pd_id()
 
-    cli_test.setting(c, data, 'add_pool_raid60', 3)
+    cli_setting.setting(c, data, 'add_pool_raid60', 3)
 
-    return cli_test.FailFlag
+    return cli_setting.FailFlag
 
 
 def add_pool_default_setting(c):
@@ -85,16 +85,16 @@ def add_pool_default_setting(c):
     # precondition
     find_pd_id()
 
-    cli_test.setting(c, data, 'add_pool_default_setting', 3)
+    cli_setting.setting(c, data, 'add_pool_default_setting', 3)
 
-    return cli_test.FailFlag
+    return cli_setting.FailFlag
 
 
 def modify_pool_name(c):
 
-    cli_test.setting(c, data, 'modify_pool_name', 3)
+    cli_setting.setting(c, data, 'modify_pool_name', 3)
 
-    return cli_test.FailFlag
+    return cli_setting.FailFlag
 
 
 def list_pool(c):
@@ -105,16 +105,16 @@ def list_pool(c):
     server.webapi('post', 'pool', {"name": "raid0_pool", "pds": [pdId[0]], "raid_level": "raid0"})
     server.webapi('post', 'pool', {"name": "raid5_pool", "pds": pdId[1:4], "raid_level": "raid5"})
 
-    cli_test.list(c, data, 'list_pool')
+    cli_list.list(c, data, 'list_pool')
 
-    return cli_test.FailFlag
+    return cli_list.FailFlag
 
 
 def list_verbose_mode_pool(c):
 
-    cli_test.list(c, data, 'list_verbose_mode_pool')
+    cli_list.list(c, data, 'list_verbose_mode_pool')
 
-    return cli_test.FailFlag
+    return cli_list.FailFlag
 
 
 def extend_raid0_pool(c):
@@ -126,9 +126,9 @@ def extend_raid0_pool(c):
 
     time.sleep(3)
 
-    cli_test.setting(c, data, 'extend_raid0_pool', 3)
+    cli_setting.setting(c, data, 'extend_raid0_pool', 3)
 
-    return cli_test.FailFlag
+    return cli_setting.FailFlag
 
 
 def extend_raid1_pool(c):
@@ -140,9 +140,9 @@ def extend_raid1_pool(c):
 
     time.sleep(3)
 
-    cli_test.setting(c, data, 'extend_raid0_pool', 3)
+    cli_setting.setting(c, data, 'extend_raid1_pool', 3)
 
-    return cli_test.FailFlag
+    return cli_setting.FailFlag
 
 
 def extend_raid5_pool(c):
@@ -154,9 +154,9 @@ def extend_raid5_pool(c):
 
     time.sleep(3)
 
-    cli_test.setting(c, data, 'extend_raid5_pool', 3)
+    cli_setting.setting(c, data, 'extend_raid5_pool', 3)
 
-    return cli_test.FailFlag
+    return cli_setting.FailFlag
 
 
 def extend_raid6_pool(c):
@@ -168,9 +168,9 @@ def extend_raid6_pool(c):
 
     time.sleep(3)
 
-    cli_test.setting(c, data, 'extend_raid6_pool', 3)
+    cli_setting.setting(c, data, 'extend_raid6_pool', 3)
 
-    return cli_test.FailFlag
+    return cli_setting.FailFlag
 
 
 def extend_raid10_pool(c):
@@ -182,9 +182,9 @@ def extend_raid10_pool(c):
 
     time.sleep(3)
 
-    cli_test.setting(c, data, 'extend_raid10_pool', 3)
+    cli_setting.setting(c, data, 'extend_raid10_pool', 3)
 
-    return cli_test.FailFlag
+    return cli_setting.FailFlag
 
 
 def extend_raid50_pool(c):
@@ -196,9 +196,9 @@ def extend_raid50_pool(c):
 
     time.sleep(3)
 
-    cli_test.setting(c, data, 'extend_raid50_pool', 3)
+    cli_setting.setting(c, data, 'extend_raid50_pool', 3)
 
-    return cli_test.FailFlag
+    return cli_setting.FailFlag
 
 
 def extend_raid60_pool(c):
@@ -210,9 +210,9 @@ def extend_raid60_pool(c):
 
     time.sleep(3)
 
-    cli_test.setting(c, data, 'extend_raid60_pool', 3)
+    cli_setting.setting(c, data, 'extend_raid60_pool', 3)
 
-    return cli_test.FailFlag
+    return cli_setting.FailFlag
 
 
 def delete_pool(c):
@@ -232,9 +232,9 @@ def delete_pool(c):
 
     time.sleep(3)
 
-    cli_test.delete(c, data, 'delete_pool')
+    cli_delete.delete(c, data, 'delete_pool')
 
-    return cli_test.FailFlag
+    return cli_delete.FailFlag
 
 
 def invalid_settings_parameter(c):
@@ -243,26 +243,26 @@ def invalid_settings_parameter(c):
 
     time.sleep(3)
 
-    cli_test.failed_test(c, data, 'invalid_settings_parameter')
+    cli_failed_test.failed_test(c, data, 'invalid_settings_parameter')
 
-    return cli_test.FailFlag
+    return cli_failed_test.FailFlag
 
 
 def invalid_option(c):
 
-    cli_test.failed_test(c, data, 'invalid_option')
+    cli_failed_test.failed_test(c, data, 'invalid_option')
 
-    return cli_test.FailFlag
+    return cli_failed_test.FailFlag
 
 
 def missing_parameter(c):
 
-    cli_test.failed_test(c, data, 'missing_parameter')
+    cli_failed_test.failed_test(c, data, 'missing_parameter')
 
     # clean up environment
     find_pd_id()
 
-    return cli_test.FailFlag
+    return cli_failed_test.FailFlag
 
 
 if __name__ == "__main__":

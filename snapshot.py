@@ -3,7 +3,7 @@
 
 from ssh_connect import ssh_conn
 import time
-from cli_test import cli_test
+from cli_test import *
 from remote import server
 from find_unconfigured_pd_id import find_pd_id
 
@@ -31,50 +31,50 @@ def add_snapshot(c):
     # precondition
     precondition()
 
-    cli_test.setting(c, data, 'add_snapshot', 1)
+    cli_setting.setting(c, data, 'add_snapshot', 1)
 
-    return cli_test.FailFlag
+    return cli_setting.FailFlag
 
 
 def list_snapshot(c):
 
-    cli_test.list(c, data, 'list_snapshot')
+    cli_list.list(c, data, 'list_snapshot')
 
-    return cli_test.FailFlag
+    return cli_list.FailFlag
 
 
 def list_snapshot_by_verbose_mode(c):
 
-    cli_test.list(c, data, 'list_snapshot_by_verbose_mode')
+    cli_list.list(c, data, 'list_snapshot_by_verbose_mode')
 
-    return cli_test.FailFlag
+    return cli_list.FailFlag
 
 
 def mod_snapshot(c):
     # precondition
     server.webapi('post', 'snapshot/2/unmount')
 
-    cli_test.setting(c, data, 'mod_snapshot', 1)
+    cli_setting.setting(c, data, 'mod_snapshot', 1)
 
-    return cli_test.FailFlag
+    return cli_setting.FailFlag
 
 
 def export_unexport_snapshot(c):
     # precondition
     server.webapi('post', 'snapshot/3/unexport')
 
-    cli_test.setting(c, data, 'export_unexport_snapshot', 1)
+    cli_setting.setting(c, data, 'export_unexport_snapshot', 1)
 
-    return cli_test.FailFlag
+    return cli_setting.FailFlag
 
 
 def mount_umount_snapshot(c):
     # precondition
     server.webapi('post', 'snapshot/2/unmount')
 
-    cli_test.setting(c, data, 'mount_umount_snapshot', 1)
+    cli_setting.setting(c, data, 'mount_umount_snapshot', 1)
 
-    return cli_test.FailFlag
+    return cli_setting.FailFlag
 
 
 def rollback_snapshot(c):
@@ -83,9 +83,9 @@ def rollback_snapshot(c):
 
     server.webapi('post', 'snapshot', {"name": 'test_nas_rollback', "type": 'nasshare', "source_id": 0})
 
-    cli_test.other(c, data, 'rollback_snapshot')
+    cli_other_action.other(c, data, 'rollback_snapshot')
 
-    return cli_test.FailFlag
+    return cli_other_action.FailFlag
 
 
 def del_snapshot(c):
@@ -93,33 +93,33 @@ def del_snapshot(c):
     server.webapi('post', 'clone', {"source_id": 2, "name": 'test_volume_snap_f'})
     server.webapi('post', 'clone', {"source_id": 3, "name": 'test_nas_snap_f'})
 
-    cli_test.delete(c, data, 'del_snapshot')
+    cli_delete.delete(c, data, 'del_snapshot')
 
-    return cli_test.FailFlag
+    return cli_delete.FailFlag
 
 
 def invalid_setting_parameter(c):
 
-    cli_test.failed_test(c, data, 'invalid_setting_parameter')
+    cli_failed_test.failed_test(c, data, 'invalid_setting_parameter')
 
-    return cli_test.FailFlag
+    return cli_failed_test.FailFlag
 
 
 def invalid_option(c):
 
-    cli_test.failed_test(c, data, 'invalid_option')
+    cli_failed_test.failed_test(c, data, 'invalid_option')
 
-    return cli_test.FailFlag
+    return cli_failed_test.FailFlag
 
 
 def missing_parameter(c):
 
-    cli_test.failed_test(c, data, 'missing_parameter')
+    cli_failed_test.failed_test(c, data, 'missing_parameter')
 
     # clean up environment
     clean_up_environment()
 
-    return cli_test.FailFlag
+    return cli_failed_test.FailFlag
 
 
 if __name__ == "__main__":

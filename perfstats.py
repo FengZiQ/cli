@@ -3,7 +3,7 @@
 
 from ssh_connect import ssh_conn
 import time
-from cli_test import cli_test
+from cli_test import *
 from remote import server
 from find_unconfigured_pd_id import find_pd_id
 
@@ -34,49 +34,47 @@ def clean_up_environment():
 
     server.webapi('delete', 'pool/0?force=1')
 
-    return cli_test.FailFlag
-
 
 def start_perfstats(c):
     # precondition
     precondition()
 
-    cli_test.other(c, data, 'start_perfstats')
+    cli_other_action.other(c, data, 'start_perfstats')
 
-    return cli_test.FailFlag
+    return cli_other_action.FailFlag
 
 
 def list_perfstats(c):
     # precondition
     server.webapi('post', 'perfstatsstart')
 
-    cli_test.list(c, data, 'list_perfstats')
+    cli_list.list(c, data, 'list_perfstats')
 
-    return cli_test.FailFlag
+    return cli_list.FailFlag
 
 
 def invalid_setting_parameter(c):
 
-    cli_test.failed_test(c, data, 'invalid_setting_parameter')
+    cli_failed_test.failed_test(c, data, 'invalid_setting_parameter')
 
-    return cli_test.FailFlag
+    return cli_failed_test.FailFlag
 
 
 def invalid_option(c):
 
-    cli_test.failed_test(c, data, 'invalid_option')
+    cli_failed_test.failed_test(c, data, 'invalid_option')
 
-    return cli_test.FailFlag
+    return cli_failed_test.FailFlag
 
 
 def missing_parameter(c):
 
-    cli_test.failed_test(c, data, 'missing_parameter')
+    cli_failed_test.failed_test(c, data, 'missing_parameter')
 
     # clean up environment
     clean_up_environment()
 
-    return cli_test.FailFlag
+    return cli_failed_test.FailFlag
 
 
 if __name__ == "__main__":

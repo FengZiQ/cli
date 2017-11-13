@@ -9,14 +9,16 @@ Pass = "'result': 'p'"
 Fail = "'result': 'f'"
 
 
-class cli_test():
+# use to add, mod, and so on
+class cli_test_setting():
+    
+    def __init__(self, FailFlag=False):
+        self.FailFlag = FailFlag
 
-    # use to add, mod, and so on
     def setting(self, c, data_file_name, sheet_name, hold_time=0):
 
-        FailFlag = False
-
-        data = xlrd.open_workbook(data_file_name)
+        data = xlrd.open_workbook('/home/work/zach/clitest/' + data_file_name)
+        # data = xlrd.open_workbook(data_file_name)
         table = data.sheet_by_name(sheet_name)
 
         for i in range(1, table.nrows):
@@ -27,7 +29,7 @@ class cli_test():
 
             if 'Error (' in result or 'unexpected error' in result:
 
-                FailFlag = True
+                self.FailFlag = True
                 tolog('\r\nFail: ' + table.cell(i, 0).value + '\r\n')
 
             else:
@@ -36,20 +38,27 @@ class cli_test():
                 for j in range(3, table.ncols):
 
                     if table.cell(i, j).value not in check:
-                        FailFlag = True
+                        self.FailFlag = True
                         tolog('\r\nFail: please check out ' + table.cell(i, j).value + '\r\n')
 
-        if FailFlag:
+        if self.FailFlag:
             tolog(Fail)
         else:
             tolog(Pass)
 
-    # use to list and so on
+cli_setting = cli_test_setting()
+
+
+# use to list and so on
+class cli_test_list():
+    
+    def __init__(self, FailFlag=False):
+        self.FailFlag = FailFlag
+        
     def list(self, c, data_file_name, sheet_name):
 
-        FailFlag = False
-
-        data = xlrd.open_workbook(data_file_name)
+        data = xlrd.open_workbook('/home/work/zach/clitest/' + data_file_name)
+        # data = xlrd.open_workbook(data_file_name)
         table = data.sheet_by_name(sheet_name)
 
         for i in range(1, table.nrows):
@@ -59,7 +68,7 @@ class cli_test():
 
             if 'Error (' in result or 'unexpected error' in result:
 
-                FailFlag = True
+                self.FailFlag = True
                 tolog('\r\nFail: ' + table.cell(i, 0).value + '\r\n')
 
             else:
@@ -67,20 +76,27 @@ class cli_test():
                 for j in range(2, table.ncols):
 
                     if table.cell(i, j).value not in result:
-                        FailFlag = True
+                        self.FailFlag = True
                         tolog('\r\nFail: please check out ' + table.cell(i, j).value + '\r\n')
 
-        if FailFlag:
+        if self.FailFlag:
             tolog(Fail)
         else:
             tolog(Pass)
 
-    # use to verify nothing returned values action
+cli_list = cli_test_list()
+
+
+# use to verify nothing returned values action
+class cli_test_other_action():
+    
+    def __init__(self, FailFlag=False):
+        self.FailFlag = FailFlag
+    
     def other(self, c, data_file_name, sheet_name):
 
-        FailFlag = False
-
-        data = xlrd.open_workbook(data_file_name)
+        data = xlrd.open_workbook('/home/work/zach/clitest/' + data_file_name)
+        # data = xlrd.open_workbook(data_file_name)
         table = data.sheet_by_name(sheet_name)
 
         for i in range(1, table.nrows):
@@ -88,22 +104,28 @@ class cli_test():
             tolog('\r\nExpect: ' + table.cell(i, 1).value + '\r\n')
             result = SendCmd(c, table.cell(i, 0).value)
 
-            if 'Error (' in result  or 'unexpected error' in result:
-
-                FailFlag = True
+            if 'Error (' in result or 'unexpected error' in result:
+                self.FailFlag = True
                 tolog('\r\nFail: ' + table.cell(i, 0).value + '\r\n')
 
-        if FailFlag:
+        if self.FailFlag:
             tolog(Fail)
         else:
             tolog(Pass)
 
-    # use to del
+cli_other_action = cli_test_other_action()
+
+
+# use to del
+class cli_test_delete():
+    
+    def __init__(self, FailFlag=False):
+        self.FailFlag = FailFlag
+    
     def delete(self, c, data_file_name, sheet_name, hold_time=0):
 
-        FailFlag = False
-
-        data = xlrd.open_workbook(data_file_name)
+        data = xlrd.open_workbook('/home/work/zach/clitest/' + data_file_name)
+        # data = xlrd.open_workbook(data_file_name)
         table = data.sheet_by_name(sheet_name)
 
         for i in range(1, table.nrows):
@@ -114,7 +136,7 @@ class cli_test():
 
             if 'Error (' in result or 'unexpected error' in result:
 
-                FailFlag = True
+                self.FailFlag = True
                 tolog('\r\nFail: ' + table.cell(i, 0).value + '\r\n')
 
             else:
@@ -123,20 +145,27 @@ class cli_test():
                 for j in range(3, table.ncols):
 
                     if table.cell(i, j).value in check:
-                        FailFlag = True
+                        self.FailFlag = True
                         tolog('\r\nFail: please check out ' + table.cell(i, j).value + '\r\n')
 
-        if FailFlag:
+        if self.FailFlag:
             tolog(Fail)
         else:
             tolog(Pass)
 
-    # use to verify failed test
+cli_delete = cli_test_delete()
+
+
+# use to verify failed test
+class cli_failed_test():
+    
+    def __init__(self, FailFlag=False):
+        self.FailFlag = FailFlag
+    
     def failed_test(self, c, data_file_name, sheet_name, hold_time=0):
 
-        FailFlag = False
-
-        data = xlrd.open_workbook(data_file_name)
+        data = xlrd.open_workbook('/home/work/zach/clitest/' + data_file_name)
+        # data = xlrd.open_workbook(data_file_name)
         table = data.sheet_by_name(sheet_name)
 
         for i in range(1, table.nrows):
@@ -147,7 +176,7 @@ class cli_test():
 
             if 'Error (' not in result or 'unexpected error' in result:
 
-                FailFlag = True
+                self.FailFlag = True
                 tolog('\r\nFail: ' + table.cell(i, 0).value + '\r\n')
 
             else:
@@ -155,17 +184,12 @@ class cli_test():
                 for j in range(1, table.ncols):
 
                     if table.cell(i, j).value not in result:
-                        FailFlag = True
+                        self.FailFlag = True
                         tolog('\r\nFail: please check out ' + table.cell(i, j).value + '\r\n')
 
-        if FailFlag:
+        if self.FailFlag:
             tolog(Fail)
         else:
             tolog(Pass)
 
-    # marks a manual execution case
-    def need_manual_test(self):
-
-        tolog('\r\nneed manual test\r\n')
-
-cli_test = cli_test()
+cli_failed_test = cli_failed_test()

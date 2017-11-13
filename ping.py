@@ -3,7 +3,7 @@
 
 from ssh_connect import ssh_conn
 import time
-from cli_test import cli_test
+from cli_test import *
 from remote import server
 from find_unconfigured_pd_id import find_pd_id
 
@@ -30,14 +30,16 @@ def iscsi_ping(c):
     })
     time.sleep(5)
 
-    cli_test.list(c, data, 'iscsi_ping')
+    cli_list.list(c, data, 'iscsi_ping')
+
+    return cli_list.FailFlag
 
 
 def mgmt_ping(c):
 
-    cli_test.list(c, data, 'mgmt_ping')
+    cli_list.list(c, data, 'mgmt_ping')
 
-    return cli_test.FailFlag
+    return cli_list.FailFlag
 
 
 def fc_ping(c):
@@ -45,33 +47,33 @@ def fc_ping(c):
     precondition:
     need  to configure two fc online port on two equipment
     """
-    cli_test.list(c, data, 'fc_ping')
+    cli_list.list(c, data, 'fc_ping')
 
-    return cli_test.FailFlag
+    return cli_list.FailFlag
 
 
 def invalid_setting_parameter(c):
 
-    cli_test.failed_test(c, data, 'invalid_setting_parameter')
+    cli_failed_test.failed_test(c, data, 'invalid_setting_parameter')
 
-    return cli_test.FailFlag
+    return cli_failed_test.FailFlag
 
 
 def invalid_option(c):
 
-    cli_test.failed_test(c, data, 'invalid_option')
+    cli_failed_test.failed_test(c, data, 'invalid_option')
 
-    return cli_test.FailFlag
+    return cli_failed_test.FailFlag
 
 
 def missing_parameter(c):
 
-    cli_test.failed_test(c, data, 'missing_parameter')
+    cli_failed_test.failed_test(c, data, 'missing_parameter')
 
     # clean up environment
     server.webapi('delete', 'iscsiportal/0', {"id": [0]})
 
-    return cli_test.FailFlag
+    return cli_failed_test.FailFlag
 
 
 if __name__ == "__main__":

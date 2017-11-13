@@ -3,7 +3,7 @@
 
 from ssh_connect import ssh_conn
 import time
-from cli_test import cli_test
+from cli_test import *
 from remote import server
 from find_unconfigured_pd_id import find_pd_id
 
@@ -35,81 +35,81 @@ def add_clone(c):
     # precondition
     precondition()
 
-    cli_test.setting(c, data, 'add_clone', 1)
+    cli_setting.setting(c, data, 'add_clone', 1)
 
-    return cli_test.FailFlag
+    return cli_setting.FailFlag
 
 
 def list_clone(c):
 
-    cli_test.list(c, data, 'list_clone')
+    cli_list.list(c, data, 'list_clone')
 
-    return cli_test.FailFlag
+    return cli_list.FailFlag
 
 
 def list_clone_verbose_mode(c):
 
-    cli_test.list(c, data, 'list_clone_verbose_mode')
+    cli_list.list(c, data, 'list_clone_verbose_mode')
 
-    return cli_test.FailFlag
+    return cli_list.FailFlag
 
 
 def mod_clone(c):
     # precondition
     server.webapi('post', 'clone/0/unmount')
 
-    cli_test.setting(c, data, 'mod_clone', 1)
+    cli_setting.setting(c, data, 'mod_clone', 1)
 
-    return cli_test.FailFlag
+    return cli_setting.FailFlag
 
 
 def export_unexport_clone(c):
     # precondition
     server.webapi('post', 'clone/3/unexport')
 
-    cli_test.setting(c, data, 'export_unexport_clone', 1)
+    cli_setting.setting(c, data, 'export_unexport_clone', 1)
 
-    return cli_test.FailFlag
+    return cli_setting.FailFlag
 
 
 def mount_umount_clone(c):
     # precondition
     server.webapi('post', 'clone/2/unmount')
 
-    cli_test.setting(c, data, 'mount_umount_clone', 1)
+    cli_setting.setting(c, data, 'mount_umount_clone', 1)
 
-    return cli_test.FailFlag
+    return cli_setting.FailFlag
 
 
 def del_clone(c):
 
-    cli_test.delete(c, data, 'del_clone')
+    cli_delete.delete(c, data, 'del_clone')
 
-    return cli_test.FailFlag
+    return cli_delete.FailFlag
 
 
 def invalid_setting_parameter(c):
 
-    cli_test.failed_test(c, data, 'invalid_setting_parameter')
+    cli_failed_test.failed_test(c, data, 'invalid_setting_parameter')
 
-    return cli_test.FailFlag
+    return cli_failed_test.FailFlag
 
 
 def invalid_option(c):
 
-    cli_test.failed_test(c, data, 'invalid_option')
+    cli_failed_test.failed_test(c, data, 'invalid_option')
 
-    return cli_test.FailFlag
+    return cli_failed_test.FailFlag
 
 
 def missing_parameter(c):
 
-    cli_test.failed_test(c, data, 'missing_parameter')
+    cli_failed_test.failed_test(c, data, 'missing_parameter')
 
     # clean_up_environment
     clean_up_environment()
 
-    return cli_test.FailFlag
+    return cli_failed_test.FailFlag
 
 
 if __name__ == "__main__":

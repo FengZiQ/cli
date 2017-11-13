@@ -3,7 +3,7 @@
 
 from ssh_connect import ssh_conn
 import time, json
-from cli_test import cli_test
+from cli_test import *
 from remote import server
 from find_unconfigured_pd_id import find_pd_id
 
@@ -38,30 +38,30 @@ def list_phydrv(c):
     # precondition
     precondition()
 
-    cli_test.list(c, data, 'list_phydrv')
+    cli_list.list(c, data, 'list_phydrv')
 
-    return cli_test.FailFlag
+    return cli_list.FailFlag
 
 
 def list_phydrv_by_verbose_mode(c):
 
-    cli_test.list(c, data, 'list_phydrv_by_verbose_mode')
+    cli_list.list(c, data, 'list_phydrv_by_verbose_mode')
 
-    return cli_test.FailFlag
+    return cli_list.FailFlag
 
 
 def mod_phydrv(c):
 
-    cli_test.setting(c, data, 'mod_phydrv', 1)
+    cli_setting.setting(c, data, 'mod_phydrv', 1)
 
-    return cli_test.FailFlag
+    return cli_setting.FailFlag
 
 
 def locate_phydrv(c):
 
-    cli_test.other(c, data, 'locate_phydrv')
+    cli_other_action.other(c, data, 'locate_phydrv')
 
-    return cli_test.FailFlag
+    return cli_other_action.FailFlag
 
 
 def online_offline_phydrv(c):
@@ -69,9 +69,9 @@ def online_offline_phydrv(c):
     pdId = find_pd_id()
     server.webapi('post', 'pool', {"name": "test_phy_2", "pds": pdId[:3], "raid_level": "raid5"})
 
-    cli_test.setting(c, data, 'online_offline_phydrv', 3)
+    cli_setting.setting(c, data, 'online_offline_phydrv', 3)
 
-    return cli_test.FailFlag
+    return cli_setting.FailFlag
 
 
 def clear_phydrv(c):
@@ -80,32 +80,32 @@ def clear_phydrv(c):
     server.webapi('post', 'pool', {"name": "test_phy_3", "pds": pdId[:3], "raid_level": "raid5"})
     server.webapi('post', 'spare', {"pd_id": pdId[4], "dedicated": 'global', "revertible": 0})
 
-    cli_test.setting(c, data, 'clear_phydrv', 3)
+    cli_setting.setting(c, data, 'clear_phydrv', 3)
 
-    return cli_test.FailFlag
+    return cli_setting.FailFlag
 
 
 def invalid_setting_parameter(c):
     # precondition
     find_pd_id()
 
-    cli_test.failed_test(c, data, 'invalid_setting_parameter')
+    cli_failed_test.failed_test(c, data, 'invalid_setting_parameter')
 
-    return cli_test.FailFlag
+    return cli_failed_test.FailFlag
 
 
 def invalid_option(c):
 
-    cli_test.failed_test(c, data, 'invalid_option')
+    cli_failed_test.failed_test(c, data, 'invalid_option')
 
-    return cli_test.FailFlag
+    return cli_failed_test.FailFlag
 
 
 def missing_parameter(c):
 
-    cli_test.failed_test(c, data, 'missing_parameter')
+    cli_failed_test.failed_test(c, data, 'missing_parameter')
 
-    return cli_test.FailFlag
+    return cli_failed_test.FailFlag
 
 
 if __name__ == "__main__":
