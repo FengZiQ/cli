@@ -25710,3 +25710,2512 @@ group     1006      test_acl_group_5                                rw
 
 administrator@cli> 
 'result': 'p'
+
+Expect: specific nas user should have 1GB of storage capacity in nasshare
+
+quota -a set -d 0 -t nasshare -s "role=user,capacity=1GB,name=test_quota_0"
+Error (0x2012): Invalid option for the command or the action
+'-s': not applicable for '-a set'
+
+administrator@cli> 
+
+Fail: quota -a set -d 0 -t nasshare -s "role=user,capacity=1GB,name=test_quota_0"
+
+
+Expect: specific nas user should have 2GB of storage capacity in nasshare
+
+quota -a set -d 0 -t nasshare -s "role=user,capacity=2GB,name=test_quota_1"
+Error (0x2012): Invalid option for the command or the action
+'-s': not applicable for '-a set'
+
+administrator@cli> 
+
+Fail: quota -a set -d 0 -t nasshare -s "role=user,capacity=2GB,name=test_quota_1"
+
+
+Expect: specific nas user should have 998GB of storage capacity in nasshare
+
+quota -a set -d 1 -t nasshare -s "role=user,capacity=998GB,name=test_quota_2"
+Error (0x2012): Invalid option for the command or the action
+'-s': not applicable for '-a set'
+
+administrator@cli> 
+
+Fail: quota -a set -d 1 -t nasshare -s "role=user,capacity=998GB,name=test_quota_2"
+
+
+Expect: specific nas user should have 999GB of storage capacity in nasshare
+
+quota -a set -d 1 -t nasshare -s "role=user,capacity=999GB,name=test_quota_3"
+Error (0x2012): Invalid option for the command or the action
+'-s': not applicable for '-a set'
+
+administrator@cli> 
+
+Fail: quota -a set -d 1 -t nasshare -s "role=user,capacity=999GB,name=test_quota_3"
+
+
+Expect: specific nas user should have 1000GB of storage capacity in nasshare
+
+quota -a set -d 0 -t nasshare -s "role=user,capacity=1000GB,name=test_quota_4"
+Error (0x2012): Invalid option for the command or the action
+'-s': not applicable for '-a set'
+
+administrator@cli> 
+
+Fail: quota -a set -d 0 -t nasshare -s "role=user,capacity=1000GB,name=test_quota_4"
+
+
+Expect: specific nas user should have 1GB of storage capacity in clone
+
+quota -a set -d 0 -t clone -s "role=user,capacity=1GB,name=test_quota_5"
+Error (0x2012): Invalid option for the command or the action
+'-s': not applicable for '-a set'
+
+administrator@cli> 
+
+Fail: quota -a set -d 0 -t clone -s "role=user,capacity=1GB,name=test_quota_5"
+
+
+Expect: specific nas user should have 2GB of storage capacity in clone
+
+quota -a set -d 0 -t clone -s "role=user,capacity=2GB,name=test_quota_6"
+Error (0x2012): Invalid option for the command or the action
+'-s': not applicable for '-a set'
+
+administrator@cli> 
+
+Fail: quota -a set -d 0 -t clone -s "role=user,capacity=2GB,name=test_quota_6"
+
+
+Expect: specific nas user should have 998GB of storage capacity in clone
+
+quota -a set -d 1 -t clone -s "role=user,capacity=998GB,name=test_quota_7"
+Error (0x2012): Invalid option for the command or the action
+'-s': not applicable for '-a set'
+
+administrator@cli> 
+
+Fail: quota -a set -d 1 -t clone -s "role=user,capacity=998GB,name=test_quota_7"
+
+
+Expect: specific nas user should have 999GB of storage capacity in clone
+
+quota -a set -d 1 -t clone -s "role=user,capacity=999GB,name=test_quota_8"
+Error (0x2012): Invalid option for the command or the action
+'-s': not applicable for '-a set'
+
+administrator@cli> 
+
+Fail: quota -a set -d 1 -t clone -s "role=user,capacity=999GB,name=test_quota_8"
+
+
+Expect: specific nas user should have 1000GB of storage capacity in clone
+
+quota -a set -d 0 -t clone -s "role=user,capacity=1000GB,name=test_quota_9"
+Error (0x2012): Invalid option for the command or the action
+'-s': not applicable for '-a set'
+
+administrator@cli> 
+
+Fail: quota -a set -d 0 -t clone -s "role=user,capacity=1000GB,name=test_quota_9"
+
+
+Expect: default nas group can set quota of clone type
+
+quota -a set -d 0 -t clone -s "role=group,name=users,capacity=1GB"
+Error (0x2012): Invalid option for the command or the action
+'-s': not applicable for '-a set'
+
+administrator@cli> 
+
+Fail: quota -a set -d 0 -t clone -s "role=group,name=users,capacity=1GB"
+
+
+Expect: default nas group can set quota of nasshare type
+
+quota -a set -d 0 -t nasshare -s "role=group,name=users,capacity=1GB"
+Error (0x2012): Invalid option for the command or the action
+'-s': not applicable for '-a set'
+
+administrator@cli> 
+
+Fail: quota -a set -d 0 -t nasshare -s "role=group,name=users,capacity=1GB"
+
+
+Expect: specific nas group should have 1000GB of storage capacity in clone
+
+quota -a set -d 0 -t clone -s "role=group,name=test_quota_group_0,capacity=1000GB"
+Error (0x2012): Invalid option for the command or the action
+'-s': not applicable for '-a set'
+
+administrator@cli> 
+
+Fail: quota -a set -d 0 -t clone -s "role=group,name=test_quota_group_0,capacity=1000GB"
+
+
+Expect: specific nas group should have 1000GB of storage capacity in nassahre
+
+quota -a set -d 0 -t nasshare -s "role=group,name=test_quota_group_1,capacity=1000GB"
+Error (0x2012): Invalid option for the command or the action
+'-s': not applicable for '-a set'
+
+administrator@cli> 
+
+Fail: quota -a set -d 0 -t nasshare -s "role=group,name=test_quota_group_1,capacity=1000GB"
+
+'result': 'f'
+
+Expect: permisions of everyone should be 0 on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=ro"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        ro         
+
+administrator@cli> 
+
+Expect: permisions of everyone should be rw on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=rw"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Expect: permisions of everyone should be deny only on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=deny"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+
+administrator@cli> 
+
+Expect: permisions of everyone should be 0 on clone
+
+acl -a set -d 0 -t clone -s "role=everyone,acl=ro"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        ro         
+
+administrator@cli> 
+
+Expect: permisions of everyone should be rw on clone
+
+acl -a set -d 0 -t clone -s "role=everyone,acl=rw"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Expect: permisions of everyone should be deny only on clone
+
+acl -a set -d 0 -t clone -s "role=everyone,acl=deny"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+
+administrator@cli> 
+
+Expect: signle nas user should can set ro permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=ro,name=test_acl_0"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1011      test_acl_0                                      ro         
+
+administrator@cli> 
+
+Expect: signle nas user should can set rw permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=rw,name=test_acl_1"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1011      test_acl_0                                      ro         
+user      1012      test_acl_1                                      rw         
+
+administrator@cli> 
+
+Expect: signle nas user should can set deny permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=deny,name=test_acl_2"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1011      test_acl_0                                      ro         
+user      1012      test_acl_1                                      rw         
+user      1013      test_acl_2                                      deny       
+
+administrator@cli> 
+
+Expect: signle nas user should can set ro permissions on clone
+
+acl -a set -d 0 -t clone -s "role=user,acl=ro,name=test_acl_4"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1015      test_acl_4                                      ro         
+
+administrator@cli> 
+
+Expect: signle nas user should can set rw permissions on clone
+
+acl -a set -d 0 -t clone -s "role=user,acl=rw,name=test_acl_5"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1015      test_acl_4                                      ro         
+user      1016      test_acl_5                                      rw         
+
+administrator@cli> 
+
+Expect: signle nas user should can set deny permissions on clone
+
+acl -a set -d 0 -t clone -s "role=user,acl=deny,name=test_acl_6"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1015      test_acl_4                                      ro         
+user      1016      test_acl_5                                      rw         
+user      1017      test_acl_6                                      deny       
+
+administrator@cli> 
+
+Expect: signle nas group should can set ro permissions on nasshare
+
+acl -a set -d 1 -t nasshare -s "role=group,acl=ro,name=test_acl_group_0"
+
+administrator@cli> 
+acl -t nasshare -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1011      test_acl_group_0                                ro         
+
+administrator@cli> 
+
+Expect: signle nas group should can set rw permissions on nasshare
+
+acl -a set -d 1 -t nasshare -s "role=group,acl=rw,name=test_acl_group_1"
+
+administrator@cli> 
+acl -t nasshare -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1011      test_acl_group_0                                ro         
+group     1012      test_acl_group_1                                rw         
+
+administrator@cli> 
+
+Expect: signle nas group should can set deny permissions on nasshare
+
+acl -a set -d 1 -t nasshare -s "role=group,acl=deny,name=test_acl_group_2"
+
+administrator@cli> 
+acl -t nasshare -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1011      test_acl_group_0                                ro         
+group     1012      test_acl_group_1                                rw         
+group     1013      test_acl_group_2                                deny       
+
+administrator@cli> 
+
+Expect: signle nas group should can set ro permissions on clone
+
+acl -a set -d 1 -t clone -s "role=group,acl=ro,name=test_acl_group_4"
+
+administrator@cli> 
+acl -t clone -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1015      test_acl_group_4                                ro         
+
+administrator@cli> 
+
+Expect: signle nas group should can set rw permissions on clone
+
+acl -a set -d 1 -t clone -s "role=group,acl=rw,name=test_acl_group_5"
+
+administrator@cli> 
+acl -t clone -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1015      test_acl_group_4                                ro         
+group     1016      test_acl_group_5                                rw         
+
+administrator@cli> 
+
+Expect: signle nas group should can set deny permissions on clone
+
+acl -a set -d 1 -t clone -s "role=a,acl=deny,name=test_acl_group_6"
+Error (0x2013): Invalid setting parameters
+role: invalid setting a (everyone|user|group)
+
+administrator@cli> 
+
+Fail: acl -a set -d 1 -t clone -s "role=a,acl=deny,name=test_acl_group_6"
+
+'result': 'f'
+
+Expect: list acl settings on nasshare 0
+
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1011      test_acl_0                                      ro         
+user      1012      test_acl_1                                      rw         
+user      1013      test_acl_2                                      deny       
+
+administrator@cli> 
+
+Expect: list acl settings on nasshare 1
+
+acl -t nasshare -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1011      test_acl_group_0                                ro         
+group     1012      test_acl_group_1                                rw         
+group     1013      test_acl_group_2                                deny       
+
+administrator@cli> 
+
+Expect: list acl settings of clone 0
+
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1015      test_acl_4                                      ro         
+user      1016      test_acl_5                                      rw         
+user      1017      test_acl_6                                      deny       
+
+administrator@cli> 
+
+Expect: list acl settings of clone 1
+
+acl -t clone -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1015      test_acl_group_4                                ro         
+group     1016      test_acl_group_5                                rw         
+
+administrator@cli> 
+'result': 'f'
+
+Expect: list acl settings of specific nasshare type by verbose mode
+
+acl -v -t nasshare -d 0
+-------------------------------------------------------------------------------
+Role: everyone                          UIDorGID: N/A
+ACL: deny                               Status: ready
+UsernameOrGroupname: everyone
+-------------------------------------------------------------------------------
+Role: user                              UIDorGID: 1011
+ACL: ro                                 Status: ready
+UsernameOrGroupname: test_acl_0
+-------------------------------------------------------------------------------
+Role: user                              UIDorGID: 1012
+ACL: rw                                 Status: ready
+UsernameOrGroupname: test_acl_1
+-------------------------------------------------------------------------------
+Role: user                              UIDorGID: 1013
+ACL: deny                               Status: ready
+UsernameOrGroupname: test_acl_2
+
+administrator@cli> 
+
+Expect: list acl settings of specific clone type by verbose mode
+
+acl -v -t clone -d 0
+-------------------------------------------------------------------------------
+Role: everyone                          UIDorGID: N/A
+ACL: deny                               Status: ready
+UsernameOrGroupname: everyone
+-------------------------------------------------------------------------------
+Role: user                              UIDorGID: 1015
+ACL: ro                                 Status: ready
+UsernameOrGroupname: test_acl_4
+-------------------------------------------------------------------------------
+Role: user                              UIDorGID: 1016
+ACL: rw                                 Status: ready
+UsernameOrGroupname: test_acl_5
+-------------------------------------------------------------------------------
+Role: user                              UIDorGID: 1017
+ACL: deny                               Status: ready
+UsernameOrGroupname: test_acl_6
+
+administrator@cli> 
+'result': 'f'
+
+Expect: refresh acl of clone type
+
+acl -a refresh -d 0 -t clone
+
+administrator@cli> 
+
+Expect: refresh acl of nasshare type
+
+acl -a refresh -d 0 -t nasshare
+
+administrator@cli> 
+'result': 'f'
+
+Expect: signle nas user should can set unset permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=unset,name=test_acl_2"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1011      test_acl_0                                      ro         
+user      1012      test_acl_1                                      rw         
+
+administrator@cli> 
+
+Expect: signle nas group should can set unset permissions on nasshare
+
+acl -a set -d 1 -t nasshare -s "role=group,acl=unset,name=test_acl_group_2"
+
+administrator@cli> 
+acl -t nasshare -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1011      test_acl_group_0                                ro         
+group     1012      test_acl_group_1                                rw         
+
+administrator@cli> 
+
+Expect: signle nas user should can set unset permissions on clone
+
+acl -a set -d 0 -t clone -s "role=user,acl=unset,name=test_acl_6"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1015      test_acl_4                                      ro         
+user      1016      test_acl_5                                      rw         
+
+administrator@cli> 
+
+Expect: signle nas group should can set unset permissions on clone
+
+acl -a set -d 1 -t clone -s "role=group,acl=unset,name=test_acl_group_6"
+
+administrator@cli> 
+acl -t clone -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1015      test_acl_group_4                                ro         
+group     1016      test_acl_group_5                                rw         
+
+administrator@cli> 
+
+Expect: permisions of everyone should be unset only on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=unset"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1011      test_acl_0                                      ro         
+user      1012      test_acl_1                                      rw         
+
+administrator@cli> 
+
+Expect: permisions of everyone should be unset only on nasshare
+
+acl -a set -d 0 -t clone -s "role=everyone,acl=unset"
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1015      test_acl_4                                      ro         
+user      1016      test_acl_5                                      rw         
+
+administrator@cli> 
+'result': 'f'
+
+Expect: all acl settings are cleared on specific nasshare
+
+acl -a clear -t nasshare -d 0
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Expect: all acl settings are cleared on specific clone
+
+acl -a clear -t clone -d 0
+
+administrator@cli> 
+acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+'result': 'f'
+
+Expect: add nasshare acl is deny for everyone
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=deny"
+
+administrator@cli> 
+
+Expect: to add action is canceled on nasshare
+
+acl -a cancel -t nasshare -d 0
+
+administrator@cli> 
+
+Expect: add clone acl is deny for everyone
+
+acl -a set -d 0 -t clone -s "role=everyone,acl=deny"
+
+administrator@cli> 
+
+Expect: to add action is canceled on clone
+
+acl -a cancel -t clone -d 0
+
+administrator@cli> 
+'result': 'f'
+
+Expect: Invalid setting parameters
+
+acl test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+
+Expect: not existed
+
+acl -d 100 -t nasshare
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: not existed
+
+acl -d 100 -t clone
+Error (0x4100102): Empty query result, please check input parameters. Clone id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -d 0 -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (nasshare|clone)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d test -t clone -s "role=group,name=users,acl=ro"
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+
+Expect: id=[100] is not existed
+
+acl -a set -d 100 -t nasshare -s "role=user,name=admin,acl=rw"
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: id=[100] is not existed
+
+acl -a set -d 100 -t clone -s "role=user,name=admin,acl=rw"
+Error (0x4100102): Empty query result, please check input parameters. Clone id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: id=[100] is not existed
+
+acl -a set -d 100 -t nasshare -s "role=group,name=users,acl=rw"
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: id=[100] is not existed
+
+acl -a set -d 100 -t clone -s "role=group,name=users,acl=rw"
+Error (0x4100102): Empty query result, please check input parameters. Clone id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t test -s "role=user,name=admin,acl=rw"
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (nasshare|clone)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t nasshare -s "role=test,name=admin,acl=rw"
+Error (0x2013): Invalid setting parameters
+role: invalid setting test (everyone|user|group)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t clone -s "role=test,name=admin,acl=rw"
+Error (0x2013): Invalid setting parameters
+role: invalid setting test (everyone|user|group)
+
+administrator@cli> 
+
+Expect: NAS user [test] doesn't exist
+
+acl -a set -d 0 -t nasshare -s "role=user,name=test,acl=rw"
+Error (0x4100104): Incorrect parameters: NAS user [test] doesn't exist.
+
+administrator@cli> 
+
+Expect: NAS user [test] doesn't exist
+
+acl -a set -d 0 -t clone -s "role=user,name=test,acl=rw"
+Error (0x4100104): Incorrect parameters: NAS user [test] doesn't exist.
+
+administrator@cli> 
+
+Expect: NAS group [test] doesn't exist
+
+acl -a set -d 0 -t nasshare -s "role=group,name=test,acl=rw"
+Error (0x4100104): Incorrect parameters: NAS group [test] doesn't exist.
+
+administrator@cli> 
+
+Expect: NAS group [test] doesn't exist
+
+acl -a set -d 0 -t clone -s "role=group,name=test,acl=rw"
+Error (0x4100104): Incorrect parameters: NAS group [test] doesn't exist.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t clone -s "role=user,name=test_acl_0,acl=test"
+Error (0x2013): Invalid setting parameters
+acl: invalid setting test (unset|deny|ro|rw)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t nasshare -s "role=user,name=test_acl_0,acl=test"
+Error (0x2013): Invalid setting parameters
+acl: invalid setting test (unset|deny|ro|rw)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t clone -s "role=group,name=users,acl=test"
+Error (0x2013): Invalid setting parameters
+acl: invalid setting test (unset|deny|ro|rw)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t nasshare -s "role=group,name=users,acl=test"
+Error (0x2013): Invalid setting parameters
+acl: invalid setting test (unset|deny|ro|rw)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a refresh test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a refresh -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (nasshare|clone)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a mod -d 0 -t nasshare -s ""
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a mod -d 0 -t clone -s ""
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a clear -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a cancel -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+'result': 'f'
+
+Expect: Invalid option for the command or the action
+
+acl -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -d 0 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a set -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a set -d 0 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a set -d 0 -nasshare -s "test=user,user=adimin,acl=rw"
+Error (0x2012): Invalid option for the command or the action
+invalid option: -nasshare
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a set -d 0 -clone -s "test=user,user=adimin,acl=rw"
+Error (0x2012): Invalid option for the command or the action
+invalid option: -clone
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a set -d 0 -nasshare -s "role=user,test=adimin,acl=rw"
+Error (0x2012): Invalid option for the command or the action
+invalid option: -nasshare
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a set -d 0 -clone -s "role=group,test=adimin,acl=rw"
+Error (0x2012): Invalid option for the command or the action
+invalid option: -clone
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a refresh -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a clear -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a clear -t nasshare -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a cancel -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a cancel -t clone -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+'result': 'f'
+
+Expect: Missing parameter
+
+acl -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -d 0 -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a set -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a set -d 0 
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a set'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a set -d 0 -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a set -d 0 -t nasshare 
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a set'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a set -d 0 -t nasshare -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a set -d 0 -t clone
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a set'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a set -d 0 -t clone -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a refresh
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a refresh'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a refresh -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a refresh -d 0 -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a cancel
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a cancel'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a cancel -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a clear -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a clear
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a clear'
+
+administrator@cli> 
+'result': 'f'
+
+Expect: add pool by "name=a,raid=0,stripe=64KB,sector=512B,ctrlid=1"
+
+pool -a add -s "name=a,raid=0,stripe=64KB,sector=512B,ctrlid=1" -p 1
+
+administrator@cli> 
+pool -v -i 0
+
+Pool global setting:
+-------------------------------------------------------------------------------
+CapacityThreshold: 95
+
+-------------------------------------------------------------------------------
+Id: 0                                   Name: a
+TotalCapacity: 1.94 TB                  UsedCapacity: 42.95 GB
+PoolAvail: 1.80 TB                      PoolReserved: 96.96 GB
+FreeCapacity: 1.90 TB                   Usage: 2
+RaidLevel: 0                            ForceSync: Disabled
+Stripe: 64 KB                           Sector: 512 Bytes
+OperationalStatus: OK                   Owner: Controller 2
+PreferCtrlId: 1                         Pds: 1
+Axle: 1                                 PdGroup: (1)
+
+===============================================================================
+SeqNo                      PdId                     Status                     
+===============================================================================
+0                          1                        OK                         
+
+administrator@cli> 
+'result': 'p'
+
+Expect: add pool by "name=a1,raid=1,stripe=128KB,sector=1KB,ctrlid=2"
+
+pool -a add -s "name=a1,raid=1,stripe=128KB,sector=1KB,ctrlid=2" -p 1,2
+
+administrator@cli> 
+pool -v -i 0
+
+Pool global setting:
+-------------------------------------------------------------------------------
+CapacityThreshold: 95
+
+-------------------------------------------------------------------------------
+Id: 0                                   Name: a1
+TotalCapacity: 1.94 TB                  UsedCapacity: 42.95 GB
+PoolAvail: 1.80 TB                      PoolReserved: 96.96 GB
+FreeCapacity: 1.90 TB                   Usage: 2
+RaidLevel: 1                            ForceSync: Disabled
+Stripe: 128 KB                          Sector: 1 KB
+OperationalStatus: OK, Synchronizing    Owner: Controller 2
+PreferCtrlId: 2                         Pds: 1,2
+Axle: 1                                 PdGroup: (1,2)
+
+===============================================================================
+SeqNo                      PdId                     Status                     
+===============================================================================
+0                          1                        OK                         
+1                          2                        OK                         
+
+administrator@cli> 
+'result': 'p'
+
+Expect: add pool by "name=test_test_test_test_test_test_1,raid=5,stripe=256KB,sector=2KB,ctrlid=1
+
+pool -a add -s "name=test_test_test_test_test_test_1,raid=5,stripe=256KB,sector=2KB,ctrlid=1" -p 1,2,3
+
+administrator@cli> 
+pool -v -i 0
+
+Pool global setting:
+-------------------------------------------------------------------------------
+CapacityThreshold: 95
+
+-------------------------------------------------------------------------------
+Id: 0                                   Name: test_test_test_test_test_test_1
+TotalCapacity: 149.02 GB                UsedCapacity: 17.18 GB
+PoolAvail: 124.38 GB                    PoolReserved: 7.45 GB
+FreeCapacity: 131.84 GB                 Usage: 11
+RaidLevel: 5                            ForceSync: Disabled
+Stripe: 256 KB                          Sector: 2 KB
+OperationalStatus: OK, Synchronizing    Owner: Controller 2
+PreferCtrlId: 1                         Pds: 1,2,3
+Axle: 1                                 PdGroup: (1,2,3)
+
+===============================================================================
+SeqNo                      PdId                     Status                     
+===============================================================================
+0                          1                        OK                         
+1                          2                        OK                         
+2                          3                        OK                         
+
+administrator@cli> 
+'result': 'p'
+
+Expect: add pool by "name=test_test_test_test_test_test_12,raid=6,stripe=512KB,sector=4KB,ctrlid=2"
+
+pool -a add -s "name=test_test_test_test_test_test_12,raid=6,stripe=512KB,sector=4KB,ctrlid=2" -p 1,2,3,4
+
+administrator@cli> 
+pool -v -i 0
+
+Pool global setting:
+-------------------------------------------------------------------------------
+CapacityThreshold: 95
+
+-------------------------------------------------------------------------------
+Id: 0                                   Name: test_test_test_test_test_test_12
+TotalCapacity: 149.02 GB                UsedCapacity: 17.18 GB
+PoolAvail: 124.38 GB                    PoolReserved: 7.45 GB
+FreeCapacity: 131.84 GB                 Usage: 11
+RaidLevel: 6                            ForceSync: Disabled
+Stripe: 512 KB                          Sector: 4 KB
+OperationalStatus: OK, Synchronizing    Owner: Controller 2
+PreferCtrlId: 2                         Pds: 1,2,3,4
+Axle: 1                                 PdGroup: (1,2,3,4)
+
+===============================================================================
+SeqNo                      PdId                     Status                     
+===============================================================================
+0                          1                        OK                         
+1                          2                        OK                         
+2                          3                        OK                         
+3                          4                        OK                         
+
+administrator@cli> 
+'result': 'p'
+
+Expect: add pool by "name=123,raid=10,stripe=512KB,sector=4KB,ctrlid=2"
+
+pool -a add -s "name=123,raid=10,stripe=512KB,sector=4KB,ctrlid=2" -p 1,2,3,4
+
+administrator@cli> 
+pool -v -i 0
+
+Pool global setting:
+-------------------------------------------------------------------------------
+CapacityThreshold: 95
+
+-------------------------------------------------------------------------------
+Id: 0                                   Name: 123
+TotalCapacity: 2.01 TB                  UsedCapacity: 42.95 GB
+PoolAvail: 1.87 TB                      PoolReserved: 100.47 GB
+FreeCapacity: 1.97 TB                   Usage: 2
+RaidLevel: 10                           ForceSync: Disabled
+Stripe: 512 KB                          Sector: 4 KB
+OperationalStatus: OK, Synchronizing    Owner: Controller 2
+PreferCtrlId: 2                         Pds: 1,2,3,4
+Axle: 2                                 PdGroup: (1,2),(3,4)
+
+===============================================================================
+SeqNo                      PdId                     Status                     
+===============================================================================
+0                          1                        OK                         
+1                          2                        OK                         
+2                          3                        OK                         
+3                          4                        OK                         
+
+administrator@cli> 
+'result': 'p'
+
+Expect: add pool by "name=1z,raid=50,stripe=1MB,sector=2KB,ctrlid=1,axle=2"
+
+pool -a add -s "name=1z,raid=50,stripe=1MB,sector=2KB,ctrlid=1,axle=2" -p 1,2,3,4,8,9
+
+administrator@cli> 
+pool -v -i 0
+
+Pool global setting:
+-------------------------------------------------------------------------------
+CapacityThreshold: 95
+
+-------------------------------------------------------------------------------
+Id: 0                                   Name: 1z
+TotalCapacity: 7.87 TB                  UsedCapacity: 42.95 GB
+PoolAvail: 7.43 TB                      PoolReserved: 393.57 GB
+FreeCapacity: 7.83 TB                   Usage: 0
+RaidLevel: 50                           ForceSync: Disabled
+Stripe: 1 MB                            Sector: 2 KB
+OperationalStatus: OK, Synchronizing    Owner: Controller 2
+PreferCtrlId: 1                         Pds: 1,2,3,4,8,9
+Axle: 2                                 PdGroup: (1,2,3),(4,8,9)
+
+===============================================================================
+SeqNo                      PdId                     Status                     
+===============================================================================
+0                          1                        OK                         
+1                          2                        OK                         
+2                          3                        OK                         
+3                          4                        OK                         
+4                          8                        OK                         
+5                          9                        OK                         
+
+administrator@cli> 
+'result': 'p'
+
+Expect: add pool by "name=_a,raid=60,stripe=128KB,sector=4KB,ctrlid=2,axle=2"
+
+pool -a add -s "name=_a,raid=60,stripe=128KB,sector=4KB,ctrlid=2,axle=2" -p 1,2,3,4,8,9,10,11
+
+administrator@cli> 
+pool -v -i 0
+
+Pool global setting:
+-------------------------------------------------------------------------------
+CapacityThreshold: 95
+
+-------------------------------------------------------------------------------
+Id: 0                                   Name: _a
+TotalCapacity: 4.01 TB                  UsedCapacity: 42.95 GB
+PoolAvail: 3.77 TB                      PoolReserved: 200.51 GB
+FreeCapacity: 3.97 TB                   Usage: 1
+RaidLevel: 60                           ForceSync: Disabled
+Stripe: 128 KB                          Sector: 4 KB
+OperationalStatus: OK, Synchronizing    Owner: Controller 2
+PreferCtrlId: 2                         Pds: 1,2,3,4,8,9,10,11
+Axle: 2                                 PdGroup: (1,2,3,4),(8,9,10,11)
+
+===============================================================================
+SeqNo                      PdId                     Status                     
+===============================================================================
+0                          1                        OK                         
+1                          2                        OK                         
+2                          3                        OK                         
+3                          4                        OK                         
+4                          8                        OK                         
+5                          9                        OK                         
+6                          10                       OK                         
+7                          11                       OK                         
+
+administrator@cli> 
+'result': 'p'
+
+Expect: add pool by "name=N,raid=5"
+
+pool -a add -s "name=N,raid=5" -p 1,2,3
+
+administrator@cli> 
+pool -v -i 0
+
+Pool global setting:
+-------------------------------------------------------------------------------
+CapacityThreshold: 95
+
+-------------------------------------------------------------------------------
+Id: 0                                   Name: N
+TotalCapacity: 149.02 GB                UsedCapacity: 17.18 GB
+PoolAvail: 124.38 GB                    PoolReserved: 7.45 GB
+FreeCapacity: 131.84 GB                 Usage: 11
+RaidLevel: 5                            ForceSync: Disabled
+Stripe: 64 KB                           Sector: 512 Bytes
+OperationalStatus: OK, Synchronizing    Owner: Controller 2
+PreferCtrlId: 1                         Pds: 1,2,3
+Axle: 1                                 PdGroup: (1,2,3)
+
+===============================================================================
+SeqNo                      PdId                     Status                     
+===============================================================================
+0                          1                        OK                         
+1                          2                        OK                         
+2                          3                        OK                         
+
+administrator@cli> 
+'result': 'p'
+
+Expect: modify pool Name: b,ctrlid=2
+
+pool -a mod -s "name=b,ctrlid=2" -i 0
+
+administrator@cli> 
+pool -v -i 0
+
+Pool global setting:
+-------------------------------------------------------------------------------
+CapacityThreshold: 95
+
+-------------------------------------------------------------------------------
+Id: 0                                   Name: b
+TotalCapacity: 149.02 GB                UsedCapacity: 17.18 GB
+PoolAvail: 124.38 GB                    PoolReserved: 7.45 GB
+FreeCapacity: 131.84 GB                 Usage: 11
+RaidLevel: 5                            ForceSync: Disabled
+Stripe: 64 KB                           Sector: 512 Bytes
+OperationalStatus: OK, Synchronizing    Owner: Controller 2
+PreferCtrlId: 2                         Pds: 1,2,3
+Axle: 1                                 PdGroup: (1,2,3)
+
+===============================================================================
+SeqNo                      PdId                     Status                     
+===============================================================================
+0                          1                        OK                         
+1                          2                        OK                         
+2                          3                        OK                         
+
+administrator@cli> 
+
+Expect: modify pool Name: b1,ctrlid=1
+
+pool -a mod -s "name=b1,ctrlid=1" -i 0
+
+administrator@cli> 
+pool -v -i 0
+
+Pool global setting:
+-------------------------------------------------------------------------------
+CapacityThreshold: 95
+
+-------------------------------------------------------------------------------
+Id: 0                                   Name: b1
+TotalCapacity: 149.02 GB                UsedCapacity: 17.18 GB
+PoolAvail: 124.38 GB                    PoolReserved: 7.45 GB
+FreeCapacity: 131.84 GB                 Usage: 11
+RaidLevel: 5                            ForceSync: Disabled
+Stripe: 64 KB                           Sector: 512 Bytes
+OperationalStatus: OK, Synchronizing    Owner: Controller 2
+PreferCtrlId: 1                         Pds: 1,2,3
+Axle: 1                                 PdGroup: (1,2,3)
+
+===============================================================================
+SeqNo                      PdId                     Status                     
+===============================================================================
+0                          1                        OK                         
+1                          2                        OK                         
+2                          3                        OK                         
+
+administrator@cli> 
+
+Expect: modify pool Name: name_name_name_name_name_name_1
+
+pool -a mod -s "name=name_name_name_name_name_name_1" -i 0
+
+administrator@cli> 
+pool -v -i 0
+
+Pool global setting:
+-------------------------------------------------------------------------------
+CapacityThreshold: 95
+
+-------------------------------------------------------------------------------
+Id: 0                                   Name: name_name_name_name_name_name_1
+TotalCapacity: 149.02 GB                UsedCapacity: 17.18 GB
+PoolAvail: 124.38 GB                    PoolReserved: 7.45 GB
+FreeCapacity: 131.84 GB                 Usage: 11
+RaidLevel: 5                            ForceSync: Disabled
+Stripe: 64 KB                           Sector: 512 Bytes
+OperationalStatus: OK, Synchronizing    Owner: Controller 2
+PreferCtrlId: 1                         Pds: 1,2,3
+Axle: 1                                 PdGroup: (1,2,3)
+
+===============================================================================
+SeqNo                      PdId                     Status                     
+===============================================================================
+0                          1                        OK                         
+1                          2                        OK                         
+2                          3                        OK                         
+
+administrator@cli> 
+
+Expect: modify pool Name: _1name_name_name_name_name_name_
+
+pool -a mod -s "name=_1name_name_name_name_name_name_" -i 0
+
+administrator@cli> 
+pool -v -i 0
+
+Pool global setting:
+-------------------------------------------------------------------------------
+CapacityThreshold: 95
+
+-------------------------------------------------------------------------------
+Id: 0                                   Name: _1name_name_name_name_name_name_
+TotalCapacity: 149.02 GB                UsedCapacity: 17.18 GB
+PoolAvail: 124.38 GB                    PoolReserved: 7.45 GB
+FreeCapacity: 131.84 GB                 Usage: 11
+RaidLevel: 5                            ForceSync: Disabled
+Stripe: 64 KB                           Sector: 512 Bytes
+OperationalStatus: OK, Synchronizing    Owner: Controller 2
+PreferCtrlId: 1                         Pds: 1,2,3
+Axle: 1                                 PdGroup: (1,2,3)
+
+===============================================================================
+SeqNo                      PdId                     Status                     
+===============================================================================
+0                          1                        OK                         
+1                          2                        OK                         
+2                          3                        OK                         
+
+administrator@cli> 
+'result': 'p'
+
+Expect: all of pool should be listed
+
+pool
+===============================================================================
+Id   Name                        TotalCap  UsedCap   AvailCap  OpStatus       
+===============================================================================
+0    raid0_pool                  1.94 TB   42.95 GB  1.80 TB   OK              
+1    raid5_pool                  149.02 GB 17.18 GB  124.38 GB OK,             
+                                                               Synchronizing   
+
+administrator@cli> 
+
+Expect: pool 0 should be listed
+
+pool -i 0
+===============================================================================
+Id   Name                        TotalCap  UsedCap   AvailCap  OpStatus       
+===============================================================================
+0    raid0_pool                  1.94 TB   42.95 GB  1.80 TB   OK              
+
+administrator@cli> 
+
+Expect: pool 1 should be listed
+
+pool -i 1
+===============================================================================
+Id   Name                        TotalCap  UsedCap   AvailCap  OpStatus       
+===============================================================================
+1    raid5_pool                  149.02 GB 17.18 GB  124.38 GB OK,             
+                                                               Synchronizing   
+
+administrator@cli> 
+'result': 'p'
+
+Expect: all of pool should be listed
+
+pool -v
+
+Pool global setting:
+-------------------------------------------------------------------------------
+CapacityThreshold: 95
+
+-------------------------------------------------------------------------------
+Id: 0                                   Name: raid0_pool
+TotalCapacity: 1.94 TB                  UsedCapacity: 42.95 GB
+PoolAvail: 1.80 TB                      PoolReserved: 96.96 GB
+FreeCapacity: 1.90 TB                   Usage: 2
+RaidLevel: 0                            ForceSync: Disabled
+Stripe: 64 KB                           Sector: 512 Bytes
+OperationalStatus: OK                   Owner: Controller 2
+PreferCtrlId: 1                         Pds: 1
+Axle: 1                                 PdGroup: (1)
+
+===============================================================================
+SeqNo                      PdId                     Status                     
+===============================================================================
+0                          1                        OK                         
+-------------------------------------------------------------------------------
+Id: 1                                   Name: raid5_pool
+TotalCapacity: 149.02 GB                UsedCapacity: 17.18 GB
+PoolAvail: 124.38 GB                    PoolReserved: 7.45 GB
+FreeCapacity: 131.84 GB                 Usage: 11
+RaidLevel: 5                            ForceSync: Disabled
+Stripe: 64 KB                           Sector: 512 Bytes
+OperationalStatus: OK, Synchronizing    Owner: Controller 2
+PreferCtrlId: 1                         Pds: 2,3,4
+Axle: 1                                 PdGroup: (2,3,4)
+
+===============================================================================
+SeqNo                      PdId                     Status                     
+===============================================================================
+0                          2                        OK                         
+1                          3                        OK                         
+2                          4                        OK                         
+
+administrator@cli> 
+
+Expect: pool 0 should be listed
+
+pool -v -i 0
+
+Pool global setting:
+-------------------------------------------------------------------------------
+CapacityThreshold: 95
+
+-------------------------------------------------------------------------------
+Id: 0                                   Name: raid0_pool
+TotalCapacity: 1.94 TB                  UsedCapacity: 42.95 GB
+PoolAvail: 1.80 TB                      PoolReserved: 96.96 GB
+FreeCapacity: 1.90 TB                   Usage: 2
+RaidLevel: 0                            ForceSync: Disabled
+Stripe: 64 KB                           Sector: 512 Bytes
+OperationalStatus: OK                   Owner: Controller 2
+PreferCtrlId: 1                         Pds: 1
+Axle: 1                                 PdGroup: (1)
+
+===============================================================================
+SeqNo                      PdId                     Status                     
+===============================================================================
+0                          1                        OK                         
+
+administrator@cli> 
+
+Expect: pool 1 should be listed
+
+pool -v -i 1
+
+Pool global setting:
+-------------------------------------------------------------------------------
+CapacityThreshold: 95
+
+-------------------------------------------------------------------------------
+Id: 1                                   Name: raid5_pool
+TotalCapacity: 149.02 GB                UsedCapacity: 17.18 GB
+PoolAvail: 124.38 GB                    PoolReserved: 7.45 GB
+FreeCapacity: 131.84 GB                 Usage: 11
+RaidLevel: 5                            ForceSync: Disabled
+Stripe: 64 KB                           Sector: 512 Bytes
+OperationalStatus: OK, Synchronizing    Owner: Controller 2
+PreferCtrlId: 1                         Pds: 2,3,4
+Axle: 1                                 PdGroup: (2,3,4)
+
+===============================================================================
+SeqNo                      PdId                     Status                     
+===============================================================================
+0                          2                        OK                         
+1                          3                        OK                         
+2                          4                        OK                         
+
+administrator@cli> 
+'result': 'p'
+
+Expect: extend raid0 pool by pds 2,3
+
+pool -a extend -i 0 -p 2,3
+
+administrator@cli> 
+pool -v -i 0
+
+Pool global setting:
+-------------------------------------------------------------------------------
+CapacityThreshold: 95
+
+-------------------------------------------------------------------------------
+Id: 0                                   Name: extend_raid0_pool
+TotalCapacity: 2.08 TB                  UsedCapacity: 42.95 GB
+PoolAvail: 1.93 TB                      PoolReserved: 103.98 GB
+FreeCapacity: 2.04 TB                   Usage: 2
+RaidLevel: 0                            ForceSync: Disabled
+Stripe: 64 KB                           Sector: 512 Bytes
+OperationalStatus: OK                   Owner: Controller 2
+PreferCtrlId: 1                         Pds: 1,2,3
+Axle: 2                                 PdGroup: (1),(2,3)
+
+===============================================================================
+SeqNo                      PdId                     Status                     
+===============================================================================
+0                          1                        OK                         
+1                          2                        OK                         
+2                          3                        OK                         
+
+administrator@cli> 
+'result': 'p'
+
+Expect: extend raid0 pool by pds 2,3
+
+pool -a extend -i 0 -p 2,3
+Error (0x4021): Physical drive in use
+Physical drive in use
+
+administrator@cli> 
+
+Fail: pool -a extend -i 0 -p 2,3
+
+'result': 'f'
+
+Expect: extend raid5 pool by pds 4,8,9
+
+pool -a extend -i 0 -p 4,8,9
+
+administrator@cli> 
+pool -v -i 0
+
+Pool global setting:
+-------------------------------------------------------------------------------
+CapacityThreshold: 95
+
+-------------------------------------------------------------------------------
+Id: 0                                   Name: extend_raid5_pool
+TotalCapacity: 7.87 TB                  UsedCapacity: 17.18 GB
+PoolAvail: 7.46 TB                      PoolReserved: 393.57 GB
+FreeCapacity: 7.85 TB                   Usage: 0
+RaidLevel: 5                            ForceSync: Disabled
+Stripe: 64 KB                           Sector: 512 Bytes
+OperationalStatus: OK, Synchronizing    Owner: Controller 2
+PreferCtrlId: 1                         Pds: 1,2,3,4,8,9
+Axle: 2                                 PdGroup: (1,2,3),(4,8,9)
+
+===============================================================================
+SeqNo                      PdId                     Status                     
+===============================================================================
+0                          1                        OK                         
+1                          2                        OK                         
+2                          3                        OK                         
+3                          4                        OK                         
+4                          8                        OK                         
+5                          9                        OK                         
+
+administrator@cli> 
+'result': 'f'
+
+Expect: extend raid6 pool by pds 8,9,10,11
+
+pool -a extend -i 0 -p 8,9,10,11
+
+administrator@cli> 
+
+Expect: extend raid0 pool by pds 2,3
+
+pool -a extend -i 0 -p 2,3
+
+administrator@cli> 
+pool -v -i 0
+
+Pool global setting:
+-------------------------------------------------------------------------------
+CapacityThreshold: 95
+
+-------------------------------------------------------------------------------
+Id: 0                                   Name: extend_raid0_pool
+TotalCapacity: 2.08 TB                  UsedCapacity: 42.95 GB
+PoolAvail: 1.93 TB                      PoolReserved: 103.98 GB
+FreeCapacity: 2.04 TB                   Usage: 2
+RaidLevel: 0                            ForceSync: Disabled
+Stripe: 64 KB                           Sector: 512 Bytes
+OperationalStatus: OK                   Owner: Controller 2
+PreferCtrlId: 1                         Pds: 1,2,3
+Axle: 2                                 PdGroup: (1),(2,3)
+
+===============================================================================
+SeqNo                      PdId                     Status                     
+===============================================================================
+0                          1                        OK                         
+1                          2                        OK                         
+2                          3                        OK                         
+
+administrator@cli> 
+'result': 'p'
+
+Expect: specific nas user should have 1GB of storage capacity in nasshare
+
+quota -a set -d 0 -t nasshare -s "role=user,capacity=1GB,name=test_quota_0"
+Error (0x2012): Invalid option for the command or the action
+'-s': not applicable for '-a set'
+
+administrator@cli> 
+
+Fail: quota -a set -d 0 -t nasshare -s "role=user,capacity=1GB,name=test_quota_0"
+
+
+Expect: specific nas user should have 2GB of storage capacity in nasshare
+
+quota -a set -d 0 -t nasshare -s "role=user,capacity=2GB,name=test_quota_1"
+Error (0x2012): Invalid option for the command or the action
+'-s': not applicable for '-a set'
+
+administrator@cli> 
+
+Fail: quota -a set -d 0 -t nasshare -s "role=user,capacity=2GB,name=test_quota_1"
+
+
+Expect: specific nas user should have 998GB of storage capacity in nasshare
+
+quota -a set -d 1 -t nasshare -s "role=user,capacity=998GB,name=test_quota_2"
+Error (0x2012): Invalid option for the command or the action
+'-s': not applicable for '-a set'
+
+administrator@cli> 
+
+Fail: quota -a set -d 1 -t nasshare -s "role=user,capacity=998GB,name=test_quota_2"
+
+
+Expect: specific nas user should have 999GB of storage capacity in nasshare
+
+quota -a set -d 1 -t nasshare -s "role=user,capacity=999GB,name=test_quota_3"
+Error (0x2012): Invalid option for the command or the action
+'-s': not applicable for '-a set'
+
+administrator@cli> 
+
+Fail: quota -a set -d 1 -t nasshare -s "role=user,capacity=999GB,name=test_quota_3"
+
+
+Expect: specific nas user should have 1000GB of storage capacity in nasshare
+
+quota -a set -d 0 -t nasshare -s "role=user,capacity=1000GB,name=test_quota_4"
+Error (0x2012): Invalid option for the command or the action
+'-s': not applicable for '-a set'
+
+administrator@cli> 
+
+Fail: quota -a set -d 0 -t nasshare -s "role=user,capacity=1000GB,name=test_quota_4"
+
+
+Expect: specific nas user should have 1GB of storage capacity in clone
+
+quota -a set -d 0 -t clone -s "role=user,capacity=1GB,name=test_quota_5"
+Error (0x2012): Invalid option for the command or the action
+'-s': not applicable for '-a set'
+
+administrator@cli> 
+
+Fail: quota -a set -d 0 -t clone -s "role=user,capacity=1GB,name=test_quota_5"
+
+
+Expect: specific nas user should have 2GB of storage capacity in clone
+
+quota -a set -d 0 -t clone -s "role=user,capacity=2GB,name=test_quota_6"
+Error (0x2012): Invalid option for the command or the action
+'-s': not applicable for '-a set'
+
+administrator@cli> 
+
+Fail: quota -a set -d 0 -t clone -s "role=user,capacity=2GB,name=test_quota_6"
+
+
+Expect: specific nas user should have 998GB of storage capacity in clone
+
+quota -a set -d 1 -t clone -s "role=user,capacity=998GB,name=test_quota_7"
+Error (0x2012): Invalid option for the command or the action
+'-s': not applicable for '-a set'
+
+administrator@cli> 
+
+Fail: quota -a set -d 1 -t clone -s "role=user,capacity=998GB,name=test_quota_7"
+
+
+Expect: specific nas user should have 999GB of storage capacity in clone
+
+quota -a set -d 1 -t clone -s "role=user,capacity=999GB,name=test_quota_8"
+Error (0x2012): Invalid option for the command or the action
+'-s': not applicable for '-a set'
+
+administrator@cli> 
+
+Fail: quota -a set -d 1 -t clone -s "role=user,capacity=999GB,name=test_quota_8"
+
+
+Expect: specific nas user should have 1000GB of storage capacity in clone
+
+quota -a set -d 0 -t clone -s "role=user,capacity=1000GB,name=test_quota_9"
+Error (0x2012): Invalid option for the command or the action
+'-s': not applicable for '-a set'
+
+administrator@cli> 
+
+Fail: quota -a set -d 0 -t clone -s "role=user,capacity=1000GB,name=test_quota_9"
+
+
+Expect: default nas group can set quota of clone type
+
+quota -a set -d 0 -t clone -s "role=group,name=users,capacity=1GB"
+Error (0x2012): Invalid option for the command or the action
+'-s': not applicable for '-a set'
+
+administrator@cli> 
+
+Fail: quota -a set -d 0 -t clone -s "role=group,name=users,capacity=1GB"
+
+
+Expect: default nas group can set quota of nasshare type
+
+quota -a set -d 0 -t nasshare -s "role=group,name=users,capacity=1GB"
+Error (0x2012): Invalid option for the command or the action
+'-s': not applicable for '-a set'
+
+administrator@cli> 
+
+Fail: quota -a set -d 0 -t nasshare -s "role=group,name=users,capacity=1GB"
+
+
+Expect: specific nas group should have 1000GB of storage capacity in clone
+
+quota -a set -d 0 -t clone -s "role=group,name=test_quota_group_0,capacity=1000GB"
+Error (0x2012): Invalid option for the command or the action
+'-s': not applicable for '-a set'
+
+administrator@cli> 
+
+Fail: quota -a set -d 0 -t clone -s "role=group,name=test_quota_group_0,capacity=1000GB"
+
+
+Expect: specific nas group should have 1000GB of storage capacity in nassahre
+
+quota -a set -d 0 -t nasshare -s "role=group,name=test_quota_group_1,capacity=1000GB"
+Error (0x2012): Invalid option for the command or the action
+'-s': not applicable for '-a set'
+
+administrator@cli> 
+
+Fail: quota -a set -d 0 -t nasshare -s "role=group,name=test_quota_group_1,capacity=1000GB"
+
+'result': 'f'
+
+Expect: list all of quota
+
+quota
+No quota found on nasshare 0
+
+administrator@cli> 
+
+Fail: please check out Sharedisk
+
+
+Fail: please check out AccountType
+
+
+Fail: please check out Name
+
+
+Fail: please check out Limited
+
+
+Fail: please check out UsedCapacity
+
+
+Fail: please check out Clone
+
+
+Expect: list quota of nasshare type
+
+quota -i 0 -t nasshare
+Error (0x2012): Invalid option for the command or the action
+invalid option: -i
+
+administrator@cli> 
+
+Fail: quota -i 0 -t nasshare
+
+
+Expect: list quota of clone type
+
+quota -i 0 -t clone
+Error (0x2012): Invalid option for the command or the action
+invalid option: -i
+
+administrator@cli> 
+
+Fail: quota -i 0 -t clone
+
+'result': 'f'
+
+Expect: list all of quota
+
+quota
+No quota found on nasshare 0
+
+administrator@cli> 
+
+Fail: please check out Sharedisk
+
+
+Fail: please check out AccountType
+
+
+Fail: please check out Name
+
+
+Fail: please check out Limited
+
+
+Fail: please check out UsedCapacity
+
+
+Fail: please check out Clone
+
+
+Expect: list quota of nasshare type
+
+quota -d 0 -t nasshare
+No quota found on nasshare 0
+
+administrator@cli> 
+
+Fail: please check out Sharedisk
+
+
+Fail: please check out AccountType
+
+
+Fail: please check out Name
+
+
+Fail: please check out Limited
+
+
+Fail: please check out UsedCapacity
+
+
+Expect: list quota of clone type
+
+quota -d 0 -t clone
+No quota found on clone 0
+
+administrator@cli> 
+
+Fail: please check out Clone
+
+
+Fail: please check out AccountType
+
+
+Fail: please check out Name
+
+
+Fail: please check out Limited
+
+
+Fail: please check out UsedCapacity
+
+'result': 'f'
+
+Expect: list all of quota
+
+quota
+===============================================================================
+Name                 Capacity         UsedCapacity         AccountType         
+===============================================================================
+test_quota_0         1 GB             0 Byte               User                
+test_quota_1         2 GB             0 Byte               User                
+test_quota_2         998 GB           0 Byte               User                
+test_quota_3         999 GB           0 Byte               User                
+test_quota_4         1 TB             0 Byte               User                
+
+administrator@cli> 
+
+Fail: please check out Sharedisk
+
+
+Fail: please check out Limited
+
+
+Fail: please check out Clone
+
+
+Expect: list quota of nasshare type
+
+quota -d 0 -t nasshare
+===============================================================================
+Name                 Capacity         UsedCapacity         AccountType         
+===============================================================================
+test_quota_0         1 GB             0 Byte               User                
+test_quota_1         2 GB             0 Byte               User                
+test_quota_2         998 GB           0 Byte               User                
+test_quota_3         999 GB           0 Byte               User                
+test_quota_4         1 TB             0 Byte               User                
+
+administrator@cli> 
+
+Fail: please check out Sharedisk
+
+
+Fail: please check out Limited
+
+
+Expect: list quota of clone type
+
+quota -d 0 -t clone
+No quota found on clone 0
+
+administrator@cli> 
+
+Fail: please check out Clone
+
+
+Fail: please check out AccountType
+
+
+Fail: please check out Name
+
+
+Fail: please check out Limited
+
+
+Fail: please check out UsedCapacity
+
+'result': 'f'
+
+Expect: list all of quota
+
+quota -v
+-------------------------------------------------------------------------------
+Name: test_quota_0                      AccountType: User
+Uid: 1001                               Limited: 1 GB
+UsedCapacity: 0 Byte                    Status: ready
+-------------------------------------------------------------------------------
+Name: test_quota_1                      AccountType: User
+Uid: 1002                               Limited: 2 GB
+UsedCapacity: 0 Byte                    Status: ready
+-------------------------------------------------------------------------------
+Name: test_quota_2                      AccountType: User
+Uid: 1003                               Limited: 998 GB
+UsedCapacity: 0 Byte                    Status: ready
+-------------------------------------------------------------------------------
+Name: test_quota_3                      AccountType: User
+Uid: 1004                               Limited: 999 GB
+UsedCapacity: 0 Byte                    Status: ready
+-------------------------------------------------------------------------------
+Name: test_quota_4                      AccountType: User
+Uid: 1005                               Limited: 1 TB
+UsedCapacity: 0 Byte                    Status: ready
+
+administrator@cli> 
+
+Fail: please check out Sharedisk
+
+
+Fail: please check out Clone
+
+
+Expect: list quota of nasshare type
+
+quota -v -d 0 -t nasshare
+-------------------------------------------------------------------------------
+Name: test_quota_0                      AccountType: User
+Uid: 1001                               Limited: 1 GB
+UsedCapacity: 0 Byte                    Status: ready
+-------------------------------------------------------------------------------
+Name: test_quota_1                      AccountType: User
+Uid: 1002                               Limited: 2 GB
+UsedCapacity: 0 Byte                    Status: ready
+-------------------------------------------------------------------------------
+Name: test_quota_2                      AccountType: User
+Uid: 1003                               Limited: 998 GB
+UsedCapacity: 0 Byte                    Status: ready
+-------------------------------------------------------------------------------
+Name: test_quota_3                      AccountType: User
+Uid: 1004                               Limited: 999 GB
+UsedCapacity: 0 Byte                    Status: ready
+-------------------------------------------------------------------------------
+Name: test_quota_4                      AccountType: User
+Uid: 1005                               Limited: 1 TB
+UsedCapacity: 0 Byte                    Status: ready
+
+administrator@cli> 
+
+Fail: please check out Sharedisk
+
+
+Expect: list quota of clone type
+
+quota -v -d 0 -t clone
+No quota found on clone 0
+
+administrator@cli> 
+
+Fail: please check out Clone
+
+
+Fail: please check out Name: 
+
+
+Fail: please check out AccountType: 
+
+
+Fail: please check out Uid: 
+
+
+Fail: please check out Limited: 
+
+
+Fail: please check out UsedCapacity: 
+
+
+Fail: please check out Status: 
+
+'result': 'f'
+
+Expect: list all of quota
+
+quota
+===============================================================================
+Name                 Capacity         UsedCapacity         AccountType         
+===============================================================================
+test_quota_0         1 GB             0 Byte               User                
+test_quota_1         2 GB             0 Byte               User                
+test_quota_2         998 GB           0 Byte               User                
+test_quota_3         999 GB           0 Byte               User                
+test_quota_4         1 TB             0 Byte               User                
+
+administrator@cli> 
+
+Expect: list quota of nasshare type
+
+quota -d 0 -t nasshare
+===============================================================================
+Name                 Capacity         UsedCapacity         AccountType         
+===============================================================================
+test_quota_0         1 GB             0 Byte               User                
+test_quota_1         2 GB             0 Byte               User                
+test_quota_2         998 GB           0 Byte               User                
+test_quota_3         999 GB           0 Byte               User                
+test_quota_4         1 TB             0 Byte               User                
+
+administrator@cli> 
+
+Expect: list quota of clone type
+
+quota -d 0 -t clone
+No quota found on clone 0
+
+administrator@cli> 
+
+Fail: please check out Name
+
+
+Fail: please check out Capacity
+
+
+Fail: please check out UsedCapacity
+
+
+Fail: please check out AccountType
+
+'result': 'f'
+
+Expect: list all of quota
+
+quota -v
+-------------------------------------------------------------------------------
+Name: test_quota_0                      AccountType: User
+Uid: 1001                               Limited: 1 GB
+UsedCapacity: 0 Byte                    Status: ready
+-------------------------------------------------------------------------------
+Name: test_quota_1                      AccountType: User
+Uid: 1002                               Limited: 2 GB
+UsedCapacity: 0 Byte                    Status: ready
+-------------------------------------------------------------------------------
+Name: test_quota_2                      AccountType: User
+Uid: 1003                               Limited: 998 GB
+UsedCapacity: 0 Byte                    Status: ready
+-------------------------------------------------------------------------------
+Name: test_quota_3                      AccountType: User
+Uid: 1004                               Limited: 999 GB
+UsedCapacity: 0 Byte                    Status: ready
+-------------------------------------------------------------------------------
+Name: test_quota_4                      AccountType: User
+Uid: 1005                               Limited: 1 TB
+UsedCapacity: 0 Byte                    Status: ready
+
+administrator@cli> 
+
+Expect: list quota of nasshare type
+
+quota -v -d 0 -t nasshare
+-------------------------------------------------------------------------------
+Name: test_quota_0                      AccountType: User
+Uid: 1001                               Limited: 1 GB
+UsedCapacity: 0 Byte                    Status: ready
+-------------------------------------------------------------------------------
+Name: test_quota_1                      AccountType: User
+Uid: 1002                               Limited: 2 GB
+UsedCapacity: 0 Byte                    Status: ready
+-------------------------------------------------------------------------------
+Name: test_quota_2                      AccountType: User
+Uid: 1003                               Limited: 998 GB
+UsedCapacity: 0 Byte                    Status: ready
+-------------------------------------------------------------------------------
+Name: test_quota_3                      AccountType: User
+Uid: 1004                               Limited: 999 GB
+UsedCapacity: 0 Byte                    Status: ready
+-------------------------------------------------------------------------------
+Name: test_quota_4                      AccountType: User
+Uid: 1005                               Limited: 1 TB
+UsedCapacity: 0 Byte                    Status: ready
+
+administrator@cli> 
+
+Expect: list quota of clone type
+
+quota -v -d 0 -t clone
+No quota found on clone 0
+
+administrator@cli> 
+'result': 'f'
+
+Expect: list all of quota
+
+quota
+===============================================================================
+Name                 Capacity         UsedCapacity         AccountType         
+===============================================================================
+test_quota_0         1 GB             0 Byte               User                
+test_quota_1         2 GB             0 Byte               User                
+test_quota_2         998 GB           0 Byte               User                
+test_quota_3         999 GB           0 Byte               User                
+test_quota_4         1 TB             0 Byte               User                
+
+administrator@cli> 
+
+Expect: list quota of nasshare type
+
+quota -d 0 -t nasshare
+===============================================================================
+Name                 Capacity         UsedCapacity         AccountType         
+===============================================================================
+test_quota_0         1 GB             0 Byte               User                
+test_quota_1         2 GB             0 Byte               User                
+test_quota_2         998 GB           0 Byte               User                
+test_quota_3         999 GB           0 Byte               User                
+test_quota_4         1 TB             0 Byte               User                
+
+administrator@cli> 
+
+Expect: list quota of clone type
+
+quota -d 0 -t clone
+No quota found on clone 0
+
+administrator@cli> 
+
+Fail: please check out Name
+
+
+Fail: please check out Capacity
+
+
+Fail: please check out UsedCapacity
+
+
+Fail: please check out AccountType
+
+'result': 'f'
+
+Expect: list all of quota
+
+quota -v
+-------------------------------------------------------------------------------
+Name: test_quota_0                      AccountType: User
+Uid: 1001                               Limited: 1 GB
+UsedCapacity: 0 Byte                    Status: ready
+-------------------------------------------------------------------------------
+Name: test_quota_1                      AccountType: User
+Uid: 1002                               Limited: 2 GB
+UsedCapacity: 0 Byte                    Status: ready
+-------------------------------------------------------------------------------
+Name: test_quota_2                      AccountType: User
+Uid: 1003                               Limited: 998 GB
+UsedCapacity: 0 Byte                    Status: ready
+-------------------------------------------------------------------------------
+Name: test_quota_3                      AccountType: User
+Uid: 1004                               Limited: 999 GB
+UsedCapacity: 0 Byte                    Status: ready
+-------------------------------------------------------------------------------
+Name: test_quota_4                      AccountType: User
+Uid: 1005                               Limited: 1 TB
+UsedCapacity: 0 Byte                    Status: ready
+
+administrator@cli> 
+
+Expect: list quota of nasshare type
+
+quota -v -d 0 -t nasshare
+-------------------------------------------------------------------------------
+Name: test_quota_0                      AccountType: User
+Uid: 1001                               Limited: 1 GB
+UsedCapacity: 0 Byte                    Status: ready
+-------------------------------------------------------------------------------
+Name: test_quota_1                      AccountType: User
+Uid: 1002                               Limited: 2 GB
+UsedCapacity: 0 Byte                    Status: ready
+-------------------------------------------------------------------------------
+Name: test_quota_2                      AccountType: User
+Uid: 1003                               Limited: 998 GB
+UsedCapacity: 0 Byte                    Status: ready
+-------------------------------------------------------------------------------
+Name: test_quota_3                      AccountType: User
+Uid: 1004                               Limited: 999 GB
+UsedCapacity: 0 Byte                    Status: ready
+-------------------------------------------------------------------------------
+Name: test_quota_4                      AccountType: User
+Uid: 1005                               Limited: 1 TB
+UsedCapacity: 0 Byte                    Status: ready
+
+administrator@cli> 
+
+Expect: list quota of clone type
+
+quota -v -d 0 -t clone
+No quota found on clone 0
+
+administrator@cli> 
+'result': 'f'
+
+Expect: list all of quota
+
+quota
+===============================================================================
+Name                 Capacity         UsedCapacity         AccountType         
+===============================================================================
+test_quota_0         1 GB             0 Byte               User                
+test_quota_1         2 GB             0 Byte               User                
+test_quota_2         998 GB           0 Byte               User                
+test_quota_3         999 GB           0 Byte               User                
+test_quota_4         1 TB             0 Byte               User                
+
+administrator@cli> 
+
+Expect: list quota of nasshare type
+
+quota -d 0 -t nasshare
+===============================================================================
+Name                 Capacity         UsedCapacity         AccountType         
+===============================================================================
+test_quota_0         1 GB             0 Byte               User                
+test_quota_1         2 GB             0 Byte               User                
+test_quota_2         998 GB           0 Byte               User                
+test_quota_3         999 GB           0 Byte               User                
+test_quota_4         1 TB             0 Byte               User                
+
+administrator@cli> 
+
+Expect: list quota of clone type
+
+quota -d 0 -t clone
+No quota found on clone 0
+
+administrator@cli> 
+
+Fail: please check out Name
+
+
+Fail: please check out Capacity
+
+
+Fail: please check out UsedCapacity
+
+
+Fail: please check out AccountType
+
+'result': 'f'
+
+Expect: list all of quota
+
+quota -v
+-------------------------------------------------------------------------------
+Name: test_quota_0                      AccountType: User
+Uid: 1001                               Limited: 1 GB
+UsedCapacity: 0 Byte                    Status: ready
+-------------------------------------------------------------------------------
+Name: test_quota_1                      AccountType: User
+Uid: 1002                               Limited: 2 GB
+UsedCapacity: 0 Byte                    Status: ready
+-------------------------------------------------------------------------------
+Name: test_quota_2                      AccountType: User
+Uid: 1003                               Limited: 998 GB
+UsedCapacity: 0 Byte                    Status: ready
+-------------------------------------------------------------------------------
+Name: test_quota_3                      AccountType: User
+Uid: 1004                               Limited: 999 GB
+UsedCapacity: 0 Byte                    Status: ready
+-------------------------------------------------------------------------------
+Name: test_quota_4                      AccountType: User
+Uid: 1005                               Limited: 1 TB
+UsedCapacity: 0 Byte                    Status: ready
+
+administrator@cli> 
+
+Expect: list quota of nasshare type
+
+quota -v -d 0 -t nasshare
+-------------------------------------------------------------------------------
+Name: test_quota_0                      AccountType: User
+Uid: 1001                               Limited: 1 GB
+UsedCapacity: 0 Byte                    Status: ready
+-------------------------------------------------------------------------------
+Name: test_quota_1                      AccountType: User
+Uid: 1002                               Limited: 2 GB
+UsedCapacity: 0 Byte                    Status: ready
+-------------------------------------------------------------------------------
+Name: test_quota_2                      AccountType: User
+Uid: 1003                               Limited: 998 GB
+UsedCapacity: 0 Byte                    Status: ready
+-------------------------------------------------------------------------------
+Name: test_quota_3                      AccountType: User
+Uid: 1004                               Limited: 999 GB
+UsedCapacity: 0 Byte                    Status: ready
+-------------------------------------------------------------------------------
+Name: test_quota_4                      AccountType: User
+Uid: 1005                               Limited: 1 TB
+UsedCapacity: 0 Byte                    Status: ready
+
+administrator@cli> 
+
+Expect: list quota of clone type
+
+quota -v -d 0 -t clone
+No quota found on clone 0
+
+administrator@cli> 
+'result': 'p'

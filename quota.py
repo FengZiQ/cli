@@ -1,5 +1,6 @@
 # coding = utf-8
 # 2017.10.23
+# 2017.11.13
 
 from ssh_connect import ssh_conn
 import time
@@ -10,53 +11,57 @@ from find_unconfigured_pd_id import find_pd_id
 
 data = 'data/quota.xlsx'
 
+
 def precondition():
-    pdId = find_pd_id('4TB')
+    pdId = find_pd_id()
     # create pool
-    server.webapi('post', 'pool', {"name": "test_quota", "pds": pdId, "raid_level": "raid5"})
+    server.webapi('post', 'pool', {"name": "test_quota_pool", "pds": pdId[:3], "raid_level": "raid5"})
 
     # create nasShare
-    server.webapi('post', 'nasshare', {'pool_id': 0, 'name': 'test_quota_nas', 'capacity': '2GB'})
+    for i in range(2):
+        server.webapi('post', 'nasshare', {'pool_id': 0, 'name': 'test_quota_nas_' + str(i), 'capacity': '2TB'})
 
     # create clone
     server.webapi('post', 'snapshot', {"name": "test_quota_snap", "type": 'nasshare', "source_id": 0})
-    server.webapi('post', 'clone', {"name": "test_quota_clone", "source_id": 0})
+    for i in range(2):
+        server.webapi('post', 'clone', {"name": "test_quota_clone_" + str(i), "source_id": 0})
 
     # create nas user
     for i in range(10):
         server.webapi('post', 'dsuser', {"id": 'test_quota_' + str(i), "password": '000000'})
 
     # create nas group
-    server.webapi('post', 'dsgroup/editcancel')
-    step1 = server.webapi('post', 'dsgroup/editbegin', {
-        "page": 1,
-        "page_size": 20
-    })
+    for i in range(10):
+        server.webapi('post', 'dsgroup/editcancel')
+        step1 = server.webapi('post', 'dsgroup/editbegin', {
+            "page": 1,
+            "page_size": 20
+        })
 
-    token = json.loads(step1["text"])[0]["token"]
-    get_page_data = json.loads(step1["text"])[0]["page_data"]
-    page_data = [[0, uid["uid"]] for uid in get_page_data]
+        token = json.loads(step1["text"])[0]["token"]
+        get_page_data = json.loads(step1["text"])[0]["page_data"]
+        page_data = [[0, uid["uid"]] for uid in get_page_data]
 
-    server.webapi('post', 'dsgroup/editnext', {
-        "page": 1,
-        "page_size": 20,
-        "token": token,
-        "page_data": page_data
-    })
-    server.webapi('post', 'dsgroup/editsave', {
-        "id": 'test_quota_group',
-        "token": token,
-        "page_data": page_data
-    })
+        server.webapi('post', 'dsgroup/editnext', {
+            "page": 1,
+            "page_size": 20,
+            "token": token,
+            "page_data": page_data
+        })
+        server.webapi('post', 'dsgroup/editsave', {
+            "id": 'test_quota_group_' + str(i),
+            "token": token,
+            "page_data": page_data
+        })
 
-    server.webapi('post', 'dsgroup/editcancel')
+        server.webapi('post', 'dsgroup/editcancel')
 
 
-def add_quota(c):
+def set_quota(c):
     # precondition
     precondition()
 
-    cli_test.setting(c, data, 'add_quota', 3)
+    cli_test.setting(c, data, 'set_quota', 3)
 
 
 def list_quota(c):
@@ -113,15 +118,15 @@ if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
 
-    add_quota(c)
+    # set_quota(c)
     list_quota(c)
     list_quota_by_verbose_mode(c)
-    refresh_quota(c)
-    mod_quota(c)
-    del_quota(c)
-    invalid_setting_parameter(c)
-    invalid_option(c)
-    missing_parameter(c)
+    # refresh_quota(c)
+    # mod_quota(c)
+    # del_quota(c)
+    # invalid_setting_parameter(c)
+    # invalid_option(c)
+    # missing_parameter(c)
 
     ssh.close()
     elasped = time.clock() - start
