@@ -124,6 +124,8 @@ def extend_raid0_pool(c):
     # create pool
     server.webapi('post', 'pool', {"name": "extend_raid0_pool", "pds": [pdId[0]], "raid_level": "raid0"})
 
+    time.sleep(3)
+
     cli_test.setting(c, data, 'extend_raid0_pool', 3)
 
     return cli_test.FailFlag
@@ -135,6 +137,8 @@ def extend_raid1_pool(c):
     pdId = find_pd_id()
     # create pool
     server.webapi('post', 'pool', {"name": "extend_raid1_pool", "pds": pdId[:2], "raid_level": "raid1"})
+
+    time.sleep(3)
 
     cli_test.setting(c, data, 'extend_raid0_pool', 3)
 
@@ -148,6 +152,8 @@ def extend_raid5_pool(c):
     # create pool
     server.webapi('post', 'pool', {"name": "extend_raid5_pool", "pds": pdId[:3], "raid_level": "raid5"})
 
+    time.sleep(3)
+
     cli_test.setting(c, data, 'extend_raid5_pool', 3)
 
     return cli_test.FailFlag
@@ -159,6 +165,8 @@ def extend_raid6_pool(c):
     pdId = find_pd_id()
     # create pool
     server.webapi('post', 'pool', {"name": "extend_raid6_pool", "pds": pdId[:4], "raid_level": "raid6"})
+
+    time.sleep(3)
 
     cli_test.setting(c, data, 'extend_raid6_pool', 3)
 
@@ -172,6 +180,8 @@ def extend_raid10_pool(c):
     # create pool
     server.webapi('post', 'pool', {"name": "extend_raid10_pool", "pds": pdId[:4], "raid_level": "raid10"})
 
+    time.sleep(3)
+
     cli_test.setting(c, data, 'extend_raid10_pool', 3)
 
     return cli_test.FailFlag
@@ -183,6 +193,8 @@ def extend_raid50_pool(c):
     pdId = find_pd_id()
     # create pool
     server.webapi('post', 'pool', {"name": "extend_raid50_pool", "pds": pdId[:6], "raid_level": "raid50"})
+
+    time.sleep(3)
 
     cli_test.setting(c, data, 'extend_raid50_pool', 3)
 
@@ -196,6 +208,8 @@ def extend_raid60_pool(c):
     # create pool
     server.webapi('post', 'pool', {"name": "extend_raid60_pool", "pds": pdId[:8], "raid_level": "raid60"})
 
+    time.sleep(3)
+
     cli_test.setting(c, data, 'extend_raid60_pool', 3)
 
     return cli_test.FailFlag
@@ -207,9 +221,16 @@ def delete_pool(c):
     pdId = find_pd_id()
     # create pool
     server.webapi('post', 'pool', {"name": "del_pool_0", "pds": [pdId[0]], "raid_level": "raid0"})
+
+    time.sleep(3)
+
     server.webapi('post', 'pool', {"name": "del_pool_1", "pds": pdId[1:4], "raid_level": "raid5"})
+
+    time.sleep(3)
     # create volume
     server.webapi('post', 'volume', {'pool_id': 1, 'name': 'del_pool_2', 'capacity': '2GB'})
+
+    time.sleep(3)
 
     cli_test.delete(c, data, 'delete_pool')
 
@@ -217,6 +238,10 @@ def delete_pool(c):
 
 
 def invalid_settings_parameter(c):
+    # precondition
+    server.webapi('post', 'rcache/attach', {"pd_list": [5]})
+
+    time.sleep(3)
 
     cli_test.failed_test(c, data, 'invalid_settings_parameter')
 

@@ -56,7 +56,7 @@ def list_clone_verbose_mode(c):
 
 def mod_clone(c):
     # precondition
-    server.webapi('post', 'clone/2/unmount')
+    server.webapi('post', 'clone/0/unmount')
 
     cli_test.setting(c, data, 'mod_clone', 1)
 
@@ -77,13 +77,6 @@ def mount_umount_clone(c):
     server.webapi('post', 'clone/2/unmount')
 
     cli_test.setting(c, data, 'mount_umount_clone', 1)
-
-    return cli_test.FailFlag
-
-
-def promote_clone(c):
-
-    cli_test.other(c, data, 'promote_clone')
 
     return cli_test.FailFlag
 
@@ -129,7 +122,6 @@ if __name__ == "__main__":
     mod_clone(c)
     export_unexport_clone(c)
     mount_umount_clone(c)
-    promote_clone(c)
     del_clone(c)
     invalid_setting_parameter(c)
     invalid_option(c)

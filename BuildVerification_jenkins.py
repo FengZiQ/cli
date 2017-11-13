@@ -51,6 +51,56 @@ def BuildVerification(c):
 
     if reconnectflag:
 
+        tolog('Start verifying NASShare')
+        import nasShare
+        if (nasShare.addNASShare(c)):
+            FailCasesList.append('The case ' + nasShare.addNASShare.__name__ + ' failed')
+        if (nasShare.listNASShare(c)):
+            FailCasesList.append('The case ' + nasShare.listNASShare.__name__ + ' failed')
+        if (nasShare.listVerboseNASShare(c)):
+            FailCasesList.append('The case ' + nasShare.listVerboseNASShare.__name__ + ' failed')
+        if (nasShare.modNASShare(c)):
+            FailCasesList.append('The case ' + nasShare.modNASShare.__name__ + ' failed')
+        if (nasShare.mountNASShare(c)):
+            FailCasesList.append('The case ' + nasShare.mountNASShare.__name__ + ' failed')
+        if (nasShare.unmountNASShare(c)):
+            FailCasesList.append('The case ' + nasShare.unmountNASShare.__name__ + ' failed')
+        if (nasShare.helpNASShare(c)):
+            FailCasesList.append('The case ' + nasShare.helpNASShare.__name__ + ' failed')
+        if (nasShare.failedTest_InexistentId(c)):
+            FailCasesList.append('The case ' + nasShare.failedTest_InexistentId.__name__ + ' failed')
+        if (nasShare.failedTest_InvalidOption(c)):
+            FailCasesList.append('The case ' + nasShare.failedTest_InvalidOption.__name__ + ' failed')
+        if (nasShare.failedTest_InvalidParameters(c)):
+            FailCasesList.append('The case ' + nasShare.failedTest_InvalidParameters.__name__ + ' failed')
+        if (nasShare.failedTest_MissingParameters(c)):
+            FailCasesList.append('The case ' + nasShare.failedTest_MissingParameters.__name__ + ' failed')
+        if (nasShare.deleteNASShare(c)):
+            FailCasesList.append('The case ' + nasShare.deleteNASShare.__name__ + ' failed')
+
+        tolog('Start verifying acl')
+        import acl
+        if (acl.set_acl(c)):
+            FailCasesList.append('The case ' + acl.set_acl.__name__ + ' failed')
+        if (acl.list_acl(c)):
+            FailCasesList.append('The case ' + acl.list_acl.__name__ + ' failed')
+        if (acl.list_acl_by_verbose_mode(c)):
+            FailCasesList.append('The case ' + acl.list_acl_by_verbose_mode.__name__ + ' failed')
+        if (acl.refresh_acl(c)):
+            FailCasesList.append('The case ' + acl.refresh_acl.__name__ + ' failed')
+        if (acl.acl_unset(c)):
+            FailCasesList.append('The case ' + acl.acl_unset.__name__ + ' failed')
+        if (acl.clear_acl(c)):
+            FailCasesList.append('The case ' + acl.clear_acl.__name__ + ' failed')
+        if (acl.cancel_acl(c)):
+            FailCasesList.append('The case ' + acl.cancel_acl.__name__ + ' failed')
+        if (acl.invalid_setting_parameter(c)):
+            FailCasesList.append('The case ' + acl.invalid_setting_parameter.__name__ + ' failed')
+        if (acl.invalid_option(c)):
+            FailCasesList.append('The case ' + acl.invalid_option.__name__ + ' failed')
+        if (acl.missing_parameter(c)):
+            FailCasesList.append('The case ' + acl.missing_parameter.__name__ + ' failed')
+
         tolog("Start verifying pool add")
         import pool
         if (pool.add_pool_raid0(c)):
@@ -160,8 +210,6 @@ def BuildVerification(c):
             FailCasesList.append('The case ' + clone.export_unexport_clone.__name__ + ' failed')
         if (clone.mount_umount_clone(c)):
             FailCasesList.append('The case ' + clone.mount_umount_clone.__name__ + ' failed')
-        if (clone.promote_clone(c)):
-            FailCasesList.append('The case ' + clone.promote_clone.__name__ + ' failed')
         if (clone.del_clone(c)):
             FailCasesList.append('The case ' + clone.del_clone.__name__ + ' failed')
         if (clone.invalid_setting_parameter(c)):
@@ -693,56 +741,6 @@ def BuildVerification(c):
         if (bgasched.verifyBgaschedMissingParameters(c)):
             FailCasesList.append('The case ' + bgasched.verifyBgaschedMissingParameters.__name__ + ' failed')
         bgasched.clearUp(c)
-            
-        tolog('Start verifying NASShare')    
-        import nasShare
-        if (nasShare.addNASShare(c)):
-            FailCasesList.append('The case ' + nasShare.addNASShare.__name__ + ' failed')
-        if (nasShare.listNASShare(c)):
-            FailCasesList.append('The case ' + nasShare.listNASShare.__name__ + ' failed')
-        if (nasShare.listVerboseNASShare(c)):
-            FailCasesList.append('The case ' + nasShare.listVerboseNASShare.__name__ + ' failed')
-        if (nasShare.modNASShare(c)):
-            FailCasesList.append('The case ' + nasShare.modNASShare.__name__ + ' failed')
-        if (nasShare.mountNASShare(c)):
-            FailCasesList.append('The case ' + nasShare.mountNASShare.__name__ + ' failed')
-        if (nasShare.unmountNASShare(c)):
-            FailCasesList.append('The case ' + nasShare.unmountNASShare.__name__ + ' failed')
-        if (nasShare.helpNASShare(c)):
-            FailCasesList.append('The case ' + nasShare.helpNASShare.__name__ + ' failed')
-        if (nasShare.failedTest_InexistentId(c)):
-            FailCasesList.append('The case ' + nasShare.failedTest_InexistentId.__name__ + ' failed')
-        if (nasShare.failedTest_InvalidOption(c)):
-            FailCasesList.append('The case ' + nasShare.failedTest_InvalidOption.__name__ + ' failed')
-        if (nasShare.failedTest_InvalidParameters(c)):
-            FailCasesList.append('The case ' + nasShare.failedTest_InvalidParameters.__name__ + ' failed')
-        if (nasShare.failedTest_MissingParameters(c)):
-            FailCasesList.append('The case ' + nasShare.failedTest_MissingParameters.__name__ + ' failed')
-        if (nasShare.deleteNASShare(c)):
-            FailCasesList.append('The case ' + nasShare.deleteNASShare.__name__ + ' failed')
-
-        tolog('Start verifying acl')
-        import acl
-        if (acl.set_acl(c)):
-            FailCasesList.append('The case ' + acl.set_acl.__name__ + ' failed')
-        if (acl.list_acl(c)):
-            FailCasesList.append('The case ' + acl.list_acl.__name__ + ' failed')
-        if (acl.list_acl_by_verbose_mode(c)):
-            FailCasesList.append('The case ' + acl.list_acl_by_verbose_mode.__name__ + ' failed')
-        if (acl.refresh_acl(c)):
-            FailCasesList.append('The case ' + acl.refresh_acl.__name__ + ' failed')
-        if (acl.acl_unset(c)):
-            FailCasesList.append('The case ' + acl.acl_unset.__name__ + ' failed')
-        if (acl.clear_acl(c)):
-            FailCasesList.append('The case ' + acl.clear_acl.__name__ + ' failed')
-        if (acl.cancel_acl(c)):
-            FailCasesList.append('The case ' + acl.cancel_acl.__name__ + ' failed')
-        if (acl.invalid_setting_parameter(c)):
-            FailCasesList.append('The case ' + acl.invalid_setting_parameter.__name__ + ' failed')
-        if (acl.invalid_option(c)):
-            FailCasesList.append('The case ' + acl.invalid_option.__name__ + ' failed')
-        if (acl.missing_parameter(c)):
-            FailCasesList.append('The case ' + acl.missing_parameter.__name__ + ' failed')
 
     if len(FailCasesList) != 0:
         for f in FailCasesList:

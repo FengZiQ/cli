@@ -40,7 +40,6 @@ class cli_test():
 
         if self.FailFlag:
             tolog(Fail)
-            self.FailFlag = False
         else:
             tolog(Pass)
 
@@ -69,7 +68,6 @@ class cli_test():
 
         if self.FailFlag:
             tolog(Fail)
-            self.FailFlag = False
         else:
             tolog(Pass)
 
@@ -90,7 +88,6 @@ class cli_test():
 
         if self.FailFlag:
             tolog(Fail)
-            self.FailFlag = False
         else:
             tolog(Pass)
 
@@ -121,7 +118,6 @@ class cli_test():
 
         if self.FailFlag:
             tolog(Fail)
-            self.FailFlag = False
         else:
             tolog(Pass)
 
@@ -151,7 +147,6 @@ class cli_test():
 
         if self.FailFlag:
             tolog(Fail)
-            self.FailFlag = False
         else:
             tolog(Pass)
 

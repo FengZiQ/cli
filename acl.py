@@ -80,25 +80,35 @@ def set_acl(c):
 
     cli_test.setting(c, data, 'set_acl', 5)
 
+    return cli_test.FailFlag
+
 
 def list_acl(c):
 
     cli_test.list(c, data, 'list_acl')
+
+    return cli_test.FailFlag
 
 
 def list_acl_by_verbose_mode(c):
 
     cli_test.list(c, data, 'list_acl_by_verbose_mode')
 
+    return cli_test.FailFlag
+
 
 def refresh_acl(c):
 
     cli_test.other(c, data, 'refresh_acl')
 
+    return cli_test.FailFlag
+
 
 def acl_unset(c):
 
     cli_test.delete(c, data, 'acl_unset', 3)
+
+    return cli_test.FailFlag
 
 
 def clear_acl(c):
@@ -108,10 +118,14 @@ def clear_acl(c):
 
     cli_test.delete(c, data, 'clear_acl', 3)
 
+    return cli_test.FailFlag
+
 
 def cancel_acl(c):
 
     cli_test.other(c, data, 'cancel_acl')
+
+    return cli_test.FailFlag
 
 
 def invalid_setting_parameter(c):
@@ -121,10 +135,14 @@ def invalid_setting_parameter(c):
 
     cli_test.failed_test(c, data, 'invalid_setting_parameter', 1)
 
+    return cli_test.FailFlag
+
 
 def invalid_option(c):
 
     cli_test.failed_test(c, data, 'invalid_option')
+
+    return cli_test.FailFlag
 
 
 def missing_parameter(c):
@@ -133,6 +151,8 @@ def missing_parameter(c):
 
     # clean_up_environment
     clean_up_environment()
+
+    return cli_test.FailFlag
 
 
 if __name__ == "__main__":

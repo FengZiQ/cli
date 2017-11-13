@@ -1,3 +1,595 @@
+2017-11-13 09:41:43: 'result': 'p'
+2017-11-13 09:41:43: acl -t clone -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1005      test_acl_group_4                                ro         
+group     1006      test_acl_group_5                                rw         
+
+administrator@cli> 
+2017-11-13 09:41:43: 
+Expect: list acl settings of clone 1
+
+2017-11-13 09:41:43: acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1005      test_acl_4                                      ro         
+user      1006      test_acl_5                                      rw         
+user      1007      test_acl_6                                      deny       
+
+administrator@cli> 
+2017-11-13 09:41:43: 
+Expect: list acl settings of clone 0
+
+2017-11-13 09:41:43: acl -t nasshare -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1001      test_acl_group_0                                ro         
+group     1002      test_acl_group_1                                rw         
+group     1003      test_acl_group_2                                deny       
+
+administrator@cli> 
+2017-11-13 09:41:43: 
+Expect: list acl settings on nasshare 1
+
+2017-11-13 09:41:43: acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+
+administrator@cli> 
+2017-11-13 09:41:42: 
+Expect: list acl settings on nasshare 0
+
+2017-11-13 09:41:19: 'result': 'f'
+2017-11-13 09:41:19: 
+Fail: acl -a set -d 1 -t clone -s "role=a,acl=deny,name=test_acl_group_6"
+
+2017-11-13 09:41:14: acl -a set -d 1 -t clone -s "role=a,acl=deny,name=test_acl_group_6"
+Error (0x2013): Invalid setting parameters
+role: invalid setting a (everyone|user|group)
+
+administrator@cli> 
+2017-11-13 09:41:14: 
+Expect: signle nas group should can set deny permissions on clone
+
+2017-11-13 09:41:14: acl -t clone -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1005      test_acl_group_4                                ro         
+group     1006      test_acl_group_5                                rw         
+
+administrator@cli> 
+2017-11-13 09:41:09: acl -a set -d 1 -t clone -s "role=group,acl=rw,name=test_acl_group_5"
+
+administrator@cli> 
+2017-11-13 09:41:09: 
+Expect: signle nas group should can set rw permissions on clone
+
+2017-11-13 09:41:09: acl -t clone -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1005      test_acl_group_4                                ro         
+
+administrator@cli> 
+2017-11-13 09:41:03: acl -a set -d 1 -t clone -s "role=group,acl=ro,name=test_acl_group_4"
+
+administrator@cli> 
+2017-11-13 09:41:03: 
+Expect: signle nas group should can set ro permissions on clone
+
+2017-11-13 09:41:03: acl -t nasshare -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1001      test_acl_group_0                                ro         
+group     1002      test_acl_group_1                                rw         
+group     1003      test_acl_group_2                                deny       
+
+administrator@cli> 
+2017-11-13 09:40:58: acl -a set -d 1 -t nasshare -s "role=group,acl=deny,name=test_acl_group_2"
+
+administrator@cli> 
+2017-11-13 09:40:58: 
+Expect: signle nas group should can set deny permissions on nasshare
+
+2017-11-13 09:40:58: acl -t nasshare -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1001      test_acl_group_0                                ro         
+group     1002      test_acl_group_1                                rw         
+
+administrator@cli> 
+2017-11-13 09:40:53: acl -a set -d 1 -t nasshare -s "role=group,acl=rw,name=test_acl_group_1"
+
+administrator@cli> 
+2017-11-13 09:40:53: 
+Expect: signle nas group should can set rw permissions on nasshare
+
+2017-11-13 09:40:53: acl -t nasshare -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1001      test_acl_group_0                                ro         
+
+administrator@cli> 
+2017-11-13 09:40:48: acl -a set -d 1 -t nasshare -s "role=group,acl=ro,name=test_acl_group_0"
+
+administrator@cli> 
+2017-11-13 09:40:47: 
+Expect: signle nas group should can set ro permissions on nasshare
+
+2017-11-13 09:40:47: acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1005      test_acl_4                                      ro         
+user      1006      test_acl_5                                      rw         
+user      1007      test_acl_6                                      deny       
+
+administrator@cli> 
+2017-11-13 09:40:42: acl -a set -d 0 -t clone -s "role=user,acl=deny,name=test_acl_6"
+
+administrator@cli> 
+2017-11-13 09:40:42: 
+Expect: signle nas user should can set deny permissions on clone
+
+2017-11-13 09:40:42: acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1005      test_acl_4                                      ro         
+user      1006      test_acl_5                                      rw         
+
+administrator@cli> 
+2017-11-13 09:40:37: acl -a set -d 0 -t clone -s "role=user,acl=rw,name=test_acl_5"
+
+administrator@cli> 
+2017-11-13 09:40:37: 
+Expect: signle nas user should can set rw permissions on clone
+
+2017-11-13 09:40:37: acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1005      test_acl_4                                      ro         
+
+administrator@cli> 
+2017-11-13 09:40:32: acl -a set -d 0 -t clone -s "role=user,acl=ro,name=test_acl_4"
+
+administrator@cli> 
+2017-11-13 09:40:31: 
+Expect: signle nas user should can set ro permissions on clone
+
+2017-11-13 09:40:31: acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+
+administrator@cli> 
+2017-11-13 09:40:26: acl -a set -d 0 -t nasshare -s "role=user,acl=deny,name=test_acl_2"
+
+administrator@cli> 
+2017-11-13 09:40:26: 
+Expect: signle nas user should can set deny permissions on nasshare
+
+2017-11-13 09:40:26: acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+
+administrator@cli> 
+2017-11-13 09:40:20: acl -a set -d 0 -t nasshare -s "role=user,acl=rw,name=test_acl_1"
+
+administrator@cli> 
+2017-11-13 09:40:20: 
+Expect: signle nas user should can set rw permissions on nasshare
+
+2017-11-13 09:40:20: acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+
+administrator@cli> 
+2017-11-13 09:40:14: acl -a set -d 0 -t nasshare -s "role=user,acl=ro,name=test_acl_0"
+
+administrator@cli> 
+2017-11-13 09:40:14: 
+Expect: signle nas user should can set ro permissions on nasshare
+
+2017-11-13 09:40:14: acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+
+administrator@cli> 
+2017-11-13 09:40:09: acl -a set -d 0 -t clone -s "role=everyone,acl=deny"
+
+administrator@cli> 
+2017-11-13 09:40:08: 
+Expect: permisions of everyone should be deny only on clone
+
+2017-11-13 09:40:08: acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+2017-11-13 09:40:03: acl -a set -d 0 -t clone -s "role=everyone,acl=rw"
+
+administrator@cli> 
+2017-11-13 09:40:03: 
+Expect: permisions of everyone should be rw on clone
+
+2017-11-13 09:40:03: acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        ro         
+
+administrator@cli> 
+2017-11-13 09:39:58: acl -a set -d 0 -t clone -s "role=everyone,acl=ro"
+
+administrator@cli> 
+2017-11-13 09:39:57: 
+Expect: permisions of everyone should be 0 on clone
+
+2017-11-13 09:39:57: acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+
+administrator@cli> 
+2017-11-13 09:39:52: acl -a set -d 0 -t nasshare -s "role=everyone,acl=deny"
+
+administrator@cli> 
+2017-11-13 09:39:52: 
+Expect: permisions of everyone should be deny only on nasshare
+
+2017-11-13 09:39:52: acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+2017-11-13 09:39:47: acl -a set -d 0 -t nasshare -s "role=everyone,acl=rw"
+
+administrator@cli> 
+2017-11-13 09:39:46: 
+Expect: permisions of everyone should be rw on nasshare
+
+2017-11-13 09:39:46: acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        ro         
+
+administrator@cli> 
+2017-11-13 09:39:40: acl -a set -d 0 -t nasshare -s "role=everyone,acl=ro"
+
+administrator@cli> 
+2017-11-13 09:39:40: 
+Expect: permisions of everyone should be 0 on nasshare
+
+2017-11-13 09:35:28: 'result': 'p'
+2017-11-13 09:35:28: acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+2017-11-13 09:35:25: acl -a clear -t clone -d 0
+
+administrator@cli> 
+2017-11-13 09:35:25: 
+Expect: all acl settings are cleared on specific clone
+
+2017-11-13 09:35:25: acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+2017-11-13 09:35:22: acl -a clear -t nasshare -d 0
+
+administrator@cli> 
+2017-11-13 09:35:21: 
+Expect: all acl settings are cleared on specific nasshare
+
+2017-11-13 09:34:03: 'result': 'p'
+2017-11-13 09:34:03: acl -t clone -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1005      test_acl_group_4                                ro         
+group     1006      test_acl_group_5                                rw         
+group     1007      test_acl_group_6                                deny       
+
+administrator@cli> 
+2017-11-13 09:33:58: acl -a set -d 1 -t clone -s "role=group,acl=deny,name=test_acl_group_6"
+
+administrator@cli> 
+2017-11-13 09:33:57: 
+Expect: signle nas group should can set deny permissions on clone
+
+2017-11-13 09:33:57: acl -t clone -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1005      test_acl_group_4                                ro         
+group     1006      test_acl_group_5                                rw         
+
+administrator@cli> 
+2017-11-13 09:33:52: acl -a set -d 1 -t clone -s "role=group,acl=rw,name=test_acl_group_5"
+
+administrator@cli> 
+2017-11-13 09:33:52: 
+Expect: signle nas group should can set rw permissions on clone
+
+2017-11-13 09:33:52: acl -t clone -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1005      test_acl_group_4                                ro         
+
+administrator@cli> 
+2017-11-13 09:33:47: acl -a set -d 1 -t clone -s "role=group,acl=ro,name=test_acl_group_4"
+
+administrator@cli> 
+2017-11-13 09:33:47: 
+Expect: signle nas group should can set ro permissions on clone
+
+2017-11-13 09:33:47: acl -t nasshare -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1001      test_acl_group_0                                ro         
+group     1002      test_acl_group_1                                rw         
+group     1003      test_acl_group_2                                deny       
+
+administrator@cli> 
+2017-11-13 09:33:42: acl -a set -d 1 -t nasshare -s "role=group,acl=deny,name=test_acl_group_2"
+
+administrator@cli> 
+2017-11-13 09:33:41: 
+Expect: signle nas group should can set deny permissions on nasshare
+
+2017-11-13 09:33:41: acl -t nasshare -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1001      test_acl_group_0                                ro         
+group     1002      test_acl_group_1                                rw         
+
+administrator@cli> 
+2017-11-13 09:33:36: acl -a set -d 1 -t nasshare -s "role=group,acl=rw,name=test_acl_group_1"
+
+administrator@cli> 
+2017-11-13 09:33:36: 
+Expect: signle nas group should can set rw permissions on nasshare
+
+2017-11-13 09:33:36: acl -t nasshare -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1001      test_acl_group_0                                ro         
+
+administrator@cli> 
+2017-11-13 09:33:31: acl -a set -d 1 -t nasshare -s "role=group,acl=ro,name=test_acl_group_0"
+
+administrator@cli> 
+2017-11-13 09:33:31: 
+Expect: signle nas group should can set ro permissions on nasshare
+
+2017-11-13 09:33:31: acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1005      test_acl_4                                      ro         
+user      1006      test_acl_5                                      rw         
+user      1007      test_acl_6                                      deny       
+
+administrator@cli> 
+2017-11-13 09:33:26: acl -a set -d 0 -t clone -s "role=user,acl=deny,name=test_acl_6"
+
+administrator@cli> 
+2017-11-13 09:33:25: 
+Expect: signle nas user should can set deny permissions on clone
+
+2017-11-13 09:33:25: acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1005      test_acl_4                                      ro         
+user      1006      test_acl_5                                      rw         
+
+administrator@cli> 
+2017-11-13 09:33:20: acl -a set -d 0 -t clone -s "role=user,acl=rw,name=test_acl_5"
+
+administrator@cli> 
+2017-11-13 09:33:20: 
+Expect: signle nas user should can set rw permissions on clone
+
+2017-11-13 09:33:20: acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1005      test_acl_4                                      ro         
+
+administrator@cli> 
+2017-11-13 09:33:15: acl -a set -d 0 -t clone -s "role=user,acl=ro,name=test_acl_4"
+
+administrator@cli> 
+2017-11-13 09:33:15: 
+Expect: signle nas user should can set ro permissions on clone
+
+2017-11-13 09:33:15: acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+
+administrator@cli> 
+2017-11-13 09:33:09: acl -a set -d 0 -t nasshare -s "role=user,acl=deny,name=test_acl_2"
+
+administrator@cli> 
+2017-11-13 09:33:09: 
+Expect: signle nas user should can set deny permissions on nasshare
+
+2017-11-13 09:33:09: acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+
+administrator@cli> 
+2017-11-13 09:33:04: acl -a set -d 0 -t nasshare -s "role=user,acl=rw,name=test_acl_1"
+
+administrator@cli> 
+2017-11-13 09:33:04: 
+Expect: signle nas user should can set rw permissions on nasshare
+
+2017-11-13 09:33:04: acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+
+administrator@cli> 
+2017-11-13 09:32:59: acl -a set -d 0 -t nasshare -s "role=user,acl=ro,name=test_acl_0"
+
+administrator@cli> 
+2017-11-13 09:32:59: 
+Expect: signle nas user should can set ro permissions on nasshare
+
+2017-11-13 09:32:58: acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+
+administrator@cli> 
+2017-11-13 09:32:53: acl -a set -d 0 -t clone -s "role=everyone,acl=deny"
+
+administrator@cli> 
+2017-11-13 09:32:53: 
+Expect: permisions of everyone should be deny only on clone
+
+2017-11-13 09:32:53: acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+2017-11-13 09:32:47: acl -a set -d 0 -t clone -s "role=everyone,acl=rw"
+
+administrator@cli> 
+2017-11-13 09:32:47: 
+Expect: permisions of everyone should be rw on clone
+
+2017-11-13 09:32:47: acl -t clone -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        ro         
+
+administrator@cli> 
+2017-11-13 09:32:42: acl -a set -d 0 -t clone -s "role=everyone,acl=ro"
+
+administrator@cli> 
+2017-11-13 09:32:42: 
+Expect: permisions of everyone should be 0 on clone
+
+2017-11-13 09:32:42: acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+
+administrator@cli> 
+2017-11-13 09:32:37: acl -a set -d 0 -t nasshare -s "role=everyone,acl=deny"
+
+administrator@cli> 
+2017-11-13 09:32:37: 
+Expect: permisions of everyone should be deny only on nasshare
+
+2017-11-13 09:32:37: acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+2017-11-13 09:32:31: acl -a set -d 0 -t nasshare -s "role=everyone,acl=rw"
+
+administrator@cli> 
+2017-11-13 09:32:31: 
+Expect: permisions of everyone should be rw on nasshare
+
+2017-11-13 09:32:31: acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        ro         
+
+administrator@cli> 
+2017-11-13 09:32:26: acl -a set -d 0 -t nasshare -s "role=everyone,acl=ro"
+
+administrator@cli> 
+2017-11-13 09:32:26: 
+Expect: permisions of everyone should be 0 on nasshare
+
 2017-11-10 17:35:55: pool -a del -y -f -i 0
 
 administrator@cli> 
