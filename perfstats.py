@@ -36,6 +36,8 @@ def clean_up_environment():
 
 
 def start_perfstats(c):
+    cli_other_action = cli_test_other_action()
+
     # precondition
     precondition()
 
@@ -45,6 +47,8 @@ def start_perfstats(c):
 
 
 def list_perfstats(c):
+    cli_list = cli_test_list()
+
     # precondition
     server.webapi('post', 'perfstatsstart')
 
@@ -54,6 +58,7 @@ def list_perfstats(c):
 
 
 def invalid_setting_parameter(c):
+    cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'invalid_setting_parameter')
 
@@ -61,6 +66,7 @@ def invalid_setting_parameter(c):
 
 
 def invalid_option(c):
+    cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'invalid_option')
 
@@ -68,6 +74,7 @@ def invalid_option(c):
 
 
 def missing_parameter(c):
+    cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'missing_parameter')
 

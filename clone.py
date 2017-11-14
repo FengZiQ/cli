@@ -32,6 +32,8 @@ def clean_up_environment():
 
 
 def add_clone(c):
+    cli_setting = cli_test_setting()
+
     # precondition
     precondition()
 
@@ -42,6 +44,8 @@ def add_clone(c):
 
 def list_clone(c):
 
+    cli_list = cli_test_list()
+
     cli_list.list(c, data, 'list_clone')
 
     return cli_list.FailFlag
@@ -49,12 +53,16 @@ def list_clone(c):
 
 def list_clone_verbose_mode(c):
 
+    cli_list = cli_test_list()
+
     cli_list.list(c, data, 'list_clone_verbose_mode')
 
     return cli_list.FailFlag
 
 
 def mod_clone(c):
+    cli_setting = cli_test_setting()
+
     # precondition
     server.webapi('post', 'clone/0/unmount')
 
@@ -64,6 +72,8 @@ def mod_clone(c):
 
 
 def export_unexport_clone(c):
+    cli_setting = cli_test_setting()
+
     # precondition
     server.webapi('post', 'clone/3/unexport')
 
@@ -73,6 +83,8 @@ def export_unexport_clone(c):
 
 
 def mount_umount_clone(c):
+    cli_setting = cli_test_setting()
+
     # precondition
     server.webapi('post', 'clone/2/unmount')
 
@@ -82,6 +94,7 @@ def mount_umount_clone(c):
 
 
 def del_clone(c):
+    cli_delete = cli_test_delete()
 
     cli_delete.delete(c, data, 'del_clone')
 
@@ -90,12 +103,15 @@ def del_clone(c):
 
 def invalid_setting_parameter(c):
 
+    cli_failed_test = cli_test_failed_test()
+
     cli_failed_test.failed_test(c, data, 'invalid_setting_parameter')
 
     return cli_failed_test.FailFlag
 
 
 def invalid_option(c):
+    cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'invalid_option')
 
@@ -103,6 +119,7 @@ def invalid_option(c):
 
 
 def missing_parameter(c):
+    cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'missing_parameter')
 

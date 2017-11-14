@@ -11,6 +11,8 @@ data = 'data/volume.xlsx'
 
 
 def addVolume(c):
+    cli_setting = cli_test_setting()
+
     # precondition
     pdId = find_pd_id('4TB')
     # create pool
@@ -22,6 +24,7 @@ def addVolume(c):
 
 
 def listVolume(c):
+    cli_list = cli_test_list()
 
     cli_list.list(c, data, 'listVolume')
 
@@ -29,6 +32,7 @@ def listVolume(c):
 
 
 def listVolume_by_verbose_mode(c):
+    cli_list = cli_test_list()
 
     cli_list.list(c, data, 'listVolume_by_verbose_mode')
 
@@ -36,6 +40,7 @@ def listVolume_by_verbose_mode(c):
 
 
 def modVolume(c):
+    cli_setting = cli_test_setting()
 
     cli_setting.setting(c, data, 'modVolume', 3)
 
@@ -43,6 +48,7 @@ def modVolume(c):
 
 
 def exportVolume(c):
+    cli_setting = cli_test_setting()
 
     # precondition
     server.webapi('post', 'volume/0/unexport')
@@ -53,6 +59,7 @@ def exportVolume(c):
 
 
 def unexportVolume(c):
+    cli_setting = cli_test_setting()
 
     # precondition
     server.webapi('post', 'volume/0/export')
@@ -63,6 +70,7 @@ def unexportVolume(c):
 
 
 def invalidParameter(c):
+    cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'invalidParameter')
 
@@ -70,6 +78,7 @@ def invalidParameter(c):
 
 
 def invalidOption(c):
+    cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'invalidOption')
 
@@ -77,6 +86,7 @@ def invalidOption(c):
 
 
 def missingParameter(c):
+    cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'missingParameter')
 
@@ -84,6 +94,8 @@ def missingParameter(c):
 
 
 def deleteVolume(c):
+    cli_delete = cli_test_delete()
+
     # precondition: create volume snapshot
     server.webapi('post', 'snapshot', {"name": "test_volume_snap", "type": 'volume', "source_id": 1})
 

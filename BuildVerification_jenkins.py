@@ -51,6 +51,25 @@ def BuildVerification(c):
 
     if reconnectflag:
 
+        tolog('Start verifying spare')
+        import spare
+        if (spare.add_global_spare(c)):
+            FailCasesList.append('The case ' + spare.add_global_spare.__name__ + ' failed')
+        if (spare.add_dedicated_spare(c)):
+            FailCasesList.append('The case ' + spare.add_dedicated_spare.__name__ + ' failed')
+        if (spare.list_spare(c)):
+            FailCasesList.append('The case ' + spare.list_spare.__name__ + ' failed')
+        if (spare.list_spare_by_verbose_mode(c)):
+            FailCasesList.append('The case ' + spare.list_spare_by_verbose_mode.__name__ + ' failed')
+        if (spare.delete_spare(c)):
+            FailCasesList.append('The case ' + spare.delete_spare.__name__ + ' failed')
+        if (spare.invalid_parameter_for_spare(c)):
+            FailCasesList.append('The case ' + spare.invalid_parameter_for_spare.__name__ + ' failed')
+        if (spare.invalid_option_for_spare(c)):
+            FailCasesList.append('The case ' + spare.invalid_option_for_spare.__name__ + ' failed')
+        if (spare.missing_parameter_for_spare(c)):
+            FailCasesList.append('The case ' + spare.missing_parameter_for_spare.__name__ + ' failed')
+
         tolog('Start verifying NASShare')
         import nasShare
         if (nasShare.addNASShare(c)):
@@ -277,6 +296,21 @@ def BuildVerification(c):
             FailCasesList.append('The case ' + perfstats.invalid_option.__name__ + ' failed')
         if (perfstats.missing_parameter(c)):
             FailCasesList.append('The case ' + perfstats.missing_parameter.__name__ + ' failed')
+
+        tolog('Start verifying tz')
+        import tz
+        if (tz.list_tz(c)):
+            FailCasesList.append('The case ' + tz.list_tz.__name__ + ' failed')
+        if (tz.list_tz_detail(c)):
+            FailCasesList.append('The case ' + tz.list_tz_detail.__name__ + ' failed')
+        if (tz.mod_tz(c)):
+            FailCasesList.append('The case ' + tz.mod_tz.__name__ + ' failed')
+        if (tz.invalid_parameter_for_tz(c)):
+            FailCasesList.append('The case ' + tz.invalid_parameter_for_tz.__name__ + ' failed')
+        if (tz.invalid_option_for_tz(c)):
+            FailCasesList.append('The case ' + tz.invalid_option_for_tz.__name__ + ' failed')
+        if (tz.missing_parameter_for_tz(c)):
+            FailCasesList.append('The case ' + tz.missing_parameter_for_tz.__name__ + ' failed')
 
         tolog('Start verifying ping')
         import ping

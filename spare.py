@@ -10,6 +10,8 @@ data = 'data/spare.xlsx'
 
 
 def add_global_spare(c):
+    cli_setting = cli_test_setting()
+
     # precondition
     pdId = find_pd_id("2TB")
     # create pool
@@ -21,6 +23,8 @@ def add_global_spare(c):
 
 
 def add_dedicated_spare(c):
+    cli_setting = cli_test_setting()
+
     # precondition
     pdId = find_pd_id()
     # create pool
@@ -33,6 +37,8 @@ def add_dedicated_spare(c):
 
 
 def list_spare(c):
+    cli_list = cli_test_list()
+
     # precondition
     pdId = find_pd_id()
 
@@ -49,6 +55,7 @@ def list_spare(c):
 
 
 def list_spare_by_verbose_mode(c):
+    cli_list = cli_test_list()
 
     cli_list.list(c, data, 'list_spare_by_verbose_mode')
 
@@ -56,6 +63,7 @@ def list_spare_by_verbose_mode(c):
 
 
 def delete_spare(c):
+    cli_delete = cli_test_delete()
 
     cli_delete.delete(c, data, 'delete_spare')
 
@@ -63,6 +71,8 @@ def delete_spare(c):
 
 
 def invalid_parameter_for_spare(c):
+
+    cli_failed_test = cli_test_failed_test()
     # precondition
     pdId = find_pd_id()
 
@@ -76,6 +86,8 @@ def invalid_parameter_for_spare(c):
 
 def invalid_option_for_spare(c):
 
+    cli_failed_test = cli_test_failed_test()
+
     cli_failed_test.failed_test(c, data, 'invalid_option_for_spare')
 
     return cli_failed_test.FailFlag
@@ -83,7 +95,12 @@ def invalid_option_for_spare(c):
 
 def missing_parameter_for_spare(c):
 
+    cli_failed_test = cli_test_failed_test()
+
     cli_failed_test.failed_test(c, data, 'missing_parameter_for_spare')
+
+    # clean up environment
+    find_pd_id()
 
     return cli_failed_test.FailFlag
 

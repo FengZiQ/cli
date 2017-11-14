@@ -46,8 +46,6 @@ class cli_test_setting():
         else:
             tolog(Pass)
 
-cli_setting = cli_test_setting()
-
 
 # use to list and so on
 class cli_test_list():
@@ -84,8 +82,6 @@ class cli_test_list():
         else:
             tolog(Pass)
 
-cli_list = cli_test_list()
-
 
 # use to verify nothing returned values action
 class cli_test_other_action():
@@ -112,8 +108,6 @@ class cli_test_other_action():
             tolog(Fail)
         else:
             tolog(Pass)
-
-cli_other_action = cli_test_other_action()
 
 
 # use to del
@@ -153,11 +147,9 @@ class cli_test_delete():
         else:
             tolog(Pass)
 
-cli_delete = cli_test_delete()
-
 
 # use to verify failed test
-class cli_failed_test():
+class cli_test_failed_test():
     
     def __init__(self, FailFlag=False):
         self.FailFlag = FailFlag
@@ -191,5 +183,3 @@ class cli_failed_test():
             tolog(Fail)
         else:
             tolog(Pass)
-
-cli_failed_test = cli_failed_test()

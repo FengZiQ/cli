@@ -1,454 +1,121 @@
 
-Expect: spare should be added
+Expect: Missing parameter
 
-spare -a add -t g -r y -p 11
-
-administrator@cli> 
-spare
-===============================================================================
-Id    Status    PdId    Capacity    Revertible    Type      DedicatedToPool    
-===============================================================================
-0     OK        11      2 TB        Yes           Global    N/A                
+spare -i
+Error (0x403): Missing parameter
+-i: missing value
 
 administrator@cli> 
 
-Expect: rebuild should start
+Expect: Missing parameter
 
-phydrv -a offline -p 1
+spare -d
+Error (0x403): Missing parameter
+-d: missing value
 
 administrator@cli> 
-rb
--------------------------------------------------------------------------------
-PoolId: 0
-===============================================================================
-PdId                    Percentage                   Status                    
-===============================================================================
-11                      0                            Running                   
 
-administrator@cli> 
-'result': 'p'
-
-Expect: spare should be added
+Expect: Missing parameter
 
-spare -a add -t d -d 0 -r n -p 12
-Error (0x2013): Invalid setting parameters
-specified pool not found
+spare -a
+Error (0x403): Missing parameter
+-a: missing value
 
 administrator@cli> 
 
-Fail: spare -a add -t d -d 0 -r n -p 12
+Expect: Missing parameter
 
+spare -v -i
+Error (0x403): Missing parameter
+-i: missing value
 
-Expect: rebuild should do not start
+administrator@cli> 
+
+Expect: Missing parameter
 
-phydrv -a offline -p 4
-Error (0x4023): Invalid physical drive id
-This physical drive is not configured
+spare -a add 
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
 
 administrator@cli> 
 
-Fail: phydrv -a offline -p 4
+Expect: Missing parameter
 
+spare -a add -t
+Error (0x403): Missing parameter
+-t: missing value
 
-Expect: rebuild should start
+administrator@cli> 
+
+Expect: Missing parameter
 
-phydrv -a offline -p 1
-Error (0x4023): Invalid physical drive id
-This physical drive is not configured
+spare -a add -t g 
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
 
 administrator@cli> 
 
-Fail: phydrv -a offline -p 1
+Expect: Missing parameter
 
+spare -a add -t g -r
+Error (0x403): Missing parameter
+-r: missing value
 
-Expect: clean up environment
+administrator@cli> 
+
+Expect: Missing parameter
 
-phydrv -a clear -p 1 -t staleconfig
-Error (0x4023): Invalid physical drive id
-The physical drive does not have a stale configuration
+spare -a add -t g -r n
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
 
 administrator@cli> 
 
-Fail: phydrv -a clear -p 1 -t staleconfig
+Expect: Missing parameter
 
+spare -a add -t g -r n -p
+Error (0x403): Missing parameter
+-p: missing value
 
-Expect: delete pool 0
+administrator@cli> 
+
+Expect: Missing parameter
 
-pool -a del -f -y -i 0
-Error (0x4100102): Empty query result, please check input parameters. Pool id=[0] is not existed.
+spare -a add -t d -d
+Error (0x403): Missing parameter
+-d: missing value
 
 administrator@cli> 
 
-Fail: pool -a del -f -y -i 0
+Expect: Missing parameter
 
-'result': 'f'
+spare -a add -t d -d 0
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
 
-Expect: spare should be added
+administrator@cli> 
+
+Expect: Missing parameter
 
-spare -a add -t d -d 0 -r n -p 12
-
-administrator@cli> 
-spare
-===============================================================================
-Id    Status    PdId    Capacity    Revertible   Type        DedicatedToPool   
-===============================================================================
-0     OK        12      4 TB        No           Dedicated   0                 
+spare -a add -t d -d 0 -p
+Error (0x403): Missing parameter
+-p: missing value
 
 administrator@cli> 
 
-Expect: rebuild should do not start
+Expect: Missing parameter
 
-phydrv -a offline -p 4
+spare -a del
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a del'
 
 administrator@cli> 
-rb
-This background activity is not running.
-administrator@cli> 
 
-Expect: rebuild should start
+Expect: Missing parameter
 
-phydrv -a offline -p 1
-
-administrator@cli> 
-rb
--------------------------------------------------------------------------------
-PoolId: 0
-===============================================================================
-PdId                    Percentage                   Status                    
-===============================================================================
-12                      0                            Running                   
-
-administrator@cli> 
-
-Expect: clean up environment
-
-phydrv -a clear -p 1 -t staleconfig
-
-administrator@cli> 
-phydrv -p 1
-===============================================================================
-PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
-===============================================================================
-1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Unconfigured    
-     S640                                                                      
-
-administrator@cli> 
-
-Expect: delete pool 0
-
-pool -a del -f -y -i 0
-
-administrator@cli> 
-spare
-No spare drive exists
-
-administrator@cli> 
-'result': 'p'
-
-Expect: spare should be added
-
-spare -a add -t g -r y -p 11
-
-administrator@cli> 
-spare
-===============================================================================
-Id    Status    PdId    Capacity    Revertible    Type      DedicatedToPool    
-===============================================================================
-0     OK        11      2 TB        Yes           Global    N/A                
-
-administrator@cli> 
-
-Expect: rebuild should start
-
-phydrv -a offline -p 1
-
-administrator@cli> 
-rb
--------------------------------------------------------------------------------
-PoolId: 0
-===============================================================================
-PdId                    Percentage                   Status                    
-===============================================================================
-11                      0                            Running                   
-
-administrator@cli> 
-
-Expect: clean up environment
-
-phydrv -a clear -p 1 -t staleconfig
-
-administrator@cli> 
-phydrv -p 1
-===============================================================================
-PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
-===============================================================================
-1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Unconfigured    
-     S640                                                                      
-
-administrator@cli> 
-
-Expect: delete pool 0
-
-pool -a del -f -y -i 0
-
-administrator@cli> 
-spare
-No spare drive exists
-
-administrator@cli> 
-
-Fail: please check out Global
-
-'result': 'f'
-
-Expect: spare should be added
-
-spare -a add -t d -d 0 -r y -p 12
-
-administrator@cli> 
-spare
-===============================================================================
-Id    Status    PdId    Capacity    Revertible   Type        DedicatedToPool   
-===============================================================================
-0     OK        12      4 TB        Yes          Dedicated   0                 
-
-administrator@cli> 
-
-Expect: rebuild should do not start
-
-phydrv -a offline -p 4
-
-administrator@cli> 
-rb
-This background activity is not running.
-administrator@cli> 
-
-Expect: rebuild should start
-
-phydrv -a offline -p 1
-
-administrator@cli> 
-rb
--------------------------------------------------------------------------------
-PoolId: 0
-===============================================================================
-PdId                    Percentage                   Status                    
-===============================================================================
-12                      0                            Running                   
-
-administrator@cli> 
-
-Expect: clean up environment
-
-phydrv -a clear -p 1 -t staleconfig
-
-administrator@cli> 
-phydrv -p 1
-===============================================================================
-PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
-===============================================================================
-1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Unconfigured    
-     S640                                                                      
-
-administrator@cli> 
-
-Expect: delete pool 0
-
-pool -a del -f -y -i 0
-
-administrator@cli> 
-spare
-No spare drive exists
-
-administrator@cli> 
-'result': 'p'
-
-Expect: 
-
-spare
-===============================================================================
-Id    Status    PdId    Capacity    Revertible   Type        DedicatedToPool   
-===============================================================================
-0     OK        4       4 TB        No           Global      N/A               
-1     OK        9       4 TB        Yes          Dedicated   0                 
-
-administrator@cli> 
-
-Expect: 
-
-spare -i 0
-===============================================================================
-Id    Status    PdId    Capacity    Revertible    Type      DedicatedToPool    
-===============================================================================
-0     OK        4       4 TB        No            Global    N/A                
-
-administrator@cli> 
-'result': 'p'
-
-Expect: all of spare drives should be listed by verbose mode
-
-spare -v
--------------------------------------------------------------------------------
-Id: 0                                   PdId: 4
-Type: Global                            Revertible: No
-PhysicalCapacity: 4 TB                  Status: OK
-PoolList: N/A
--------------------------------------------------------------------------------
-Id: 1                                   PdId: 9
-Type: Dedicated                         Revertible: Yes
-PhysicalCapacity: 4 TB                  Status: OK
-PoolList: 0
-
-administrator@cli> 
-
-Expect: spare 0 drives should be listed by verbose mode
-
-spare -v -i 0
--------------------------------------------------------------------------------
-Id: 0                                   PdId: 4
-Type: Global                            Revertible: No
-PhysicalCapacity: 4 TB                  Status: OK
-PoolList: N/A
-
-administrator@cli> 
-
-Expect: spare 1 spare drives should be listed by verbose mode
-
-spare -v -i 1
--------------------------------------------------------------------------------
-Id: 1                                   PdId: 9
-Type: Dedicated                         Revertible: Yes
-PhysicalCapacity: 4 TB                  Status: OK
-PoolList: 0
-
-administrator@cli> 
-'result': 'p'
-
-Expect: all of spare drives should be listed by verbose mode
-
-spare -v
--------------------------------------------------------------------------------
-Id: 0                                   PdId: 4
-Type: Global                            Revertible: No
-PhysicalCapacity: 4 TB                  Status: OK
-PoolList: N/A
--------------------------------------------------------------------------------
-Id: 1                                   PdId: 9
-Type: Dedicated                         Revertible: Yes
-PhysicalCapacity: 4 TB                  Status: OK
-PoolList: 0
-
-administrator@cli> 
-
-Expect: spare 0 drives should be listed by verbose mode
-
-spare -v -i 0
--------------------------------------------------------------------------------
-Id: 0                                   PdId: 4
-Type: Global                            Revertible: No
-PhysicalCapacity: 4 TB                  Status: OK
-PoolList: N/A
-
-administrator@cli> 
-
-Expect: spare 1 spare drives should be listed by verbose mode
-
-spare -v -i 1
--------------------------------------------------------------------------------
-Id: 1                                   PdId: 9
-Type: Dedicated                         Revertible: Yes
-PhysicalCapacity: 4 TB                  Status: OK
-PoolList: 0
-
-administrator@cli> 
-'result': 'p'
-
-Expect: spare 0 should be deleted
-
-spare -a del -i 0
-
-administrator@cli> 
-spare
-===============================================================================
-Id    Status    PdId    Capacity    Revertible   Type        DedicatedToPool   
-===============================================================================
-1     OK        9       4 TB        Yes          Dedicated   0                 
-
-administrator@cli> 
-
-Expect: spare 1 should be deleted
-
-spare -a del -i 1
-
-administrator@cli> 
-spare
-No spare drive exists
-
-administrator@cli> 
-'result': 'p'
-
-Expect: 
-
-spare -a add -t d -d 0 -r n -p 12
-
-administrator@cli> 
-
-Fail: spare -a add -t d -d 0 -r n -p 12
-
-
-Expect: 
-
-spare -a add -t g -r n -p 1
-Error (0x4021): Physical drive in use
-Physical drive in use
-
-administrator@cli> 
-
-Expect: 
-
-spare -a add -t g -d 0 -r n -p 12
-Error (0x4021): Physical drive in use
-Physical drive in use
-
-administrator@cli> 
-
-Expect: invalid option: -test
-
-spare -test
-Error (0x2012): Invalid option for the command or the action
-invalid option: -test
-
-administrator@cli> 
-
-Expect: invalid option: -test
-
-spare -a add -test
-Error (0x2012): Invalid option for the command or the action
-invalid option: -test
-
-administrator@cli> 
-
-Expect: invalid option: -test
-
-spare -a add -t g -test
-Error (0x2012): Invalid option for the command or the action
-invalid option: -test
-
-administrator@cli> 
-
-Expect: invalid option: -test
-
-spare -a add -t g -d 0 -test
-Error (0x2012): Invalid option for the command or the action
-invalid option: -test
-
-administrator@cli> 
-
-Expect: invalid option: -test
-
-spare -a del -test
-Error (0x2012): Invalid option for the command or the action
-invalid option: -test
+spare -a del -i
+Error (0x403): Missing parameter
+-i: missing value
 
 administrator@cli> 
 'result': 'f'
@@ -461,131 +128,9 @@ Physical drive in use
 
 administrator@cli> 
 
-Expect: 
-
-spare -a add -t g -d 0 -r n -p 12
-
-administrator@cli> 
-
-Fail: spare -a add -t g -d 0 -r n -p 12
-
-
-Expect: invalid option: -test
-
-spare -test
-Error (0x2012): Invalid option for the command or the action
-invalid option: -test
-
-administrator@cli> 
-
-Expect: invalid option: -test
-
-spare -a add -test
-Error (0x2012): Invalid option for the command or the action
-invalid option: -test
-
-administrator@cli> 
-
-Expect: invalid option: -test
-
-spare -a add -t g -test
-Error (0x2012): Invalid option for the command or the action
-invalid option: -test
-
-administrator@cli> 
-
-Expect: invalid option: -test
-
-spare -a add -t g -d 0 -test
-Error (0x2012): Invalid option for the command or the action
-invalid option: -test
-
-administrator@cli> 
-
-Expect: invalid option: -test
-
-spare -a del -test
-Error (0x2012): Invalid option for the command or the action
-invalid option: -test
-
-administrator@cli> 
-'result': 'f'
-
-Expect: Physical drive in use
-
-spare -a add -t g -r n -p 1
-Error (0x4021): Physical drive in use
-Physical drive in use
-
-administrator@cli> 
-
-Expect: invalid setting
+Expect: Invalid setting parameters
 
 spare test
-Error (0x2013): Invalid setting parameters
-invalid setting: test
-
-administrator@cli> 
-
-Expect: invalid setting
-
-spare -i 257
-Error (0x2013): Invalid setting parameters
--i: invalid setting 257 (0,256)
-
-administrator@cli> 
-
-Expect: invalid setting
-
-spare -a list test
-Error (0x2013): Invalid setting parameters
-invalid setting: test
-
-administrator@cli> 
-
-Expect: invalid setting
-
-spare -a add -t test
-Error (0x2013): Invalid setting parameters
--t: invalid setting test (g|d)
-
-administrator@cli> 
-
-Expect: invalid setting
-
-spare -a add -t g -p 513
-Error (0x2013): Invalid setting parameters
--p: invalid setting 513 (0,512)
-
-administrator@cli> 
-
-Expect: invalid setting
-
-spare -a add -t d d 33 -p 1
-Error (0x2013): Invalid setting parameters
-invalid setting: d
-
-administrator@cli> 
-
-Expect: invalid setting
-
-spare -a add -t g -r test
-Error (0x2013): Invalid setting parameters
--r: invalid setting test (y|n)
-
-administrator@cli> 
-
-Expect: invalid setting
-
-spare -a add -t g -d test
-Error (0x2013): Invalid setting parameters
--d: invalid setting test
-
-administrator@cli> 
-
-Expect: invalid setting
-
-spare -a del test
 Error (0x2013): Invalid setting parameters
 invalid setting: test
 
@@ -601,66 +146,11 @@ administrator@cli>
 Fail: spare -i 256
 
 
-Expect: Invalid data buffer
-
-spare -a add -t g -p 512
-Error (0x4020): Physical drive not found
-Physical drive not found
-
-administrator@cli> 
-
-Fail: please check out Invalid data buffer
-
-
-Expect: specified pool not found
-
-spare -a add -t d -d 31 -p 1
-Error (0x2013): Invalid setting parameters
-specified pool not found
-
-administrator@cli> 
-
-Expect: No spare drive found
-
-spare -a del -i 255
-Error (0x49840C02): Invalid disk array id or spare id
-Invalid disk array id or spare id
-
-administrator@cli> 
-
-Fail: please check out No spare drive found
-
-'result': 'f'
-
-Expect: Physical drive in use
-
-spare -a add -t g -r n -p 1
-Error (0x4021): Physical drive in use
-Physical drive in use
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-spare test
-Error (0x2013): Invalid setting parameters
-invalid setting: test
-
-administrator@cli> 
-
 Expect: Invalid setting parameters
 
 spare -i 257
 Error (0x2013): Invalid setting parameters
 -i: invalid setting 257 (0,256)
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-spare -a list test
-Error (0x2013): Invalid setting parameters
-invalid setting: test
 
 administrator@cli> 
 
@@ -706,6 +196,9 @@ administrator@cli>
 Fail: please check out Invalid setting parameters
 
 
+Fail: please check out (0,31)
+
+
 Expect: Invalid setting parameters
 
 spare -a add -t d -d 33 -p 12
@@ -738,35 +231,6 @@ Expect: Invalid setting parameters
 spare -a del test
 Error (0x2013): Invalid setting parameters
 invalid setting: test
-
-administrator@cli> 
-
-Expect: No spare drive found
-
-spare -i 256
-No spare drive found
-
-administrator@cli> 
-
-Fail: spare -i 256
-
-
-Expect: Invalid data buffer
-
-spare -a add -t g -p 512
-Error (0x4020): Physical drive not found
-Physical drive not found
-
-administrator@cli> 
-
-Fail: please check out Invalid data buffer
-
-
-Expect: specified pool not found
-
-spare -a add -t d -d 31 -p 1
-Error (0x2013): Invalid setting parameters
-specified pool not found
 
 administrator@cli> 
 
@@ -790,6 +254,168 @@ Error (0x2013): Invalid setting parameters
 administrator@cli> 
 'result': 'f'
 
+Expect: invalid option: -test
+
+spare -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: invalid option: -test
+
+spare -a add -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: invalid option: -test
+
+spare -a add -t g -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: invalid option: -test
+
+spare -a add -t g -d 0 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: invalid option: -test
+
+spare -a del -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+'result': 'f'
+
+Expect: Missing parameter
+
+spare -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -v -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a add 
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a add -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a add -t g 
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a add -t g -r
+Error (0x403): Missing parameter
+-r: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a add -t g -r n
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a add -t g -r n -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a add -t d -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a add -t d -d 0
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a add -t d -d 0 -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a del
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a del'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a del -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+'result': 'f'
+
 Expect: Physical drive in use
 
 spare -a add -t g -r n -p 1
@@ -821,14 +447,6 @@ Expect: Invalid setting parameters
 spare -i 257
 Error (0x2013): Invalid setting parameters
 -i: invalid setting 257 (0,256)
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-spare -a list test
-Error (0x2013): Invalid setting parameters
-invalid setting: test
 
 administrator@cli> 
 
@@ -887,6 +505,582 @@ administrator@cli>
 
 Fail: please check out (0,31)
 
+
+Expect: Invalid setting parameters
+
+spare -a add -t g -r test
+Error (0x2013): Invalid setting parameters
+-r: invalid setting test (y|n)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+spare -a add -t g -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+spare -a del test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid spare id
+
+spare -a del -i 256
+Error (0x49840C02): Invalid disk array id or spare id
+Invalid disk array id or spare id
+
+administrator@cli> 
+
+Fail: please check out Invalid spare id
+
+
+Expect: Invalid setting parameters
+
+spare -a del -i 257
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 257 (0,256)
+
+administrator@cli> 
+'result': 'f'
+
+Expect: invalid option: -test
+
+spare -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: invalid option: -test
+
+spare -a add -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: invalid option: -test
+
+spare -a add -t g -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: invalid option: -test
+
+spare -a add -t g -d 0 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: invalid option: -test
+
+spare -a del -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+'result': 'f'
+
+Expect: Missing parameter
+
+spare -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -v -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a add 
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a add -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a add -t g 
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a add -t g -r
+Error (0x403): Missing parameter
+-r: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a add -t g -r n
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a add -t g -r n -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a add -t d -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a add -t d -d 0
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a add -t d -d 0 -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a del
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a del'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a del -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+'result': 'f'
+
+Expect: Physical drive in use
+
+spare -a add -t g -r n -p 1
+Error (0x4021): Physical drive in use
+Physical drive in use
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+spare test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: No spare drive found
+
+spare -i 256
+No spare drive found
+
+administrator@cli> 
+
+Fail: spare -i 256
+
+
+Expect: Invalid setting parameters
+
+spare -i 257
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 257 (0,256)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+spare -a add -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (g|d)
+
+administrator@cli> 
+
+Expect: Physical drive not found
+
+spare -a add -t g -p 512
+Error (0x4020): Physical drive not found
+Physical drive not found
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+spare -a add -t g -p 513
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 513 (0,512)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+spare -a add -t d -d 31 -p 12
+Error (0x2013): Invalid setting parameters
+specified pool not found
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+spare -a add -t d -d 32 -p 12
+Error (0x2013): Invalid setting parameters
+-d: invalid setting 32 (0,31)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+spare -a add -t d -d 33 -p 12
+Error (0x2013): Invalid setting parameters
+-d: invalid setting 33 (0,31)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+spare -a add -t g -r test
+Error (0x2013): Invalid setting parameters
+-r: invalid setting test (y|n)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+spare -a add -t g -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+spare -a del test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid spare id
+
+spare -a del -i 256
+Error (0x49840C02): Invalid disk array id or spare id
+Invalid disk array id or spare id
+
+administrator@cli> 
+
+Fail: please check out Invalid spare id
+
+
+Expect: Invalid setting parameters
+
+spare -a del -i 257
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 257 (0,256)
+
+administrator@cli> 
+'result': 'f'
+
+Expect: invalid option: -test
+
+spare -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: invalid option: -test
+
+spare -a add -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: invalid option: -test
+
+spare -a add -t g -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: invalid option: -test
+
+spare -a add -t g -d 0 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: invalid option: -test
+
+spare -a del -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+'result': 'f'
+
+Expect: Missing parameter
+
+spare -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -v -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a add 
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a add -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a add -t g 
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a add -t g -r
+Error (0x403): Missing parameter
+-r: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a add -t g -r n
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a add -t g -r n -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a add -t d -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a add -t d -d 0
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a add -t d -d 0 -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a del
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a del'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a del -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+'result': 'f'
+
+Expect: Physical drive in use
+
+spare -a add -t g -r n -p 1
+Error (0x4021): Physical drive in use
+Physical drive in use
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+spare test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: No spare drive found
+
+spare -i 256
+No spare drive found
+
+administrator@cli> 
+
+Fail: spare -i 256
+
+
+Expect: Invalid setting parameters
+
+spare -i 257
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 257 (0,256)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+spare -a add -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (g|d)
+
+administrator@cli> 
+
+Expect: Physical drive not found
+
+spare -a add -t g -p 512
+Error (0x4020): Physical drive not found
+Physical drive not found
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+spare -a add -t g -p 513
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 513 (0,512)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+spare -a add -t d -d 31 -p 12
+Error (0x2013): Invalid setting parameters
+specified pool not found
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+spare -a add -t d -d 32 -p 12
+Error (0x2013): Invalid setting parameters
+-d: invalid setting 32 (0,31)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+spare -a add -t d -d 33 -p 12
+Error (0x2013): Invalid setting parameters
+-d: invalid setting 33 (0,31)
+
+administrator@cli> 
 
 Expect: Invalid setting parameters
 

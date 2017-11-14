@@ -35,6 +35,8 @@ def precondition():
 
 
 def list_phydrv(c):
+    cli_list = cli_test_list()
+
     # precondition
     precondition()
 
@@ -44,6 +46,7 @@ def list_phydrv(c):
 
 
 def list_phydrv_by_verbose_mode(c):
+    cli_list = cli_test_list()
 
     cli_list.list(c, data, 'list_phydrv_by_verbose_mode')
 
@@ -51,6 +54,7 @@ def list_phydrv_by_verbose_mode(c):
 
 
 def mod_phydrv(c):
+    cli_setting = cli_test_setting()
 
     cli_setting.setting(c, data, 'mod_phydrv', 1)
 
@@ -58,6 +62,7 @@ def mod_phydrv(c):
 
 
 def locate_phydrv(c):
+    cli_other_action = cli_test_other_action()
 
     cli_other_action.other(c, data, 'locate_phydrv')
 
@@ -65,6 +70,8 @@ def locate_phydrv(c):
 
 
 def online_offline_phydrv(c):
+    cli_setting = cli_test_setting()
+
     # precondition: create pool
     pdId = find_pd_id()
     server.webapi('post', 'pool', {"name": "test_phy_2", "pds": pdId[:3], "raid_level": "raid5"})
@@ -75,6 +82,8 @@ def online_offline_phydrv(c):
 
 
 def clear_phydrv(c):
+    cli_setting = cli_test_setting()
+
     # precondition: create pool, create spare
     pdId = find_pd_id()
     server.webapi('post', 'pool', {"name": "test_phy_3", "pds": pdId[:3], "raid_level": "raid5"})
@@ -86,6 +95,8 @@ def clear_phydrv(c):
 
 
 def invalid_setting_parameter(c):
+    cli_failed_test = cli_test_failed_test()
+
     # precondition
     find_pd_id()
 
@@ -95,6 +106,7 @@ def invalid_setting_parameter(c):
 
 
 def invalid_option(c):
+    cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'invalid_option')
 

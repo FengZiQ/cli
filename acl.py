@@ -72,6 +72,9 @@ def clean_up_environment():
 
 
 def set_acl(c):
+
+    cli_setting = cli_test_setting()
+
     # precondition
     precondition()
 
@@ -84,6 +87,7 @@ def set_acl(c):
 
 
 def list_acl(c):
+    cli_list = cli_test_list()
 
     cli_list.list(c, data, 'list_acl')
 
@@ -91,6 +95,7 @@ def list_acl(c):
 
 
 def list_acl_by_verbose_mode(c):
+    cli_list = cli_test_list()
 
     cli_list.list(c, data, 'list_acl_by_verbose_mode')
 
@@ -98,6 +103,7 @@ def list_acl_by_verbose_mode(c):
 
 
 def refresh_acl(c):
+    cli_other_action = cli_test_other_action()
 
     cli_other_action.other(c, data, 'refresh_acl')
 
@@ -105,6 +111,7 @@ def refresh_acl(c):
 
 
 def acl_unset(c):
+    cli_delete = cli_test_delete()
 
     cli_delete.delete(c, data, 'acl_unset', 3)
 
@@ -112,6 +119,8 @@ def acl_unset(c):
 
 
 def clear_acl(c):
+    cli_delete = cli_test_delete()
+
     # precondition
     server.webapi('post', 'acl/editcancel/nasshare_0')
     server.webapi('post', 'acl/editcancel/clone_0')
@@ -122,6 +131,7 @@ def clear_acl(c):
 
 
 def cancel_acl(c):
+    cli_other_action = cli_test_other_action()
 
     cli_other_action.other(c, data, 'cancel_acl')
 
@@ -129,6 +139,8 @@ def cancel_acl(c):
 
 
 def invalid_setting_parameter(c):
+    cli_failed_test = cli_test_failed_test()
+
     # precondition
     server.webapi('post', 'acl/editcancel/nasshare_0')
     server.webapi('post', 'acl/editcancel/clone_0')
@@ -139,6 +151,7 @@ def invalid_setting_parameter(c):
 
 
 def invalid_option(c):
+    cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'invalid_option')
 
@@ -146,6 +159,7 @@ def invalid_option(c):
 
 
 def missing_parameter(c):
+    cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'missing_parameter')
 

@@ -11,6 +11,8 @@ data = 'data/rb.xlsx'
 
 
 def raid1_start_rb(c):
+    cli_setting = cli_test_setting()
+
     # precondition
     pdId = find_pd_id()
 
@@ -23,6 +25,8 @@ def raid1_start_rb(c):
 
 
 def raid5_start_rb(c):
+    cli_setting = cli_test_setting()
+
     # precondition
     pdId = find_pd_id()
 
@@ -35,6 +39,8 @@ def raid5_start_rb(c):
 
 
 def raid6_start_rb(c):
+    cli_setting = cli_test_setting()
+
     # precondition
     pdId = find_pd_id()
 
@@ -47,6 +53,8 @@ def raid6_start_rb(c):
 
 
 def raid10_start_rb(c):
+    cli_setting = cli_test_setting()
+
     # precondition
     pdId = find_pd_id()
 
@@ -59,6 +67,8 @@ def raid10_start_rb(c):
 
 
 def raid50_start_rb(c):
+    cli_setting = cli_test_setting()
+
     # precondition
     pdId = find_pd_id()
 
@@ -72,6 +82,8 @@ def raid50_start_rb(c):
 
 
 def raid60_start_rb(c):
+    cli_setting = cli_test_setting()
+
     # precondition
     pdId = find_pd_id()
 
@@ -85,6 +97,7 @@ def raid60_start_rb(c):
 
 
 def list_rb(c):
+    cli_list = cli_test_list()
 
     cli_list.list(c, data, 'list_rb')
 
@@ -92,6 +105,7 @@ def list_rb(c):
 
 
 def stop_rb(c):
+    cli_setting = cli_test_setting()
 
     cli_setting.setting(c, data, 'stop_rb', 3)
 
@@ -99,6 +113,7 @@ def stop_rb(c):
 
 
 def invalid_setting_parameter(c):
+    cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'invalid_setting_parameter')
 
@@ -106,6 +121,7 @@ def invalid_setting_parameter(c):
 
 
 def invalid_option(c):
+    cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'invalid_option')
 
@@ -113,6 +129,7 @@ def invalid_option(c):
 
 
 def missing_parameter(c):
+    cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'missing_parameter')
 

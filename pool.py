@@ -11,6 +11,7 @@ data = 'data/pool.xlsx'
 
 
 def add_pool_raid0(c):
+    cli_setting = cli_test_setting()
 
     # precondition
     find_pd_id()
@@ -21,6 +22,7 @@ def add_pool_raid0(c):
 
 
 def add_pool_raid1(c):
+    cli_setting = cli_test_setting()
 
     # precondition
     find_pd_id()
@@ -31,6 +33,7 @@ def add_pool_raid1(c):
 
 
 def add_pool_raid5(c):
+    cli_setting = cli_test_setting()
 
     # precondition
     find_pd_id()
@@ -41,6 +44,7 @@ def add_pool_raid5(c):
 
 
 def add_pool_raid6(c):
+    cli_setting = cli_test_setting()
 
     # precondition
     find_pd_id()
@@ -51,6 +55,7 @@ def add_pool_raid6(c):
 
 
 def add_pool_raid10(c):
+    cli_setting = cli_test_setting()
 
     # precondition
     find_pd_id()
@@ -61,6 +66,7 @@ def add_pool_raid10(c):
 
 
 def add_pool_raid50(c):
+    cli_setting = cli_test_setting()
 
     # precondition
     find_pd_id()
@@ -71,6 +77,7 @@ def add_pool_raid50(c):
 
 
 def add_pool_raid60(c):
+    cli_setting = cli_test_setting()
 
     # precondition
     find_pd_id()
@@ -81,6 +88,7 @@ def add_pool_raid60(c):
 
 
 def add_pool_default_setting(c):
+    cli_setting = cli_test_setting()
 
     # precondition
     find_pd_id()
@@ -91,6 +99,7 @@ def add_pool_default_setting(c):
 
 
 def modify_pool_name(c):
+    cli_setting = cli_test_setting()
 
     cli_setting.setting(c, data, 'modify_pool_name', 3)
 
@@ -98,6 +107,7 @@ def modify_pool_name(c):
 
 
 def list_pool(c):
+    cli_list = cli_test_list()
 
     # precondition
     pdId = find_pd_id()
@@ -111,6 +121,7 @@ def list_pool(c):
 
 
 def list_verbose_mode_pool(c):
+    cli_list = cli_test_list()
 
     cli_list.list(c, data, 'list_verbose_mode_pool')
 
@@ -118,6 +129,7 @@ def list_verbose_mode_pool(c):
 
 
 def extend_raid0_pool(c):
+    cli_setting = cli_test_setting()
 
     # precondition
     pdId = find_pd_id()
@@ -132,6 +144,7 @@ def extend_raid0_pool(c):
 
 
 def extend_raid1_pool(c):
+    cli_setting = cli_test_setting()
 
     # precondition
     pdId = find_pd_id()
@@ -146,6 +159,7 @@ def extend_raid1_pool(c):
 
 
 def extend_raid5_pool(c):
+    cli_setting = cli_test_setting()
 
     # precondition
     pdId = find_pd_id()
@@ -160,6 +174,7 @@ def extend_raid5_pool(c):
 
 
 def extend_raid6_pool(c):
+    cli_setting = cli_test_setting()
 
     # precondition
     pdId = find_pd_id()
@@ -174,6 +189,7 @@ def extend_raid6_pool(c):
 
 
 def extend_raid10_pool(c):
+    cli_setting = cli_test_setting()
 
     # precondition
     pdId = find_pd_id()
@@ -188,6 +204,7 @@ def extend_raid10_pool(c):
 
 
 def extend_raid50_pool(c):
+    cli_setting = cli_test_setting()
 
     # precondition
     pdId = find_pd_id()
@@ -202,6 +219,7 @@ def extend_raid50_pool(c):
 
 
 def extend_raid60_pool(c):
+    cli_setting = cli_test_setting()
 
     # precondition
     pdId = find_pd_id()
@@ -216,6 +234,7 @@ def extend_raid60_pool(c):
 
 
 def delete_pool(c):
+    cli_delete = cli_test_delete()
 
     # precondition
     pdId = find_pd_id()
@@ -238,6 +257,8 @@ def delete_pool(c):
 
 
 def invalid_settings_parameter(c):
+    cli_failed_test = cli_test_failed_test()
+
     # precondition
     server.webapi('post', 'rcache/attach', {"pd_list": [5]})
 
@@ -249,6 +270,7 @@ def invalid_settings_parameter(c):
 
 
 def invalid_option(c):
+    cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'invalid_option')
 
@@ -256,6 +278,7 @@ def invalid_option(c):
 
 
 def missing_parameter(c):
+    cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'missing_parameter')
 

@@ -28,6 +28,8 @@ def clean_up_environment():
 
 
 def add_snapshot(c):
+    cli_setting = cli_test_setting()
+
     # precondition
     precondition()
 
@@ -37,6 +39,7 @@ def add_snapshot(c):
 
 
 def list_snapshot(c):
+    cli_list = cli_test_list()
 
     cli_list.list(c, data, 'list_snapshot')
 
@@ -44,6 +47,7 @@ def list_snapshot(c):
 
 
 def list_snapshot_by_verbose_mode(c):
+    cli_list = cli_test_list()
 
     cli_list.list(c, data, 'list_snapshot_by_verbose_mode')
 
@@ -51,6 +55,8 @@ def list_snapshot_by_verbose_mode(c):
 
 
 def mod_snapshot(c):
+    cli_setting = cli_test_setting()
+
     # precondition
     server.webapi('post', 'snapshot/2/unmount')
 
@@ -60,6 +66,8 @@ def mod_snapshot(c):
 
 
 def export_unexport_snapshot(c):
+    cli_setting = cli_test_setting()
+
     # precondition
     server.webapi('post', 'snapshot/3/unexport')
 
@@ -69,6 +77,8 @@ def export_unexport_snapshot(c):
 
 
 def mount_umount_snapshot(c):
+    cli_setting = cli_test_setting()
+
     # precondition
     server.webapi('post', 'snapshot/2/unmount')
 
@@ -78,6 +88,8 @@ def mount_umount_snapshot(c):
 
 
 def rollback_snapshot(c):
+    cli_other_action = cli_test_other_action()
+
     # precondition
     server.webapi('post', 'snapshot', {"name": 'test_volume_rollback', "type": 'volume', "source_id": 0})
 
@@ -89,6 +101,8 @@ def rollback_snapshot(c):
 
 
 def del_snapshot(c):
+    cli_delete = cli_test_delete()
+
     # precondition: create clone
     server.webapi('post', 'clone', {"source_id": 2, "name": 'test_volume_snap_f'})
     server.webapi('post', 'clone', {"source_id": 3, "name": 'test_nas_snap_f'})
@@ -99,6 +113,7 @@ def del_snapshot(c):
 
 
 def invalid_setting_parameter(c):
+    cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'invalid_setting_parameter')
 
@@ -106,6 +121,7 @@ def invalid_setting_parameter(c):
 
 
 def invalid_option(c):
+    cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'invalid_option')
 
@@ -113,6 +129,7 @@ def invalid_option(c):
 
 
 def missing_parameter(c):
+    cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'missing_parameter')
 

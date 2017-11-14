@@ -5,7 +5,7 @@
 from ssh_connect import ssh_conn
 import time
 import json
-from cli_test import cli_test
+from cli_test import *
 from remote import server
 from find_unconfigured_pd_id import find_pd_id
 
@@ -58,10 +58,11 @@ def precondition():
 
 
 def set_quota(c):
+    cli_setting = cli_test_setting()
     # precondition
     precondition()
 
-    cli_test.setting(c, data, 'set_quota', 3)
+    cli_setting.setting(c, data, 'set_quota', 3)
 
 
 def list_quota(c):

@@ -1,3 +1,3722 @@
+2017-11-14 17:04:43: 'result': 'p'
+2017-11-14 17:04:43: spare -a del -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-11-14 17:04:43: 
+Expect: Missing parameter
+
+2017-11-14 17:04:43: spare -a del
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a del'
+
+administrator@cli> 
+2017-11-14 17:04:43: 
+Expect: Missing parameter
+
+2017-11-14 17:04:43: spare -a add -t d -d 0 -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2017-11-14 17:04:43: 
+Expect: Missing parameter
+
+2017-11-14 17:04:43: spare -a add -t d -d 0
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+2017-11-14 17:04:43: 
+Expect: Missing parameter
+
+2017-11-14 17:04:43: spare -a add -t d -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+2017-11-14 17:04:43: 
+Expect: Missing parameter
+
+2017-11-14 17:04:43: spare -a add -t g -r n -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2017-11-14 17:04:43: 
+Expect: Missing parameter
+
+2017-11-14 17:04:43: spare -a add -t g -r n
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+2017-11-14 17:04:43: 
+Expect: Missing parameter
+
+2017-11-14 17:04:43: spare -a add -t g -r
+Error (0x403): Missing parameter
+-r: missing value
+
+administrator@cli> 
+2017-11-14 17:04:43: 
+Expect: Missing parameter
+
+2017-11-14 17:04:43: spare -a add -t g 
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+2017-11-14 17:04:43: 
+Expect: Missing parameter
+
+2017-11-14 17:04:43: spare -a add -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2017-11-14 17:04:43: 
+Expect: Missing parameter
+
+2017-11-14 17:04:43: spare -a add 
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+2017-11-14 17:04:43: 
+Expect: Missing parameter
+
+2017-11-14 17:04:43: spare -v -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-11-14 17:04:43: 
+Expect: Missing parameter
+
+2017-11-14 17:04:43: spare -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+2017-11-14 17:04:43: 
+Expect: Missing parameter
+
+2017-11-14 17:04:43: spare -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+2017-11-14 17:04:43: 
+Expect: Missing parameter
+
+2017-11-14 17:04:43: spare -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-11-14 17:04:43: 
+Expect: Missing parameter
+
+2017-11-14 17:04:43: 'result': 'p'
+2017-11-14 17:04:43: spare -a del -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-14 17:04:43: 
+Expect: invalid option: -test
+
+2017-11-14 17:04:43: spare -a add -t g -d 0 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-14 17:04:43: 
+Expect: invalid option: -test
+
+2017-11-14 17:04:43: spare -a add -t g -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-14 17:04:43: 
+Expect: invalid option: -test
+
+2017-11-14 17:04:43: spare -a add -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-14 17:04:43: 
+Expect: invalid option: -test
+
+2017-11-14 17:04:43: spare -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-14 17:04:43: 
+Expect: invalid option: -test
+
+2017-11-14 17:04:43: 'result': 'f'
+2017-11-14 17:04:43: spare -a del -i 257
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 257 (0,256)
+
+administrator@cli> 
+2017-11-14 17:04:43: 
+Expect: Invalid setting parameters
+
+2017-11-14 17:04:43: 
+Fail: please check out Invalid spare id
+
+2017-11-14 17:04:43: spare -a del -i 256
+Error (0x49840C02): Invalid disk array id or spare id
+Invalid disk array id or spare id
+
+administrator@cli> 
+2017-11-14 17:04:43: 
+Expect: Invalid spare id
+
+2017-11-14 17:04:43: spare -a del test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-14 17:04:42: 
+Expect: Invalid setting parameters
+
+2017-11-14 17:04:42: spare -a add -t g -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+2017-11-14 17:04:42: 
+Expect: Invalid setting parameters
+
+2017-11-14 17:04:42: spare -a add -t g -r test
+Error (0x2013): Invalid setting parameters
+-r: invalid setting test (y|n)
+
+administrator@cli> 
+2017-11-14 17:04:42: 
+Expect: Invalid setting parameters
+
+2017-11-14 17:04:42: spare -a add -t d -d 33 -p 12
+Error (0x2013): Invalid setting parameters
+-d: invalid setting 33 (0,31)
+
+administrator@cli> 
+2017-11-14 17:04:42: 
+Expect: Invalid setting parameters
+
+2017-11-14 17:04:42: spare -a add -t d -d 32 -p 12
+Error (0x2013): Invalid setting parameters
+-d: invalid setting 32 (0,31)
+
+administrator@cli> 
+2017-11-14 17:04:42: 
+Expect: Invalid setting parameters
+
+2017-11-14 17:04:42: spare -a add -t d -d 31 -p 12
+Error (0x2013): Invalid setting parameters
+specified pool not found
+
+administrator@cli> 
+2017-11-14 17:04:42: 
+Expect: Invalid setting parameters
+
+2017-11-14 17:04:42: spare -a add -t g -p 513
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 513 (0,512)
+
+administrator@cli> 
+2017-11-14 17:04:42: 
+Expect: Invalid setting parameters
+
+2017-11-14 17:04:42: spare -a add -t g -p 512
+Error (0x4020): Physical drive not found
+Physical drive not found
+
+administrator@cli> 
+2017-11-14 17:04:42: 
+Expect: Physical drive not found
+
+2017-11-14 17:04:42: spare -a add -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (g|d)
+
+administrator@cli> 
+2017-11-14 17:04:42: 
+Expect: Invalid setting parameters
+
+2017-11-14 17:04:42: spare -i 257
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 257 (0,256)
+
+administrator@cli> 
+2017-11-14 17:04:42: 
+Expect: Invalid setting parameters
+
+2017-11-14 17:04:42: 
+Fail: spare -i 256
+
+2017-11-14 17:04:42: spare -i 256
+No spare drive found
+
+administrator@cli> 
+2017-11-14 17:04:42: 
+Expect: No spare drive found
+
+2017-11-14 17:04:42: spare test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-14 17:04:42: 
+Expect: Invalid setting parameters
+
+2017-11-14 17:04:42: spare -a add -t g -r n -p 1
+Error (0x4021): Physical drive in use
+Physical drive in use
+
+administrator@cli> 
+2017-11-14 17:04:41: 
+Expect: Physical drive in use
+
+2017-11-14 16:59:14: 'result': 'f'
+2017-11-14 16:59:14: spare -a del -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-11-14 16:59:14: 
+Expect: Missing parameter
+
+2017-11-14 16:59:14: spare -a del
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a del'
+
+administrator@cli> 
+2017-11-14 16:59:13: 
+Expect: Missing parameter
+
+2017-11-14 16:59:13: spare -a add -t d -d 0 -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2017-11-14 16:59:13: 
+Expect: Missing parameter
+
+2017-11-14 16:59:13: spare -a add -t d -d 0
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+2017-11-14 16:59:13: 
+Expect: Missing parameter
+
+2017-11-14 16:59:13: spare -a add -t d -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+2017-11-14 16:59:13: 
+Expect: Missing parameter
+
+2017-11-14 16:59:13: spare -a add -t g -r n -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2017-11-14 16:59:13: 
+Expect: Missing parameter
+
+2017-11-14 16:59:13: spare -a add -t g -r n
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+2017-11-14 16:59:13: 
+Expect: Missing parameter
+
+2017-11-14 16:59:13: spare -a add -t g -r
+Error (0x403): Missing parameter
+-r: missing value
+
+administrator@cli> 
+2017-11-14 16:59:13: 
+Expect: Missing parameter
+
+2017-11-14 16:59:13: spare -a add -t g 
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+2017-11-14 16:59:13: 
+Expect: Missing parameter
+
+2017-11-14 16:59:13: spare -a add -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2017-11-14 16:59:13: 
+Expect: Missing parameter
+
+2017-11-14 16:59:13: spare -a add 
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+2017-11-14 16:59:13: 
+Expect: Missing parameter
+
+2017-11-14 16:59:13: spare -v -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-11-14 16:59:13: 
+Expect: Missing parameter
+
+2017-11-14 16:59:13: spare -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+2017-11-14 16:59:13: 
+Expect: Missing parameter
+
+2017-11-14 16:59:13: spare -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+2017-11-14 16:59:13: 
+Expect: Missing parameter
+
+2017-11-14 16:59:13: spare -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-11-14 16:59:13: 
+Expect: Missing parameter
+
+2017-11-14 16:59:13: 'result': 'f'
+2017-11-14 16:59:13: spare -a del -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-14 16:59:13: 
+Expect: invalid option: -test
+
+2017-11-14 16:59:13: spare -a add -t g -d 0 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-14 16:59:13: 
+Expect: invalid option: -test
+
+2017-11-14 16:59:13: spare -a add -t g -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-14 16:59:13: 
+Expect: invalid option: -test
+
+2017-11-14 16:59:13: spare -a add -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-14 16:59:13: 
+Expect: invalid option: -test
+
+2017-11-14 16:59:13: spare -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-14 16:59:13: 
+Expect: invalid option: -test
+
+2017-11-14 16:59:13: 'result': 'f'
+2017-11-14 16:59:13: spare -a del -i 257
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 257 (0,256)
+
+administrator@cli> 
+2017-11-14 16:59:13: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:59:13: 
+Fail: please check out Invalid spare id
+
+2017-11-14 16:59:13: spare -a del -i 256
+Error (0x49840C02): Invalid disk array id or spare id
+Invalid disk array id or spare id
+
+administrator@cli> 
+2017-11-14 16:59:12: 
+Expect: Invalid spare id
+
+2017-11-14 16:59:12: spare -a del test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-14 16:59:12: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:59:12: spare -a add -t g -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+2017-11-14 16:59:12: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:59:12: spare -a add -t g -r test
+Error (0x2013): Invalid setting parameters
+-r: invalid setting test (y|n)
+
+administrator@cli> 
+2017-11-14 16:59:12: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:59:12: spare -a add -t d -d 33 -p 12
+Error (0x2013): Invalid setting parameters
+-d: invalid setting 33 (0,31)
+
+administrator@cli> 
+2017-11-14 16:59:12: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:59:12: spare -a add -t d -d 32 -p 12
+Error (0x2013): Invalid setting parameters
+-d: invalid setting 32 (0,31)
+
+administrator@cli> 
+2017-11-14 16:59:12: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:59:12: spare -a add -t d -d 31 -p 12
+Error (0x2013): Invalid setting parameters
+specified pool not found
+
+administrator@cli> 
+2017-11-14 16:59:12: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:59:12: spare -a add -t g -p 513
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 513 (0,512)
+
+administrator@cli> 
+2017-11-14 16:59:12: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:59:12: spare -a add -t g -p 512
+Error (0x4020): Physical drive not found
+Physical drive not found
+
+administrator@cli> 
+2017-11-14 16:59:12: 
+Expect: Physical drive not found
+
+2017-11-14 16:59:12: spare -a add -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (g|d)
+
+administrator@cli> 
+2017-11-14 16:59:12: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:59:12: spare -i 257
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 257 (0,256)
+
+administrator@cli> 
+2017-11-14 16:59:12: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:59:12: 
+Fail: spare -i 256
+
+2017-11-14 16:59:12: spare -i 256
+No spare drive found
+
+administrator@cli> 
+2017-11-14 16:59:12: 
+Expect: No spare drive found
+
+2017-11-14 16:59:12: spare test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-14 16:59:12: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:59:12: spare -a add -t g -r n -p 1
+Error (0x4021): Physical drive in use
+Physical drive in use
+
+administrator@cli> 
+2017-11-14 16:59:12: 
+Expect: Physical drive in use
+
+2017-11-14 16:50:54: 'result': 'f'
+2017-11-14 16:50:54: spare -a del -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-11-14 16:50:54: 
+Expect: Missing parameter
+
+2017-11-14 16:50:54: spare -a del
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a del'
+
+administrator@cli> 
+2017-11-14 16:50:54: 
+Expect: Missing parameter
+
+2017-11-14 16:50:54: spare -a add -t d -d 0 -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2017-11-14 16:50:54: 
+Expect: Missing parameter
+
+2017-11-14 16:50:54: spare -a add -t d -d 0
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+2017-11-14 16:50:54: 
+Expect: Missing parameter
+
+2017-11-14 16:50:54: spare -a add -t d -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+2017-11-14 16:50:54: 
+Expect: Missing parameter
+
+2017-11-14 16:50:54: spare -a add -t g -r n -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2017-11-14 16:50:54: 
+Expect: Missing parameter
+
+2017-11-14 16:50:54: spare -a add -t g -r n
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+2017-11-14 16:50:54: 
+Expect: Missing parameter
+
+2017-11-14 16:50:54: spare -a add -t g -r
+Error (0x403): Missing parameter
+-r: missing value
+
+administrator@cli> 
+2017-11-14 16:50:54: 
+Expect: Missing parameter
+
+2017-11-14 16:50:54: spare -a add -t g 
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+2017-11-14 16:50:54: 
+Expect: Missing parameter
+
+2017-11-14 16:50:54: spare -a add -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2017-11-14 16:50:54: 
+Expect: Missing parameter
+
+2017-11-14 16:50:54: spare -a add 
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+2017-11-14 16:50:54: 
+Expect: Missing parameter
+
+2017-11-14 16:50:54: spare -v -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-11-14 16:50:54: 
+Expect: Missing parameter
+
+2017-11-14 16:50:54: spare -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+2017-11-14 16:50:54: 
+Expect: Missing parameter
+
+2017-11-14 16:50:54: spare -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+2017-11-14 16:50:54: 
+Expect: Missing parameter
+
+2017-11-14 16:50:54: spare -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-11-14 16:50:54: 
+Expect: Missing parameter
+
+2017-11-14 16:50:54: 'result': 'f'
+2017-11-14 16:50:54: spare -a del -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-14 16:50:54: 
+Expect: invalid option: -test
+
+2017-11-14 16:50:54: spare -a add -t g -d 0 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-14 16:50:54: 
+Expect: invalid option: -test
+
+2017-11-14 16:50:54: spare -a add -t g -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-14 16:50:54: 
+Expect: invalid option: -test
+
+2017-11-14 16:50:54: spare -a add -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-14 16:50:53: 
+Expect: invalid option: -test
+
+2017-11-14 16:50:53: spare -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-14 16:50:53: 
+Expect: invalid option: -test
+
+2017-11-14 16:50:53: 'result': 'f'
+2017-11-14 16:50:53: spare -a del -i 257
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 257 (0,256)
+
+administrator@cli> 
+2017-11-14 16:50:53: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:50:53: 
+Fail: please check out Invalid spare id
+
+2017-11-14 16:50:53: spare -a del -i 256
+Error (0x49840C02): Invalid disk array id or spare id
+Invalid disk array id or spare id
+
+administrator@cli> 
+2017-11-14 16:50:53: 
+Expect: Invalid spare id
+
+2017-11-14 16:50:53: spare -a del test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-14 16:50:53: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:50:53: spare -a add -t g -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+2017-11-14 16:50:53: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:50:53: spare -a add -t g -r test
+Error (0x2013): Invalid setting parameters
+-r: invalid setting test (y|n)
+
+administrator@cli> 
+2017-11-14 16:50:53: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:50:53: 
+Fail: please check out (0,31)
+
+2017-11-14 16:50:53: spare -a add -t d -d 33 -p 12
+Error (0x2013): Invalid setting parameters
+-d: invalid setting 33 (0,32)
+
+administrator@cli> 
+2017-11-14 16:50:53: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:50:53: 
+Fail: please check out (0,31)
+
+2017-11-14 16:50:53: 
+Fail: please check out Invalid setting parameters
+
+2017-11-14 16:50:53: spare -a add -t d -d 32 -p 12
+Error (0x4100104): Incorrect parameters: Not ALL Pools exist.
+
+administrator@cli> 
+2017-11-14 16:50:53: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:50:53: spare -a add -t d -d 31 -p 12
+Error (0x2013): Invalid setting parameters
+specified pool not found
+
+administrator@cli> 
+2017-11-14 16:50:53: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:50:53: spare -a add -t g -p 513
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 513 (0,512)
+
+administrator@cli> 
+2017-11-14 16:50:53: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:50:53: spare -a add -t g -p 512
+Error (0x4020): Physical drive not found
+Physical drive not found
+
+administrator@cli> 
+2017-11-14 16:50:53: 
+Expect: Physical drive not found
+
+2017-11-14 16:50:53: spare -a add -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (g|d)
+
+administrator@cli> 
+2017-11-14 16:50:53: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:50:53: spare -i 257
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 257 (0,256)
+
+administrator@cli> 
+2017-11-14 16:50:53: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:50:53: 
+Fail: spare -i 256
+
+2017-11-14 16:50:53: spare -i 256
+No spare drive found
+
+administrator@cli> 
+2017-11-14 16:50:53: 
+Expect: No spare drive found
+
+2017-11-14 16:50:53: spare test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-14 16:50:53: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:50:53: spare -a add -t g -r n -p 1
+Error (0x4021): Physical drive in use
+Physical drive in use
+
+administrator@cli> 
+2017-11-14 16:50:53: 
+Expect: Physical drive in use
+
+2017-11-14 16:49:34: 'result': 'f'
+2017-11-14 16:49:34: spare -a del -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-11-14 16:49:34: 
+Expect: Missing parameter
+
+2017-11-14 16:49:34: spare -a del
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a del'
+
+administrator@cli> 
+2017-11-14 16:49:34: 
+Expect: Missing parameter
+
+2017-11-14 16:49:34: spare -a add -t d -d 0 -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2017-11-14 16:49:34: 
+Expect: Missing parameter
+
+2017-11-14 16:49:34: spare -a add -t d -d 0
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+2017-11-14 16:49:34: 
+Expect: Missing parameter
+
+2017-11-14 16:49:34: spare -a add -t d -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+2017-11-14 16:49:34: 
+Expect: Missing parameter
+
+2017-11-14 16:49:34: spare -a add -t g -r n -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2017-11-14 16:49:34: 
+Expect: Missing parameter
+
+2017-11-14 16:49:34: spare -a add -t g -r n
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+2017-11-14 16:49:34: 
+Expect: Missing parameter
+
+2017-11-14 16:49:34: spare -a add -t g -r
+Error (0x403): Missing parameter
+-r: missing value
+
+administrator@cli> 
+2017-11-14 16:49:34: 
+Expect: Missing parameter
+
+2017-11-14 16:49:34: spare -a add -t g 
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+2017-11-14 16:49:34: 
+Expect: Missing parameter
+
+2017-11-14 16:49:34: spare -a add -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2017-11-14 16:49:34: 
+Expect: Missing parameter
+
+2017-11-14 16:49:34: spare -a add 
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+2017-11-14 16:49:34: 
+Expect: Missing parameter
+
+2017-11-14 16:49:34: spare -v -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-11-14 16:49:34: 
+Expect: Missing parameter
+
+2017-11-14 16:49:34: spare -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+2017-11-14 16:49:34: 
+Expect: Missing parameter
+
+2017-11-14 16:49:34: spare -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+2017-11-14 16:49:34: 
+Expect: Missing parameter
+
+2017-11-14 16:49:34: spare -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-11-14 16:49:34: 
+Expect: Missing parameter
+
+2017-11-14 16:49:34: 'result': 'f'
+2017-11-14 16:49:34: spare -a del -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-14 16:49:34: 
+Expect: invalid option: -test
+
+2017-11-14 16:49:34: spare -a add -t g -d 0 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-14 16:49:34: 
+Expect: invalid option: -test
+
+2017-11-14 16:49:34: spare -a add -t g -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-14 16:49:33: 
+Expect: invalid option: -test
+
+2017-11-14 16:49:33: spare -a add -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-14 16:49:33: 
+Expect: invalid option: -test
+
+2017-11-14 16:49:33: spare -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-14 16:49:33: 
+Expect: invalid option: -test
+
+2017-11-14 16:49:33: 'result': 'f'
+2017-11-14 16:49:33: spare -a del -i 257
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 257 (0,256)
+
+administrator@cli> 
+2017-11-14 16:49:33: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:49:33: 
+Fail: please check out Invalid spare id
+
+2017-11-14 16:49:33: spare -a del -i 256
+Error (0x49840C02): Invalid disk array id or spare id
+Invalid disk array id or spare id
+
+administrator@cli> 
+2017-11-14 16:49:33: 
+Expect: Invalid spare id
+
+2017-11-14 16:49:33: spare -a del test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-14 16:49:33: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:49:33: spare -a add -t g -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+2017-11-14 16:49:33: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:49:33: spare -a add -t g -r test
+Error (0x2013): Invalid setting parameters
+-r: invalid setting test (y|n)
+
+administrator@cli> 
+2017-11-14 16:49:33: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:49:33: 
+Fail: please check out (0,31)
+
+2017-11-14 16:49:33: spare -a add -t d -d 33 -p 12
+Error (0x2013): Invalid setting parameters
+-d: invalid setting 33 (0,32)
+
+administrator@cli> 
+2017-11-14 16:49:33: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:49:33: 
+Fail: please check out (0,31)
+
+2017-11-14 16:49:33: 
+Fail: please check out Invalid setting parameters
+
+2017-11-14 16:49:33: spare -a add -t d -d 32 -p 12
+Error (0x4100104): Incorrect parameters: Not ALL Pools exist.
+
+administrator@cli> 
+2017-11-14 16:49:33: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:49:33: spare -a add -t d -d 31 -p 12
+Error (0x2013): Invalid setting parameters
+specified pool not found
+
+administrator@cli> 
+2017-11-14 16:49:33: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:49:33: spare -a add -t g -p 513
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 513 (0,512)
+
+administrator@cli> 
+2017-11-14 16:49:33: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:49:33: spare -a add -t g -p 512
+Error (0x4020): Physical drive not found
+Physical drive not found
+
+administrator@cli> 
+2017-11-14 16:49:33: 
+Expect: Physical drive not found
+
+2017-11-14 16:49:33: spare -a add -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (g|d)
+
+administrator@cli> 
+2017-11-14 16:49:33: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:49:33: spare -i 257
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 257 (0,256)
+
+administrator@cli> 
+2017-11-14 16:49:33: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:49:33: 
+Fail: spare -i 256
+
+2017-11-14 16:49:33: spare -i 256
+No spare drive found
+
+administrator@cli> 
+2017-11-14 16:49:33: 
+Expect: No spare drive found
+
+2017-11-14 16:49:33: spare test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-14 16:49:33: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:49:33: spare -a add -t g -r n -p 1
+Error (0x4021): Physical drive in use
+Physical drive in use
+
+administrator@cli> 
+2017-11-14 16:49:33: 
+Expect: Physical drive in use
+
+2017-11-14 16:46:46: 'result': 'f'
+2017-11-14 16:46:46: spare -a del -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-11-14 16:46:46: 
+Expect: Missing parameter
+
+2017-11-14 16:46:46: spare -a del
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a del'
+
+administrator@cli> 
+2017-11-14 16:46:46: 
+Expect: Missing parameter
+
+2017-11-14 16:46:46: spare -a add -t d -d 0 -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2017-11-14 16:46:46: 
+Expect: Missing parameter
+
+2017-11-14 16:46:46: spare -a add -t d -d 0
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+2017-11-14 16:46:46: 
+Expect: Missing parameter
+
+2017-11-14 16:46:46: spare -a add -t d -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+2017-11-14 16:46:46: 
+Expect: Missing parameter
+
+2017-11-14 16:46:46: spare -a add -t g -r n -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2017-11-14 16:46:46: 
+Expect: Missing parameter
+
+2017-11-14 16:46:46: spare -a add -t g -r n
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+2017-11-14 16:46:46: 
+Expect: Missing parameter
+
+2017-11-14 16:46:46: spare -a add -t g -r
+Error (0x403): Missing parameter
+-r: missing value
+
+administrator@cli> 
+2017-11-14 16:46:46: 
+Expect: Missing parameter
+
+2017-11-14 16:46:46: spare -a add -t g 
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+2017-11-14 16:46:46: 
+Expect: Missing parameter
+
+2017-11-14 16:46:46: spare -a add -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2017-11-14 16:46:46: 
+Expect: Missing parameter
+
+2017-11-14 16:46:46: spare -a add 
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+2017-11-14 16:46:46: 
+Expect: Missing parameter
+
+2017-11-14 16:46:46: spare -v -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-11-14 16:46:46: 
+Expect: Missing parameter
+
+2017-11-14 16:46:46: spare -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+2017-11-14 16:46:46: 
+Expect: Missing parameter
+
+2017-11-14 16:46:46: spare -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+2017-11-14 16:46:46: 
+Expect: Missing parameter
+
+2017-11-14 16:46:46: spare -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-11-14 16:46:46: 
+Expect: Missing parameter
+
+2017-11-14 16:46:46: 'result': 'f'
+2017-11-14 16:46:46: spare -a del -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-14 16:46:46: 
+Expect: invalid option: -test
+
+2017-11-14 16:46:46: spare -a add -t g -d 0 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-14 16:46:46: 
+Expect: invalid option: -test
+
+2017-11-14 16:46:46: spare -a add -t g -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-14 16:46:46: 
+Expect: invalid option: -test
+
+2017-11-14 16:46:46: spare -a add -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-14 16:46:46: 
+Expect: invalid option: -test
+
+2017-11-14 16:46:46: spare -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-14 16:46:46: 
+Expect: invalid option: -test
+
+2017-11-14 16:46:46: 'result': 'f'
+2017-11-14 16:46:46: spare -a del -i 257
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 257 (0,256)
+
+administrator@cli> 
+2017-11-14 16:46:46: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:46:46: 
+Fail: please check out Invalid spare id
+
+2017-11-14 16:46:46: spare -a del -i 256
+Error (0x49840C02): Invalid disk array id or spare id
+Invalid disk array id or spare id
+
+administrator@cli> 
+2017-11-14 16:46:46: 
+Expect: Invalid spare id
+
+2017-11-14 16:46:46: spare -a del test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-14 16:46:46: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:46:46: spare -a add -t g -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+2017-11-14 16:46:46: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:46:46: spare -a add -t g -r test
+Error (0x2013): Invalid setting parameters
+-r: invalid setting test (y|n)
+
+administrator@cli> 
+2017-11-14 16:46:45: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:46:45: 
+Fail: please check out (0,31)
+
+2017-11-14 16:46:45: spare -a add -t d -d 33 -p 12
+Error (0x2013): Invalid setting parameters
+-d: invalid setting 33 (0,32)
+
+administrator@cli> 
+2017-11-14 16:46:45: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:46:45: 
+Fail: please check out (0,31)
+
+2017-11-14 16:46:45: 
+Fail: please check out Invalid setting parameters
+
+2017-11-14 16:46:45: spare -a add -t d -d 32 -p 12
+Error (0x4100104): Incorrect parameters: Not ALL Pools exist.
+
+administrator@cli> 
+2017-11-14 16:46:45: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:46:45: spare -a add -t d -d 31 -p 12
+Error (0x2013): Invalid setting parameters
+specified pool not found
+
+administrator@cli> 
+2017-11-14 16:46:45: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:46:45: spare -a add -t g -p 513
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 513 (0,512)
+
+administrator@cli> 
+2017-11-14 16:46:45: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:46:45: spare -a add -t g -p 512
+Error (0x4020): Physical drive not found
+Physical drive not found
+
+administrator@cli> 
+2017-11-14 16:46:45: 
+Expect: Physical drive not found
+
+2017-11-14 16:46:45: spare -a add -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (g|d)
+
+administrator@cli> 
+2017-11-14 16:46:45: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:46:45: spare -i 257
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 257 (0,256)
+
+administrator@cli> 
+2017-11-14 16:46:45: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:46:45: 
+Fail: spare -i 256
+
+2017-11-14 16:46:45: spare -i 256
+No spare drive found
+
+administrator@cli> 
+2017-11-14 16:46:45: 
+Expect: No spare drive found
+
+2017-11-14 16:46:45: spare test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-14 16:46:45: 
+Expect: Invalid setting parameters
+
+2017-11-14 16:46:45: spare -a add -t g -r n -p 1
+Error (0x4021): Physical drive in use
+Physical drive in use
+
+administrator@cli> 
+2017-11-14 16:46:45: 
+Expect: Physical drive in use
+
+2017-11-14 16:46:38: 'result': 'p'
+2017-11-14 16:46:38: spare
+No spare drive exists
+
+administrator@cli> 
+2017-11-14 16:46:38: spare -a del -i 1
+
+administrator@cli> 
+2017-11-14 16:46:37: 
+Expect: spare 1 should be deleted
+
+2017-11-14 16:46:37: spare
+===============================================================================
+Id    Status    PdId    Capacity    Revertible   Type        DedicatedToPool   
+===============================================================================
+1     OK        9       4 TB        Yes          Dedicated   0                 
+
+administrator@cli> 
+2017-11-14 16:46:37: spare -a del -i 0
+
+administrator@cli> 
+2017-11-14 16:46:37: 
+Expect: spare 0 should be deleted
+
+2017-11-14 16:46:37: 'result': 'p'
+2017-11-14 16:46:37: spare -v -i 1
+-------------------------------------------------------------------------------
+Id: 1                                   PdId: 9
+Type: Dedicated                         Revertible: Yes
+PhysicalCapacity: 4 TB                  Status: OK
+PoolList: 0
+
+administrator@cli> 
+2017-11-14 16:46:37: 
+Expect: spare 1 spare drives should be listed by verbose mode
+
+2017-11-14 16:46:37: spare -v -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   PdId: 4
+Type: Global                            Revertible: No
+PhysicalCapacity: 4 TB                  Status: OK
+PoolList: N/A
+
+administrator@cli> 
+2017-11-14 16:46:36: 
+Expect: spare 0 drives should be listed by verbose mode
+
+2017-11-14 16:46:36: spare -v
+-------------------------------------------------------------------------------
+Id: 0                                   PdId: 4
+Type: Global                            Revertible: No
+PhysicalCapacity: 4 TB                  Status: OK
+PoolList: N/A
+-------------------------------------------------------------------------------
+Id: 1                                   PdId: 9
+Type: Dedicated                         Revertible: Yes
+PhysicalCapacity: 4 TB                  Status: OK
+PoolList: 0
+
+administrator@cli> 
+2017-11-14 16:46:36: 
+Expect: all of spare drives should be listed by verbose mode
+
+2017-11-14 16:46:36: 'result': 'p'
+2017-11-14 16:46:36: spare -i 1
+===============================================================================
+Id    Status    PdId    Capacity    Revertible   Type        DedicatedToPool   
+===============================================================================
+1     OK        9       4 TB        Yes          Dedicated   0                 
+
+administrator@cli> 
+2017-11-14 16:46:36: 
+Expect: spare 1 spare drives should be listed
+
+2017-11-14 16:46:36: spare -i 0
+===============================================================================
+Id    Status    PdId    Capacity    Revertible    Type      DedicatedToPool    
+===============================================================================
+0     OK        4       4 TB        No            Global    N/A                
+
+administrator@cli> 
+2017-11-14 16:46:36: 
+Expect: spare 0 drives should be listed
+
+2017-11-14 16:46:36: spare
+===============================================================================
+Id    Status    PdId    Capacity    Revertible   Type        DedicatedToPool   
+===============================================================================
+0     OK        4       4 TB        No           Global      N/A               
+1     OK        9       4 TB        Yes          Dedicated   0                 
+
+administrator@cli> 
+2017-11-14 16:46:36: 
+Expect: all of spare drives should be listed
+
+2017-11-14 16:46:27: 'result': 'p'
+2017-11-14 16:46:27: spare
+No spare drive exists
+
+administrator@cli> 
+2017-11-14 16:46:24: pool -a del -f -y -i 0
+
+administrator@cli> 
+2017-11-14 16:46:23: 
+Expect: delete pool 0
+
+2017-11-14 16:46:23: phydrv -p 1
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Unconfigured    
+     S640                                                                      
+
+administrator@cli> 
+2017-11-14 16:46:20: phydrv -a clear -p 1 -t staleconfig
+
+administrator@cli> 
+2017-11-14 16:46:18: 
+Expect: clean up environment
+
+2017-11-14 16:46:18: rb
+-------------------------------------------------------------------------------
+PoolId: 0
+===============================================================================
+PdId                    Percentage                   Status                    
+===============================================================================
+12                      0                            Running                   
+
+administrator@cli> 
+2017-11-14 16:46:15: phydrv -a offline -p 1
+
+administrator@cli> 
+2017-11-14 16:46:15: 
+Expect: rebuild should start
+
+2017-11-14 16:46:15: rb
+This background activity is not running.
+administrator@cli> 
+2017-11-14 16:46:12: phydrv -a offline -p 4
+
+administrator@cli> 
+2017-11-14 16:46:12: 
+Expect: rebuild should do not start
+
+2017-11-14 16:46:12: spare
+===============================================================================
+Id    Status    PdId    Capacity    Revertible   Type        DedicatedToPool   
+===============================================================================
+0     OK        12      4 TB        No           Dedicated   0                 
+
+administrator@cli> 
+2017-11-14 16:46:09: spare -a add -t d -d 0 -r n -p 12
+
+administrator@cli> 
+2017-11-14 16:46:06: 
+Expect: spare should be added
+
+2017-11-14 16:45:58: 'result': 'p'
+2017-11-14 16:45:58: phydrv -p 1
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Unconfigured    
+     S640                                                                      
+
+administrator@cli> 
+2017-11-14 16:45:55: phydrv -a clear -p 1 -t staleconfig
+
+administrator@cli> 
+2017-11-14 16:45:53: 
+Expect: clean up environment
+
+2017-11-14 16:45:53: rb
+-------------------------------------------------------------------------------
+PoolId: 0
+===============================================================================
+PdId                    Percentage                   Status                    
+===============================================================================
+11                      0                            Running                   
+
+administrator@cli> 
+2017-11-14 16:45:50: phydrv -a offline -p 1
+
+administrator@cli> 
+2017-11-14 16:45:50: 
+Expect: rebuild should start
+
+2017-11-14 16:45:50: spare
+===============================================================================
+Id    Status    PdId    Capacity    Revertible    Type      DedicatedToPool    
+===============================================================================
+0     OK        11      2 TB        Yes           Global    N/A                
+
+administrator@cli> 
+2017-11-14 16:45:47: spare -a add -t g -r y -p 11
+
+administrator@cli> 
+2017-11-14 16:45:46: 
+Expect: spare should be added
+
+2017-11-14 16:45:42: 'result': 'p'
+2017-11-14 16:45:42: tz -a mod -s 
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2017-11-14 16:45:42: tz -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+2017-11-14 16:45:42: 'result': 'p'
+2017-11-14 16:45:42: tz -a mod -s "test=Beijing"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+2017-11-14 16:45:42: tz -a mod -test ""
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-14 16:45:42: tz -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|mod)
+
+administrator@cli> 
+2017-11-14 16:45:42: tz -d -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-14 16:45:42: tz -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-14 16:45:42: 'result': 'p'
+2017-11-14 16:45:42: tz -a mod -s "zone=1"
+Error (0x100): Not found
+
+administrator@cli> 
+2017-11-14 16:45:42: tz -a mod -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+2017-11-14 16:45:41: tz -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|mod)
+
+administrator@cli> 
+2017-11-14 16:45:41: tz -d test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-14 16:45:41: tz test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-14 16:45:41: 'result': 'p'
+2017-11-14 16:45:41: tz
+===============================================================================
+Time Offset               Zone                        Support DST              
+===============================================================================
+UTC-3:00                  America/Bahia               no                       
+
+administrator@cli> 
+2017-11-14 16:45:41: tz -a mod -s "zone=Bahia"
+
+administrator@cli> 
+2017-11-14 16:45:41: modify timezone to Bahia
+
+2017-11-14 16:45:41: tz
+===============================================================================
+Time Offset                Zone                      Support DST               
+===============================================================================
+UTC+1:00                   Europe/Riga               yes                       
+
+administrator@cli> 
+2017-11-14 16:45:41: tz -a mod -s "zone=Riga"
+
+administrator@cli> 
+2017-11-14 16:45:41: modify timezone to Riga
+
+2017-11-14 16:45:41: tz
+===============================================================================
+Time Offset              Zone                          Support DST             
+===============================================================================
+UTC-10:00                America/Anchorage             yes                     
+
+administrator@cli> 
+2017-11-14 16:45:41: tz -a mod -s "zone=Anchorage"
+
+administrator@cli> 
+2017-11-14 16:45:41: modify timezone to Anchorage
+
+2017-11-14 16:45:41: tz
+===============================================================================
+Time Offset              Zone                          Support DST             
+===============================================================================
+UTC-5:00                 America/Goose_Bay             yes                     
+
+administrator@cli> 
+2017-11-14 16:45:41: tz -a mod -s "zone=Goose_Bay"
+
+administrator@cli> 
+2017-11-14 16:45:41: modify timezone to Goose_Bay
+
+2017-11-14 16:45:41: tz
+===============================================================================
+Time Offset                Zone                      Support DST               
+===============================================================================
+UTC+1:00                   Asia/Amman                yes                       
+
+administrator@cli> 
+2017-11-14 16:45:41: tz -a mod -s "zone=Amman"
+
+administrator@cli> 
+2017-11-14 16:45:41: modify timezone to Amman
+
+2017-11-14 16:45:41: tz
+===============================================================================
+Time Offset             Zone                            Support DST            
+===============================================================================
+UTC-7:00                America/Rainy_River             yes                    
+
+administrator@cli> 
+2017-11-14 16:45:41: tz -a mod -s "zone=Rainy_River"
+
+administrator@cli> 
+2017-11-14 16:45:41: modify timezone to Rainy_River
+
+2017-11-14 16:45:41: tz
+===============================================================================
+Time Offset               Zone                       Support DST               
+===============================================================================
+UTC+5:00                  Asia/Karachi               no                        
+
+administrator@cli> 
+2017-11-14 16:45:41: tz -a mod -s "zone=Karachi"
+
+administrator@cli> 
+2017-11-14 16:45:41: modify timezone to Karachi
+
+2017-11-14 16:45:41: tz
+===============================================================================
+Time Offset              Zone                          Support DST             
+===============================================================================
+UTC+5:00                 Indian/Kerguelen              no                      
+
+administrator@cli> 
+2017-11-14 16:45:41: tz -a mod -s "zone=Kerguelen"
+
+administrator@cli> 
+2017-11-14 16:45:40: modify timezone to Kerguelen
+
+2017-11-14 16:45:40: tz
+===============================================================================
+Time Offset               Zone                       Support DST               
+===============================================================================
+UTC+3:00                  Europe/Kirov               no                        
+
+administrator@cli> 
+2017-11-14 16:45:40: tz -a mod -s "zone=Kirov"
+
+administrator@cli> 
+2017-11-14 16:45:40: modify timezone to Kirov
+
+2017-11-14 16:45:40: tz
+===============================================================================
+Time Offset              Zone                          Support DST             
+===============================================================================
+UTC-1:00                 Atlantic/Madeira              yes                     
+
+administrator@cli> 
+2017-11-14 16:45:40: tz -a mod -s "zone=Madeira"
+
+administrator@cli> 
+2017-11-14 16:45:40: modify timezone to Madeira
+
+2017-11-14 16:45:40: 'result': 'p'
+2017-11-14 16:45:40: tz -d
+===============================================================================
+Time Offset         Zone                                   Support DST         
+===============================================================================
+UTC-11:00           Pacific/Pago_Pago                      no                  
+UTC-11:00           Pacific/Niue                           no                  
+UTC-11:00           Pacific/Midway                         no                  
+UTC-11:00           America/Adak                           yes                 
+UTC-10:00           Pacific/Rarotonga                      no                  
+UTC-10:00           Pacific/Tahiti                         no                  
+UTC-10:00           Pacific/Johnston                       no                  
+UTC-10:00           America/Anchorage                      yes                 
+UTC-10:00           America/Juneau                         yes                 
+UTC-10:00           America/Sitka                          yes                 
+UTC-10:00           America/Metlakatla                     yes                 
+UTC-10:00           America/Yakutat                        yes                 
+UTC-10:00           America/Nome                           yes                 
+UTC-10:00           Pacific/Honolulu                       no                  
+UTC-10:30           Pacific/Marquesas                      no                  
+UTC-9:00            America/Vancouver                      yes                 
+UTC-9:00            America/Whitehorse                     yes                 
+UTC-9:00            America/Dawson                         yes                 
+UTC-9:00            America/Tijuana                        yes                 
+UTC-9:00            Pacific/Gambier                        no                  
+UTC-9:00            America/Los_Angeles                    yes                 
+UTC-8:00            America/Edmonton                       yes                 
+UTC-8:00            America/Cambridge_Bay                  yes                 
+UTC-8:00            America/Yellowknife                    yes                 
+UTC-8:00            America/Inuvik                         yes                 
+UTC-8:00            America/Mazatlan                       yes                 
+UTC-8:00            America/Chihuahua                      yes                 
+UTC-8:00            America/Ojinaga                        yes                 
+UTC-8:00            Pacific/Pitcairn                       no                  
+UTC-8:00            America/Denver                         yes                 
+UTC-8:00            America/Boise                          yes                 
+UTC-7:00            America/Winnipeg                       yes                 
+UTC-7:00            America/Rainy_River                    yes                 
+UTC-7:00            America/Resolute                       yes                 
+UTC-7:00            America/Rankin_Inlet                   yes                 
+UTC-7:00            America/Creston                        no                  
+UTC-7:00            America/Dawson_Creek                   no                  
+UTC-7:00            America/Fort_Nelson                    no                  
+UTC-7:00            America/Mexico_City                    yes                 
+UTC-7:00            America/Merida                         yes                 
+UTC-7:00            America/Monterrey                      yes                 
+UTC-7:00            America/Matamoros                      yes                 
+UTC-7:00            America/Hermosillo                     no                  
+UTC-7:00            America/Bahia_Banderas                 yes                 
+UTC-7:00            America/Chicago                        yes                 
+UTC-7:00            America/Indiana/Tell_City              yes                 
+UTC-7:00            America/Indiana/Knox                   yes                 
+UTC-7:00            America/Menominee                      yes                 
+UTC-7:00            America/North_Dakota/Center            yes                 
+UTC-7:00            America/North_Dakota/New_Salem         yes                 
+UTC-7:00            America/North_Dakota/Beulah            yes                 
+UTC-7:00            America/Phoenix                        no                  
+UTC-6:00            America/Nassau                         yes                 
+UTC-6:00            America/Belize                         no                  
+UTC-6:00            America/Toronto                        yes                 
+UTC-6:00            America/Nipigon                        yes                 
+UTC-6:00            America/Thunder_Bay                    yes                 
+UTC-6:00            America/Iqaluit                        yes                 
+UTC-6:00            America/Pangnirtung                    yes                 
+UTC-6:00            America/Regina                         no                  
+UTC-6:00            America/Swift_Current                  no                  
+UTC-6:00            Pacific/Easter                         yes                 
+UTC-6:00            America/Costa_Rica                     no                  
+UTC-6:00            America/Havana                         yes                 
+UTC-6:00            Pacific/Galapagos                      no                  
+UTC-6:00            America/Guatemala                      no                  
+UTC-6:00            America/Tegucigalpa                    no                  
+UTC-6:00            America/Managua                        no                  
+UTC-6:00            America/El_Salvador                    no                  
+UTC-6:00            America/New_York                       yes                 
+UTC-6:00            America/Detroit                        yes                 
+UTC-6:00            America/Kentucky/Louisville            yes                 
+UTC-6:00            America/Kentucky/Monticello            yes                 
+UTC-6:00            America/Indiana/Indianapolis           yes                 
+UTC-6:00            America/Indiana/Vincennes              yes                 
+UTC-6:00            America/Indiana/Winamac                yes                 
+UTC-6:00            America/Indiana/Marengo                yes                 
+UTC-6:00            America/Indiana/Petersburg             yes                 
+UTC-6:00            America/Indiana/Vevay                  yes                 
+UTC-5:00            Atlantic/Bermuda                       yes                 
+UTC-5:00            America/Eirunepe                       no                  
+UTC-5:00            America/Rio_Branco                     no                  
+UTC-5:00            America/Halifax                        yes                 
+UTC-5:00            America/Glace_Bay                      yes                 
+UTC-5:00            America/Moncton                        yes                 
+UTC-5:00            America/Goose_Bay                      yes                 
+UTC-5:00            America/Atikokan                       no                  
+UTC-5:00            America/Bogota                         no                  
+UTC-5:00            America/Guayaquil                      no                  
+UTC-5:00            America/Thule                          yes                 
+UTC-5:00            America/Port-au-Prince                 no                  
+UTC-5:00            America/Jamaica                        no                  
+UTC-5:00            America/Cayman                         no                  
+UTC-5:00            America/Cancun                         no                  
+UTC-5:00            America/Panama                         no                  
+UTC-5:00            America/Lima                           no                  
+UTC-5:30            America/St_Johns                       yes                 
+UTC-4:00            America/Antigua                        no                  
+UTC-4:00            America/Anguilla                       no                  
+UTC-4:00            Antarctica/Palmer                      yes                 
+UTC-4:00            America/Aruba                          no                  
+UTC-4:00            America/Barbados                       no                  
+UTC-4:00            America/St_Barthelemy                  no                  
+UTC-4:00            America/La_Paz                         no                  
+UTC-4:00            America/Kralendijk                     no                  
+UTC-4:00            America/Campo_Grande                   yes                 
+UTC-4:00            America/Cuiaba                         yes                 
+UTC-4:00            America/Porto_Velho                    no                  
+UTC-4:00            America/Boa_Vista                      no                  
+UTC-4:00            America/Manaus                         no                  
+UTC-4:00            America/Blanc-Sablon                   no                  
+UTC-4:00            America/Santiago                       yes                 
+UTC-4:00            America/Curacao                        no                  
+UTC-4:00            America/Dominica                       no                  
+UTC-4:00            America/Santo_Domingo                  no                  
+UTC-4:00            America/Grenada                        no                  
+UTC-4:00            America/Godthab                        yes                 
+UTC-4:00            America/Guadeloupe                     no                  
+UTC-4:00            America/Guyana                         no                  
+UTC-4:00            America/St_Kitts                       no                  
+UTC-4:00            America/St_Lucia                       no                  
+UTC-4:00            America/Marigot                        no                  
+UTC-4:00            America/Martinique                     no                  
+UTC-4:00            America/Montserrat                     no                  
+UTC-4:00            America/Miquelon                       yes                 
+UTC-4:00            America/Puerto_Rico                    no                  
+UTC-4:00            America/Asuncion                       yes                 
+UTC-4:00            America/Lower_Princes                  no                  
+UTC-4:00            America/Grand_Turk                     no                  
+UTC-4:00            America/Port_of_Spain                  no                  
+UTC-4:00            America/St_Vincent                     no                  
+UTC-4:00            America/Caracas                        no                  
+UTC-4:00            America/Tortola                        no                  
+UTC-4:00            America/St_Thomas                      no                  
+UTC-3:00            Antarctica/Rothera                     no                  
+UTC-3:00            America/Argentina/Buenos_Aires         no                  
+UTC-3:00            America/Argentina/Cordoba              no                  
+UTC-3:00            America/Argentina/Salta                no                  
+UTC-3:00            America/Argentina/Jujuy                no                  
+UTC-3:00            America/Argentina/Tucuman              no                  
+UTC-3:00            America/Argentina/Catamarca            no                  
+UTC-3:00            America/Argentina/La_Rioja             no                  
+UTC-3:00            America/Argentina/San_Juan             no                  
+UTC-3:00            America/Argentina/Mendoza              no                  
+UTC-3:00            America/Argentina/San_Luis             no                  
+UTC-3:00            America/Argentina/Rio_Gallegos         no                  
+UTC-3:00            America/Argentina/Ushuaia              no                  
+UTC-3:00            America/Belem                          no                  
+UTC-3:00            America/Fortaleza                      no                  
+UTC-3:00            America/Recife                         no                  
+UTC-3:00            America/Araguaina                      no                  
+UTC-3:00            America/Maceio                         no                  
+UTC-3:00            America/Bahia                          no                  
+UTC-3:00            America/Sao_Paulo                      yes                 
+UTC-3:00            America/Santarem                       no                  
+UTC-3:00            Atlantic/Stanley                       no                  
+UTC-3:00            America/Cayenne                        no                  
+UTC-3:00            America/Paramaribo                     no                  
+UTC-3:00            America/Montevideo                     no                  
+UTC-2:00            America/Noronha                        no                  
+UTC-2:00            America/Scoresbysund                   yes                 
+UTC-2:00            Atlantic/South_Georgia                 no                  
+UTC-2:00            Atlantic/Azores                        yes                 
+UTC-1:00            Antarctica/Troll                       yes                 
+UTC-1:00            Atlantic/Cape_Verde                    no                  
+UTC-1:00            Africa/El_Aaiun                        yes                 
+UTC-1:00            Atlantic/Canary                        yes                 
+UTC-1:00            Atlantic/Faroe                         yes                 
+UTC-1:00            Europe/London                          yes                 
+UTC-1:00            Europe/Guernsey                        yes                 
+UTC-1:00            Europe/Dublin                          yes                 
+UTC-1:00            Europe/Isle_of_Man                     yes                 
+UTC-1:00            Europe/Jersey                          yes                 
+UTC-1:00            Africa/Casablanca                      yes                 
+UTC-1:00            Europe/Lisbon                          yes                 
+UTC-1:00            Atlantic/Madeira                       yes                 
+UTC+0:00            Europe/Andorra                         yes                 
+UTC+0:00            Europe/Tirane                          yes                 
+UTC+0:00            Europe/Vienna                          yes                 
+UTC+0:00            Europe/Sarajevo                        yes                 
+UTC+0:00            Europe/Brussels                        yes                 
+UTC+0:00            Africa/Ouagadougou                     no                  
+UTC+0:00            Europe/Zurich                          yes                 
+UTC+0:00            Africa/Abidjan                         no                  
+UTC+0:00            Europe/Prague                          yes                 
+UTC+0:00            Europe/Berlin                          yes                 
+UTC+0:00            Europe/Busingen                        yes                 
+UTC+0:00            Europe/Copenhagen                      yes                 
+UTC+0:00            Europe/Madrid                          yes                 
+UTC+0:00            Africa/Ceuta                           yes                 
+UTC+0:00            Europe/Paris                           yes                 
+UTC+0:00            Africa/Accra                           no                  
+UTC+0:00            Europe/Gibraltar                       yes                 
+UTC+0:00            America/Danmarkshavn                   no                  
+UTC+0:00            Africa/Banjul                          no                  
+UTC+0:00            Africa/Conakry                         no                  
+UTC+0:00            Africa/Bissau                          no                  
+UTC+0:00            Europe/Zagreb                          yes                 
+UTC+0:00            Europe/Budapest                        yes                 
+UTC+0:00            Atlantic/Reykjavik                     no                  
+UTC+0:00            Europe/Rome                            yes                 
+UTC+0:00            Europe/Vaduz                           yes                 
+UTC+0:00            Africa/Monrovia                        no                  
+UTC+0:00            Europe/Luxembourg                      yes                 
+UTC+0:00            Europe/Monaco                          yes                 
+UTC+0:00            Europe/Podgorica                       yes                 
+UTC+0:00            Europe/Skopje                          yes                 
+UTC+0:00            Africa/Bamako                          no                  
+UTC+0:00            Africa/Nouakchott                      no                  
+UTC+0:00            Europe/Malta                           yes                 
+UTC+0:00            Europe/Amsterdam                       yes                 
+UTC+0:00            Europe/Oslo                            yes                 
+UTC+0:00            Europe/Warsaw                          yes                 
+UTC+0:00            Europe/Belgrade                        yes                 
+UTC+0:00            Europe/Stockholm                       yes                 
+UTC+0:00            Atlantic/St_Helena                     no                  
+UTC+0:00            Europe/Ljubljana                       yes                 
+UTC+0:00            Arctic/Longyearbyen                    yes                 
+UTC+0:00            Europe/Bratislava                      yes                 
+UTC+0:00            Africa/Freetown                        no                  
+UTC+0:00            Europe/San_Marino                      yes                 
+UTC+0:00            Africa/Dakar                           no                  
+UTC+0:00            Africa/Sao_Tome                        no                  
+UTC+0:00            Africa/Lome                            no                  
+UTC+0:00            Europe/Vatican                         yes                 
+UTC+1:00            Africa/Luanda                          no                  
+UTC+1:00            Europe/Mariehamn                       yes                 
+UTC+1:00            Europe/Sofia                           yes                 
+UTC+1:00            Africa/Porto-Novo                      no                  
+UTC+1:00            Africa/Kinshasa                        no                  
+UTC+1:00            Africa/Bangui                          no                  
+UTC+1:00            Africa/Brazzaville                     no                  
+UTC+1:00            Africa/Douala                          no                  
+UTC+1:00            Asia/Nicosia                           yes                 
+UTC+1:00            Africa/Algiers                         no                  
+UTC+1:00            Europe/Tallinn                         yes                 
+UTC+1:00            Europe/Helsinki                        yes                 
+UTC+1:00            Africa/Libreville                      no                  
+UTC+1:00            Africa/Malabo                          no                  
+UTC+1:00            Europe/Athens                          yes                 
+UTC+1:00            Asia/Jerusalem                         yes                 
+UTC+1:00            Asia/Amman                             yes                 
+UTC+1:00            Asia/Beirut                            yes                 
+UTC+1:00            Europe/Vilnius                         yes                 
+UTC+1:00            Europe/Riga                            yes                 
+UTC+1:00            Europe/Chisinau                        yes                 
+UTC+1:00            Africa/Windhoek                        yes                 
+UTC+1:00            Africa/Niamey                          no                  
+UTC+1:00            Africa/Lagos                           no                  
+UTC+1:00            Asia/Gaza                              yes                 
+UTC+1:00            Asia/Hebron                            yes                 
+UTC+1:00            Europe/Bucharest                       yes                 
+UTC+1:00            Asia/Damascus                          yes                 
+UTC+1:00            Africa/Ndjamena                        no                  
+UTC+1:00            Africa/Tunis                           no                  
+UTC+1:00            Europe/Kiev                            yes                 
+UTC+1:00            Europe/Uzhgorod                        yes                 
+UTC+1:00            Europe/Zaporozhye                      yes                 
+UTC+2:00            Africa/Bujumbura                       no                  
+UTC+2:00            Africa/Gaborone                        no                  
+UTC+2:00            Africa/Lubumbashi                      no                  
+UTC+2:00            Africa/Cairo                           no                  
+UTC+2:00            Africa/Maseru                          no                  
+UTC+2:00            Africa/Tripoli                         no                  
+UTC+2:00            Africa/Blantyre                        no                  
+UTC+2:00            Africa/Maputo                          no                  
+UTC+2:00            Europe/Kaliningrad                     no                  
+UTC+2:00            Africa/Kigali                          no                  
+UTC+2:00            Africa/Mbabane                         no                  
+UTC+2:00            Africa/Johannesburg                    no                  
+UTC+2:00            Africa/Lusaka                          no                  
+UTC+2:00            Africa/Harare                          no                  
+UTC+2:30            Asia/Tehran                            yes                 
+UTC+3:00            Antarctica/Syowa                       no                  
+UTC+3:00            Asia/Bahrain                           no                  
+UTC+3:00            Europe/Minsk                           no                  
+UTC+3:00            Africa/Djibouti                        no                  
+UTC+3:00            Africa/Asmara                          no                  
+UTC+3:00            Africa/Addis_Ababa                     no                  
+UTC+3:00            Asia/Baghdad                           no                  
+UTC+3:00            Africa/Nairobi                         no                  
+UTC+3:00            Indian/Comoro                          no                  
+UTC+3:00            Asia/Kuwait                            no                  
+UTC+3:00            Indian/Antananarivo                    no                  
+UTC+3:00            Asia/Qatar                             no                  
+UTC+3:00            Europe/Moscow                          no                  
+UTC+3:00            Europe/Simferopol                      no                  
+UTC+3:00            Europe/Volgograd                       no                  
+UTC+3:00            Europe/Kirov                           no                  
+UTC+3:00            Asia/Riyadh                            no                  
+UTC+3:00            Africa/Khartoum                        no                  
+UTC+3:00            Africa/Mogadishu                       no                  
+UTC+3:00            Africa/Juba                            no                  
+UTC+3:00            Europe/Istanbul                        no                  
+UTC+3:00            Africa/Dar_es_Salaam                   no                  
+UTC+3:00            Africa/Kampala                         no                  
+UTC+3:00            Asia/Aden                              no                  
+UTC+3:00            Indian/Mayotte                         no                  
+UTC+4:00            Asia/Dubai                             no                  
+UTC+4:00            Asia/Yerevan                           no                  
+UTC+4:00            Asia/Baku                              no                  
+UTC+4:00            Asia/Tbilisi                           no                  
+UTC+4:00            Indian/Mauritius                       no                  
+UTC+4:00            Asia/Muscat                            no                  
+UTC+4:00            Indian/Reunion                         no                  
+UTC+4:00            Europe/Astrakhan                       no                  
+UTC+4:00            Europe/Samara                          no                  
+UTC+4:00            Europe/Ulyanovsk                       no                  
+UTC+4:00            Indian/Mahe                            no                  
+UTC+4:30            Asia/Kabul                             no                  
+UTC+5:00            Antarctica/Mawson                      no                  
+UTC+5:00            Asia/Aqtobe                            no                  
+UTC+5:00            Asia/Aqtau                             no                  
+UTC+5:00            Asia/Oral                              no                  
+UTC+5:00            Indian/Maldives                        no                  
+UTC+5:00            Asia/Karachi                           no                  
+UTC+5:00            Asia/Yekaterinburg                     no                  
+UTC+5:00            Indian/Kerguelen                       no                  
+UTC+5:00            Asia/Dushanbe                          no                  
+UTC+5:00            Asia/Ashgabat                          no                  
+UTC+5:00            Asia/Samarkand                         no                  
+UTC+5:00            Asia/Tashkent                          no                  
+UTC+5:30            Asia/Kolkata                           no                  
+UTC+5:30            Asia/Colombo                           no                  
+UTC+5:45            Asia/Kathmandu                         no                  
+UTC+6:00            Antarctica/Vostok                      no                  
+UTC+6:00            Asia/Dhaka                             no                  
+UTC+6:00            Asia/Thimphu                           no                  
+UTC+6:00            Asia/Urumqi                            no                  
+UTC+6:00            Indian/Chagos                          no                  
+UTC+6:00            Asia/Bishkek                           no                  
+UTC+6:00            Asia/Almaty                            no                  
+UTC+6:00            Asia/Qyzylorda                         no                  
+UTC+6:00            Asia/Hovd                              yes                 
+UTC+6:00            Asia/Omsk                              no                  
+UTC+6:30            Indian/Cocos                           no                  
+UTC+6:30            Asia/Yangon                            no                  
+UTC+7:00            Antarctica/Davis                       no                  
+UTC+7:00            Indian/Christmas                       no                  
+UTC+7:00            Asia/Jakarta                           no                  
+UTC+7:00            Asia/Pontianak                         no                  
+UTC+7:00            Asia/Phnom_Penh                        no                  
+UTC+7:00            Asia/Vientiane                         no                  
+UTC+7:00            Asia/Ulaanbaatar                       yes                 
+UTC+7:00            Asia/Choibalsan                        yes                 
+UTC+7:00            Asia/Novosibirsk                       no                  
+UTC+7:00            Asia/Barnaul                           no                  
+UTC+7:00            Asia/Tomsk                             no                  
+UTC+7:00            Asia/Novokuznetsk                      no                  
+UTC+7:00            Asia/Krasnoyarsk                       no                  
+UTC+7:00            Asia/Bangkok                           no                  
+UTC+7:00            Asia/Ho_Chi_Minh                       no                  
+UTC+8:00            Antarctica/Casey                       no                  
+UTC+8:00            Australia/Perth                        no                  
+UTC+8:00            Asia/Brunei                            no                  
+UTC+8:00            Asia/Beijing                           no                  
+UTC+8:00            Asia/Shanghai                          no                  
+UTC+8:00            Asia/Hong_Kong                         no                  
+UTC+8:00            Asia/Makassar                          no                  
+UTC+8:00            Asia/Macau                             no                  
+UTC+8:00            Asia/Kuala_Lumpur                      no                  
+UTC+8:00            Asia/Kuching                           no                  
+UTC+8:00            Asia/Manila                            no                  
+UTC+8:00            Asia/Irkutsk                           no                  
+UTC+8:00            Asia/Singapore                         no                  
+UTC+8:00            Asia/Taipei                            no                  
+UTC+8:30            Asia/Pyongyang                         no                  
+UTC+8:45            Australia/Eucla                        no                  
+UTC+9:00            Asia/Jayapura                          no                  
+UTC+9:00            Asia/Tokyo                             no                  
+UTC+9:00            Asia/Seoul                             no                  
+UTC+9:00            Pacific/Palau                          no                  
+UTC+9:00            Asia/Chita                             no                  
+UTC+9:00            Asia/Yakutsk                           no                  
+UTC+9:00            Asia/Khandyga                          no                  
+UTC+9:00            Asia/Dili                              no                  
+UTC+9:30            Australia/Broken_Hill                  yes                 
+UTC+9:30            Australia/Adelaide                     yes                 
+UTC+9:30            Australia/Darwin                       no                  
+UTC+10:00           Antarctica/DumontDUrville              no                  
+UTC+10:00           Australia/Lord_Howe                    yes                 
+UTC+10:00           Australia/Hobart                       yes                 
+UTC+10:00           Australia/Currie                       yes                 
+UTC+10:00           Australia/Melbourne                    yes                 
+UTC+10:00           Australia/Sydney                       yes                 
+UTC+10:00           Australia/Brisbane                     no                  
+UTC+10:00           Australia/Lindeman                     no                  
+UTC+10:00           Pacific/Chuuk                          no                  
+UTC+10:00           Pacific/Guam                           no                  
+UTC+10:00           Pacific/Saipan                         no                  
+UTC+10:00           Pacific/Port_Moresby                   no                  
+UTC+10:00           Asia/Vladivostok                       no                  
+UTC+10:00           Asia/Ust-Nera                          no                  
+UTC+11:00           Antarctica/Macquarie                   no                  
+UTC+11:00           Pacific/Pohnpei                        no                  
+UTC+11:00           Pacific/Kosrae                         no                  
+UTC+11:00           Pacific/Noumea                         no                  
+UTC+11:00           Pacific/Norfolk                        no                  
+UTC+11:00           Pacific/Bougainville                   no                  
+UTC+11:00           Asia/Magadan                           no                  
+UTC+11:00           Asia/Sakhalin                          no                  
+UTC+11:00           Asia/Srednekolymsk                     no                  
+UTC+11:00           Pacific/Guadalcanal                    no                  
+UTC+11:00           Pacific/Efate                          no                  
+UTC+12:00           Antarctica/McMurdo                     yes                 
+UTC+12:00           Pacific/Fiji                           yes                 
+UTC+12:00           Pacific/Tarawa                         no                  
+UTC+12:00           Pacific/Majuro                         no                  
+UTC+12:00           Pacific/Kwajalein                      no                  
+UTC+12:00           Pacific/Nauru                          no                  
+UTC+12:00           Pacific/Auckland                       yes                 
+UTC+12:00           Asia/Kamchatka                         no                  
+UTC+12:00           Asia/Anadyr                            no                  
+UTC+12:00           Pacific/Funafuti                       no                  
+UTC+12:00           Pacific/Wake                           no                  
+UTC+12:00           Pacific/Wallis                         no                  
+UTC+12:45           Pacific/Chatham                        yes                 
+UTC+13:00           Pacific/Enderbury                      no                  
+UTC+13:00           Pacific/Fakaofo                        no                  
+UTC+13:00           Pacific/Tongatapu                      no                  
+UTC+13:00           Pacific/Apia                           yes                 
+UTC+14:00           Pacific/Kiritimati                     no                  
+
+administrator@cli> 
+2017-11-14 16:45:40: detail of timezone should be listed
+
+2017-11-14 16:45:40: 'result': 'p'
+2017-11-14 16:45:40: tz
+===============================================================================
+Time Offset               Zone                       Support DST               
+===============================================================================
+UTC+10:00                 Pacific/Guam               no                        
+
+administrator@cli> 
+2017-11-14 16:45:40: timezone should be listed
+
+2017-11-14 16:16:43: 'result': 'p'
+2017-11-14 16:16:43: tz -a mod -s 
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2017-11-14 16:16:43: tz -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+2017-11-14 16:16:43: 'result': 'p'
+2017-11-14 16:16:43: tz -a mod -s "test=Beijing"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+2017-11-14 16:16:43: tz -a mod -test ""
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-14 16:16:43: tz -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|mod)
+
+administrator@cli> 
+2017-11-14 16:16:43: tz -d -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-14 16:16:43: tz -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-14 16:16:43: 'result': 'p'
+2017-11-14 16:16:43: tz -a mod -s "zone=1"
+Error (0x100): Not found
+
+administrator@cli> 
+2017-11-14 16:16:43: tz -a mod -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+2017-11-14 16:16:43: tz -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|mod)
+
+administrator@cli> 
+2017-11-14 16:16:43: tz -d test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-14 16:16:43: tz test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-14 16:16:43: 'result': 'f'
+2017-11-14 16:16:43: tz
+===============================================================================
+Time Offset               Zone                       Support DST               
+===============================================================================
+UTC+10:00                 Pacific/Guam               no                        
+
+administrator@cli> 
+2017-11-14 16:16:43: tz -a mod -s "zone=Guam"
+
+administrator@cli> 
+2017-11-14 16:16:43: modify timezone to Guam
+
+2017-11-14 16:16:43: tz
+===============================================================================
+Time Offset           Zone                                Support DST          
+===============================================================================
+UTC+10:00             Antarctica/DumontDUrville           no                   
+
+administrator@cli> 
+2017-11-14 16:16:43: tz -a mod -s "zone=DumontDUrville"
+
+administrator@cli> 
+2017-11-14 16:16:43: modify timezone to DumontDUrville
+
+2017-11-14 16:16:43: Fail: tz -a mod -s "zone=North_Dakota"
+
+2017-11-14 16:16:43: tz -a mod -s "zone=North_Dakota"
+Error (0x100): Not found
+
+administrator@cli> 
+2017-11-14 16:16:43: modify timezone to North_Dakota
+
+2017-11-14 16:16:43: tz
+===============================================================================
+Time Offset               Zone                        Support DST              
+===============================================================================
+UTC-8:00                  America/Inuvik              yes                      
+
+administrator@cli> 
+2017-11-14 16:16:43: tz -a mod -s "zone=Inuvik"
+
+administrator@cli> 
+2017-11-14 16:16:43: modify timezone to Inuvik
+
+2017-11-14 16:16:43: tz
+===============================================================================
+Time Offset              Zone                         Support DST              
+===============================================================================
+UTC-4:00                 America/Tortola              no                       
+
+administrator@cli> 
+2017-11-14 16:16:43: tz -a mod -s "zone=Tortola"
+
+administrator@cli> 
+2017-11-14 16:16:42: modify timezone to Tortola
+
+2017-11-14 16:16:42: tz
+===============================================================================
+Time Offset              Zone                          Support DST             
+===============================================================================
+UTC-4:00                 America/St_Lucia              no                      
+
+administrator@cli> 
+2017-11-14 16:16:42: tz -a mod -s "zone=St_Lucia"
+
+administrator@cli> 
+2017-11-14 16:16:42: modify timezone to St_Lucia
+
+2017-11-14 16:16:42: tz
+===============================================================================
+Time Offset              Zone                          Support DST             
+===============================================================================
+UTC+4:00                 Europe/Astrakhan              no                      
+
+administrator@cli> 
+2017-11-14 16:16:42: tz -a mod -s "zone=Astrakhan"
+
+administrator@cli> 
+2017-11-14 16:16:42: modify timezone to Astrakhan
+
+2017-11-14 16:16:42: tz
+===============================================================================
+Time Offset                Zone                      Support DST               
+===============================================================================
+UTC+0:00                   Europe/Oslo               yes                       
+
+administrator@cli> 
+2017-11-14 16:16:42: tz -a mod -s "zone=Oslo"
+
+administrator@cli> 
+2017-11-14 16:16:42: modify timezone to Oslo
+
+2017-11-14 16:16:42: tz
+===============================================================================
+Time Offset               Zone                       Support DST               
+===============================================================================
+UTC+6:00                  Asia/Bishkek               no                        
+
+administrator@cli> 
+2017-11-14 16:16:42: tz -a mod -s "zone=Bishkek"
+
+administrator@cli> 
+2017-11-14 16:16:42: modify timezone to Bishkek
+
+2017-11-14 16:16:42: tz
+===============================================================================
+Time Offset              Zone                          Support DST             
+===============================================================================
+UTC+10:00                Australia/Sydney              yes                     
+
+administrator@cli> 
+2017-11-14 16:16:42: tz -a mod -s "zone=Sydney"
+
+administrator@cli> 
+2017-11-14 16:16:42: modify timezone to Sydney
+
+2017-11-14 16:16:42: 'result': 'p'
+2017-11-14 16:16:42: tz -d
+===============================================================================
+Time Offset         Zone                                   Support DST         
+===============================================================================
+UTC-11:00           Pacific/Pago_Pago                      no                  
+UTC-11:00           Pacific/Niue                           no                  
+UTC-11:00           Pacific/Midway                         no                  
+UTC-11:00           America/Adak                           yes                 
+UTC-10:00           Pacific/Rarotonga                      no                  
+UTC-10:00           Pacific/Tahiti                         no                  
+UTC-10:00           Pacific/Johnston                       no                  
+UTC-10:00           America/Anchorage                      yes                 
+UTC-10:00           America/Juneau                         yes                 
+UTC-10:00           America/Sitka                          yes                 
+UTC-10:00           America/Metlakatla                     yes                 
+UTC-10:00           America/Yakutat                        yes                 
+UTC-10:00           America/Nome                           yes                 
+UTC-10:00           Pacific/Honolulu                       no                  
+UTC-10:30           Pacific/Marquesas                      no                  
+UTC-9:00            America/Vancouver                      yes                 
+UTC-9:00            America/Whitehorse                     yes                 
+UTC-9:00            America/Dawson                         yes                 
+UTC-9:00            America/Tijuana                        yes                 
+UTC-9:00            Pacific/Gambier                        no                  
+UTC-9:00            America/Los_Angeles                    yes                 
+UTC-8:00            America/Edmonton                       yes                 
+UTC-8:00            America/Cambridge_Bay                  yes                 
+UTC-8:00            America/Yellowknife                    yes                 
+UTC-8:00            America/Inuvik                         yes                 
+UTC-8:00            America/Mazatlan                       yes                 
+UTC-8:00            America/Chihuahua                      yes                 
+UTC-8:00            America/Ojinaga                        yes                 
+UTC-8:00            Pacific/Pitcairn                       no                  
+UTC-8:00            America/Denver                         yes                 
+UTC-8:00            America/Boise                          yes                 
+UTC-7:00            America/Winnipeg                       yes                 
+UTC-7:00            America/Rainy_River                    yes                 
+UTC-7:00            America/Resolute                       yes                 
+UTC-7:00            America/Rankin_Inlet                   yes                 
+UTC-7:00            America/Creston                        no                  
+UTC-7:00            America/Dawson_Creek                   no                  
+UTC-7:00            America/Fort_Nelson                    no                  
+UTC-7:00            America/Mexico_City                    yes                 
+UTC-7:00            America/Merida                         yes                 
+UTC-7:00            America/Monterrey                      yes                 
+UTC-7:00            America/Matamoros                      yes                 
+UTC-7:00            America/Hermosillo                     no                  
+UTC-7:00            America/Bahia_Banderas                 yes                 
+UTC-7:00            America/Chicago                        yes                 
+UTC-7:00            America/Indiana/Tell_City              yes                 
+UTC-7:00            America/Indiana/Knox                   yes                 
+UTC-7:00            America/Menominee                      yes                 
+UTC-7:00            America/North_Dakota/Center            yes                 
+UTC-7:00            America/North_Dakota/New_Salem         yes                 
+UTC-7:00            America/North_Dakota/Beulah            yes                 
+UTC-7:00            America/Phoenix                        no                  
+UTC-6:00            America/Nassau                         yes                 
+UTC-6:00            America/Belize                         no                  
+UTC-6:00            America/Toronto                        yes                 
+UTC-6:00            America/Nipigon                        yes                 
+UTC-6:00            America/Thunder_Bay                    yes                 
+UTC-6:00            America/Iqaluit                        yes                 
+UTC-6:00            America/Pangnirtung                    yes                 
+UTC-6:00            America/Regina                         no                  
+UTC-6:00            America/Swift_Current                  no                  
+UTC-6:00            Pacific/Easter                         yes                 
+UTC-6:00            America/Costa_Rica                     no                  
+UTC-6:00            America/Havana                         yes                 
+UTC-6:00            Pacific/Galapagos                      no                  
+UTC-6:00            America/Guatemala                      no                  
+UTC-6:00            America/Tegucigalpa                    no                  
+UTC-6:00            America/Managua                        no                  
+UTC-6:00            America/El_Salvador                    no                  
+UTC-6:00            America/New_York                       yes                 
+UTC-6:00            America/Detroit                        yes                 
+UTC-6:00            America/Kentucky/Louisville            yes                 
+UTC-6:00            America/Kentucky/Monticello            yes                 
+UTC-6:00            America/Indiana/Indianapolis           yes                 
+UTC-6:00            America/Indiana/Vincennes              yes                 
+UTC-6:00            America/Indiana/Winamac                yes                 
+UTC-6:00            America/Indiana/Marengo                yes                 
+UTC-6:00            America/Indiana/Petersburg             yes                 
+UTC-6:00            America/Indiana/Vevay                  yes                 
+UTC-5:00            Atlantic/Bermuda                       yes                 
+UTC-5:00            America/Eirunepe                       no                  
+UTC-5:00            America/Rio_Branco                     no                  
+UTC-5:00            America/Halifax                        yes                 
+UTC-5:00            America/Glace_Bay                      yes                 
+UTC-5:00            America/Moncton                        yes                 
+UTC-5:00            America/Goose_Bay                      yes                 
+UTC-5:00            America/Atikokan                       no                  
+UTC-5:00            America/Bogota                         no                  
+UTC-5:00            America/Guayaquil                      no                  
+UTC-5:00            America/Thule                          yes                 
+UTC-5:00            America/Port-au-Prince                 no                  
+UTC-5:00            America/Jamaica                        no                  
+UTC-5:00            America/Cayman                         no                  
+UTC-5:00            America/Cancun                         no                  
+UTC-5:00            America/Panama                         no                  
+UTC-5:00            America/Lima                           no                  
+UTC-5:30            America/St_Johns                       yes                 
+UTC-4:00            America/Antigua                        no                  
+UTC-4:00            America/Anguilla                       no                  
+UTC-4:00            Antarctica/Palmer                      yes                 
+UTC-4:00            America/Aruba                          no                  
+UTC-4:00            America/Barbados                       no                  
+UTC-4:00            America/St_Barthelemy                  no                  
+UTC-4:00            America/La_Paz                         no                  
+UTC-4:00            America/Kralendijk                     no                  
+UTC-4:00            America/Campo_Grande                   yes                 
+UTC-4:00            America/Cuiaba                         yes                 
+UTC-4:00            America/Porto_Velho                    no                  
+UTC-4:00            America/Boa_Vista                      no                  
+UTC-4:00            America/Manaus                         no                  
+UTC-4:00            America/Blanc-Sablon                   no                  
+UTC-4:00            America/Santiago                       yes                 
+UTC-4:00            America/Curacao                        no                  
+UTC-4:00            America/Dominica                       no                  
+UTC-4:00            America/Santo_Domingo                  no                  
+UTC-4:00            America/Grenada                        no                  
+UTC-4:00            America/Godthab                        yes                 
+UTC-4:00            America/Guadeloupe                     no                  
+UTC-4:00            America/Guyana                         no                  
+UTC-4:00            America/St_Kitts                       no                  
+UTC-4:00            America/St_Lucia                       no                  
+UTC-4:00            America/Marigot                        no                  
+UTC-4:00            America/Martinique                     no                  
+UTC-4:00            America/Montserrat                     no                  
+UTC-4:00            America/Miquelon                       yes                 
+UTC-4:00            America/Puerto_Rico                    no                  
+UTC-4:00            America/Asuncion                       yes                 
+UTC-4:00            America/Lower_Princes                  no                  
+UTC-4:00            America/Grand_Turk                     no                  
+UTC-4:00            America/Port_of_Spain                  no                  
+UTC-4:00            America/St_Vincent                     no                  
+UTC-4:00            America/Caracas                        no                  
+UTC-4:00            America/Tortola                        no                  
+UTC-4:00            America/St_Thomas                      no                  
+UTC-3:00            Antarctica/Rothera                     no                  
+UTC-3:00            America/Argentina/Buenos_Aires         no                  
+UTC-3:00            America/Argentina/Cordoba              no                  
+UTC-3:00            America/Argentina/Salta                no                  
+UTC-3:00            America/Argentina/Jujuy                no                  
+UTC-3:00            America/Argentina/Tucuman              no                  
+UTC-3:00            America/Argentina/Catamarca            no                  
+UTC-3:00            America/Argentina/La_Rioja             no                  
+UTC-3:00            America/Argentina/San_Juan             no                  
+UTC-3:00            America/Argentina/Mendoza              no                  
+UTC-3:00            America/Argentina/San_Luis             no                  
+UTC-3:00            America/Argentina/Rio_Gallegos         no                  
+UTC-3:00            America/Argentina/Ushuaia              no                  
+UTC-3:00            America/Belem                          no                  
+UTC-3:00            America/Fortaleza                      no                  
+UTC-3:00            America/Recife                         no                  
+UTC-3:00            America/Araguaina                      no                  
+UTC-3:00            America/Maceio                         no                  
+UTC-3:00            America/Bahia                          no                  
+UTC-3:00            America/Sao_Paulo                      yes                 
+UTC-3:00            America/Santarem                       no                  
+UTC-3:00            Atlantic/Stanley                       no                  
+UTC-3:00            America/Cayenne                        no                  
+UTC-3:00            America/Paramaribo                     no                  
+UTC-3:00            America/Montevideo                     no                  
+UTC-2:00            America/Noronha                        no                  
+UTC-2:00            America/Scoresbysund                   yes                 
+UTC-2:00            Atlantic/South_Georgia                 no                  
+UTC-2:00            Atlantic/Azores                        yes                 
+UTC-1:00            Antarctica/Troll                       yes                 
+UTC-1:00            Atlantic/Cape_Verde                    no                  
+UTC-1:00            Africa/El_Aaiun                        yes                 
+UTC-1:00            Atlantic/Canary                        yes                 
+UTC-1:00            Atlantic/Faroe                         yes                 
+UTC-1:00            Europe/London                          yes                 
+UTC-1:00            Europe/Guernsey                        yes                 
+UTC-1:00            Europe/Dublin                          yes                 
+UTC-1:00            Europe/Isle_of_Man                     yes                 
+UTC-1:00            Europe/Jersey                          yes                 
+UTC-1:00            Africa/Casablanca                      yes                 
+UTC-1:00            Europe/Lisbon                          yes                 
+UTC-1:00            Atlantic/Madeira                       yes                 
+UTC+0:00            Europe/Andorra                         yes                 
+UTC+0:00            Europe/Tirane                          yes                 
+UTC+0:00            Europe/Vienna                          yes                 
+UTC+0:00            Europe/Sarajevo                        yes                 
+UTC+0:00            Europe/Brussels                        yes                 
+UTC+0:00            Africa/Ouagadougou                     no                  
+UTC+0:00            Europe/Zurich                          yes                 
+UTC+0:00            Africa/Abidjan                         no                  
+UTC+0:00            Europe/Prague                          yes                 
+UTC+0:00            Europe/Berlin                          yes                 
+UTC+0:00            Europe/Busingen                        yes                 
+UTC+0:00            Europe/Copenhagen                      yes                 
+UTC+0:00            Europe/Madrid                          yes                 
+UTC+0:00            Africa/Ceuta                           yes                 
+UTC+0:00            Europe/Paris                           yes                 
+UTC+0:00            Africa/Accra                           no                  
+UTC+0:00            Europe/Gibraltar                       yes                 
+UTC+0:00            America/Danmarkshavn                   no                  
+UTC+0:00            Africa/Banjul                          no                  
+UTC+0:00            Africa/Conakry                         no                  
+UTC+0:00            Africa/Bissau                          no                  
+UTC+0:00            Europe/Zagreb                          yes                 
+UTC+0:00            Europe/Budapest                        yes                 
+UTC+0:00            Atlantic/Reykjavik                     no                  
+UTC+0:00            Europe/Rome                            yes                 
+UTC+0:00            Europe/Vaduz                           yes                 
+UTC+0:00            Africa/Monrovia                        no                  
+UTC+0:00            Europe/Luxembourg                      yes                 
+UTC+0:00            Europe/Monaco                          yes                 
+UTC+0:00            Europe/Podgorica                       yes                 
+UTC+0:00            Europe/Skopje                          yes                 
+UTC+0:00            Africa/Bamako                          no                  
+UTC+0:00            Africa/Nouakchott                      no                  
+UTC+0:00            Europe/Malta                           yes                 
+UTC+0:00            Europe/Amsterdam                       yes                 
+UTC+0:00            Europe/Oslo                            yes                 
+UTC+0:00            Europe/Warsaw                          yes                 
+UTC+0:00            Europe/Belgrade                        yes                 
+UTC+0:00            Europe/Stockholm                       yes                 
+UTC+0:00            Atlantic/St_Helena                     no                  
+UTC+0:00            Europe/Ljubljana                       yes                 
+UTC+0:00            Arctic/Longyearbyen                    yes                 
+UTC+0:00            Europe/Bratislava                      yes                 
+UTC+0:00            Africa/Freetown                        no                  
+UTC+0:00            Europe/San_Marino                      yes                 
+UTC+0:00            Africa/Dakar                           no                  
+UTC+0:00            Africa/Sao_Tome                        no                  
+UTC+0:00            Africa/Lome                            no                  
+UTC+0:00            Europe/Vatican                         yes                 
+UTC+1:00            Africa/Luanda                          no                  
+UTC+1:00            Europe/Mariehamn                       yes                 
+UTC+1:00            Europe/Sofia                           yes                 
+UTC+1:00            Africa/Porto-Novo                      no                  
+UTC+1:00            Africa/Kinshasa                        no                  
+UTC+1:00            Africa/Bangui                          no                  
+UTC+1:00            Africa/Brazzaville                     no                  
+UTC+1:00            Africa/Douala                          no                  
+UTC+1:00            Asia/Nicosia                           yes                 
+UTC+1:00            Africa/Algiers                         no                  
+UTC+1:00            Europe/Tallinn                         yes                 
+UTC+1:00            Europe/Helsinki                        yes                 
+UTC+1:00            Africa/Libreville                      no                  
+UTC+1:00            Africa/Malabo                          no                  
+UTC+1:00            Europe/Athens                          yes                 
+UTC+1:00            Asia/Jerusalem                         yes                 
+UTC+1:00            Asia/Amman                             yes                 
+UTC+1:00            Asia/Beirut                            yes                 
+UTC+1:00            Europe/Vilnius                         yes                 
+UTC+1:00            Europe/Riga                            yes                 
+UTC+1:00            Europe/Chisinau                        yes                 
+UTC+1:00            Africa/Windhoek                        yes                 
+UTC+1:00            Africa/Niamey                          no                  
+UTC+1:00            Africa/Lagos                           no                  
+UTC+1:00            Asia/Gaza                              yes                 
+UTC+1:00            Asia/Hebron                            yes                 
+UTC+1:00            Europe/Bucharest                       yes                 
+UTC+1:00            Asia/Damascus                          yes                 
+UTC+1:00            Africa/Ndjamena                        no                  
+UTC+1:00            Africa/Tunis                           no                  
+UTC+1:00            Europe/Kiev                            yes                 
+UTC+1:00            Europe/Uzhgorod                        yes                 
+UTC+1:00            Europe/Zaporozhye                      yes                 
+UTC+2:00            Africa/Bujumbura                       no                  
+UTC+2:00            Africa/Gaborone                        no                  
+UTC+2:00            Africa/Lubumbashi                      no                  
+UTC+2:00            Africa/Cairo                           no                  
+UTC+2:00            Africa/Maseru                          no                  
+UTC+2:00            Africa/Tripoli                         no                  
+UTC+2:00            Africa/Blantyre                        no                  
+UTC+2:00            Africa/Maputo                          no                  
+UTC+2:00            Europe/Kaliningrad                     no                  
+UTC+2:00            Africa/Kigali                          no                  
+UTC+2:00            Africa/Mbabane                         no                  
+UTC+2:00            Africa/Johannesburg                    no                  
+UTC+2:00            Africa/Lusaka                          no                  
+UTC+2:00            Africa/Harare                          no                  
+UTC+2:30            Asia/Tehran                            yes                 
+UTC+3:00            Antarctica/Syowa                       no                  
+UTC+3:00            Asia/Bahrain                           no                  
+UTC+3:00            Europe/Minsk                           no                  
+UTC+3:00            Africa/Djibouti                        no                  
+UTC+3:00            Africa/Asmara                          no                  
+UTC+3:00            Africa/Addis_Ababa                     no                  
+UTC+3:00            Asia/Baghdad                           no                  
+UTC+3:00            Africa/Nairobi                         no                  
+UTC+3:00            Indian/Comoro                          no                  
+UTC+3:00            Asia/Kuwait                            no                  
+UTC+3:00            Indian/Antananarivo                    no                  
+UTC+3:00            Asia/Qatar                             no                  
+UTC+3:00            Europe/Moscow                          no                  
+UTC+3:00            Europe/Simferopol                      no                  
+UTC+3:00            Europe/Volgograd                       no                  
+UTC+3:00            Europe/Kirov                           no                  
+UTC+3:00            Asia/Riyadh                            no                  
+UTC+3:00            Africa/Khartoum                        no                  
+UTC+3:00            Africa/Mogadishu                       no                  
+UTC+3:00            Africa/Juba                            no                  
+UTC+3:00            Europe/Istanbul                        no                  
+UTC+3:00            Africa/Dar_es_Salaam                   no                  
+UTC+3:00            Africa/Kampala                         no                  
+UTC+3:00            Asia/Aden                              no                  
+UTC+3:00            Indian/Mayotte                         no                  
+UTC+4:00            Asia/Dubai                             no                  
+UTC+4:00            Asia/Yerevan                           no                  
+UTC+4:00            Asia/Baku                              no                  
+UTC+4:00            Asia/Tbilisi                           no                  
+UTC+4:00            Indian/Mauritius                       no                  
+UTC+4:00            Asia/Muscat                            no                  
+UTC+4:00            Indian/Reunion                         no                  
+UTC+4:00            Europe/Astrakhan                       no                  
+UTC+4:00            Europe/Samara                          no                  
+UTC+4:00            Europe/Ulyanovsk                       no                  
+UTC+4:00            Indian/Mahe                            no                  
+UTC+4:30            Asia/Kabul                             no                  
+UTC+5:00            Antarctica/Mawson                      no                  
+UTC+5:00            Asia/Aqtobe                            no                  
+UTC+5:00            Asia/Aqtau                             no                  
+UTC+5:00            Asia/Oral                              no                  
+UTC+5:00            Indian/Maldives                        no                  
+UTC+5:00            Asia/Karachi                           no                  
+UTC+5:00            Asia/Yekaterinburg                     no                  
+UTC+5:00            Indian/Kerguelen                       no                  
+UTC+5:00            Asia/Dushanbe                          no                  
+UTC+5:00            Asia/Ashgabat                          no                  
+UTC+5:00            Asia/Samarkand                         no                  
+UTC+5:00            Asia/Tashkent                          no                  
+UTC+5:30            Asia/Kolkata                           no                  
+UTC+5:30            Asia/Colombo                           no                  
+UTC+5:45            Asia/Kathmandu                         no                  
+UTC+6:00            Antarctica/Vostok                      no                  
+UTC+6:00            Asia/Dhaka                             no                  
+UTC+6:00            Asia/Thimphu                           no                  
+UTC+6:00            Asia/Urumqi                            no                  
+UTC+6:00            Indian/Chagos                          no                  
+UTC+6:00            Asia/Bishkek                           no                  
+UTC+6:00            Asia/Almaty                            no                  
+UTC+6:00            Asia/Qyzylorda                         no                  
+UTC+6:00            Asia/Hovd                              yes                 
+UTC+6:00            Asia/Omsk                              no                  
+UTC+6:30            Indian/Cocos                           no                  
+UTC+6:30            Asia/Yangon                            no                  
+UTC+7:00            Antarctica/Davis                       no                  
+UTC+7:00            Indian/Christmas                       no                  
+UTC+7:00            Asia/Jakarta                           no                  
+UTC+7:00            Asia/Pontianak                         no                  
+UTC+7:00            Asia/Phnom_Penh                        no                  
+UTC+7:00            Asia/Vientiane                         no                  
+UTC+7:00            Asia/Ulaanbaatar                       yes                 
+UTC+7:00            Asia/Choibalsan                        yes                 
+UTC+7:00            Asia/Novosibirsk                       no                  
+UTC+7:00            Asia/Barnaul                           no                  
+UTC+7:00            Asia/Tomsk                             no                  
+UTC+7:00            Asia/Novokuznetsk                      no                  
+UTC+7:00            Asia/Krasnoyarsk                       no                  
+UTC+7:00            Asia/Bangkok                           no                  
+UTC+7:00            Asia/Ho_Chi_Minh                       no                  
+UTC+8:00            Antarctica/Casey                       no                  
+UTC+8:00            Australia/Perth                        no                  
+UTC+8:00            Asia/Brunei                            no                  
+UTC+8:00            Asia/Beijing                           no                  
+UTC+8:00            Asia/Shanghai                          no                  
+UTC+8:00            Asia/Hong_Kong                         no                  
+UTC+8:00            Asia/Makassar                          no                  
+UTC+8:00            Asia/Macau                             no                  
+UTC+8:00            Asia/Kuala_Lumpur                      no                  
+UTC+8:00            Asia/Kuching                           no                  
+UTC+8:00            Asia/Manila                            no                  
+UTC+8:00            Asia/Irkutsk                           no                  
+UTC+8:00            Asia/Singapore                         no                  
+UTC+8:00            Asia/Taipei                            no                  
+UTC+8:30            Asia/Pyongyang                         no                  
+UTC+8:45            Australia/Eucla                        no                  
+UTC+9:00            Asia/Jayapura                          no                  
+UTC+9:00            Asia/Tokyo                             no                  
+UTC+9:00            Asia/Seoul                             no                  
+UTC+9:00            Pacific/Palau                          no                  
+UTC+9:00            Asia/Chita                             no                  
+UTC+9:00            Asia/Yakutsk                           no                  
+UTC+9:00            Asia/Khandyga                          no                  
+UTC+9:00            Asia/Dili                              no                  
+UTC+9:30            Australia/Broken_Hill                  yes                 
+UTC+9:30            Australia/Adelaide                     yes                 
+UTC+9:30            Australia/Darwin                       no                  
+UTC+10:00           Antarctica/DumontDUrville              no                  
+UTC+10:00           Australia/Lord_Howe                    yes                 
+UTC+10:00           Australia/Hobart                       yes                 
+UTC+10:00           Australia/Currie                       yes                 
+UTC+10:00           Australia/Melbourne                    yes                 
+UTC+10:00           Australia/Sydney                       yes                 
+UTC+10:00           Australia/Brisbane                     no                  
+UTC+10:00           Australia/Lindeman                     no                  
+UTC+10:00           Pacific/Chuuk                          no                  
+UTC+10:00           Pacific/Guam                           no                  
+UTC+10:00           Pacific/Saipan                         no                  
+UTC+10:00           Pacific/Port_Moresby                   no                  
+UTC+10:00           Asia/Vladivostok                       no                  
+UTC+10:00           Asia/Ust-Nera                          no                  
+UTC+11:00           Antarctica/Macquarie                   no                  
+UTC+11:00           Pacific/Pohnpei                        no                  
+UTC+11:00           Pacific/Kosrae                         no                  
+UTC+11:00           Pacific/Noumea                         no                  
+UTC+11:00           Pacific/Norfolk                        no                  
+UTC+11:00           Pacific/Bougainville                   no                  
+UTC+11:00           Asia/Magadan                           no                  
+UTC+11:00           Asia/Sakhalin                          no                  
+UTC+11:00           Asia/Srednekolymsk                     no                  
+UTC+11:00           Pacific/Guadalcanal                    no                  
+UTC+11:00           Pacific/Efate                          no                  
+UTC+12:00           Antarctica/McMurdo                     yes                 
+UTC+12:00           Pacific/Fiji                           yes                 
+UTC+12:00           Pacific/Tarawa                         no                  
+UTC+12:00           Pacific/Majuro                         no                  
+UTC+12:00           Pacific/Kwajalein                      no                  
+UTC+12:00           Pacific/Nauru                          no                  
+UTC+12:00           Pacific/Auckland                       yes                 
+UTC+12:00           Asia/Kamchatka                         no                  
+UTC+12:00           Asia/Anadyr                            no                  
+UTC+12:00           Pacific/Funafuti                       no                  
+UTC+12:00           Pacific/Wake                           no                  
+UTC+12:00           Pacific/Wallis                         no                  
+UTC+12:45           Pacific/Chatham                        yes                 
+UTC+13:00           Pacific/Enderbury                      no                  
+UTC+13:00           Pacific/Fakaofo                        no                  
+UTC+13:00           Pacific/Tongatapu                      no                  
+UTC+13:00           Pacific/Apia                           yes                 
+UTC+14:00           Pacific/Kiritimati                     no                  
+
+administrator@cli> 
+2017-11-14 16:16:42: detail of timezone should be listed
+
+2017-11-14 16:16:42: 'result': 'p'
+2017-11-14 16:16:42: tz
+===============================================================================
+Time Offset              Zone                         Support DST              
+===============================================================================
+UTC+13:00                Pacific/Fakaofo              no                       
+
+administrator@cli> 
+2017-11-14 16:16:41: timezone should be listed
+
+2017-11-14 16:16:11: 'result': 'p'
+2017-11-14 16:16:11: tz -a mod -s 
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2017-11-14 16:16:11: tz -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+2017-11-14 16:14:40: 'result': 'p'
+2017-11-14 16:14:40: tz -a mod -s "test=Beijing"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+2017-11-14 16:14:40: tz -a mod -test ""
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-14 16:14:40: tz -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|mod)
+
+administrator@cli> 
+2017-11-14 16:14:40: tz -d -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-14 16:14:40: tz -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-11-14 16:11:49: 'result': 'p'
+2017-11-14 16:11:49: tz -a mod -s "zone=1"
+Error (0x100): Not found
+
+administrator@cli> 
+2017-11-14 16:11:49: tz -a mod -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+2017-11-14 16:11:49: tz -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|mod)
+
+administrator@cli> 
+2017-11-14 16:11:49: tz -d test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-14 16:11:49: tz test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-14 16:11:04: 'result': 'p'
+2017-11-14 16:11:04: tz -a mod -s "zone=test"
+Error (0x100): Not found
+
+administrator@cli> 
+2017-11-14 16:11:04: tz -a mod -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+2017-11-14 16:11:04: tz -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|mod)
+
+administrator@cli> 
+2017-11-14 16:11:04: tz -d test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-14 16:11:04: tz test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-11-14 16:03:11: 'result': 'p'
+2017-11-14 16:03:11: tz
+===============================================================================
+Time Offset              Zone                         Support DST              
+===============================================================================
+UTC+13:00                Pacific/Fakaofo              no                       
+
+administrator@cli> 
+2017-11-14 16:03:10: tz -a mod -s "zone=Fakaofo"
+
+administrator@cli> 
+2017-11-14 16:03:10: modify timezone to Fakaofo
+
+2017-11-14 16:03:10: tz
+===============================================================================
+Time Offset             Zone                            Support DST            
+===============================================================================
+UTC-6:00                America/Pangnirtung             yes                    
+
+administrator@cli> 
+2017-11-14 16:03:10: tz -a mod -s "zone=Pangnirtung"
+
+administrator@cli> 
+2017-11-14 16:03:10: modify timezone to Pangnirtung
+
+2017-11-14 16:03:10: tz
+===============================================================================
+Time Offset              Zone                         Support DST              
+===============================================================================
+UTC-6:00                 America/Detroit              yes                      
+
+administrator@cli> 
+2017-11-14 16:03:10: tz -a mod -s "zone=Detroit"
+
+administrator@cli> 
+2017-11-14 16:03:10: modify timezone to Detroit
+
+2017-11-14 16:03:10: tz
+===============================================================================
+Time Offset                Zone                      Support DST               
+===============================================================================
+UTC+5:00                   Asia/Aqtau                no                        
+
+administrator@cli> 
+2017-11-14 16:03:10: tz -a mod -s "zone=Aqtau"
+
+administrator@cli> 
+2017-11-14 16:03:10: modify timezone to Aqtau
+
+2017-11-14 16:03:10: tz
+===============================================================================
+Time Offset              Zone                          Support DST             
+===============================================================================
+UTC-4:00                 America/Boa_Vista             no                      
+
+administrator@cli> 
+2017-11-14 16:03:10: tz -a mod -s "zone=Boa_Vista"
+
+administrator@cli> 
+2017-11-14 16:03:10: modify timezone to Boa_Vista
+
+2017-11-14 16:03:10: tz
+===============================================================================
+Time Offset               Zone                       Support DST               
+===============================================================================
+UTC+0:00                  Africa/Dakar               no                        
+
+administrator@cli> 
+2017-11-14 16:03:10: tz -a mod -s "zone=Dakar"
+
+administrator@cli> 
+2017-11-14 16:03:10: modify timezone to Dakar
+
+2017-11-14 16:03:10: tz
+===============================================================================
+Time Offset              Zone                          Support DST             
+===============================================================================
+UTC-4:00                 America/Anguilla              no                      
+
+administrator@cli> 
+2017-11-14 16:03:10: tz -a mod -s "zone=Anguilla"
+
+administrator@cli> 
+2017-11-14 16:03:10: modify timezone to Anguilla
+
+2017-11-14 16:03:10: tz
+===============================================================================
+Time Offset            Zone                              Support DST           
+===============================================================================
+UTC-5:00               America/Port-au-Prince            no                    
+
+administrator@cli> 
+2017-11-14 16:03:10: tz -a mod -s "zone=Port-au-Prince"
+
+administrator@cli> 
+2017-11-14 16:03:10: modify timezone to Port-au-Prince
+
+2017-11-14 16:03:10: tz
+===============================================================================
+Time Offset               Zone                       Support DST               
+===============================================================================
+UTC+0:00                  Africa/Accra               no                        
+
+administrator@cli> 
+2017-11-14 16:03:10: tz -a mod -s "zone=Accra"
+
+administrator@cli> 
+2017-11-14 16:03:10: modify timezone to Accra
+
+2017-11-14 16:03:09: tz
+===============================================================================
+Time Offset               Zone                       Support DST               
+===============================================================================
+UTC+4:00                  Asia/Yerevan               no                        
+
+administrator@cli> 
+2017-11-14 16:03:09: tz -a mod -s "zone=Yerevan"
+
+administrator@cli> 
+2017-11-14 16:03:09: modify timezone to Yerevan
+
+2017-11-14 16:02:42: tz
+===============================================================================
+Time Offset                Zone                      Support DST               
+===============================================================================
+UTC+6:30                   Asia/Yangon               no                        
+
+administrator@cli> 
+2017-11-14 16:02:42: tz -a mod -s "zone=Yangon"
+
+administrator@cli> 
+2017-11-14 16:02:42: modify timezone to Yangon
+
+2017-11-14 16:02:42: tz
+===============================================================================
+Time Offset               Zone                        Support DST              
+===============================================================================
+UTC+5:00                  Asia/Samarkand              no                       
+
+administrator@cli> 
+2017-11-14 16:02:42: tz -a mod -s "zone=Samarkand"
+
+administrator@cli> 
+2017-11-14 16:02:42: modify timezone to Samarkand
+
+2017-11-14 16:02:42: tz
+===============================================================================
+Time Offset               Zone                       Support DST               
+===============================================================================
+UTC+8:00                  Asia/Beijing               no                        
+
+administrator@cli> 
+2017-11-14 16:02:42: tz -a mod -s "zone=Beijing"
+
+administrator@cli> 
+2017-11-14 16:02:42: modify timezone to Beijing
+
+2017-11-14 16:02:42: tz
+===============================================================================
+Time Offset             Zone                            Support DST            
+===============================================================================
+UTC-6:00                America/Pangnirtung             yes                    
+
+administrator@cli> 
+2017-11-14 16:02:42: tz -a mod -s "zone=Pangnirtung"
+
+administrator@cli> 
+2017-11-14 16:02:41: modify timezone to Pangnirtung
+
+2017-11-14 16:02:41: tz
+===============================================================================
+Time Offset               Zone                        Support DST              
+===============================================================================
+UTC+1:00                  Europe/Athens               yes                      
+
+administrator@cli> 
+2017-11-14 16:02:41: tz -a mod -s "zone=Athens"
+
+administrator@cli> 
+2017-11-14 16:02:41: modify timezone to Athens
+
+2017-11-14 16:02:41: tz
+===============================================================================
+Time Offset              Zone                          Support DST             
+===============================================================================
+UTC-5:30                 America/St_Johns              yes                     
+
+administrator@cli> 
+2017-11-14 16:02:41: tz -a mod -s "zone=St_Johns"
+
+administrator@cli> 
+2017-11-14 16:02:41: modify timezone to St_Johns
+
+2017-11-14 16:02:41: tz
+===============================================================================
+Time Offset               Zone                        Support DST              
+===============================================================================
+UTC+10:00                 Pacific/Saipan              no                       
+
+administrator@cli> 
+2017-11-14 16:02:41: tz -a mod -s "zone=Saipan"
+
+administrator@cli> 
+2017-11-14 16:02:41: modify timezone to Saipan
+
+2017-11-14 16:02:41: tz
+===============================================================================
+Time Offset                Zone                      Support DST               
+===============================================================================
+UTC+0:00                   Africa/Lome               no                        
+
+administrator@cli> 
+2017-11-14 16:02:41: tz -a mod -s "zone=Lome"
+
+administrator@cli> 
+2017-11-14 16:02:41: modify timezone to Lome
+
+2017-11-14 16:02:41: tz
+===============================================================================
+Time Offset               Zone                       Support DST               
+===============================================================================
+UTC+11:00                 Asia/Magadan               no                        
+
+administrator@cli> 
+2017-11-14 16:02:41: tz -a mod -s "zone=Magadan"
+
+administrator@cli> 
+2017-11-14 16:02:41: modify timezone to Magadan
+
+2017-11-14 16:02:41: tz
+===============================================================================
+Time Offset             Zone                           Support DST             
+===============================================================================
+UTC-4:00                America/St_Vincent             no                      
+
+administrator@cli> 
+2017-11-14 16:02:41: tz -a mod -s "zone=St_Vincent"
+
+administrator@cli> 
+2017-11-14 16:02:41: modify timezone to St_Vincent
+
+2017-11-14 15:22:25: 'result': 'p'
+2017-11-14 15:22:25: tz -d
+===============================================================================
+Time Offset         Zone                                   Support DST         
+===============================================================================
+UTC-11:00           Pacific/Pago_Pago                      no                  
+UTC-11:00           Pacific/Niue                           no                  
+UTC-11:00           Pacific/Midway                         no                  
+UTC-11:00           America/Adak                           yes                 
+UTC-10:00           Pacific/Rarotonga                      no                  
+UTC-10:00           Pacific/Tahiti                         no                  
+UTC-10:00           Pacific/Johnston                       no                  
+UTC-10:00           America/Anchorage                      yes                 
+UTC-10:00           America/Juneau                         yes                 
+UTC-10:00           America/Sitka                          yes                 
+UTC-10:00           America/Metlakatla                     yes                 
+UTC-10:00           America/Yakutat                        yes                 
+UTC-10:00           America/Nome                           yes                 
+UTC-10:00           Pacific/Honolulu                       no                  
+UTC-10:30           Pacific/Marquesas                      no                  
+UTC-9:00            America/Vancouver                      yes                 
+UTC-9:00            America/Whitehorse                     yes                 
+UTC-9:00            America/Dawson                         yes                 
+UTC-9:00            America/Tijuana                        yes                 
+UTC-9:00            Pacific/Gambier                        no                  
+UTC-9:00            America/Los_Angeles                    yes                 
+UTC-8:00            America/Edmonton                       yes                 
+UTC-8:00            America/Cambridge_Bay                  yes                 
+UTC-8:00            America/Yellowknife                    yes                 
+UTC-8:00            America/Inuvik                         yes                 
+UTC-8:00            America/Mazatlan                       yes                 
+UTC-8:00            America/Chihuahua                      yes                 
+UTC-8:00            America/Ojinaga                        yes                 
+UTC-8:00            Pacific/Pitcairn                       no                  
+UTC-8:00            America/Denver                         yes                 
+UTC-8:00            America/Boise                          yes                 
+UTC-7:00            America/Winnipeg                       yes                 
+UTC-7:00            America/Rainy_River                    yes                 
+UTC-7:00            America/Resolute                       yes                 
+UTC-7:00            America/Rankin_Inlet                   yes                 
+UTC-7:00            America/Creston                        no                  
+UTC-7:00            America/Dawson_Creek                   no                  
+UTC-7:00            America/Fort_Nelson                    no                  
+UTC-7:00            America/Mexico_City                    yes                 
+UTC-7:00            America/Merida                         yes                 
+UTC-7:00            America/Monterrey                      yes                 
+UTC-7:00            America/Matamoros                      yes                 
+UTC-7:00            America/Hermosillo                     no                  
+UTC-7:00            America/Bahia_Banderas                 yes                 
+UTC-7:00            America/Chicago                        yes                 
+UTC-7:00            America/Indiana/Tell_City              yes                 
+UTC-7:00            America/Indiana/Knox                   yes                 
+UTC-7:00            America/Menominee                      yes                 
+UTC-7:00            America/North_Dakota/Center            yes                 
+UTC-7:00            America/North_Dakota/New_Salem         yes                 
+UTC-7:00            America/North_Dakota/Beulah            yes                 
+UTC-7:00            America/Phoenix                        no                  
+UTC-6:00            America/Nassau                         yes                 
+UTC-6:00            America/Belize                         no                  
+UTC-6:00            America/Toronto                        yes                 
+UTC-6:00            America/Nipigon                        yes                 
+UTC-6:00            America/Thunder_Bay                    yes                 
+UTC-6:00            America/Iqaluit                        yes                 
+UTC-6:00            America/Pangnirtung                    yes                 
+UTC-6:00            America/Regina                         no                  
+UTC-6:00            America/Swift_Current                  no                  
+UTC-6:00            Pacific/Easter                         yes                 
+UTC-6:00            America/Costa_Rica                     no                  
+UTC-6:00            America/Havana                         yes                 
+UTC-6:00            Pacific/Galapagos                      no                  
+UTC-6:00            America/Guatemala                      no                  
+UTC-6:00            America/Tegucigalpa                    no                  
+UTC-6:00            America/Managua                        no                  
+UTC-6:00            America/El_Salvador                    no                  
+UTC-6:00            America/New_York                       yes                 
+UTC-6:00            America/Detroit                        yes                 
+UTC-6:00            America/Kentucky/Louisville            yes                 
+UTC-6:00            America/Kentucky/Monticello            yes                 
+UTC-6:00            America/Indiana/Indianapolis           yes                 
+UTC-6:00            America/Indiana/Vincennes              yes                 
+UTC-6:00            America/Indiana/Winamac                yes                 
+UTC-6:00            America/Indiana/Marengo                yes                 
+UTC-6:00            America/Indiana/Petersburg             yes                 
+UTC-6:00            America/Indiana/Vevay                  yes                 
+UTC-5:00            Atlantic/Bermuda                       yes                 
+UTC-5:00            America/Eirunepe                       no                  
+UTC-5:00            America/Rio_Branco                     no                  
+UTC-5:00            America/Halifax                        yes                 
+UTC-5:00            America/Glace_Bay                      yes                 
+UTC-5:00            America/Moncton                        yes                 
+UTC-5:00            America/Goose_Bay                      yes                 
+UTC-5:00            America/Atikokan                       no                  
+UTC-5:00            America/Bogota                         no                  
+UTC-5:00            America/Guayaquil                      no                  
+UTC-5:00            America/Thule                          yes                 
+UTC-5:00            America/Port-au-Prince                 no                  
+UTC-5:00            America/Jamaica                        no                  
+UTC-5:00            America/Cayman                         no                  
+UTC-5:00            America/Cancun                         no                  
+UTC-5:00            America/Panama                         no                  
+UTC-5:00            America/Lima                           no                  
+UTC-5:30            America/St_Johns                       yes                 
+UTC-4:00            America/Antigua                        no                  
+UTC-4:00            America/Anguilla                       no                  
+UTC-4:00            Antarctica/Palmer                      yes                 
+UTC-4:00            America/Aruba                          no                  
+UTC-4:00            America/Barbados                       no                  
+UTC-4:00            America/St_Barthelemy                  no                  
+UTC-4:00            America/La_Paz                         no                  
+UTC-4:00            America/Kralendijk                     no                  
+UTC-4:00            America/Campo_Grande                   yes                 
+UTC-4:00            America/Cuiaba                         yes                 
+UTC-4:00            America/Porto_Velho                    no                  
+UTC-4:00            America/Boa_Vista                      no                  
+UTC-4:00            America/Manaus                         no                  
+UTC-4:00            America/Blanc-Sablon                   no                  
+UTC-4:00            America/Santiago                       yes                 
+UTC-4:00            America/Curacao                        no                  
+UTC-4:00            America/Dominica                       no                  
+UTC-4:00            America/Santo_Domingo                  no                  
+UTC-4:00            America/Grenada                        no                  
+UTC-4:00            America/Godthab                        yes                 
+UTC-4:00            America/Guadeloupe                     no                  
+UTC-4:00            America/Guyana                         no                  
+UTC-4:00            America/St_Kitts                       no                  
+UTC-4:00            America/St_Lucia                       no                  
+UTC-4:00            America/Marigot                        no                  
+UTC-4:00            America/Martinique                     no                  
+UTC-4:00            America/Montserrat                     no                  
+UTC-4:00            America/Miquelon                       yes                 
+UTC-4:00            America/Puerto_Rico                    no                  
+UTC-4:00            America/Asuncion                       yes                 
+UTC-4:00            America/Lower_Princes                  no                  
+UTC-4:00            America/Grand_Turk                     no                  
+UTC-4:00            America/Port_of_Spain                  no                  
+UTC-4:00            America/St_Vincent                     no                  
+UTC-4:00            America/Caracas                        no                  
+UTC-4:00            America/Tortola                        no                  
+UTC-4:00            America/St_Thomas                      no                  
+UTC-3:00            Antarctica/Rothera                     no                  
+UTC-3:00            America/Argentina/Buenos_Aires         no                  
+UTC-3:00            America/Argentina/Cordoba              no                  
+UTC-3:00            America/Argentina/Salta                no                  
+UTC-3:00            America/Argentina/Jujuy                no                  
+UTC-3:00            America/Argentina/Tucuman              no                  
+UTC-3:00            America/Argentina/Catamarca            no                  
+UTC-3:00            America/Argentina/La_Rioja             no                  
+UTC-3:00            America/Argentina/San_Juan             no                  
+UTC-3:00            America/Argentina/Mendoza              no                  
+UTC-3:00            America/Argentina/San_Luis             no                  
+UTC-3:00            America/Argentina/Rio_Gallegos         no                  
+UTC-3:00            America/Argentina/Ushuaia              no                  
+UTC-3:00            America/Belem                          no                  
+UTC-3:00            America/Fortaleza                      no                  
+UTC-3:00            America/Recife                         no                  
+UTC-3:00            America/Araguaina                      no                  
+UTC-3:00            America/Maceio                         no                  
+UTC-3:00            America/Bahia                          no                  
+UTC-3:00            America/Sao_Paulo                      yes                 
+UTC-3:00            America/Santarem                       no                  
+UTC-3:00            Atlantic/Stanley                       no                  
+UTC-3:00            America/Cayenne                        no                  
+UTC-3:00            America/Paramaribo                     no                  
+UTC-3:00            America/Montevideo                     no                  
+UTC-2:00            America/Noronha                        no                  
+UTC-2:00            America/Scoresbysund                   yes                 
+UTC-2:00            Atlantic/South_Georgia                 no                  
+UTC-2:00            Atlantic/Azores                        yes                 
+UTC-1:00            Antarctica/Troll                       yes                 
+UTC-1:00            Atlantic/Cape_Verde                    no                  
+UTC-1:00            Africa/El_Aaiun                        yes                 
+UTC-1:00            Atlantic/Canary                        yes                 
+UTC-1:00            Atlantic/Faroe                         yes                 
+UTC-1:00            Europe/London                          yes                 
+UTC-1:00            Europe/Guernsey                        yes                 
+UTC-1:00            Europe/Dublin                          yes                 
+UTC-1:00            Europe/Isle_of_Man                     yes                 
+UTC-1:00            Europe/Jersey                          yes                 
+UTC-1:00            Africa/Casablanca                      yes                 
+UTC-1:00            Europe/Lisbon                          yes                 
+UTC-1:00            Atlantic/Madeira                       yes                 
+UTC+0:00            Europe/Andorra                         yes                 
+UTC+0:00            Europe/Tirane                          yes                 
+UTC+0:00            Europe/Vienna                          yes                 
+UTC+0:00            Europe/Sarajevo                        yes                 
+UTC+0:00            Europe/Brussels                        yes                 
+UTC+0:00            Africa/Ouagadougou                     no                  
+UTC+0:00            Europe/Zurich                          yes                 
+UTC+0:00            Africa/Abidjan                         no                  
+UTC+0:00            Europe/Prague                          yes                 
+UTC+0:00            Europe/Berlin                          yes                 
+UTC+0:00            Europe/Busingen                        yes                 
+UTC+0:00            Europe/Copenhagen                      yes                 
+UTC+0:00            Europe/Madrid                          yes                 
+UTC+0:00            Africa/Ceuta                           yes                 
+UTC+0:00            Europe/Paris                           yes                 
+UTC+0:00            Africa/Accra                           no                  
+UTC+0:00            Europe/Gibraltar                       yes                 
+UTC+0:00            America/Danmarkshavn                   no                  
+UTC+0:00            Africa/Banjul                          no                  
+UTC+0:00            Africa/Conakry                         no                  
+UTC+0:00            Africa/Bissau                          no                  
+UTC+0:00            Europe/Zagreb                          yes                 
+UTC+0:00            Europe/Budapest                        yes                 
+UTC+0:00            Atlantic/Reykjavik                     no                  
+UTC+0:00            Europe/Rome                            yes                 
+UTC+0:00            Europe/Vaduz                           yes                 
+UTC+0:00            Africa/Monrovia                        no                  
+UTC+0:00            Europe/Luxembourg                      yes                 
+UTC+0:00            Europe/Monaco                          yes                 
+UTC+0:00            Europe/Podgorica                       yes                 
+UTC+0:00            Europe/Skopje                          yes                 
+UTC+0:00            Africa/Bamako                          no                  
+UTC+0:00            Africa/Nouakchott                      no                  
+UTC+0:00            Europe/Malta                           yes                 
+UTC+0:00            Europe/Amsterdam                       yes                 
+UTC+0:00            Europe/Oslo                            yes                 
+UTC+0:00            Europe/Warsaw                          yes                 
+UTC+0:00            Europe/Belgrade                        yes                 
+UTC+0:00            Europe/Stockholm                       yes                 
+UTC+0:00            Atlantic/St_Helena                     no                  
+UTC+0:00            Europe/Ljubljana                       yes                 
+UTC+0:00            Arctic/Longyearbyen                    yes                 
+UTC+0:00            Europe/Bratislava                      yes                 
+UTC+0:00            Africa/Freetown                        no                  
+UTC+0:00            Europe/San_Marino                      yes                 
+UTC+0:00            Africa/Dakar                           no                  
+UTC+0:00            Africa/Sao_Tome                        no                  
+UTC+0:00            Africa/Lome                            no                  
+UTC+0:00            Europe/Vatican                         yes                 
+UTC+1:00            Africa/Luanda                          no                  
+UTC+1:00            Europe/Mariehamn                       yes                 
+UTC+1:00            Europe/Sofia                           yes                 
+UTC+1:00            Africa/Porto-Novo                      no                  
+UTC+1:00            Africa/Kinshasa                        no                  
+UTC+1:00            Africa/Bangui                          no                  
+UTC+1:00            Africa/Brazzaville                     no                  
+UTC+1:00            Africa/Douala                          no                  
+UTC+1:00            Asia/Nicosia                           yes                 
+UTC+1:00            Africa/Algiers                         no                  
+UTC+1:00            Europe/Tallinn                         yes                 
+UTC+1:00            Europe/Helsinki                        yes                 
+UTC+1:00            Africa/Libreville                      no                  
+UTC+1:00            Africa/Malabo                          no                  
+UTC+1:00            Europe/Athens                          yes                 
+UTC+1:00            Asia/Jerusalem                         yes                 
+UTC+1:00            Asia/Amman                             yes                 
+UTC+1:00            Asia/Beirut                            yes                 
+UTC+1:00            Europe/Vilnius                         yes                 
+UTC+1:00            Europe/Riga                            yes                 
+UTC+1:00            Europe/Chisinau                        yes                 
+UTC+1:00            Africa/Windhoek                        yes                 
+UTC+1:00            Africa/Niamey                          no                  
+UTC+1:00            Africa/Lagos                           no                  
+UTC+1:00            Asia/Gaza                              yes                 
+UTC+1:00            Asia/Hebron                            yes                 
+UTC+1:00            Europe/Bucharest                       yes                 
+UTC+1:00            Asia/Damascus                          yes                 
+UTC+1:00            Africa/Ndjamena                        no                  
+UTC+1:00            Africa/Tunis                           no                  
+UTC+1:00            Europe/Kiev                            yes                 
+UTC+1:00            Europe/Uzhgorod                        yes                 
+UTC+1:00            Europe/Zaporozhye                      yes                 
+UTC+2:00            Africa/Bujumbura                       no                  
+UTC+2:00            Africa/Gaborone                        no                  
+UTC+2:00            Africa/Lubumbashi                      no                  
+UTC+2:00            Africa/Cairo                           no                  
+UTC+2:00            Africa/Maseru                          no                  
+UTC+2:00            Africa/Tripoli                         no                  
+UTC+2:00            Africa/Blantyre                        no                  
+UTC+2:00            Africa/Maputo                          no                  
+UTC+2:00            Europe/Kaliningrad                     no                  
+UTC+2:00            Africa/Kigali                          no                  
+UTC+2:00            Africa/Mbabane                         no                  
+UTC+2:00            Africa/Johannesburg                    no                  
+UTC+2:00            Africa/Lusaka                          no                  
+UTC+2:00            Africa/Harare                          no                  
+UTC+2:30            Asia/Tehran                            yes                 
+UTC+3:00            Antarctica/Syowa                       no                  
+UTC+3:00            Asia/Bahrain                           no                  
+UTC+3:00            Europe/Minsk                           no                  
+UTC+3:00            Africa/Djibouti                        no                  
+UTC+3:00            Africa/Asmara                          no                  
+UTC+3:00            Africa/Addis_Ababa                     no                  
+UTC+3:00            Asia/Baghdad                           no                  
+UTC+3:00            Africa/Nairobi                         no                  
+UTC+3:00            Indian/Comoro                          no                  
+UTC+3:00            Asia/Kuwait                            no                  
+UTC+3:00            Indian/Antananarivo                    no                  
+UTC+3:00            Asia/Qatar                             no                  
+UTC+3:00            Europe/Moscow                          no                  
+UTC+3:00            Europe/Simferopol                      no                  
+UTC+3:00            Europe/Volgograd                       no                  
+UTC+3:00            Europe/Kirov                           no                  
+UTC+3:00            Asia/Riyadh                            no                  
+UTC+3:00            Africa/Khartoum                        no                  
+UTC+3:00            Africa/Mogadishu                       no                  
+UTC+3:00            Africa/Juba                            no                  
+UTC+3:00            Europe/Istanbul                        no                  
+UTC+3:00            Africa/Dar_es_Salaam                   no                  
+UTC+3:00            Africa/Kampala                         no                  
+UTC+3:00            Asia/Aden                              no                  
+UTC+3:00            Indian/Mayotte                         no                  
+UTC+4:00            Asia/Dubai                             no                  
+UTC+4:00            Asia/Yerevan                           no                  
+UTC+4:00            Asia/Baku                              no                  
+UTC+4:00            Asia/Tbilisi                           no                  
+UTC+4:00            Indian/Mauritius                       no                  
+UTC+4:00            Asia/Muscat                            no                  
+UTC+4:00            Indian/Reunion                         no                  
+UTC+4:00            Europe/Astrakhan                       no                  
+UTC+4:00            Europe/Samara                          no                  
+UTC+4:00            Europe/Ulyanovsk                       no                  
+UTC+4:00            Indian/Mahe                            no                  
+UTC+4:30            Asia/Kabul                             no                  
+UTC+5:00            Antarctica/Mawson                      no                  
+UTC+5:00            Asia/Aqtobe                            no                  
+UTC+5:00            Asia/Aqtau                             no                  
+UTC+5:00            Asia/Oral                              no                  
+UTC+5:00            Indian/Maldives                        no                  
+UTC+5:00            Asia/Karachi                           no                  
+UTC+5:00            Asia/Yekaterinburg                     no                  
+UTC+5:00            Indian/Kerguelen                       no                  
+UTC+5:00            Asia/Dushanbe                          no                  
+UTC+5:00            Asia/Ashgabat                          no                  
+UTC+5:00            Asia/Samarkand                         no                  
+UTC+5:00            Asia/Tashkent                          no                  
+UTC+5:30            Asia/Kolkata                           no                  
+UTC+5:30            Asia/Colombo                           no                  
+UTC+5:45            Asia/Kathmandu                         no                  
+UTC+6:00            Antarctica/Vostok                      no                  
+UTC+6:00            Asia/Dhaka                             no                  
+UTC+6:00            Asia/Thimphu                           no                  
+UTC+6:00            Asia/Urumqi                            no                  
+UTC+6:00            Indian/Chagos                          no                  
+UTC+6:00            Asia/Bishkek                           no                  
+UTC+6:00            Asia/Almaty                            no                  
+UTC+6:00            Asia/Qyzylorda                         no                  
+UTC+6:00            Asia/Hovd                              yes                 
+UTC+6:00            Asia/Omsk                              no                  
+UTC+6:30            Indian/Cocos                           no                  
+UTC+6:30            Asia/Yangon                            no                  
+UTC+7:00            Antarctica/Davis                       no                  
+UTC+7:00            Indian/Christmas                       no                  
+UTC+7:00            Asia/Jakarta                           no                  
+UTC+7:00            Asia/Pontianak                         no                  
+UTC+7:00            Asia/Phnom_Penh                        no                  
+UTC+7:00            Asia/Vientiane                         no                  
+UTC+7:00            Asia/Ulaanbaatar                       yes                 
+UTC+7:00            Asia/Choibalsan                        yes                 
+UTC+7:00            Asia/Novosibirsk                       no                  
+UTC+7:00            Asia/Barnaul                           no                  
+UTC+7:00            Asia/Tomsk                             no                  
+UTC+7:00            Asia/Novokuznetsk                      no                  
+UTC+7:00            Asia/Krasnoyarsk                       no                  
+UTC+7:00            Asia/Bangkok                           no                  
+UTC+7:00            Asia/Ho_Chi_Minh                       no                  
+UTC+8:00            Antarctica/Casey                       no                  
+UTC+8:00            Australia/Perth                        no                  
+UTC+8:00            Asia/Brunei                            no                  
+UTC+8:00            Asia/Beijing                           no                  
+UTC+8:00            Asia/Shanghai                          no                  
+UTC+8:00            Asia/Hong_Kong                         no                  
+UTC+8:00            Asia/Makassar                          no                  
+UTC+8:00            Asia/Macau                             no                  
+UTC+8:00            Asia/Kuala_Lumpur                      no                  
+UTC+8:00            Asia/Kuching                           no                  
+UTC+8:00            Asia/Manila                            no                  
+UTC+8:00            Asia/Irkutsk                           no                  
+UTC+8:00            Asia/Singapore                         no                  
+UTC+8:00            Asia/Taipei                            no                  
+UTC+8:30            Asia/Pyongyang                         no                  
+UTC+8:45            Australia/Eucla                        no                  
+UTC+9:00            Asia/Jayapura                          no                  
+UTC+9:00            Asia/Tokyo                             no                  
+UTC+9:00            Asia/Seoul                             no                  
+UTC+9:00            Pacific/Palau                          no                  
+UTC+9:00            Asia/Chita                             no                  
+UTC+9:00            Asia/Yakutsk                           no                  
+UTC+9:00            Asia/Khandyga                          no                  
+UTC+9:00            Asia/Dili                              no                  
+UTC+9:30            Australia/Broken_Hill                  yes                 
+UTC+9:30            Australia/Adelaide                     yes                 
+UTC+9:30            Australia/Darwin                       no                  
+UTC+10:00           Antarctica/DumontDUrville              no                  
+UTC+10:00           Australia/Lord_Howe                    yes                 
+UTC+10:00           Australia/Hobart                       yes                 
+UTC+10:00           Australia/Currie                       yes                 
+UTC+10:00           Australia/Melbourne                    yes                 
+UTC+10:00           Australia/Sydney                       yes                 
+UTC+10:00           Australia/Brisbane                     no                  
+UTC+10:00           Australia/Lindeman                     no                  
+UTC+10:00           Pacific/Chuuk                          no                  
+UTC+10:00           Pacific/Guam                           no                  
+UTC+10:00           Pacific/Saipan                         no                  
+UTC+10:00           Pacific/Port_Moresby                   no                  
+UTC+10:00           Asia/Vladivostok                       no                  
+UTC+10:00           Asia/Ust-Nera                          no                  
+UTC+11:00           Antarctica/Macquarie                   no                  
+UTC+11:00           Pacific/Pohnpei                        no                  
+UTC+11:00           Pacific/Kosrae                         no                  
+UTC+11:00           Pacific/Noumea                         no                  
+UTC+11:00           Pacific/Norfolk                        no                  
+UTC+11:00           Pacific/Bougainville                   no                  
+UTC+11:00           Asia/Magadan                           no                  
+UTC+11:00           Asia/Sakhalin                          no                  
+UTC+11:00           Asia/Srednekolymsk                     no                  
+UTC+11:00           Pacific/Guadalcanal                    no                  
+UTC+11:00           Pacific/Efate                          no                  
+UTC+12:00           Antarctica/McMurdo                     yes                 
+UTC+12:00           Pacific/Fiji                           yes                 
+UTC+12:00           Pacific/Tarawa                         no                  
+UTC+12:00           Pacific/Majuro                         no                  
+UTC+12:00           Pacific/Kwajalein                      no                  
+UTC+12:00           Pacific/Nauru                          no                  
+UTC+12:00           Pacific/Auckland                       yes                 
+UTC+12:00           Asia/Kamchatka                         no                  
+UTC+12:00           Asia/Anadyr                            no                  
+UTC+12:00           Pacific/Funafuti                       no                  
+UTC+12:00           Pacific/Wake                           no                  
+UTC+12:00           Pacific/Wallis                         no                  
+UTC+12:45           Pacific/Chatham                        yes                 
+UTC+13:00           Pacific/Enderbury                      no                  
+UTC+13:00           Pacific/Fakaofo                        no                  
+UTC+13:00           Pacific/Tongatapu                      no                  
+UTC+13:00           Pacific/Apia                           yes                 
+UTC+14:00           Pacific/Kiritimati                     no                  
+
+administrator@cli> 
+2017-11-14 15:22:25: detail of timezone should be listed
+
+2017-11-14 15:22:25: 'result': 'p'
+2017-11-14 15:22:25: tz
+===============================================================================
+Time Offset               Zone                       Support DST               
+===============================================================================
+UTC+8:00                  Asia/Beijing               no                        
+
+administrator@cli> 
+2017-11-14 15:22:25: timezone should be listed
+
+2017-11-14 14:57:13: 'result': 'p'
+2017-11-14 14:57:13: tz
+===============================================================================
+Time Offset               Zone                       Support DST               
+===============================================================================
+UTC+8:00                  Asia/Beijing               no                        
+
+administrator@cli> 
+2017-11-14 14:57:12: 
+Expect: timezone should be listed
+
+2017-11-14 14:56:53: 
+Expect: clean up environment
+
+2017-11-14 14:56:53: rb
+-------------------------------------------------------------------------------
+PoolId: 0
+===============================================================================
+PdId                    Percentage                   Status                    
+===============================================================================
+11                      0                            Running                   
+
+administrator@cli> 
+2017-11-14 14:56:50: phydrv -a offline -p 1
+
+administrator@cli> 
+2017-11-14 14:56:49: 
+Expect: rebuild should start
+
+2017-11-14 14:56:49: spare
+===============================================================================
+Id    Status    PdId    Capacity    Revertible    Type      DedicatedToPool    
+===============================================================================
+0     OK        11      2 TB        Yes           Global    N/A                
+
+administrator@cli> 
+2017-11-14 14:56:46: spare -a add -t g -r y -p 11
+
+administrator@cli> 
+2017-11-14 14:56:46: 
+Expect: spare should be added
+
 2017-11-14 14:07:15: 'result': 'p'
 2017-11-14 14:07:15: spare -a del -i
 Error (0x403): Missing parameter
