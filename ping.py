@@ -5,7 +5,6 @@ from ssh_connect import ssh_conn
 import time
 from cli_test import *
 from remote import server
-from find_unconfigured_pd_id import find_pd_id
 
 data = 'data/ping.xlsx'
 

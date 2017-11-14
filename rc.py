@@ -3,39 +3,45 @@
 
 from ssh_connect import ssh_conn
 import time
-from cli_test import cli_test
+from cli_test import *
 
 data = 'data/rc.xlsx'
 
 
 def start_rc(c):
 
-    cli_test.need_manual_test()
+    pass
 
 
 def list_rc(c):
 
-    cli_test.need_manual_test()
+    pass
 
 
 def stop_rc(c):
 
-    cli_test.need_manual_test()
+    pass
 
 
 def invalid_setting_parameter(c):
 
-    cli_test.failed_test(c, data, 'invalid_setting_parameter')
+    cli_failed_test.failed_test(c, data, 'invalid_setting_parameter')
+
+    return cli_failed_test.FailFlag
 
 
 def invalid_option(c):
 
-    cli_test.failed_test(c, data, 'invalid_option')
+    cli_failed_test.failed_test(c, data, 'invalid_option')
+
+    return cli_failed_test.FailFlag
 
 
 def missing_parameter(c):
 
-    cli_test.failed_test(c, data, 'missing_parameter')
+    cli_failed_test.failed_test(c, data, 'missing_parameter')
+
+    return cli_failed_test.FailFlag
 
 
 if __name__ == "__main__":

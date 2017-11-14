@@ -17,8 +17,8 @@ class cli_test_setting():
 
     def setting(self, c, data_file_name, sheet_name, hold_time=0):
 
-        data = xlrd.open_workbook('/home/work/zach/clitest/' + data_file_name)
-        # data = xlrd.open_workbook(data_file_name)
+        # data = xlrd.open_workbook('/home/work/zach/clitest/' + data_file_name)
+        data = xlrd.open_workbook(data_file_name)
         table = data.sheet_by_name(sheet_name)
 
         for i in range(1, table.nrows):
@@ -57,8 +57,8 @@ class cli_test_list():
         
     def list(self, c, data_file_name, sheet_name):
 
-        data = xlrd.open_workbook('/home/work/zach/clitest/' + data_file_name)
-        # data = xlrd.open_workbook(data_file_name)
+        # data = xlrd.open_workbook('/home/work/zach/clitest/' + data_file_name)
+        data = xlrd.open_workbook(data_file_name)
         table = data.sheet_by_name(sheet_name)
 
         for i in range(1, table.nrows):
@@ -95,8 +95,8 @@ class cli_test_other_action():
     
     def other(self, c, data_file_name, sheet_name):
 
-        data = xlrd.open_workbook('/home/work/zach/clitest/' + data_file_name)
-        # data = xlrd.open_workbook(data_file_name)
+        # data = xlrd.open_workbook('/home/work/zach/clitest/' + data_file_name)
+        data = xlrd.open_workbook(data_file_name)
         table = data.sheet_by_name(sheet_name)
 
         for i in range(1, table.nrows):
@@ -124,8 +124,8 @@ class cli_test_delete():
     
     def delete(self, c, data_file_name, sheet_name, hold_time=0):
 
-        data = xlrd.open_workbook('/home/work/zach/clitest/' + data_file_name)
-        # data = xlrd.open_workbook(data_file_name)
+        # data = xlrd.open_workbook('/home/work/zach/clitest/' + data_file_name)
+        data = xlrd.open_workbook(data_file_name)
         table = data.sheet_by_name(sheet_name)
 
         for i in range(1, table.nrows):
@@ -164,8 +164,8 @@ class cli_failed_test():
     
     def failed_test(self, c, data_file_name, sheet_name, hold_time=0):
 
-        data = xlrd.open_workbook('/home/work/zach/clitest/' + data_file_name)
-        # data = xlrd.open_workbook(data_file_name)
+        # data = xlrd.open_workbook('/home/work/zach/clitest/' + data_file_name)
+        data = xlrd.open_workbook(data_file_name)
         table = data.sheet_by_name(sheet_name)
 
         for i in range(1, table.nrows):

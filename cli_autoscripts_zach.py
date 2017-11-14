@@ -291,6 +291,7 @@ if __name__ == "__main__":
                                         start = time.time()
                                         # convert the testsuite name into module that will be imported into
                                         TSuiteName = importlib.import_module(testsuitename, package="Tasks")
+                                        print TSuiteName
                                         # print tls.getTestCase(TC_Platform['tcase_id'])
                                         # if >= 2 steps, 2017-01-06
                                         stepsnum = len(tcsteps)

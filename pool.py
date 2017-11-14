@@ -192,7 +192,7 @@ def extend_raid50_pool(c):
     # precondition
     pdId = find_pd_id()
     # create pool
-    server.webapi('post', 'pool', {"name": "extend_raid50_pool", "pds": pdId[:6], "raid_level": "raid50"})
+    server.webapi('post', 'pool', {"name": "extend_raid50_pool", "pds": pdId[:6], "raid_level": "raid50", "axle": 2})
 
     time.sleep(3)
 
@@ -206,7 +206,7 @@ def extend_raid60_pool(c):
     # precondition
     pdId = find_pd_id()
     # create pool
-    server.webapi('post', 'pool', {"name": "extend_raid60_pool", "pds": pdId[:8], "raid_level": "raid60"})
+    server.webapi('post', 'pool', {"name": "extend_raid60_pool", "pds": pdId[:8], "raid_level": "raid60", "axle": 2})
 
     time.sleep(3)
 

@@ -81,11 +81,11 @@ if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
 
-    start_perfstats(c)
-    list_perfstats(c)
+    # start_perfstats(c)
+    # list_perfstats(c)
     invalid_setting_parameter(c)
-    invalid_option(c)
-    missing_parameter(c)
+    # invalid_option(c)
+    # missing_parameter(c)
 
     ssh.close()
     elasped = time.clock() - start

@@ -2,18 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e03c8b68-9846-4b80-8d73-1c116d755aef" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/acl.py" afterPath="$PROJECT_DIR$/acl.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/find_un_pd_id.py" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/pool.xlsx" afterPath="$PROJECT_DIR$/data/pool.xlsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/spare.xlsx" afterPath="$PROJECT_DIR$/data/spare.xlsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cli_autoscripts_zach.py" afterPath="$PROJECT_DIR$/cli_autoscripts_zach.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cli_scripts.log" afterPath="$PROJECT_DIR$/cli_scripts.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cli_test.py" afterPath="$PROJECT_DIR$/cli_test.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/clone.py" afterPath="$PROJECT_DIR$/clone.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/perfstats.py" afterPath="$PROJECT_DIR$/perfstats.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/phydrv.py" afterPath="$PROJECT_DIR$/phydrv.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ping.py" afterPath="$PROJECT_DIR$/ping.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pool.py" afterPath="$PROJECT_DIR$/pool.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rb.py" afterPath="$PROJECT_DIR$/rb.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snapshot.py" afterPath="$PROJECT_DIR$/snapshot.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rc.py" afterPath="$PROJECT_DIR$/rc.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spare.py" afterPath="$PROJECT_DIR$/spare.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testlink.notes" afterPath="$PROJECT_DIR$/testlink.notes" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/volume.py" afterPath="$PROJECT_DIR$/volume.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,30 +26,13 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="cli_test.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/cli_test.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="156" column="0" lean-forward="true" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
-              <folding>
-                <element signature="e#199#1308#0" expanded="false" />
-                <element signature="e#1401#2410#0" expanded="false" />
-                <element signature="e#2528#3263#0" expanded="false" />
-                <element signature="e#3357#4465#0" expanded="false" />
-                <element signature="e#4562#5625#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="acl.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/acl.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="536">
-              <caret line="171" column="0" lean-forward="true" selection-start-line="171" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
+            <state relative-caret-position="285">
+              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="17" selection-end-column="100" />
               <folding>
                 <element signature="e#44#76#0" expanded="true" />
-                <element signature="e#247#1729#0" expanded="false" />
                 <element signature="e#1764#2074#0" expanded="false" />
                 <element signature="e#2097#2319#0" expanded="false" />
                 <element signature="e#2344#2408#0" expanded="false" />
@@ -64,133 +48,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="clone.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/clone.py">
+      <file leaf-file-name="spare.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/spare.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="106" column="59" lean-forward="true" selection-start-line="106" selection-start-column="59" selection-end-line="106" selection-end-column="59" />
+            <state relative-caret-position="438">
+              <caret line="101" column="34" lean-forward="true" selection-start-line="101" selection-start-column="34" selection-end-line="101" selection-end-column="34" />
               <folding>
                 <element signature="e#31#63#0" expanded="true" />
-                <element signature="e#224#839#0" expanded="false" />
-                <element signature="e#875#916#0" expanded="false" />
-                <element signature="e#941#1057#0" expanded="false" />
-                <element signature="e#1084#1150#0" expanded="false" />
-                <element signature="e#1190#1269#0" expanded="false" />
-                <element signature="e#1473#1628#0" expanded="false" />
-                <element signature="e#1662#1813#0" expanded="false" />
-                <element signature="e#1839#1910#0" expanded="false" />
+                <element signature="e#217#471#0" expanded="false" />
+                <element signature="e#506#866#0" expanded="false" />
+                <element signature="e#892#1372#0" expanded="false" />
+                <element signature="e#1415#1497#0" expanded="false" />
+                <element signature="e#1526#1600#0" expanded="false" />
+                <element signature="e#1643#1913#0" expanded="false" />
+                <element signature="e#1954#2055#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="perfstats.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/perfstats.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-99">
-              <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-              <folding>
-                <element signature="e#228#1120#0" expanded="false" />
-                <element signature="e#1156#1197#0" expanded="false" />
-                <element signature="e#1228#1355#0" expanded="false" />
-                <element signature="e#1385#1519#0" expanded="false" />
-                <element signature="e#1819#1968#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="phydrv.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/phydrv.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="110" column="26" lean-forward="true" selection-start-line="110" selection-start-column="26" selection-end-line="110" selection-end-column="26" />
-              <folding>
-                <element signature="e#31#63#0" expanded="true" />
-                <element signature="e#231#1086#0" expanded="false" />
-                <element signature="e#1113#1219#0" expanded="false" />
-                <element signature="e#1263#1346#0" expanded="false" />
-                <element signature="e#1373#1451#0" expanded="false" />
-                <element signature="e#2556#2650#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ping.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ping.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="79" column="24" lean-forward="true" selection-start-line="79" selection-start-column="24" selection-end-line="79" selection-end-column="24" />
-              <folding>
-                <element signature="e#31#63#0" expanded="true" />
-                <element signature="e#222#800#0" expanded="false" />
-                <element signature="e#826#891#0" expanded="false" />
-                <element signature="e#914#1070#0" expanded="false" />
-                <element signature="e#1370#1550#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pool.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pool.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-260">
-              <caret line="188" column="0" lean-forward="true" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
-              <folding>
-                <element signature="e#226#345#0" expanded="false" />
-                <element signature="e#376#495#0" expanded="false" />
-                <element signature="e#526#645#0" expanded="false" />
-                <element signature="e#676#795#0" expanded="false" />
-                <element signature="e#827#947#0" expanded="false" />
-                <element signature="e#979#1099#0" expanded="false" />
-                <element signature="e#1131#1251#0" expanded="false" />
-                <element signature="e#1292#1421#0" expanded="false" />
-                <element signature="e#1454#1538#0" expanded="false" />
-                <element signature="e#1928#2006#0" expanded="false" />
-                <element signature="e#2040#2312#0" expanded="false" />
-                <element signature="e#2346#2617#0" expanded="false" />
-                <element signature="e#2651#2922#0" expanded="false" />
-                <element signature="e#2956#3227#0" expanded="false" />
-                <element signature="e#3262#3536#0" expanded="false" />
-                <element signature="e#3571#3845#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rb.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/rb.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-9">
-              <caret line="122" column="0" lean-forward="true" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
-              <folding>
-                <element signature="e#31#63#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="snapshot.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/snapshot.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="128" column="19" lean-forward="true" selection-start-line="128" selection-start-column="19" selection-end-line="128" selection-end-column="19" />
-              <folding>
-                <element signature="e#227#607#0" expanded="false" />
-                <element signature="e#643#684#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="volume.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/volume.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="15" column="17" lean-forward="true" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -265,7 +137,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ptiflash.py" />
         <option value="$PROJECT_DIR$/sc.py" />
         <option value="$PROJECT_DIR$/session.py" />
         <option value="$PROJECT_DIR$/smart.py" />
@@ -284,7 +155,6 @@
         <option value="$PROJECT_DIR$/bvt_testlink.py" />
         <option value="$PROJECT_DIR$/ctrl.py" />
         <option value="$PROJECT_DIR$/../webAPI/NASShareapi.py" />
-        <option value="$PROJECT_DIR$/spare.py" />
         <option value="$PROJECT_DIR$/to_log.py" />
         <option value="$PROJECT_DIR$/find_pd_id.py" />
         <option value="$PROJECT_DIR$/find_un_pd_id.py" />
@@ -294,10 +164,8 @@
         <option value="$PROJECT_DIR$/send_cmd.py" />
         <option value="$PROJECT_DIR$/group.py" />
         <option value="$PROJECT_DIR$/protocol.py" />
-        <option value="$PROJECT_DIR$/rc.py" />
         <option value="$PROJECT_DIR$/rcache.py" />
         <option value="$PROJECT_DIR$/find_unconfigured_pd_id.py" />
-        <option value="$PROJECT_DIR$/cli_autoscripts_zach.py" />
         <option value="$PROJECT_DIR$/BuildVerification.py" />
         <option value="$PROJECT_DIR$/nasShare.py" />
         <option value="$PROJECT_DIR$/help.py" />
@@ -308,14 +176,18 @@
         <option value="$PROJECT_DIR$/cli_scripts.log" />
         <option value="$PROJECT_DIR$/acl.py" />
         <option value="$PROJECT_DIR$/clone.py" />
-        <option value="$PROJECT_DIR$/perfstats.py" />
         <option value="$PROJECT_DIR$/phydrv.py" />
-        <option value="$PROJECT_DIR$/ping.py" />
-        <option value="$PROJECT_DIR$/pool.py" />
-        <option value="$PROJECT_DIR$/rb.py" />
         <option value="$PROJECT_DIR$/snapshot.py" />
         <option value="$PROJECT_DIR$/volume.py" />
+        <option value="$PROJECT_DIR$/rc.py" />
+        <option value="$PROJECT_DIR$/perfstats.py" />
         <option value="$PROJECT_DIR$/cli_test.py" />
+        <option value="$PROJECT_DIR$/pool.py" />
+        <option value="$PROJECT_DIR$/rb.py" />
+        <option value="$PROJECT_DIR$/ping.py" />
+        <option value="$PROJECT_DIR$/cli_autoscripts_zach.py" />
+        <option value="D:/study/link_test.py" />
+        <option value="$PROJECT_DIR$/spare.py" />
       </list>
     </option>
   </component>
@@ -376,43 +248,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.volume">
-    <configuration default="false" name="ping" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="cli" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ping.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="pool" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="cli" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pool.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.spare">
     <configuration default="false" name="rb" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -431,7 +267,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="snapshot" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="ping" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -443,13 +279,13 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="cli" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/snapshot.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ping.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="volume" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="spare" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -461,7 +297,43 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="cli" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/volume.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/spare.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="link_test" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="D:/study" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="cli" />
+      <option name="SCRIPT_NAME" value="D:/study/link_test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="cli_autoscripts_zach" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="cli" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cli_autoscripts_zach.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -532,19 +404,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.ping" />
-      <item index="1" class="java.lang.String" itemvalue="Python.pool" />
-      <item index="2" class="java.lang.String" itemvalue="Python.rb" />
-      <item index="3" class="java.lang.String" itemvalue="Python.snapshot" />
-      <item index="4" class="java.lang.String" itemvalue="Python.volume" />
+      <item index="0" class="java.lang.String" itemvalue="Python.rb" />
+      <item index="1" class="java.lang.String" itemvalue="Python.ping" />
+      <item index="2" class="java.lang.String" itemvalue="Python.spare" />
+      <item index="3" class="java.lang.String" itemvalue="Python.link_test" />
+      <item index="4" class="java.lang.String" itemvalue="Python.cli_autoscripts_zach" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.volume" />
-        <item index="1" class="java.lang.String" itemvalue="Python.snapshot" />
-        <item index="2" class="java.lang.String" itemvalue="Python.rb" />
-        <item index="3" class="java.lang.String" itemvalue="Python.pool" />
-        <item index="4" class="java.lang.String" itemvalue="Python.ping" />
+        <item index="0" class="java.lang.String" itemvalue="Python.spare" />
+        <item index="1" class="java.lang.String" itemvalue="Python.link_test" />
+        <item index="2" class="java.lang.String" itemvalue="Python.cli_autoscripts_zach" />
+        <item index="3" class="java.lang.String" itemvalue="Python.ping" />
+        <item index="4" class="java.lang.String" itemvalue="Python.rb" />
       </list>
     </recent_temporary>
   </component>
@@ -584,11 +456,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4355363" sideWeight="0.5053305" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4127844" sideWeight="0.4946695" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37378114" sideWeight="0.4946695" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5308776" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34127843" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -630,6 +502,56 @@
           <line>3</line>
           <option name="timeStamp" value="223" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/cli_autoscripts_zach.py</url>
+          <line>292</line>
+          <option name="timeStamp" value="242" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/cli_autoscripts_zach.py</url>
+          <line>296</line>
+          <option name="timeStamp" value="251" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/cli_autoscripts_zach.py</url>
+          <line>297</line>
+          <option name="timeStamp" value="255" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/cli_autoscripts_zach.py</url>
+          <line>304</line>
+          <option name="timeStamp" value="256" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/cli_autoscripts_zach.py</url>
+          <line>307</line>
+          <option name="timeStamp" value="257" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/cli_autoscripts_zach.py</url>
+          <line>311</line>
+          <option name="timeStamp" value="258" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/cli_autoscripts_zach.py</url>
+          <line>316</line>
+          <option name="timeStamp" value="259" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/cli_autoscripts_zach.py</url>
+          <line>318</line>
+          <option name="timeStamp" value="260" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/cli_autoscripts_zach.py</url>
+          <line>317</line>
+          <option name="timeStamp" value="261" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/cli_autoscripts_zach.py</url>
+          <line>293</line>
+          <option name="timeStamp" value="262" />
+        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -638,39 +560,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="227" />
+      <option name="time" value="275" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../webAPI/acl_api.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/crosstest.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="1584" column="0" lean-forward="false" selection-start-line="1584" selection-start-column="0" selection-end-line="1584" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lunmap.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="522" column="25" lean-forward="true" selection-start-line="522" selection-start-column="25" selection-end-line="522" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../webAPI/find_unconfigured_pd_id.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-206">
@@ -756,24 +650,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/rb_old.py" />
-    <entry file="file://$PROJECT_DIR$/rc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="597">
-          <caret line="47" column="0" lean-forward="true" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/stats.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/find_un_pd_id.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="817">
-          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -812,13 +692,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spare.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="17" column="19" lean-forward="true" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protocol.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
@@ -850,20 +723,6 @@
           <caret line="229" column="78" lean-forward="false" selection-start-line="229" selection-start-column="19" selection-end-line="229" selection-end-column="78" />
           <folding>
             <element signature="e#290#305#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/find_unconfigured_pd_id.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="12" column="44" lean-forward="true" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
-          <folding>
-            <element signature="e#333#563#0" expanded="false" />
-            <element signature="e#635#861#0" expanded="false" />
-            <element signature="e#942#1192#0" expanded="false" />
-            <element signature="e#1496#1633#0" expanded="false" />
-            <element signature="e#1904#2079#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -939,29 +798,8 @@
         <state relative-caret-position="275">
           <caret line="77" column="0" lean-forward="true" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
           <folding>
-            <element signature="e#44#76#0" expanded="true" />
+            <element signature="e#44#76#0" expanded="false" />
             <element signature="e#256#1750#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/acl.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="536">
-          <caret line="171" column="0" lean-forward="true" selection-start-line="171" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
-          <folding>
-            <element signature="e#44#76#0" expanded="true" />
-            <element signature="e#247#1729#0" expanded="false" />
-            <element signature="e#1764#2074#0" expanded="false" />
-            <element signature="e#2097#2319#0" expanded="false" />
-            <element signature="e#2344#2408#0" expanded="false" />
-            <element signature="e#2449#2529#0" expanded="false" />
-            <element signature="e#2557#2641#0" expanded="false" />
-            <element signature="e#2766#2967#0" expanded="false" />
-            <element signature="e#2994#3077#0" expanded="false" />
-            <element signature="e#3118#3350#0" expanded="false" />
-            <element signature="e#3381#3472#0" expanded="false" />
-            <element signature="e#3506#3655#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -984,26 +822,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/perfstats.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-99">
-          <caret line="54" column="0" lean-forward="true" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-          <folding>
-            <element signature="e#228#1120#0" expanded="false" />
-            <element signature="e#1156#1197#0" expanded="false" />
-            <element signature="e#1228#1355#0" expanded="false" />
-            <element signature="e#1385#1519#0" expanded="false" />
-            <element signature="e#1819#1968#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/phydrv.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="110" column="26" lean-forward="true" selection-start-line="110" selection-start-column="26" selection-end-line="110" selection-end-column="26" />
           <folding>
-            <element signature="e#31#63#0" expanded="true" />
+            <element signature="e#31#63#0" expanded="false" />
             <element signature="e#231#1086#0" expanded="false" />
             <element signature="e#1113#1219#0" expanded="false" />
             <element signature="e#1263#1346#0" expanded="false" />
@@ -1013,68 +837,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ping.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="79" column="24" lean-forward="true" selection-start-line="79" selection-start-column="24" selection-end-line="79" selection-end-column="24" />
-          <folding>
-            <element signature="e#31#63#0" expanded="true" />
-            <element signature="e#222#800#0" expanded="false" />
-            <element signature="e#826#891#0" expanded="false" />
-            <element signature="e#914#1070#0" expanded="false" />
-            <element signature="e#1370#1550#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cli_autoscripts_zach.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="181" column="32" lean-forward="true" selection-start-line="181" selection-start-column="32" selection-end-line="181" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BuildVerification_jenkins.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
           <caret line="127" column="39" lean-forward="true" selection-start-line="127" selection-start-column="39" selection-end-line="127" selection-end-column="39" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pool.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-260">
-          <caret line="188" column="0" lean-forward="true" selection-start-line="188" selection-start-column="0" selection-end-line="188" selection-end-column="0" />
-          <folding>
-            <element signature="e#226#345#0" expanded="false" />
-            <element signature="e#376#495#0" expanded="false" />
-            <element signature="e#526#645#0" expanded="false" />
-            <element signature="e#676#795#0" expanded="false" />
-            <element signature="e#827#947#0" expanded="false" />
-            <element signature="e#979#1099#0" expanded="false" />
-            <element signature="e#1131#1251#0" expanded="false" />
-            <element signature="e#1292#1421#0" expanded="false" />
-            <element signature="e#1454#1538#0" expanded="false" />
-            <element signature="e#1928#2006#0" expanded="false" />
-            <element signature="e#2040#2312#0" expanded="false" />
-            <element signature="e#2346#2617#0" expanded="false" />
-            <element signature="e#2651#2922#0" expanded="false" />
-            <element signature="e#2956#3227#0" expanded="false" />
-            <element signature="e#3262#3536#0" expanded="false" />
-            <element signature="e#3571#3845#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rb.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9">
-          <caret line="122" column="0" lean-forward="true" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
-          <folding>
-            <element signature="e#31#63#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1097,16 +864,205 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ptiflash.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="20" column="19" lean-forward="true" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/perfstats.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="59" column="35" lean-forward="true" selection-start-line="59" selection-start-column="35" selection-end-line="59" selection-end-column="35" />
+          <folding>
+            <element signature="e#228#1120#0" expanded="false" />
+            <element signature="e#1156#1197#0" expanded="false" />
+            <element signature="e#1228#1355#0" expanded="false" />
+            <element signature="e#1385#1519#0" expanded="false" />
+            <element signature="e#1561#1663#0" expanded="false" />
+            <element signature="e#1819#1968#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="798">
+          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding>
+            <element signature="e#31#63#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cli_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="156" column="0" lean-forward="true" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
+        <state relative-caret-position="134">
+          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding>
             <element signature="e#199#1308#0" expanded="false" />
             <element signature="e#1401#2410#0" expanded="false" />
             <element signature="e#2528#3263#0" expanded="false" />
             <element signature="e#3357#4465#0" expanded="false" />
             <element signature="e#4562#5625#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ping.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding>
+            <element signature="e#31#63#0" expanded="false" />
+            <element signature="e#779#844#0" expanded="false" />
+            <element signature="e#867#1023#0" expanded="false" />
+            <element signature="e#1323#1503#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pool.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="278" column="31" lean-forward="true" selection-start-line="278" selection-start-column="31" selection-end-line="278" selection-end-column="31" />
+          <folding>
+            <element signature="e#226#345#0" expanded="false" />
+            <element signature="e#376#495#0" expanded="false" />
+            <element signature="e#526#645#0" expanded="false" />
+            <element signature="e#676#795#0" expanded="false" />
+            <element signature="e#827#947#0" expanded="false" />
+            <element signature="e#979#1099#0" expanded="false" />
+            <element signature="e#1131#1251#0" expanded="false" />
+            <element signature="e#1292#1421#0" expanded="false" />
+            <element signature="e#1454#1538#0" expanded="false" />
+            <element signature="e#1564#1889#0" expanded="false" />
+            <element signature="e#1928#2006#0" expanded="false" />
+            <element signature="e#2040#2312#0" expanded="false" />
+            <element signature="e#2346#2617#0" expanded="false" />
+            <element signature="e#2956#3227#0" expanded="false" />
+            <element signature="e#3262#3536#0" expanded="false" />
+            <element signature="e#3571#3856#0" expanded="false" />
+            <element signature="e#3891#4176#0" expanded="false" />
+            <element signature="e#4204#4708#0" expanded="false" />
+            <element signature="e#4750#4953#0" expanded="false" />
+            <element signature="e#4984#5075#0" expanded="false" />
+            <element signature="e#5109#5248#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rb.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="e#31#63#0" expanded="false" />
+            <element signature="e#496#738#0" expanded="false" />
+            <element signature="e#768#1010#0" expanded="false" />
+            <element signature="e#1041#1286#0" expanded="false" />
+            <element signature="e#1317#1591#0" expanded="false" />
+            <element signature="e#1622#1896#0" expanded="false" />
+            <element signature="e#1920#1983#0" expanded="false" />
+            <element signature="e#2007#2082#0" expanded="false" />
+            <element signature="e#2124#2226#0" expanded="false" />
+            <element signature="e#2257#2348#0" expanded="false" />
+            <element signature="e#2382#2550#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/acl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="17" selection-end-column="100" />
+          <folding>
+            <element signature="e#44#76#0" expanded="true" />
+            <element signature="e#1764#2074#0" expanded="false" />
+            <element signature="e#2097#2319#0" expanded="false" />
+            <element signature="e#2344#2408#0" expanded="false" />
+            <element signature="e#2449#2529#0" expanded="false" />
+            <element signature="e#2557#2641#0" expanded="false" />
+            <element signature="e#2766#2967#0" expanded="false" />
+            <element signature="e#2994#3077#0" expanded="false" />
+            <element signature="e#3118#3350#0" expanded="false" />
+            <element signature="e#3381#3472#0" expanded="false" />
+            <element signature="e#3506#3655#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/find_un_pd_id.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="25" column="25" lean-forward="true" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/find_unconfigured_pd_id.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="e#333#563#0" expanded="false" />
+            <element signature="e#635#861#0" expanded="false" />
+            <element signature="e#942#1192#0" expanded="false" />
+            <element signature="e#1496#1633#0" expanded="false" />
+            <element signature="e#1904#2079#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/testlink/testlinkapigeneric.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-56">
+          <caret line="263" column="76" lean-forward="true" selection-start-line="263" selection-start-column="76" selection-end-line="263" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/os.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cli_autoscripts_zach.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="176" column="20" lean-forward="false" selection-start-line="176" selection-start-column="20" selection-end-line="176" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://D:/study/link_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="566">
+          <caret line="80" column="53" lean-forward="true" selection-start-line="80" selection-start-column="53" selection-end-line="80" selection-end-column="53" />
+          <folding>
+            <element signature="e#31#46#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spare.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="438">
+          <caret line="101" column="34" lean-forward="true" selection-start-line="101" selection-start-column="34" selection-end-line="101" selection-end-column="34" />
+          <folding>
+            <element signature="e#31#63#0" expanded="true" />
+            <element signature="e#217#471#0" expanded="false" />
+            <element signature="e#506#866#0" expanded="false" />
+            <element signature="e#892#1372#0" expanded="false" />
+            <element signature="e#1415#1497#0" expanded="false" />
+            <element signature="e#1526#1600#0" expanded="false" />
+            <element signature="e#1643#1913#0" expanded="false" />
+            <element signature="e#1954#2055#0" expanded="false" />
           </folding>
         </state>
       </provider>
