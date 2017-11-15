@@ -114,6 +114,7 @@ def invalid_option(c):
 
 
 def missing_parameter(c):
+    cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'missing_parameter')
 

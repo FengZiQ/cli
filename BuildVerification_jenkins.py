@@ -70,33 +70,6 @@ def BuildVerification(c):
         if (spare.missing_parameter_for_spare(c)):
             FailCasesList.append('The case ' + spare.missing_parameter_for_spare.__name__ + ' failed')
 
-        tolog('Start verifying NASShare')
-        import nasShare
-        if (nasShare.addNASShare(c)):
-            FailCasesList.append('The case ' + nasShare.addNASShare.__name__ + ' failed')
-        if (nasShare.listNASShare(c)):
-            FailCasesList.append('The case ' + nasShare.listNASShare.__name__ + ' failed')
-        if (nasShare.listVerboseNASShare(c)):
-            FailCasesList.append('The case ' + nasShare.listVerboseNASShare.__name__ + ' failed')
-        if (nasShare.modNASShare(c)):
-            FailCasesList.append('The case ' + nasShare.modNASShare.__name__ + ' failed')
-        if (nasShare.mountNASShare(c)):
-            FailCasesList.append('The case ' + nasShare.mountNASShare.__name__ + ' failed')
-        if (nasShare.unmountNASShare(c)):
-            FailCasesList.append('The case ' + nasShare.unmountNASShare.__name__ + ' failed')
-        if (nasShare.helpNASShare(c)):
-            FailCasesList.append('The case ' + nasShare.helpNASShare.__name__ + ' failed')
-        if (nasShare.failedTest_InexistentId(c)):
-            FailCasesList.append('The case ' + nasShare.failedTest_InexistentId.__name__ + ' failed')
-        if (nasShare.failedTest_InvalidOption(c)):
-            FailCasesList.append('The case ' + nasShare.failedTest_InvalidOption.__name__ + ' failed')
-        if (nasShare.failedTest_InvalidParameters(c)):
-            FailCasesList.append('The case ' + nasShare.failedTest_InvalidParameters.__name__ + ' failed')
-        if (nasShare.failedTest_MissingParameters(c)):
-            FailCasesList.append('The case ' + nasShare.failedTest_MissingParameters.__name__ + ' failed')
-        if (nasShare.deleteNASShare(c)):
-            FailCasesList.append('The case ' + nasShare.deleteNASShare.__name__ + ' failed')
-
         tolog('Start verifying acl')
         import acl
         if (acl.set_acl(c)):
@@ -297,21 +270,6 @@ def BuildVerification(c):
         if (perfstats.missing_parameter(c)):
             FailCasesList.append('The case ' + perfstats.missing_parameter.__name__ + ' failed')
 
-        tolog('Start verifying tz')
-        import tz
-        if (tz.list_tz(c)):
-            FailCasesList.append('The case ' + tz.list_tz.__name__ + ' failed')
-        if (tz.list_tz_detail(c)):
-            FailCasesList.append('The case ' + tz.list_tz_detail.__name__ + ' failed')
-        if (tz.mod_tz(c)):
-            FailCasesList.append('The case ' + tz.mod_tz.__name__ + ' failed')
-        if (tz.invalid_parameter_for_tz(c)):
-            FailCasesList.append('The case ' + tz.invalid_parameter_for_tz.__name__ + ' failed')
-        if (tz.invalid_option_for_tz(c)):
-            FailCasesList.append('The case ' + tz.invalid_option_for_tz.__name__ + ' failed')
-        if (tz.missing_parameter_for_tz(c)):
-            FailCasesList.append('The case ' + tz.missing_parameter_for_tz.__name__ + ' failed')
-
         tolog('Start verifying ping')
         import ping
         if (ping.iscsi_ping(c)):
@@ -326,6 +284,33 @@ def BuildVerification(c):
             FailCasesList.append('The case ' + ping.invalid_option.__name__ + ' failed')
         if (ping.missing_parameter(c)):
             FailCasesList.append('The case ' + ping.missing_parameter.__name__ + ' failed')
+
+        tolog('Start verifying NASShare')
+        import nasShare
+        if (nasShare.addNASShare(c)):
+            FailCasesList.append('The case ' + nasShare.addNASShare.__name__ + ' failed')
+        if (nasShare.listNASShare(c)):
+            FailCasesList.append('The case ' + nasShare.listNASShare.__name__ + ' failed')
+        if (nasShare.listVerboseNASShare(c)):
+            FailCasesList.append('The case ' + nasShare.listVerboseNASShare.__name__ + ' failed')
+        if (nasShare.modNASShare(c)):
+            FailCasesList.append('The case ' + nasShare.modNASShare.__name__ + ' failed')
+        if (nasShare.mountNASShare(c)):
+            FailCasesList.append('The case ' + nasShare.mountNASShare.__name__ + ' failed')
+        if (nasShare.unmountNASShare(c)):
+            FailCasesList.append('The case ' + nasShare.unmountNASShare.__name__ + ' failed')
+        if (nasShare.helpNASShare(c)):
+            FailCasesList.append('The case ' + nasShare.helpNASShare.__name__ + ' failed')
+        if (nasShare.failedTest_InexistentId(c)):
+            FailCasesList.append('The case ' + nasShare.failedTest_InexistentId.__name__ + ' failed')
+        if (nasShare.failedTest_InvalidOption(c)):
+            FailCasesList.append('The case ' + nasShare.failedTest_InvalidOption.__name__ + ' failed')
+        if (nasShare.failedTest_InvalidParameters(c)):
+            FailCasesList.append('The case ' + nasShare.failedTest_InvalidParameters.__name__ + ' failed')
+        if (nasShare.failedTest_MissingParameters(c)):
+            FailCasesList.append('The case ' + nasShare.failedTest_MissingParameters.__name__ + ' failed')
+        if (nasShare.deleteNASShare(c)):
+            FailCasesList.append('The case ' + nasShare.deleteNASShare.__name__ + ' failed')
 
         tolog("Start verifying about")
         import about
@@ -775,6 +760,21 @@ def BuildVerification(c):
         if (bgasched.verifyBgaschedMissingParameters(c)):
             FailCasesList.append('The case ' + bgasched.verifyBgaschedMissingParameters.__name__ + ' failed')
         bgasched.clearUp(c)
+
+        tolog('Start verifying tz')
+        import tz
+        if (tz.list_tz(c)):
+            FailCasesList.append('The case ' + tz.list_tz.__name__ + ' failed')
+        if (tz.list_tz_detail(c)):
+            FailCasesList.append('The case ' + tz.list_tz_detail.__name__ + ' failed')
+        if (tz.mod_tz(c)):
+            FailCasesList.append('The case ' + tz.mod_tz.__name__ + ' failed')
+        if (tz.invalid_parameter_for_tz(c)):
+            FailCasesList.append('The case ' + tz.invalid_parameter_for_tz.__name__ + ' failed')
+        if (tz.invalid_option_for_tz(c)):
+            FailCasesList.append('The case ' + tz.invalid_option_for_tz.__name__ + ' failed')
+        if (tz.missing_parameter_for_tz(c)):
+            FailCasesList.append('The case ' + tz.missing_parameter_for_tz.__name__ + ' failed')
 
     if len(FailCasesList) != 0:
         for f in FailCasesList:
