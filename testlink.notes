@@ -1287,3 +1287,6253 @@ Error (0x403): Missing parameter
 
 administrator@cli> 
 'result': 'p'
+
+Expect: 1 char name of group should be added
+
+group -a add -g A
+
+administrator@cli> 
+group -g A
+===============================================================================
+GroupName                GroupMembers                description               
+===============================================================================
+A                                                                              
+
+administrator@cli> 
+
+Expect: 2 char name of group should be added
+
+group -a add -g 12
+
+administrator@cli> 
+group -g 12
+===============================================================================
+GroupName                GroupMembers                description               
+===============================================================================
+12                                                                             
+
+administrator@cli> 
+
+Expect: 29 char name of group should be added
+
+group -a add -g test_test_test_test_test_test
+
+administrator@cli> 
+group -g test_test_test_test_test_test
+===============================================================================
+GroupName                             GroupMembers         description         
+===============================================================================
+test_test_test_test_test_test                                                  
+
+administrator@cli> 
+
+Expect: 30 char name of group should be added
+
+group -a add -g name_name_name_name_name_name_
+
+administrator@cli> 
+group -g name_name_name_name_name_name_
+===============================================================================
+GroupName                              GroupMembers         description        
+===============================================================================
+name_name_name_name_name_name_                                                 
+
+administrator@cli> 
+'result': 'p'
+add group and user
+
+group -a add -g add_group_and_user -u "test_group_0,test_group_1"
+
+administrator@cli> 
+
+Expect: group and users should be added
+
+group -a add -g add_group_and_user -u "test_group_0,test_group_1"
+
+administrator@cli> 
+group -g add_group_and_user
+===============================================================================
+GroupName                      GroupMembers             description            
+===============================================================================
+add_group_and_user                                                             
+
+administrator@cli> 
+
+Fail: please check out test_group_0
+
+
+Fail: please check out test_group_1
+
+'result': 'f'
+
+Expect: group and users should be added
+
+group -a add -g add_group_and_user -u "test_group_0,test_group_1"
+
+administrator@cli> 
+group -v -g add_group_and_user
+-------------------------------------------------------------------------------
+GroupName: add_group_and_user           Gid: 1005
+Description:                            GroupMembers: 
+
+administrator@cli> 
+
+Fail: please check out GroupMembers: test_group_0,test_group_1
+
+'result': 'f'
+
+Expect: group and users should be added
+
+group -a add -g add_group_and_user -u "test_group_0,test_group_1"
+
+administrator@cli> 
+group -v -g add_group_and_user
+-------------------------------------------------------------------------------
+GroupName: add_group_and_user           Gid: 1005
+Description:                            GroupMembers: test_group_0,test_group_1
+
+administrator@cli> 
+'result': 'p'
+
+Expect: group and users should be added
+
+group -a add -g add_group_and_user -u "test_group_0,test_group_1"
+Error (0x402): Invalid parameter
+Group is already exist
+
+administrator@cli> 
+
+Fail: group -a add -g add_group_and_user -u "test_group_0,test_group_1"
+
+'result': 'f'
+
+Expect: users should be added to group
+
+group -a adduser -g A -u "test_group_0,test_group_1"
+
+administrator@cli> 
+group -v -g A
+-------------------------------------------------------------------------------
+GroupName: A                            Gid: 1001
+Description:                            GroupMembers: test_group_0,test_group_1
+
+administrator@cli> 
+'result': 'p'
+
+Expect: all of group should be listed
+
+group
+===============================================================================
+GroupName                 GroupMembers              description                
+===============================================================================
+12                                                                             
+A                         test_group_0,test_group_1                            
+add_group_and_user        test_group_0,test_group_1 group -a add -g            
+                          ,test_group_2,test_group_ add_group_and_u            
+                          3,test_group_4,test_group                            
+                          _5,test_group_6                                      
+name_name_name_name_name_                                                      
+name_                                                                          
+test_test_test_test_test_                                                      
+test                                                                           
+users                                               NAS default group          
+
+administrator@cli> 
+
+Expect: specific group should be listed
+
+group -g A
+===============================================================================
+GroupName            GroupMembers                        description           
+===============================================================================
+A                    test_group_0,test_group_1                                 
+
+administrator@cli> 
+'result': 'p'
+
+Expect: all of group should be listed
+
+group -v
+-------------------------------------------------------------------------------
+GroupName: 12                           Gid: 1002
+Description:                            GroupMembers: 
+-------------------------------------------------------------------------------
+GroupName: A                            Gid: 1001
+Description:                            GroupMembers: test_group_0,test_group_1
+-------------------------------------------------------------------------------
+GroupName: add_group_and_user           Gid: 1005
+Description: group -a add -g add_group_and_u
+GroupMembers: 
+test_group_0,test_group_1,test_group_2,test_group_3,test_group_4,test_group_5,t
+est_group_6
+-------------------------------------------------------------------------------
+GroupName: name_name_name_name_name_name_
+Gid: 1004                               Description: 
+GroupMembers: 
+-------------------------------------------------------------------------------
+GroupName: test_test_test_test_test_test
+Gid: 1003                               Description: 
+GroupMembers: 
+-------------------------------------------------------------------------------
+GroupName: users                        Gid: 100
+Description: NAS default group          GroupMembers: 
+
+administrator@cli> 
+
+Expect: specific group should be listed
+
+group -v -g 12
+-------------------------------------------------------------------------------
+GroupName: 12                           Gid: 1002
+Description:                            GroupMembers: 
+
+administrator@cli> 
+'result': 'p'
+
+Expect: description of group 12 should be modified
+
+group -a mod -g 12 -s "desc=this is the test group"
+
+administrator@cli> 
+group -g 12
+===============================================================================
+GroupName            GroupMembers            description                       
+===============================================================================
+12                                           this is the test group            
+
+administrator@cli> 
+'result': 'p'
+
+Expect: users should be deleted from group A
+
+group -a deluser -g A -u test_group_0,test_group_1
+It's editing now!Continue will cause data lost in the runing task.[0m
+[0mDo you want to continue? (y|n):[31D[31C[0m[?12l[?25h[?25l[A[31D[0m[J[0mIt's editing now!Continue will cause data lost in the runing task.[0m
+[0mDo you want to continue? (y|n):[0mL[0mo[0mc[0ma[0ml[0m#[0m1[0m2[0m3[40D[0m
+[J[?7h[0m[?12l[?25h[?2004lunexpected error
+please send service report to your administrator
+administrator@cli> 
+
+Fail: group -a deluser -g A -u test_group_0,test_group_1
+
+'result': 'f'
+
+Expect: users should be added to group
+
+group -a adduser -g A -u "test_group_0,test_group_1"
+
+administrator@cli> 
+group -v -g A
+-------------------------------------------------------------------------------
+GroupName: A                            Gid: 1001
+Description:                            GroupMembers: test_group_0,test_group_1
+
+administrator@cli> 
+'result': 'p'
+
+Expect: users should be deleted from group A
+
+group -a deluser -g A -u test_group_0,test_group_1
+
+administrator@cli> 
+group -g A
+===============================================================================
+GroupName                GroupMembers                description               
+===============================================================================
+A                                                                              
+
+administrator@cli> 
+'result': 'p'
+
+Expect: users should be deleted from group A
+
+group -a deluser -g A -u test_group_0,test_group_1
+Error (0x402): User did not in the group
+
+administrator@cli> 
+
+Fail: group -a deluser -g A -u test_group_0,test_group_1
+
+'result': 'f'
+
+Expect: group A should be deleted
+
+group -a del -g A
+
+administrator@cli> 
+group
+===============================================================================
+GroupName                 GroupMembers              description                
+===============================================================================
+12                                                  test_test_test_test_test_t 
+                                                    est_1                      
+add_group_and_user        test_group_0,test_group_1 group -a add -g            
+                          ,test_group_2,test_group_ add_group_and_u            
+                          3,test_group_4,test_group                            
+                          _5,test_group_6                                      
+name_name_name_name_name_                                                      
+name_                                                                          
+test_test_test_test_test_                                                      
+test                                                                           
+users                                               NAS default group          
+
+administrator@cli> 
+
+Fail: please check out A
+
+
+Expect: group add_group_and_user should be deleted
+
+group -a del -g add_group_and_user
+
+administrator@cli> 
+group
+===============================================================================
+GroupName                       GroupMembers  description                      
+===============================================================================
+12                                            test_test_test_test_test_test_1  
+name_name_name_name_name_name_                                                 
+test_test_test_test_test_test                                                  
+users                                         NAS default group                
+
+administrator@cli> 
+'result': 'f'
+
+Expect: invalid setting parameter
+
+group -g invalid_setting_name
+Error (0x4100104): Incorrect parameters: Group is not found.
+
+administrator@cli> 
+
+Fail: please check out invalid setting parameter
+
+
+Expect: invalid setting parameter
+
+group -v -g invalid_setting_name
+Error (0x4100104): Incorrect parameters: Group is not found.
+
+administrator@cli> 
+
+Fail: please check out invalid setting parameter
+
+
+Expect: The parameter [grp_name] contains invalid character
+
+group -a add -g a*
+Error (0x4100104): Incorrect parameters: The parameter [groupname] contains invalid character. (0x4100104)
+
+administrator@cli> 
+
+Fail: please check out The parameter [grp_name] contains invalid character
+
+
+Expect: The parameter [grp_name] length is over 30 bytes.
+
+group -a add -g test_test_test_test_test_test_1
+Error (0x4100104): Incorrect parameters: The parameter [groupname] length is over 30 bytes. (0x4100104)
+
+administrator@cli> 
+
+Fail: please check out The parameter [grp_name] length is over 30 bytes.
+
+
+Expect: NAS group [invalid_setting_name] doesn't exist.
+
+group -a mod -g invalid_setting_name -s "desc=test"
+Error (0x4100104): Incorrect parameters: NAS group [invalid_setting_name] doesn't exist.
+
+administrator@cli> 
+
+Expect: Failed to find the user
+
+group -a adduser -g add_group_and_user -u invalid_setting_name
+It's editing now!Continue will cause data lost in the runing task.[0m
+[0mDo you want to continue? (y|n):[31D[31C[0m[?12l[?25h[?25l[A[31D[0m[J[0mIt's editing now!Continue will cause data lost in the runing task.[0m
+[0mDo you want to continue? (y|n):[0mL[0mo[0mc[0ma[0ml[0m#[0m1[0m2[0m3[40D[0m
+[J[?7h[0m[?12l[?25h[?2004lunexpected error
+please send service report to your administrator
+administrator@cli> 
+
+Fail: group -a adduser -g add_group_and_user -u invalid_setting_name
+
+
+Expect: Failed to find the user
+
+Local#123
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> 
+
+Fail: please check out Failed to find the user
+
+
+Expect: NAS group [invalid_setting_name] doesn't exist
+
+group -a deluser -g add_group_and_user -u invalid_setting_name
+It's editing now!Continue will cause data lost in the runing task.[0m
+[0mDo you want to continue? (y|n):[31D[31C[0m[?12l[?25h[?25l[A[31D[0m[J[0mIt's editing now!Continue will cause data lost in the runing task.[0m
+[0mDo you want to continue? (y|n):[0mg[0mr[0mo[0mu[0mp[0m [0m-[0ma[0m [0md[0me[0ml[0m [0m-[0mg[0m [0mi[0mn[0mv[0ma[0ml[0mi[0md[0m_[0ms[0me[0mt[0mt[0mi[0mn[0mg[0m_[0mn[0ma[0mm[0me[67D[0m
+[J[?7h[0m[?12l[?25h[?2004lunexpected error
+please send service report to your administrator
+administrator@cli> 
+
+Fail: group -a del -g invalid_setting_name
+
+
+Expect: Invalid setting parameters
+
+Local#123
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> Local#123
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> 
+
+Fail: please check out Invalid setting parameters
+
+'result': 'f'
+
+Expect: 
+
+group test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Group is not found
+
+group -g invalid_setting_name
+Error (0x4100104): Incorrect parameters: Group is not found.
+
+administrator@cli> 
+
+Expect: Group is not found
+
+group -v -g invalid_setting_name
+Error (0x4100104): Incorrect parameters: Group is not found.
+
+administrator@cli> 
+
+Expect: The parameter [groupname] contains invalid character
+
+group -a add -g a*
+Error (0x4100104): Incorrect parameters: The parameter [groupname] contains invalid character. (0x4100104)
+
+administrator@cli> 
+
+Expect: The parameter [groupname] length is over 30 bytes
+
+group -a add -g test_test_test_test_test_test_1
+Error (0x4100104): Incorrect parameters: The parameter [groupname] length is over 30 bytes. (0x4100104)
+
+administrator@cli> 
+
+Expect: NAS group [invalid_setting_name] doesn't exist
+
+group -a mod -g invalid_setting_name -s "desc=test"
+Error (0x4100104): Incorrect parameters: NAS group [invalid_setting_name] doesn't exist.
+
+administrator@cli> 
+
+Expect: Failed to find the user
+
+group -a adduser -g 12 -u invalid_setting_name
+Error (0x402): Failed to find the user invalid_setting_name
+
+administrator@cli> 
+
+Expect: Failed to find the user
+
+group -a deluser -g 12 -u invalid_setting_name
+Error (0x402): Failed to find the user invalid_setting_name
+
+administrator@cli> 
+
+Expect: NAS group [invalid_setting_name] doesn't exist
+
+group -a del -g invalid_setting_name
+Error (0x4100104): Incorrect parameters: NAS group [invalid_setting_name] doesn't exist.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+group -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|add|mod|del|adduser|deluser)
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Invalid option
+
+group -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Expect: Invalid option
+
+group -a add -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Expect: Invalid option
+
+group -a adduser -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Expect: Invalid option
+
+group -a deluser -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Expect: Invalid option
+
+group -a del -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Expect: Invalid option
+
+group -a mod -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Missing parameter
+
+group -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a add
+Error (0x403): Missing parameter
+missing parameter '-g' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a add -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a add -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a mod
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a mod -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a mod -g users -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a adduser
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a adduser'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a adduser -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a adduser -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a deluser
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a deluser'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a deluser -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a deluser -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a del
+Error (0x403): Missing parameter
+missing parameter '-g' for '-a del'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a del -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+'result': 'p'
+
+Expect: 1 char name of group should be added
+
+group -a add -g A
+
+administrator@cli> 
+group -g A
+===============================================================================
+GroupName                GroupMembers                description               
+===============================================================================
+A                                                                              
+
+administrator@cli> 
+
+Expect: 2 char name of group should be added
+
+group -a add -g 12
+Error (0x402): Invalid parameter
+Group is already exist
+
+administrator@cli> 
+
+Fail: group -a add -g 12
+
+
+Expect: 29 char name of group should be added
+
+group -a add -g test_test_test_test_test_test
+Error (0x402): Invalid parameter
+Group is already exist
+
+administrator@cli> 
+
+Fail: group -a add -g test_test_test_test_test_test
+
+
+Expect: 30 char name of group should be added
+
+group -a add -g name_name_name_name_name_name_
+Error (0x402): Invalid parameter
+Group is already exist
+
+administrator@cli> 
+
+Fail: group -a add -g name_name_name_name_name_name_
+
+'result': 'f'
+
+Expect: group and users should be added
+
+group -a add -g add_group_and_user -u "test_group_0,test_group_1"
+
+administrator@cli> 
+group -v -g add_group_and_user
+-------------------------------------------------------------------------------
+GroupName: add_group_and_user           Gid: 1005
+Description:                            GroupMembers: test_group_0,test_group_1
+
+administrator@cli> 
+'result': 'p'
+
+Expect: users should be added to group
+
+
+Expect: Missing parameter
+
+group -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a add
+Error (0x403): Missing parameter
+missing parameter '-g' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a add -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a add -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a mod
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a mod -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a mod -g users -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a adduser
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a adduser'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a adduser -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a adduser -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a deluser
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a deluser'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a deluser -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a deluser -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a del
+Error (0x403): Missing parameter
+missing parameter '-g' for '-a del'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a del -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Missing parameter
+
+group -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a add
+Error (0x403): Missing parameter
+missing parameter '-g' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a add -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a add -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a mod
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a mod -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a mod -g users -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a adduser
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a adduser'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a adduser -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a adduser -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a deluser
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a deluser'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a deluser -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a deluser -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a del
+Error (0x403): Missing parameter
+missing parameter '-g' for '-a del'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a del -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+'result': 'p'
+
+Expect: 1 char name of group should be added
+
+group -a add -g A
+
+administrator@cli> 
+group -g A
+===============================================================================
+GroupName                GroupMembers                description               
+===============================================================================
+A                                                                              
+
+administrator@cli> 
+
+Expect: 2 char name of group should be added
+
+group -a add -g 12
+
+administrator@cli> 
+group -g 12
+===============================================================================
+GroupName                GroupMembers                description               
+===============================================================================
+12                                                                             
+
+administrator@cli> 
+
+Expect: 29 char name of group should be added
+
+group -a add -g test_test_test_test_test_test
+
+administrator@cli> 
+group -g test_test_test_test_test_test
+===============================================================================
+GroupName                             GroupMembers         description         
+===============================================================================
+test_test_test_test_test_test                                                  
+
+administrator@cli> 
+
+Expect: 30 char name of group should be added
+
+group -a add -g name_name_name_name_name_name_
+
+administrator@cli> 
+group -g name_name_name_name_name_name_
+===============================================================================
+GroupName                              GroupMembers         description        
+===============================================================================
+name_name_name_name_name_name_                                                 
+
+administrator@cli> 
+'result': 'p'
+
+Expect: group and users should be added
+
+group -a add -g add_group_and_user -u "test_group_0,test_group_1"
+
+administrator@cli> 
+group -v -g add_group_and_user
+-------------------------------------------------------------------------------
+GroupName: add_group_and_user           Gid: 1005
+Description:                            GroupMembers: test_group_0,test_group_1
+
+administrator@cli> 
+'result': 'p'
+
+Expect: users should be added to group
+
+group -a adduser -g A -u "test_group_0,test_group_1"
+
+administrator@cli> 
+group -v -g A
+-------------------------------------------------------------------------------
+GroupName: A                            Gid: 1001
+Description:                            GroupMembers: test_group_0,test_group_1
+
+administrator@cli> 
+'result': 'p'
+
+Expect: all of group should be listed
+
+group
+===============================================================================
+GroupName                        GroupMembers               description        
+===============================================================================
+12                                                                             
+A                                test_group_0,test_group_1                     
+add_group_and_user               test_group_0,test_group_1                     
+name_name_name_name_name_name_                                                 
+test_test_test_test_test_test                                                  
+users                                                       NAS default group  
+
+administrator@cli> 
+
+Expect: specific group should be listed
+
+group -g A
+===============================================================================
+GroupName            GroupMembers                        description           
+===============================================================================
+A                    test_group_0,test_group_1                                 
+
+administrator@cli> 
+'result': 'p'
+
+Expect: all of group should be listed
+
+group -v
+-------------------------------------------------------------------------------
+GroupName: 12                           Gid: 1002
+Description:                            GroupMembers: 
+-------------------------------------------------------------------------------
+GroupName: A                            Gid: 1001
+Description:                            GroupMembers: test_group_0,test_group_1
+-------------------------------------------------------------------------------
+GroupName: add_group_and_user           Gid: 1005
+Description:                            GroupMembers: test_group_0,test_group_1
+-------------------------------------------------------------------------------
+GroupName: name_name_name_name_name_name_
+Gid: 1004                               Description: 
+GroupMembers: 
+-------------------------------------------------------------------------------
+GroupName: test_test_test_test_test_test
+Gid: 1003                               Description: 
+GroupMembers: 
+-------------------------------------------------------------------------------
+GroupName: users                        Gid: 100
+Description: NAS default group          GroupMembers: 
+
+administrator@cli> 
+
+Expect: specific group should be listed
+
+group -v -g 12
+-------------------------------------------------------------------------------
+GroupName: 12                           Gid: 1002
+Description:                            GroupMembers: 
+
+administrator@cli> 
+'result': 'p'
+
+Expect: description of group 12 should be modified
+
+group -a mod -g 12 -s "desc=this is the test group"
+
+administrator@cli> 
+group -g 12
+===============================================================================
+GroupName            GroupMembers            description                       
+===============================================================================
+12                                           this is the test group            
+
+administrator@cli> 
+'result': 'p'
+
+Expect: users should be deleted from group A
+
+group -a deluser -g A -u test_group_0,test_group_1
+
+administrator@cli> 
+group -g A
+===============================================================================
+GroupName                GroupMembers                description               
+===============================================================================
+A                                                                              
+
+administrator@cli> 
+'result': 'p'
+
+Expect: group A should be deleted
+
+group -a del -g A
+
+administrator@cli> 
+group
+===============================================================================
+GroupName                     GroupMembers              description            
+===============================================================================
+12                                                      this is the test group 
+add_group_and_user            test_group_0,test_group_1                        
+name_name_name_name_name_name                                                  
+_                                                                              
+test_test_test_test_test_test                                                  
+users                                                   NAS default group      
+
+administrator@cli> 
+
+Fail: please check out A
+
+
+Expect: group add_group_and_user should be deleted
+
+group -a del -g add_group_and_user
+
+administrator@cli> 
+group
+===============================================================================
+GroupName                          GroupMembers     description                
+===============================================================================
+12                                                  this is the test group     
+name_name_name_name_name_name_                                                 
+test_test_test_test_test_test                                                  
+users                                               NAS default group          
+
+administrator@cli> 
+'result': 'f'
+
+Expect: Invalid setting parameters
+
+group test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Group is not found
+
+group -g invalid_setting_name
+Error (0x4100104): Incorrect parameters: Group is not found.
+
+administrator@cli> 
+
+Expect: Group is not found
+
+group -v -g invalid_setting_name
+Error (0x4100104): Incorrect parameters: Group is not found.
+
+administrator@cli> 
+
+Expect: The parameter [groupname] contains invalid character
+
+group -a add -g a*
+Error (0x4100104): Incorrect parameters: The parameter [groupname] contains invalid character. (0x4100104)
+
+administrator@cli> 
+
+Expect: The parameter [groupname] length is over 30 bytes
+
+group -a add -g test_test_test_test_test_test_1
+Error (0x4100104): Incorrect parameters: The parameter [groupname] length is over 30 bytes. (0x4100104)
+
+administrator@cli> 
+
+Expect: NAS group [invalid_setting_name] doesn't exist
+
+group -a mod -g invalid_setting_name -s "desc=test"
+Error (0x4100104): Incorrect parameters: NAS group [invalid_setting_name] doesn't exist.
+
+administrator@cli> 
+
+Expect: Failed to find the user
+
+group -a adduser -g 12 -u invalid_setting_name
+Error (0x402): Failed to find the user invalid_setting_name
+
+administrator@cli> 
+
+Expect: Failed to find the user
+
+group -a deluser -g 12 -u invalid_setting_name
+Error (0x402): Failed to find the user invalid_setting_name
+
+administrator@cli> 
+
+Expect: NAS group [invalid_setting_name] doesn't exist
+
+group -a del -g invalid_setting_name
+Error (0x4100104): Incorrect parameters: NAS group [invalid_setting_name] doesn't exist.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+group -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|add|mod|del|adduser|deluser)
+
+administrator@cli> 
+
+Expect: The grp_name parameter [users] is reserved by system.
+
+group -a add -g users
+Error (0x402): Invalid parameter
+Group is already exist
+
+administrator@cli> 
+
+Fail: please check out The grp_name parameter [users] is reserved by system.
+
+
+Expect: The grp_name parameter [users] is reserved by system.
+
+group -a del -g users
+Error (0x4100104): Incorrect parameters: The group name [users] is reserved by system.
+
+administrator@cli> 
+
+Fail: please check out The grp_name parameter [users] is reserved by system.
+
+
+Expect: The grp_name parameter [users] is reserved by system.
+
+group -a mod -g users -s "desc=deafult group"
+
+administrator@cli> 
+
+Fail: group -a mod -g users -s "desc=deafult group"
+
+'result': 'f'
+
+Expect: Invalid option
+
+group -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Expect: Invalid option
+
+group -a add -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Expect: Invalid option
+
+group -a adduser -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Expect: Invalid option
+
+group -a deluser -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Expect: Invalid option
+
+group -a del -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Expect: Invalid option
+
+group -a mod -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Missing parameter
+
+group -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a add
+Error (0x403): Missing parameter
+missing parameter '-g' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a add -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a add -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a mod
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a mod -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a mod -g users -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a adduser
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a adduser'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a adduser -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a adduser -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a deluser
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a deluser'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a deluser -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a deluser -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a del
+Error (0x403): Missing parameter
+missing parameter '-g' for '-a del'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a del -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+'result': 'p'
+
+Expect: 1 char name of group should be added
+
+group -a add -g A
+
+administrator@cli> 
+group -g A
+===============================================================================
+GroupName                GroupMembers                description               
+===============================================================================
+A                                                                              
+
+administrator@cli> 
+
+Expect: 2 char name of group should be added
+
+group -a add -g 12
+
+administrator@cli> 
+group -g 12
+===============================================================================
+GroupName                GroupMembers                description               
+===============================================================================
+12                                                                             
+
+administrator@cli> 
+
+Expect: 29 char name of group should be added
+
+group -a add -g test_test_test_test_test_test
+
+administrator@cli> 
+group -g test_test_test_test_test_test
+===============================================================================
+GroupName                             GroupMembers         description         
+===============================================================================
+test_test_test_test_test_test                                                  
+
+administrator@cli> 
+
+Expect: 30 char name of group should be added
+
+group -a add -g name_name_name_name_name_name_
+
+administrator@cli> 
+group -g name_name_name_name_name_name_
+===============================================================================
+GroupName                              GroupMembers         description        
+===============================================================================
+name_name_name_name_name_name_                                                 
+
+administrator@cli> 
+'result': 'p'
+
+Expect: group A should be deleted
+
+group -a del -g A
+
+administrator@cli> 
+group
+===============================================================================
+GroupName                             GroupMembers        description          
+===============================================================================
+12                                                                             
+name_name_name_name_name_name_                                                 
+test_test_test_test_test_test                                                  
+users                                                     deafult group        
+
+administrator@cli> 
+
+Expect: group add_group_and_user should be deleted
+
+group -a del -g add_group_and_user
+Error (0x4100104): Incorrect parameters: NAS group [add_group_and_user] doesn't exist.
+
+administrator@cli> 
+
+Fail: group -a del -g add_group_and_user
+
+'result': 'f'
+
+Expect: Missing parameter
+
+group -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a add
+Error (0x403): Missing parameter
+missing parameter '-g' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a add -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a add -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a mod
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a mod -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a mod -g users -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a adduser
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a adduser'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a adduser -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a adduser -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a deluser
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a deluser'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a deluser -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a deluser -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a del
+Error (0x403): Missing parameter
+missing parameter '-g' for '-a del'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a del -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+'result': 'p'
+
+Expect: 1 char name of group should be added
+
+group -a add -g A
+
+administrator@cli> 
+group -g A
+===============================================================================
+GroupName                GroupMembers                description               
+===============================================================================
+A                                                                              
+
+administrator@cli> 
+
+Expect: 2 char name of group should be added
+
+group -a add -g 12
+
+administrator@cli> 
+group -g 12
+===============================================================================
+GroupName                GroupMembers                description               
+===============================================================================
+12                                                                             
+
+administrator@cli> 
+
+Expect: 29 char name of group should be added
+
+group -a add -g test_test_test_test_test_test
+
+administrator@cli> 
+group -g test_test_test_test_test_test
+===============================================================================
+GroupName                             GroupMembers         description         
+===============================================================================
+test_test_test_test_test_test                                                  
+
+administrator@cli> 
+
+Expect: 30 char name of group should be added
+
+group -a add -g name_name_name_name_name_name_
+
+administrator@cli> 
+group -g name_name_name_name_name_name_
+===============================================================================
+GroupName                              GroupMembers         description        
+===============================================================================
+name_name_name_name_name_name_                                                 
+
+administrator@cli> 
+'result': 'p'
+
+Expect: group and users should be added
+
+group -a add -g add_group_and_user -u "test_group_0,test_group_1"
+
+administrator@cli> 
+group -v -g add_group_and_user
+-------------------------------------------------------------------------------
+GroupName: add_group_and_user           Gid: 1005
+Description:                            GroupMembers: test_group_0,test_group_1
+
+administrator@cli> 
+'result': 'p'
+
+Expect: users should be added to group
+
+group -a adduser -g A -u "test_group_0,test_group_1"
+
+administrator@cli> 
+group -v -g A
+-------------------------------------------------------------------------------
+GroupName: A                            Gid: 1001
+Description:                            GroupMembers: test_group_0,test_group_1
+
+administrator@cli> 
+'result': 'p'
+
+Expect: all of group should be listed
+
+group
+===============================================================================
+GroupName                         GroupMembers                 description     
+===============================================================================
+12                                                                             
+A                                 test_group_0,test_group_1                    
+add_group_and_user                test_group_0,test_group_1                    
+name_name_name_name_name_name_                                                 
+test_test_test_test_test_test                                                  
+users                                                          deafult group   
+
+administrator@cli> 
+
+Expect: specific group should be listed
+
+group -g A
+===============================================================================
+GroupName            GroupMembers                        description           
+===============================================================================
+A                    test_group_0,test_group_1                                 
+
+administrator@cli> 
+'result': 'p'
+
+Expect: all of group should be listed
+
+group -v
+-------------------------------------------------------------------------------
+GroupName: 12                           Gid: 1002
+Description:                            GroupMembers: 
+-------------------------------------------------------------------------------
+GroupName: A                            Gid: 1001
+Description:                            GroupMembers: test_group_0,test_group_1
+-------------------------------------------------------------------------------
+GroupName: add_group_and_user           Gid: 1005
+Description:                            GroupMembers: test_group_0,test_group_1
+-------------------------------------------------------------------------------
+GroupName: name_name_name_name_name_name_
+Gid: 1004                               Description: 
+GroupMembers: 
+-------------------------------------------------------------------------------
+GroupName: test_test_test_test_test_test
+Gid: 1003                               Description: 
+GroupMembers: 
+-------------------------------------------------------------------------------
+GroupName: users                        Gid: 100
+Description: deafult group              GroupMembers: 
+
+administrator@cli> 
+
+Expect: specific group should be listed
+
+group -v -g 12
+-------------------------------------------------------------------------------
+GroupName: 12                           Gid: 1002
+Description:                            GroupMembers: 
+
+administrator@cli> 
+'result': 'p'
+
+Expect: description of group 12 should be modified
+
+group -a mod -g 12 -s "desc=this is the test group"
+
+administrator@cli> 
+group -g 12
+===============================================================================
+GroupName            GroupMembers            description                       
+===============================================================================
+12                                           this is the test group            
+
+administrator@cli> 
+'result': 'p'
+
+Expect: users should be deleted from group A
+
+group -a deluser -g A -u test_group_0,test_group_1
+
+administrator@cli> 
+group -g A
+===============================================================================
+GroupName                GroupMembers                description               
+===============================================================================
+A                                                                              
+
+administrator@cli> 
+'result': 'p'
+
+Expect: group A should be deleted
+
+group -a del -g A
+
+administrator@cli> 
+group
+===============================================================================
+GroupName                     GroupMembers              description            
+===============================================================================
+12                                                      this is the test group 
+add_group_and_user            test_group_0,test_group_1                        
+name_name_name_name_name_name                                                  
+_                                                                              
+test_test_test_test_test_test                                                  
+users                                                   deafult group          
+
+administrator@cli> 
+
+Expect: group add_group_and_user should be deleted
+
+group -a del -g add_group_and_user
+
+administrator@cli> 
+group
+===============================================================================
+GroupName                          GroupMembers     description                
+===============================================================================
+12                                                  this is the test group     
+name_name_name_name_name_name_                                                 
+test_test_test_test_test_test                                                  
+users                                               deafult group              
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Invalid setting parameters
+
+group test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Group is not found
+
+group -g invalid_setting_name
+Error (0x4100104): Incorrect parameters: Group is not found.
+
+administrator@cli> 
+
+Expect: Group is not found
+
+group -v -g invalid_setting_name
+Error (0x4100104): Incorrect parameters: Group is not found.
+
+administrator@cli> 
+
+Expect: The parameter [groupname] contains invalid character
+
+group -a add -g a*
+Error (0x4100104): Incorrect parameters: The parameter [groupname] contains invalid character. (0x4100104)
+
+administrator@cli> 
+
+Expect: The parameter [groupname] length is over 30 bytes
+
+group -a add -g test_test_test_test_test_test_1
+Error (0x4100104): Incorrect parameters: The parameter [groupname] length is over 30 bytes. (0x4100104)
+
+administrator@cli> 
+
+Expect: NAS group [invalid_setting_name] doesn't exist
+
+group -a mod -g invalid_setting_name -s "desc=test"
+Error (0x4100104): Incorrect parameters: NAS group [invalid_setting_name] doesn't exist.
+
+administrator@cli> 
+
+Expect: Failed to find the user
+
+group -a adduser -g 12 -u invalid_setting_name
+Error (0x402): Failed to find the user invalid_setting_name
+
+administrator@cli> 
+
+Expect: Failed to find the user
+
+group -a deluser -g 12 -u invalid_setting_name
+Error (0x402): Failed to find the user invalid_setting_name
+
+administrator@cli> 
+
+Expect: NAS group [invalid_setting_name] doesn't exist
+
+group -a del -g invalid_setting_name
+Error (0x4100104): Incorrect parameters: NAS group [invalid_setting_name] doesn't exist.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+group -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|add|mod|del|adduser|deluser)
+
+administrator@cli> 
+
+Expect: The grp_name parameter [users] is reserved by system.
+
+group -a add -g users
+Error (0x402): Invalid parameter
+Group is already exist
+
+administrator@cli> 
+
+Fail: please check out The grp_name parameter [users] is reserved by system.
+
+
+Expect: The grp_name parameter [users] is reserved by system.
+
+group -a del -g users
+Error (0x4100104): Incorrect parameters: The group name [users] is reserved by system.
+
+administrator@cli> 
+
+Fail: please check out The grp_name parameter [users] is reserved by system.
+
+
+Expect: The grp_name parameter [users] is reserved by system.
+
+group -a mod -g users -s "desc=deafult group"
+
+administrator@cli> 
+
+Fail: group -a mod -g users -s "desc=deafult group"
+
+'result': 'f'
+
+Expect: Invalid option
+
+group -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Expect: Invalid option
+
+group -a add -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Expect: Invalid option
+
+group -a adduser -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Expect: Invalid option
+
+group -a deluser -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Expect: Invalid option
+
+group -a del -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Expect: Invalid option
+
+group -a mod -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Missing parameter
+
+group -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a add
+Error (0x403): Missing parameter
+missing parameter '-g' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a add -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a add -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a mod
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a mod -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a mod -g users -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a adduser
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a adduser'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a adduser -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a adduser -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a deluser
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a deluser'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a deluser -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a deluser -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a del
+Error (0x403): Missing parameter
+missing parameter '-g' for '-a del'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a del -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Invalid setting parameters
+
+group test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Group is not found
+
+group -g invalid_setting_name
+Error (0x4100104): Incorrect parameters: Group is not found.
+
+administrator@cli> 
+
+Expect: Group is not found
+
+group -v -g invalid_setting_name
+Error (0x4100104): Incorrect parameters: Group is not found.
+
+administrator@cli> 
+
+Expect: The parameter [groupname] contains invalid character
+
+group -a add -g a*
+Error (0x4100104): Incorrect parameters: The parameter [groupname] contains invalid character. (0x4100104)
+
+administrator@cli> 
+
+Expect: The parameter [groupname] length is over 30 bytes
+
+group -a add -g test_test_test_test_test_test_1
+Error (0x4100104): Incorrect parameters: The parameter [groupname] length is over 30 bytes. (0x4100104)
+
+administrator@cli> 
+
+Expect: NAS group [invalid_setting_name] doesn't exist
+
+group -a mod -g invalid_setting_name -s "desc=test"
+Error (0x4100104): Incorrect parameters: NAS group [invalid_setting_name] doesn't exist.
+
+administrator@cli> 
+
+Expect: Failed to find the user
+
+group -a adduser -g 12 -u invalid_setting_name
+It's editing now!Continue will cause data lost in the runing task.[0m
+[0mDo you want to continue? (y|n):[31D[31C[0m[?12l[?25h[?25l[A[31D[0m[J[0mIt's editing now!Continue will cause data lost in the runing task.[0m
+[0mDo you want to continue? (y|n):[0mL[0mo[0mc[0ma[0ml[0m#[0m1[0m2[0m3[40D[0m
+[J[?7h[0m[?12l[?25h[?2004lunexpected error
+please send service report to your administrator
+administrator@cli> 
+
+Fail: group -a adduser -g 12 -u invalid_setting_name
+
+
+Expect: Failed to find the user
+
+group -a deluser -g 12 -u invalid_setting_name
+It's editing now!Continue will cause data lost in the runing task.[0m
+[0mDo you want to continue? (y|n):[31D[31C[0m[?12l[?25h[?25l[A[31D[0m[J[0mIt's editing now!Continue will cause data lost in the runing task.[0m
+[0mDo you want to continue? (y|n):[0mL[0mo[0mc[0ma[0ml[0m#[0m1[0m2[0m3[40D[0m
+[J[?7h[0m[?12l[?25h[?2004lunexpected error
+please send service report to your administrator
+administrator@cli> 
+
+Fail: group -a deluser -g 12 -u invalid_setting_name
+
+
+Expect: NAS group [invalid_setting_name] doesn't exist
+
+Local#123
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> 
+
+Fail: please check out NAS group [invalid_setting_name] doesn't exist
+
+
+Expect: Invalid setting parameters
+
+group -a del -g invalid_setting_name
+Error (0x4100104): Incorrect parameters: NAS group [invalid_setting_name] doesn't exist.
+
+administrator@cli> 
+
+Fail: please check out Invalid setting parameters
+
+
+Expect: Group is already exist
+
+group -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|add|mod|del|adduser|deluser)
+
+administrator@cli> 
+
+Fail: please check out Group is already exist
+
+
+Expect: The group name [users] is reserved by system
+
+group -a add -g users
+Error (0x402): Invalid parameter
+Group is already exist
+
+administrator@cli> 
+
+Fail: please check out The group name [users] is reserved by system
+
+'result': 'f'
+
+Expect: Invalid setting parameters
+
+group test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Group is not found
+
+group -g invalid_setting_name
+Error (0x4100104): Incorrect parameters: Group is not found.
+
+administrator@cli> 
+
+Expect: Group is not found
+
+group -v -g invalid_setting_name
+Error (0x4100104): Incorrect parameters: Group is not found.
+
+administrator@cli> 
+
+Expect: The parameter [groupname] contains invalid character
+
+group -a add -g a*
+Error (0x4100104): Incorrect parameters: The parameter [groupname] contains invalid character. (0x4100104)
+
+administrator@cli> 
+
+Expect: The parameter [groupname] length is over 30 bytes
+
+group -a add -g test_test_test_test_test_test_1
+Error (0x4100104): Incorrect parameters: The parameter [groupname] length is over 30 bytes. (0x4100104)
+
+administrator@cli> 
+
+Expect: NAS group [invalid_setting_name] doesn't exist
+
+group -a mod -g invalid_setting_name -s "desc=test"
+Error (0x4100104): Incorrect parameters: NAS group [invalid_setting_name] doesn't exist.
+
+administrator@cli> 
+
+Expect: Failed to find the user
+
+group -a adduser -g 12 -u invalid_setting_name
+It's editing now!Continue will cause data lost in the runing task.[0m
+[0mDo you want to continue? (y|n):[31D[31C[0m[?12l[?25h[?25l[A[31D[0m[J[0mIt's editing now!Continue will cause data lost in the runing task.[0m
+[0mDo you want to continue? (y|n):[0mL[0mo[0mc[0ma[0ml[0m#[0m1[0m2[0m3[40D[0m
+[J[?7h[0m[?12l[?25h[?2004lunexpected error
+please send service report to your administrator
+administrator@cli> 
+
+Fail: group -a adduser -g 12 -u invalid_setting_name
+
+
+Expect: Failed to find the user
+
+group -a deluser -g 12 -u invalid_setting_name
+It's editing now!Continue will cause data lost in the runing task.[0m
+[0mDo you want to continue? (y|n):[31D[31C[0m[?12l[?25h[?25l[A[31D[0m[J[0mIt's editing now!Continue will cause data lost in the runing task.[0m
+[0mDo you want to continue? (y|n):[0mL[0mo[0mc[0ma[0ml[0m#[0m1[0m2[0m3[40D[0m
+[J[?7h[0m[?12l[?25h[?2004lunexpected error
+please send service report to your administrator
+administrator@cli> 
+
+Fail: group -a deluser -g 12 -u invalid_setting_name
+
+
+Expect: NAS group [invalid_setting_name] doesn't exist
+
+Local#123
+Error (0x401): Invalid command or request
+invalid command: local#123
+
+administrator@cli> 
+
+Fail: please check out NAS group [invalid_setting_name] doesn't exist
+
+
+Expect: Invalid setting parameters
+
+group -a del -g invalid_setting_name
+Error (0x4100104): Incorrect parameters: NAS group [invalid_setting_name] doesn't exist.
+
+administrator@cli> 
+
+Fail: please check out Invalid setting parameters
+
+
+Expect: Group is already exist
+
+group -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|add|mod|del|adduser|deluser)
+
+administrator@cli> 
+
+Fail: please check out Group is already exist
+
+
+Expect: The group name [users] is reserved by system
+
+group -a add -g users
+Error (0x402): Invalid parameter
+Group is already exist
+
+administrator@cli> group -a del -g users
+Error (0x4100104): Incorrect parameters: The group name [users] is reserved by system.
+
+administrator@cli> 
+'result': 'f'
+
+Expect: 1 char name of group should be added
+
+group -a add -g A
+
+administrator@cli> 
+group -g A
+===============================================================================
+GroupName                GroupMembers                description               
+===============================================================================
+A                                                                              
+
+administrator@cli> 
+
+Expect: 2 char name of group should be added
+
+group -a add -g 12
+
+administrator@cli> 
+group -g 12
+===============================================================================
+GroupName                GroupMembers                description               
+===============================================================================
+12                                                                             
+
+administrator@cli> 
+
+Expect: 29 char name of group should be added
+
+group -a add -g test_test_test_test_test_test
+
+administrator@cli> 
+group -g test_test_test_test_test_test
+===============================================================================
+GroupName                             GroupMembers         description         
+===============================================================================
+test_test_test_test_test_test                                                  
+
+administrator@cli> 
+
+Expect: 30 char name of group should be added
+
+group -a add -g name_name_name_name_name_name_
+
+administrator@cli> 
+group -g name_name_name_name_name_name_
+===============================================================================
+GroupName                              GroupMembers         description        
+===============================================================================
+name_name_name_name_name_name_                                                 
+
+administrator@cli> 
+'result': 'p'
+
+Expect: group and users should be added
+
+group -a add -g add_group_and_user -u "test_group_0,test_group_1"
+
+administrator@cli> 
+group -v -g add_group_and_user
+-------------------------------------------------------------------------------
+GroupName: add_group_and_user           Gid: 1005
+Description:                            GroupMembers: test_group_0,test_group_1
+
+administrator@cli> 
+'result': 'p'
+
+Expect: users should be added to group
+
+group -a adduser -g A -u "test_group_0,test_group_1"
+
+administrator@cli> 
+group -v -g A
+-------------------------------------------------------------------------------
+GroupName: A                            Gid: 1001
+Description:                            GroupMembers: test_group_0,test_group_1
+
+administrator@cli> 
+'result': 'p'
+
+Expect: all of group should be listed
+
+group
+===============================================================================
+GroupName                         GroupMembers                 description     
+===============================================================================
+12                                                                             
+A                                 test_group_0,test_group_1                    
+add_group_and_user                test_group_0,test_group_1                    
+name_name_name_name_name_name_                                                 
+test_test_test_test_test_test                                                  
+users                                                          deafult group   
+
+administrator@cli> 
+
+Expect: specific group should be listed
+
+group -g A
+===============================================================================
+GroupName            GroupMembers                        description           
+===============================================================================
+A                    test_group_0,test_group_1                                 
+
+administrator@cli> 
+'result': 'p'
+
+Expect: all of group should be listed
+
+group -v
+-------------------------------------------------------------------------------
+GroupName: 12                           Gid: 1002
+Description:                            GroupMembers: 
+-------------------------------------------------------------------------------
+GroupName: A                            Gid: 1001
+Description:                            GroupMembers: test_group_0,test_group_1
+-------------------------------------------------------------------------------
+GroupName: add_group_and_user           Gid: 1005
+Description:                            GroupMembers: test_group_0,test_group_1
+-------------------------------------------------------------------------------
+GroupName: name_name_name_name_name_name_
+Gid: 1004                               Description: 
+GroupMembers: 
+-------------------------------------------------------------------------------
+GroupName: test_test_test_test_test_test
+Gid: 1003                               Description: 
+GroupMembers: 
+-------------------------------------------------------------------------------
+GroupName: users                        Gid: 100
+Description: deafult group              GroupMembers: 
+
+administrator@cli> 
+
+Expect: specific group should be listed
+
+group -v -g 12
+-------------------------------------------------------------------------------
+GroupName: 12                           Gid: 1002
+Description:                            GroupMembers: 
+
+administrator@cli> 
+'result': 'p'
+
+Expect: description of group 12 should be modified
+
+group -a mod -g 12 -s "desc=this is the test group"
+
+administrator@cli> 
+group -g 12
+===============================================================================
+GroupName            GroupMembers            description                       
+===============================================================================
+12                                           this is the test group            
+
+administrator@cli> 
+'result': 'p'
+
+Expect: users should be deleted from group A
+
+group -a deluser -g A -u test_group_0,test_group_1
+
+administrator@cli> 
+group -g A
+===============================================================================
+GroupName                GroupMembers                description               
+===============================================================================
+A                                                                              
+
+administrator@cli> 
+'result': 'p'
+
+Expect: group A should be deleted
+
+group -a del -g A
+
+administrator@cli> 
+group
+===============================================================================
+GroupName                     GroupMembers              description            
+===============================================================================
+12                                                      this is the test group 
+add_group_and_user            test_group_0,test_group_1                        
+name_name_name_name_name_name                                                  
+_                                                                              
+test_test_test_test_test_test                                                  
+users                                                   deafult group          
+
+administrator@cli> 
+
+Expect: group add_group_and_user should be deleted
+
+group -a del -g add_group_and_user
+
+administrator@cli> 
+group
+===============================================================================
+GroupName                          GroupMembers     description                
+===============================================================================
+12                                                  this is the test group     
+name_name_name_name_name_name_                                                 
+test_test_test_test_test_test                                                  
+users                                               deafult group              
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Invalid setting parameters
+
+group test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Group is not found
+
+group -g invalid_setting_name
+Error (0x4100104): Incorrect parameters: Group is not found.
+
+administrator@cli> 
+
+Expect: Group is not found
+
+group -v -g invalid_setting_name
+Error (0x4100104): Incorrect parameters: Group is not found.
+
+administrator@cli> 
+
+Expect: The parameter [groupname] contains invalid character
+
+group -a add -g a*
+Error (0x4100104): Incorrect parameters: The parameter [groupname] contains invalid character. (0x4100104)
+
+administrator@cli> 
+
+Expect: The parameter [groupname] length is over 30 bytes
+
+group -a add -g test_test_test_test_test_test_1
+Error (0x4100104): Incorrect parameters: The parameter [groupname] length is over 30 bytes. (0x4100104)
+
+administrator@cli> 
+
+Expect: NAS group [invalid_setting_name] doesn't exist
+
+group -a mod -g invalid_setting_name -s "desc=test"
+Error (0x4100104): Incorrect parameters: NAS group [invalid_setting_name] doesn't exist.
+
+administrator@cli> 
+
+Expect: Failed to find the user
+
+group -a adduser -g 12 -u invalid_setting_name
+Error (0x402): Failed to find the user invalid_setting_name
+
+administrator@cli> 
+
+Expect: Failed to find the user
+
+group -a deluser -g 12 -u invalid_setting_name
+Error (0x402): Failed to find the user invalid_setting_name
+
+administrator@cli> 
+
+Expect: NAS group [invalid_setting_name] doesn't exist
+
+group -a del -g invalid_setting_name
+Error (0x4100104): Incorrect parameters: NAS group [invalid_setting_name] doesn't exist.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+group -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|add|mod|del|adduser|deluser)
+
+administrator@cli> 
+
+Expect: Group is already exist
+
+group -a add -g users
+Error (0x402): Invalid parameter
+Group is already exist
+
+administrator@cli> 
+
+Expect: The group name [users] is reserved by system
+
+group -a del -g users
+Error (0x4100104): Incorrect parameters: The group name [users] is reserved by system.
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Invalid option
+
+group -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Expect: Invalid option
+
+group -a add -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Expect: Invalid option
+
+group -a adduser -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Expect: Invalid option
+
+group -a deluser -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Expect: Invalid option
+
+group -a del -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Expect: Invalid option
+
+group -a mod -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Missing parameter
+
+group -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a add
+Error (0x403): Missing parameter
+missing parameter '-g' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a add -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a add -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a mod
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a mod -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a mod -g users -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a adduser
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a adduser'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a adduser -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a adduser -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a deluser
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a deluser'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a deluser -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a deluser -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a del
+Error (0x403): Missing parameter
+missing parameter '-g' for '-a del'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a del -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Missing parameter
+
+group -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a add
+Error (0x403): Missing parameter
+missing parameter '-g' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a add -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a add -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a mod
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a mod -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a mod -g users -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a adduser
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a adduser'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a adduser -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a adduser -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a deluser
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a deluser'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a deluser -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a deluser -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a del
+Error (0x403): Missing parameter
+missing parameter '-g' for '-a del'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a del -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+'result': 'p'
+
+Expect: all of the protocol should be deleted
+
+protocol
+===============================================================================
+ProtocolName                            RunningStatus                 
+===============================================================================
+SMB                                     Stopped                                
+FTP                                     Stopped                                
+NFS                                     Stopped                                
+
+administrator@cli> 
+'result': 'p'
+
+Expect: list SMB of protocol
+
+protocol -n SMB
+-------------------------------------------------------------------------------
+Enable: Disabled                        Description: SMB Server
+Workgroup: WORKGROUP                    NT ACL: no
+Admin Account: admin
+
+administrator@cli> 
+
+Expect: list FTP of protocol
+
+protocol -n FTP
+-------------------------------------------------------------------------------
+Status: Disabled                        CmdPort: 21
+EncryptType: SFTP                       PassiveStart: 60001
+PassiveEnd: 65000                       Charset: utf8
+DwRate: 0                               UpRate: 0
+
+administrator@cli> 
+
+Expect: list NFS of protocol
+
+protocol -n NFS
+-------------------------------------------------------------------------------
+Status: Disabled                        nfsd count: 32
+mountd port: 56789                      PortmapperPort: 111
+nfsd port: 2049                         rpc.statd port: 56790
+rpc.lockd port: 56791
+
+administrator@cli> 
+
+Expect: list nasshare of tm protocol
+
+protocol -t nasshare -d 0 -n tm
+===============================================================================
+Protocol Name                           Status                                 
+===============================================================================
+TM                                      Disabled                               
+
+administrator@cli> 
+
+Expect: list snapshot of tm protocol
+
+protocol -t snapshot -d 0 -n tm
+===============================================================================
+Protocol Name                           Status                                 
+===============================================================================
+TM                                      Disabled                               
+
+administrator@cli> 
+
+Expect: list clone of tm protocol
+
+protocol -t clone -d 0 -n tm
+Error (0x4100102): Empty query result, please check input parameters. Clone id=[0] is not existed.
+
+administrator@cli> 
+
+Fail: protocol -t clone -d 0 -n tm
+
+'result': 'f'
+
+Expect: list SMB of protocol
+
+protocol -n SMB
+-------------------------------------------------------------------------------
+Enable: Disabled                        Description: SMB Server
+Workgroup: WORKGROUP                    NT ACL: no
+Admin Account: admin
+
+administrator@cli> 
+
+Expect: list FTP of protocol
+
+protocol -n FTP
+-------------------------------------------------------------------------------
+Status: Disabled                        CmdPort: 21
+EncryptType: SFTP                       PassiveStart: 60001
+PassiveEnd: 65000                       Charset: utf8
+DwRate: 0                               UpRate: 0
+
+administrator@cli> 
+
+Expect: list NFS of protocol
+
+protocol -n NFS
+-------------------------------------------------------------------------------
+Status: Disabled                        nfsd count: 32
+mountd port: 56789                      PortmapperPort: 111
+nfsd port: 2049                         rpc.statd port: 56790
+rpc.lockd port: 56791
+
+administrator@cli> 
+
+Expect: list nasshare of tm protocol
+
+protocol -t nasshare -d 0 -n tm
+===============================================================================
+Protocol Name                           Status                                 
+===============================================================================
+TM                                      Disabled                               
+
+administrator@cli> 
+
+Expect: list snapshot of tm protocol
+
+protocol -t snapshot -d 0 -n tm
+Error (0x4100104): Incorrect parameters: Wrong up_type.
+
+administrator@cli> 
+
+Fail: protocol -t snapshot -d 0 -n tm
+
+
+Expect: list clone of tm protocol
+
+protocol -t clone -d 0 -n tm
+Error (0x4100104): Incorrect parameters: Wrong up_type.
+
+administrator@cli> 
+
+Fail: protocol -t clone -d 0 -n tm
+
+'result': 'f'
+
+Expect: list SMB of protocol
+
+protocol -n SMB
+-------------------------------------------------------------------------------
+Enable: Enabled                         Description: SMB Server
+Workgroup: WORKGROUP                    NT ACL: yes
+Admin Account: admin
+
+administrator@cli> 
+
+Expect: list FTP of protocol
+
+protocol -n FTP
+-------------------------------------------------------------------------------
+Status: Disabled                        CmdPort: 21
+EncryptType: SFTP                       PassiveStart: 60001
+PassiveEnd: 65000                       Charset: utf8
+DwRate: 0                               UpRate: 0
+
+administrator@cli> 
+
+Expect: list NFS of protocol
+
+protocol -n NFS
+-------------------------------------------------------------------------------
+Status: Disabled                        nfsd count: 32
+mountd port: 56789                      PortmapperPort: 111
+nfsd port: 2049                         rpc.statd port: 56790
+rpc.lockd port: 56791
+
+administrator@cli> 
+
+Expect: list nasshare of tm protocol
+
+protocol -t nasshare -d 0 -n tm
+===============================================================================
+Protocol Name                           Status                                 
+===============================================================================
+TM                                      Disabled                               
+
+administrator@cli> 
+
+Expect: list snapshot of tm protocol
+
+protocol -t snapshot -d 0 -n tm
+===============================================================================
+Protocol Name                           Status                                 
+===============================================================================
+TM                                      Disabled                               
+
+administrator@cli> 
+
+Expect: list clone of tm protocol
+
+protocol -t clone -d 0 -n tm
+===============================================================================
+Protocol Name                           Status                                 
+===============================================================================
+TM                                      Disabled                               
+
+administrator@cli> 
+'result': 'p'
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "encrypt=standard, port=1,startport=1024,endport=1025,charset=utf8,dwrate=0,uprate=0"
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Disabled                        CmdPort: 1
+EncryptType: Standard FTP               PassiveStart: 1024
+PassiveEnd: 1025                        Charset: utf8
+DwRate: 0                               UpRate: 0
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "encrypt=explicit, port=2,startport=1025,endport=1026,charset=ja_jp,dwrate=1,uprate=0"
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Disabled                        CmdPort: 2
+EncryptType: Explicit                   PassiveStart: 1025
+PassiveEnd: 1026                        Charset: ja_jp
+DwRate: 1                               UpRate: 0
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "encrypt=implicit, port=65534,startport=65534,endport=65535,charset=ko_kr,dwrate=100000,uprate=100000"
+Error (0x4100104): Incorrect parameters: The cmd_port [65534] is duplicated with other setting.
+
+administrator@cli> 
+
+Fail: protocol -a mod -n ftp -s "encrypt=implicit, port=65534,startport=65534,endport=65535,charset=ko_kr,dwrate=100000,uprate=100000"
+
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "encrypt=sftp, port=65535,startport=65533,endport=65534,charset=zh_tw,dwrate=10000,uprate=10000"
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Disabled                        CmdPort: 65535
+EncryptType: SFTP                       PassiveStart: 65533
+PassiveEnd: 65534                       Charset: zh_tw
+DwRate: 10000                           UpRate: 10000
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "charset=zh_cn"
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Disabled                        CmdPort: 65535
+EncryptType: SFTP                       PassiveStart: 65533
+PassiveEnd: 65534                       Charset: zh_cn
+DwRate: 10000                           UpRate: 10000
+
+administrator@cli> 
+'result': 'f'
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "encrypt=standard, port=1,startport=1024,endport=1025,charset=utf8,dwrate=0,uprate=0"
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Disabled                        CmdPort: 1
+EncryptType: Standard FTP               PassiveStart: 1024
+PassiveEnd: 1025                        Charset: utf8
+DwRate: 0                               UpRate: 0
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "encrypt=explicit, port=2,startport=1025,endport=1026,charset=ja_jp,dwrate=1,uprate=0"
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Disabled                        CmdPort: 2
+EncryptType: Explicit                   PassiveStart: 1025
+PassiveEnd: 1026                        Charset: ja_jp
+DwRate: 1                               UpRate: 0
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "encrypt=implicit, port=65533,startport=65534,endport=65535,charset=ko_kr,dwrate=100000,uprate=100000"
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Disabled                        CmdPort: 65533
+EncryptType: Implicit                   PassiveStart: 65534
+PassiveEnd: 65535                       Charset: ko_kr
+DwRate: 100000                          UpRate: 100000
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "encrypt=sftp, port=65535,startport=65533,endport=65534,charset=zh_tw,dwrate=10000,uprate=10000"
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Disabled                        CmdPort: 65535
+EncryptType: SFTP                       PassiveStart: 65533
+PassiveEnd: 65534                       Charset: zh_tw
+DwRate: 10000                           UpRate: 10000
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "charset=zh_cn"
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Disabled                        CmdPort: 65535
+EncryptType: SFTP                       PassiveStart: 65533
+PassiveEnd: 65534                       Charset: zh_cn
+DwRate: 10000                           UpRate: 10000
+
+administrator@cli> 
+'result': 'p'
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "encrypt=standard, port=1,startport=1024,endport=1025,charset=utf8,dwrate=0,uprate=0"
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Disabled                        CmdPort: 1
+EncryptType: Standard FTP               PassiveStart: 1024
+PassiveEnd: 1025                        Charset: utf8
+DwRate: 0                               UpRate: 0
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "encrypt=explicit, port=2,startport=1025,endport=1026,charset=ja_jp,dwrate=1,uprate=0"
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Disabled                        CmdPort: 2
+EncryptType: Explicit                   PassiveStart: 1025
+PassiveEnd: 1026                        Charset: ja_jp
+DwRate: 1                               UpRate: 0
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "encrypt=implicit, port=65533,startport=65534,endport=65535,charset=ko_kr,dwrate=100000,uprate=100000"
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Disabled                        CmdPort: 65533
+EncryptType: Implicit                   PassiveStart: 65534
+PassiveEnd: 65535                       Charset: ko_kr
+DwRate: 100000                          UpRate: 100000
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "encrypt=sftp, port=65535,startport=65533,endport=65534,charset=zh_tw,dwrate=10000,uprate=10000"
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Disabled                        CmdPort: 65535
+EncryptType: SFTP                       PassiveStart: 65533
+PassiveEnd: 65534                       Charset: zh_tw
+DwRate: 10000                           UpRate: 10000
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "charset=zh_cn"
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Disabled                        CmdPort: 65535
+EncryptType: SFTP                       PassiveStart: 65533
+PassiveEnd: 65534                       Charset: zh_cn
+DwRate: 10000                           UpRate: 10000
+
+administrator@cli> 
+'result': 'p'
+
+Expect: modify successfully
+
+protocol -a mod -n smb -s "desc=this action is test,workgroup=test_group"
+
+administrator@cli> 
+protocol -n smb
+-------------------------------------------------------------------------------
+Enable: Enabled                         Description: this action is test
+Workgroup: test_group                   NT ACL: yes
+Admin Account: admin
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n smb -s "desc=#*&%*()((&@&,workgroup=1"
+
+administrator@cli> 
+protocol -n smb
+-------------------------------------------------------------------------------
+Enable: Enabled                         Description: #*&%*()((&@&
+Workgroup: 1                            NT ACL: yes
+Admin Account: admin
+
+administrator@cli> 
+'result': 'p'
+
+Expect: modify successfully
+
+protocol -a mod -n nfs -s "port=1024"
+
+administrator@cli> 
+protocol -n nfs
+-------------------------------------------------------------------------------
+Status: Disabled                        nfsd count: 32
+mountd port: 1024                       PortmapperPort: 111
+nfsd port: 2049                         rpc.statd port: 1025
+rpc.lockd port: 1026
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n nfs -s "port=1025"
+
+administrator@cli> 
+protocol -n nfs
+-------------------------------------------------------------------------------
+Status: Disabled                        nfsd count: 32
+mountd port: 1025                       PortmapperPort: 111
+nfsd port: 2049                         rpc.statd port: 1026
+rpc.lockd port: 1027
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n nfs -s "port=65532"
+Error (0x4100104): Incorrect parameters: The mountd_port [65533] is duplicated with other setting.
+
+administrator@cli> 
+
+Fail: protocol -a mod -n nfs -s "port=65532"
+
+
+Expect: modify successfully
+
+protocol -a mod -n nfs -s "port=65533"
+Error (0x4100104): Incorrect parameters: The mountd_port [65533] is duplicated with other setting.
+
+administrator@cli> 
+
+Fail: protocol -a mod -n nfs -s "port=65533"
+
+'result': 'f'
+
+Expect: modify successfully
+
+protocol -a mod -n smb -s "desc=this action is test,workgroup=test_group"
+
+administrator@cli> 
+protocol -n smb
+-------------------------------------------------------------------------------
+Enable: Enabled                         Description: this action is test
+Workgroup: test_group                   NT ACL: yes
+Admin Account: admin
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n smb -s "desc=#*&%*()((&@&,workgroup=1"
+
+administrator@cli> 
+protocol -n smb
+-------------------------------------------------------------------------------
+Enable: Enabled                         Description: #*&%*()((&@&
+Workgroup: 1                            NT ACL: yes
+Admin Account: admin
+
+administrator@cli> 
+'result': 'p'
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "encrypt=standard, port=1,startport=1024,endport=1025,charset=utf8,dwrate=0,uprate=0"
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Disabled                        CmdPort: 1
+EncryptType: Standard FTP               PassiveStart: 1024
+PassiveEnd: 1025                        Charset: utf8
+DwRate: 0                               UpRate: 0
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "encrypt=explicit, port=2,startport=1025,endport=1026,charset=ja_jp,dwrate=1,uprate=0"
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Disabled                        CmdPort: 2
+EncryptType: Explicit                   PassiveStart: 1025
+PassiveEnd: 1026                        Charset: ja_jp
+DwRate: 1                               UpRate: 0
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "encrypt=implicit, port=65533,startport=65534,endport=65535,charset=ko_kr,dwrate=100000,uprate=100000"
+Error (0x4100104): Incorrect parameters: The cmd_port [65533] is duplicated with other setting.
+
+administrator@cli> 
+
+Fail: protocol -a mod -n ftp -s "encrypt=implicit, port=65533,startport=65534,endport=65535,charset=ko_kr,dwrate=100000,uprate=100000"
+
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "encrypt=sftp, port=65535,startport=65533,endport=65534,charset=zh_tw,dwrate=10000,uprate=10000"
+Error (0x4100104): Incorrect parameters: The passive port [65533] is duplicated with other setting.
+
+administrator@cli> 
+
+Fail: protocol -a mod -n ftp -s "encrypt=sftp, port=65535,startport=65533,endport=65534,charset=zh_tw,dwrate=10000,uprate=10000"
+
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "charset=zh_cn"
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Disabled                        CmdPort: 2
+EncryptType: Explicit                   PassiveStart: 1025
+PassiveEnd: 1026                        Charset: zh_cn
+DwRate: 1                               UpRate: 0
+
+administrator@cli> 
+'result': 'f'
+
+Expect: modify successfully
+
+protocol -a mod -n nfs -s "port=1024"
+
+administrator@cli> 
+protocol -n nfs
+-------------------------------------------------------------------------------
+Status: Enabled                         nfsd count: 32
+mountd port: 1024                       PortmapperPort: 111
+nfsd port: 2049                         rpc.statd port: 1025
+rpc.lockd port: 1026
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n nfs -s "port=1025"
+
+administrator@cli> 
+protocol -n nfs
+-------------------------------------------------------------------------------
+Status: Enabled                         nfsd count: 32
+mountd port: 1025                       PortmapperPort: 111
+nfsd port: 2049                         rpc.statd port: 1026
+rpc.lockd port: 1027
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n nfs -s "port=65532"
+
+administrator@cli> 
+protocol -n nfs
+-------------------------------------------------------------------------------
+Status: Enabled                         nfsd count: 32
+mountd port: 65532                      PortmapperPort: 111
+nfsd port: 2049                         rpc.statd port: 65533
+rpc.lockd port: 65534
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n nfs -s "port=65533"
+
+administrator@cli> 
+protocol -n nfs
+-------------------------------------------------------------------------------
+Status: Enabled                         nfsd count: 32
+mountd port: 65533                      PortmapperPort: 111
+nfsd port: 2049                         rpc.statd port: 65534
+rpc.lockd port: 65535
+
+administrator@cli> 
+'result': 'p'
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "encrypt=standard, port=1,startport=1024,endport=1025,charset=utf8,dwrate=0,uprate=0"
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Enabled                         CmdPort: 1
+EncryptType: Standard FTP               PassiveStart: 1024
+PassiveEnd: 1025                        Charset: utf8
+DwRate: 0                               UpRate: 0
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "encrypt=explicit, port=2,startport=1025,endport=1026,charset=ja_jp,dwrate=1,uprate=0"
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Enabled                         CmdPort: 2
+EncryptType: Explicit                   PassiveStart: 1025
+PassiveEnd: 1026                        Charset: ja_jp
+DwRate: 1                               UpRate: 0
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "encrypt=implicit, port=65533,startport=65534,endport=65535,charset=ko_kr,dwrate=100000,uprate=100000"
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Enabled                         CmdPort: 65533
+EncryptType: Implicit                   PassiveStart: 65534
+PassiveEnd: 65535                       Charset: ko_kr
+DwRate: 100000                          UpRate: 100000
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "encrypt=sftp, port=65535,startport=65533,endport=65534,charset=zh_tw,dwrate=10000,uprate=10000"
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Enabled                         CmdPort: 65535
+EncryptType: SFTP                       PassiveStart: 65533
+PassiveEnd: 65534                       Charset: zh_tw
+DwRate: 10000                           UpRate: 10000
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "charset=zh_cn"
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Enabled                         CmdPort: 65535
+EncryptType: SFTP                       PassiveStart: 65533
+PassiveEnd: 65534                       Charset: zh_cn
+DwRate: 10000                           UpRate: 10000
+
+administrator@cli> 
+'result': 'p'
+
+Expect: modify successfully
+
+protocol -a mod -n nfs -s "port=1024"
+
+administrator@cli> 
+protocol -n nfs
+-------------------------------------------------------------------------------
+Status: Enabled                         nfsd count: 32
+mountd port: 1024                       PortmapperPort: 111
+nfsd port: 2049                         rpc.statd port: 1025
+rpc.lockd port: 1026
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n nfs -s "port=1025"
+
+administrator@cli> 
+protocol -n nfs
+-------------------------------------------------------------------------------
+Status: Enabled                         nfsd count: 32
+mountd port: 1025                       PortmapperPort: 111
+nfsd port: 2049                         rpc.statd port: 1026
+rpc.lockd port: 1027
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n nfs -s "port=65532"
+Error (0x4100104): Incorrect parameters: The mountd_port [65533] is duplicated with other setting.
+
+administrator@cli> 
+
+Fail: protocol -a mod -n nfs -s "port=65532"
+
+
+Expect: modify successfully
+
+protocol -a mod -n nfs -s "port=65533"
+Error (0x4100104): Incorrect parameters: The mountd_port [65533] is duplicated with other setting.
+
+administrator@cli> 
+
+Fail: protocol -a mod -n nfs -s "port=65533"
+
+'result': 'f'
+
+Expect: all of protocol settings should be reset
+
+protocol -a reset
+
+administrator@cli> 
+protocol
+===============================================================================
+ProtocolName                            RunningStatus                 
+===============================================================================
+SMB                                     Running                                
+FTP                                     Stopped                                
+NFS                                     Stopped                                
+
+administrator@cli> 
+'result': 'p'
+
+Expect: all ftp settings are reset
+
+protocol -a reset -n ftp
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Enabled                         CmdPort: 21
+EncryptType: SFTP                       PassiveStart: 60001
+PassiveEnd: 65000                       Charset: utf8
+DwRate: 0                               UpRate: 0
+
+administrator@cli> 
+
+Expect: all smb settings are reset
+
+protocol -a reset -n smb
+
+administrator@cli> 
+protocol -n smb
+-------------------------------------------------------------------------------
+Enable: Enabled                         Description: SMB Server
+Workgroup: WORKGROUP                    NT ACL: no
+Admin Account: -
+
+administrator@cli> 
+
+Fail: please check out Status: Enabled
+
+
+Expect: all nfs settings are reset
+
+protocol -a reset -n nfs
+
+administrator@cli> 
+protocol -n nfs
+-------------------------------------------------------------------------------
+Status: Enabled                         nfsd count: 32
+mountd port: 56789                      PortmapperPort: 111
+nfsd port: 2049                         rpc.statd port: 56790
+rpc.lockd port: 56791
+
+administrator@cli> 
+'result': 'f'
+
+Expect: ftp settings should be reset
+
+protocol -a reset -n ftp
+
+administrator@cli> 
+
+Expect: ftp settings should be reset
+
+protocol -a reset -n ftp
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Enabled                         CmdPort: 21
+EncryptType: SFTP                       PassiveStart: 60001
+PassiveEnd: 65000                       Charset: utf8
+DwRate: 0                               UpRate: 0
+
+administrator@cli> 
+
+Expect: smb settings should be reset
+
+protocol -a reset -n smb
+
+administrator@cli> 
+protocol -n smb
+-------------------------------------------------------------------------------
+Enable: Enabled                         Description: SMB Server
+Workgroup: WORKGROUP                    NT ACL: no
+Admin Account: -
+
+administrator@cli> 
+
+Fail: please check out Status: Enabled
+
+
+Expect: nfs settings should be reset
+
+protocol -a reset -n nfs
+
+administrator@cli> 
+protocol -n nfs
+-------------------------------------------------------------------------------
+Status: Enabled                         nfsd count: 32
+mountd port: 56789                      PortmapperPort: 111
+nfsd port: 2049                         rpc.statd port: 56790
+rpc.lockd port: 56791
+
+administrator@cli> 
+'result': 'f'
+
+Expect: ftp protocol can be enabled
+
+protocol -a enable -n ftp
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Enabled                         CmdPort: 21
+EncryptType: SFTP                       PassiveStart: 60001
+PassiveEnd: 65000                       Charset: utf8
+DwRate: 0                               UpRate: 0
+
+administrator@cli> 
+
+Expect: smb protocol can be enabled
+
+protocol -a enable -n smb
+
+administrator@cli> 
+protocol -n smb
+-------------------------------------------------------------------------------
+Enable: Enabled                         Description: SMB Server
+Workgroup: WORKGROUP                    NT ACL: no
+Admin Account: admin
+
+administrator@cli> 
+
+Fail: please check out Status: Enabled
+
+
+Expect: nfs protocol can be enabled
+
+protocol -a enable -n nfs
+
+administrator@cli> 
+protocol -n nfs
+-------------------------------------------------------------------------------
+Status: Enabled                         nfsd count: 32
+mountd port: 56789                      PortmapperPort: 111
+nfsd port: 2049                         rpc.statd port: 56790
+rpc.lockd port: 56791
+
+administrator@cli> 
+'result': 'f'
+
+Expect: ftp protocol can be disabled
+
+protocol -a disable -n ftp
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Disabled                        CmdPort: 21
+EncryptType: SFTP                       PassiveStart: 60001
+PassiveEnd: 65000                       Charset: utf8
+DwRate: 0                               UpRate: 0
+
+administrator@cli> 
+
+Expect: smb protocol can be disabled
+
+protocol -a disable -n smb
+
+administrator@cli> 
+protocol -n smb
+-------------------------------------------------------------------------------
+Enable: Disabled                        Description: SMB Server
+Workgroup: WORKGROUP                    NT ACL: no
+Admin Account: admin
+
+administrator@cli> 
+
+Fail: please check out Status: Disabled
+
+
+Expect: nfs protocol can be disabled
+
+protocol -a disable -n nfs
+
+administrator@cli> 
+protocol -n nfs
+-------------------------------------------------------------------------------
+Status: Disabled                        nfsd count: 32
+mountd port: 56789                      PortmapperPort: 111
+nfsd port: 2049                         rpc.statd port: 56790
+rpc.lockd port: 56791
+
+administrator@cli> 
+'result': 'f'
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+
+Fail: please check out value test
+
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "encrypt="
+Error (0x2013): Invalid setting parameters
+encrypt: invalid setting  (standard|explicit|implicit|sftp)
+
+administrator@cli> 
+
+Fail: please check out value test
+
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n nfs -s "port="
+Error (0x2013): Invalid setting parameters
+port: invalid setting 
+
+administrator@cli> 
+
+Fail: please check out value test
+
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n smb -s "ntacl="
+Error (0x2013): Invalid setting parameters
+ntacl: invalid setting  (yes|no)
+
+administrator@cli> 
+
+Fail: please check out value test
+
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "encrypt=test"
+Error (0x2013): Invalid setting parameters
+encrypt: invalid setting test (standard|explicit|implicit|sftp)
+
+administrator@cli> 
+
+Fail: please check out value test
+
+
+Expect: out of range (1~65535)
+
+protocol -a mod -n ftp -s "port=0"
+
+administrator@cli> 
+
+Fail: protocol -a mod -n ftp -s "port=0"
+
+
+Expect: out of range (1~65535)
+
+protocol -a mod -n ftp -s "port=65536"
+Error (0x4100104): Incorrect parameters: The cmd_port: [65536] is out of range (1~65535).
+
+administrator@cli> 
+
+Fail: please check out range test
+
+
+Expect: out of range (1024~65534)
+
+protocol -a mod -n ftp -s "startport=1023"
+Error (0x4100104): Incorrect parameters: The passive_start: [1023] is out of range (1024~65534).
+
+administrator@cli> 
+
+Fail: please check out range test
+
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "startport=test"
+Error (0x2013): Invalid setting parameters
+startport: invalid setting test
+
+administrator@cli> 
+
+Fail: please check out range test
+
+
+Expect: out of range (1025~65535)
+
+protocol -a mod -n ftp -s "endport=65536"
+Error (0x4100104): Incorrect parameters: The passive_end: [65536] is out of range (1025~65535).
+
+administrator@cli> 
+
+Fail: please check out range test
+
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "endport=test"
+Error (0x2013): Invalid setting parameters
+endport: invalid setting test
+
+administrator@cli> 
+
+Fail: please check out value test
+
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "charset=test"
+Error (0x2013): Invalid setting parameters
+charset: invalid setting test (utf8|ja_jp|ko_kr|zh_cn|zh_tw)
+
+administrator@cli> 
+
+Fail: please check out value test
+
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "dwrate=test"
+Error (0x2013): Invalid setting parameters
+dwrate: invalid setting test
+
+administrator@cli> 
+
+Fail: please check out value test
+
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "uprate=test"
+Error (0x2013): Invalid setting parameters
+uprate: invalid setting test
+
+administrator@cli> 
+
+Fail: please check out value test
+
+
+Expect: The parameter mountd_port must be 1024~65533
+
+protocol -a mod -n nfs -s "port=0"
+
+administrator@cli> 
+
+Fail: protocol -a mod -n nfs -s "port=0"
+
+
+Expect: The parameter mountd_port must be 1024~65533
+
+protocol -a mod -n nfs -s "port=65534"
+Error (0x4100104): Incorrect parameters: The mountd_port [65534] must be 1024~65533.
+
+administrator@cli> 
+
+Fail: please check out The parameter mountd_port must be 1024~65533
+
+
+Fail: please check out range test
+
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n smb -s "ntacl=test"
+Error (0x2013): Invalid setting parameters
+ntacl: invalid setting test (yes|no)
+
+administrator@cli> 
+
+Fail: please check out value test
+
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n smb -s "ntacl=1"
+Error (0x2013): Invalid setting parameters
+ntacl: invalid setting 1 (yes|no)
+
+administrator@cli> 
+
+Fail: please check out value test
+
+
+Expect: Invalid setting parameters
+
+protocol test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Fail: please check out random test
+
+
+Expect: Invalid setting parameters
+
+protocol -n test
+Error (0x2013): Invalid setting parameters
+-n: invalid setting test (ftp|nfs|smb|tm)
+
+administrator@cli> 
+
+Fail: please check out random test
+
+
+Expect: Invalid setting parameters
+
+protocol -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|enable|disable|mod|reset)
+
+administrator@cli> 
+
+Fail: please check out random test
+
+
+Expect: Invalid setting parameters
+
+protocol -a mod test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Fail: please check out random test
+
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n 1
+Error (0x2013): Invalid setting parameters
+-n: invalid setting 1 (ftp|nfs|smb|tm)
+
+administrator@cli> 
+
+Fail: please check out random test
+
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n smb test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Fail: please check out random test
+
+
+Expect: Invalid setting parameters
+
+protocol -a reset test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Fail: please check out random test
+
+
+Expect: Invalid setting parameters
+
+protocol -a reset -n test
+Error (0x2013): Invalid setting parameters
+-n: invalid setting test (ftp|nfs|smb|tm)
+
+administrator@cli> 
+
+Fail: please check out random test
+
+
+Expect: Invalid setting parameters
+
+protocol -a enable test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Fail: please check out random test
+
+
+Expect: Invalid setting parameters
+
+protocol -a enable -n test
+Error (0x2013): Invalid setting parameters
+-n: invalid setting test (ftp|nfs|smb|tm)
+
+administrator@cli> 
+
+Fail: please check out random test
+
+
+Expect: Invalid setting parameters
+
+protocol -a disable test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Fail: please check out random test
+
+
+Expect: Invalid setting parameters
+
+protocol -a disable -n test
+Error (0x2013): Invalid setting parameters
+-n: invalid setting test (ftp|nfs|smb|tm)
+
+administrator@cli> 
+
+Fail: please check out random test
+
+'result': 'f'
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "encrypt="
+Error (0x2013): Invalid setting parameters
+encrypt: invalid setting  (standard|explicit|implicit|sftp)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n nfs -s "port="
+Error (0x2013): Invalid setting parameters
+port: invalid setting 
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n smb -s "ntacl="
+Error (0x2013): Invalid setting parameters
+ntacl: invalid setting  (yes|no)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "encrypt=test"
+Error (0x2013): Invalid setting parameters
+encrypt: invalid setting test (standard|explicit|implicit|sftp)
+
+administrator@cli> 
+
+Expect: out of range (1~65535)
+
+protocol -a mod -n ftp -s "port=0"
+
+administrator@cli> 
+
+Fail: protocol -a mod -n ftp -s "port=0"
+
+
+Expect: out of range (1~65535)
+
+protocol -a mod -n ftp -s "port=65536"
+Error (0x4100104): Incorrect parameters: The cmd_port: [65536] is out of range (1~65535).
+
+administrator@cli> 
+
+Expect: out of range (1024~65534)
+
+protocol -a mod -n ftp -s "startport=1023"
+Error (0x4100104): Incorrect parameters: The passive_start: [1023] is out of range (1024~65534).
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "startport=test"
+Error (0x2013): Invalid setting parameters
+startport: invalid setting test
+
+administrator@cli> 
+
+Expect: out of range (1025~65535)
+
+protocol -a mod -n ftp -s "endport=65536"
+Error (0x4100104): Incorrect parameters: The passive_end: [65536] is out of range (1025~65535).
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "endport=test"
+Error (0x2013): Invalid setting parameters
+endport: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "charset=test"
+Error (0x2013): Invalid setting parameters
+charset: invalid setting test (utf8|ja_jp|ko_kr|zh_cn|zh_tw)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "dwrate=test"
+Error (0x2013): Invalid setting parameters
+dwrate: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "uprate=test"
+Error (0x2013): Invalid setting parameters
+uprate: invalid setting test
+
+administrator@cli> 
+
+Expect: The parameter mountd_port must be 1024~65533
+
+protocol -a mod -n nfs -s "port=0"
+
+administrator@cli> 
+
+Fail: protocol -a mod -n nfs -s "port=0"
+
+
+Expect: The parameter mountd_port must be 1024~65533
+
+protocol -a mod -n nfs -s "port=65534"
+Error (0x4100104): Incorrect parameters: The mountd_port [65534] must be 1024~65533.
+
+administrator@cli> 
+
+Fail: please check out The parameter mountd_port must be 1024~65533
+
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n smb -s "ntacl=test"
+Error (0x2013): Invalid setting parameters
+ntacl: invalid setting test (yes|no)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n smb -s "ntacl=1"
+Error (0x2013): Invalid setting parameters
+ntacl: invalid setting 1 (yes|no)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -n test
+Error (0x2013): Invalid setting parameters
+-n: invalid setting test (ftp|nfs|smb|tm)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|enable|disable|mod|reset)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n 1
+Error (0x2013): Invalid setting parameters
+-n: invalid setting 1 (ftp|nfs|smb|tm)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n smb test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a reset test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a reset -n test
+Error (0x2013): Invalid setting parameters
+-n: invalid setting test (ftp|nfs|smb|tm)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a enable test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a enable -n test
+Error (0x2013): Invalid setting parameters
+-n: invalid setting test (ftp|nfs|smb|tm)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a disable test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a disable -n test
+Error (0x2013): Invalid setting parameters
+-n: invalid setting test (ftp|nfs|smb|tm)
+
+administrator@cli> 
+'result': 'f'
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "encrypt=standard, port=1,startport=1024,endport=1025,charset=utf8,dwrate=0,uprate=0"
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Enabled                         CmdPort: 1
+EncryptType: Standard FTP               PassiveStart: 1024
+PassiveEnd: 1025                        Charset: utf8
+DwRate: 0                               UpRate: 0
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "encrypt=explicit, port=2,startport=1025,endport=1026,charset=ja_jp,dwrate=1,uprate=0"
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Enabled                         CmdPort: 2
+EncryptType: Explicit                   PassiveStart: 1025
+PassiveEnd: 1026                        Charset: ja_jp
+DwRate: 1                               UpRate: 0
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "encrypt=implicit, port=65533,startport=65534,endport=65535,charset=ko_kr,dwrate=100000,uprate=100000"
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Enabled                         CmdPort: 65533
+EncryptType: Implicit                   PassiveStart: 65534
+PassiveEnd: 65535                       Charset: ko_kr
+DwRate: 100000                          UpRate: 100000
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "encrypt=sftp, port=65535,startport=65533,endport=65534,charset=zh_tw,dwrate=10000,uprate=10000"
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Enabled                         CmdPort: 65535
+EncryptType: SFTP                       PassiveStart: 65533
+PassiveEnd: 65534                       Charset: zh_tw
+DwRate: 10000                           UpRate: 10000
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "charset=zh_cn"
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Enabled                         CmdPort: 65535
+EncryptType: SFTP                       PassiveStart: 65533
+PassiveEnd: 65534                       Charset: zh_cn
+DwRate: 10000                           UpRate: 10000
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "encrypt="
+Error (0x2013): Invalid setting parameters
+encrypt: invalid setting  (standard|explicit|implicit|sftp)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n nfs -s "port="
+Error (0x2013): Invalid setting parameters
+port: invalid setting 
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n smb -s "ntacl="
+Error (0x2013): Invalid setting parameters
+ntacl: invalid setting  (yes|no)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "encrypt=test"
+Error (0x2013): Invalid setting parameters
+encrypt: invalid setting test (standard|explicit|implicit|sftp)
+
+administrator@cli> 
+
+Expect: out of range (1~65535)
+
+protocol -a mod -n ftp -s "port=0"
+
+administrator@cli> 
+
+Fail: protocol -a mod -n ftp -s "port=0"
+
+
+Expect: out of range (1~65535)
+
+protocol -a mod -n ftp -s "port=65536"
+Error (0x4100104): Incorrect parameters: The cmd_port: [65536] is out of range (1~65535).
+
+administrator@cli> 
+
+Expect: out of range (1024~65534)
+
+protocol -a mod -n ftp -s "startport=1023"
+Error (0x4100104): Incorrect parameters: The passive_start: [1023] is out of range (1024~65534).
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "startport=test"
+Error (0x2013): Invalid setting parameters
+startport: invalid setting test
+
+administrator@cli> 
+
+Expect: out of range (1025~65535)
+
+protocol -a mod -n ftp -s "endport=65536"
+Error (0x4100104): Incorrect parameters: The passive_end: [65536] is out of range (1025~65535).
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "endport=test"
+Error (0x2013): Invalid setting parameters
+endport: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "charset=test"
+Error (0x2013): Invalid setting parameters
+charset: invalid setting test (utf8|ja_jp|ko_kr|zh_cn|zh_tw)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "dwrate=test"
+Error (0x2013): Invalid setting parameters
+dwrate: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "uprate=test"
+Error (0x2013): Invalid setting parameters
+uprate: invalid setting test
+
+administrator@cli> 
+
+Expect: The parameter mountd_port must be 1024~65533
+
+protocol -a mod -n nfs -s "port=0"
+
+administrator@cli> 
+
+Fail: protocol -a mod -n nfs -s "port=0"
+
+
+Expect: The parameter mountd_port must be 1024~65533
+
+protocol -a mod -n nfs -s "port=65534"
+Error (0x4100104): Incorrect parameters: The mountd_port [65534] must be 1024~65533.
+
+administrator@cli> 
+
+Fail: please check out The parameter mountd_port must be 1024~65533
+
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n smb -s "ntacl=test"
+Error (0x2013): Invalid setting parameters
+ntacl: invalid setting test (yes|no)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n smb -s "ntacl=1"
+Error (0x2013): Invalid setting parameters
+ntacl: invalid setting 1 (yes|no)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -n test
+Error (0x2013): Invalid setting parameters
+-n: invalid setting test (ftp|nfs|smb|tm)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|enable|disable|mod|reset)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n 1
+Error (0x2013): Invalid setting parameters
+-n: invalid setting 1 (ftp|nfs|smb|tm)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n smb test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a reset test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a reset -n test
+Error (0x2013): Invalid setting parameters
+-n: invalid setting test (ftp|nfs|smb|tm)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a enable test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a enable -n test
+Error (0x2013): Invalid setting parameters
+-n: invalid setting test (ftp|nfs|smb|tm)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a disable test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a disable -n test
+Error (0x2013): Invalid setting parameters
+-n: invalid setting test (ftp|nfs|smb|tm)
+
+administrator@cli> 
+'result': 'f'
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "encrypt="
+Error (0x2013): Invalid setting parameters
+encrypt: invalid setting  (standard|explicit|implicit|sftp)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n nfs -s "port="
+Error (0x2013): Invalid setting parameters
+port: invalid setting 
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n smb -s "ntacl="
+Error (0x2013): Invalid setting parameters
+ntacl: invalid setting  (yes|no)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "encrypt=test"
+Error (0x2013): Invalid setting parameters
+encrypt: invalid setting test (standard|explicit|implicit|sftp)
+
+administrator@cli> 
+
+Expect: out of range (1~65535)
+
+protocol -a mod -n ftp -s "port=0"
+
+administrator@cli> 
+
+Fail: protocol -a mod -n ftp -s "port=0"
+
+
+Expect: out of range (1~65535)
+
+protocol -a mod -n ftp -s "port=65536"
+Error (0x4100104): Incorrect parameters: The cmd_port: [65536] is out of range (1~65535).
+
+administrator@cli> 
+
+Expect: out of range (1024~65534)
+
+protocol -a mod -n ftp -s "startport=1023"
+Error (0x4100104): Incorrect parameters: The passive_start: [1023] is out of range (1024~65534).
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "startport=test"
+Error (0x2013): Invalid setting parameters
+startport: invalid setting test
+
+administrator@cli> 
+
+Expect: out of range (1025~65535)
+
+protocol -a mod -n ftp -s "endport=65536"
+Error (0x4100104): Incorrect parameters: The passive_end: [65536] is out of range (1025~65535).
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "endport=test"
+Error (0x2013): Invalid setting parameters
+endport: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "charset=test"
+Error (0x2013): Invalid setting parameters
+charset: invalid setting test (utf8|ja_jp|ko_kr|zh_cn|zh_tw)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "dwrate=test"
+Error (0x2013): Invalid setting parameters
+dwrate: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "uprate=test"
+Error (0x2013): Invalid setting parameters
+uprate: invalid setting test
+
+administrator@cli> 
+
+Expect: The mountd_port [0] must be 1024~65533
+
+protocol -a mod -n nfs -s "port=0"
+
+administrator@cli> 
+
+Fail: protocol -a mod -n nfs -s "port=0"
+
+
+Expect: The mountd_port [65534] must be 1024~65533
+
+protocol -a mod -n nfs -s "port=65534"
+Error (0x4100104): Incorrect parameters: The mountd_port [65534] must be 1024~65533.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n smb -s "ntacl=test"
+Error (0x2013): Invalid setting parameters
+ntacl: invalid setting test (yes|no)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n smb -s "ntacl=1"
+Error (0x2013): Invalid setting parameters
+ntacl: invalid setting 1 (yes|no)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -n test
+Error (0x2013): Invalid setting parameters
+-n: invalid setting test (ftp|nfs|smb|tm)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|enable|disable|mod|reset)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n 1
+Error (0x2013): Invalid setting parameters
+-n: invalid setting 1 (ftp|nfs|smb|tm)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n smb test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a reset test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a reset -n test
+Error (0x2013): Invalid setting parameters
+-n: invalid setting test (ftp|nfs|smb|tm)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a enable test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a enable -n test
+Error (0x2013): Invalid setting parameters
+-n: invalid setting test (ftp|nfs|smb|tm)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a disable test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a disable -n test
+Error (0x2013): Invalid setting parameters
+-n: invalid setting test (ftp|nfs|smb|tm)
+
+administrator@cli> 
+'result': 'f'
+
+Expect: Invalid option for the command or the action
+
+protocol -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+protocol -a mod -n smb -s "test=test"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+protocol -t nasshare -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+protocol -a reset -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+protocol -a enable -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+protocol -a disable -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Missing parameter
+
+protocol -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Fail: please check out missing parameter test
+
+
+Expect: Missing parameter
+
+protocol -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Fail: please check out missing parameter test
+
+
+Expect: Missing parameter
+
+protocol -t nasshare -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Fail: please check out missing parameter test
+
+
+Expect: Missing parameter
+
+protocol -t nasshare -d 0 -n
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+
+Fail: please check out missing parameter test
+
+
+Expect: Missing parameter
+
+protocol -a mod
+Error (0x403): Missing parameter
+missing parameter '-n' for '-a mod'
+
+administrator@cli> 
+
+Fail: please check out missing parameter test
+
+
+Expect: Missing parameter
+
+protocol -a mod -n
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+
+Fail: please check out missing parameter test
+
+
+Expect: Missing parameter
+
+protocol -a mod -n ftp
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+
+Fail: please check out missing parameter test
+
+
+Expect: Missing parameter
+
+protocol -a mod -n ftp -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Fail: please check out missing parameter test
+
+
+Expect: Missing parameter
+
+protocol -a mod -n nfs -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Fail: please check out missing parameter test
+
+
+Expect: Missing parameter
+
+protocol -a mod -n smb -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Fail: please check out missing parameter test
+
+
+Expect: Missing parameter
+
+protocol -a reset -n
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+
+Fail: please check out missing parameter test
+
+
+Expect: Missing parameter
+
+protocol -a enable
+Error (0x403): Missing parameter
+missing parameter '-n' for '-a enable'
+
+administrator@cli> 
+
+Fail: please check out missing parameter test
+
+
+Expect: Missing parameter
+
+protocol -a enable -n
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+
+Fail: please check out missing parameter test
+
+
+Expect: Missing parameter
+
+protocol -a disable
+Error (0x403): Missing parameter
+missing parameter '-n' for '-a disable'
+
+administrator@cli> 
+
+Fail: please check out missing parameter test
+
+
+Expect: Missing parameter
+
+protocol -a disable -n
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+
+Fail: please check out missing parameter test
+
+'result': 'f'
+
+Expect: Missing parameter
+
+protocol -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -t nasshare -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -t nasshare -d 0 -n
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -a mod
+Error (0x403): Missing parameter
+missing parameter '-n' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -a mod -n
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -a mod -n ftp
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -a mod -n ftp -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -a mod -n nfs -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -a mod -n smb -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -a reset -n
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -a enable
+Error (0x403): Missing parameter
+missing parameter '-n' for '-a enable'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -a enable -n
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -a disable
+Error (0x403): Missing parameter
+missing parameter '-n' for '-a disable'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -a disable -n
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Missing parameter
+
+protocol -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -t nasshare -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -t nasshare -d 0 -n
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -a mod
+Error (0x403): Missing parameter
+missing parameter '-n' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -a mod -n
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -a mod -n ftp
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -a mod -n ftp -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -a mod -n nfs -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -a mod -n smb -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -a reset -n
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -a enable
+Error (0x403): Missing parameter
+missing parameter '-n' for '-a enable'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -a enable -n
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -a disable
+Error (0x403): Missing parameter
+missing parameter '-n' for '-a disable'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -a disable -n
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+'result': 'p'
+
+Expect: all of the protocol should be deleted
+
+protocol
+===============================================================================
+ProtocolName                            RunningStatus                 
+===============================================================================
+SMB                                     Stopped                                
+FTP                                     Stopped                                
+NFS                                     Stopped                                
+
+administrator@cli> 
+'result': 'p'
+
+Expect: list SMB of protocol
+
+protocol -n SMB
+-------------------------------------------------------------------------------
+Enable: Enabled                         Description: SMB Server
+Workgroup: WORKGROUP                    NT ACL: no
+Admin Account: 2008AD\administrator
+
+administrator@cli> 
+
+Expect: list FTP of protocol
+
+protocol -n FTP
+-------------------------------------------------------------------------------
+Status: Enabled                         CmdPort: 65535
+EncryptType: SFTP                       PassiveStart: 65533
+PassiveEnd: 65534                       Charset: zh_cn
+DwRate: 10000                           UpRate: 10000
+
+administrator@cli> 
+
+Expect: list NFS of protocol
+
+protocol -n NFS
+-------------------------------------------------------------------------------
+Status: Enabled                         nfsd count: 32
+mountd port: 56789                      PortmapperPort: 111
+nfsd port: 2049                         rpc.statd port: 56790
+rpc.lockd port: 56791
+
+administrator@cli> 
+
+Expect: list nasshare of tm protocol
+
+protocol -t nasshare -d 0 -n tm
+===============================================================================
+Protocol Name                           Status                                 
+===============================================================================
+TM                                      Disabled                               
+
+administrator@cli> 
+
+Expect: list snapshot of tm protocol
+
+protocol -t snapshot -d 0 -n tm
+===============================================================================
+Protocol Name                           Status                                 
+===============================================================================
+TM                                      Disabled                               
+
+administrator@cli> 
+
+Expect: list clone of tm protocol
+
+protocol -t clone -d 0 -n tm
+===============================================================================
+Protocol Name                           Status                                 
+===============================================================================
+TM                                      Disabled                               
+
+administrator@cli> 
+'result': 'p'
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "encrypt=standard, port=1,startport=1024,endport=1025,charset=utf8,dwrate=0,uprate=0"
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Enabled                         CmdPort: 1
+EncryptType: Standard FTP               PassiveStart: 1024
+PassiveEnd: 1025                        Charset: utf8
+DwRate: 0                               UpRate: 0
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "encrypt=explicit, port=2,startport=1025,endport=1026,charset=ja_jp,dwrate=1,uprate=0"
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Enabled                         CmdPort: 2
+EncryptType: Explicit                   PassiveStart: 1025
+PassiveEnd: 1026                        Charset: ja_jp
+DwRate: 1                               UpRate: 0
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "encrypt=implicit, port=65533,startport=65534,endport=65535,charset=ko_kr,dwrate=100000,uprate=100000"
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Enabled                         CmdPort: 65533
+EncryptType: Implicit                   PassiveStart: 65534
+PassiveEnd: 65535                       Charset: ko_kr
+DwRate: 100000                          UpRate: 100000
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "encrypt=sftp, port=65535,startport=65533,endport=65534,charset=zh_tw,dwrate=10000,uprate=10000"
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Enabled                         CmdPort: 65535
+EncryptType: SFTP                       PassiveStart: 65533
+PassiveEnd: 65534                       Charset: zh_tw
+DwRate: 10000                           UpRate: 10000
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n ftp -s "charset=zh_cn"
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Enabled                         CmdPort: 65535
+EncryptType: SFTP                       PassiveStart: 65533
+PassiveEnd: 65534                       Charset: zh_cn
+DwRate: 10000                           UpRate: 10000
+
+administrator@cli> 
+'result': 'p'
+
+Expect: modify successfully
+
+protocol -a mod -n smb -s "desc=this action is test,workgroup=test_group"
+
+administrator@cli> 
+protocol -n smb
+-------------------------------------------------------------------------------
+Enable: Enabled                         Description: this action is test
+Workgroup: test_group                   NT ACL: no
+Admin Account: 2008AD\administrator
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n smb -s "desc=#*&%*()((&@&,workgroup=1"
+
+administrator@cli> 
+protocol -n smb
+-------------------------------------------------------------------------------
+Enable: Enabled                         Description: #*&%*()((&@&
+Workgroup: 1                            NT ACL: no
+Admin Account: 2008AD\administrator
+
+administrator@cli> 
+'result': 'p'
+
+Expect: modify successfully
+
+protocol -a mod -n nfs -s "port=1024"
+
+administrator@cli> 
+protocol -n nfs
+-------------------------------------------------------------------------------
+Status: Enabled                         nfsd count: 32
+mountd port: 1024                       PortmapperPort: 111
+nfsd port: 2049                         rpc.statd port: 1025
+rpc.lockd port: 1026
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n nfs -s "port=1025"
+
+administrator@cli> 
+protocol -n nfs
+-------------------------------------------------------------------------------
+Status: Enabled                         nfsd count: 32
+mountd port: 1025                       PortmapperPort: 111
+nfsd port: 2049                         rpc.statd port: 1026
+rpc.lockd port: 1027
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n nfs -s "port=65532"
+
+administrator@cli> 
+protocol -n nfs
+-------------------------------------------------------------------------------
+Status: Enabled                         nfsd count: 32
+mountd port: 65532                      PortmapperPort: 111
+nfsd port: 2049                         rpc.statd port: 65533
+rpc.lockd port: 65534
+
+administrator@cli> 
+
+Expect: modify successfully
+
+protocol -a mod -n nfs -s "port=65533"
+
+administrator@cli> 
+protocol -n nfs
+-------------------------------------------------------------------------------
+Status: Enabled                         nfsd count: 32
+mountd port: 65533                      PortmapperPort: 111
+nfsd port: 2049                         rpc.statd port: 65534
+rpc.lockd port: 65535
+
+administrator@cli> 
+'result': 'p'
+
+Expect: all of protocol settings should be reset
+
+protocol -a reset
+
+administrator@cli> 
+protocol
+===============================================================================
+ProtocolName                            RunningStatus                 
+===============================================================================
+SMB                                     Running                                
+FTP                                     Stopped                                
+NFS                                     Running                                
+
+administrator@cli> 
+'result': 'p'
+
+Expect: ftp settings should be reset
+
+protocol -a reset -n ftp
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Enabled                         CmdPort: 21
+EncryptType: SFTP                       PassiveStart: 60001
+PassiveEnd: 65000                       Charset: utf8
+DwRate: 0                               UpRate: 0
+
+administrator@cli> 
+
+Expect: smb settings should be reset
+
+protocol -a reset -n smb
+
+administrator@cli> 
+protocol -n smb
+-------------------------------------------------------------------------------
+Enable: Enabled                         Description: SMB Server
+Workgroup: WORKGROUP                    NT ACL: no
+Admin Account: 2008AD\administrator
+
+administrator@cli> 
+
+Fail: please check out Status: Enabled
+
+
+Expect: nfs settings should be reset
+
+protocol -a reset -n nfs
+
+administrator@cli> 
+protocol -n nfs
+-------------------------------------------------------------------------------
+Status: Enabled                         nfsd count: 32
+mountd port: 56789                      PortmapperPort: 111
+nfsd port: 2049                         rpc.statd port: 56790
+rpc.lockd port: 56791
+
+administrator@cli> 
+'result': 'f'
+
+Expect: ftp protocol can be enabled
+
+protocol -a enable -n ftp
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Enabled                         CmdPort: 21
+EncryptType: SFTP                       PassiveStart: 60001
+PassiveEnd: 65000                       Charset: utf8
+DwRate: 0                               UpRate: 0
+
+administrator@cli> 
+
+Expect: smb protocol can be enabled
+
+protocol -a enable -n smb
+
+administrator@cli> 
+protocol -n smb
+-------------------------------------------------------------------------------
+Enable: Enabled                         Description: SMB Server
+Workgroup: WORKGROUP                    NT ACL: no
+Admin Account: 2008AD\administrator
+
+administrator@cli> 
+
+Fail: please check out Status: Enabled
+
+
+Expect: nfs protocol can be enabled
+
+protocol -a enable -n nfs
+
+administrator@cli> 
+protocol -n nfs
+-------------------------------------------------------------------------------
+Status: Enabled                         nfsd count: 32
+mountd port: 56789                      PortmapperPort: 111
+nfsd port: 2049                         rpc.statd port: 56790
+rpc.lockd port: 56791
+
+administrator@cli> 
+'result': 'f'
+
+Expect: ftp protocol can be disabled
+
+protocol -a disable -n ftp
+
+administrator@cli> 
+protocol -n ftp
+-------------------------------------------------------------------------------
+Status: Disabled                        CmdPort: 21
+EncryptType: SFTP                       PassiveStart: 60001
+PassiveEnd: 65000                       Charset: utf8
+DwRate: 0                               UpRate: 0
+
+administrator@cli> 
+
+Expect: smb protocol can be disabled
+
+protocol -a disable -n smb
+
+administrator@cli> 
+protocol -n smb
+-------------------------------------------------------------------------------
+Enable: Disabled                        Description: SMB Server
+Workgroup: WORKGROUP                    NT ACL: no
+Admin Account: 2008AD\administrator
+
+administrator@cli> 
+
+Fail: please check out Status: Disabled
+
+
+Expect: nfs protocol can be disabled
+
+protocol -a disable -n nfs
+
+administrator@cli> 
+protocol -n nfs
+-------------------------------------------------------------------------------
+Status: Disabled                        nfsd count: 32
+mountd port: 56789                      PortmapperPort: 111
+nfsd port: 2049                         rpc.statd port: 56790
+rpc.lockd port: 56791
+
+administrator@cli> 
+'result': 'f'
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "encrypt="
+Error (0x2013): Invalid setting parameters
+encrypt: invalid setting  (standard|explicit|implicit|sftp)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n nfs -s "port="
+Error (0x2013): Invalid setting parameters
+port: invalid setting 
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n smb -s "ntacl="
+Error (0x2013): Invalid setting parameters
+ntacl: invalid setting  (yes|no)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "encrypt=test"
+Error (0x2013): Invalid setting parameters
+encrypt: invalid setting test (standard|explicit|implicit|sftp)
+
+administrator@cli> 
+
+Expect: out of range (1~65535)
+
+protocol -a mod -n ftp -s "port=0"
+
+administrator@cli> 
+
+Fail: protocol -a mod -n ftp -s "port=0"
+
+
+Expect: out of range (1~65535)
+
+protocol -a mod -n ftp -s "port=65536"
+Error (0x4100104): Incorrect parameters: The cmd_port: [65536] is out of range (1~65535).
+
+administrator@cli> 
+
+Expect: out of range (1024~65534)
+
+protocol -a mod -n ftp -s "startport=1023"
+Error (0x4100104): Incorrect parameters: The passive_start: [1023] is out of range (1024~65534).
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "startport=test"
+Error (0x2013): Invalid setting parameters
+startport: invalid setting test
+
+administrator@cli> 
+
+Expect: out of range (1025~65535)
+
+protocol -a mod -n ftp -s "endport=65536"
+Error (0x4100104): Incorrect parameters: The passive_end: [65536] is out of range (1025~65535).
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "endport=test"
+Error (0x2013): Invalid setting parameters
+endport: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "charset=test"
+Error (0x2013): Invalid setting parameters
+charset: invalid setting test (utf8|ja_jp|ko_kr|zh_cn|zh_tw)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "dwrate=test"
+Error (0x2013): Invalid setting parameters
+dwrate: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n ftp -s "uprate=test"
+Error (0x2013): Invalid setting parameters
+uprate: invalid setting test
+
+administrator@cli> 
+
+Expect: The mountd_port [0] must be 1024~65533
+
+protocol -a mod -n nfs -s "port=0"
+
+administrator@cli> 
+
+Fail: protocol -a mod -n nfs -s "port=0"
+
+
+Expect: The mountd_port [65534] must be 1024~65533
+
+protocol -a mod -n nfs -s "port=65534"
+Error (0x4100104): Incorrect parameters: The mountd_port [65534] must be 1024~65533.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n smb -s "ntacl=test"
+Error (0x2013): Invalid setting parameters
+ntacl: invalid setting test (yes|no)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n smb -s "ntacl=1"
+Error (0x2013): Invalid setting parameters
+ntacl: invalid setting 1 (yes|no)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -n test
+Error (0x2013): Invalid setting parameters
+-n: invalid setting test (ftp|nfs|smb|tm)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|enable|disable|mod|reset)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n 1
+Error (0x2013): Invalid setting parameters
+-n: invalid setting 1 (ftp|nfs|smb|tm)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a mod -n smb test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a reset test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a reset -n test
+Error (0x2013): Invalid setting parameters
+-n: invalid setting test (ftp|nfs|smb|tm)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a enable test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a enable -n test
+Error (0x2013): Invalid setting parameters
+-n: invalid setting test (ftp|nfs|smb|tm)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a disable test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+protocol -a disable -n test
+Error (0x2013): Invalid setting parameters
+-n: invalid setting test (ftp|nfs|smb|tm)
+
+administrator@cli> 
+'result': 'f'
+
+Expect: Invalid option for the command or the action
+
+protocol -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+protocol -a mod -n smb -s "test=test"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+protocol -t nasshare -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+protocol -a reset -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+protocol -a enable -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+protocol -a disable -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Missing parameter
+
+protocol -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -t nasshare -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -t nasshare -d 0 -n
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -a mod
+Error (0x403): Missing parameter
+missing parameter '-n' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -a mod -n
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -a mod -n ftp
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -a mod -n ftp -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -a mod -n nfs -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -a mod -n smb -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -a reset -n
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -a enable
+Error (0x403): Missing parameter
+missing parameter '-n' for '-a enable'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -a enable -n
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -a disable
+Error (0x403): Missing parameter
+missing parameter '-n' for '-a disable'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+protocol -a disable -n
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+'result': 'p'

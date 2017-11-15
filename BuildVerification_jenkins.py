@@ -8,6 +8,7 @@ from to_log import *
 Pass = "'result': 'p'"
 Fail = "'result': 'f'"
 
+
 def BuildVerification(c):
     FailCasesList = []
 
@@ -50,6 +51,58 @@ def BuildVerification(c):
                 sleep(4)
 
     if reconnectflag:
+
+        tolog('Start verifying protocol')
+        import protocol
+        if (protocol.list_all_protocol(c)):
+            FailCasesList.append('The case ' + protocol.list_all_protocol.__name__ + ' failed')
+        if (protocol.list_single_protocol(c)):
+            FailCasesList.append('The case ' + protocol.list_single_protocol.__name__ + ' failed')
+        if (protocol.mod_ftp_protocol(c)):
+            FailCasesList.append('The case ' + protocol.mod_ftp_protocol.__name__ + ' failed')
+        if (protocol.mod_smb_protocol(c)):
+            FailCasesList.append('The case ' + protocol.mod_smb_protocol.__name__ + ' failed')
+        if (protocol.mod_nfs_protocol(c)):
+            FailCasesList.append('The case ' + protocol.mod_nfs_protocol.__name__ + ' failed')
+        if (protocol.reset_all_protocol(c)):
+            FailCasesList.append('The case ' + protocol.reset_all_protocol.__name__ + ' failed')
+        if (protocol.reset_single_protocol(c)):
+            FailCasesList.append('The case ' + protocol.reset_single_protocol.__name__ + ' failed')
+        if (protocol.enable_protocol(c)):
+            FailCasesList.append('The case ' + protocol.enable_protocol.__name__ + ' failed')
+        if (protocol.disable_protocol(c)):
+            FailCasesList.append('The case ' + protocol.disable_protocol.__name__ + ' failed')
+        if (protocol.invalid_setting_parameter(c)):
+            FailCasesList.append('The case ' + protocol.invalid_setting_parameter.__name__ + ' failed')
+        if (protocol.invalid_option(c)):
+            FailCasesList.append('The case ' + protocol.invalid_option.__name__ + ' failed')
+        if (protocol.missing_parameter(c)):
+            FailCasesList.append('The case ' + protocol.missing_parameter.__name__ + ' failed')
+
+        tolog('Start verifying group')
+        import group
+        if (group.add_group_and_verify_name(c)):
+            FailCasesList.append('The case ' + group.add_group_and_verify_name.__name__ + ' failed')
+        if (group.add_group_and_user(c)):
+            FailCasesList.append('The case ' + group.add_group_and_user.__name__ + ' failed')
+        if (group.add_user_into_group(c)):
+            FailCasesList.append('The case ' + group.add_user_into_group.__name__ + ' failed')
+        if (group.list_group(c)):
+            FailCasesList.append('The case ' + group.list_group.__name__ + ' failed')
+        if (group.list_group_by_verbose_mode(c)):
+            FailCasesList.append('The case ' + group.list_group_by_verbose_mode.__name__ + ' failed')
+        if (group.modify_group(c)):
+            FailCasesList.append('The case ' + group.modify_group.__name__ + ' failed')
+        if (group.delete_user_from_group(c)):
+            FailCasesList.append('The case ' + group.delete_user_from_group.__name__ + ' failed')
+        if (group.delete_group(c)):
+            FailCasesList.append('The case ' + group.delete_group.__name__ + ' failed')
+        if (group.invalid_setting_for_group(c)):
+            FailCasesList.append('The case ' + group.invalid_setting_for_group.__name__ + ' failed')
+        if (group.invalid_option_for_group(c)):
+            FailCasesList.append('The case ' + group.invalid_option_for_group.__name__ + ' failed')
+        if (group.missing_parameter_for_group(c)):
+            FailCasesList.append('The case ' + group.missing_parameter_for_group.__name__ + ' failed')
 
         tolog('Start verifying spare')
         import spare

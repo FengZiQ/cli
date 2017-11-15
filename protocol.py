@@ -1,14 +1,13 @@
 # coding = utf-8
 # 2017.10.10
+# 2017.11.15
 
-from send_cmd import *
-from to_log import *
 from ssh_connect import ssh_conn
-import time
-import xlrd
-from command import command
+from cli_test import *
 from remote import server
 from find_unconfigured_pd_id import find_pd_id
+
+data = 'data/protocol.xlsx'
 
 
 def precondition():
@@ -21,18 +20,19 @@ def precondition():
         "pds": pdId
     })
 
-    # create volume
-    server.webapi('post', 'volume', {
-        "name": 'test_protocol_volume',
-        "pool_id": 0,
-        "capacity": '10GB'
-    })
+    # create nasShare
+    for i in range(3):
+        server.webapi('post', 'nasshare', {
+            "pool_id": 0,
+            "name": 'test_protocol_nasShare_' + str(i),
+            "capacity": '2GB'
+        })
 
     # create snapshot
     for i in range(3):
         server.webapi('post', 'snapshot', {
-            "name": 'test_protocol_volume_' + str(i),
-            "type": 'volume',
+            "name": 'test_protocol_snap_' + str(i),
+            "type": 'nasshare',
             "source_id": 0
         })
 
@@ -43,14 +43,6 @@ def precondition():
             "source_id": 0
         })
 
-    # create nasShare
-    for i in range(3):
-        server.webapi('post', 'nasshare', {
-            "pool_id": 0,
-            "name": 'test_protocol_nasShare_' + str(i),
-            "capacity": '2GB'
-        })
-
     # create nas user
     server.webapi('post', 'dsuser', {
         "id": 'test_protocol',
@@ -59,226 +51,77 @@ def precondition():
 
 
 def list_all_protocol(c):
-    tolog('Expect: list all of the protocol\r\n')
 
-    result = SendCmd(c, 'protocol')
+    cli_list = cli_test_list()
 
-    if 'Error (' in result:
+    cli_list.list(c, data, 'list_all_protocol')
 
-        command.FailFlag = True
-        tolog('Fail: protocol\r\n')
-
-    else:
-
-        if 'SMB' not in result or 'FTP' not in result or 'NFS' not in result:
-
-            command.FailFlag = True
-            tolog('Fail: please check out result if contains SMB/FTP/NFS\r\n')
-
-        else:
-
-            tolog('\r\nActual: all of the protocol is listed\r\n')
-
-    command.result()
-
-    return command.FailFlag
+    return cli_list.FailFlag
 
 
 def list_single_protocol(c):
     # precondition
     precondition()
 
-    # test data
-    data = xlrd.open_workbook('data/protocol.xlsx')
-    table = data.sheet_by_name('list_single_protocol')
+    cli_list = cli_test_list()
 
-    for i in range(1, table.nrows):
+    cli_list.list(c, data, 'list_single_protocol')
 
-        tolog('Expect: ' + table.cell(i, 1).value + '\r\n')
-        result = SendCmd(c, table.cell(i, 0).value)
-
-        if 'Error (' in result:
-
-            command.FailFlag = True
-            tolog('\r\nFail: ' + table.cell(i, 0).value + '\r\n')
-
-        else:
-            tolog('\r\nActual: ' + table.cell(i, 2).value + '\r\n')
-
-    command.result()
-
-    return command.FailFlag
+    return cli_list.FailFlag
 
 
 def mod_ftp_protocol(c):
-    # test data
-    data = xlrd.open_workbook('data/protocol.xlsx')
-    table = data.sheet_by_name('mod_ftp_protocol')
+    # precondition
+    server.webapi('post', 'protocol/reset')
 
-    for i in range(1, table.nrows):
+    cli_setting = cli_test_setting()
 
-        result = SendCmd(c, table.cell(i, 0).value)
+    cli_setting.setting(c, data, 'mod_ftp_protocol', 3)
 
-        if 'Error (' in result:
-
-            command.FailFlag = True
-            tolog('\r\nFail: ' + table.cell(i, 0).value + '\r\n')
-
-        else:
-            check = SendCmd(c, table.cell(i, 2).value)
-
-            for j in range(3, table.ncols):
-
-                if table.cell(i, j).value not in check:
-
-                    command.FailFlag = True
-                    tolog('\r\nFail: please check out ' + table.cell(i, j).value + '\r\n')
-
-            else:
-
-                tolog('\r\nActual: modify successfully\r\n')
-
-    command.result()
+    return cli_setting.FailFlag
 
 
 def mod_smb_protocol(c):
-    # test data
-    data = xlrd.open_workbook('data/protocol.xlsx')
-    table = data.sheet_by_name('mod_smb_protocol')
+    # precondition
+    server.webapi('post', 'protocol/reset')
 
-    for i in range(1, table.nrows):
+    cli_setting = cli_test_setting()
 
-        result = SendCmdconfirm(c, table.cell(i, 0).value)
+    cli_setting.setting(c, data, 'mod_smb_protocol', 3)
 
-        if 'Error (' in result:
-
-            command.FailFlag = True
-            tolog('\r\nFail: ' + table.cell(i, 0).value + '\r\n')
-
-        else:
-            check = SendCmd(c, table.cell(i, 2).value)
-
-            for j in range(3, table.ncols):
-
-                if table.cell(i, j).value not in check:
-                    command.FailFlag = True
-                    tolog('\r\nFail: please check out ' + table.cell(i, j).value + '\r\n')
-
-            else:
-
-                tolog('\r\nActual: modify successfully\r\n')
-
-    command.result()
+    return cli_setting.FailFlag
 
 
 def mod_nfs_protocol(c):
-    # test data
-    data = xlrd.open_workbook('data/protocol.xlsx')
-    table = data.sheet_by_name('mod_nfs_protocol')
+    # precondition
+    server.webapi('post', 'protocol/reset')
 
-    for i in range(1, table.nrows):
+    cli_setting = cli_test_setting()
 
-        result = SendCmd(c, table.cell(i, 0).value)
+    cli_setting.setting(c, data, 'mod_nfs_protocol', 3)
 
-        if 'Error (' in result:
-
-            command.FailFlag = True
-            tolog('\r\nFail: ' + table.cell(i, 0).value + '\r\n')
-
-        else:
-            check = SendCmd(c, table.cell(i, 2).value)
-
-            for j in range(3, table.ncols):
-
-                if table.cell(i, j).value not in check:
-
-                    command.FailFlag = True
-                    tolog('\r\nFail: please check out ' + table.cell(i, j).value + '\r\n')
-
-            else:
-
-                tolog('\r\nActual: modify successfully\r\n')
-
-    command.result()
+    return cli_setting.FailFlag
 
 
 def reset_all_protocol(c):
 
-    result = SendCmd(c, 'protocol -a reset')
+    cli_setting = cli_test_setting()
 
-    check1 = SendCmd(c, 'protocol -n smb')
+    cli_setting.setting(c, data, 'reset_all_protocol', 3)
 
-    check2 = SendCmd(c, 'protocol -n nfs')
-
-    check3 = SendCmd(c, 'protocol -n ftp')
-
-    if 'Error (' in result:
-
-        command.FailFlag = True
-        tolog('\r\nFail: protocol -a reset\r\n')
-
-    else:
-
-        if 'Status: Disabled' not in check1 or 'Workgroup: WORKGROUP' not in check1 or 'NtAcl: no' not in check1:
-
-            command.FailFlag = True
-            tolog('\r\nFail: smb does not reset\r\n')
-
-        else:
-            tolog('\r\nActual: smb successfully reset\r\n')
-
-        if 'Status: Disabled' not in check2 or 'mountd port: 56789' not in check2:
-
-            command.FailFlag = True
-            tolog('\r\nFail: nfs does not reset\r\n')
-
-        else:
-            tolog('Actual: nfs successfully reset\r\n')
-
-        if 'Status: Disabled' not in check3 or 'CmdPort: 21' not in check3 or 'Charset: utf8' not in check3:
-
-            command.FailFlag = True
-            tolog('\r\nFail: ftp does not reset\r\n')
-
-        else:
-            tolog('Actual: ftp successfully reset\r\n')
-
-    command.result()
+    return cli_setting.FailFlag
 
 
 def reset_single_protocol(c):
     # precondition
     for n in ['FTP', 'NFS', 'SMB']:
-        server.webapi('post', 'protocol/enable/' + n)
+        server.webapi('post', 'protocol/disable/' + n)
 
-    # test data
-    data = xlrd.open_workbook('data/protocol.xlsx')
-    table = data.sheet_by_name('reset_single_protocol')
+    cli_setting = cli_test_setting()
 
-    for i in range(1, table.nrows):
+    cli_setting.setting(c, data, 'reset_single_protocol', 3)
 
-        tolog('Expect: reset ' + table.cell(i, 0).value[-3:] + '\r\n')
-
-        result = SendCmd(c, table.cell(i, 0).value)
-
-        if 'Error (' in result:
-
-            command.FailFlag = True
-            tolog('\r\nFail: ' + table.cell(i, 0).value + '\r\n')
-
-        else:
-
-            check = SendCmd(c, table.cell(i, 2).value)
-
-            if table.cell(i, 3).value not in check:
-
-                command.FailFlag = True
-                tolog('\r\nFail: please check out protocol status\r\n')
-
-            else:
-                tolog('\r\nActual: ' + table.cell(i, 0).value[-3:] + ' is reset\r\n')
-
-    command.result()
+    return cli_setting.FailFlag
 
 
 def enable_protocol(c):
@@ -286,34 +129,11 @@ def enable_protocol(c):
     for n in ['FTP', 'NFS', 'SMB']:
         server.webapi('post', 'protocol/disable/' + n)
 
-    # test data
-    data = xlrd.open_workbook('data/protocol.xlsx')
-    table = data.sheet_by_name('enable_protocol')
+    cli_setting = cli_test_setting()
 
-    for i in range(1, table.nrows):
+    cli_setting.setting(c, data, 'enable_protocol', 3)
 
-        tolog('Expect: enable ' + table.cell(i, 0).value[-3:] + '\r\n')
-
-        result = SendCmd(c, table.cell(i, 0).value)
-
-        if 'Error (' in result:
-
-            command.FailFlag = True
-            tolog('\r\nFail: ' + table.cell(i, 0).value + '\r\n')
-
-        else:
-
-            check = SendCmd(c, table.cell(i, 2).value)
-
-            if table.cell(i, 3).value not in check:
-
-                command.FailFlag = True
-                tolog('\r\nFail: please check out protocol status\r\n')
-
-            else:
-                tolog('\r\nActual: ' + table.cell(i, 0).value[-3:] + ' is enabled\r\n')
-
-    command.result()
+    return cli_setting.FailFlag
 
 
 def disable_protocol(c):
@@ -321,117 +141,40 @@ def disable_protocol(c):
     for n in ['FTP', 'NFS', 'SMB']:
         server.webapi('post', 'protocol/enable/' + n)
 
-    # test data
-    data = xlrd.open_workbook('data/protocol.xlsx')
-    table = data.sheet_by_name('disable_protocol')
+    cli_setting = cli_test_setting()
 
-    for i in range(1, table.nrows):
+    cli_setting.setting(c, data, 'disable_protocol', 3)
 
-        tolog('Expect: disable ' + table.cell(i, 0).value[-3:] + '\r\n')
-
-        result = SendCmd(c, table.cell(i, 0).value)
-
-        if 'Error (' in result:
-
-            command.FailFlag = True
-            tolog('\r\nFail: ' + table.cell(i, 0).value + '\r\n')
-
-        else:
-
-            check = SendCmd(c, table.cell(i, 2).value)
-
-            if table.cell(i, 3).value not in check:
-
-                command.FailFlag = True
-                tolog('\r\nFail: please check out protocol status\r\n')
-
-            else:
-                tolog('\r\nActual: ' + table.cell(i, 0).value[-3:] + ' is disabled\r\n')
-
-    command.result()
+    return cli_setting.FailFlag
 
 
 def invalid_setting_parameter(c):
-    # test data
-    data = xlrd.open_workbook('data/protocol.xlsx')
-    table = data.sheet_by_name('invalid_setting_parameter')
 
-    for i in range(1, table.nrows):
+    cli_failed_test = cli_test_failed_test()
 
-        tolog('Expect: error message should contain: ' + table.cell(i, 1).value + '\r\n')
-        result = SendCmd(c, table.cell(i, 0).value)
+    cli_failed_test.failed_test(c, data, 'invalid_setting_parameter')
 
-        if 'Error (' not in result:
-
-            command.FailFlag = True
-            tolog('Fail: ' + table.cell(i, 0).value + '\r\n')
-
-        else:
-
-            if table.cell(i, 1).value not in result:
-
-                command.FailFlag = True
-                tolog('\r\nFail: please check out error message\r\n')
-
-            tolog('\r\nActual: ' + table.cell(i, 2).value + ' is successful\r\n')
-
-    command.result()
+    return cli_failed_test.FailFlag
 
 
 def invalid_option(c):
-    # test data
-    data = xlrd.open_workbook('data/protocol.xlsx')
-    table = data.sheet_by_name('invalid_option')
 
-    for i in range(1, table.nrows):
+    cli_failed_test = cli_test_failed_test()
 
-        tolog('Expect: error message should contain: ' + table.cell(i, 1).value + '\r\n')
-        result = SendCmd(c, table.cell(i, 0).value)
+    cli_failed_test.failed_test(c, data, 'invalid_option')
 
-        if 'Error (' not in result:
-
-            command.FailFlag = True
-            tolog('Fail: ' + table.cell(i, 0).value + '\r\n')
-
-        else:
-
-            if table.cell(i, 1).value not in result:
-
-                command.FailFlag = True
-                tolog('\r\nFail: please check out error message\r\n')
-
-            tolog('\r\nActual: ' + table.cell(i, 2).value + ' is successful\r\n')
-
-    command.result()
+    return cli_failed_test.FailFlag
 
 
 def missing_parameter(c):
-    # test data
-    data = xlrd.open_workbook('data/protocol.xlsx')
-    table = data.sheet_by_name('missing_parameter')
 
-    for i in range(1, table.nrows):
+    cli_failed_test = cli_test_failed_test()
 
-        tolog('Expect: error message should contain: ' + table.cell(i, 1).value + '\r\n')
-        result = SendCmd(c, table.cell(i, 0).value)
-
-        if 'Error (' not in result:
-
-            command.FailFlag = True
-            tolog('Fail: ' + table.cell(i, 0).value + '\r\n')
-
-        else:
-
-            if table.cell(i, 1).value not in result:
-
-                command.FailFlag = True
-                tolog('\r\nFail: please check out error message\r\n')
-
-            tolog('\r\nActual: ' + table.cell(i, 2).value + ' is successful\r\n')
+    cli_failed_test.failed_test(c, data, 'missing_parameter')
 
     clean_up_environment()
 
-    command.result()
+    return cli_failed_test.FailFlag
 
 
 def clean_up_environment():
