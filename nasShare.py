@@ -34,7 +34,7 @@ def addNASShare(c):
         "recsize": ['128KB', '512B', '1MB'],
         "sync": ['always', 'standard', 'disabled'],
         "logbias": ['latency', 'throughput', 'throughput'],
-        "compress": ['off', 'fast', 'optimized']
+        "compress": ['zle', 'lz4', 'gzip']
     }
     capacity = ['TotalCapacity: 1 GB', 'TotalCapacity: 2 GB', 'TotalCapacity: 1 TB']
     recsize = ['RecordSize: 128 KB', 'RecordSize: 512 Bytes', 'RecordSize: 1 MB']

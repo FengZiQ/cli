@@ -11,6 +11,8 @@ data = 'data/group.xlsx'
 
 
 def add_group_and_verify_name(c):
+    # disable domain, if enabled domain, to add user or group will happen error
+    server.webapi('post', 'domain/leave')
 
     cli_setting = cli_test_setting()
 
@@ -117,13 +119,13 @@ def missing_parameter_for_group(c):
 
 def clean_up_environment():
     # delete nas user
-    users = server.webapi('get', 'dsuser?page=1&page_size=500')
+    users = server.webapi('get', 'dsusers?page=1&page_size=500')
     user_info = json.loads(users["text"])
     for user in user_info:
         server.webapi('delete', 'dsuser/' + user["id"])
 
     # delete group
-    groups = server.webapi('get', 'dsgroup?page=1&page_size=500')
+    groups = server.webapi('get', 'dsgroups?page=1&page_size=500')
     groups_info = json.loads(groups["text"])
     for group in groups_info:
         server.webapi('delete', 'dsgroup/' + group["id"])

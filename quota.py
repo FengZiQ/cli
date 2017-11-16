@@ -13,6 +13,9 @@ data = 'data/quota.xlsx'
 
 
 def precondition():
+    # disable domain, if enabled domain, to add user or group will happen error
+    server.webapi('post', 'domain/leave')
+
     pdId = find_pd_id()
     # create pool
     server.webapi('post', 'pool', {"name": "test_quota_pool", "pds": pdId[:3], "raid_level": "raid5"})

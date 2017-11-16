@@ -13,6 +13,9 @@ data = 'data/acl.xlsx'
 
 
 def precondition():
+    # disable domain, if enabled domain, to add user or group will happen error
+    server.webapi('post', 'domain/leave')
+
     pdId = find_pd_id()
     # create pool
     server.webapi('post', 'pool', {"name": "test_acl_pool", "pds": pdId[:3], "raid_level": "raid5"})
@@ -21,10 +24,10 @@ def precondition():
     for i in range(2):
         server.webapi('post', 'nasshare', {'pool_id': 0, 'name': 'test_acl_nas_' + str(i), 'capacity': '2GB'})
 
-    # create clone
-    server.webapi('post', 'snapshot', {"name": "test_acl_snap", "type": 'nasshare', "source_id": 0})
-    for i in range(2):
-        server.webapi('post', 'clone', {"name": "test_acl_clone_" + str(i), "source_id": 0})
+    # # create clone
+    # server.webapi('post', 'snapshot', {"name": "test_acl_snap", "type": 'nasshare', "source_id": 0})
+    # for i in range(2):
+    #     server.webapi('post', 'clone', {"name": "test_acl_clone_" + str(i), "source_id": 0})
 
     # create nas user
     for i in range(10):

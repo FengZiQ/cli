@@ -7537,3 +7537,4059 @@ Error (0x403): Missing parameter
 
 administrator@cli> 
 'result': 'p'
+
+Expect: allowip should be set by "ip=10.84.2.66, permission=ro, squash=root"
+
+allowip -a add -t nasshare -d 0 -s "ip=10.84.2.66, permission=ro, squash=root"
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[0] is not existed.
+
+administrator@cli> 
+
+Fail: allowip -a add -t nasshare -d 0 -s "ip=10.84.2.66, permission=ro, squash=root"
+
+
+Expect: allowip should be set by "ip=10.84.2.69, permission=rw, squash=all"
+
+allowip -a add -t nasshare -d 1 -s "ip=10.84.2.69, permission=rw, squash=all"
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[1] is not existed.
+
+administrator@cli> 
+
+Fail: allowip -a add -t nasshare -d 1 -s "ip=10.84.2.69, permission=rw, squash=all"
+
+
+Expect: allowip should be set by "ip=10.84.2.66, permission=ro, squash=root"
+
+allowip -a add -t snapshot -d 0 -s "ip=10.84.2.66, permission=ro, squash=root"
+Error (0x4100102): Empty query result, please check input parameters. Snapshot id=[0] is not existed.
+
+administrator@cli> 
+
+Fail: allowip -a add -t snapshot -d 0 -s "ip=10.84.2.66, permission=ro, squash=root"
+
+
+Expect: allowip should be set by "ip=10.84.2.99, permission=rw, squash=noroot"
+
+allowip -a add -t snapshot -d 1 -s "ip=10.84.2.99, permission=rw, squash=noroot"
+Error (0x4100102): Empty query result, please check input parameters. Snapshot id=[1] is not existed.
+
+administrator@cli> 
+
+Fail: allowip -a add -t snapshot -d 1 -s "ip=10.84.2.99, permission=rw, squash=noroot"
+
+
+Expect: allowip should be set by "ip=10.84.2.66, permission=ro, squash=all"
+
+allowip -a add -t clone -d 0 -s "ip=10.84.2.66, permission=ro, squash=all"
+Error (0x4100102): Empty query result, please check input parameters. Clone id=[0] is not existed.
+
+administrator@cli> 
+
+Fail: allowip -a add -t clone -d 0 -s "ip=10.84.2.66, permission=ro, squash=all"
+
+
+Expect: allowip should be set by "ip=10.84.2.99, permission=rw, squash=root"
+
+allowip -a add -t clone -d 1 -s "ip=10.84.2.99, permission=rw, squash=root"
+Error (0x4100102): Empty query result, please check input parameters. Clone id=[1] is not existed.
+
+administrator@cli> 
+
+Fail: allowip -a add -t clone -d 1 -s "ip=10.84.2.99, permission=rw, squash=root"
+
+'result': 'f'
+
+Expect: allowip should be set by "ip=10.84.2.66, permission=ro, squash=root"
+
+allowip -a add -t nasshare -d 0 -s "ip=10.84.2.66, permission=ro, squash=root"
+
+administrator@cli> 
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.66                              RO          root_squash      
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=10.84.2.69, permission=rw, squash=all"
+
+allowip -a add -t nasshare -d 1 -s "ip=10.84.2.69, permission=rw, squash=all"
+
+administrator@cli> 
+allowip -t nasshare -d 1
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.69                              RW          all_squash       
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=10.84.2.66, permission=ro, squash=root"
+
+allowip -a add -t snapshot -d 0 -s "ip=10.84.2.66, permission=ro, squash=root"
+
+administrator@cli> 
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.66                              RO          root_squash      
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=10.84.2.99, permission=rw, squash=noroot"
+
+allowip -a add -t snapshot -d 1 -s "ip=10.84.2.99, permission=rw, squash=noroot"
+
+administrator@cli> 
+allowip -t snapshot -d 1
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.99                              RW          no_root_squash   
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=10.84.2.66, permission=ro, squash=all"
+
+allowip -a add -t clone -d 0 -s "ip=10.84.2.66, permission=ro, squash=all"
+
+administrator@cli> 
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.66                              RO          all_squash       
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=10.84.2.99, permission=rw, squash=root"
+
+allowip -a add -t clone -d 1 -s "ip=10.84.2.99, permission=rw, squash=root"
+
+administrator@cli> 
+allowip -t clone -d 1
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.99                              RW          root_squash      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: list allowip settings on nasshare 0
+
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.66                              RO          root_squash      
+
+administrator@cli> 
+
+Expect: list allowip settings on snapshot 0
+
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.66                              RO          root_squash      
+
+administrator@cli> 
+
+Expect: list allowip settings of clone 0
+
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.66                              RO          all_squash       
+
+administrator@cli> 
+'result': 'p'
+
+Expect: list allowip settings on nasshare 0
+
+allowip -v -t nasshare -d 1
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.69                              RW          all_squash       
+
+administrator@cli> 
+
+Expect: list allowip settings on snapshot 0
+
+allowip -v -t snapshot -d 1
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.99                              RW          no_root_squash   
+
+administrator@cli> 
+
+Expect: list allowip settings of clone 0
+
+allowip -v -t clone -d 1
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.99                              RW          root_squash      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: allowip of nasshare type should be modified by "ip=10.84.2.1, permission=rw, squash=root"
+
+allowip -a mod -t nasshare -d 0 -i 0 -s "ip=10.84.2.1, permission=rw, squash=root"
+
+administrator@cli> 
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.1                               RW          root_squash      
+
+administrator@cli> 
+
+Expect: allowip of nasshare type should be modified by "ip=10.84.2.2, permission=ro, squash=all"
+
+allowip -a mod -t nasshare -d 0 -i 0 -s "ip=10.84.2.2, permission=ro, squash=all"
+
+administrator@cli> 
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.2                               RO          all_squash       
+
+administrator@cli> 
+
+Expect: allowip of nasshare type should be modified by "ip=10.84.2.3, permission=rw, squash=noroot"
+
+allowip -a mod -t nasshare -d 0 -i 0 -s "ip=10.84.2.3, permission=rw, squash=noroot"
+
+administrator@cli> 
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.3                               RW          no_root_squash   
+
+administrator@cli> 
+
+Expect: allowip of snapshot type should be modified by "ip=10.84.2.1, permission=rw, squash=root"
+
+allowip -a mod -t snapshot -d 0 -i 0 -s "ip=10.84.2.1, permission=rw, squash=root"
+
+administrator@cli> 
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.1                               RW          root_squash      
+
+administrator@cli> 
+
+Expect: allowip of snapshot type should be modified by "ip=10.84.2.2, permission=ro, squash=all"
+
+allowip -a mod -t snapshot -d 0 -i 0 -s "ip=10.84.2.2, permission=ro, squash=all"
+
+administrator@cli> 
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.2                               RO          all_squash       
+
+administrator@cli> 
+
+Expect: allowip of snapshot type should be modified by "ip=10.84.2.3, permission=rw, squash=noroot"
+
+allowip -a mod -t snapshot -d 0 -i 0 -s "ip=10.84.2.3, permission=rw, squash=noroot"
+
+administrator@cli> 
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.3                               RW          no_root_squash   
+
+administrator@cli> 
+
+Expect: allowip of clone type should be modified by "ip=10.84.2.1, permission=rw, squash=root"
+
+allowip -a mod -t clone -d 0 -i 0 -s "ip=10.84.2.1, permission=rw, squash=root"
+
+administrator@cli> 
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.1                               RW          root_squash      
+
+administrator@cli> 
+
+Expect: allowip of clone type should be modified by "ip=10.84.2.2, permission=ro, squash=all"
+
+allowip -a mod -t clone -d 0 -i 0 -s "ip=10.84.2.2, permission=ro, squash=all"
+
+administrator@cli> 
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.2                               RO          all_squash       
+
+administrator@cli> 
+
+Expect: allowip of clone type should be modified by "ip=10.84.2.3, permission=rw, squash=noroot"
+
+allowip -a mod -t clone -d 0 -i 0 -s "ip=10.84.2.3, permission=rw, squash=noroot"
+
+administrator@cli> 
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.3                               RW          no_root_squash   
+
+administrator@cli> 
+'result': 'p'
+
+Expect: allowip should be set by "ip=224.0.0.0, permission=ro, squash=root"
+
+allowip -a add -t nasshare -d 0 -s "ip=1.0.0.0, permission=ro, squash=root"
+
+administrator@cli> 
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.3                               RW          no_root_squash   
+1         224.0.0.0                               RO          root_squash      
+2         1.0.0.0                                 RO          root_squash      
+
+administrator@cli> 
+
+Fail: please check out 10.84.2.66
+
+
+Expect: allowip should be set by "ip=10.84.2.99, permission=rw, squash=all"
+
+allowip -a add -t nasshare -d 1 -s "ip=126.255.255.254, permission=rw, squash=all"
+
+administrator@cli> 
+allowip -t nasshare -d 1
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.69                              RW          all_squash       
+1         126.255.255.254                         RW          all_squash       
+
+administrator@cli> 
+
+Fail: please check out 10.84.2.96
+
+
+Expect: allowip should be set by "ip=10.84.2.66, permission=ro, squash=root"
+
+allowip -a add -t snapshot -d 0 -s "ip=10.84.2.66, permission=ro, squash=root"
+
+administrator@cli> 
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.3                               RW          no_root_squash   
+1         10.84.2.66                              RO          root_squash      
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=10.84.2.99, permission=rw, squash=noroot"
+
+allowip -a add -t snapshot -d 1 -s "ip=10.84.2.99, permission=rw, squash=noroot"
+
+administrator@cli> 
+allowip -t snapshot -d 1
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.99                              RW          no_root_squash   
+
+administrator@cli> 
+
+Fail: please check out 10.84.2.96
+
+
+Expect: allowip should be set by "ip=10.84.2.66, permission=ro, squash=all"
+
+allowip -a add -t clone -d 0 -s "ip=10.84.2.66, permission=ro, squash=all"
+
+administrator@cli> 
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.3                               RW          no_root_squash   
+1         10.84.2.66                              RO          all_squash       
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=10.84.2.99, permission=rw, squash=root"
+
+allowip -a add -t clone -d 1 -s "ip=10.84.2.99, permission=rw, squash=root"
+
+administrator@cli> 
+allowip -t clone -d 1
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.99                              RW          root_squash      
+
+administrator@cli> 
+
+Fail: please check out 10.84.2.96
+
+'result': 'f'
+
+Expect: allowip should be set by "ip=1.0.0.0, permission=ro, squash=root"
+
+allowip -a add -t nasshare -d 0 -s "ip=1.0.0.0, permission=ro, squash=root"
+
+administrator@cli> 
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.3                               RW          no_root_squash   
+1         224.0.0.0                               RO          root_squash      
+2         0.255.255.254                           RW          all_squash       
+3         1.0.0.0                                 RO          root_squash      
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=126.255.255.254, permission=rw, squash=all"
+
+allowip -a add -t nasshare -d 0 -s "ip=126.255.255.254, permission=rw, squash=all"
+
+administrator@cli> 
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.3                               RW          no_root_squash   
+1         224.0.0.0                               RO          root_squash      
+2         0.255.255.254                           RW          all_squash       
+3         1.0.0.0                                 RO          root_squash      
+4         126.255.255.254                         RW          all_squash       
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=128.0.0.0, permission=ro, squash=root"
+
+allowip -a add -t snapshot -d 0 -s "ip=128.0.0.0, permission=ro, squash=root"
+
+administrator@cli> 
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.3                               RW          no_root_squash   
+1         10.84.2.66                              RO          root_squash      
+2         128.0.0.0                               RO          root_squash      
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=191.255.255.254, permission=rw, squash=noroot"
+
+allowip -a add -t snapshot -d 0 -s "ip=191.255.255.254, permission=rw, squash=noroot"
+
+administrator@cli> 
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.3                               RW          no_root_squash   
+1         10.84.2.66                              RO          root_squash      
+2         128.0.0.0                               RO          root_squash      
+3         191.255.255.254                         RW          no_root_squash   
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=192.0.0.0, permission=ro, squash=all"
+
+allowip -a add -t clone -d 0 -s "ip=192.0.0.0, permission=ro, squash=all"
+
+administrator@cli> 
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.3                               RW          no_root_squash   
+1         10.84.2.66                              RO          all_squash       
+2         192.0.0.0                               RO          all_squash       
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=223.255.255.254, permission=rw, squash=root"
+
+allowip -a add -t clone -d 0 -s "ip=223.255.255.254, permission=rw, squash=root"
+
+administrator@cli> 
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.3                               RW          no_root_squash   
+1         10.84.2.66                              RO          all_squash       
+2         192.0.0.0                               RO          all_squash       
+3         223.255.255.254                         RW          root_squash      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: list allowip settings on nasshare 0
+
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.3                               RW          no_root_squash   
+1         224.0.0.0                               RO          root_squash      
+2         0.255.255.254                           RW          all_squash       
+3         1.0.0.0                                 RO          root_squash      
+4         126.255.255.254                         RW          all_squash       
+
+administrator@cli> 
+
+Expect: list allowip settings on snapshot 0
+
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.3                               RW          no_root_squash   
+1         10.84.2.66                              RO          root_squash      
+2         128.0.0.0                               RO          root_squash      
+3         191.255.255.254                         RW          no_root_squash   
+
+administrator@cli> 
+
+Expect: list allowip settings of clone 0
+
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.3                               RW          no_root_squash   
+1         10.84.2.66                              RO          all_squash       
+2         192.0.0.0                               RO          all_squash       
+3         223.255.255.254                         RW          root_squash      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: list allowip settings on nasshare 1 by verbose moed
+
+allowip -v -t nasshare -d 1
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.69                              RW          all_squash       
+1         126.255.255.254                         RW          all_squash       
+
+administrator@cli> 
+
+Expect: list allowip settings on snapshot 1 by verbose moed
+
+allowip -v -t snapshot -d 1
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.99                              RW          no_root_squash   
+
+administrator@cli> 
+
+Expect: list allowip settings of clone 1 by verbose moed
+
+allowip -v -t clone -d 1
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.99                              RW          root_squash      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: allowip of nasshare type should be modified by "ip=10.84.2.1, permission=rw, squash=root"
+
+allowip -a mod -t nasshare -d 0 -i 0 -s "ip=10.84.2.1, permission=rw, squash=root"
+
+administrator@cli> 
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.1                               RW          root_squash      
+1         224.0.0.0                               RO          root_squash      
+2         0.255.255.254                           RW          all_squash       
+3         1.0.0.0                                 RO          root_squash      
+4         126.255.255.254                         RW          all_squash       
+
+administrator@cli> 
+
+Expect: allowip of nasshare type should be modified by "ip=10.84.2.2, permission=ro, squash=all"
+
+allowip -a mod -t nasshare -d 0 -i 0 -s "ip=10.84.2.2, permission=ro, squash=all"
+
+administrator@cli> 
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.2                               RO          all_squash       
+1         224.0.0.0                               RO          root_squash      
+2         0.255.255.254                           RW          all_squash       
+3         1.0.0.0                                 RO          root_squash      
+4         126.255.255.254                         RW          all_squash       
+
+administrator@cli> 
+
+Expect: allowip of nasshare type should be modified by "ip=10.84.2.3, permission=rw, squash=noroot"
+
+allowip -a mod -t nasshare -d 0 -i 0 -s "ip=10.84.2.3, permission=rw, squash=noroot"
+
+administrator@cli> 
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.3                               RW          no_root_squash   
+1         224.0.0.0                               RO          root_squash      
+2         0.255.255.254                           RW          all_squash       
+3         1.0.0.0                                 RO          root_squash      
+4         126.255.255.254                         RW          all_squash       
+
+administrator@cli> 
+
+Expect: allowip of snapshot type should be modified by "ip=10.84.2.1, permission=rw, squash=root"
+
+allowip -a mod -t snapshot -d 0 -i 0 -s "ip=10.84.2.1, permission=rw, squash=root"
+
+administrator@cli> 
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.1                               RW          root_squash      
+1         10.84.2.66                              RO          root_squash      
+2         128.0.0.0                               RO          root_squash      
+3         191.255.255.254                         RW          no_root_squash   
+
+administrator@cli> 
+
+Expect: allowip of snapshot type should be modified by "ip=10.84.2.2, permission=ro, squash=all"
+
+allowip -a mod -t snapshot -d 0 -i 0 -s "ip=10.84.2.2, permission=ro, squash=all"
+
+administrator@cli> 
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.2                               RO          all_squash       
+1         10.84.2.66                              RO          root_squash      
+2         128.0.0.0                               RO          root_squash      
+3         191.255.255.254                         RW          no_root_squash   
+
+administrator@cli> 
+
+Expect: allowip of snapshot type should be modified by "ip=10.84.2.3, permission=rw, squash=noroot"
+
+allowip -a mod -t snapshot -d 0 -i 0 -s "ip=10.84.2.3, permission=rw, squash=noroot"
+
+administrator@cli> 
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.3                               RW          no_root_squash   
+1         10.84.2.66                              RO          root_squash      
+2         128.0.0.0                               RO          root_squash      
+3         191.255.255.254                         RW          no_root_squash   
+
+administrator@cli> 
+
+Expect: allowip of clone type should be modified by "ip=10.84.2.1, permission=rw, squash=root"
+
+allowip -a mod -t clone -d 0 -i 0 -s "ip=10.84.2.1, permission=rw, squash=root"
+
+administrator@cli> 
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.1                               RW          root_squash      
+1         10.84.2.66                              RO          all_squash       
+2         192.0.0.0                               RO          all_squash       
+3         223.255.255.254                         RW          root_squash      
+
+administrator@cli> 
+
+Expect: allowip of clone type should be modified by "ip=10.84.2.2, permission=ro, squash=all"
+
+allowip -a mod -t clone -d 0 -i 0 -s "ip=10.84.2.2, permission=ro, squash=all"
+
+administrator@cli> 
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.2                               RO          all_squash       
+1         10.84.2.66                              RO          all_squash       
+2         192.0.0.0                               RO          all_squash       
+3         223.255.255.254                         RW          root_squash      
+
+administrator@cli> 
+
+Expect: allowip of clone type should be modified by "ip=10.84.2.3, permission=rw, squash=noroot"
+
+allowip -a mod -t clone -d 0 -i 0 -s "ip=10.84.2.3, permission=rw, squash=noroot"
+
+administrator@cli> 
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.3                               RW          no_root_squash   
+1         10.84.2.66                              RO          all_squash       
+2         192.0.0.0                               RO          all_squash       
+3         223.255.255.254                         RW          root_squash      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: index 0 of allowip should be deleted on nasshare 0
+
+allowip -a del -t nasshare -d 0 -i 0
+
+administrator@cli> 
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         224.0.0.0                               RO          root_squash      
+1         0.255.255.254                           RW          all_squash       
+2         1.0.0.0                                 RO          root_squash      
+3         126.255.255.254                         RW          all_squash       
+
+administrator@cli> 
+
+Expect: index 0 of allowip should be deleted on snapshot 0
+
+allowip -a del -t snapshot -d 0 -i 0
+
+administrator@cli> 
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.66                              RO          root_squash      
+1         128.0.0.0                               RO          root_squash      
+2         191.255.255.254                         RW          no_root_squash   
+
+administrator@cli> 
+
+Expect: index 0 of allowip should be deleted on clone 0
+
+allowip -a del -t clone -d 0 -i 0
+
+administrator@cli> 
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.66                              RO          all_squash       
+1         192.0.0.0                               RO          all_squash       
+2         223.255.255.254                         RW          root_squash      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: index 0 of allowip should be deleted on nasshare 0
+
+allowip -a del -t nasshare -d 0 -i 0
+
+administrator@cli> 
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         0.255.255.254                           RW          all_squash       
+1         1.0.0.0                                 RO          root_squash      
+2         126.255.255.254                         RW          all_squash       
+
+administrator@cli> 
+
+Expect: index 0 of allowip should be deleted on snapshot 0
+
+allowip -a del -t snapshot -d 0 -i 0
+
+administrator@cli> 
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         128.0.0.0                               RO          root_squash      
+1         191.255.255.254                         RW          no_root_squash   
+
+administrator@cli> 
+
+Expect: index 0 of allowip should be deleted on clone 0
+
+allowip -a del -t clone -d 0 -i 0
+
+administrator@cli> 
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         192.0.0.0                               RO          all_squash       
+1         223.255.255.254                         RW          root_squash      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: allowip should be set by "ip=1.0.0.0, permission=ro, squash=root"
+
+allowip -a add -t nasshare -d 0 -s "ip=1.0.0.0, permission=ro, squash=root"
+
+administrator@cli> 
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         1.0.0.0                                 RO          root_squash      
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=126.255.255.254, permission=rw, squash=all"
+
+allowip -a add -t nasshare -d 0 -s "ip=126.255.255.254, permission=rw, squash=all"
+
+administrator@cli> 
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         1.0.0.0                                 RO          root_squash      
+1         126.255.255.254                         RW          all_squash       
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=128.0.0.0, permission=ro, squash=root"
+
+allowip -a add -t snapshot -d 0 -s "ip=128.0.0.0, permission=ro, squash=root"
+
+administrator@cli> 
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         128.0.0.0                               RO          root_squash      
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=191.255.255.254, permission=rw, squash=noroot"
+
+allowip -a add -t snapshot -d 0 -s "ip=191.255.255.254, permission=rw, squash=noroot"
+
+administrator@cli> 
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         128.0.0.0                               RO          root_squash      
+1         191.255.255.254                         RW          no_root_squash   
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=192.0.0.0, permission=ro, squash=all"
+
+allowip -a add -t clone -d 0 -s "ip=192.0.0.0, permission=ro, squash=all"
+
+administrator@cli> 
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         192.0.0.0                               RO          all_squash       
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=223.255.255.254, permission=rw, squash=root"
+
+allowip -a add -t clone -d 0 -s "ip=223.255.255.254, permission=rw, squash=root"
+
+administrator@cli> 
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         192.0.0.0                               RO          all_squash       
+1         223.255.255.254                         RW          root_squash      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: list allowip settings on nasshare 0
+
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         1.0.0.0                                 RO          root_squash      
+1         126.255.255.254                         RW          all_squash       
+
+administrator@cli> 
+
+Expect: list allowip settings on snapshot 0
+
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         128.0.0.0                               RO          root_squash      
+1         191.255.255.254                         RW          no_root_squash   
+
+administrator@cli> 
+
+Expect: list allowip settings of clone 0
+
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         192.0.0.0                               RO          all_squash       
+1         223.255.255.254                         RW          root_squash      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: 1 char name of group should be added
+
+group -a add -g A
+
+administrator@cli> 
+group -g A
+===============================================================================
+GroupName                GroupMembers                description               
+===============================================================================
+A                                                                              
+
+administrator@cli> 
+
+Expect: 2 char name of group should be added
+
+group -a add -g 12
+Error (0x402): Invalid parameter
+Group is already exist
+
+administrator@cli> 
+
+Fail: group -a add -g 12
+
+
+Expect: 29 char name of group should be added
+
+group -a add -g test_test_test_test_test_test
+Error (0x402): Invalid parameter
+Group is already exist
+
+administrator@cli> 
+
+Fail: group -a add -g test_test_test_test_test_test
+
+
+Expect: 30 char name of group should be added
+
+group -a add -g name_name_name_name_name_name_
+Error (0x402): Invalid parameter
+Group is already exist
+
+administrator@cli> 
+
+Fail: group -a add -g name_name_name_name_name_name_
+
+'result': 'f'
+
+Expect: Missing parameter
+
+group -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a add
+Error (0x403): Missing parameter
+missing parameter '-g' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a add -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a add -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a mod
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a mod -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a mod -g users -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a adduser
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a adduser'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a adduser -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a adduser -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a deluser
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a deluser'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a deluser -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a deluser -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a del
+Error (0x403): Missing parameter
+missing parameter '-g' for '-a del'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a del -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+'result': 'p'
+
+Expect: permisions of everyone should be 0 on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=ro"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        ro         
+
+administrator@cli> 
+
+Expect: permisions of everyone should be rw on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=rw"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Expect: permisions of everyone should be deny only on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=deny"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+
+administrator@cli> 
+
+Expect: permisions of everyone should be 0 on clone
+
+acl -a set -d 0 -t clone -s "role=everyone,acl=ro"
+Error (0x4100104): Incorrect parameters: Type only can be filesystem.
+
+administrator@cli> 
+
+Fail: acl -a set -d 0 -t clone -s "role=everyone,acl=ro"
+
+
+Expect: permisions of everyone should be rw on clone
+
+acl -a set -d 0 -t clone -s "role=everyone,acl=rw"
+Error (0x4100104): Incorrect parameters: Type only can be filesystem.
+
+administrator@cli> 
+
+Fail: acl -a set -d 0 -t clone -s "role=everyone,acl=rw"
+
+
+Expect: permisions of everyone should be deny only on clone
+
+acl -a set -d 0 -t clone -s "role=everyone,acl=deny"
+Error (0x4100104): Incorrect parameters: Type only can be filesystem.
+
+administrator@cli> 
+
+Fail: acl -a set -d 0 -t clone -s "role=everyone,acl=deny"
+
+
+Expect: signle nas user should can set ro permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=ro,name=test_acl_0"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+
+administrator@cli> 
+
+Expect: signle nas user should can set rw permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=rw,name=test_acl_1"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+
+administrator@cli> 
+
+Expect: signle nas user should can set deny permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=deny,name=test_acl_2"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+
+administrator@cli> 
+
+Expect: signle nas user should can set ro permissions on clone
+
+acl -a set -d 0 -t clone -s "role=user,acl=ro,name=test_acl_4"
+Error (0x4100104): Incorrect parameters: Type only can be filesystem.
+
+administrator@cli> 
+
+Fail: acl -a set -d 0 -t clone -s "role=user,acl=ro,name=test_acl_4"
+
+
+Expect: signle nas user should can set rw permissions on clone
+
+acl -a set -d 0 -t clone -s "role=user,acl=rw,name=test_acl_5"
+Error (0x4100104): Incorrect parameters: Type only can be filesystem.
+
+administrator@cli> 
+
+Fail: acl -a set -d 0 -t clone -s "role=user,acl=rw,name=test_acl_5"
+
+
+Expect: signle nas user should can set deny permissions on clone
+
+acl -a set -d 0 -t clone -s "role=user,acl=deny,name=test_acl_6"
+Error (0x4100104): Incorrect parameters: Type only can be filesystem.
+
+administrator@cli> 
+
+Fail: acl -a set -d 0 -t clone -s "role=user,acl=deny,name=test_acl_6"
+
+
+Expect: signle nas group should can set ro permissions on nasshare
+
+acl -a set -d 1 -t nasshare -s "role=group,acl=ro,name=test_acl_group_0"
+
+administrator@cli> 
+acl -t nasshare -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1001      test_acl_group_0                                ro         
+
+administrator@cli> 
+
+Expect: signle nas group should can set rw permissions on nasshare
+
+acl -a set -d 1 -t nasshare -s "role=group,acl=rw,name=test_acl_group_1"
+
+administrator@cli> 
+acl -t nasshare -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1001      test_acl_group_0                                ro         
+group     1002      test_acl_group_1                                rw         
+
+administrator@cli> 
+
+Expect: signle nas group should can set deny permissions on nasshare
+
+acl -a set -d 1 -t nasshare -s "role=group,acl=deny,name=test_acl_group_2"
+
+administrator@cli> 
+acl -t nasshare -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1001      test_acl_group_0                                ro         
+group     1002      test_acl_group_1                                rw         
+group     1003      test_acl_group_2                                deny       
+
+administrator@cli> 
+
+Expect: signle nas group should can set ro permissions on clone
+
+acl -a set -d 1 -t clone -s "role=group,acl=ro,name=test_acl_group_4"
+Error (0x4100104): Incorrect parameters: Type only can be filesystem.
+
+administrator@cli> 
+
+Fail: acl -a set -d 1 -t clone -s "role=group,acl=ro,name=test_acl_group_4"
+
+
+Expect: signle nas group should can set rw permissions on clone
+
+acl -a set -d 1 -t clone -s "role=group,acl=rw,name=test_acl_group_5"
+Error (0x4100104): Incorrect parameters: Type only can be filesystem.
+
+administrator@cli> 
+
+Fail: acl -a set -d 1 -t clone -s "role=group,acl=rw,name=test_acl_group_5"
+
+
+Expect: signle nas group should can set deny permissions on clone
+
+acl -a set -d 1 -t clone -s "role=a,acl=deny,name=test_acl_group_6"
+Error (0x2013): Invalid setting parameters
+role: invalid setting a (everyone|user|group)
+
+administrator@cli> 
+
+Fail: acl -a set -d 1 -t clone -s "role=a,acl=deny,name=test_acl_group_6"
+
+'result': 'f'
+
+Expect: permisions of everyone should be 0 on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=ro"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        ro         
+
+administrator@cli> 
+
+Expect: permisions of everyone should be rw on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=rw"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Expect: permisions of everyone should be deny only on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=deny"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+
+administrator@cli> 
+
+Expect: signle nas user should can set ro permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=ro,name=test_acl_0"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+
+administrator@cli> 
+
+Expect: signle nas user should can set rw permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=rw,name=test_acl_1"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+
+administrator@cli> 
+
+Expect: signle nas user should can set deny permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=deny,name=test_acl_2"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+
+administrator@cli> 
+
+Expect: signle nas group should can set ro permissions on nasshare
+
+acl -a set -d 1 -t nasshare -s "role=group,acl=ro,name=test_acl_group_0"
+
+administrator@cli> 
+acl -t nasshare -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1001      test_acl_group_0                                ro         
+
+administrator@cli> 
+
+Expect: signle nas group should can set rw permissions on nasshare
+
+acl -a set -d 1 -t nasshare -s "role=group,acl=rw,name=test_acl_group_1"
+
+administrator@cli> 
+acl -t nasshare -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1001      test_acl_group_0                                ro         
+group     1002      test_acl_group_1                                rw         
+
+administrator@cli> 
+
+Expect: signle nas group should can set deny permissions on nasshare
+
+acl -a set -d 1 -t nasshare -s "role=group,acl=deny,name=test_acl_group_2"
+
+administrator@cli> 
+acl -t nasshare -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1001      test_acl_group_0                                ro         
+group     1002      test_acl_group_1                                rw         
+group     1003      test_acl_group_2                                deny       
+
+administrator@cli> 
+'result': 'p'
+
+Expect: list acl settings on nasshare 0
+
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+
+administrator@cli> 
+
+Expect: list acl settings on nasshare 1
+
+acl -t nasshare -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1001      test_acl_group_0                                ro         
+group     1002      test_acl_group_1                                rw         
+group     1003      test_acl_group_2                                deny       
+
+administrator@cli> 
+'result': 'p'
+
+Expect: list acl settings of specific nasshare type by verbose mode
+
+acl -v -t nasshare -d 0
+-------------------------------------------------------------------------------
+Role: everyone                          UIDorGID: N/A
+ACL: deny                               Status: ready
+UsernameOrGroupname: everyone
+-------------------------------------------------------------------------------
+Role: user                              UIDorGID: 1001
+ACL: ro                                 Status: ready
+UsernameOrGroupname: test_acl_0
+-------------------------------------------------------------------------------
+Role: user                              UIDorGID: 1002
+ACL: rw                                 Status: ready
+UsernameOrGroupname: test_acl_1
+-------------------------------------------------------------------------------
+Role: user                              UIDorGID: 1003
+ACL: deny                               Status: ready
+UsernameOrGroupname: test_acl_2
+
+administrator@cli> 
+'result': 'p'
+
+Expect: refresh acl of nasshare type
+
+acl -a refresh -d 0 -t nasshare
+
+administrator@cli> 
+'result': 'p'
+
+Expect: signle nas user should can set unset permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=unset,name=test_acl_2"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+
+administrator@cli> 
+
+Expect: signle nas group should can set unset permissions on nasshare
+
+acl -a set -d 1 -t nasshare -s "role=group,acl=unset,name=test_acl_group_2"
+
+administrator@cli> 
+acl -t nasshare -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1001      test_acl_group_0                                ro         
+group     1002      test_acl_group_1                                rw         
+
+administrator@cli> 
+
+Expect: permisions of everyone should be unset only on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=unset"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+
+administrator@cli> 
+'result': 'p'
+
+Expect: all acl settings are cleared on specific nasshare
+
+acl -a clear -t nasshare -d 0
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+'result': 'p'
+
+Expect: add nasshare acl is deny for everyone
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=deny"
+
+administrator@cli> 
+
+Expect: to add action is canceled on nasshare
+
+acl -a cancel -t nasshare -d 0
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Invalid setting parameters
+
+acl test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+
+Expect: not existed
+
+acl -d 100 -t nasshare
+No ACL found
+
+administrator@cli> 
+
+Fail: acl -d 100 -t nasshare
+
+
+Expect: Invalid setting parameters
+
+acl -d 0 -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (nasshare|clone)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: id=[100] is not existed
+
+acl -a set -d 100 -t nasshare -s "role=user,name=admin,acl=rw"
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: id=[100] is not existed
+
+acl -a set -d 100 -t nasshare -s "role=group,name=users,acl=rw"
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t test -s "role=user,name=admin,acl=rw"
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (nasshare|clone)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t nasshare -s "role=test,name=admin,acl=rw"
+Error (0x2013): Invalid setting parameters
+role: invalid setting test (everyone|user|group)
+
+administrator@cli> 
+
+Expect: NAS user [test] doesn't exist
+
+acl -a set -d 0 -t nasshare -s "role=user,name=test,acl=rw"
+Error (0x4100104): Incorrect parameters: NAS user [test] doesn't exist.
+
+administrator@cli> 
+
+Expect: NAS group [test] doesn't exist
+
+acl -a set -d 0 -t nasshare -s "role=group,name=test,acl=rw"
+Error (0x4100104): Incorrect parameters: NAS group [test] doesn't exist.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t nasshare -s "role=user,name=test_acl_0,acl=test"
+Error (0x2013): Invalid setting parameters
+acl: invalid setting test (unset|deny|ro|rw)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t nasshare -s "role=group,name=users,acl=test"
+Error (0x2013): Invalid setting parameters
+acl: invalid setting test (unset|deny|ro|rw)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a refresh test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a refresh -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (nasshare|clone)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a mod -d 0 -t nasshare -s ""
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a mod -d 0 -t clone -s ""
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a clear -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a cancel -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+'result': 'f'
+
+Expect: Invalid option for the command or the action
+
+acl -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -d 0 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a set -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a set -d 0 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a set -d 0 -nasshare -s "test=user,user=adimin,acl=rw"
+Error (0x2012): Invalid option for the command or the action
+invalid option: -nasshare
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a set -d 0 -nasshare -s "role=user,test=adimin,acl=rw"
+Error (0x2012): Invalid option for the command or the action
+invalid option: -nasshare
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a refresh -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a clear -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a clear -t nasshare -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a cancel -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Missing parameter
+
+acl -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -d 0 -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a set -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a set -d 0 
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a set'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a set -d 0 -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a set -d 0 -t nasshare 
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a set'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a set -d 0 -t nasshare -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a refresh
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a refresh'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a refresh -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a refresh -d 0 -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a cancel
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a cancel'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a cancel -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a clear -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a clear
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a clear'
+
+administrator@cli> 
+'result': 'p'
+
+Expect: permisions of everyone should be 0 on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=ro"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        ro         
+
+administrator@cli> 
+
+Expect: permisions of everyone should be rw on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=rw"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+
+Expect: permisions of everyone should be deny only on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=deny"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+
+administrator@cli> 
+
+Expect: signle nas user should can set ro permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=ro,name=test_acl_0"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+
+administrator@cli> 
+
+Expect: signle nas user should can set rw permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=rw,name=test_acl_1"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+
+administrator@cli> 
+
+Expect: signle nas user should can set deny permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=deny,name=test_acl_2"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+
+administrator@cli> 
+
+Expect: signle nas group should can set ro permissions on nasshare
+
+acl -a set -d 1 -t nasshare -s "role=group,acl=ro,name=test_acl_group_0"
+
+administrator@cli> 
+acl -t nasshare -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1001      test_acl_group_0                                ro         
+
+administrator@cli> 
+
+Expect: signle nas group should can set rw permissions on nasshare
+
+acl -a set -d 1 -t nasshare -s "role=group,acl=rw,name=test_acl_group_1"
+
+administrator@cli> 
+acl -t nasshare -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1001      test_acl_group_0                                ro         
+group     1002      test_acl_group_1                                rw         
+
+administrator@cli> 
+
+Expect: signle nas group should can set deny permissions on nasshare
+
+acl -a set -d 1 -t nasshare -s "role=group,acl=deny,name=test_acl_group_2"
+
+administrator@cli> 
+acl -t nasshare -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1001      test_acl_group_0                                ro         
+group     1002      test_acl_group_1                                rw         
+group     1003      test_acl_group_2                                deny       
+
+administrator@cli> 
+'result': 'p'
+
+Expect: list acl settings on nasshare 0
+
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+user      1003      test_acl_2                                      deny       
+
+administrator@cli> 
+
+Expect: list acl settings on nasshare 1
+
+acl -t nasshare -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1001      test_acl_group_0                                ro         
+group     1002      test_acl_group_1                                rw         
+group     1003      test_acl_group_2                                deny       
+
+administrator@cli> 
+'result': 'p'
+
+Expect: list acl settings of specific nasshare type by verbose mode
+
+acl -v -t nasshare -d 0
+-------------------------------------------------------------------------------
+Role: everyone                          UIDorGID: N/A
+ACL: deny                               Status: ready
+UsernameOrGroupname: everyone
+-------------------------------------------------------------------------------
+Role: user                              UIDorGID: 1001
+ACL: ro                                 Status: ready
+UsernameOrGroupname: test_acl_0
+-------------------------------------------------------------------------------
+Role: user                              UIDorGID: 1002
+ACL: rw                                 Status: ready
+UsernameOrGroupname: test_acl_1
+-------------------------------------------------------------------------------
+Role: user                              UIDorGID: 1003
+ACL: deny                               Status: ready
+UsernameOrGroupname: test_acl_2
+
+administrator@cli> 
+'result': 'p'
+
+Expect: refresh acl of nasshare type
+
+acl -a refresh -d 0 -t nasshare
+
+administrator@cli> 
+'result': 'p'
+
+Expect: signle nas user should can set unset permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=unset,name=test_acl_2"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+
+administrator@cli> 
+
+Expect: signle nas group should can set unset permissions on nasshare
+
+acl -a set -d 1 -t nasshare -s "role=group,acl=unset,name=test_acl_group_2"
+
+administrator@cli> 
+acl -t nasshare -d 1
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+group     1001      test_acl_group_0                                ro         
+group     1002      test_acl_group_1                                rw         
+
+administrator@cli> 
+
+Expect: permisions of everyone should be unset only on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=unset"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        deny       
+user      1001      test_acl_0                                      ro         
+user      1002      test_acl_1                                      rw         
+
+administrator@cli> 
+'result': 'p'
+
+Expect: all acl settings are cleared on specific nasshare
+
+acl -a clear -t nasshare -d 0
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role      UIDorGID  Name                                            ACL       
+===============================================================================
+everyone  N/A       everyone                                        rw         
+
+administrator@cli> 
+'result': 'p'
+
+Expect: add nasshare acl is deny for everyone
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=deny"
+
+administrator@cli> 
+
+Expect: to add action is canceled on nasshare
+
+acl -a cancel -t nasshare -d 0
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Invalid setting parameters
+
+acl test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+
+Expect: not existed
+
+acl -d 100 -t nasshare
+No ACL found
+
+administrator@cli> 
+
+Fail: acl -d 100 -t nasshare
+
+
+Expect: Invalid setting parameters
+
+acl -d 0 -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (nasshare|clone)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: id=[100] is not existed
+
+acl -a set -d 100 -t nasshare -s "role=user,name=admin,acl=rw"
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: id=[100] is not existed
+
+acl -a set -d 100 -t nasshare -s "role=group,name=users,acl=rw"
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t test -s "role=user,name=admin,acl=rw"
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (nasshare|clone)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t nasshare -s "role=test,name=admin,acl=rw"
+Error (0x2013): Invalid setting parameters
+role: invalid setting test (everyone|user|group)
+
+administrator@cli> 
+
+Expect: NAS user [test] doesn't exist
+
+acl -a set -d 0 -t nasshare -s "role=user,name=test,acl=rw"
+Error (0x4100104): Incorrect parameters: NAS user [test] doesn't exist.
+
+administrator@cli> 
+
+Expect: NAS group [test] doesn't exist
+
+acl -a set -d 0 -t nasshare -s "role=group,name=test,acl=rw"
+Error (0x4100104): Incorrect parameters: NAS group [test] doesn't exist.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t nasshare -s "role=user,name=test_acl_0,acl=test"
+Error (0x2013): Invalid setting parameters
+acl: invalid setting test (unset|deny|ro|rw)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t nasshare -s "role=group,name=users,acl=test"
+Error (0x2013): Invalid setting parameters
+acl: invalid setting test (unset|deny|ro|rw)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a refresh test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a refresh -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (nasshare|clone)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a mod -d 0 -t nasshare -s ""
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a mod -d 0 -t clone -s ""
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a clear -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a cancel -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+'result': 'f'
+
+Expect: Invalid option for the command or the action
+
+acl -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -d 0 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a set -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a set -d 0 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a set -d 0 -nasshare -s "test=user,user=adimin,acl=rw"
+Error (0x2012): Invalid option for the command or the action
+invalid option: -nasshare
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a set -d 0 -nasshare -s "role=user,test=adimin,acl=rw"
+Error (0x2012): Invalid option for the command or the action
+invalid option: -nasshare
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a refresh -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a clear -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a clear -t nasshare -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a cancel -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Missing parameter
+
+acl -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -d 0 -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a set -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a set -d 0 
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a set'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a set -d 0 -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a set -d 0 -t nasshare 
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a set'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a set -d 0 -t nasshare -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a refresh
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a refresh'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a refresh -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a refresh -d 0 -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a cancel
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a cancel'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a cancel -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a clear -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a clear
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a clear'
+
+administrator@cli> 
+'result': 'p'
+
+Expect: add volume by "name=n,capacity=1GB,block=512B,sector=512B,sync=standard,thinprov=Enable,logbias=latency" 
+
+volume -a add -p 0 -s "name=n,capacity=1GB,block=512B,sector=512B,sync=standard,thinprov=Enable,logbias=latency"
+
+administrator@cli> 
+volume -v -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   Name: n
+PoolId: 0                               PoolName: test_volume
+Status: Exported                        ExportedId: 0
+ExportedWWN: 22c30001552889a1           OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 8.19 KB
+PoolAvailableCapacity: 7.29 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 512 Bytes                        Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Enabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2017-11-16 12:14:06
+PreferCtrlId: 2
+
+administrator@cli> 
+
+Expect: add volume by "name=TN,capacity=2GB,block=1KB,sector=1KB,sync=always,thinprov=Disable,logbias=throughput"
+
+volume -a add -p 0 -s "name=TN,capacity=2GB,block=1KB,sector=1KB,sync=always,thinprov=Disable,logbias=throughput"
+
+administrator@cli> 
+volume -v -i 1
+-------------------------------------------------------------------------------
+Id: 1                                   Name: TN
+PoolId: 0                               PoolName: test_volume
+Status: Exported                        ExportedId: 1
+ExportedWWN: 2250000155683272           OperationalStatus: OK, Synchronizing
+TotalCapacity: 2 GB                     UsedCapacity: 2 GB
+PoolAvailableCapacity: 7.29 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 1 KB                             Sector: 1 KB
+Compress: off                           Ratio: 1.00x
+SyncMode: always                        ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2017-11-16 12:14:09
+PreferCtrlId: 2
+
+administrator@cli> 
+
+Expect: add volume by "name=Test_Test_Test_Test_Test_Test31,capacity=1TB,block=2KB,sector=2KB,sync=disabled,thinprov=Enable,logbias=latency"
+
+volume -a add -p 0 -s "name=Test_Test_Test_Test_Test_Test31,capacity=1TB,block=2KB,sector=2KB,sync=disabled,thinprov=Enable,logbias=latency"
+
+administrator@cli> 
+volume -v -i 2
+-------------------------------------------------------------------------------
+Id: 2                                   Name: Test_Test_Test_Test_Test_Test31
+PoolId: 0                               PoolName: test_volume
+Status: Exported                        ExportedId: 2
+ExportedWWN: 22ea000155ad9ab0           OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 TB                     UsedCapacity: 8.19 KB
+PoolAvailableCapacity: 7.29 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 2 KB                             Sector: 2 KB
+Compress: off                           Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Enabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2017-11-16 12:14:13
+PreferCtrlId: 2
+
+administrator@cli> 
+
+Expect: add volume by "name=test_test_test_test_test_test_32,capacity=2TB,block=4KB,sector=4KB,sync=standard,thinprov=Disable,logbias=throughput"
+
+volume -a add -p 0 -s "name=test_test_test_test_test_test_32,capacity=2TB,block=4KB,sector=4KB,sync=standard,thinprov=Disable,logbias=throughput"
+
+administrator@cli> 
+volume -v -i 3
+-------------------------------------------------------------------------------
+Id: 3                                   Name: test_test_test_test_test_test_32
+PoolId: 0                               PoolName: test_volume
+Status: Exported                        ExportedId: 3
+ExportedWWN: 22bc000155285751           OperationalStatus: OK, Synchronizing
+TotalCapacity: 2 TB                     UsedCapacity: 2 TB
+PoolAvailableCapacity: 5.23 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 4 KB                             Sector: 4 KB
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2017-11-16 12:14:16
+PreferCtrlId: 2
+
+administrator@cli> 
+
+Expect: add volume by "name=test_block_1,capacity=1GB,block=8kb,compress=off"
+
+volume -a add -p 0 -s "name=test_block_1,capacity=1GB,block=8kb,compress=off"
+
+administrator@cli> 
+volume -v -i 4
+-------------------------------------------------------------------------------
+Id: 4                                   Name: test_block_1
+PoolId: 0                               PoolName: test_volume
+Status: Exported                        ExportedId: 4
+ExportedWWN: 221f000155ea9257           OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 5.23 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: always                        ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2017-11-16 12:14:20
+PreferCtrlId: 2
+
+administrator@cli> 
+
+Expect: add volume by "name=test_block_2,capacity=1GB,block=16kb,compress=fast"
+
+volume -a add -p 0 -s "name=test_block_2,capacity=1GB,block=16kb,compress=lz4"
+
+administrator@cli> 
+volume -v -i 5
+-------------------------------------------------------------------------------
+Id: 5                                   Name: test_block_2
+PoolId: 0                               PoolName: test_volume
+Status: Exported                        ExportedId: 5
+ExportedWWN: 22c9000155a4edca           OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 5.23 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 16 KB                            Sector: 512 Bytes
+Compress: lz4                           Ratio: 1.00x
+SyncMode: always                        ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2017-11-16 12:14:23
+PreferCtrlId: 2
+
+administrator@cli> 
+
+Expect: add volume by "name=test_block_3,capacity=1GB,block=32kb,compress=optimized"
+
+volume -a add -p 0 -s "name=test_block_3,capacity=1GB,block=32kb,compress=gzip"
+
+administrator@cli> 
+volume -v -i 6
+-------------------------------------------------------------------------------
+Id: 6                                   Name: test_block_3
+PoolId: 0                               PoolName: test_volume
+Status: Exported                        ExportedId: 6
+ExportedWWN: 223200015571f164           OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.98 MB                UsedCapacity: 999.98 MB
+PoolAvailableCapacity: 5.23 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 32 KB                            Sector: 512 Bytes
+Compress: gzip                          Ratio: 1.00x
+SyncMode: always                        ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2017-11-16 12:14:27
+PreferCtrlId: 2
+
+administrator@cli> 
+
+Expect: add volume by "name=test_block_4,capacity=1GB,block=64kb"
+
+volume -a add -p 0 -s "name=test_block_4,capacity=1GB,block=64kb,compress=zle"
+
+administrator@cli> 
+volume -v -i 7
+-------------------------------------------------------------------------------
+Id: 7                                   Name: test_block_4
+PoolId: 0                               PoolName: test_volume
+Status: Exported                        ExportedId: 7
+ExportedWWN: 22640001554d7fa3           OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 5.22 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 512 Bytes
+Compress: zle                           Ratio: 1.00x
+SyncMode: always                        ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2017-11-16 12:14:30
+PreferCtrlId: 2
+
+administrator@cli> 
+
+Expect: add volume by "name=test_block_5,capacity=1GB,block=128kb"
+
+volume -a add -p 0 -s "name=test_block_5,capacity=1GB,block=128kb"
+
+administrator@cli> 
+volume -v -i 8
+-------------------------------------------------------------------------------
+Id: 8                                   Name: test_block_5
+PoolId: 0                               PoolName: test_volume
+Status: Exported                        ExportedId: 8
+ExportedWWN: 22b5000155015aa6           OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 5.22 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 128 KB                           Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: always                        ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2017-11-16 12:14:33
+PreferCtrlId: 2
+
+administrator@cli> 
+
+Expect: add volume by default values
+
+volume -a add -p 0 -s "name=test_default_values,capacity=1GB"
+
+administrator@cli> 
+volume -v -i 9
+-------------------------------------------------------------------------------
+Id: 9                                   Name: test_default_values
+PoolId: 0                               PoolName: test_volume
+Status: Exported                        ExportedId: 9
+ExportedWWN: 22230001552afc05           OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 5.22 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: always                        ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2017-11-16 12:14:37
+PreferCtrlId: 2
+
+administrator@cli> 
+'result': 'p'
+Add NASShare 
+
+Expect: NASShare settings are name=X,capacity=1GB,recsize=128KB,sync=always,logbias=latency,compress=zle
+
+nasshare -a add -p 0 -s "name=X,capacity=1GB,recsize=128KB,sync=always,logbias=latency,compress=zle"
+
+administrator@cli> 
+nasshare -v -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   Name: X
+PoolId: 0                               PoolName: test_NASShare_pool
+SyncMode: always                        TotalCapacity: 1 GB
+UsedCapacity: 19.46 KB                  PoolAvailableCapacity: 7.29 TB
+WrittenCapacityAfterSnapshot: 19.46 KB  ShareProtocol: 
+TimeMachine: Enabled                    RecordSize: 128 KB
+Compress: zle                           Ratio: 1.00x
+Logbias: latency                        RedundantMetaData: all
+ThinProv: Enabled                       CopiesOfNewData: 1
+PreferCtrlId: 2                         Status: Mounted
+OperationalStatus: OK, Synchronizing    QuotaStatus: ready
+ACLStatus: ready
+
+administrator@cli> 
+Actual: NASShare is added successful 
+
+Expect: NASShare settings are name=1_a,capacity=2GB,recsize=512B,sync=standard,logbias=throughput,compress=lz4
+
+nasshare -a add -p 0 -s "name=1_a,capacity=2GB,recsize=512B,sync=standard,logbias=throughput,compress=lz4"
+
+administrator@cli> 
+nasshare -v -i 1
+-------------------------------------------------------------------------------
+Id: 1                                   Name: 1_a
+PoolId: 0                               PoolName: test_NASShare_pool
+SyncMode: standard                      TotalCapacity: 2 GB
+UsedCapacity: 19.46 KB                  PoolAvailableCapacity: 7.29 TB
+WrittenCapacityAfterSnapshot: 19.46 KB  ShareProtocol: 
+TimeMachine: Enabled                    RecordSize: 512 Bytes
+Compress: lz4                           Ratio: 1.00x
+Logbias: throughput                     RedundantMetaData: all
+ThinProv: Enabled                       CopiesOfNewData: 1
+PreferCtrlId: 2                         Status: Mounted
+OperationalStatus: OK, Synchronizing    QuotaStatus: ready
+ACLStatus: ready
+
+administrator@cli> 
+Actual: NASShare is added successful 
+
+Expect: NASShare settings are name=NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN,capacity=1TB,recsize=1MB,sync=disabled,logbias=throughput,compress=gzip
+
+nasshare -a add -p 0 -s "name=NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN,capacity=1TB,recsize=1MB,sync=disabled,logbias=throughput,compress=gzip"
+
+administrator@cli> 
+nasshare -v -i 2
+-------------------------------------------------------------------------------
+Id: 2                                   Name: NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN
+PoolId: 0                               PoolName: test_NASShare_pool
+SyncMode: disabled                      TotalCapacity: 1 TB
+UsedCapacity: 19.46 KB                  PoolAvailableCapacity: 7.29 TB
+WrittenCapacityAfterSnapshot: 19.46 KB  ShareProtocol: 
+TimeMachine: Enabled                    RecordSize: 1 MB
+Compress: gzip                          Ratio: 1.00x
+Logbias: throughput                     RedundantMetaData: all
+ThinProv: Enabled                       CopiesOfNewData: 1
+PreferCtrlId: 2                         Status: Mounted
+OperationalStatus: OK, Synchronizing    QuotaStatus: ready
+ACLStatus: ready
+
+administrator@cli> 
+Actual: NASShare is added successful 
+
+'result': 'p'
+timezone should be listed
+
+tz
+===============================================================================
+Time Offset               Zone                        Support DST              
+===============================================================================
+UTC-3:00                  America/Bahia               no                       
+
+administrator@cli> 
+'result': 'p'
+detail of timezone should be listed
+
+tz -d
+===============================================================================
+Time Offset         Zone                                   Support DST         
+===============================================================================
+UTC-11:00           Pacific/Pago_Pago                      no                  
+UTC-11:00           Pacific/Niue                           no                  
+UTC-11:00           Pacific/Midway                         no                  
+UTC-11:00           America/Adak                           yes                 
+UTC-10:00           Pacific/Rarotonga                      no                  
+UTC-10:00           Pacific/Tahiti                         no                  
+UTC-10:00           Pacific/Johnston                       no                  
+UTC-10:00           America/Anchorage                      yes                 
+UTC-10:00           America/Juneau                         yes                 
+UTC-10:00           America/Sitka                          yes                 
+UTC-10:00           America/Metlakatla                     yes                 
+UTC-10:00           America/Yakutat                        yes                 
+UTC-10:00           America/Nome                           yes                 
+UTC-10:00           Pacific/Honolulu                       no                  
+UTC-10:30           Pacific/Marquesas                      no                  
+UTC-9:00            America/Vancouver                      yes                 
+UTC-9:00            America/Whitehorse                     yes                 
+UTC-9:00            America/Dawson                         yes                 
+UTC-9:00            America/Tijuana                        yes                 
+UTC-9:00            Pacific/Gambier                        no                  
+UTC-9:00            America/Los_Angeles                    yes                 
+UTC-8:00            America/Edmonton                       yes                 
+UTC-8:00            America/Cambridge_Bay                  yes                 
+UTC-8:00            America/Yellowknife                    yes                 
+UTC-8:00            America/Inuvik                         yes                 
+UTC-8:00            America/Mazatlan                       yes                 
+UTC-8:00            America/Chihuahua                      yes                 
+UTC-8:00            America/Ojinaga                        yes                 
+UTC-8:00            Pacific/Pitcairn                       no                  
+UTC-8:00            America/Denver                         yes                 
+UTC-8:00            America/Boise                          yes                 
+UTC-7:00            America/Winnipeg                       yes                 
+UTC-7:00            America/Rainy_River                    yes                 
+UTC-7:00            America/Resolute                       yes                 
+UTC-7:00            America/Rankin_Inlet                   yes                 
+UTC-7:00            America/Creston                        no                  
+UTC-7:00            America/Dawson_Creek                   no                  
+UTC-7:00            America/Fort_Nelson                    no                  
+UTC-7:00            America/Mexico_City                    yes                 
+UTC-7:00            America/Merida                         yes                 
+UTC-7:00            America/Monterrey                      yes                 
+UTC-7:00            America/Matamoros                      yes                 
+UTC-7:00            America/Hermosillo                     no                  
+UTC-7:00            America/Bahia_Banderas                 yes                 
+UTC-7:00            America/Chicago                        yes                 
+UTC-7:00            America/Indiana/Tell_City              yes                 
+UTC-7:00            America/Indiana/Knox                   yes                 
+UTC-7:00            America/Menominee                      yes                 
+UTC-7:00            America/North_Dakota/Center            yes                 
+UTC-7:00            America/North_Dakota/New_Salem         yes                 
+UTC-7:00            America/North_Dakota/Beulah            yes                 
+UTC-7:00            America/Phoenix                        no                  
+UTC-6:00            America/Nassau                         yes                 
+UTC-6:00            America/Belize                         no                  
+UTC-6:00            America/Toronto                        yes                 
+UTC-6:00            America/Nipigon                        yes                 
+UTC-6:00            America/Thunder_Bay                    yes                 
+UTC-6:00            America/Iqaluit                        yes                 
+UTC-6:00            America/Pangnirtung                    yes                 
+UTC-6:00            America/Regina                         no                  
+UTC-6:00            America/Swift_Current                  no                  
+UTC-6:00            Pacific/Easter                         yes                 
+UTC-6:00            America/Costa_Rica                     no                  
+UTC-6:00            America/Havana                         yes                 
+UTC-6:00            Pacific/Galapagos                      no                  
+UTC-6:00            America/Guatemala                      no                  
+UTC-6:00            America/Tegucigalpa                    no                  
+UTC-6:00            America/Managua                        no                  
+UTC-6:00            America/El_Salvador                    no                  
+UTC-6:00            America/New_York                       yes                 
+UTC-6:00            America/Detroit                        yes                 
+UTC-6:00            America/Kentucky/Louisville            yes                 
+UTC-6:00            America/Kentucky/Monticello            yes                 
+UTC-6:00            America/Indiana/Indianapolis           yes                 
+UTC-6:00            America/Indiana/Vincennes              yes                 
+UTC-6:00            America/Indiana/Winamac                yes                 
+UTC-6:00            America/Indiana/Marengo                yes                 
+UTC-6:00            America/Indiana/Petersburg             yes                 
+UTC-6:00            America/Indiana/Vevay                  yes                 
+UTC-5:00            Atlantic/Bermuda                       yes                 
+UTC-5:00            America/Eirunepe                       no                  
+UTC-5:00            America/Rio_Branco                     no                  
+UTC-5:00            America/Halifax                        yes                 
+UTC-5:00            America/Glace_Bay                      yes                 
+UTC-5:00            America/Moncton                        yes                 
+UTC-5:00            America/Goose_Bay                      yes                 
+UTC-5:00            America/Atikokan                       no                  
+UTC-5:00            America/Bogota                         no                  
+UTC-5:00            America/Guayaquil                      no                  
+UTC-5:00            America/Thule                          yes                 
+UTC-5:00            America/Port-au-Prince                 no                  
+UTC-5:00            America/Jamaica                        no                  
+UTC-5:00            America/Cayman                         no                  
+UTC-5:00            America/Cancun                         no                  
+UTC-5:00            America/Panama                         no                  
+UTC-5:00            America/Lima                           no                  
+UTC-5:30            America/St_Johns                       yes                 
+UTC-4:00            America/Antigua                        no                  
+UTC-4:00            America/Anguilla                       no                  
+UTC-4:00            Antarctica/Palmer                      yes                 
+UTC-4:00            America/Aruba                          no                  
+UTC-4:00            America/Barbados                       no                  
+UTC-4:00            America/St_Barthelemy                  no                  
+UTC-4:00            America/La_Paz                         no                  
+UTC-4:00            America/Kralendijk                     no                  
+UTC-4:00            America/Campo_Grande                   yes                 
+UTC-4:00            America/Cuiaba                         yes                 
+UTC-4:00            America/Porto_Velho                    no                  
+UTC-4:00            America/Boa_Vista                      no                  
+UTC-4:00            America/Manaus                         no                  
+UTC-4:00            America/Blanc-Sablon                   no                  
+UTC-4:00            America/Santiago                       yes                 
+UTC-4:00            America/Curacao                        no                  
+UTC-4:00            America/Dominica                       no                  
+UTC-4:00            America/Santo_Domingo                  no                  
+UTC-4:00            America/Grenada                        no                  
+UTC-4:00            America/Godthab                        yes                 
+UTC-4:00            America/Guadeloupe                     no                  
+UTC-4:00            America/Guyana                         no                  
+UTC-4:00            America/St_Kitts                       no                  
+UTC-4:00            America/St_Lucia                       no                  
+UTC-4:00            America/Marigot                        no                  
+UTC-4:00            America/Martinique                     no                  
+UTC-4:00            America/Montserrat                     no                  
+UTC-4:00            America/Miquelon                       yes                 
+UTC-4:00            America/Puerto_Rico                    no                  
+UTC-4:00            America/Asuncion                       yes                 
+UTC-4:00            America/Lower_Princes                  no                  
+UTC-4:00            America/Grand_Turk                     no                  
+UTC-4:00            America/Port_of_Spain                  no                  
+UTC-4:00            America/St_Vincent                     no                  
+UTC-4:00            America/Caracas                        no                  
+UTC-4:00            America/Tortola                        no                  
+UTC-4:00            America/St_Thomas                      no                  
+UTC-3:00            Antarctica/Rothera                     no                  
+UTC-3:00            America/Argentina/Buenos_Aires         no                  
+UTC-3:00            America/Argentina/Cordoba              no                  
+UTC-3:00            America/Argentina/Salta                no                  
+UTC-3:00            America/Argentina/Jujuy                no                  
+UTC-3:00            America/Argentina/Tucuman              no                  
+UTC-3:00            America/Argentina/Catamarca            no                  
+UTC-3:00            America/Argentina/La_Rioja             no                  
+UTC-3:00            America/Argentina/San_Juan             no                  
+UTC-3:00            America/Argentina/Mendoza              no                  
+UTC-3:00            America/Argentina/San_Luis             no                  
+UTC-3:00            America/Argentina/Rio_Gallegos         no                  
+UTC-3:00            America/Argentina/Ushuaia              no                  
+UTC-3:00            America/Belem                          no                  
+UTC-3:00            America/Fortaleza                      no                  
+UTC-3:00            America/Recife                         no                  
+UTC-3:00            America/Araguaina                      no                  
+UTC-3:00            America/Maceio                         no                  
+UTC-3:00            America/Bahia                          no                  
+UTC-3:00            America/Sao_Paulo                      yes                 
+UTC-3:00            America/Santarem                       no                  
+UTC-3:00            Atlantic/Stanley                       no                  
+UTC-3:00            America/Cayenne                        no                  
+UTC-3:00            America/Paramaribo                     no                  
+UTC-3:00            America/Montevideo                     no                  
+UTC-2:00            America/Noronha                        no                  
+UTC-2:00            America/Scoresbysund                   yes                 
+UTC-2:00            Atlantic/South_Georgia                 no                  
+UTC-2:00            Atlantic/Azores                        yes                 
+UTC-1:00            Antarctica/Troll                       yes                 
+UTC-1:00            Atlantic/Cape_Verde                    no                  
+UTC-1:00            Africa/El_Aaiun                        yes                 
+UTC-1:00            Atlantic/Canary                        yes                 
+UTC-1:00            Atlantic/Faroe                         yes                 
+UTC-1:00            Europe/London                          yes                 
+UTC-1:00            Europe/Guernsey                        yes                 
+UTC-1:00            Europe/Dublin                          yes                 
+UTC-1:00            Europe/Isle_of_Man                     yes                 
+UTC-1:00            Europe/Jersey                          yes                 
+UTC-1:00            Africa/Casablanca                      yes                 
+UTC-1:00            Europe/Lisbon                          yes                 
+UTC-1:00            Atlantic/Madeira                       yes                 
+UTC+0:00            Europe/Andorra                         yes                 
+UTC+0:00            Europe/Tirane                          yes                 
+UTC+0:00            Europe/Vienna                          yes                 
+UTC+0:00            Europe/Sarajevo                        yes                 
+UTC+0:00            Europe/Brussels                        yes                 
+UTC+0:00            Africa/Ouagadougou                     no                  
+UTC+0:00            Europe/Zurich                          yes                 
+UTC+0:00            Africa/Abidjan                         no                  
+UTC+0:00            Europe/Prague                          yes                 
+UTC+0:00            Europe/Berlin                          yes                 
+UTC+0:00            Europe/Busingen                        yes                 
+UTC+0:00            Europe/Copenhagen                      yes                 
+UTC+0:00            Europe/Madrid                          yes                 
+UTC+0:00            Africa/Ceuta                           yes                 
+UTC+0:00            Europe/Paris                           yes                 
+UTC+0:00            Africa/Accra                           no                  
+UTC+0:00            Europe/Gibraltar                       yes                 
+UTC+0:00            America/Danmarkshavn                   no                  
+UTC+0:00            Africa/Banjul                          no                  
+UTC+0:00            Africa/Conakry                         no                  
+UTC+0:00            Africa/Bissau                          no                  
+UTC+0:00            Europe/Zagreb                          yes                 
+UTC+0:00            Europe/Budapest                        yes                 
+UTC+0:00            Atlantic/Reykjavik                     no                  
+UTC+0:00            Europe/Rome                            yes                 
+UTC+0:00            Europe/Vaduz                           yes                 
+UTC+0:00            Africa/Monrovia                        no                  
+UTC+0:00            Europe/Luxembourg                      yes                 
+UTC+0:00            Europe/Monaco                          yes                 
+UTC+0:00            Europe/Podgorica                       yes                 
+UTC+0:00            Europe/Skopje                          yes                 
+UTC+0:00            Africa/Bamako                          no                  
+UTC+0:00            Africa/Nouakchott                      no                  
+UTC+0:00            Europe/Malta                           yes                 
+UTC+0:00            Europe/Amsterdam                       yes                 
+UTC+0:00            Europe/Oslo                            yes                 
+UTC+0:00            Europe/Warsaw                          yes                 
+UTC+0:00            Europe/Belgrade                        yes                 
+UTC+0:00            Europe/Stockholm                       yes                 
+UTC+0:00            Atlantic/St_Helena                     no                  
+UTC+0:00            Europe/Ljubljana                       yes                 
+UTC+0:00            Arctic/Longyearbyen                    yes                 
+UTC+0:00            Europe/Bratislava                      yes                 
+UTC+0:00            Africa/Freetown                        no                  
+UTC+0:00            Europe/San_Marino                      yes                 
+UTC+0:00            Africa/Dakar                           no                  
+UTC+0:00            Africa/Sao_Tome                        no                  
+UTC+0:00            Africa/Lome                            no                  
+UTC+0:00            Europe/Vatican                         yes                 
+UTC+1:00            Africa/Luanda                          no                  
+UTC+1:00            Europe/Mariehamn                       yes                 
+UTC+1:00            Europe/Sofia                           yes                 
+UTC+1:00            Africa/Porto-Novo                      no                  
+UTC+1:00            Africa/Kinshasa                        no                  
+UTC+1:00            Africa/Bangui                          no                  
+UTC+1:00            Africa/Brazzaville                     no                  
+UTC+1:00            Africa/Douala                          no                  
+UTC+1:00            Asia/Nicosia                           yes                 
+UTC+1:00            Africa/Algiers                         no                  
+UTC+1:00            Europe/Tallinn                         yes                 
+UTC+1:00            Europe/Helsinki                        yes                 
+UTC+1:00            Africa/Libreville                      no                  
+UTC+1:00            Africa/Malabo                          no                  
+UTC+1:00            Europe/Athens                          yes                 
+UTC+1:00            Asia/Jerusalem                         yes                 
+UTC+1:00            Asia/Amman                             yes                 
+UTC+1:00            Asia/Beirut                            yes                 
+UTC+1:00            Europe/Vilnius                         yes                 
+UTC+1:00            Europe/Riga                            yes                 
+UTC+1:00            Europe/Chisinau                        yes                 
+UTC+1:00            Africa/Windhoek                        yes                 
+UTC+1:00            Africa/Niamey                          no                  
+UTC+1:00            Africa/Lagos                           no                  
+UTC+1:00            Asia/Gaza                              yes                 
+UTC+1:00            Asia/Hebron                            yes                 
+UTC+1:00            Europe/Bucharest                       yes                 
+UTC+1:00            Asia/Damascus                          yes                 
+UTC+1:00            Africa/Ndjamena                        no                  
+UTC+1:00            Africa/Tunis                           no                  
+UTC+1:00            Europe/Kiev                            yes                 
+UTC+1:00            Europe/Uzhgorod                        yes                 
+UTC+1:00            Europe/Zaporozhye                      yes                 
+UTC+2:00            Africa/Bujumbura                       no                  
+UTC+2:00            Africa/Gaborone                        no                  
+UTC+2:00            Africa/Lubumbashi                      no                  
+UTC+2:00            Africa/Cairo                           no                  
+UTC+2:00            Africa/Maseru                          no                  
+UTC+2:00            Africa/Tripoli                         no                  
+UTC+2:00            Africa/Blantyre                        no                  
+UTC+2:00            Africa/Maputo                          no                  
+UTC+2:00            Europe/Kaliningrad                     no                  
+UTC+2:00            Africa/Kigali                          no                  
+UTC+2:00            Africa/Mbabane                         no                  
+UTC+2:00            Africa/Johannesburg                    no                  
+UTC+2:00            Africa/Lusaka                          no                  
+UTC+2:00            Africa/Harare                          no                  
+UTC+2:30            Asia/Tehran                            yes                 
+UTC+3:00            Antarctica/Syowa                       no                  
+UTC+3:00            Asia/Bahrain                           no                  
+UTC+3:00            Europe/Minsk                           no                  
+UTC+3:00            Africa/Djibouti                        no                  
+UTC+3:00            Africa/Asmara                          no                  
+UTC+3:00            Africa/Addis_Ababa                     no                  
+UTC+3:00            Asia/Baghdad                           no                  
+UTC+3:00            Africa/Nairobi                         no                  
+UTC+3:00            Indian/Comoro                          no                  
+UTC+3:00            Asia/Kuwait                            no                  
+UTC+3:00            Indian/Antananarivo                    no                  
+UTC+3:00            Asia/Qatar                             no                  
+UTC+3:00            Europe/Moscow                          no                  
+UTC+3:00            Europe/Simferopol                      no                  
+UTC+3:00            Europe/Volgograd                       no                  
+UTC+3:00            Europe/Kirov                           no                  
+UTC+3:00            Asia/Riyadh                            no                  
+UTC+3:00            Africa/Khartoum                        no                  
+UTC+3:00            Africa/Mogadishu                       no                  
+UTC+3:00            Africa/Juba                            no                  
+UTC+3:00            Europe/Istanbul                        no                  
+UTC+3:00            Africa/Dar_es_Salaam                   no                  
+UTC+3:00            Africa/Kampala                         no                  
+UTC+3:00            Asia/Aden                              no                  
+UTC+3:00            Indian/Mayotte                         no                  
+UTC+4:00            Asia/Dubai                             no                  
+UTC+4:00            Asia/Yerevan                           no                  
+UTC+4:00            Asia/Baku                              no                  
+UTC+4:00            Asia/Tbilisi                           no                  
+UTC+4:00            Indian/Mauritius                       no                  
+UTC+4:00            Asia/Muscat                            no                  
+UTC+4:00            Indian/Reunion                         no                  
+UTC+4:00            Europe/Astrakhan                       no                  
+UTC+4:00            Europe/Samara                          no                  
+UTC+4:00            Europe/Ulyanovsk                       no                  
+UTC+4:00            Indian/Mahe                            no                  
+UTC+4:30            Asia/Kabul                             no                  
+UTC+5:00            Antarctica/Mawson                      no                  
+UTC+5:00            Asia/Aqtobe                            no                  
+UTC+5:00            Asia/Aqtau                             no                  
+UTC+5:00            Asia/Oral                              no                  
+UTC+5:00            Indian/Maldives                        no                  
+UTC+5:00            Asia/Karachi                           no                  
+UTC+5:00            Asia/Yekaterinburg                     no                  
+UTC+5:00            Indian/Kerguelen                       no                  
+UTC+5:00            Asia/Dushanbe                          no                  
+UTC+5:00            Asia/Ashgabat                          no                  
+UTC+5:00            Asia/Samarkand                         no                  
+UTC+5:00            Asia/Tashkent                          no                  
+UTC+5:30            Asia/Kolkata                           no                  
+UTC+5:30            Asia/Colombo                           no                  
+UTC+5:45            Asia/Kathmandu                         no                  
+UTC+6:00            Antarctica/Vostok                      no                  
+UTC+6:00            Asia/Dhaka                             no                  
+UTC+6:00            Asia/Thimphu                           no                  
+UTC+6:00            Asia/Urumqi                            no                  
+UTC+6:00            Indian/Chagos                          no                  
+UTC+6:00            Asia/Bishkek                           no                  
+UTC+6:00            Asia/Almaty                            no                  
+UTC+6:00            Asia/Qyzylorda                         no                  
+UTC+6:00            Asia/Hovd                              yes                 
+UTC+6:00            Asia/Omsk                              no                  
+UTC+6:30            Indian/Cocos                           no                  
+UTC+6:30            Asia/Yangon                            no                  
+UTC+7:00            Antarctica/Davis                       no                  
+UTC+7:00            Indian/Christmas                       no                  
+UTC+7:00            Asia/Jakarta                           no                  
+UTC+7:00            Asia/Pontianak                         no                  
+UTC+7:00            Asia/Phnom_Penh                        no                  
+UTC+7:00            Asia/Vientiane                         no                  
+UTC+7:00            Asia/Ulaanbaatar                       yes                 
+UTC+7:00            Asia/Choibalsan                        yes                 
+UTC+7:00            Asia/Novosibirsk                       no                  
+UTC+7:00            Asia/Barnaul                           no                  
+UTC+7:00            Asia/Tomsk                             no                  
+UTC+7:00            Asia/Novokuznetsk                      no                  
+UTC+7:00            Asia/Krasnoyarsk                       no                  
+UTC+7:00            Asia/Bangkok                           no                  
+UTC+7:00            Asia/Ho_Chi_Minh                       no                  
+UTC+8:00            Antarctica/Casey                       no                  
+UTC+8:00            Australia/Perth                        no                  
+UTC+8:00            Asia/Brunei                            no                  
+UTC+8:00            Asia/Beijing                           no                  
+UTC+8:00            Asia/Shanghai                          no                  
+UTC+8:00            Asia/Hong_Kong                         no                  
+UTC+8:00            Asia/Makassar                          no                  
+UTC+8:00            Asia/Macau                             no                  
+UTC+8:00            Asia/Kuala_Lumpur                      no                  
+UTC+8:00            Asia/Kuching                           no                  
+UTC+8:00            Asia/Manila                            no                  
+UTC+8:00            Asia/Irkutsk                           no                  
+UTC+8:00            Asia/Singapore                         no                  
+UTC+8:00            Asia/Taipei                            no                  
+UTC+8:30            Asia/Pyongyang                         no                  
+UTC+8:45            Australia/Eucla                        no                  
+UTC+9:00            Asia/Jayapura                          no                  
+UTC+9:00            Asia/Tokyo                             no                  
+UTC+9:00            Asia/Seoul                             no                  
+UTC+9:00            Pacific/Palau                          no                  
+UTC+9:00            Asia/Chita                             no                  
+UTC+9:00            Asia/Yakutsk                           no                  
+UTC+9:00            Asia/Khandyga                          no                  
+UTC+9:00            Asia/Dili                              no                  
+UTC+9:30            Australia/Broken_Hill                  yes                 
+UTC+9:30            Australia/Adelaide                     yes                 
+UTC+9:30            Australia/Darwin                       no                  
+UTC+10:00           Antarctica/DumontDUrville              no                  
+UTC+10:00           Australia/Lord_Howe                    yes                 
+UTC+10:00           Australia/Hobart                       yes                 
+UTC+10:00           Australia/Currie                       yes                 
+UTC+10:00           Australia/Melbourne                    yes                 
+UTC+10:00           Australia/Sydney                       yes                 
+UTC+10:00           Australia/Brisbane                     no                  
+UTC+10:00           Australia/Lindeman                     no                  
+UTC+10:00           Pacific/Chuuk                          no                  
+UTC+10:00           Pacific/Guam                           no                  
+UTC+10:00           Pacific/Saipan                         no                  
+UTC+10:00           Pacific/Port_Moresby                   no                  
+UTC+10:00           Asia/Vladivostok                       no                  
+UTC+10:00           Asia/Ust-Nera                          no                  
+UTC+11:00           Antarctica/Macquarie                   no                  
+UTC+11:00           Pacific/Pohnpei                        no                  
+UTC+11:00           Pacific/Kosrae                         no                  
+UTC+11:00           Pacific/Noumea                         no                  
+UTC+11:00           Pacific/Norfolk                        no                  
+UTC+11:00           Pacific/Bougainville                   no                  
+UTC+11:00           Asia/Magadan                           no                  
+UTC+11:00           Asia/Sakhalin                          no                  
+UTC+11:00           Asia/Srednekolymsk                     no                  
+UTC+11:00           Pacific/Guadalcanal                    no                  
+UTC+11:00           Pacific/Efate                          no                  
+UTC+12:00           Antarctica/McMurdo                     yes                 
+UTC+12:00           Pacific/Fiji                           yes                 
+UTC+12:00           Pacific/Tarawa                         no                  
+UTC+12:00           Pacific/Majuro                         no                  
+UTC+12:00           Pacific/Kwajalein                      no                  
+UTC+12:00           Pacific/Nauru                          no                  
+UTC+12:00           Pacific/Auckland                       yes                 
+UTC+12:00           Asia/Kamchatka                         no                  
+UTC+12:00           Asia/Anadyr                            no                  
+UTC+12:00           Pacific/Funafuti                       no                  
+UTC+12:00           Pacific/Wake                           no                  
+UTC+12:00           Pacific/Wallis                         no                  
+UTC+12:45           Pacific/Chatham                        yes                 
+UTC+13:00           Pacific/Enderbury                      no                  
+UTC+13:00           Pacific/Fakaofo                        no                  
+UTC+13:00           Pacific/Tongatapu                      no                  
+UTC+13:00           Pacific/Apia                           yes                 
+UTC+14:00           Pacific/Kiritimati                     no                  
+
+administrator@cli> 
+'result': 'p'
+modify timezone to Lisbon
+
+tz -a mod -s "zone=Lisbon"
+
+administrator@cli> 
+tz
+===============================================================================
+Time Offset               Zone                        Support DST              
+===============================================================================
+UTC-1:00                  Europe/Lisbon               yes                      
+
+administrator@cli> 
+modify timezone to Syowa
+
+tz -a mod -s "zone=Syowa"
+
+administrator@cli> 
+tz
+===============================================================================
+Time Offset              Zone                          Support DST             
+===============================================================================
+UTC+3:00                 Antarctica/Syowa              no                      
+
+administrator@cli> 
+modify timezone to Bangkok
+
+tz -a mod -s "zone=Bangkok"
+
+administrator@cli> 
+tz
+===============================================================================
+Time Offset               Zone                       Support DST               
+===============================================================================
+UTC+7:00                  Asia/Bangkok               no                        
+
+administrator@cli> 
+modify timezone to Omsk
+
+tz -a mod -s "zone=Omsk"
+
+administrator@cli> 
+tz
+===============================================================================
+Time Offset                Zone                     Support DST                
+===============================================================================
+UTC+6:00                   Asia/Omsk                no                         
+
+administrator@cli> 
+modify timezone to St_Lucia
+
+tz -a mod -s "zone=St_Lucia"
+
+administrator@cli> 
+tz
+===============================================================================
+Time Offset              Zone                          Support DST             
+===============================================================================
+UTC-4:00                 America/St_Lucia              no                      
+
+administrator@cli> 
+modify timezone to Muscat
+
+tz -a mod -s "zone=Muscat"
+
+administrator@cli> 
+tz
+===============================================================================
+Time Offset                Zone                      Support DST               
+===============================================================================
+UTC+4:00                   Asia/Muscat               no                        
+
+administrator@cli> 
+modify timezone to Bahia
+
+tz -a mod -s "zone=Bahia"
+
+administrator@cli> 
+tz
+===============================================================================
+Time Offset               Zone                        Support DST              
+===============================================================================
+UTC-3:00                  America/Bahia               no                       
+
+administrator@cli> 
+modify timezone to Jakarta
+
+tz -a mod -s "zone=Jakarta"
+
+administrator@cli> 
+tz
+===============================================================================
+Time Offset               Zone                       Support DST               
+===============================================================================
+UTC+7:00                  Asia/Jakarta               no                        
+
+administrator@cli> 
+modify timezone to Jamaica
+
+tz -a mod -s "zone=Jamaica"
+
+administrator@cli> 
+tz
+===============================================================================
+Time Offset              Zone                         Support DST              
+===============================================================================
+UTC-5:00                 America/Jamaica              no                       
+
+administrator@cli> 
+modify timezone to St_Thomas
+
+tz -a mod -s "zone=St_Thomas"
+
+administrator@cli> 
+tz
+===============================================================================
+Time Offset              Zone                          Support DST             
+===============================================================================
+UTC-4:00                 America/St_Thomas             no                      
+
+administrator@cli> 
+'result': 'p'
+tz test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+tz -d test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+tz -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|mod)
+
+administrator@cli> 
+tz -a mod -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+tz -a mod -s "zone=1"
+Error (0x100): Not found
+
+administrator@cli> 
+'result': 'p'
+tz -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+tz -d -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+tz -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|mod)
+
+administrator@cli> 
+tz -a mod -test ""
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+tz -a mod -s "test=Beijing"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+'result': 'p'
+tz -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+tz -a mod -s 
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+'result': 'p'
+timezone should be listed
+
+tz
+===============================================================================
+Time Offset              Zone                          Support DST             
+===============================================================================
+UTC-4:00                 America/St_Thomas             no                      
+
+administrator@cli> 
+'result': 'p'
+detail of timezone should be listed
+
+tz -d
+===============================================================================
+Time Offset         Zone                                   Support DST         
+===============================================================================
+UTC-11:00           Pacific/Pago_Pago                      no                  
+UTC-11:00           Pacific/Niue                           no                  
+UTC-11:00           Pacific/Midway                         no                  
+UTC-11:00           America/Adak                           yes                 
+UTC-10:00           Pacific/Rarotonga                      no                  
+UTC-10:00           Pacific/Tahiti                         no                  
+UTC-10:00           Pacific/Johnston                       no                  
+UTC-10:00           America/Anchorage                      yes                 
+UTC-10:00           America/Juneau                         yes                 
+UTC-10:00           America/Sitka                          yes                 
+UTC-10:00           America/Metlakatla                     yes                 
+UTC-10:00           America/Yakutat                        yes                 
+UTC-10:00           America/Nome                           yes                 
+UTC-10:00           Pacific/Honolulu                       no                  
+UTC-10:30           Pacific/Marquesas                      no                  
+UTC-9:00            America/Vancouver                      yes                 
+UTC-9:00            America/Whitehorse                     yes                 
+UTC-9:00            America/Dawson                         yes                 
+UTC-9:00            America/Tijuana                        yes                 
+UTC-9:00            Pacific/Gambier                        no                  
+UTC-9:00            America/Los_Angeles                    yes                 
+UTC-8:00            America/Edmonton                       yes                 
+UTC-8:00            America/Cambridge_Bay                  yes                 
+UTC-8:00            America/Yellowknife                    yes                 
+UTC-8:00            America/Inuvik                         yes                 
+UTC-8:00            America/Mazatlan                       yes                 
+UTC-8:00            America/Chihuahua                      yes                 
+UTC-8:00            America/Ojinaga                        yes                 
+UTC-8:00            Pacific/Pitcairn                       no                  
+UTC-8:00            America/Denver                         yes                 
+UTC-8:00            America/Boise                          yes                 
+UTC-7:00            America/Winnipeg                       yes                 
+UTC-7:00            America/Rainy_River                    yes                 
+UTC-7:00            America/Resolute                       yes                 
+UTC-7:00            America/Rankin_Inlet                   yes                 
+UTC-7:00            America/Creston                        no                  
+UTC-7:00            America/Dawson_Creek                   no                  
+UTC-7:00            America/Fort_Nelson                    no                  
+UTC-7:00            America/Mexico_City                    yes                 
+UTC-7:00            America/Merida                         yes                 
+UTC-7:00            America/Monterrey                      yes                 
+UTC-7:00            America/Matamoros                      yes                 
+UTC-7:00            America/Hermosillo                     no                  
+UTC-7:00            America/Bahia_Banderas                 yes                 
+UTC-7:00            America/Chicago                        yes                 
+UTC-7:00            America/Indiana/Tell_City              yes                 
+UTC-7:00            America/Indiana/Knox                   yes                 
+UTC-7:00            America/Menominee                      yes                 
+UTC-7:00            America/North_Dakota/Center            yes                 
+UTC-7:00            America/North_Dakota/New_Salem         yes                 
+UTC-7:00            America/North_Dakota/Beulah            yes                 
+UTC-7:00            America/Phoenix                        no                  
+UTC-6:00            America/Nassau                         yes                 
+UTC-6:00            America/Belize                         no                  
+UTC-6:00            America/Toronto                        yes                 
+UTC-6:00            America/Nipigon                        yes                 
+UTC-6:00            America/Thunder_Bay                    yes                 
+UTC-6:00            America/Iqaluit                        yes                 
+UTC-6:00            America/Pangnirtung                    yes                 
+UTC-6:00            America/Regina                         no                  
+UTC-6:00            America/Swift_Current                  no                  
+UTC-6:00            Pacific/Easter                         yes                 
+UTC-6:00            America/Costa_Rica                     no                  
+UTC-6:00            America/Havana                         yes                 
+UTC-6:00            Pacific/Galapagos                      no                  
+UTC-6:00            America/Guatemala                      no                  
+UTC-6:00            America/Tegucigalpa                    no                  
+UTC-6:00            America/Managua                        no                  
+UTC-6:00            America/El_Salvador                    no                  
+UTC-6:00            America/New_York                       yes                 
+UTC-6:00            America/Detroit                        yes                 
+UTC-6:00            America/Kentucky/Louisville            yes                 
+UTC-6:00            America/Kentucky/Monticello            yes                 
+UTC-6:00            America/Indiana/Indianapolis           yes                 
+UTC-6:00            America/Indiana/Vincennes              yes                 
+UTC-6:00            America/Indiana/Winamac                yes                 
+UTC-6:00            America/Indiana/Marengo                yes                 
+UTC-6:00            America/Indiana/Petersburg             yes                 
+UTC-6:00            America/Indiana/Vevay                  yes                 
+UTC-5:00            Atlantic/Bermuda                       yes                 
+UTC-5:00            America/Eirunepe                       no                  
+UTC-5:00            America/Rio_Branco                     no                  
+UTC-5:00            America/Halifax                        yes                 
+UTC-5:00            America/Glace_Bay                      yes                 
+UTC-5:00            America/Moncton                        yes                 
+UTC-5:00            America/Goose_Bay                      yes                 
+UTC-5:00            America/Atikokan                       no                  
+UTC-5:00            America/Bogota                         no                  
+UTC-5:00            America/Guayaquil                      no                  
+UTC-5:00            America/Thule                          yes                 
+UTC-5:00            America/Port-au-Prince                 no                  
+UTC-5:00            America/Jamaica                        no                  
+UTC-5:00            America/Cayman                         no                  
+UTC-5:00            America/Cancun                         no                  
+UTC-5:00            America/Panama                         no                  
+UTC-5:00            America/Lima                           no                  
+UTC-5:30            America/St_Johns                       yes                 
+UTC-4:00            America/Antigua                        no                  
+UTC-4:00            America/Anguilla                       no                  
+UTC-4:00            Antarctica/Palmer                      yes                 
+UTC-4:00            America/Aruba                          no                  
+UTC-4:00            America/Barbados                       no                  
+UTC-4:00            America/St_Barthelemy                  no                  
+UTC-4:00            America/La_Paz                         no                  
+UTC-4:00            America/Kralendijk                     no                  
+UTC-4:00            America/Campo_Grande                   yes                 
+UTC-4:00            America/Cuiaba                         yes                 
+UTC-4:00            America/Porto_Velho                    no                  
+UTC-4:00            America/Boa_Vista                      no                  
+UTC-4:00            America/Manaus                         no                  
+UTC-4:00            America/Blanc-Sablon                   no                  
+UTC-4:00            America/Santiago                       yes                 
+UTC-4:00            America/Curacao                        no                  
+UTC-4:00            America/Dominica                       no                  
+UTC-4:00            America/Santo_Domingo                  no                  
+UTC-4:00            America/Grenada                        no                  
+UTC-4:00            America/Godthab                        yes                 
+UTC-4:00            America/Guadeloupe                     no                  
+UTC-4:00            America/Guyana                         no                  
+UTC-4:00            America/St_Kitts                       no                  
+UTC-4:00            America/St_Lucia                       no                  
+UTC-4:00            America/Marigot                        no                  
+UTC-4:00            America/Martinique                     no                  
+UTC-4:00            America/Montserrat                     no                  
+UTC-4:00            America/Miquelon                       yes                 
+UTC-4:00            America/Puerto_Rico                    no                  
+UTC-4:00            America/Asuncion                       yes                 
+UTC-4:00            America/Lower_Princes                  no                  
+UTC-4:00            America/Grand_Turk                     no                  
+UTC-4:00            America/Port_of_Spain                  no                  
+UTC-4:00            America/St_Vincent                     no                  
+UTC-4:00            America/Caracas                        no                  
+UTC-4:00            America/Tortola                        no                  
+UTC-4:00            America/St_Thomas                      no                  
+UTC-3:00            Antarctica/Rothera                     no                  
+UTC-3:00            America/Argentina/Buenos_Aires         no                  
+UTC-3:00            America/Argentina/Cordoba              no                  
+UTC-3:00            America/Argentina/Salta                no                  
+UTC-3:00            America/Argentina/Jujuy                no                  
+UTC-3:00            America/Argentina/Tucuman              no                  
+UTC-3:00            America/Argentina/Catamarca            no                  
+UTC-3:00            America/Argentina/La_Rioja             no                  
+UTC-3:00            America/Argentina/San_Juan             no                  
+UTC-3:00            America/Argentina/Mendoza              no                  
+UTC-3:00            America/Argentina/San_Luis             no                  
+UTC-3:00            America/Argentina/Rio_Gallegos         no                  
+UTC-3:00            America/Argentina/Ushuaia              no                  
+UTC-3:00            America/Belem                          no                  
+UTC-3:00            America/Fortaleza                      no                  
+UTC-3:00            America/Recife                         no                  
+UTC-3:00            America/Araguaina                      no                  
+UTC-3:00            America/Maceio                         no                  
+UTC-3:00            America/Bahia                          no                  
+UTC-3:00            America/Sao_Paulo                      yes                 
+UTC-3:00            America/Santarem                       no                  
+UTC-3:00            Atlantic/Stanley                       no                  
+UTC-3:00            America/Cayenne                        no                  
+UTC-3:00            America/Paramaribo                     no                  
+UTC-3:00            America/Montevideo                     no                  
+UTC-2:00            America/Noronha                        no                  
+UTC-2:00            America/Scoresbysund                   yes                 
+UTC-2:00            Atlantic/South_Georgia                 no                  
+UTC-2:00            Atlantic/Azores                        yes                 
+UTC-1:00            Antarctica/Troll                       yes                 
+UTC-1:00            Atlantic/Cape_Verde                    no                  
+UTC-1:00            Africa/El_Aaiun                        yes                 
+UTC-1:00            Atlantic/Canary                        yes                 
+UTC-1:00            Atlantic/Faroe                         yes                 
+UTC-1:00            Europe/London                          yes                 
+UTC-1:00            Europe/Guernsey                        yes                 
+UTC-1:00            Europe/Dublin                          yes                 
+UTC-1:00            Europe/Isle_of_Man                     yes                 
+UTC-1:00            Europe/Jersey                          yes                 
+UTC-1:00            Africa/Casablanca                      yes                 
+UTC-1:00            Europe/Lisbon                          yes                 
+UTC-1:00            Atlantic/Madeira                       yes                 
+UTC+0:00            Europe/Andorra                         yes                 
+UTC+0:00            Europe/Tirane                          yes                 
+UTC+0:00            Europe/Vienna                          yes                 
+UTC+0:00            Europe/Sarajevo                        yes                 
+UTC+0:00            Europe/Brussels                        yes                 
+UTC+0:00            Africa/Ouagadougou                     no                  
+UTC+0:00            Europe/Zurich                          yes                 
+UTC+0:00            Africa/Abidjan                         no                  
+UTC+0:00            Europe/Prague                          yes                 
+UTC+0:00            Europe/Berlin                          yes                 
+UTC+0:00            Europe/Busingen                        yes                 
+UTC+0:00            Europe/Copenhagen                      yes                 
+UTC+0:00            Europe/Madrid                          yes                 
+UTC+0:00            Africa/Ceuta                           yes                 
+UTC+0:00            Europe/Paris                           yes                 
+UTC+0:00            Africa/Accra                           no                  
+UTC+0:00            Europe/Gibraltar                       yes                 
+UTC+0:00            America/Danmarkshavn                   no                  
+UTC+0:00            Africa/Banjul                          no                  
+UTC+0:00            Africa/Conakry                         no                  
+UTC+0:00            Africa/Bissau                          no                  
+UTC+0:00            Europe/Zagreb                          yes                 
+UTC+0:00            Europe/Budapest                        yes                 
+UTC+0:00            Atlantic/Reykjavik                     no                  
+UTC+0:00            Europe/Rome                            yes                 
+UTC+0:00            Europe/Vaduz                           yes                 
+UTC+0:00            Africa/Monrovia                        no                  
+UTC+0:00            Europe/Luxembourg                      yes                 
+UTC+0:00            Europe/Monaco                          yes                 
+UTC+0:00            Europe/Podgorica                       yes                 
+UTC+0:00            Europe/Skopje                          yes                 
+UTC+0:00            Africa/Bamako                          no                  
+UTC+0:00            Africa/Nouakchott                      no                  
+UTC+0:00            Europe/Malta                           yes                 
+UTC+0:00            Europe/Amsterdam                       yes                 
+UTC+0:00            Europe/Oslo                            yes                 
+UTC+0:00            Europe/Warsaw                          yes                 
+UTC+0:00            Europe/Belgrade                        yes                 
+UTC+0:00            Europe/Stockholm                       yes                 
+UTC+0:00            Atlantic/St_Helena                     no                  
+UTC+0:00            Europe/Ljubljana                       yes                 
+UTC+0:00            Arctic/Longyearbyen                    yes                 
+UTC+0:00            Europe/Bratislava                      yes                 
+UTC+0:00            Africa/Freetown                        no                  
+UTC+0:00            Europe/San_Marino                      yes                 
+UTC+0:00            Africa/Dakar                           no                  
+UTC+0:00            Africa/Sao_Tome                        no                  
+UTC+0:00            Africa/Lome                            no                  
+UTC+0:00            Europe/Vatican                         yes                 
+UTC+1:00            Africa/Luanda                          no                  
+UTC+1:00            Europe/Mariehamn                       yes                 
+UTC+1:00            Europe/Sofia                           yes                 
+UTC+1:00            Africa/Porto-Novo                      no                  
+UTC+1:00            Africa/Kinshasa                        no                  
+UTC+1:00            Africa/Bangui                          no                  
+UTC+1:00            Africa/Brazzaville                     no                  
+UTC+1:00            Africa/Douala                          no                  
+UTC+1:00            Asia/Nicosia                           yes                 
+UTC+1:00            Africa/Algiers                         no                  
+UTC+1:00            Europe/Tallinn                         yes                 
+UTC+1:00            Europe/Helsinki                        yes                 
+UTC+1:00            Africa/Libreville                      no                  
+UTC+1:00            Africa/Malabo                          no                  
+UTC+1:00            Europe/Athens                          yes                 
+UTC+1:00            Asia/Jerusalem                         yes                 
+UTC+1:00            Asia/Amman                             yes                 
+UTC+1:00            Asia/Beirut                            yes                 
+UTC+1:00            Europe/Vilnius                         yes                 
+UTC+1:00            Europe/Riga                            yes                 
+UTC+1:00            Europe/Chisinau                        yes                 
+UTC+1:00            Africa/Windhoek                        yes                 
+UTC+1:00            Africa/Niamey                          no                  
+UTC+1:00            Africa/Lagos                           no                  
+UTC+1:00            Asia/Gaza                              yes                 
+UTC+1:00            Asia/Hebron                            yes                 
+UTC+1:00            Europe/Bucharest                       yes                 
+UTC+1:00            Asia/Damascus                          yes                 
+UTC+1:00            Africa/Ndjamena                        no                  
+UTC+1:00            Africa/Tunis                           no                  
+UTC+1:00            Europe/Kiev                            yes                 
+UTC+1:00            Europe/Uzhgorod                        yes                 
+UTC+1:00            Europe/Zaporozhye                      yes                 
+UTC+2:00            Africa/Bujumbura                       no                  
+UTC+2:00            Africa/Gaborone                        no                  
+UTC+2:00            Africa/Lubumbashi                      no                  
+UTC+2:00            Africa/Cairo                           no                  
+UTC+2:00            Africa/Maseru                          no                  
+UTC+2:00            Africa/Tripoli                         no                  
+UTC+2:00            Africa/Blantyre                        no                  
+UTC+2:00            Africa/Maputo                          no                  
+UTC+2:00            Europe/Kaliningrad                     no                  
+UTC+2:00            Africa/Kigali                          no                  
+UTC+2:00            Africa/Mbabane                         no                  
+UTC+2:00            Africa/Johannesburg                    no                  
+UTC+2:00            Africa/Lusaka                          no                  
+UTC+2:00            Africa/Harare                          no                  
+UTC+2:30            Asia/Tehran                            yes                 
+UTC+3:00            Antarctica/Syowa                       no                  
+UTC+3:00            Asia/Bahrain                           no                  
+UTC+3:00            Europe/Minsk                           no                  
+UTC+3:00            Africa/Djibouti                        no                  
+UTC+3:00            Africa/Asmara                          no                  
+UTC+3:00            Africa/Addis_Ababa                     no                  
+UTC+3:00            Asia/Baghdad                           no                  
+UTC+3:00            Africa/Nairobi                         no                  
+UTC+3:00            Indian/Comoro                          no                  
+UTC+3:00            Asia/Kuwait                            no                  
+UTC+3:00            Indian/Antananarivo                    no                  
+UTC+3:00            Asia/Qatar                             no                  
+UTC+3:00            Europe/Moscow                          no                  
+UTC+3:00            Europe/Simferopol                      no                  
+UTC+3:00            Europe/Volgograd                       no                  
+UTC+3:00            Europe/Kirov                           no                  
+UTC+3:00            Asia/Riyadh                            no                  
+UTC+3:00            Africa/Khartoum                        no                  
+UTC+3:00            Africa/Mogadishu                       no                  
+UTC+3:00            Africa/Juba                            no                  
+UTC+3:00            Europe/Istanbul                        no                  
+UTC+3:00            Africa/Dar_es_Salaam                   no                  
+UTC+3:00            Africa/Kampala                         no                  
+UTC+3:00            Asia/Aden                              no                  
+UTC+3:00            Indian/Mayotte                         no                  
+UTC+4:00            Asia/Dubai                             no                  
+UTC+4:00            Asia/Yerevan                           no                  
+UTC+4:00            Asia/Baku                              no                  
+UTC+4:00            Asia/Tbilisi                           no                  
+UTC+4:00            Indian/Mauritius                       no                  
+UTC+4:00            Asia/Muscat                            no                  
+UTC+4:00            Indian/Reunion                         no                  
+UTC+4:00            Europe/Astrakhan                       no                  
+UTC+4:00            Europe/Samara                          no                  
+UTC+4:00            Europe/Ulyanovsk                       no                  
+UTC+4:00            Indian/Mahe                            no                  
+UTC+4:30            Asia/Kabul                             no                  
+UTC+5:00            Antarctica/Mawson                      no                  
+UTC+5:00            Asia/Aqtobe                            no                  
+UTC+5:00            Asia/Aqtau                             no                  
+UTC+5:00            Asia/Oral                              no                  
+UTC+5:00            Indian/Maldives                        no                  
+UTC+5:00            Asia/Karachi                           no                  
+UTC+5:00            Asia/Yekaterinburg                     no                  
+UTC+5:00            Indian/Kerguelen                       no                  
+UTC+5:00            Asia/Dushanbe                          no                  
+UTC+5:00            Asia/Ashgabat                          no                  
+UTC+5:00            Asia/Samarkand                         no                  
+UTC+5:00            Asia/Tashkent                          no                  
+UTC+5:30            Asia/Kolkata                           no                  
+UTC+5:30            Asia/Colombo                           no                  
+UTC+5:45            Asia/Kathmandu                         no                  
+UTC+6:00            Antarctica/Vostok                      no                  
+UTC+6:00            Asia/Dhaka                             no                  
+UTC+6:00            Asia/Thimphu                           no                  
+UTC+6:00            Asia/Urumqi                            no                  
+UTC+6:00            Indian/Chagos                          no                  
+UTC+6:00            Asia/Bishkek                           no                  
+UTC+6:00            Asia/Almaty                            no                  
+UTC+6:00            Asia/Qyzylorda                         no                  
+UTC+6:00            Asia/Hovd                              yes                 
+UTC+6:00            Asia/Omsk                              no                  
+UTC+6:30            Indian/Cocos                           no                  
+UTC+6:30            Asia/Yangon                            no                  
+UTC+7:00            Antarctica/Davis                       no                  
+UTC+7:00            Indian/Christmas                       no                  
+UTC+7:00            Asia/Jakarta                           no                  
+UTC+7:00            Asia/Pontianak                         no                  
+UTC+7:00            Asia/Phnom_Penh                        no                  
+UTC+7:00            Asia/Vientiane                         no                  
+UTC+7:00            Asia/Ulaanbaatar                       yes                 
+UTC+7:00            Asia/Choibalsan                        yes                 
+UTC+7:00            Asia/Novosibirsk                       no                  
+UTC+7:00            Asia/Barnaul                           no                  
+UTC+7:00            Asia/Tomsk                             no                  
+UTC+7:00            Asia/Novokuznetsk                      no                  
+UTC+7:00            Asia/Krasnoyarsk                       no                  
+UTC+7:00            Asia/Bangkok                           no                  
+UTC+7:00            Asia/Ho_Chi_Minh                       no                  
+UTC+8:00            Antarctica/Casey                       no                  
+UTC+8:00            Australia/Perth                        no                  
+UTC+8:00            Asia/Brunei                            no                  
+UTC+8:00            Asia/Beijing                           no                  
+UTC+8:00            Asia/Shanghai                          no                  
+UTC+8:00            Asia/Hong_Kong                         no                  
+UTC+8:00            Asia/Makassar                          no                  
+UTC+8:00            Asia/Macau                             no                  
+UTC+8:00            Asia/Kuala_Lumpur                      no                  
+UTC+8:00            Asia/Kuching                           no                  
+UTC+8:00            Asia/Manila                            no                  
+UTC+8:00            Asia/Irkutsk                           no                  
+UTC+8:00            Asia/Singapore                         no                  
+UTC+8:00            Asia/Taipei                            no                  
+UTC+8:30            Asia/Pyongyang                         no                  
+UTC+8:45            Australia/Eucla                        no                  
+UTC+9:00            Asia/Jayapura                          no                  
+UTC+9:00            Asia/Tokyo                             no                  
+UTC+9:00            Asia/Seoul                             no                  
+UTC+9:00            Pacific/Palau                          no                  
+UTC+9:00            Asia/Chita                             no                  
+UTC+9:00            Asia/Yakutsk                           no                  
+UTC+9:00            Asia/Khandyga                          no                  
+UTC+9:00            Asia/Dili                              no                  
+UTC+9:30            Australia/Broken_Hill                  yes                 
+UTC+9:30            Australia/Adelaide                     yes                 
+UTC+9:30            Australia/Darwin                       no                  
+UTC+10:00           Antarctica/DumontDUrville              no                  
+UTC+10:00           Australia/Lord_Howe                    yes                 
+UTC+10:00           Australia/Hobart                       yes                 
+UTC+10:00           Australia/Currie                       yes                 
+UTC+10:00           Australia/Melbourne                    yes                 
+UTC+10:00           Australia/Sydney                       yes                 
+UTC+10:00           Australia/Brisbane                     no                  
+UTC+10:00           Australia/Lindeman                     no                  
+UTC+10:00           Pacific/Chuuk                          no                  
+UTC+10:00           Pacific/Guam                           no                  
+UTC+10:00           Pacific/Saipan                         no                  
+UTC+10:00           Pacific/Port_Moresby                   no                  
+UTC+10:00           Asia/Vladivostok                       no                  
+UTC+10:00           Asia/Ust-Nera                          no                  
+UTC+11:00           Antarctica/Macquarie                   no                  
+UTC+11:00           Pacific/Pohnpei                        no                  
+UTC+11:00           Pacific/Kosrae                         no                  
+UTC+11:00           Pacific/Noumea                         no                  
+UTC+11:00           Pacific/Norfolk                        no                  
+UTC+11:00           Pacific/Bougainville                   no                  
+UTC+11:00           Asia/Magadan                           no                  
+UTC+11:00           Asia/Sakhalin                          no                  
+UTC+11:00           Asia/Srednekolymsk                     no                  
+UTC+11:00           Pacific/Guadalcanal                    no                  
+UTC+11:00           Pacific/Efate                          no                  
+UTC+12:00           Antarctica/McMurdo                     yes                 
+UTC+12:00           Pacific/Fiji                           yes                 
+UTC+12:00           Pacific/Tarawa                         no                  
+UTC+12:00           Pacific/Majuro                         no                  
+UTC+12:00           Pacific/Kwajalein                      no                  
+UTC+12:00           Pacific/Nauru                          no                  
+UTC+12:00           Pacific/Auckland                       yes                 
+UTC+12:00           Asia/Kamchatka                         no                  
+UTC+12:00           Asia/Anadyr                            no                  
+UTC+12:00           Pacific/Funafuti                       no                  
+UTC+12:00           Pacific/Wake                           no                  
+UTC+12:00           Pacific/Wallis                         no                  
+UTC+12:45           Pacific/Chatham                        yes                 
+UTC+13:00           Pacific/Enderbury                      no                  
+UTC+13:00           Pacific/Fakaofo                        no                  
+UTC+13:00           Pacific/Tongatapu                      no                  
+UTC+13:00           Pacific/Apia                           yes                 
+UTC+14:00           Pacific/Kiritimati                     no                  
+
+administrator@cli> 
+'result': 'p'
+modify timezone to Magadan
+
+tz -a mod -s "zone=Magadan"
+
+administrator@cli> 
+tz
+===============================================================================
+Time Offset               Zone                       Support DST               
+===============================================================================
+UTC+11:00                 Asia/Magadan               no                        
+
+administrator@cli> 
+modify timezone to Andorra
+
+tz -a mod -s "zone=Andorra"
+
+administrator@cli> 
+tz
+===============================================================================
+Time Offset               Zone                        Support DST              
+===============================================================================
+UTC+0:00                  Europe/Andorra              yes                      
+
+administrator@cli> 
+modify timezone to Kiev
+
+tz -a mod -s "zone=Kiev"
+
+administrator@cli> 
+tz
+===============================================================================
+Time Offset                Zone                      Support DST               
+===============================================================================
+UTC+1:00                   Europe/Kiev               yes                       
+
+administrator@cli> 
+modify timezone to Beijing
+
+tz -a mod -s "zone=Beijing"
+
+administrator@cli> 
+tz
+===============================================================================
+Time Offset               Zone                       Support DST               
+===============================================================================
+UTC+8:00                  Asia/Beijing               no                        
+
+administrator@cli> 
+modify timezone to Kiritimati
+
+tz -a mod -s "zone=Kiritimati"
+
+administrator@cli> 
+tz
+===============================================================================
+Time Offset             Zone                           Support DST             
+===============================================================================
+UTC+14:00               Pacific/Kiritimati             no                      
+
+administrator@cli> 
+'result': 'p'
+tz test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+tz -d test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+tz -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|mod)
+
+administrator@cli> 
+tz -a mod -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+tz -a mod -s "zone=1"
+Error (0x100): Not found
+
+administrator@cli> 
+'result': 'p'
+tz -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+tz -d -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+tz -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|mod)
+
+administrator@cli> 
+tz -a mod -test ""
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+tz -a mod -s "test=Beijing"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+'result': 'p'
+tz -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+tz -a mod -s 
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+'result': 'p'

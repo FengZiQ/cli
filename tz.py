@@ -4,9 +4,7 @@
 from send_cmd import *
 from to_log import *
 from ssh_connect import ssh_conn
-from remote import *
-import json
-import random
+
 
 Pass = "'result': 'p'"
 Fail = "'result': 'f'"
@@ -73,17 +71,16 @@ def mod_tz(c):
 
     FailFlag = False
 
-    # precondition
-    tz_request = server.webapi('get', 'alltz')
-    tz_response = json.loads(tz_request["text"])
-
     # test data
-    tz_dist = {}
+    tz_dist = {
+        "Kiritimati": 'no',
+        "Magadan": 'no',
+        "Kiev": 'yes',
+        "Andorra": 'yes',
+        "Beijing": 'no'
+    }
 
-    for tz in tz_response:
-        tz_dist.update({tz["zone"].split('/')[1]: tz["dst"]})
-
-    test_tz = [random.choice(tz_dist.keys()) for i in range(10)]
+    test_tz = tz_dist.keys()
 
     for t in range(len(test_tz)):
 
