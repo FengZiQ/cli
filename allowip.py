@@ -102,6 +102,9 @@ def missing_parameter_for_allowip(c):
 
     cli_failed_test.failed_test(c, data, 'missing_parameter_for_allowip')
 
+    # clean up environment
+    find_pd_id()
+
     return cli_failed_test.FailFlag
 
 

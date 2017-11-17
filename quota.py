@@ -60,6 +60,20 @@ def precondition():
         server.webapi('post', 'dsgroup/editcancel')
 
 
+def clean_up_environment():
+    # clean up environment
+    # delete pool
+    server.webapi('delete', 'pool/0?force=1')
+
+    # delete nas user
+    for i in range(10):
+        server.webapi('delete', 'dsuser/test_quota_' + str(i))
+
+    # delete nas group
+    for i in range(10):
+        server.webapi('delete', 'dsgroup/test_quota_group_' + str(i))
+
+
 def set_quota(c):
 
     cli_setting = cli_test_setting()
@@ -142,11 +156,7 @@ def missing_parameter_for_quota(c):
     cli_failed_test.failed_test(c, data, 'missing_parameter_for_quota')
 
     # clean up environment
-    # delete pool
-    server.webapi('delete', 'pool/0?force=1')
-
-    # delete nas group
-    server.webapi('delete', 'dsgroup/test_quota_group')
+    clean_up_environment()
 
     return cli_failed_test.FailFlag
 
