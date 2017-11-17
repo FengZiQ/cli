@@ -2,8 +2,6 @@
 # 2017.11.15
 
 from ssh_connect import ssh_conn
-import time
-import json
 from cli_test import *
 from remote import server
 from find_unconfigured_pd_id import find_pd_id
@@ -80,15 +78,45 @@ def del_allowip(c):
     return cli_delete.FailFlag
 
 
+def invalid_setting_for_allowip(c):
+
+    cli_failed_test = cli_test_failed_test()
+
+    cli_failed_test.failed_test(c, data, 'invalid_setting_for_allowip')
+
+    return cli_failed_test.FailFlag
+
+
+def invalid_option_for_allowip(c):
+
+    cli_failed_test = cli_test_failed_test()
+
+    cli_failed_test.failed_test(c, data, 'invalid_option_for_allowip')
+
+    return cli_failed_test.FailFlag
+
+
+def missing_parameter_for_allowip(c):
+
+    cli_failed_test = cli_test_failed_test()
+
+    cli_failed_test.failed_test(c, data, 'missing_parameter_for_allowip')
+
+    return cli_failed_test.FailFlag
+
+
 if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
 
-    # add_allowip(c)
+    add_allowip(c)
     list_allowip(c)
-    # list_allowip_by_verbose_mode(c)
-    # mod_allowip(c)
-    # del_allowip(c)
+    list_allowip_by_verbose_mode(c)
+    mod_allowip(c)
+    del_allowip(c)
+    invalid_setting_for_allowip(c)
+    invalid_option_for_allowip(c)
+    missing_parameter_for_allowip(c)
 
     ssh.close()
     elasped = time.clock() - start

@@ -128,107 +128,107 @@ def list_verbose_mode_pool(c):
     return cli_list.FailFlag
 
 
-def extend_raid0_pool(c):
+def expand_raid0_pool(c):
     cli_setting = cli_test_setting()
 
     # precondition
     pdId = find_pd_id()
     # create pool
-    server.webapi('post', 'pool', {"name": "extend_raid0_pool", "pds": [pdId[0]], "raid_level": "raid0"})
+    server.webapi('post', 'pool', {"name": "expand_raid0_pool", "pds": [pdId[0]], "raid_level": "raid0"})
 
     time.sleep(3)
 
-    cli_setting.setting(c, data, 'extend_raid0_pool', 3)
+    cli_setting.setting(c, data, 'expand_raid0_pool', 3)
 
     return cli_setting.FailFlag
 
 
-def extend_raid1_pool(c):
+def expand_raid1_pool(c):
     cli_setting = cli_test_setting()
 
     # precondition
     pdId = find_pd_id()
     # create pool
-    server.webapi('post', 'pool', {"name": "extend_raid1_pool", "pds": pdId[:2], "raid_level": "raid1"})
+    server.webapi('post', 'pool', {"name": "expand_raid1_pool", "pds": pdId[:2], "raid_level": "raid1"})
 
     time.sleep(3)
 
-    cli_setting.setting(c, data, 'extend_raid1_pool', 3)
+    cli_setting.setting(c, data, 'expand_raid1_pool', 3)
 
     return cli_setting.FailFlag
 
 
-def extend_raid5_pool(c):
+def expand_raid5_pool(c):
     cli_setting = cli_test_setting()
 
     # precondition
     pdId = find_pd_id()
     # create pool
-    server.webapi('post', 'pool', {"name": "extend_raid5_pool", "pds": pdId[:3], "raid_level": "raid5"})
+    server.webapi('post', 'pool', {"name": "expand_raid5_pool", "pds": pdId[:3], "raid_level": "raid5"})
 
     time.sleep(3)
 
-    cli_setting.setting(c, data, 'extend_raid5_pool', 3)
+    cli_setting.setting(c, data, 'expand_raid5_pool', 3)
 
     return cli_setting.FailFlag
 
 
-def extend_raid6_pool(c):
+def expand_raid6_pool(c):
     cli_setting = cli_test_setting()
 
     # precondition
     pdId = find_pd_id()
     # create pool
-    server.webapi('post', 'pool', {"name": "extend_raid6_pool", "pds": pdId[:4], "raid_level": "raid6"})
+    server.webapi('post', 'pool', {"name": "expand_raid6_pool", "pds": pdId[:4], "raid_level": "raid6"})
 
     time.sleep(3)
 
-    cli_setting.setting(c, data, 'extend_raid6_pool', 3)
+    cli_setting.setting(c, data, 'expand_raid6_pool', 3)
 
     return cli_setting.FailFlag
 
 
-def extend_raid10_pool(c):
+def expand_raid10_pool(c):
     cli_setting = cli_test_setting()
 
     # precondition
     pdId = find_pd_id()
     # create pool
-    server.webapi('post', 'pool', {"name": "extend_raid10_pool", "pds": pdId[:4], "raid_level": "raid10"})
+    server.webapi('post', 'pool', {"name": "expand_raid10_pool", "pds": pdId[:4], "raid_level": "raid10"})
 
     time.sleep(3)
 
-    cli_setting.setting(c, data, 'extend_raid10_pool', 3)
+    cli_setting.setting(c, data, 'expand_raid10_pool', 3)
 
     return cli_setting.FailFlag
 
 
-def extend_raid50_pool(c):
+def expand_raid50_pool(c):
     cli_setting = cli_test_setting()
 
     # precondition
     pdId = find_pd_id()
     # create pool
-    server.webapi('post', 'pool', {"name": "extend_raid50_pool", "pds": pdId[:6], "raid_level": "raid50", "axle": 2})
+    server.webapi('post', 'pool', {"name": "expand_raid50_pool", "pds": pdId[:6], "raid_level": "raid50", "axle": 2})
 
     time.sleep(3)
 
-    cli_setting.setting(c, data, 'extend_raid50_pool', 3)
+    cli_setting.setting(c, data, 'expand_raid50_pool', 3)
 
     return cli_setting.FailFlag
 
 
-def extend_raid60_pool(c):
+def expand_raid60_pool(c):
     cli_setting = cli_test_setting()
 
     # precondition
     pdId = find_pd_id()
     # create pool
-    server.webapi('post', 'pool', {"name": "extend_raid60_pool", "pds": pdId[:8], "raid_level": "raid60", "axle": 2})
+    server.webapi('post', 'pool', {"name": "expand_raid60_pool", "pds": pdId[:8], "raid_level": "raid60", "axle": 2})
 
     time.sleep(3)
 
-    cli_setting.setting(c, data, 'extend_raid60_pool', 3)
+    cli_setting.setting(c, data, 'expand_raid60_pool', 3)
 
     return cli_setting.FailFlag
 
@@ -303,13 +303,13 @@ if __name__ == "__main__":
     modify_pool_name(c)
     list_pool(c)
     list_verbose_mode_pool(c)
-    extend_raid0_pool(c)
-    extend_raid1_pool(c)
-    extend_raid5_pool(c)
-    extend_raid6_pool(c)
-    extend_raid10_pool(c)
-    extend_raid50_pool(c)
-    extend_raid60_pool(c)
+    expand_raid0_pool(c)
+    expand_raid1_pool(c)
+    expand_raid5_pool(c)
+    expand_raid6_pool(c)
+    expand_raid10_pool(c)
+    expand_raid50_pool(c)
+    expand_raid60_pool(c)
     delete_pool(c)
     invalid_settings_parameter(c)
     invalid_option(c)

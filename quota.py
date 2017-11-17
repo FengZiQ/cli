@@ -61,76 +61,109 @@ def precondition():
 
 
 def set_quota(c):
+
     cli_setting = cli_test_setting()
+
     # precondition
     precondition()
 
     cli_setting.setting(c, data, 'set_quota', 3)
 
+    return cli_setting.FailFlag
+
 
 def list_quota(c):
 
-    cli_test.list(c, data, 'list_quota')
+    cli_list = cli_test_list()
+
+    cli_list.list(c, data, 'list_quota')
+
+    return cli_list.FailFlag
 
 
 def list_quota_by_verbose_mode(c):
 
-    cli_test.list(c, data, 'list_quota_by_verbose_mode')
+    cli_list = cli_test_list()
+
+    cli_list.list(c, data, 'list_quota_by_verbose_mode')
+
+    return cli_list.FailFlag
 
 
 def refresh_quota(c):
 
-    cli_test.other(c, data, 'refresh_quota')
+    cli_test_other = cli_test_other_action()
+
+    cli_test_other.other(c, data, 'refresh_quota')
+
+    return cli_test_other.FailFlag
 
 
-def mod_quota(c):
+def cancel_quota(c):
 
-    cli_test.setting(c, data, 'mod_quota', 3)
+    cli_test_other = cli_test_other_action()
 
+    cli_test_other.other(c, data, 'cancel_quota')
 
-def del_quota(c):
-
-    cli_test.delete(c, data, 'del_quota')
-
-
-def invalid_setting_parameter(c):
-
-    cli_test.failed_test(c, data, 'invalid_setting_parameter', 2)
+    return cli_test_other.FailFlag
 
 
-def invalid_option(c):
+def delete_quota(c):
 
-    cli_test.failed_test(c, data, 'invalid_option')
+    cli_delete = cli_test_delete()
+
+    cli_delete.delete(c, data, 'delete_quota', 3)
+
+    return cli_delete.FailFlag
 
 
-def missing_parameter(c):
+def invalid_setting_for_quota(c):
 
-    cli_test.failed_test(c, data, 'missing_parameter')
+    cli_failed_test = cli_test_failed_test()
+
+    cli_failed_test.failed_test(c, data, 'invalid_setting_for_quota', 2)
+
+    return cli_failed_test.FailFlag
+
+
+def invalid_option_for_quota(c):
+
+    cli_failed_test = cli_test_failed_test()
+
+    cli_failed_test.failed_test(c, data, 'invalid_option_for_quota')
+
+    return cli_failed_test.FailFlag
+
+
+def missing_parameter_for_quota(c):
+
+    cli_failed_test = cli_test_failed_test()
+
+    cli_failed_test.failed_test(c, data, 'missing_parameter_for_quota')
 
     # clean up environment
     # delete pool
     server.webapi('delete', 'pool/0?force=1')
 
-    # delete nas user
-    for i in range(10):
-        server.webapi('delete', 'dsuser/test_quota_' + str(i))
-
     # delete nas group
     server.webapi('delete', 'dsgroup/test_quota_group')
+
+    return cli_failed_test.FailFlag
+
 
 if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
 
-    # set_quota(c)
+    set_quota(c)
     list_quota(c)
     list_quota_by_verbose_mode(c)
-    # refresh_quota(c)
-    # mod_quota(c)
-    # del_quota(c)
-    # invalid_setting_parameter(c)
-    # invalid_option(c)
-    # missing_parameter(c)
+    refresh_quota(c)
+    cancel_quota(c)
+    delete_quota(c)
+    invalid_setting_for_quota(c)
+    invalid_option_for_quota(c)
+    missing_parameter_for_quota(c)
 
     ssh.close()
     elasped = time.clock() - start

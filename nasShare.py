@@ -181,45 +181,51 @@ def modNASShare(c):
     # test data
     parameters = {
         "name": ['test_modify', '1', 'N'*31],
-        "capacity": ['1GB', '2GB', '1TB'],
-        "compress": ['off', 'fast', 'optimized'],
-        "recsize": ['128KB', '512B', '1MB']
+        "sync": ['standard', 'always', 'disabled'],
+        "compress": ['lz4', 'gzip', 'zle'],
+        "logbias": ['throughput', 'latency', 'throughput'],
+        "thinprov": ['enable', 'disable', 'enable']
     }
-    capacity = ['TotalCapacity: 1 GB', 'TotalCapacity: 2 GB', 'TotalCapacity: 1 TB']
-    recsize = ['RecordSize: 128 KB', 'RecordSize: 512 Byte', 'RecordSize: 1 MB']
+
+    thinprov = ['Enabled', 'Disabled', 'Enabled']
 
     for i in range(3):
         settings = 'name=' + parameters["name"][i] + ',' + \
-        'capacity=' + parameters["capacity"][i] + ',' + \
+        'sync=' + parameters["sync"][i] + ',' + \
         'compress=' + parameters["compress"][i] + ',' + \
-        'recsize=' + parameters["recsize"][i]
+        'logbias=' + parameters["logbias"][i] + ',' + \
+        'thinprov=' + parameters["thinprov"][i]
 
         tolog('Expect: The NASShare 0 can be modified \r\n')
 
         result = SendCmd(c, 'nasshare -a mod -i 0 -s "' + settings + '"')
-        checkResult = SendCmd(c, 'nasshare -v -i 0')
 
         if 'Error (' in result:
             Failflag = True
             tolog('Fail: To modify NASShare 0 is failed')
         else:
             tolog('Actual: The NASShare 0 is modified \r\n')
+            checkResult = SendCmd(c, 'nasshare -v -i 0')
 
             if parameters["name"][i] not in checkResult:
                 Failflag = True
                 tolog('Fail: please checkout parameter ' + parameters["name"][i] + '\r\n')
 
-            if capacity[i] not in checkResult:
+            if parameters["sync"][i] not in checkResult:
                 Failflag = True
-                tolog('Fail: please checkout parameter ' + parameters["capacity"][i] + '\r\n')
+                tolog('Fail: please checkout parameter ' + parameters["sync"][i] + '\r\n')
 
             if parameters["compress"][i] not in checkResult:
                 Failflag = True
                 tolog('Fail: please checkout parameter ' + parameters["compress"][i] + '\r\n')
 
-            if recsize[i] not in checkResult:
+            if parameters["logbias"][i] not in checkResult:
                 Failflag = True
-                tolog('Fail: please checkout parameter ' + parameters["recsize"][i] + '\r\n')
+                tolog('Fail: please checkout parameter ' + parameters["logbias"][i] + '\r\n')
+
+            if thinprov[i] not in checkResult:
+                Failflag = True
+                tolog('Fail: please checkout parameter ' + parameters["thinprov"][i] + '\r\n')
 
     else:
         tolog('No NASShare can be used')
@@ -542,6 +548,7 @@ def deleteNASShare(c):
 if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
+
     addNASShare(c)
     listNASShare(c)
     listVerboseNASShare(c)
@@ -554,6 +561,7 @@ if __name__ == "__main__":
     failedTest_InvalidParameters(c)
     failedTest_MissingParameters(c)
     deleteNASShare(c)
+
     ssh.close()
     elasped = time.clock() - start
     print "Elasped %s" % elasped

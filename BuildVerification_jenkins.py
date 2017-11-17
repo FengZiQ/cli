@@ -51,6 +51,46 @@ def BuildVerification(c):
                 sleep(4)
 
     if reconnectflag:
+        # there are 36 command that can be tested
+        tolog('Start verifying quota')
+        import quota
+        if (quota.set_quota(c)):
+            FailCasesList.append('The case ' + quota.set_quota.__name__ + ' failed')
+        if (quota.list_quota(c)):
+            FailCasesList.append('The case ' + quota.list_quota.__name__ + ' failed')
+        if (quota.list_quota_by_verbose_mode(c)):
+            FailCasesList.append('The case ' + quota.list_quota_by_verbose_mode.__name__ + ' failed')
+        if (quota.refresh_quota(c)):
+            FailCasesList.append('The case ' + quota.refresh_quota.__name__ + ' failed')
+        if (quota.cancel_quota(c)):
+            FailCasesList.append('The case ' + quota.cancel_quota.__name__ + ' failed')
+        if (quota.delete_quota(c)):
+            FailCasesList.append('The case ' + quota.delete_quota.__name__ + ' failed')
+        if (quota.invalid_setting_for_quota(c)):
+            FailCasesList.append('The case ' + quota.invalid_setting_for_quota.__name__ + ' failed')
+        if (quota.invalid_option_for_quota(c)):
+            FailCasesList.append('The case ' + quota.invalid_option_for_quota.__name__ + ' failed')
+        if (quota.missing_parameter_for_quota(c)):
+            FailCasesList.append('The case ' + quota.missing_parameter_for_quota.__name__ + ' failed')
+
+        tolog('Start verifying allowip')
+        import allowip
+        if (allowip.add_allowip(c)):
+            FailCasesList.append('The case ' + allowip.add_allowip.__name__ + ' failed')
+        if (allowip.list_allowip(c)):
+            FailCasesList.append('The case ' + allowip.list_allowip.__name__ + ' failed')
+        if (allowip.list_allowip_by_verbose_mode(c)):
+            FailCasesList.append('The case ' + allowip.list_allowip_by_verbose_mode.__name__ + ' failed')
+        if (allowip.mod_allowip(c)):
+            FailCasesList.append('The case ' + allowip.mod_allowip.__name__ + ' failed')
+        if (allowip.del_allowip(c)):
+            FailCasesList.append('The case ' + allowip.del_allowip.__name__ + ' failed')
+        if (allowip.invalid_setting_for_allowip(c)):
+            FailCasesList.append('The case ' + allowip.invalid_setting_for_allowip.__name__ + ' failed')
+        if (allowip.invalid_option_for_allowip(c)):
+            FailCasesList.append('The case ' + allowip.invalid_option_for_allowip.__name__ + ' failed')
+        if (allowip.missing_parameter_for_allowip(c)):
+            FailCasesList.append('The case ' + allowip.missing_parameter_for_allowip.__name__ + ' failed')
 
         tolog('Start verifying protocol')
         import protocol
@@ -170,20 +210,20 @@ def BuildVerification(c):
             FailCasesList.append('The case ' + pool.list_pool.__name__ + ' failed')
         if (pool.list_verbose_mode_pool(c)):
             FailCasesList.append('The case ' + pool.list_verbose_mode_pool.__name__ + ' failed')
-        if (pool.extend_raid0_pool(c)):
-            FailCasesList.append('The case ' + pool.extend_raid0_pool.__name__ + ' failed')
-        if (pool.extend_raid1_pool(c)):
-            FailCasesList.append('The case ' + pool.extend_raid1_pool.__name__ + ' failed')
-        if (pool.extend_raid5_pool(c)):
-            FailCasesList.append('The case ' + pool.extend_raid5_pool.__name__ + ' failed')
-        if (pool.extend_raid6_pool(c)):
-            FailCasesList.append('The case ' + pool.extend_raid6_pool.__name__ + ' failed')
-        if (pool.extend_raid10_pool(c)):
-            FailCasesList.append('The case ' + pool.extend_raid10_pool.__name__ + ' failed')
-        if (pool.extend_raid50_pool(c)):
-            FailCasesList.append('The case ' + pool.extend_raid50_pool.__name__ + ' failed')
-        if (pool.extend_raid60_pool(c)):
-            FailCasesList.append('The case ' + pool.extend_raid60_pool.__name__ + ' failed')
+        if (pool.expand_raid0_pool(c)):
+            FailCasesList.append('The case ' + pool.expand_raid0_pool.__name__ + ' failed')
+        if (pool.expand_raid1_pool(c)):
+            FailCasesList.append('The case ' + pool.expand_raid1_pool.__name__ + ' failed')
+        if (pool.expand_raid5_pool(c)):
+            FailCasesList.append('The case ' + pool.expand_raid5_pool.__name__ + ' failed')
+        if (pool.expand_raid6_pool(c)):
+            FailCasesList.append('The case ' + pool.expand_raid6_pool.__name__ + ' failed')
+        if (pool.expand_raid10_pool(c)):
+            FailCasesList.append('The case ' + pool.expand_raid10_pool.__name__ + ' failed')
+        if (pool.expand_raid50_pool(c)):
+            FailCasesList.append('The case ' + pool.expand_raid50_pool.__name__ + ' failed')
+        if (pool.expand_raid60_pool(c)):
+            FailCasesList.append('The case ' + pool.expand_raid60_pool.__name__ + ' failed')
         if (pool.delete_pool(c)):
             FailCasesList.append('The case ' + pool.delete_pool.__name__ + ' failed')
         if (pool.invalid_settings_parameter(c)):
