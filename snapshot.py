@@ -95,7 +95,7 @@ def rollback_snapshot(c):
 
     server.webapi('post', 'snapshot', {"name": 'test_nas_rollback', "type": 'nasshare', "source_id": 0})
 
-    cli_other_action.other(c, data, 'rollback_snapshot')
+    cli_other_action.other_need_confirm(c, data, 'rollback_snapshot')
 
     return cli_other_action.FailFlag
 

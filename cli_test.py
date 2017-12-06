@@ -140,6 +140,26 @@ class cli_test_other_action():
         else:
             tolog(Pass)
 
+    def other_need_confirm(self, c, data_file_name, sheet_name):
+
+        # data = xlrd.open_workbook('/home/work/zach/clitest/' + data_file_name)
+        data = xlrd.open_workbook(data_file_name)
+        table = data.sheet_by_name(sheet_name)
+
+        for i in range(1, table.nrows):
+
+            tolog('\r\nExpect: ' + table.cell(i, 1).value + '\r\n')
+            result = SendCmdconfirm(c, table.cell(i, 0).value)
+
+            if 'Error (' in result or 'unexpected error' in result:
+                self.FailFlag = True
+                tolog('\r\nFail: ' + table.cell(i, 0).value + '\r\n')
+
+        if self.FailFlag:
+            tolog(Fail)
+        else:
+            tolog(Pass)
+
 
 # use to del
 class cli_test_delete():
