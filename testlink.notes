@@ -12076,3 +12076,3487 @@ Error (0x403): Missing parameter
 
 administrator@cli> 
 'result': 'p'
+
+Expect: 
+
+periodsnap -a add -t volume -d 0 -s "recurtype=daily,interval=60,starthour=1, endhour=22, keepnum=5"
+
+administrator@cli> 
+
+
+administrator@cli> 
+
+Expect: 
+
+periodsnap -a add -t nasshare -d 1 -s "recurtype=daily,interval=60,starthour=1, endhour=22, keepnum=5"
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[1] is not existed.
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t nasshare -d 1 -s "recurtype=daily,interval=60,starthour=1, endhour=22, keepnum=5"
+
+'result': 'f'
+
+Expect: 
+
+periodsnap -a add -t volume -d 0 -s "recurtype=daily,interval=60,starthour=1, endhour=22, keepnum=5"
+Error (0x4100104): Incorrect parameters: Volume [0] already exist in the other schedule.
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t volume -d 0 -s "recurtype=daily,interval=60,starthour=1, endhour=22, keepnum=5"
+
+
+Expect: 
+
+periodsnap -a add -t nasshare -d 0 -s "recurtype=daily,interval=60,starthour=1, endhour=22, keepnum=5"
+
+administrator@cli> 
+
+
+administrator@cli> 
+'result': 'f'
+
+Expect: 
+
+periodsnap -a add -t volume -d 1 -s "recurtype=daily,interval=60,starthour=1, endhour=22, keepnum=5"
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[1] is not existed.
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t volume -d 1 -s "recurtype=daily,interval=60,starthour=1, endhour=22, keepnum=5"
+
+
+Expect: 
+
+periodsnap -a add -t nasshare -d 0 -s "recurtype=daily,interval=120,starthour=3, endhour=12, keepnum=2"
+
+administrator@cli> 
+
+
+administrator@cli> 
+'result': 'f'
+
+Expect: 
+
+periodsnap -a add -t volume -d 0 -s "recurtype=daily,interval=60,starthour=1, endhour=22, keepnum=5"
+
+administrator@cli> 
+
+
+administrator@cli> 
+
+Expect: 
+
+periodsnap -a add -t nasshare -d 0 -s "recurtype=daily,interval=600,starthour=1, endhour=22, keepnum=5"
+Error (0x4100104): Incorrect parameters: The parameter [interval] is invalid.
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t nasshare -d 0 -s "recurtype=daily,interval=600,starthour=1, endhour=22, keepnum=5"
+
+'result': 'f'
+
+Expect: 
+
+periodsnap -a add -t volume -d 0 -s "recurtype=daily,interval=60,starthour=1, endhour=22, keepnum=5"
+Error (0x4100104): Incorrect parameters: Volume [0] already exist in the other schedule.
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t volume -d 0 -s "recurtype=daily,interval=60,starthour=1, endhour=22, keepnum=5"
+
+
+Expect: 
+
+periodsnap -a add -t nasshare -d 0 -s "recurtype=daily,interval=60,starthour=1, endhour=22, keepnum=5"
+Error (0x4100104): Incorrect parameters: NAS Share [0] already exist in the other schedule.
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t nasshare -d 0 -s "recurtype=daily,interval=60,starthour=1, endhour=22, keepnum=5"
+
+'result': 'f'
+
+Expect: periodsnap of volume type should be added by "starthour=0, endhour=0, keepnum=1"
+
+periodsnap -a add -t volume -d 0 -s "starthour=0, endhour=0, keepnum=1"
+
+administrator@cli> 
+periodsnap -t volume -d 0
+===============================================================================
+Id   Type        SourceIDs             Status    SchedType StartTime KeepNumber
+===============================================================================
+1    volume      0                     Disabled  Daily     0:00      1         
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=5,starthour=0, endhour=0, keepnum=1"
+
+periodsnap -a add -t volume -d 1 -s "interval=5,starthour=0, endhour=0, keepnum=1"
+
+administrator@cli> 
+periodsnap -t volume -d 1
+===============================================================================
+Id   Type        SourceIDs             Status    SchedType StartTime KeepNumber
+===============================================================================
+1    volume      0                     Disabled  Daily     0:00      1         
+2    volume      1                     Disabled  Daily     0:00      1         
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=10,starthour=1, endhour=1, keepnum=2,status=disable,recurtype=daily"
+
+periodsnap -a add -t volume -d 2 -s "interval=10,starthour=1, endhour=1, keepnum=2,status=disable,recurtype=daily"
+
+administrator@cli> 
+periodsnap -t volume -d 2
+===============================================================================
+Id   Type        SourceIDs             Status    SchedType StartTime KeepNumber
+===============================================================================
+1    volume      0                     Disabled  Daily     0:00      1         
+2    volume      1                     Disabled  Daily     0:00      1         
+3    volume      2                     Disabled  Daily     1:00      2         
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=15,starthour=22, endhour=22, keepnum=127,status=enable,recurtype=daily"keepnum=127,status=enable,recurtype=daily"
+
+periodsnap -a add -t volume -d 3 -s "interval=15,starthour=22, endhour=22, keepnum=127,status=enable,recurtype=daily"
+
+administrator@cli> 
+periodsnap -t volume -d 3
+===============================================================================
+Id   Type        SourceIDs             Status    SchedType StartTime KeepNumber
+===============================================================================
+1    volume      0                     Disabled  Daily     0:00      1         
+2    volume      1                     Disabled  Daily     0:00      1         
+3    volume      2                     Disabled  Daily     1:00      2         
+4    volume      3                     Enabled   Daily     22:00     127       
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=30,starthour=23, endhour=23, keepnum=128,status=disable,recurtype=weekly,dow=sun"
+
+periodsnap -a add -t volume -d 4 -s "interval=30,starthour=23, endhour=23, keepnum=128,status=disable,recurtype=weekly,dow=sun"
+Error (0x2013): Invalid setting parameters
+interval is only valid for Daily recurrence type
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t volume -d 4 -s "interval=30,starthour=23, endhour=23, keepnum=128,status=disable,recurtype=weekly,dow=sun"
+
+
+Expect: periodsnap of volume type should be added by "interval=60,starthour=22, endhour=22, keepnum=127,status=enable,recurtype=weekly,dow=sat"
+
+periodsnap -a add -t volume -d 5 -s "interval=60,starthour=22, endhour=22, keepnum=127,status=enable,recurtype=weekly,dow=sat"
+Error (0x2013): Invalid setting parameters
+interval is only valid for Daily recurrence type
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t volume -d 5 -s "interval=60,starthour=22, endhour=22, keepnum=127,status=enable,recurtype=weekly,dow=sat"
+
+
+Expect: periodsnap of volume type should be added by "interval=120,starthour=23, endhour=23, keepnum=128,status=disable,recurtype=weekly,dow=mon"
+
+periodsnap -a add -t volume -d 6 -s "interval=120,starthour=23, endhour=23, keepnum=128,status=disable,recurtype=weekly,dow=mon"
+Error (0x2013): Invalid setting parameters
+interval is only valid for Daily recurrence type
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t volume -d 6 -s "interval=120,starthour=23, endhour=23, keepnum=128,status=disable,recurtype=weekly,dow=mon"
+
+
+Expect: periodsnap of volume type should be added by "interval=240,starthour=22, endhour=22, keepnum=127,recurtype=weekly,dow=tues"
+
+periodsnap -a add -t volume -d 7 -s "interval=240,starthour=22, endhour=22, keepnum=127,recurtype=weekly,dow=tues"
+Error (0x2013): Invalid setting parameters
+interval is only valid for Daily recurrence type
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t volume -d 7 -s "interval=240,starthour=22, endhour=22, keepnum=127,recurtype=weekly,dow=tues"
+
+
+Expect: periodsnap of volume type should be added by "interval=360,starthour=23, endhour=23, keepnum=128,,recurtype=weekly,dow=wed"
+
+periodsnap -a add -t volume -d 8 -s "interval=360,starthour=23, endhour=23, keepnum=128,,recurtype=weekly,dow=wed"
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t volume -d 8 -s "interval=360,starthour=23, endhour=23, keepnum=128,,recurtype=weekly,dow=wed"
+
+
+Expect: periodsnap of volume type should be added by "interval=480,starthour=22, endhour=22, keepnum=127,recurtype=weekly,dow=thur"
+
+periodsnap -a add -t volume -d 9 -s "interval=480,starthour=22, endhour=22, keepnum=127,recurtype=weekly,dow=thur"
+Error (0x2013): Invalid setting parameters
+interval is only valid for Daily recurrence type
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t volume -d 9 -s "interval=480,starthour=22, endhour=22, keepnum=127,recurtype=weekly,dow=thur"
+
+
+Expect: periodsnap of volume type should be added by "interval=600,starthour=23, endhour=23, keepnum=128,,recurtype=weekly,dow=fri"
+
+periodsnap -a add -t volume -d 10 -s "interval=600,starthour=23, endhour=23, keepnum=128,,recurtype=weekly,dow=fri"
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t volume -d 10 -s "interval=600,starthour=23, endhour=23, keepnum=128,,recurtype=weekly,dow=fri"
+
+
+Expect: periodsnap of volume type should be added by "starthour=0, endhour=0, keepnum=1"
+
+periodsnap -a add -t nasshare -d 0 -s "starthour=0, endhour=0, keepnum=1"
+
+administrator@cli> 
+periodsnap -t nasshare -d 0
+===============================================================================
+Id   Type        SourceIDs             Status    SchedType StartTime KeepNumber
+===============================================================================
+5    nasshare    0                     Disabled  Daily     0:00      1         
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=720,starthour=1, endhour=1, keepnum=2,status=disable,recurtype=daily"
+
+periodsnap -a add -t nasshare -d 1 -s "interval=720,starthour=1, endhour=1, keepnum=2,status=disable,recurtype=daily"
+
+administrator@cli> 
+periodsnap -t nasshare -d 1
+===============================================================================
+Id   Type        SourceIDs             Status    SchedType StartTime KeepNumber
+===============================================================================
+5    nasshare    0                     Disabled  Daily     0:00      1         
+6    nasshare    1                     Disabled  Daily     1:00      2         
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=840,starthour=22, endhour=22, keepnum=127,status=enable,recurtype=daily"
+
+periodsnap -a add -t nasshare -d 2 -s "interval=840,starthour=22, endhour=22, keepnum=127,status=enable,recurtype=daily"
+Error (0x4100104): Incorrect parameters: The parameter [interval] is invalid.
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t nasshare -d 2 -s "interval=840,starthour=22, endhour=22, keepnum=127,status=enable,recurtype=daily"
+
+
+Expect: periodsnap of volume type should be added by "interval=960,starthour=23, endhour=23, keepnum=128,status=disable,recurtype=weekly,dow=sun"
+
+periodsnap -a add -t nasshare -d 3 -s "interval=960,starthour=23, endhour=23, keepnum=128,status=disable,recurtype=weekly,dow=sun"
+Error (0x2013): Invalid setting parameters
+interval is only valid for Daily recurrence type
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t nasshare -d 3 -s "interval=960,starthour=23, endhour=23, keepnum=128,status=disable,recurtype=weekly,dow=sun"
+
+
+Expect: periodsnap of volume type should be added by "interval=1080,starthour=22, endhour=22, keepnum=127,status=enable,recurtype=weekly,dow=sat"
+
+periodsnap -a add -t nasshare -d 4 -s "interval=1080,starthour=22, endhour=22, keepnum=127,status=enable,recurtype=weekly,dow=sat"
+Error (0x2013): Invalid setting parameters
+interval is only valid for Daily recurrence type
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t nasshare -d 4 -s "interval=1080,starthour=22, endhour=22, keepnum=127,status=enable,recurtype=weekly,dow=sat"
+
+
+Expect: periodsnap of volume type should be added by "interval=1200,starthour=23, endhour=23, keepnum=128,status=disable,recurtype=weekly,dow=mon"
+
+periodsnap -a add -t nasshare -d 5 -s "interval=1200,starthour=23, endhour=23, keepnum=128,status=disable,recurtype=weekly,dow=mon"
+Error (0x2013): Invalid setting parameters
+interval is only valid for Daily recurrence type
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t nasshare -d 5 -s "interval=1200,starthour=23, endhour=23, keepnum=128,status=disable,recurtype=weekly,dow=mon"
+
+
+Expect: periodsnap of volume type should be added by "interval=1320,starthour=22, endhour=22, keepnum=127,recurtype=weekly,dow=tues"
+
+periodsnap -a add -t nasshare -d 6 -s "interval=1320,starthour=22, endhour=22, keepnum=127,recurtype=weekly,dow=tues"
+Error (0x2013): Invalid setting parameters
+interval is only valid for Daily recurrence type
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t nasshare -d 6 -s "interval=1320,starthour=22, endhour=22, keepnum=127,recurtype=weekly,dow=tues"
+
+
+Expect: periodsnap of volume type should be added by "interval=1400,starthour=23, endhour=23, keepnum=128,,recurtype=weekly,dow=wed"
+
+periodsnap -a add -t nasshare -d 7 -s "interval=1400,starthour=23, endhour=23, keepnum=128,,recurtype=weekly,dow=wed"
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t nasshare -d 7 -s "interval=1400,starthour=23, endhour=23, keepnum=128,,recurtype=weekly,dow=wed"
+
+'result': 'f'
+
+Expect: periodsnap of volume type should be added by "starthour=0, endhour=1, keepnum=1"
+
+periodsnap -a add -t volume -d 0 -s "starthour=0, endhour=1, keepnum=1"
+
+administrator@cli> 
+periodsnap -t volume -v -d 0
+-------------------------------------------------------------------------------
+Id: 1                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 0                            SourceNames: test_periodsnap0
+Status: 0                               StartTime: 0:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 60                            EndTime: 1:00
+CreateTime: 2017-11-22 16:55:43         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=5,starthour=1, endhour=2, keepnum=1"
+
+periodsnap -a add -t volume -d 1 -s "interval=5,starthour=1, endhour=2, keepnum=1"
+
+administrator@cli> 
+periodsnap -t volume -v -d 1
+-------------------------------------------------------------------------------
+Id: 1                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 0                            SourceNames: test_periodsnap0
+Status: 0                               StartTime: 0:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 60                            EndTime: 1:00
+CreateTime: 2017-11-22 16:55:43         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 2                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 1                            SourceNames: test_periodsnap1
+Status: 0                               StartTime: 1:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 5                             EndTime: 2:00
+CreateTime: 2017-11-22 16:55:46         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=10,starthour=2, endhour=3, keepnum=2,status=disable,recurtype=daily"
+
+periodsnap -a add -t volume -d 2 -s "interval=10,starthour=2, endhour=3, keepnum=2,status=disable,recurtype=daily"
+
+administrator@cli> 
+periodsnap -t volume -v -d 2
+-------------------------------------------------------------------------------
+Id: 1                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 0                            SourceNames: test_periodsnap0
+Status: 0                               StartTime: 0:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 60                            EndTime: 1:00
+CreateTime: 2017-11-22 16:55:43         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 2                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 1                            SourceNames: test_periodsnap1
+Status: 0                               StartTime: 1:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 5                             EndTime: 2:00
+CreateTime: 2017-11-22 16:55:46         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 3                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 2                            SourceNames: test_periodsnap2
+Status: 0                               StartTime: 2:00
+SchedType: Daily                        KeepNumber: 2
+Interval: 10                            EndTime: 3:00
+CreateTime: 2017-11-22 16:55:49         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=15,starthour=3, endhour=4, keepnum=127,status=enable,recurtype=daily"
+
+periodsnap -a add -t volume -d 3 -s "interval=15,starthour=3, endhour=4, keepnum=127,status=enable,recurtype=daily"
+
+administrator@cli> 
+periodsnap -t volume -v -d 3
+-------------------------------------------------------------------------------
+Id: 1                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 0                            SourceNames: test_periodsnap0
+Status: 0                               StartTime: 0:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 60                            EndTime: 1:00
+CreateTime: 2017-11-22 16:55:43         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 2                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 1                            SourceNames: test_periodsnap1
+Status: 0                               StartTime: 1:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 5                             EndTime: 2:00
+CreateTime: 2017-11-22 16:55:46         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 3                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 2                            SourceNames: test_periodsnap2
+Status: 0                               StartTime: 2:00
+SchedType: Daily                        KeepNumber: 2
+Interval: 10                            EndTime: 3:00
+CreateTime: 2017-11-22 16:55:49         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 4                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 3                            SourceNames: test_periodsnap3
+Status: 1                               StartTime: 3:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 15                            EndTime: 4:00
+CreateTime: 2017-11-22 16:55:53         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=30,starthour=4, endhour=5, keepnum=128"
+
+periodsnap -a add -t volume -d 4 -s "interval=30,starthour=4, endhour=5, keepnum=128"
+
+administrator@cli> 
+periodsnap -t volume -v -d 4
+-------------------------------------------------------------------------------
+Id: 1                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 0                            SourceNames: test_periodsnap0
+Status: 0                               StartTime: 0:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 60                            EndTime: 1:00
+CreateTime: 2017-11-22 16:55:43         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 2                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 1                            SourceNames: test_periodsnap1
+Status: 0                               StartTime: 1:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 5                             EndTime: 2:00
+CreateTime: 2017-11-22 16:55:46         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 3                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 2                            SourceNames: test_periodsnap2
+Status: 0                               StartTime: 2:00
+SchedType: Daily                        KeepNumber: 2
+Interval: 10                            EndTime: 3:00
+CreateTime: 2017-11-22 16:55:49         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 4                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 3                            SourceNames: test_periodsnap3
+Status: 1                               StartTime: 3:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 15                            EndTime: 4:00
+CreateTime: 2017-11-22 16:55:53         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 5                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 4                            SourceNames: test_periodsnap4
+Status: 0                               StartTime: 4:00
+SchedType: Daily                        KeepNumber: 128
+Interval: 30                            EndTime: 5:00
+CreateTime: 2017-11-22 16:55:56         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=60,starthour=5, endhour=6, keepnum=127"
+
+periodsnap -a add -t volume -d 5 -s "interval=60,starthour=5, endhour=6, keepnum=127"
+
+administrator@cli> 
+periodsnap -t volume -v -d 5
+-------------------------------------------------------------------------------
+Id: 1                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 0                            SourceNames: test_periodsnap0
+Status: 0                               StartTime: 0:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 60                            EndTime: 1:00
+CreateTime: 2017-11-22 16:55:43         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 2                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 1                            SourceNames: test_periodsnap1
+Status: 0                               StartTime: 1:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 5                             EndTime: 2:00
+CreateTime: 2017-11-22 16:55:46         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 3                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 2                            SourceNames: test_periodsnap2
+Status: 0                               StartTime: 2:00
+SchedType: Daily                        KeepNumber: 2
+Interval: 10                            EndTime: 3:00
+CreateTime: 2017-11-22 16:55:49         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 4                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 3                            SourceNames: test_periodsnap3
+Status: 1                               StartTime: 3:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 15                            EndTime: 4:00
+CreateTime: 2017-11-22 16:55:53         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 5                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 4                            SourceNames: test_periodsnap4
+Status: 0                               StartTime: 4:00
+SchedType: Daily                        KeepNumber: 128
+Interval: 30                            EndTime: 5:00
+CreateTime: 2017-11-22 16:55:56         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 6                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 5                            SourceNames: test_periodsnap5
+Status: 0                               StartTime: 5:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 60                            EndTime: 6:00
+CreateTime: 2017-11-22 16:56:00         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=120,starthour=6, endhour=7, keepnum=128"
+
+periodsnap -a add -t volume -d 6 -s "interval=120,starthour=6, endhour=7, keepnum=128"
+
+administrator@cli> 
+periodsnap -t volume -v -d 6
+-------------------------------------------------------------------------------
+Id: 1                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 0                            SourceNames: test_periodsnap0
+Status: 0                               StartTime: 0:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 60                            EndTime: 1:00
+CreateTime: 2017-11-22 16:55:43         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 2                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 1                            SourceNames: test_periodsnap1
+Status: 0                               StartTime: 1:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 5                             EndTime: 2:00
+CreateTime: 2017-11-22 16:55:46         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 3                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 2                            SourceNames: test_periodsnap2
+Status: 0                               StartTime: 2:00
+SchedType: Daily                        KeepNumber: 2
+Interval: 10                            EndTime: 3:00
+CreateTime: 2017-11-22 16:55:49         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 4                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 3                            SourceNames: test_periodsnap3
+Status: 1                               StartTime: 3:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 15                            EndTime: 4:00
+CreateTime: 2017-11-22 16:55:53         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 5                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 4                            SourceNames: test_periodsnap4
+Status: 0                               StartTime: 4:00
+SchedType: Daily                        KeepNumber: 128
+Interval: 30                            EndTime: 5:00
+CreateTime: 2017-11-22 16:55:56         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 6                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 5                            SourceNames: test_periodsnap5
+Status: 0                               StartTime: 5:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 60                            EndTime: 6:00
+CreateTime: 2017-11-22 16:56:00         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 7                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 6                            SourceNames: test_periodsnap6
+Status: 0                               StartTime: 6:00
+SchedType: Daily                        KeepNumber: 128
+Interval: 120                           EndTime: 7:00
+CreateTime: 2017-11-22 16:56:03         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=240,starthour=7, endhour=8, keepnum=127"
+
+periodsnap -a add -t volume -d 7 -s "interval=240,starthour=7, endhour=8, keepnum=127"
+
+administrator@cli> 
+periodsnap -t volume -v -d 7
+-------------------------------------------------------------------------------
+Id: 1                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 0                            SourceNames: test_periodsnap0
+Status: 0                               StartTime: 0:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 60                            EndTime: 1:00
+CreateTime: 2017-11-22 16:55:43         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 2                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 1                            SourceNames: test_periodsnap1
+Status: 0                               StartTime: 1:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 5                             EndTime: 2:00
+CreateTime: 2017-11-22 16:55:46         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 3                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 2                            SourceNames: test_periodsnap2
+Status: 0                               StartTime: 2:00
+SchedType: Daily                        KeepNumber: 2
+Interval: 10                            EndTime: 3:00
+CreateTime: 2017-11-22 16:55:49         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 4                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 3                            SourceNames: test_periodsnap3
+Status: 1                               StartTime: 3:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 15                            EndTime: 4:00
+CreateTime: 2017-11-22 16:55:53         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 5                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 4                            SourceNames: test_periodsnap4
+Status: 0                               StartTime: 4:00
+SchedType: Daily                        KeepNumber: 128
+Interval: 30                            EndTime: 5:00
+CreateTime: 2017-11-22 16:55:56         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 6                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 5                            SourceNames: test_periodsnap5
+Status: 0                               StartTime: 5:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 60                            EndTime: 6:00
+CreateTime: 2017-11-22 16:56:00         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 7                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 6                            SourceNames: test_periodsnap6
+Status: 0                               StartTime: 6:00
+SchedType: Daily                        KeepNumber: 128
+Interval: 120                           EndTime: 7:00
+CreateTime: 2017-11-22 16:56:03         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 8                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 7                            SourceNames: test_periodsnap7
+Status: 0                               StartTime: 7:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 240                           EndTime: 8:00
+CreateTime: 2017-11-22 16:56:06         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=360,starthour=8, endhour=9, keepnum=128"
+
+periodsnap -a add -t volume -d 8 -s "interval=360,starthour=8, endhour=9, keepnum=128"
+
+administrator@cli> 
+periodsnap -t volume -v -d 8
+-------------------------------------------------------------------------------
+Id: 1                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 0                            SourceNames: test_periodsnap0
+Status: 0                               StartTime: 0:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 60                            EndTime: 1:00
+CreateTime: 2017-11-22 16:55:43         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 2                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 1                            SourceNames: test_periodsnap1
+Status: 0                               StartTime: 1:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 5                             EndTime: 2:00
+CreateTime: 2017-11-22 16:55:46         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 3                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 2                            SourceNames: test_periodsnap2
+Status: 0                               StartTime: 2:00
+SchedType: Daily                        KeepNumber: 2
+Interval: 10                            EndTime: 3:00
+CreateTime: 2017-11-22 16:55:49         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 4                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 3                            SourceNames: test_periodsnap3
+Status: 1                               StartTime: 3:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 15                            EndTime: 4:00
+CreateTime: 2017-11-22 16:55:53         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 5                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 4                            SourceNames: test_periodsnap4
+Status: 0                               StartTime: 4:00
+SchedType: Daily                        KeepNumber: 128
+Interval: 30                            EndTime: 5:00
+CreateTime: 2017-11-22 16:55:56         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 6                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 5                            SourceNames: test_periodsnap5
+Status: 0                               StartTime: 5:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 60                            EndTime: 6:00
+CreateTime: 2017-11-22 16:56:00         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 7                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 6                            SourceNames: test_periodsnap6
+Status: 0                               StartTime: 6:00
+SchedType: Daily                        KeepNumber: 128
+Interval: 120                           EndTime: 7:00
+CreateTime: 2017-11-22 16:56:03         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 8                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 7                            SourceNames: test_periodsnap7
+Status: 0                               StartTime: 7:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 240                           EndTime: 8:00
+CreateTime: 2017-11-22 16:56:06         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 9                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 8                            SourceNames: test_periodsnap8
+Status: 0                               StartTime: 8:00
+SchedType: Daily                        KeepNumber: 128
+Interval: 360                           EndTime: 9:00
+CreateTime: 2017-11-22 16:56:09         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=480,starthour=9, endhour=10, keepnum=127"
+
+periodsnap -a add -t volume -d 9 -s "interval=480,starthour=9, endhour=10, keepnum=127"
+
+administrator@cli> 
+periodsnap -t volume -v -d 9
+-------------------------------------------------------------------------------
+Id: 1                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 0                            SourceNames: test_periodsnap0
+Status: 0                               StartTime: 0:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 60                            EndTime: 1:00
+CreateTime: 2017-11-22 16:55:43         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 2                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 1                            SourceNames: test_periodsnap1
+Status: 0                               StartTime: 1:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 5                             EndTime: 2:00
+CreateTime: 2017-11-22 16:55:46         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 3                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 2                            SourceNames: test_periodsnap2
+Status: 0                               StartTime: 2:00
+SchedType: Daily                        KeepNumber: 2
+Interval: 10                            EndTime: 3:00
+CreateTime: 2017-11-22 16:55:49         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 4                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 3                            SourceNames: test_periodsnap3
+Status: 1                               StartTime: 3:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 15                            EndTime: 4:00
+CreateTime: 2017-11-22 16:55:53         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 5                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 4                            SourceNames: test_periodsnap4
+Status: 0                               StartTime: 4:00
+SchedType: Daily                        KeepNumber: 128
+Interval: 30                            EndTime: 5:00
+CreateTime: 2017-11-22 16:55:56         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 6                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 5                            SourceNames: test_periodsnap5
+Status: 0                               StartTime: 5:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 60                            EndTime: 6:00
+CreateTime: 2017-11-22 16:56:00         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 7                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 6                            SourceNames: test_periodsnap6
+Status: 0                               StartTime: 6:00
+SchedType: Daily                        KeepNumber: 128
+Interval: 120                           EndTime: 7:00
+CreateTime: 2017-11-22 16:56:03         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 8                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 7                            SourceNames: test_periodsnap7
+Status: 0                               StartTime: 7:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 240                           EndTime: 8:00
+CreateTime: 2017-11-22 16:56:06         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 9                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 8                            SourceNames: test_periodsnap8
+Status: 0                               StartTime: 8:00
+SchedType: Daily                        KeepNumber: 128
+Interval: 360                           EndTime: 9:00
+CreateTime: 2017-11-22 16:56:09         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 10                                  Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 9                            SourceNames: test_periodsnap9
+Status: 0                               StartTime: 9:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 480                           EndTime: 10:00
+CreateTime: 2017-11-22 16:56:13         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=600,starthour=10, endhour=11, keepnum=128"
+
+periodsnap -a add -t volume -d 10 -s "interval=600,starthour=10, endhour=11, keepnum=128"
+Error (0x4100104): Incorrect parameters: The parameter [interval] is invalid.
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t volume -d 10 -s "interval=600,starthour=10, endhour=11, keepnum=128"
+
+
+Expect: periodsnap of volume type should be added by "starthour=0, endhour=12, keepnum=1"
+
+periodsnap -a add -t nasshare -d 0 -s "starthour=0, endhour=12, keepnum=1"
+
+administrator@cli> 
+periodsnap -t nasshare -v -d 0
+-------------------------------------------------------------------------------
+Id: 11                                  Type: nasshare
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 0                            SourceNames: test_periodsnap_0
+Status: 0                               StartTime: 0:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 60                            EndTime: 12:00
+CreateTime: 2017-11-22 16:56:19         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=720,starthour=12, endhour=13, keepnum=2,status=disable,recurtype=daily"
+
+periodsnap -a add -t nasshare -d 1 -s "interval=720,starthour=12, endhour=13, keepnum=2,status=disable,recurtype=daily"
+
+administrator@cli> 
+periodsnap -t nasshare -v -d 1
+-------------------------------------------------------------------------------
+Id: 11                                  Type: nasshare
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 0                            SourceNames: test_periodsnap_0
+Status: 0                               StartTime: 0:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 60                            EndTime: 12:00
+CreateTime: 2017-11-22 16:56:19         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 12                                  Type: nasshare
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 1                            SourceNames: test_periodsnap_1
+Status: 0                               StartTime: 12:00
+SchedType: Daily                        KeepNumber: 2
+Interval: 720                           EndTime: 13:00
+CreateTime: 2017-11-22 16:56:23         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=840,starthour=13, endhour=14, keepnum=127,status=enable,recurtype=daily"
+
+periodsnap -a add -t nasshare -d 2 -s "interval=840,starthour=13, endhour=14, keepnum=127,status=enable,recurtype=daily"
+Error (0x4100104): Incorrect parameters: The parameter [interval] is invalid.
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t nasshare -d 2 -s "interval=840,starthour=13, endhour=14, keepnum=127,status=enable,recurtype=daily"
+
+
+Expect: periodsnap of volume type should be added by "interval=960,starthour=14, endhour=15, keepnum=128"
+
+periodsnap -a add -t nasshare -d 3 -s "interval=960,starthour=14, endhour=15, keepnum=128"
+Error (0x4100104): Incorrect parameters: The parameter [interval] is invalid.
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t nasshare -d 3 -s "interval=960,starthour=14, endhour=15, keepnum=128"
+
+
+Expect: periodsnap of volume type should be added by "interval=1080,starthour=15, endhour=16, keepnum=127"
+
+periodsnap -a add -t nasshare -d 4 -s "interval=1080,starthour=15, endhour=16, keepnum=127"
+Error (0x4100104): Incorrect parameters: The parameter [interval] is invalid.
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t nasshare -d 4 -s "interval=1080,starthour=15, endhour=16, keepnum=127"
+
+
+Expect: periodsnap of volume type should be added by "interval=1200,starthour=16, endhour=17, keepnum=128"
+
+periodsnap -a add -t nasshare -d 5 -s "interval=1200,starthour=16, endhour=17, keepnum=128"
+Error (0x4100104): Incorrect parameters: The parameter [interval] is invalid.
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t nasshare -d 5 -s "interval=1200,starthour=16, endhour=17, keepnum=128"
+
+
+Expect: periodsnap of volume type should be added by "interval=1320,starthour=17, endhour=18, keepnum=127"
+
+periodsnap -a add -t nasshare -d 6 -s "interval=1320,starthour=17, endhour=18, keepnum=127"
+Error (0x4100104): Incorrect parameters: The parameter [interval] is invalid.
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t nasshare -d 6 -s "interval=1320,starthour=17, endhour=18, keepnum=127"
+
+
+Expect: periodsnap of volume type should be added by "interval=1400,starthour=18, endhour=19, keepnum=128"
+
+periodsnap -a add -t nasshare -d 7 -s "interval=1400,starthour=18, endhour=19, keepnum=128"
+Error (0x2013): Invalid setting parameters
+interval: invalid setting 1400 (5|10|15|30|60|120|240|360|480|600|720|840|960|1080|1200|1320|1440)
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t nasshare -d 7 -s "interval=1400,starthour=18, endhour=19, keepnum=128"
+
+
+Expect: periodsnap of volume type should be added by "starthour=19, endhour=20, keepnum=128,status=disable,recurtype=weekly,dow=sun"
+
+periodsnap -a add -t volume -d 11 -s "starthour=19, endhour=20, keepnum=128,status=disable,recurtype=weekly,dow=sun"
+Error (0x2013): Invalid setting parameters
+endhour is only valid for Daily recurrence type
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t volume -d 11 -s "starthour=19, endhour=20, keepnum=128,status=disable,recurtype=weekly,dow=sun"
+
+
+Expect: periodsnap of volume type should be added by "starthour=20, endhour=21, keepnum=127,status=enable,recurtype=weekly,dow=mon"
+
+periodsnap -a add -t volume -d 12 -s "starthour=20, endhour=21, keepnum=127,status=enable,recurtype=weekly,dow=mon"
+Error (0x2013): Invalid setting parameters
+endhour is only valid for Daily recurrence type
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t volume -d 12 -s "starthour=20, endhour=21, keepnum=127,status=enable,recurtype=weekly,dow=mon"
+
+
+Expect: periodsnap of volume type should be added by "starthour=23, endhour=22, keepnum=128,status=disable,recurtype=weekly,dow=tues"
+
+periodsnap -a add -t volume -d 13 -s "starthour=23, endhour=22, keepnum=128,status=disable,recurtype=weekly,dow=tues"
+Error (0x2013): Invalid setting parameters
+endhour is only valid for Daily recurrence type
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t volume -d 13 -s "starthour=23, endhour=22, keepnum=128,status=disable,recurtype=weekly,dow=tues"
+
+
+Expect: periodsnap of volume type should be added by "starthour=22, endhour=23, keepnum=127,status=enable,recurtype=weekly,dow=wed"
+
+periodsnap -a add -t nasshare -d 8 -s "starthour=22, endhour=23, keepnum=127,status=enable,recurtype=weekly,dow=wed"
+Error (0x2013): Invalid setting parameters
+endhour is only valid for Daily recurrence type
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t nasshare -d 8 -s "starthour=22, endhour=23, keepnum=127,status=enable,recurtype=weekly,dow=wed"
+
+
+Expect: periodsnap of volume type should be added by "starthour=23, endhour=23, keepnum=128,status=disable,recurtype=weekly,dow=thur"
+
+periodsnap -a add -t nasshare -d 9 -s "starthour=23, endhour=23, keepnum=128,status=disable,recurtype=weekly,dow=thur"
+Error (0x2013): Invalid setting parameters
+endhour is only valid for Daily recurrence type
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t nasshare -d 9 -s "starthour=23, endhour=23, keepnum=128,status=disable,recurtype=weekly,dow=thur"
+
+
+Expect: periodsnap of volume type should be added by "starthour=22, endhour=22, keepnum=127,recurtype=weekly,dow=fri"
+
+periodsnap -a add -t nasshare -d 10 -s "starthour=22, endhour=22, keepnum=127,recurtype=weekly,dow=fri"
+Error (0x2013): Invalid setting parameters
+endhour is only valid for Daily recurrence type
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t nasshare -d 10 -s "starthour=22, endhour=22, keepnum=127,recurtype=weekly,dow=fri"
+
+
+Expect: periodsnap of volume type should be added by "starthour=22, endhour=23, keepnum=128,,recurtype=weekly,dow=sat"
+
+periodsnap -a add -t nasshare -d 11 -s "starthour=22, endhour=23, keepnum=128,,recurtype=weekly,dow=sat"
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t nasshare -d 11 -s "starthour=22, endhour=23, keepnum=128,,recurtype=weekly,dow=sat"
+
+'result': 'f'
+
+Expect: periodsnap of volume type should be added by "starthour=0, endhour=1, keepnum=1"
+
+periodsnap -a add -t volume -d 0 -s "starthour=0, endhour=1, keepnum=1"
+
+administrator@cli> 
+periodsnap -t volume -v -i 0
+-i: specific schedule snapshot task not exists
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=5,starthour=1, endhour=2, keepnum=1"
+
+periodsnap -a add -t volume -d 1 -s "interval=5,starthour=1, endhour=2, keepnum=1"
+
+administrator@cli> 
+periodsnap -t volume -v -i 1
+-------------------------------------------------------------------------------
+Id: 1                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 0                            SourceNames: test_periodsnap0
+Status: 0                               StartTime: 0:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 60                            EndTime: 1:00
+CreateTime: 2017-11-22 17:57:14         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=10,starthour=2, endhour=3, keepnum=2,status=disable,recurtype=daily"
+
+periodsnap -a add -t volume -d 2 -s "interval=10,starthour=2, endhour=3, keepnum=2,status=disable,recurtype=daily"
+
+administrator@cli> 
+periodsnap -t volume -v -i 2
+-------------------------------------------------------------------------------
+Id: 2                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 1                            SourceNames: test_periodsnap1
+Status: 0                               StartTime: 1:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 5                             EndTime: 2:00
+CreateTime: 2017-11-22 17:57:17         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=15,starthour=3, endhour=4, keepnum=127,status=enable,recurtype=daily"
+
+periodsnap -a add -t volume -d 3 -s "interval=15,starthour=3, endhour=4, keepnum=127,status=enable,recurtype=daily"
+
+administrator@cli> 
+periodsnap -t volume -v -i 3
+-------------------------------------------------------------------------------
+Id: 3                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 2                            SourceNames: test_periodsnap2
+Status: 0                               StartTime: 2:00
+SchedType: Daily                        KeepNumber: 2
+Interval: 10                            EndTime: 3:00
+CreateTime: 2017-11-22 17:57:20         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=30,starthour=4, endhour=5, keepnum=128"
+
+periodsnap -a add -t volume -d 4 -s "interval=30,starthour=4, endhour=5, keepnum=128"
+
+administrator@cli> 
+periodsnap -t volume -v -i 4
+-------------------------------------------------------------------------------
+Id: 4                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 3                            SourceNames: test_periodsnap3
+Status: 1                               StartTime: 3:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 15                            EndTime: 4:00
+CreateTime: 2017-11-22 17:57:24         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=60,starthour=5, endhour=6, keepnum=127"
+
+periodsnap -a add -t volume -d 5 -s "interval=60,starthour=5, endhour=6, keepnum=127"
+
+administrator@cli> 
+periodsnap -t volume -v -i 5
+-------------------------------------------------------------------------------
+Id: 5                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 4                            SourceNames: test_periodsnap4
+Status: 0                               StartTime: 4:00
+SchedType: Daily                        KeepNumber: 128
+Interval: 30                            EndTime: 5:00
+CreateTime: 2017-11-22 17:57:27         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=120,starthour=6, endhour=7, keepnum=128"
+
+periodsnap -a add -t volume -d 6 -s "interval=120,starthour=6, endhour=7, keepnum=128"
+
+administrator@cli> 
+periodsnap -t volume -v -i 6
+-------------------------------------------------------------------------------
+Id: 6                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 5                            SourceNames: test_periodsnap5
+Status: 0                               StartTime: 5:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 60                            EndTime: 6:00
+CreateTime: 2017-11-22 17:57:30         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=240,starthour=7, endhour=8, keepnum=127"
+
+periodsnap -a add -t volume -d 7 -s "interval=240,starthour=7, endhour=8, keepnum=127"
+
+administrator@cli> 
+periodsnap -t volume -v -i 7
+-------------------------------------------------------------------------------
+Id: 7                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 6                            SourceNames: test_periodsnap6
+Status: 0                               StartTime: 6:00
+SchedType: Daily                        KeepNumber: 128
+Interval: 120                           EndTime: 7:00
+CreateTime: 2017-11-22 17:57:34         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=360,starthour=8, endhour=9, keepnum=128"
+
+periodsnap -a add -t volume -d 8 -s "interval=360,starthour=8, endhour=9, keepnum=128"
+
+administrator@cli> 
+periodsnap -t volume -v -i 8
+-------------------------------------------------------------------------------
+Id: 8                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 7                            SourceNames: test_periodsnap7
+Status: 0                               StartTime: 7:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 240                           EndTime: 8:00
+CreateTime: 2017-11-22 17:57:37         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=480,starthour=9, endhour=10, keepnum=127"
+
+periodsnap -a add -t volume -d 9 -s "interval=480,starthour=9, endhour=10, keepnum=127"
+
+administrator@cli> 
+periodsnap -t volume -v -i 9
+-------------------------------------------------------------------------------
+Id: 9                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 8                            SourceNames: test_periodsnap8
+Status: 0                               StartTime: 8:00
+SchedType: Daily                        KeepNumber: 128
+Interval: 360                           EndTime: 9:00
+CreateTime: 2017-11-22 17:57:40         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=600,starthour=10, endhour=11, keepnum=128"
+
+periodsnap -a add -t volume -d 10 -s "interval=600,starthour=10, endhour=11, keepnum=128"
+Error (0x4100104): Incorrect parameters: The parameter [interval] is invalid.
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t volume -d 10 -s "interval=600,starthour=10, endhour=11, keepnum=128"
+
+
+Expect: periodsnap of volume type should be added by "starthour=0, endhour=12, keepnum=1"
+
+periodsnap -a add -t nasshare -d 0 -s "starthour=0, endhour=12, keepnum=1"
+
+administrator@cli> 
+periodsnap -t nasshare -v -i 0
+-i: specific schedule snapshot task not exists
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=720,starthour=12, endhour=13, keepnum=2,status=disable,recurtype=daily"
+
+periodsnap -a add -t nasshare -d 1 -s "interval=720,starthour=12, endhour=13, keepnum=2,status=disable,recurtype=daily"
+
+administrator@cli> 
+periodsnap -t nasshare -v -i 1
+-i: specific schedule snapshot task not exists
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=840,starthour=13, endhour=14, keepnum=127,status=enable,recurtype=daily"
+
+periodsnap -a add -t nasshare -d 2 -s "interval=840,starthour=13, endhour=14, keepnum=127,status=enable,recurtype=daily"
+Error (0x4100104): Incorrect parameters: The parameter [interval] is invalid.
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t nasshare -d 2 -s "interval=840,starthour=13, endhour=14, keepnum=127,status=enable,recurtype=daily"
+
+
+Expect: periodsnap of volume type should be added by "interval=960,starthour=14, endhour=15, keepnum=128"
+
+periodsnap -a add -t nasshare -d 3 -s "interval=960,starthour=14, endhour=15, keepnum=128"
+Error (0x4100104): Incorrect parameters: The parameter [interval] is invalid.
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t nasshare -d 3 -s "interval=960,starthour=14, endhour=15, keepnum=128"
+
+
+Expect: periodsnap of volume type should be added by "interval=1080,starthour=15, endhour=16, keepnum=127"
+
+periodsnap -a add -t nasshare -d 4 -s "interval=1080,starthour=15, endhour=16, keepnum=127"
+Error (0x4100104): Incorrect parameters: The parameter [interval] is invalid.
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t nasshare -d 4 -s "interval=1080,starthour=15, endhour=16, keepnum=127"
+
+
+Expect: periodsnap of volume type should be added by "interval=1200,starthour=16, endhour=17, keepnum=128"
+
+periodsnap -a add -t nasshare -d 5 -s "interval=1200,starthour=16, endhour=17, keepnum=128"
+Error (0x4100104): Incorrect parameters: The parameter [interval] is invalid.
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t nasshare -d 5 -s "interval=1200,starthour=16, endhour=17, keepnum=128"
+
+
+Expect: periodsnap of volume type should be added by "interval=1320,starthour=17, endhour=18, keepnum=127"
+
+periodsnap -a add -t nasshare -d 6 -s "interval=1320,starthour=17, endhour=18, keepnum=127"
+Error (0x4100104): Incorrect parameters: The parameter [interval] is invalid.
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t nasshare -d 6 -s "interval=1320,starthour=17, endhour=18, keepnum=127"
+
+
+Expect: periodsnap of volume type should be added by "interval=1400,starthour=18, endhour=19, keepnum=128"
+
+periodsnap -a add -t nasshare -d 7 -s "interval=1440,starthour=18, endhour=19, keepnum=128"
+
+administrator@cli> 
+periodsnap -t nasshare -v -i 7
+-i: specific schedule snapshot task not exists
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "starthour=0,keepnum=128,status=disable,recurtype=weekly,dow=sun"
+
+periodsnap -a add -t volume -d 11 -s "starthour=0,keepnum=128,status=disable,recurtype=weekly,dow=sun"
+
+administrator@cli> 
+periodsnap -t volume -v -i 11
+-i: specific schedule snapshot task not exists
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "starthour=1,keepnum=127,status=enable,recurtype=weekly,dow=mon"
+
+periodsnap -a add -t volume -d 12 -s "starthour=1,keepnum=127,status=enable,recurtype=weekly,dow=mon"
+
+administrator@cli> 
+periodsnap -t volume -v -i 12
+-i: specific schedule snapshot task not exists
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "starthour=2,keepnum=128,status=disable,recurtype=weekly,dow=tues"
+
+periodsnap -a add -t volume -d 13 -s "starthour=2,keepnum=128,status=disable,recurtype=weekly,dow=tues"
+
+administrator@cli> 
+periodsnap -t volume -v -i 13
+-i: specific schedule snapshot task not exists
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "starthour=20,keepnum=127,status=enable,recurtype=weekly,dow=wed"
+
+periodsnap -a add -t nasshare -d 8 -s "starthour=20,keepnum=127,status=enable,recurtype=weekly,dow=wed"
+
+administrator@cli> 
+periodsnap -t nasshare -v -i 8
+-i: specific schedule snapshot task not exists
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "starthour=21,keepnum=128,status=disable,recurtype=weekly,dow=thur"
+
+periodsnap -a add -t nasshare -d 9 -s "starthour=21,keepnum=128,status=disable,recurtype=weekly,dow=thur"
+
+administrator@cli> 
+periodsnap -t nasshare -v -i 9
+-i: specific schedule snapshot task not exists
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "starthour=22,keepnum=127,recurtype=weekly,dow=fri"
+
+periodsnap -a add -t nasshare -d 10 -s "starthour=22,keepnum=127,recurtype=weekly,dow=fri"
+
+administrator@cli> 
+periodsnap -t nasshare -v -i 10
+-i: specific schedule snapshot task not exists
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "starthour=23,keepnum=128,,recurtype=weekly,dow=sat"
+
+periodsnap -a add -t nasshare -d 11 -s "starthour=23,keepnum=128,,recurtype=weekly,dow=sat"
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t nasshare -d 11 -s "starthour=23,keepnum=128,,recurtype=weekly,dow=sat"
+
+'result': 'f'
+
+Expect: periodsnap of volume type should be added by "starthour=0, endhour=1, keepnum=1"
+
+periodsnap -a add -t volume -d 0 -s "starthour=0, endhour=1, keepnum=1"
+
+administrator@cli> 
+periodsnap -t volume -v -i 1
+-------------------------------------------------------------------------------
+Id: 1                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 0                            SourceNames: test_periodsnap0
+Status: 0                               StartTime: 0:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 60                            EndTime: 1:00
+CreateTime: 2017-11-23 10:34:45         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=5,starthour=1, endhour=2, keepnum=1"
+
+periodsnap -a add -t volume -d 1 -s "interval=5,starthour=1, endhour=2, keepnum=1"
+
+administrator@cli> 
+periodsnap -t volume -v -i 2
+-------------------------------------------------------------------------------
+Id: 2                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 1                            SourceNames: test_periodsnap1
+Status: 0                               StartTime: 1:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 5                             EndTime: 2:00
+CreateTime: 2017-11-23 10:34:48         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=10,starthour=2, endhour=3, keepnum=2,status=disable,recurtype=daily"
+
+periodsnap -a add -t volume -d 2 -s "interval=10,starthour=2, endhour=3, keepnum=2,status=disable,recurtype=daily"
+
+administrator@cli> 
+periodsnap -t volume -v -i 3
+-------------------------------------------------------------------------------
+Id: 3                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 2                            SourceNames: test_periodsnap2
+Status: 0                               StartTime: 2:00
+SchedType: Daily                        KeepNumber: 2
+Interval: 10                            EndTime: 3:00
+CreateTime: 2017-11-23 10:34:51         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=15,starthour=3, endhour=4, keepnum=127,status=enable,recurtype=daily"
+
+periodsnap -a add -t volume -d 3 -s "interval=15,starthour=3, endhour=4, keepnum=127,status=enable,recurtype=daily"
+
+administrator@cli> 
+periodsnap -t volume -v -i 4
+-------------------------------------------------------------------------------
+Id: 4                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 3                            SourceNames: test_periodsnap3
+Status: 1                               StartTime: 3:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 15                            EndTime: 4:00
+CreateTime: 2017-11-23 10:34:55         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=30,starthour=4, endhour=5, keepnum=128"
+
+periodsnap -a add -t volume -d 4 -s "interval=30,starthour=4, endhour=5, keepnum=128"
+
+administrator@cli> 
+periodsnap -t volume -v -i 5
+-------------------------------------------------------------------------------
+Id: 5                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 4                            SourceNames: test_periodsnap4
+Status: 0                               StartTime: 4:00
+SchedType: Daily                        KeepNumber: 128
+Interval: 30                            EndTime: 5:00
+CreateTime: 2017-11-23 10:34:58         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=60,starthour=5, endhour=6, keepnum=127"
+
+periodsnap -a add -t volume -d 5 -s "interval=60,starthour=5, endhour=6, keepnum=127"
+
+administrator@cli> 
+periodsnap -t volume -v -i 6
+-------------------------------------------------------------------------------
+Id: 6                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 5                            SourceNames: test_periodsnap5
+Status: 0                               StartTime: 5:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 60                            EndTime: 6:00
+CreateTime: 2017-11-23 10:35:01         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=120,starthour=6, endhour=7, keepnum=128"
+
+periodsnap -a add -t volume -d 6 -s "interval=120,starthour=6, endhour=7, keepnum=128"
+
+administrator@cli> 
+periodsnap -t volume -v -i 7
+-------------------------------------------------------------------------------
+Id: 7                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 6                            SourceNames: test_periodsnap6
+Status: 0                               StartTime: 6:00
+SchedType: Daily                        KeepNumber: 128
+Interval: 120                           EndTime: 7:00
+CreateTime: 2017-11-23 10:35:05         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=240,starthour=7, endhour=8, keepnum=127"
+
+periodsnap -a add -t volume -d 7 -s "interval=240,starthour=7, endhour=8, keepnum=127"
+
+administrator@cli> 
+periodsnap -t volume -v -i 8
+-------------------------------------------------------------------------------
+Id: 8                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 7                            SourceNames: test_periodsnap7
+Status: 0                               StartTime: 7:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 240                           EndTime: 8:00
+CreateTime: 2017-11-23 10:35:08         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=360,starthour=8, endhour=9, keepnum=128"
+
+periodsnap -a add -t volume -d 8 -s "interval=360,starthour=8, endhour=9, keepnum=128"
+
+administrator@cli> 
+periodsnap -t volume -v -i 9
+-------------------------------------------------------------------------------
+Id: 9                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 8                            SourceNames: test_periodsnap8
+Status: 0                               StartTime: 8:00
+SchedType: Daily                        KeepNumber: 128
+Interval: 360                           EndTime: 9:00
+CreateTime: 2017-11-23 10:35:11         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=480,starthour=9, endhour=10, keepnum=127"
+
+periodsnap -a add -t volume -d 9 -s "interval=480,starthour=9, endhour=10, keepnum=127"
+
+administrator@cli> 
+periodsnap -t volume -v -i 10
+-------------------------------------------------------------------------------
+Id: 10                                  Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 9                            SourceNames: test_periodsnap9
+Status: 0                               StartTime: 9:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 480                           EndTime: 10:00
+CreateTime: 2017-11-23 10:35:15         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=600,starthour=10, endhour=11, keepnum=128"
+
+periodsnap -a add -t volume -d 10 -s "interval=600,starthour=10, endhour=11, keepnum=128"
+Error (0x4100104): Incorrect parameters: The parameter [interval] is invalid.
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t volume -d 10 -s "interval=600,starthour=10, endhour=11, keepnum=128"
+
+
+Expect: periodsnap of volume type should be added by "starthour=0, endhour=12, keepnum=1"
+
+periodsnap -a add -t nasshare -d 0 -s "starthour=0, endhour=12, keepnum=1"
+
+administrator@cli> 
+periodsnap -t nasshare -v -i 12
+-i: specific schedule snapshot task not exists
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=720,starthour=12, endhour=13, keepnum=2,status=disable,recurtype=daily"
+
+periodsnap -a add -t nasshare -d 1 -s "interval=720,starthour=12, endhour=13, keepnum=2,status=disable,recurtype=daily"
+
+administrator@cli> 
+periodsnap -t nasshare -v -i 13
+-i: specific schedule snapshot task not exists
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=1400,starthour=18, endhour=19, keepnum=128"
+
+periodsnap -a add -t nasshare -d 2 -s "interval=1440,starthour=18, endhour=19, keepnum=128"
+
+administrator@cli> 
+periodsnap -t nasshare -v -i 14
+-i: specific schedule snapshot task not exists
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "starthour=0,keepnum=128,status=disable,recurtype=weekly,dow=sun"
+
+periodsnap -a add -t volume -d 11 -s "starthour=0,keepnum=128,status=disable,recurtype=weekly,dow=sun"
+
+administrator@cli> 
+periodsnap -t volume -v -i 15
+-i: specific schedule snapshot task not exists
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "starthour=1,keepnum=127,status=enable,recurtype=weekly,dow=mon"
+
+periodsnap -a add -t volume -d 12 -s "starthour=1,keepnum=127,status=enable,recurtype=weekly,dow=mon"
+
+administrator@cli> 
+periodsnap -t volume -v -i 16
+-i: specific schedule snapshot task not exists
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "starthour=2,keepnum=128,status=disable,recurtype=weekly,dow=tues"
+
+periodsnap -a add -t volume -d 13 -s "starthour=2,keepnum=128,status=disable,recurtype=weekly,dow=tues"
+
+administrator@cli> 
+periodsnap -t volume -v -i 17
+-i: specific schedule snapshot task not exists
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "starthour=20,keepnum=127,status=enable,recurtype=weekly,dow=wed"
+
+periodsnap -a add -t nasshare -d 3 -s "starthour=20,keepnum=127,status=enable,recurtype=weekly,dow=wed"
+
+administrator@cli> 
+periodsnap -t nasshare -v -i 18
+-i: specific schedule snapshot task not exists
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "starthour=21,keepnum=128,status=disable,recurtype=weekly,dow=thur"
+
+periodsnap -a add -t nasshare -d 4 -s "starthour=21,keepnum=128,status=disable,recurtype=weekly,dow=thur"
+
+administrator@cli> 
+periodsnap -t nasshare -v -i 19
+-i: specific schedule snapshot task not exists
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "starthour=22,keepnum=127,recurtype=weekly,dow=fri"
+
+periodsnap -a add -t nasshare -d 5 -s "starthour=22,keepnum=127,recurtype=weekly,dow=fri"
+
+administrator@cli> 
+periodsnap -t nasshare -v -i 20
+-i: specific schedule snapshot task not exists
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "starthour=23,keepnum=128,,recurtype=weekly,dow=sat"
+
+periodsnap -a add -t nasshare -d 6 -s "starthour=23,keepnum=128,,recurtype=weekly,dow=sat"
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t nasshare -d 6 -s "starthour=23,keepnum=128,,recurtype=weekly,dow=sat"
+
+'result': 'f'
+
+Expect: periodsnap of volume type should be added by "starthour=0, endhour=1, keepnum=1"
+
+periodsnap -a add -t volume -d 0 -s "starthour=0, endhour=1, keepnum=1"
+
+administrator@cli> 
+periodsnap -t volume -v -i 1
+-------------------------------------------------------------------------------
+Id: 1                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 0                            SourceNames: test_periodsnap0
+Status: Disabled                        StartTime: 0:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 60                            EndTime: 1:00
+CreateTime: 2017-11-23 13:07:00         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=5,starthour=1, endhour=2, keepnum=1"
+
+periodsnap -a add -t volume -d 1 -s "interval=5,starthour=1, endhour=2, keepnum=1"
+
+administrator@cli> 
+periodsnap -t volume -v -i 2
+-------------------------------------------------------------------------------
+Id: 2                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 1                            SourceNames: test_periodsnap1
+Status: Disabled                        StartTime: 1:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 5                             EndTime: 2:00
+CreateTime: 2017-11-23 13:07:03         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=10,starthour=2, endhour=3, keepnum=2,status=disable,recurtype=daily"
+
+periodsnap -a add -t volume -d 2 -s "interval=10,starthour=2, endhour=3, keepnum=2,status=disable,recurtype=daily"
+
+administrator@cli> 
+periodsnap -t volume -v -i 3
+-------------------------------------------------------------------------------
+Id: 3                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 2                            SourceNames: test_periodsnap2
+Status: Disabled                        StartTime: 2:00
+SchedType: Daily                        KeepNumber: 2
+Interval: 10                            EndTime: 3:00
+CreateTime: 2017-11-23 13:07:06         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=15,starthour=3, endhour=4, keepnum=127,status=enable,recurtype=daily"
+
+periodsnap -a add -t volume -d 3 -s "interval=15,starthour=3, endhour=4, keepnum=127,status=enable,recurtype=daily"
+
+administrator@cli> 
+periodsnap -t volume -v -i 4
+-------------------------------------------------------------------------------
+Id: 4                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 3                            SourceNames: test_periodsnap3
+Status: Enabled                         StartTime: 3:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 15                            EndTime: 4:00
+CreateTime: 2017-11-23 13:07:09         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=30,starthour=4, endhour=5, keepnum=128"
+
+periodsnap -a add -t volume -d 4 -s "interval=30,starthour=4, endhour=5, keepnum=128"
+
+administrator@cli> 
+periodsnap -t volume -v -i 5
+-------------------------------------------------------------------------------
+Id: 5                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 4                            SourceNames: test_periodsnap4
+Status: Disabled                        StartTime: 4:00
+SchedType: Daily                        KeepNumber: 128
+Interval: 30                            EndTime: 5:00
+CreateTime: 2017-11-23 13:07:13         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=60,starthour=5, endhour=6, keepnum=127"
+
+periodsnap -a add -t volume -d 5 -s "interval=60,starthour=5, endhour=6, keepnum=127"
+
+administrator@cli> 
+periodsnap -t volume -v -i 6
+-------------------------------------------------------------------------------
+Id: 6                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 5                            SourceNames: test_periodsnap5
+Status: Disabled                        StartTime: 5:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 60                            EndTime: 6:00
+CreateTime: 2017-11-23 13:07:16         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=120,starthour=6, endhour=7, keepnum=128"
+
+periodsnap -a add -t volume -d 6 -s "interval=120,starthour=6, endhour=7, keepnum=128"
+
+administrator@cli> 
+periodsnap -t volume -v -i 7
+-------------------------------------------------------------------------------
+Id: 7                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 6                            SourceNames: test_periodsnap6
+Status: Disabled                        StartTime: 6:00
+SchedType: Daily                        KeepNumber: 128
+Interval: 120                           EndTime: 7:00
+CreateTime: 2017-11-23 13:07:19         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=240,starthour=7, endhour=8, keepnum=127"
+
+periodsnap -a add -t volume -d 7 -s "interval=240,starthour=7, endhour=8, keepnum=127"
+
+administrator@cli> 
+periodsnap -t volume -v -i 8
+-------------------------------------------------------------------------------
+Id: 8                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 7                            SourceNames: test_periodsnap7
+Status: Disabled                        StartTime: 7:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 240                           EndTime: 8:00
+CreateTime: 2017-11-23 13:07:22         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=360,starthour=8, endhour=9, keepnum=128"
+
+periodsnap -a add -t volume -d 8 -s "interval=360,starthour=8, endhour=9, keepnum=128"
+
+administrator@cli> 
+periodsnap -t volume -v -i 9
+-------------------------------------------------------------------------------
+Id: 9                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 8                            SourceNames: test_periodsnap8
+Status: Disabled                        StartTime: 8:00
+SchedType: Daily                        KeepNumber: 128
+Interval: 360                           EndTime: 9:00
+CreateTime: 2017-11-23 13:07:26         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=480,starthour=9, endhour=10, keepnum=127"
+
+periodsnap -a add -t volume -d 9 -s "interval=480,starthour=9, endhour=10, keepnum=127"
+
+administrator@cli> 
+periodsnap -t volume -v -i 10
+-------------------------------------------------------------------------------
+Id: 10                                  Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 9                            SourceNames: test_periodsnap9
+Status: Disabled                        StartTime: 9:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 480                           EndTime: 10:00
+CreateTime: 2017-11-23 13:07:29         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "starthour=0, endhour=12, keepnum=1"
+
+periodsnap -a add -t nasshare -d 0 -s "starthour=0, endhour=12, keepnum=1"
+
+administrator@cli> 
+periodsnap -t nasshare -v -i 11
+-------------------------------------------------------------------------------
+Id: 11                                  Type: nasshare
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 0                            SourceNames: test_periodsnap_0
+Status: Disabled                        StartTime: 0:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 60                            EndTime: 12:00
+CreateTime: 2017-11-23 13:07:32         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=720,starthour=12, endhour=13, keepnum=2,status=disable,recurtype=daily"
+
+periodsnap -a add -t nasshare -d 1 -s "interval=720,starthour=12, endhour=13, keepnum=2,status=disable,recurtype=daily"
+
+administrator@cli> 
+periodsnap -t nasshare -v -i 12
+-------------------------------------------------------------------------------
+Id: 12                                  Type: nasshare
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 1                            SourceNames: test_periodsnap_1
+Status: Disabled                        StartTime: 12:00
+SchedType: Daily                        KeepNumber: 2
+Interval: 720                           EndTime: 13:00
+CreateTime: 2017-11-23 13:07:36         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=1400,starthour=18, endhour=19, keepnum=128"
+
+periodsnap -a add -t nasshare -d 2 -s "interval=1440,starthour=18, endhour=19, keepnum=128,status=enable"
+
+administrator@cli> 
+periodsnap -t nasshare -v -i 13
+-------------------------------------------------------------------------------
+Id: 13                                  Type: nasshare
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 2                            SourceNames: test_periodsnap_2
+Status: Enabled                         StartTime: 18:00
+SchedType: Daily                        KeepNumber: 128
+Interval: 1440                          EndTime: 19:00
+CreateTime: 2017-11-23 13:07:39         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "starthour=0,keepnum=128,status=disable,recurtype=weekly,dow=sun"
+
+periodsnap -a add -t volume -d 10 -s "starthour=0,keepnum=128,status=disable,recurtype=weekly,dow=sun"
+
+administrator@cli> 
+periodsnap -t volume -v -i 14
+-------------------------------------------------------------------------------
+Id: 14                                  Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 10                           SourceNames: test_periodsnap10
+Status: Disabled                        StartTime: 0:00
+SchedType: Weekly                       KeepNumber: 128
+DayOfWeek: Sun                          CreateTime: 2017-11-23 13:07:42
+ModifyTime:                             LastExecTime: 
+LastExecResult: Success                 OperationalStatus: OK
+SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "starthour=1,keepnum=127,status=enable,recurtype=weekly,dow=mon"
+
+periodsnap -a add -t volume -d 11 -s "starthour=1,keepnum=127,status=enable,recurtype=weekly,dow=mon"
+
+administrator@cli> 
+periodsnap -t volume -v -i 15
+-------------------------------------------------------------------------------
+Id: 15                                  Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 11                           SourceNames: test_periodsnap11
+Status: Enabled                         StartTime: 1:00
+SchedType: Weekly                       KeepNumber: 127
+DayOfWeek: Mon                          CreateTime: 2017-11-23 13:07:45
+ModifyTime:                             LastExecTime: 
+LastExecResult: Success                 OperationalStatus: OK
+SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "starthour=2,keepnum=128,status=disable,recurtype=weekly,dow=tues"
+
+periodsnap -a add -t volume -d 12 -s "starthour=2,keepnum=128,status=disable,recurtype=weekly,dow=tues"
+
+administrator@cli> 
+periodsnap -t volume -v -i 16
+-------------------------------------------------------------------------------
+Id: 16                                  Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 12                           SourceNames: test_periodsnap12
+Status: Disabled                        StartTime: 2:00
+SchedType: Weekly                       KeepNumber: 128
+DayOfWeek: Tues                         CreateTime: 2017-11-23 13:07:49
+ModifyTime:                             LastExecTime: 
+LastExecResult: Success                 OperationalStatus: OK
+SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "starthour=20,keepnum=127,status=enable,recurtype=weekly,dow=wed"
+
+periodsnap -a add -t nasshare -d 3 -s "starthour=20,keepnum=127,status=enable,recurtype=weekly,dow=wed"
+
+administrator@cli> 
+periodsnap -t nasshare -v -i 17
+-------------------------------------------------------------------------------
+Id: 17                                  Type: nasshare
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 3                            SourceNames: test_periodsnap_3
+Status: Enabled                         StartTime: 20:00
+SchedType: Weekly                       KeepNumber: 127
+DayOfWeek: Wed                          CreateTime: 2017-11-23 13:07:52
+ModifyTime:                             LastExecTime: 
+LastExecResult: Success                 OperationalStatus: OK
+SnapIdList: 
+
+administrator@cli> 
+
+Fail: please check out StartTime: 2:00
+
+
+Expect: periodsnap of volume type should be added by "starthour=21,keepnum=128,status=disable,recurtype=weekly,dow=thur"
+
+periodsnap -a add -t nasshare -d 4 -s "starthour=21,keepnum=128,status=disable,recurtype=weekly,dow=thur"
+
+administrator@cli> 
+periodsnap -t nasshare -v -i 18
+-------------------------------------------------------------------------------
+Id: 18                                  Type: nasshare
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 4                            SourceNames: test_periodsnap_4
+Status: Disabled                        StartTime: 21:00
+SchedType: Weekly                       KeepNumber: 128
+DayOfWeek: Thur                         CreateTime: 2017-11-23 13:07:55
+ModifyTime:                             LastExecTime: 
+LastExecResult: Success                 OperationalStatus: OK
+SnapIdList: 
+
+administrator@cli> 
+
+Fail: please check out StartTime: 2:00
+
+
+Expect: periodsnap of volume type should be added by "starthour=22,keepnum=127,recurtype=weekly,dow=fri"
+
+periodsnap -a add -t nasshare -d 5 -s "starthour=22,keepnum=127,recurtype=weekly,dow=fri"
+
+administrator@cli> 
+periodsnap -t nasshare -v -i 19
+-------------------------------------------------------------------------------
+Id: 19                                  Type: nasshare
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 5                            SourceNames: test_periodsnap_5
+Status: Disabled                        StartTime: 22:00
+SchedType: Weekly                       KeepNumber: 127
+DayOfWeek: Fri                          CreateTime: 2017-11-23 13:07:58
+ModifyTime:                             LastExecTime: 
+LastExecResult: Success                 OperationalStatus: OK
+SnapIdList: 
+
+administrator@cli> 
+
+Fail: please check out StartTime: 2:00
+
+
+Expect: periodsnap of volume type should be added by "starthour=23,keepnum=128,,recurtype=weekly,dow=sat"
+
+periodsnap -a add -t nasshare -d 6 -s "starthour=23,keepnum=128,recurtype=weekly,dow=sat"
+
+administrator@cli> 
+periodsnap -t nasshare -v -i 20
+-------------------------------------------------------------------------------
+Id: 20                                  Type: nasshare
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 6                            SourceNames: test_periodsnap_6
+Status: Disabled                        StartTime: 23:00
+SchedType: Weekly                       KeepNumber: 128
+DayOfWeek: Sat                          CreateTime: 2017-11-23 13:08:02
+ModifyTime:                             LastExecTime: 
+LastExecResult: Success                 OperationalStatus: OK
+SnapIdList: 
+
+administrator@cli> 
+
+Fail: please check out StartTime: 2:00
+
+'result': 'f'
+
+Expect: periodsnap of volume type should be added by "starthour=0, endhour=1, keepnum=1"
+
+periodsnap -a add -t volume -d 0 -s "starthour=0, endhour=1, keepnum=1"
+Error (0x4100104): Incorrect parameters: Volume [0] already exist in the other schedule.
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t volume -d 0 -s "starthour=0, endhour=1, keepnum=1"
+
+
+Expect: periodsnap of volume type should be added by "interval=5,starthour=1, endhour=2, keepnum=1"
+
+periodsnap -a add -t volume -d 1 -s "interval=5,starthour=1, endhour=2, keepnum=1"
+Error (0x4100104): Incorrect parameters: Volume [1] already exist in the other schedule.
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t volume -d 1 -s "interval=5,starthour=1, endhour=2, keepnum=1"
+
+
+Expect: periodsnap of volume type should be added by "interval=10,starthour=2, endhour=3, keepnum=2,status=disable,recurtype=daily"
+
+periodsnap -a add -t volume -d 2 -s "interval=10,starthour=2, endhour=3, keepnum=2,status=disable,recurtype=daily"
+Error (0x4100104): Incorrect parameters: Volume [2] already exist in the other schedule.
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t volume -d 2 -s "interval=10,starthour=2, endhour=3, keepnum=2,status=disable,recurtype=daily"
+
+
+Expect: periodsnap of volume type should be added by "interval=15,starthour=3, endhour=4, keepnum=127,status=enable,recurtype=daily"
+
+periodsnap -a add -t volume -d 3 -s "interval=15,starthour=3, endhour=4, keepnum=127,status=enable,recurtype=daily"
+Error (0x4100104): Incorrect parameters: Volume [3] already exist in the other schedule.
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t volume -d 3 -s "interval=15,starthour=3, endhour=4, keepnum=127,status=enable,recurtype=daily"
+
+
+Expect: periodsnap of volume type should be added by "interval=30,starthour=4, endhour=5, keepnum=128"
+
+periodsnap -a add -t volume -d 4 -s "interval=30,starthour=4, endhour=5, keepnum=128"
+Error (0x4100104): Incorrect parameters: Volume [4] already exist in the other schedule.
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t volume -d 4 -s "interval=30,starthour=4, endhour=5, keepnum=128"
+
+
+Expect: periodsnap of volume type should be added by "interval=60,starthour=5, endhour=6, keepnum=127"
+
+periodsnap -a add -t volume -d 5 -s "interval=60,starthour=5, endhour=6, keepnum=127"
+Error (0x4100104): Incorrect parameters: Volume [5] already exist in the other schedule.
+
+administrator@cli> 
+
+Fail: periodsnap -a add -t volume -d 5 -s "interval=60,starthour=5, endhour=6, keepnum=127"
+
+
+Expect: periodsnap of volume type should be added by "interval=120,starthour=6, endhour=7, keepnum=128"
+
+periodsnap -a add -t volume -d 6 -s "interval=120,starthour=6, endhour=7, keepnum=128"
+Error (0x4100104): Incorrect parameters: Volume [6] already exist in the other schedule.
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "starthour=0, endhour=1, keepnum=1"
+
+periodsnap -a add -t volume -d 0 -s "starthour=0, endhour=1, keepnum=1"
+
+administrator@cli> 
+periodsnap -t volume -v -i 1
+-------------------------------------------------------------------------------
+Id: 1                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 0                            SourceNames: test_periodsnap0
+Status: Disabled                        StartTime: 0:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 60                            EndTime: 1:00
+CreateTime: 2017-11-23 13:28:09         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=5,starthour=1, endhour=2, keepnum=1"
+
+periodsnap -a add -t volume -d 1 -s "interval=5,starthour=1, endhour=2, keepnum=1"
+
+administrator@cli> 
+periodsnap -t volume -v -i 2
+-------------------------------------------------------------------------------
+Id: 2                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 1                            SourceNames: test_periodsnap1
+Status: Disabled                        StartTime: 1:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 5                             EndTime: 2:00
+CreateTime: 2017-11-23 13:28:12         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=10,starthour=2, endhour=3, keepnum=2,status=disable,recurtype=daily"
+
+periodsnap -a add -t volume -d 2 -s "interval=10,starthour=2, endhour=3, keepnum=2,status=disable,recurtype=daily"
+
+administrator@cli> 
+periodsnap -t volume -v -i 3
+-------------------------------------------------------------------------------
+Id: 3                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 2                            SourceNames: test_periodsnap2
+Status: Disabled                        StartTime: 2:00
+SchedType: Daily                        KeepNumber: 2
+Interval: 10                            EndTime: 3:00
+CreateTime: 2017-11-23 13:28:15         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=15,starthour=3, endhour=4, keepnum=127,status=enable,recurtype=daily"
+
+periodsnap -a add -t volume -d 3 -s "interval=15,starthour=3, endhour=4, keepnum=127,status=enable,recurtype=daily"
+
+administrator@cli> 
+periodsnap -t volume -v -i 4
+-------------------------------------------------------------------------------
+Id: 4                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 3                            SourceNames: test_periodsnap3
+Status: Enabled                         StartTime: 3:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 15                            EndTime: 4:00
+CreateTime: 2017-11-23 13:28:19         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=30,starthour=4, endhour=5, keepnum=128"
+
+periodsnap -a add -t volume -d 4 -s "interval=30,starthour=4, endhour=5, keepnum=128"
+
+administrator@cli> 
+periodsnap -t volume -v -i 5
+-------------------------------------------------------------------------------
+Id: 5                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 4                            SourceNames: test_periodsnap4
+Status: Disabled                        StartTime: 4:00
+SchedType: Daily                        KeepNumber: 128
+Interval: 30                            EndTime: 5:00
+CreateTime: 2017-11-23 13:28:22         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=60,starthour=5, endhour=6, keepnum=127"
+
+periodsnap -a add -t volume -d 5 -s "interval=60,starthour=5, endhour=6, keepnum=127"
+
+administrator@cli> 
+periodsnap -t volume -v -i 6
+-------------------------------------------------------------------------------
+Id: 6                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 5                            SourceNames: test_periodsnap5
+Status: Disabled                        StartTime: 5:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 60                            EndTime: 6:00
+CreateTime: 2017-11-23 13:28:25         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=120,starthour=6, endhour=7, keepnum=128"
+
+periodsnap -a add -t volume -d 6 -s "interval=120,starthour=6, endhour=7, keepnum=128"
+
+administrator@cli> 
+periodsnap -t volume -v -i 7
+-------------------------------------------------------------------------------
+Id: 7                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 6                            SourceNames: test_periodsnap6
+Status: Disabled                        StartTime: 6:00
+SchedType: Daily                        KeepNumber: 128
+Interval: 120                           EndTime: 7:00
+CreateTime: 2017-11-23 13:28:28         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=240,starthour=7, endhour=8, keepnum=127"
+
+periodsnap -a add -t volume -d 7 -s "interval=240,starthour=7, endhour=8, keepnum=127"
+
+administrator@cli> 
+periodsnap -t volume -v -i 8
+-------------------------------------------------------------------------------
+Id: 8                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 7                            SourceNames: test_periodsnap7
+Status: Disabled                        StartTime: 7:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 240                           EndTime: 8:00
+CreateTime: 2017-11-23 13:28:32         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=360,starthour=8, endhour=9, keepnum=128"
+
+periodsnap -a add -t volume -d 8 -s "interval=360,starthour=8, endhour=9, keepnum=128"
+
+administrator@cli> 
+periodsnap -t volume -v -i 9
+-------------------------------------------------------------------------------
+Id: 9                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 8                            SourceNames: test_periodsnap8
+Status: Disabled                        StartTime: 8:00
+SchedType: Daily                        KeepNumber: 128
+Interval: 360                           EndTime: 9:00
+CreateTime: 2017-11-23 13:28:35         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=480,starthour=9, endhour=10, keepnum=127"
+
+periodsnap -a add -t volume -d 9 -s "interval=480,starthour=9, endhour=10, keepnum=127"
+
+administrator@cli> 
+periodsnap -t volume -v -i 10
+-------------------------------------------------------------------------------
+Id: 10                                  Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 9                            SourceNames: test_periodsnap9
+Status: Disabled                        StartTime: 9:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 480                           EndTime: 10:00
+CreateTime: 2017-11-23 13:28:38         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "starthour=0, endhour=12, keepnum=1"
+
+periodsnap -a add -t nasshare -d 0 -s "starthour=0, endhour=12, keepnum=1"
+
+administrator@cli> 
+periodsnap -t nasshare -v -i 11
+-------------------------------------------------------------------------------
+Id: 11                                  Type: nasshare
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 0                            SourceNames: test_periodsnap_0
+Status: Disabled                        StartTime: 0:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 60                            EndTime: 12:00
+CreateTime: 2017-11-23 13:28:41         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=720,starthour=12, endhour=13, keepnum=2,status=disable,recurtype=daily"
+
+periodsnap -a add -t nasshare -d 1 -s "interval=720,starthour=12, endhour=13, keepnum=2,status=disable,recurtype=daily"
+
+administrator@cli> 
+periodsnap -t nasshare -v -i 12
+-------------------------------------------------------------------------------
+Id: 12                                  Type: nasshare
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 1                            SourceNames: test_periodsnap_1
+Status: Disabled                        StartTime: 12:00
+SchedType: Daily                        KeepNumber: 2
+Interval: 720                           EndTime: 13:00
+CreateTime: 2017-11-23 13:28:45         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "interval=1400,starthour=18, endhour=19, keepnum=128"
+
+periodsnap -a add -t nasshare -d 2 -s "interval=1440,starthour=18, endhour=19, keepnum=128,status=enable"
+
+administrator@cli> 
+periodsnap -t nasshare -v -i 13
+-------------------------------------------------------------------------------
+Id: 13                                  Type: nasshare
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 2                            SourceNames: test_periodsnap_2
+Status: Enabled                         StartTime: 18:00
+SchedType: Daily                        KeepNumber: 128
+Interval: 1440                          EndTime: 19:00
+CreateTime: 2017-11-23 13:28:48         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "starthour=0,keepnum=128,status=disable,recurtype=weekly,dow=sun"
+
+periodsnap -a add -t volume -d 10 -s "starthour=0,keepnum=128,status=disable,recurtype=weekly,dow=sun"
+
+administrator@cli> 
+periodsnap -t volume -v -i 14
+-------------------------------------------------------------------------------
+Id: 14                                  Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 10                           SourceNames: test_periodsnap10
+Status: Disabled                        StartTime: 0:00
+SchedType: Weekly                       KeepNumber: 128
+DayOfWeek: Sun                          CreateTime: 2017-11-23 13:28:51
+ModifyTime:                             LastExecTime: 
+LastExecResult: Success                 OperationalStatus: OK
+SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "starthour=1,keepnum=127,status=enable,recurtype=weekly,dow=mon"
+
+periodsnap -a add -t volume -d 11 -s "starthour=1,keepnum=127,status=enable,recurtype=weekly,dow=mon"
+
+administrator@cli> 
+periodsnap -t volume -v -i 15
+-------------------------------------------------------------------------------
+Id: 15                                  Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 11                           SourceNames: test_periodsnap11
+Status: Enabled                         StartTime: 1:00
+SchedType: Weekly                       KeepNumber: 127
+DayOfWeek: Mon                          CreateTime: 2017-11-23 13:28:54
+ModifyTime:                             LastExecTime: 
+LastExecResult: Success                 OperationalStatus: OK
+SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "starthour=2,keepnum=128,status=disable,recurtype=weekly,dow=tues"
+
+periodsnap -a add -t volume -d 12 -s "starthour=2,keepnum=128,status=disable,recurtype=weekly,dow=tues"
+
+administrator@cli> 
+periodsnap -t volume -v -i 16
+-------------------------------------------------------------------------------
+Id: 16                                  Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 12                           SourceNames: test_periodsnap12
+Status: Disabled                        StartTime: 2:00
+SchedType: Weekly                       KeepNumber: 128
+DayOfWeek: Tues                         CreateTime: 2017-11-23 13:28:58
+ModifyTime:                             LastExecTime: 
+LastExecResult: Success                 OperationalStatus: OK
+SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "starthour=20,keepnum=127,status=enable,recurtype=weekly,dow=wed"
+
+periodsnap -a add -t nasshare -d 3 -s "starthour=20,keepnum=127,status=enable,recurtype=weekly,dow=wed"
+
+administrator@cli> 
+periodsnap -t nasshare -v -i 17
+-------------------------------------------------------------------------------
+Id: 17                                  Type: nasshare
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 3                            SourceNames: test_periodsnap_3
+Status: Enabled                         StartTime: 20:00
+SchedType: Weekly                       KeepNumber: 127
+DayOfWeek: Wed                          CreateTime: 2017-11-23 13:29:01
+ModifyTime:                             LastExecTime: 
+LastExecResult: Success                 OperationalStatus: OK
+SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "starthour=21,keepnum=128,status=disable,recurtype=weekly,dow=thur"
+
+periodsnap -a add -t nasshare -d 4 -s "starthour=21,keepnum=128,status=disable,recurtype=weekly,dow=thur"
+
+administrator@cli> 
+periodsnap -t nasshare -v -i 18
+-------------------------------------------------------------------------------
+Id: 18                                  Type: nasshare
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 4                            SourceNames: test_periodsnap_4
+Status: Disabled                        StartTime: 21:00
+SchedType: Weekly                       KeepNumber: 128
+DayOfWeek: Thur                         CreateTime: 2017-11-23 13:29:04
+ModifyTime:                             LastExecTime: 
+LastExecResult: Success                 OperationalStatus: OK
+SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "starthour=22,keepnum=127,recurtype=weekly,dow=fri"
+
+periodsnap -a add -t nasshare -d 5 -s "starthour=22,keepnum=127,recurtype=weekly,dow=fri"
+
+administrator@cli> 
+periodsnap -t nasshare -v -i 19
+-------------------------------------------------------------------------------
+Id: 19                                  Type: nasshare
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 5                            SourceNames: test_periodsnap_5
+Status: Disabled                        StartTime: 22:00
+SchedType: Weekly                       KeepNumber: 127
+DayOfWeek: Fri                          CreateTime: 2017-11-23 13:29:07
+ModifyTime:                             LastExecTime: 
+LastExecResult: Success                 OperationalStatus: OK
+SnapIdList: 
+
+administrator@cli> 
+
+Expect: periodsnap of volume type should be added by "starthour=23,keepnum=128,,recurtype=weekly,dow=sat"
+
+periodsnap -a add -t nasshare -d 6 -s "starthour=23,keepnum=128,recurtype=weekly,dow=sat"
+
+administrator@cli> 
+periodsnap -t nasshare -v -i 20
+-------------------------------------------------------------------------------
+Id: 20                                  Type: nasshare
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 6                            SourceNames: test_periodsnap_6
+Status: Disabled                        StartTime: 23:00
+SchedType: Weekly                       KeepNumber: 128
+DayOfWeek: Sat                          CreateTime: 2017-11-23 13:29:11
+ModifyTime:                             LastExecTime: 
+LastExecResult: Success                 OperationalStatus: OK
+SnapIdList: 
+
+administrator@cli> 
+'result': 'p'
+
+Expect: all periodsnap of volume type should be listed
+
+periodsnap
+===============================================================================
+Id   Type        SourceIDs             Status    SchedType StartTime KeepNumber
+===============================================================================
+1    volume      0                     Disabled  Daily     0:00      1         
+2    volume      1                     Disabled  Daily     1:00      1         
+3    volume      2                     Disabled  Daily     2:00      2         
+4    volume      3                     Enabled   Daily     3:00      127       
+5    volume      4                     Disabled  Daily     4:00      128       
+6    volume      5                     Disabled  Daily     5:00      127       
+7    volume      6                     Disabled  Daily     6:00      128       
+8    volume      7                     Disabled  Daily     7:00      127       
+9    volume      8                     Disabled  Daily     8:00      128       
+10   volume      9                     Disabled  Daily     9:00      127       
+14   volume      10                    Disabled  Weekly    0:00      128       
+15   volume      11                    Enabled   Weekly    1:00      127       
+16   volume      12                    Disabled  Weekly    2:00      128       
+
+administrator@cli> 
+
+Expect: all periodsnap of volume type should be listed
+
+periodsnap -t volume
+===============================================================================
+Id   Type        SourceIDs             Status    SchedType StartTime KeepNumber
+===============================================================================
+1    volume      0                     Disabled  Daily     0:00      1         
+2    volume      1                     Disabled  Daily     1:00      1         
+3    volume      2                     Disabled  Daily     2:00      2         
+4    volume      3                     Enabled   Daily     3:00      127       
+5    volume      4                     Disabled  Daily     4:00      128       
+6    volume      5                     Disabled  Daily     5:00      127       
+7    volume      6                     Disabled  Daily     6:00      128       
+8    volume      7                     Disabled  Daily     7:00      127       
+9    volume      8                     Disabled  Daily     8:00      128       
+10   volume      9                     Disabled  Daily     9:00      127       
+14   volume      10                    Disabled  Weekly    0:00      128       
+15   volume      11                    Enabled   Weekly    1:00      127       
+16   volume      12                    Disabled  Weekly    2:00      128       
+
+administrator@cli> 
+
+Expect: all periodsnap of nasshare type should be listed
+
+periodsnap -t nasshare
+===============================================================================
+Id   Type        SourceIDs             Status    SchedType StartTime KeepNumber
+===============================================================================
+11   nasshare    0                     Disabled  Daily     0:00      1         
+12   nasshare    1                     Disabled  Daily     12:00     2         
+13   nasshare    2                     Enabled   Daily     18:00     128       
+17   nasshare    3                     Enabled   Weekly    20:00     127       
+18   nasshare    4                     Disabled  Weekly    21:00     128       
+19   nasshare    5                     Disabled  Weekly    22:00     127       
+20   nasshare    6                     Disabled  Weekly    23:00     128       
+
+administrator@cli> 
+
+Expect: specific periodsnap of volume shouled be listed
+
+periodsnap -t volume -i 1
+===============================================================================
+Id   Type        SourceIDs             Status    SchedType StartTime KeepNumber
+===============================================================================
+1    volume      0                     Disabled  Daily     0:00      1         
+
+administrator@cli> 
+
+Expect: specific periodsnap of nasshare shouled be listed
+
+periodsnap -t nasshare -i 1
+-i: specific schedule snapshot task not exists
+
+administrator@cli> 
+
+Fail: please check out Id
+
+
+Fail: please check out Type
+
+
+Fail: please check out SourceIDs
+
+
+Fail: please check out Status
+
+
+Fail: please check out SchedType
+
+
+Fail: please check out StartTime
+
+
+Fail: please check out KeepNumber
+
+'result': 'f'
+
+Expect: all periodsnap of volume type should be listed
+
+periodsnap
+===============================================================================
+Id   Type        SourceIDs             Status    SchedType StartTime KeepNumber
+===============================================================================
+1    volume      0                     Disabled  Daily     0:00      1         
+2    volume      1                     Disabled  Daily     1:00      1         
+3    volume      2                     Disabled  Daily     2:00      2         
+4    volume      3                     Enabled   Daily     3:00      127       
+5    volume      4                     Disabled  Daily     4:00      128       
+6    volume      5                     Disabled  Daily     5:00      127       
+7    volume      6                     Disabled  Daily     6:00      128       
+8    volume      7                     Disabled  Daily     7:00      127       
+9    volume      8                     Disabled  Daily     8:00      128       
+10   volume      9                     Disabled  Daily     9:00      127       
+14   volume      10                    Disabled  Weekly    0:00      128       
+15   volume      11                    Enabled   Weekly    1:00      127       
+16   volume      12                    Disabled  Weekly    2:00      128       
+
+administrator@cli> 
+
+Expect: all periodsnap of volume type should be listed
+
+periodsnap -t volume
+===============================================================================
+Id   Type        SourceIDs             Status    SchedType StartTime KeepNumber
+===============================================================================
+1    volume      0                     Disabled  Daily     0:00      1         
+2    volume      1                     Disabled  Daily     1:00      1         
+3    volume      2                     Disabled  Daily     2:00      2         
+4    volume      3                     Enabled   Daily     3:00      127       
+5    volume      4                     Disabled  Daily     4:00      128       
+6    volume      5                     Disabled  Daily     5:00      127       
+7    volume      6                     Disabled  Daily     6:00      128       
+8    volume      7                     Disabled  Daily     7:00      127       
+9    volume      8                     Disabled  Daily     8:00      128       
+10   volume      9                     Disabled  Daily     9:00      127       
+14   volume      10                    Disabled  Weekly    0:00      128       
+15   volume      11                    Enabled   Weekly    1:00      127       
+16   volume      12                    Disabled  Weekly    2:00      128       
+
+administrator@cli> 
+
+Expect: all periodsnap of nasshare type should be listed
+
+periodsnap -t nasshare
+===============================================================================
+Id   Type        SourceIDs             Status    SchedType StartTime KeepNumber
+===============================================================================
+11   nasshare    0                     Disabled  Daily     0:00      1         
+12   nasshare    1                     Disabled  Daily     12:00     2         
+13   nasshare    2                     Enabled   Daily     18:00     128       
+17   nasshare    3                     Enabled   Weekly    20:00     127       
+18   nasshare    4                     Disabled  Weekly    21:00     128       
+19   nasshare    5                     Disabled  Weekly    22:00     127       
+20   nasshare    6                     Disabled  Weekly    23:00     128       
+
+administrator@cli> 
+
+Expect: specific periodsnap of volume shouled be listed
+
+periodsnap -t volume -i 1
+===============================================================================
+Id   Type        SourceIDs             Status    SchedType StartTime KeepNumber
+===============================================================================
+1    volume      0                     Disabled  Daily     0:00      1         
+
+administrator@cli> 
+
+Expect: specific periodsnap of nasshare shouled be listed
+
+periodsnap -t nasshare -i 11
+===============================================================================
+Id   Type        SourceIDs             Status    SchedType StartTime KeepNumber
+===============================================================================
+11   nasshare    0                     Disabled  Daily     0:00      1         
+
+administrator@cli> 
+'result': 'p'
+
+Expect: all periodsnap of volume type should be listed
+
+periodsnap
+===============================================================================
+Id   Type        SourceIDs             Status    SchedType StartTime KeepNumber
+===============================================================================
+1    volume      0                     Disabled  Daily     0:00      1         
+2    volume      1                     Disabled  Daily     1:00      1         
+3    volume      2                     Disabled  Daily     2:00      2         
+4    volume      3                     Enabled   Daily     3:00      127       
+5    volume      4                     Disabled  Daily     4:00      128       
+6    volume      5                     Disabled  Daily     5:00      127       
+7    volume      6                     Disabled  Daily     6:00      128       
+8    volume      7                     Disabled  Daily     7:00      127       
+9    volume      8                     Disabled  Daily     8:00      128       
+10   volume      9                     Disabled  Daily     9:00      127       
+14   volume      10                    Disabled  Weekly    0:00      128       
+15   volume      11                    Enabled   Weekly    1:00      127       
+16   volume      12                    Disabled  Weekly    2:00      128       
+
+administrator@cli> 
+
+Expect: all periodsnap of volume type should be listed
+
+periodsnap -t volume
+===============================================================================
+Id   Type        SourceIDs             Status    SchedType StartTime KeepNumber
+===============================================================================
+1    volume      0                     Disabled  Daily     0:00      1         
+2    volume      1                     Disabled  Daily     1:00      1         
+3    volume      2                     Disabled  Daily     2:00      2         
+4    volume      3                     Enabled   Daily     3:00      127       
+5    volume      4                     Disabled  Daily     4:00      128       
+6    volume      5                     Disabled  Daily     5:00      127       
+7    volume      6                     Disabled  Daily     6:00      128       
+8    volume      7                     Disabled  Daily     7:00      127       
+9    volume      8                     Disabled  Daily     8:00      128       
+10   volume      9                     Disabled  Daily     9:00      127       
+14   volume      10                    Disabled  Weekly    0:00      128       
+15   volume      11                    Enabled   Weekly    1:00      127       
+16   volume      12                    Disabled  Weekly    2:00      128       
+
+administrator@cli> 
+
+Expect: all periodsnap of nasshare type should be listed
+
+periodsnap -t nasshare
+===============================================================================
+Id   Type        SourceIDs             Status    SchedType StartTime KeepNumber
+===============================================================================
+11   nasshare    0                     Disabled  Daily     0:00      1         
+12   nasshare    1                     Disabled  Daily     12:00     2         
+13   nasshare    2                     Enabled   Daily     18:00     128       
+17   nasshare    3                     Enabled   Weekly    20:00     127       
+18   nasshare    4                     Disabled  Weekly    21:00     128       
+19   nasshare    5                     Disabled  Weekly    22:00     127       
+20   nasshare    6                     Disabled  Weekly    23:00     128       
+
+administrator@cli> 
+
+Expect: specific periodsnap of volume shouled be listed
+
+periodsnap -t volume -i 1
+===============================================================================
+Id   Type        SourceIDs             Status    SchedType StartTime KeepNumber
+===============================================================================
+1    volume      0                     Disabled  Daily     0:00      1         
+
+administrator@cli> 
+
+Expect: specific periodsnap of nasshare shouled be listed
+
+periodsnap -t nasshare -i 11
+===============================================================================
+Id   Type        SourceIDs             Status    SchedType StartTime KeepNumber
+===============================================================================
+11   nasshare    0                     Disabled  Daily     0:00      1         
+
+administrator@cli> 
+'result': 'p'
+
+Expect: all periodsnap of volume type should be listed by verbose mode
+
+periodsnap -v -t volume
+-------------------------------------------------------------------------------
+Id: 1                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 0                            SourceNames: test_periodsnap0
+Status: Disabled                        StartTime: 0:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 60                            EndTime: 1:00
+CreateTime: 2017-11-23 13:28:09         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 2                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 1                            SourceNames: test_periodsnap1
+Status: Disabled                        StartTime: 1:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 5                             EndTime: 2:00
+CreateTime: 2017-11-23 13:28:12         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 3                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 2                            SourceNames: test_periodsnap2
+Status: Disabled                        StartTime: 2:00
+SchedType: Daily                        KeepNumber: 2
+Interval: 10                            EndTime: 3:00
+CreateTime: 2017-11-23 13:28:15         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 4                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 3                            SourceNames: test_periodsnap3
+Status: Enabled                         StartTime: 3:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 15                            EndTime: 4:00
+CreateTime: 2017-11-23 13:28:19         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 5                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 4                            SourceNames: test_periodsnap4
+Status: Disabled                        StartTime: 4:00
+SchedType: Daily                        KeepNumber: 128
+Interval: 30                            EndTime: 5:00
+CreateTime: 2017-11-23 13:28:22         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 6                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 5                            SourceNames: test_periodsnap5
+Status: Disabled                        StartTime: 5:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 60                            EndTime: 6:00
+CreateTime: 2017-11-23 13:28:25         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 7                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 6                            SourceNames: test_periodsnap6
+Status: Disabled                        StartTime: 6:00
+SchedType: Daily                        KeepNumber: 128
+Interval: 120                           EndTime: 7:00
+CreateTime: 2017-11-23 13:28:28         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 8                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 7                            SourceNames: test_periodsnap7
+Status: Disabled                        StartTime: 7:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 240                           EndTime: 8:00
+CreateTime: 2017-11-23 13:28:32         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 9                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 8                            SourceNames: test_periodsnap8
+Status: Disabled                        StartTime: 8:00
+SchedType: Daily                        KeepNumber: 128
+Interval: 360                           EndTime: 9:00
+CreateTime: 2017-11-23 13:28:35         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 10                                  Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 9                            SourceNames: test_periodsnap9
+Status: Disabled                        StartTime: 9:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 480                           EndTime: 10:00
+CreateTime: 2017-11-23 13:28:38         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 14                                  Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 10                           SourceNames: test_periodsnap10
+Status: Disabled                        StartTime: 0:00
+SchedType: Weekly                       KeepNumber: 128
+DayOfWeek: Sun                          CreateTime: 2017-11-23 13:28:51
+ModifyTime:                             LastExecTime: 
+LastExecResult: Success                 OperationalStatus: OK
+SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 15                                  Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 11                           SourceNames: test_periodsnap11
+Status: Enabled                         StartTime: 1:00
+SchedType: Weekly                       KeepNumber: 127
+DayOfWeek: Mon                          CreateTime: 2017-11-23 13:28:54
+ModifyTime:                             LastExecTime: 
+LastExecResult: Success                 OperationalStatus: OK
+SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 16                                  Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 12                           SourceNames: test_periodsnap12
+Status: Disabled                        StartTime: 2:00
+SchedType: Weekly                       KeepNumber: 128
+DayOfWeek: Tues                         CreateTime: 2017-11-23 13:28:58
+ModifyTime:                             LastExecTime: 
+LastExecResult: Success                 OperationalStatus: OK
+SnapIdList: 
+
+administrator@cli> 
+
+Expect: all periodsnap of nasshare type should be listed by verbose mode
+
+periodsnap -v -t nasshare
+-------------------------------------------------------------------------------
+Id: 11                                  Type: nasshare
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 0                            SourceNames: test_periodsnap_0
+Status: Disabled                        StartTime: 0:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 60                            EndTime: 12:00
+CreateTime: 2017-11-23 13:28:41         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 12                                  Type: nasshare
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 1                            SourceNames: test_periodsnap_1
+Status: Disabled                        StartTime: 12:00
+SchedType: Daily                        KeepNumber: 2
+Interval: 720                           EndTime: 13:00
+CreateTime: 2017-11-23 13:28:45         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 13                                  Type: nasshare
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 2                            SourceNames: test_periodsnap_2
+Status: Enabled                         StartTime: 18:00
+SchedType: Daily                        KeepNumber: 128
+Interval: 1440                          EndTime: 19:00
+CreateTime: 2017-11-23 13:28:48         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 17                                  Type: nasshare
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 3                            SourceNames: test_periodsnap_3
+Status: Enabled                         StartTime: 20:00
+SchedType: Weekly                       KeepNumber: 127
+DayOfWeek: Wed                          CreateTime: 2017-11-23 13:29:01
+ModifyTime:                             LastExecTime: 
+LastExecResult: Success                 OperationalStatus: OK
+SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 18                                  Type: nasshare
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 4                            SourceNames: test_periodsnap_4
+Status: Disabled                        StartTime: 21:00
+SchedType: Weekly                       KeepNumber: 128
+DayOfWeek: Thur                         CreateTime: 2017-11-23 13:29:04
+ModifyTime:                             LastExecTime: 
+LastExecResult: Success                 OperationalStatus: OK
+SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 19                                  Type: nasshare
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 5                            SourceNames: test_periodsnap_5
+Status: Disabled                        StartTime: 22:00
+SchedType: Weekly                       KeepNumber: 127
+DayOfWeek: Fri                          CreateTime: 2017-11-23 13:29:07
+ModifyTime:                             LastExecTime: 
+LastExecResult: Success                 OperationalStatus: OK
+SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 20                                  Type: nasshare
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 6                            SourceNames: test_periodsnap_6
+Status: Disabled                        StartTime: 23:00
+SchedType: Weekly                       KeepNumber: 128
+DayOfWeek: Sat                          CreateTime: 2017-11-23 13:29:11
+ModifyTime:                             LastExecTime: 
+LastExecResult: Success                 OperationalStatus: OK
+SnapIdList: 
+
+administrator@cli> 
+
+Expect: specific periodsnap of volume shouled be listed by verbose mode
+
+periodsnap -v -t volume -i 1
+-------------------------------------------------------------------------------
+Id: 1                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 0                            SourceNames: test_periodsnap0
+Status: Disabled                        StartTime: 0:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 60                            EndTime: 1:00
+CreateTime: 2017-11-23 13:28:09         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: specific periodsnap of nasshare shouled be listed by verbose mode
+
+periodsnap -v -t nasshare -i 11
+-------------------------------------------------------------------------------
+Id: 11                                  Type: nasshare
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 0                            SourceNames: test_periodsnap_0
+Status: Disabled                        StartTime: 0:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 60                            EndTime: 12:00
+CreateTime: 2017-11-23 13:28:41         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+'result': 'p'
+
+Expect: all periodsnap of volume type should be listed by verbose mode
+
+periodsnap -v -t volume
+-------------------------------------------------------------------------------
+Id: 1                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 0                            SourceNames: test_periodsnap0
+Status: Disabled                        StartTime: 0:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 60                            EndTime: 1:00
+CreateTime: 2017-11-23 13:28:09         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 2                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 1                            SourceNames: test_periodsnap1
+Status: Disabled                        StartTime: 1:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 5                             EndTime: 2:00
+CreateTime: 2017-11-23 13:28:12         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 3                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 2                            SourceNames: test_periodsnap2
+Status: Disabled                        StartTime: 2:00
+SchedType: Daily                        KeepNumber: 2
+Interval: 10                            EndTime: 3:00
+CreateTime: 2017-11-23 13:28:15         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 4                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 3                            SourceNames: test_periodsnap3
+Status: Enabled                         StartTime: 3:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 15                            EndTime: 4:00
+CreateTime: 2017-11-23 13:28:19         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 5                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 4                            SourceNames: test_periodsnap4
+Status: Disabled                        StartTime: 4:00
+SchedType: Daily                        KeepNumber: 128
+Interval: 30                            EndTime: 5:00
+CreateTime: 2017-11-23 13:28:22         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 6                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 5                            SourceNames: test_periodsnap5
+Status: Disabled                        StartTime: 5:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 60                            EndTime: 6:00
+CreateTime: 2017-11-23 13:28:25         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 7                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 6                            SourceNames: test_periodsnap6
+Status: Disabled                        StartTime: 6:00
+SchedType: Daily                        KeepNumber: 128
+Interval: 120                           EndTime: 7:00
+CreateTime: 2017-11-23 13:28:28         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 8                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 7                            SourceNames: test_periodsnap7
+Status: Disabled                        StartTime: 7:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 240                           EndTime: 8:00
+CreateTime: 2017-11-23 13:28:32         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 9                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 8                            SourceNames: test_periodsnap8
+Status: Disabled                        StartTime: 8:00
+SchedType: Daily                        KeepNumber: 128
+Interval: 360                           EndTime: 9:00
+CreateTime: 2017-11-23 13:28:35         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 10                                  Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 9                            SourceNames: test_periodsnap9
+Status: Disabled                        StartTime: 9:00
+SchedType: Daily                        KeepNumber: 127
+Interval: 480                           EndTime: 10:00
+CreateTime: 2017-11-23 13:28:38         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 14                                  Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 10                           SourceNames: test_periodsnap10
+Status: Disabled                        StartTime: 0:00
+SchedType: Weekly                       KeepNumber: 128
+DayOfWeek: Sun                          CreateTime: 2017-11-23 13:28:51
+ModifyTime:                             LastExecTime: 
+LastExecResult: Success                 OperationalStatus: OK
+SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 15                                  Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 11                           SourceNames: test_periodsnap11
+Status: Enabled                         StartTime: 1:00
+SchedType: Weekly                       KeepNumber: 127
+DayOfWeek: Mon                          CreateTime: 2017-11-23 13:28:54
+ModifyTime:                             LastExecTime: 
+LastExecResult: Success                 OperationalStatus: OK
+SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 16                                  Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 12                           SourceNames: test_periodsnap12
+Status: Disabled                        StartTime: 2:00
+SchedType: Weekly                       KeepNumber: 128
+DayOfWeek: Tues                         CreateTime: 2017-11-23 13:28:58
+ModifyTime:                             LastExecTime: 
+LastExecResult: Success                 OperationalStatus: OK
+SnapIdList: 
+
+administrator@cli> 
+
+Expect: all periodsnap of nasshare type should be listed by verbose mode
+
+periodsnap -v -t nasshare
+-------------------------------------------------------------------------------
+Id: 11                                  Type: nasshare
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 0                            SourceNames: test_periodsnap_0
+Status: Disabled                        StartTime: 0:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 60                            EndTime: 12:00
+CreateTime: 2017-11-23 13:28:41         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 12                                  Type: nasshare
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 1                            SourceNames: test_periodsnap_1
+Status: Disabled                        StartTime: 12:00
+SchedType: Daily                        KeepNumber: 2
+Interval: 720                           EndTime: 13:00
+CreateTime: 2017-11-23 13:28:45         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 13                                  Type: nasshare
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 2                            SourceNames: test_periodsnap_2
+Status: Enabled                         StartTime: 18:00
+SchedType: Daily                        KeepNumber: 128
+Interval: 1440                          EndTime: 19:00
+CreateTime: 2017-11-23 13:28:48         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 17                                  Type: nasshare
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 3                            SourceNames: test_periodsnap_3
+Status: Enabled                         StartTime: 20:00
+SchedType: Weekly                       KeepNumber: 127
+DayOfWeek: Wed                          CreateTime: 2017-11-23 13:29:01
+ModifyTime:                             LastExecTime: 
+LastExecResult: Success                 OperationalStatus: OK
+SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 18                                  Type: nasshare
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 4                            SourceNames: test_periodsnap_4
+Status: Disabled                        StartTime: 21:00
+SchedType: Weekly                       KeepNumber: 128
+DayOfWeek: Thur                         CreateTime: 2017-11-23 13:29:04
+ModifyTime:                             LastExecTime: 
+LastExecResult: Success                 OperationalStatus: OK
+SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 19                                  Type: nasshare
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 5                            SourceNames: test_periodsnap_5
+Status: Disabled                        StartTime: 22:00
+SchedType: Weekly                       KeepNumber: 127
+DayOfWeek: Fri                          CreateTime: 2017-11-23 13:29:07
+ModifyTime:                             LastExecTime: 
+LastExecResult: Success                 OperationalStatus: OK
+SnapIdList: 
+-------------------------------------------------------------------------------
+Id: 20                                  Type: nasshare
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 6                            SourceNames: test_periodsnap_6
+Status: Disabled                        StartTime: 23:00
+SchedType: Weekly                       KeepNumber: 128
+DayOfWeek: Sat                          CreateTime: 2017-11-23 13:29:11
+ModifyTime:                             LastExecTime: 
+LastExecResult: Success                 OperationalStatus: OK
+SnapIdList: 
+
+administrator@cli> 
+
+Expect: specific periodsnap of volume shouled be listed by verbose mode
+
+periodsnap -v -t volume -i 1
+-------------------------------------------------------------------------------
+Id: 1                                   Type: volume
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 0                            SourceNames: test_periodsnap0
+Status: Disabled                        StartTime: 0:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 60                            EndTime: 1:00
+CreateTime: 2017-11-23 13:28:09         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+
+Expect: specific periodsnap of nasshare shouled be listed by verbose mode
+
+periodsnap -v -t nasshare -i 11
+-------------------------------------------------------------------------------
+Id: 11                                  Type: nasshare
+PoolId: 0                               PoolName: test_periodsnap_pool
+SourceIDs: 0                            SourceNames: test_periodsnap_0
+Status: Disabled                        StartTime: 0:00
+SchedType: Daily                        KeepNumber: 1
+Interval: 60                            EndTime: 12:00
+CreateTime: 2017-11-23 13:28:41         ModifyTime: 
+LastExecTime:                           LastExecResult: Success
+OperationalStatus: OK                   SnapIdList: 
+
+administrator@cli> 
+'result': 'p'
+
+Expect: all periodsnap of volume type should be listed
+
+periodsnap
+===============================================================================
+Id   Type        SourceIDs             Status    SchedType StartTime KeepNumber
+===============================================================================
+1    volume      0                     Disabled  Daily     0:00      1         
+2    volume      1                     Disabled  Daily     1:00      1         
+3    volume      2                     Disabled  Daily     2:00      2         
+4    volume      3                     Enabled   Daily     3:00      127       
+5    volume      4                     Disabled  Daily     4:00      128       
+6    volume      5                     Disabled  Daily     5:00      127       
+7    volume      6                     Disabled  Daily     6:00      128       
+8    volume      7                     Disabled  Daily     7:00      127       
+9    volume      8                     Disabled  Daily     8:00      128       
+10   volume      9                     Disabled  Daily     9:00      127       
+14   volume      10                    Disabled  Weekly    0:00      128       
+15   volume      11                    Enabled   Weekly    1:00      127       
+16   volume      12                    Disabled  Weekly    2:00      128       
+
+administrator@cli> 
+
+Expect: all periodsnap of volume type should be listed
+
+periodsnap -t volume
+===============================================================================
+Id   Type        SourceIDs             Status    SchedType StartTime KeepNumber
+===============================================================================
+1    volume      0                     Disabled  Daily     0:00      1         
+2    volume      1                     Disabled  Daily     1:00      1         
+3    volume      2                     Disabled  Daily     2:00      2         
+4    volume      3                     Enabled   Daily     3:00      127       
+5    volume      4                     Disabled  Daily     4:00      128       
+6    volume      5                     Disabled  Daily     5:00      127       
+7    volume      6                     Disabled  Daily     6:00      128       
+8    volume      7                     Disabled  Daily     7:00      127       
+9    volume      8                     Disabled  Daily     8:00      128       
+10   volume      9                     Disabled  Daily     9:00      127       
+14   volume      10                    Disabled  Weekly    0:00      128       
+15   volume      11                    Enabled   Weekly    1:00      127       
+16   volume      12                    Disabled  Weekly    2:00      128       
+
+administrator@cli> 
+
+Expect: all periodsnap of nasshare type should be listed
+
+periodsnap -t nasshare
+===============================================================================
+Id   Type        SourceIDs             Status    SchedType StartTime KeepNumber
+===============================================================================
+11   nasshare    0                     Disabled  Daily     0:00      1         
+12   nasshare    1                     Disabled  Daily     12:00     2         
+13   nasshare    2                     Enabled   Daily     18:00     128       
+17   nasshare    3                     Enabled   Weekly    20:00     127       
+18   nasshare    4                     Disabled  Weekly    21:00     128       
+19   nasshare    5                     Disabled  Weekly    22:00     127       
+20   nasshare    6                     Disabled  Weekly    23:00     128       
+
+administrator@cli> 
+
+Expect: specific periodsnap of volume shouled be listed
+
+periodsnap -t volume -i 1
+===============================================================================
+Id   Type        SourceIDs             Status    SchedType StartTime KeepNumber
+===============================================================================
+1    volume      0                     Disabled  Daily     0:00      1         
+
+administrator@cli> 
+
+Expect: specific periodsnap of nasshare shouled be listed
+
+periodsnap -t nasshare -i 11
+===============================================================================
+Id   Type        SourceIDs             Status    SchedType StartTime KeepNumber
+===============================================================================
+11   nasshare    0                     Disabled  Daily     0:00      1         
+
+administrator@cli> 
+'result': 'p'
