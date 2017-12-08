@@ -44,11 +44,12 @@ def clean_up_environment():
 
 
 def add_periodsnap(c):
+    # precondition
+    clean_up_environment()
+
+    precondition()
 
     cli_setting = cli_test_setting()
-
-    # precondition
-    precondition()
 
     cli_setting.setting(c, data, 'add_periodsnap', 3)
 
@@ -83,28 +84,56 @@ def mod_periodsnap(c):
 
 
 def del_periodsnap(c):
-    pass
+
+    cli_delete = cli_test_delete()
+
+    cli_delete.delete(c, data, 'del_periodsnap')
+
+    return cli_delete.FailFlag
 
 
 def invalid_setting_for_periodsnap(c):
-    pass
+
+    cli_failed_test = cli_test_failed_test()
+
+    cli_failed_test.failed_test(c, data, 'invalid_setting_for_periodsnap')
+
+    return cli_failed_test.FailFlag
 
 
 def invalid_option_for_periodsnap(c):
-    pass
+
+    cli_failed_test = cli_test_failed_test()
+
+    cli_failed_test.failed_test(c, data, 'invalid_option_for_periodsnap')
+
+    return cli_failed_test.FailFlag
 
 
 def missing_parameter_periodsnap(c):
-    pass
+
+    cli_failed_test = cli_test_failed_test()
+
+    cli_failed_test.failed_test(c, data, 'missing_parameter_periodsnap')
+
+    # clean_up_environment
+    clean_up_environment()
+
+    return cli_failed_test.FailFlag
 
 
 if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
 
-    # add_periodsnap(c)
+    add_periodsnap(c)
     list_periodsnap(c)
-    # list_periodsnap_by_verbose_mode(c)
+    list_periodsnap_by_verbose_mode(c)
+    mod_periodsnap(c)
+    del_periodsnap(c)
+    invalid_setting_for_periodsnap(c)
+    invalid_option_for_periodsnap(c)
+    missing_parameter_periodsnap(c)
 
     ssh.close()
     elasped = time.clock() - start
