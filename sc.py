@@ -1,159 +1,89 @@
-# coding=utf-8
+# --coding = utf-8--
+# 2017.12.08
 
-from send_cmd import *
-from to_log import *
 from ssh_connect import ssh_conn
+import time
+import json
+from cli_test import *
+from remote import server
+from find_unconfigured_pd_id import find_pd_id
 
-Pass = "'result': 'p'"
-Fail = "'result': 'f'"
+data = 'data/sc.xlsx'
 
-def verifySc(c):
-    FailFlag = False
-    tolog("<b>Verify sc </b>")
 
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify sc </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
+def precondition():
 
-    return FailFlag
+    pdId = find_pd_id()
 
-def verifyScList(c):
-    FailFlag = False
-    tolog("<b>Verify sc -a list </b>")
+    # create pool
+    server.webapi('post', 'pool', {"name": "test_phy_1", "pds": pdId[:4], "raid_level": "raid5"})
 
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify sc -a list </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
+    # create spare
+    server.webapi('post', 'spare', {"pd_id": pdId[4], "dedicated": 'global', "revertible": 0})
+    server.webapi('post', 'spare', {"pd_id": pdId[5], "dedicated": 'dedicated', "revertible": 0, "pool_list": [0]})
 
-    return FailFlag
 
-def verifyScStart(c):
-    FailFlag = False
-    tolog("<b>Verify sc -a start </b>")
+def start_sc(c):
 
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify sc -a start </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
+    # precondition
+    # precondition()
 
-    return FailFlag
+    cli_other_action = cli_test_other_action()
 
-def verifyScSpecifyInexistentId(c):
-    FailFlag = False
-    tolog("<b> Verify sc specify inexistent Id </b>")
-    # -i <Spare ID> (0,255)
+    cli_other_action.other(c, data, 'start_sc')
 
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify sc specify inexistent Id </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
+    return cli_other_action.FailFlag
 
-    return FailFlag
 
-def verifyScInvalidOption(c):
-    FailFlag = False
-    tolog("<b>Verify sc invalid option</b>")
+def list_sc(c):
 
-    command = [
-        'sc -x',
-        'sc -a list -x',
-        'sc -a start -x'
-    ]
+    cli_list = cli_test_list()
 
-    for com in command:
-        tolog('<b> Verify ' + com + '</b>')
+    cli_list.list(c, data, 'list_sc')
 
-        result = SendCmd(c, com)
+    return cli_list.FailFlag
 
-        if "Error (" not in result or "Invalid option" not in result:
-            FailFlag = True
-            tolog('\n<font color="red">Fail: ' + com + ' </font>')
 
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify sc invalid option </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
+def invalid_setting_for_sc(c):
 
-    return FailFlag
+    cli_failed_test = cli_test_failed_test()
 
-def verifyScInvalidParameters(c):
-    FailFlag = False
-    tolog("<b>Verify sc invalid parameters</b>")
+    cli_failed_test.failed_test(c, data, 'invalid_setting_for_sc')
 
-    command = [
-        'sc test',
-        'sc -a list test',
-        'sc -a start test'
-    ]
+    return cli_failed_test.FailFlag
 
-    for com in command:
-        tolog('<b> Verify ' + com + '</b>')
 
-        result = SendCmd(c, com)
+def invalid_option_for_sc(c):
 
-        if "Error (" not in result or "Invalid setting parameters" not in result:
-            FailFlag = True
-            tolog('\n<font color="red">Fail: ' + com + ' </font>')
+    cli_failed_test = cli_test_failed_test()
 
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify sc invalid parameters </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
+    cli_failed_test.failed_test(c, data, 'invalid_option_for_sc')
 
-    return FailFlag
+    return cli_failed_test.FailFlag
 
-def verifyScMissingParameters(c):
-    FailFlag = False
-    tolog("<b>Verify sc missing parameters</b>")
 
-    command = [
-        'sc -i ',
-        'sc -a list -i ',
-        'sc -a start -i '
-    ]
+def missing_parameter_for_sc(c):
 
-    for com in command:
-        tolog('<b> Verify ' + com + '</b>')
+    cli_failed_test = cli_test_failed_test()
 
-        result = SendCmd(c, com)
+    cli_failed_test.failed_test(c, data, 'invalid_option_for_sc')
 
-        if "Error (" not in result or "Missing parameter" not in result:
-            FailFlag = True
-            tolog('\n<font color="red">Fail: ' + com + ' </font>')
+    # clean up environment
+    find_pd_id()
 
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify sc missing parameters </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
+    return cli_failed_test.FailFlag
 
-    return FailFlag
 
 if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
-    verifySc(c)
-    verifyScList(c)
-    verifyScStart(c)
-    verifyScSpecifyInexistentId(c)
-    verifyScInvalidOption(c)
-    verifyScInvalidParameters(c)
-    verifyScMissingParameters(c)
+
+    start_sc(c)
+    list_sc(c)
+    invalid_setting_for_sc(c)
+    invalid_option_for_sc(c)
+    missing_parameter_for_sc(c)
+
     ssh.close()
     elasped = time.clock() - start
     print "Elasped %s" % elasped

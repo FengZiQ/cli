@@ -51,7 +51,26 @@ def BuildVerification(c):
                 sleep(4)
 
     if reconnectflag:
-        # there are 36 command that can be tested
+        # there are 37 command that can be tested
+        tolog('Start verifying periodsnap')
+        import periodsnap
+        if (periodsnap.add_periodsnap(c)):
+            FailCasesList.append('The case ' + periodsnap.add_periodsnap.__name__ + ' failed')
+        if (periodsnap.list_periodsnap(c)):
+            FailCasesList.append('The case ' + periodsnap.list_periodsnap.__name__ + ' failed')
+        if (periodsnap.list_periodsnap_by_verbose_mode(c)):
+            FailCasesList.append('The case ' + periodsnap.list_periodsnap_by_verbose_mode.__name__ + ' failed')
+        if (periodsnap.mod_periodsnap(c)):
+            FailCasesList.append('The case ' + periodsnap.mod_periodsnap.__name__ + ' failed')
+        if (periodsnap.del_periodsnap(c)):
+            FailCasesList.append('The case ' + periodsnap.del_periodsnap.__name__ + ' failed')
+        if (periodsnap.invalid_setting_for_periodsnap(c)):
+            FailCasesList.append('The case ' + periodsnap.invalid_setting_for_periodsnap.__name__ + ' failed')
+        if (periodsnap.invalid_option_for_periodsnap(c)):
+            FailCasesList.append('The case ' + periodsnap.invalid_option_for_periodsnap.__name__ + ' failed')
+        if (periodsnap.missing_parameter_periodsnap(c)):
+            FailCasesList.append('The case ' + periodsnap.missing_parameter_periodsnap.__name__ + ' failed')
+
         tolog('Start verifying quota')
         import quota
         if (quota.set_quota(c)):

@@ -1,121 +1,25 @@
 
-Expect: Missing parameter
+Expect: Invalid option for the command or the action
 
-periodsnap -t 
-Error (0x403): Missing parameter
--t: missing value
+sc -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
 
 administrator@cli> 
 
-Expect: Missing parameter
+Expect: Invalid option for the command or the action
 
-periodsnap -t nasshare -i
-Error (0x403): Missing parameter
--i: missing value
+sc -a -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
 
 administrator@cli> 
 
-Expect: Missing parameter
+Expect: Invalid option for the command or the action
 
-periodsnap -t volume -i
-Error (0x403): Missing parameter
--i: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-periodsnap -a add
-Error (0x403): Missing parameter
-missing parameter '-t' for '-a add'
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-periodsnap -a add -t 
-Error (0x403): Missing parameter
--t: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-periodsnap -a add -t nasshare 
-Error (0x403): Missing parameter
-missing parameter '-s' for '-a add'
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-periodsnap -a add -t nasshare -d 9 
-Error (0x403): Missing parameter
-missing parameter '-s' for '-a add'
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-periodsnap -a add -t nasshare -d 9 -s 
-Error (0x403): Missing parameter
--s: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-periodsnap -a add -t volume -d 14 -s
-Error (0x403): Missing parameter
--s: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-periodsnap -a mod
-Error (0x403): Missing parameter
-missing parameter '-s' for '-a mod'
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-periodsnap -a mod -i 
-Error (0x403): Missing parameter
--i: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-periodsnap -a mod -i 1 
-Error (0x403): Missing parameter
-missing parameter '-s' for '-a mod'
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-periodsnap -a mod -i 1 -s 
-Error (0x403): Missing parameter
--s: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-periodsnap -a del
-Error (0x403): Missing parameter
-missing parameter '-i' for '-a del'
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-periodsnap -a del -i
-Error (0x403): Missing parameter
--i: missing value
+sc -a start -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
 
 administrator@cli> 
 'result': 'p'
