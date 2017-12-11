@@ -161,14 +161,14 @@ def factorydefaultsPhydrv(c):
         FailFlag = True
         
     checkResult = SendCmd(c, 'phydrv -v')
-    
-    countPD = checkResult.count('-------------------------------------------------------------------------------')
+
+    countPD = checkResult.count('PdId:')
     
     checkpoint = [
         checkResult.count('WriteCache: Enabled'),
         checkResult.count('RlaCache: Enabled'),
         checkResult.count('Alias: \r\n'),
-        checkResult.count('TempPollInt: 245'),
+        checkResult.count('CmdQueuingSupport: Enabled'),
         checkResult.count('MediumErrorThreshold: 64')
     ]
     
@@ -452,26 +452,28 @@ def verifyFactorydefaultsMissingParameters(c):
 if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
-    factorydefaultsBga(c)
-    factorydefaultsCtrl(c)
-    factorydefaultsEncl(c)
-    factorydefaultsFc(c)
-    factorydefaultsIscsi(c)
+    #
+    # factorydefaultsBga(c)
+    # factorydefaultsCtrl(c)
+    # factorydefaultsEncl(c)
+    # factorydefaultsFc(c)
+    # factorydefaultsIscsi(c)
     factorydefaultsPhydrv(c)
-    factorydefaultsSubsys(c)
-    factorydefaultsBgasched(c)
-    factorydefaultsService(c)
-    factorydefaultsWebserver(c)
-    factorydefaultsSnmp(c)
-    factorydefaultsEmail(c)
-    factorydefaultsNtp(c)
-    factorydefaultsUser(c)
-    factorydefaultsUps(c)
-    factorydefaultsSyslog(c)
-    verifyFactorydefaultsHelp(c)
-    verifyFactorydefaultsInvalidOption(c)
-    verifyFactorydefaultsInvalidParameters(c)
-    verifyFactorydefaultsMissingParameters(c)
+    # factorydefaultsSubsys(c)
+    # factorydefaultsBgasched(c)
+    # factorydefaultsService(c)
+    # factorydefaultsWebserver(c)
+    # factorydefaultsSnmp(c)
+    # factorydefaultsEmail(c)
+    # factorydefaultsNtp(c)
+    # factorydefaultsUser(c)
+    # factorydefaultsUps(c)
+    # factorydefaultsSyslog(c)
+    # verifyFactorydefaultsHelp(c)
+    # verifyFactorydefaultsInvalidOption(c)
+    # verifyFactorydefaultsInvalidParameters(c)
+    # verifyFactorydefaultsMissingParameters(c)
+
     ssh.close()
     elasped = time.clock() - start
     print "Elasped %s" % elasped

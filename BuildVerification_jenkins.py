@@ -51,7 +51,20 @@ def BuildVerification(c):
                 sleep(4)
 
     if reconnectflag:
-        # there are 37 command that can be tested
+        # there are 38 command that can be tested
+        tolog('Start verifying sc')
+        import sc
+        if (sc.start_sc(c)):
+            FailCasesList.append('The case ' + sc.start_sc.__name__ + ' failed')
+        if (sc.list_sc(c)):
+            FailCasesList.append('The case ' + sc.list_sc.__name__ + ' failed')
+        if (sc.invalid_setting_for_sc(c)):
+            FailCasesList.append('The case ' + sc.invalid_setting_for_sc.__name__ + ' failed')
+        if (sc.invalid_option_for_sc(c)):
+            FailCasesList.append('The case ' + sc.invalid_option_for_sc.__name__ + ' failed')
+        if (sc.missing_parameter_for_sc(c)):
+            FailCasesList.append('The case ' + sc.missing_parameter_for_sc.__name__ + ' failed')
+
         tolog('Start verifying periodsnap')
         import periodsnap
         if (periodsnap.add_periodsnap(c)):
@@ -81,8 +94,8 @@ def BuildVerification(c):
             FailCasesList.append('The case ' + quota.list_quota_by_verbose_mode.__name__ + ' failed')
         if (quota.refresh_quota(c)):
             FailCasesList.append('The case ' + quota.refresh_quota.__name__ + ' failed')
-        if (quota.cancel_quota(c)):
-            FailCasesList.append('The case ' + quota.cancel_quota.__name__ + ' failed')
+        # if (quota.cancel_quota(c)):
+        #     FailCasesList.append('The case ' + quota.cancel_quota.__name__ + ' failed')
         if (quota.delete_quota(c)):
             FailCasesList.append('The case ' + quota.delete_quota.__name__ + ' failed')
         if (quota.invalid_setting_for_quota(c)):
@@ -384,12 +397,12 @@ def BuildVerification(c):
 
         tolog('Start verifying ping')
         import ping
-        if (ping.iscsi_ping(c)):
-            FailCasesList.append('The case ' + ping.iscsi_ping.__name__ + ' failed')
-        if (ping.mgmt_ping(c)):
-            FailCasesList.append('The case ' + ping.mgmt_ping.__name__ + ' failed')
-        if (ping.fc_ping(c)):
-            FailCasesList.append('The case ' + ping.fc_ping.__name__ + ' failed')
+        # if (ping.iscsi_ping(c)):
+        #     FailCasesList.append('The case ' + ping.iscsi_ping.__name__ + ' failed')
+        # if (ping.mgmt_ping(c)):
+        #     FailCasesList.append('The case ' + ping.mgmt_ping.__name__ + ' failed')
+        # if (ping.fc_ping(c)):
+        #     FailCasesList.append('The case ' + ping.fc_ping.__name__ + ' failed')
         if (ping.invalid_setting_parameter(c)):
             FailCasesList.append('The case ' + ping.invalid_setting_parameter.__name__ + ' failed')
         if (ping.invalid_option(c)):
