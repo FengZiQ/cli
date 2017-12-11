@@ -26,7 +26,7 @@ def precondition():
 def start_sc(c):
 
     # precondition
-    # precondition()
+    precondition()
 
     cli_other_action = cli_test_other_action()
 
