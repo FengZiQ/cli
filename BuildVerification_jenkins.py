@@ -51,7 +51,24 @@ def BuildVerification(c):
                 sleep(4)
 
     if reconnectflag:
-        # there are 38 command that can be tested
+        # there are 39 command that can be tested
+        tolog('Start verifying rcache')
+        import rcache
+        if (rcache.add_rcache_by_one_pd(c)):
+            FailCasesList.append('The case ' + rcache.add_rcache_by_one_pd.__name__ + ' failed')
+        if (rcache.add_rcache_by_multiple_pd(c)):
+            FailCasesList.append('The case ' + rcache.add_rcache_by_multiple_pd.__name__ + ' failed')
+        if (rcache.list_rcache(c)):
+            FailCasesList.append('The case ' + rcache.list_rcache.__name__ + ' failed')
+        if (rcache.def_rcache(c)):
+            FailCasesList.append('The case ' + rcache.def_rcache.__name__ + ' failed')
+        if (rcache.invalid_setting_for_rcache(c)):
+            FailCasesList.append('The case ' + rcache.invalid_setting_for_rcache.__name__ + ' failed')
+        if (rcache.invalid_option_for_rcache(c)):
+            FailCasesList.append('The case ' + rcache.invalid_option_for_rcache.__name__ + ' failed')
+        if (rcache.missing_parameter_for_rcache(c)):
+            FailCasesList.append('The case ' + rcache.missing_parameter_for_rcache.__name__ + ' failed')
+
         tolog('Start verifying sc')
         import sc
         if (sc.start_sc(c)):

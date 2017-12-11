@@ -3,7 +3,7 @@
 
 from ssh_connect import ssh_conn
 import time, json
-from cli_test import cli_test
+from cli_test import *
 from remote import server
 from find_unconfigured_pd_id import find_pd_id
 
@@ -14,55 +14,80 @@ def add_rcache_by_one_pd(c):
     # precondition
     find_pd_id()
 
-    cli_test.setting(c, data, 'add_rcache_by_one_pd', 1)
+    cli_setting = cli_test_setting()
+
+    cli_setting.setting(c, data, 'add_rcache_by_one_pd', 1)
+
+    return cli_setting.FailFlag
 
 
 def add_rcache_by_multiple_pd(c):
     # precondition
-    pdId = find_pd_id()
+    find_pd_id()
 
-    server.webapi('post', 'pool', {"name": "test_cache_pool", "pds": pdId[:3], "raid_level": "raid5"})
+    cli_setting = cli_test_setting()
 
-    cli_test.setting(c,  data, 'add_rcache_by_multiple_pd', 1)
+    cli_setting.setting(c, data, 'add_rcache_by_multiple_pd', 1)
+
+    return cli_setting.FailFlag
 
 
 def list_rcache(c):
 
-    cli_test.list(c, data, 'list_rcache')
+    cli_list = cli_test_list()
+
+    cli_list.list(c, data, 'list_rcache')
+
+    return cli_list.FailFlag
 
 
-def def_cache(c):
+def def_rcache(c):
 
-    cli_test.delete(c, data, 'def_cache')
+    cli_delete = cli_test_delete()
 
+    cli_delete.delete(c, data, 'def_rcache')
 
-def invalid_setting_parameter(c):
-    # precondition
-    server.webapi('post', 'rcache/detach', {"pd_list": [5, 6, 16]})
-    # server.webapi('post', 'rcache/attach', {"pd_list": [5]})
-    cli_test.failed_test(c, data, 'invalid_setting_parameter')
+    return cli_delete.FailFlag
 
 
-def invalid_option(c):
+def invalid_setting_for_rcache(c):
 
-    cli_test.failed_test(c, data, 'invalid_option')
+    cli_failed_test = cli_test_failed_test()
+
+    cli_failed_test.failed_test(c, data, 'invalid_setting_for_rcache')
+
+    return cli_failed_test.FailFlag
 
 
-def missing_parameter(c):
+def invalid_option_for_rcache(c):
 
-    cli_test.failed_test(c, data, 'missing_parameter')
+    cli_failed_test = cli_test_failed_test()
+
+    cli_failed_test.failed_test(c, data, 'invalid_option_for_rcache')
+
+    return cli_failed_test.FailFlag
+
+
+def missing_parameter_for_rcache(c):
+
+    cli_failed_test = cli_test_failed_test()
+
+    cli_failed_test.failed_test(c, data, 'missing_parameter_for_rcache')
+
+    return cli_failed_test.FailFlag
 
 
 if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
 
-    # add_rcache_by_one_pd(c)
+    add_rcache_by_one_pd(c)
     add_rcache_by_multiple_pd(c)
-
-    # invalid_setting_parameter(c)
-    # invalid_option(c)
-    # missing_parameter(c)
+    list_rcache(c)
+    def_rcache(c)
+    invalid_setting_for_rcache(c)
+    invalid_option_for_rcache(c)
+    missing_parameter_for_rcache(c)
 
     ssh.close()
     elasped = time.clock() - start
