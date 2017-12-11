@@ -1,7 +1,7 @@
 
 Expect: Missing parameter
 
-rcache -a 
+wcache -a 
 Error (0x403): Missing parameter
 -a: missing value
 
@@ -9,7 +9,7 @@ administrator@cli>
 
 Expect: Missing parameter
 
-rcache -a add 
+wcache -a add 
 Error (0x403): Missing parameter
 missing parameter '-p' for '-a add'
 
@@ -17,7 +17,7 @@ administrator@cli>
 
 Expect: Missing parameter
 
-rcache -a add -p 
+wcache -a add -p 
 Error (0x403): Missing parameter
 -p: missing value
 
@@ -25,17 +25,19 @@ administrator@cli>
 
 Expect: Missing parameter
 
-rcache -a del 
-Error (0x403): Missing parameter
-missing parameter '-p' for '-a del'
-
+wcache -a mod
+unexpected error
+please send service report to your administrator
 administrator@cli> 
+
+Fail: wcache -a mod
+
 
 Expect: Missing parameter
 
-rcache -a del -p  
+wcache -a mod -i  
 Error (0x403): Missing parameter
--p: missing value
+-i: missing value
 
 administrator@cli> 
-'result': 'p'
+'result': 'f'

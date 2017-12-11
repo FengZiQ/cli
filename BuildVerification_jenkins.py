@@ -51,7 +51,26 @@ def BuildVerification(c):
                 sleep(4)
 
     if reconnectflag:
-        # there are 39 command that can be tested
+        # there are 40 command that can be tested
+        tolog('Start verifying wcache')
+        import wcache
+        if (wcache.add_wcache_dedication(c)):
+            FailCasesList.append('The case ' + wcache.add_wcache_dedication.__name__ + ' failed')
+        if (wcache.mod_wcache(c)):
+            FailCasesList.append('The case ' + wcache.mod_wcache.__name__ + ' failed')
+        if (wcache.add_wcache_no_dedication(c)):
+            FailCasesList.append('The case ' + wcache.add_wcache_no_dedication.__name__ + ' failed')
+        if (wcache.list_wcache(c)):
+            FailCasesList.append('The case ' + wcache.list_wcache.__name__ + ' failed')
+        if (wcache.def_wcache(c)):
+            FailCasesList.append('The case ' + wcache.def_wcache.__name__ + ' failed')
+        if (wcache.invalid_setting_for_wcache(c)):
+            FailCasesList.append('The case ' + wcache.invalid_setting_for_wcache.__name__ + ' failed')
+        if (wcache.invalid_option_for_wcache(c)):
+            FailCasesList.append('The case ' + wcache.invalid_option_for_wcache.__name__ + ' failed')
+        if (wcache.missing_parameter_for_wcache(c)):
+            FailCasesList.append('The case ' + wcache.missing_parameter_for_wcache.__name__ + ' failed')
+
         tolog('Start verifying rcache')
         import rcache
         if (rcache.add_rcache_by_one_pd(c)):
