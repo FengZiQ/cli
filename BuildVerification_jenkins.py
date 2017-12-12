@@ -29,26 +29,32 @@ def BuildVerification(c):
     reconnectflag = False
 
     for file in files:
+
         # filename = file.replace("/var/lib/jenkins/workspace/Hyperion-DS_Hulda/build/build/","")
         filename = file.replace("/var/lib/jenkins/workspace/HyperionDS/build/build/", "")
-        SendCmdRestart(c,"ptiflash -y -t -s 10.84.2.66 -f "+filename)
-        i = 1
-        while i < 50:
-            # wait for rebooting
-           tolog("ptiflash is in progress, please wait, %d seconds elapse" %(i*4))
-           i += 1
-           sleep(4)
 
-        # check if ssh connection is ok.
-        # wait for another 120 seconds
-        for x in range(30):
-            try:
-                c,ssh = ssh_conn()
-                reconnectflag = True
-                break
-            except Exception, e:
-                print e
-                sleep(4)
+        result = SendCmdRestart(c,"ptiflash -y -t -s 10.84.2.99 -f "+filename)
+
+        if "Error (" not in result:
+            i = 1
+            while i < 50:
+                # wait for rebooting
+               tolog("ptiflash is in progress, please wait, %d seconds elapse" %(i*4))
+               i += 1
+               sleep(4)
+
+            # check if ssh connection is ok.
+            # wait for another 120 seconds
+            for x in range(30):
+                try:
+                    c,ssh = ssh_conn()
+                    reconnectflag = True
+                    break
+                except Exception, e:
+                    print e
+                    sleep(4)
+        else:
+            tolog(result)
 
     if reconnectflag:
         # there are 40 command that can be tested

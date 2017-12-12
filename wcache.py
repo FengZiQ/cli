@@ -2,7 +2,6 @@
 # 2017.12.11
 
 from ssh_connect import ssh_conn
-import time, json
 from cli_test import *
 from remote import server
 from find_unconfigured_pd_id import find_pd_id
@@ -64,6 +63,8 @@ def def_wcache(c):
 
 
 def invalid_setting_for_wcache(c):
+    # precondition
+    server.webapi('post', 'wcache/attach', {'pd_list': [5, 6]})
 
     cli_failed_test = cli_test_failed_test()
 
@@ -86,6 +87,9 @@ def missing_parameter_for_wcache(c):
     cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'missing_parameter_for_wcache')
+
+    # clean up environment
+    find_pd_id()
 
     return cli_failed_test.FailFlag
 

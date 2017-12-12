@@ -1,0 +1,444 @@
+2017-12-11 16:58:40: 'result': 'f'
+2017-12-11 16:58:40: wcache -a mod -i  
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-12-11 16:58:40: 
+Expect: Missing parameter
+
+2017-12-11 16:58:40: 
+Fail: wcache -a mod
+
+2017-12-11 16:58:40: wcache -a mod
+unexpected error
+please send service report to your administrator
+administrator@cli> 
+2017-12-11 16:58:40: 
+Expect: Missing parameter
+
+2017-12-11 16:58:40: wcache -a add -p 
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2017-12-11 16:58:40: 
+Expect: Missing parameter
+
+2017-12-11 16:58:40: wcache -a add 
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+2017-12-11 16:58:40: 
+Expect: Missing parameter
+
+2017-12-11 16:58:40: wcache -a 
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+2017-12-11 16:58:40: 
+Expect: Missing parameter
+
+2017-12-11 16:58:40: 'result': 'p'
+2017-12-11 16:58:40: wcache -a mod -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-12-11 16:58:40: 
+Expect: Invalid option for the command or the action
+
+2017-12-11 16:58:40: wcache -a del -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-12-11 16:58:40: 
+Expect: Invalid option for the command or the action
+
+2017-12-11 16:58:40: wcache -a add -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-12-11 16:58:40: 
+Expect: Invalid option for the command or the action
+
+2017-12-11 16:58:40: wcache -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-12-11 16:58:40: 
+Expect: Invalid option for the command or the action
+
+2017-12-11 16:58:40: 'result': 'f'
+2017-12-11 16:58:40: wcache -a del -p 0
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 0 (1,512)
+
+administrator@cli> 
+2017-12-11 16:58:40: 
+Expect: Invalid setting parameters
+
+2017-12-11 16:58:40: wcache -a del -p test
+Error (0x2013): Invalid setting parameters
+-p: invalid setting test
+
+administrator@cli> 
+2017-12-11 16:58:40: 
+Expect: Invalid setting parameters
+
+2017-12-11 16:58:40: wcache -a del test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-12-11 16:58:40: 
+Expect: Invalid setting parameters
+
+2017-12-11 16:58:40: 
+Fail: wcache -a mod -p 1,2
+
+2017-12-11 16:58:40: wcache -a mod -p 1,2
+
+administrator@cli> 
+2017-12-11 16:58:22: 
+Expect: Invalid physical drive type
+
+2017-12-11 16:58:22: wcache -a mod -i -1
+Error (0x2013): Invalid setting parameters
+-i: invalid setting -1
+
+administrator@cli> 
+2017-12-11 16:58:22: 
+Expect: Invalid setting parameters
+
+2017-12-11 16:58:22: wcache -a mod -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2017-12-11 16:58:22: 
+Expect: Invalid setting parameters
+
+2017-12-11 16:58:22: wcache -a mod test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-12-11 16:58:22: 
+Expect: Invalid setting parameters
+
+2017-12-11 16:58:22: wcache -a add -p 5,6 -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2017-12-11 16:58:22: 
+Expect: Invalid setting parameters
+
+2017-12-11 16:58:22: wcache -a add -p -1
+Error (0x2013): Invalid setting parameters
+-p: invalid setting -1
+
+administrator@cli> 
+2017-12-11 16:58:22: 
+Expect: Invalid setting parameters
+
+2017-12-11 16:58:22: wcache -a add -p 0
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 0 (1,512)
+
+administrator@cli> 
+2017-12-11 16:58:22: 
+Expect: Invalid setting parameters
+
+2017-12-11 16:58:22: wcache -a add -p test
+Error (0x2013): Invalid setting parameters
+-p: invalid setting test
+
+administrator@cli> 
+2017-12-11 16:58:22: 
+Expect: Invalid setting parameters
+
+2017-12-11 16:58:22: wcache -a add test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-12-11 16:58:22: 
+Expect: Invalid setting parameters
+
+2017-12-11 16:58:22: wcache -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|add|del|mod)
+
+administrator@cli> 
+2017-12-11 16:58:22: 
+Expect: Invalid setting parameters
+
+2017-12-11 16:58:22: wcache test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-12-11 16:58:22: 
+Expect: Invalid setting parameters
+
+2017-12-11 16:58:20: 'result': 'p'
+2017-12-11 16:58:20: wcache
+no cache in system
+
+administrator@cli> 
+2017-12-11 16:58:20: wcache -a del
+
+administrator@cli> 
+2017-12-11 16:58:19: 
+Expect: wcache should be deleted
+
+2017-12-11 16:58:19: 'result': 'p'
+2017-12-11 16:58:19: wcache
+-------------------------------------------------------------------------------
+Status: WAIT_ASSIGN
+dedicate to pool: 
+ 
+Physical Drives in Cache
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         WriteCache      
+6    SSD U110    SAS SSD  31 GB       Encl1 Slot6   OK         WriteCache      
+     32GB                                                                      
+
+administrator@cli> 
+2017-12-11 16:58:19: 
+Expect: wcache and pd informaiont should be listed
+
+2017-12-11 16:58:19: 'result': 'p'
+2017-12-11 16:58:19: wcache
+-------------------------------------------------------------------------------
+Status: WAIT_ASSIGN
+dedicate to pool: 
+ 
+Physical Drives in Cache
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         WriteCache      
+6    SSD U110    SAS SSD  31 GB       Encl1 Slot6   OK         WriteCache      
+     32GB                                                                      
+
+administrator@cli> 
+2017-12-11 16:58:17: wcache -a add -p 5,6
+
+administrator@cli> 
+2017-12-11 16:58:15: 
+Expect: wcache should be created
+
+2017-12-11 16:58:10: 'result': 'f'
+2017-12-11 16:58:10: 
+Fail: please check out dedicate to pool: 1
+
+2017-12-11 16:58:10: wcache
+-------------------------------------------------------------------------------
+Status: ONLINE
+dedicate to pool: 0
+ 
+Physical Drives in Cache
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         WriteCache      
+16   SSDSA2SH032 SAS SSD  31 GB       Encl1 Slot16  OK         WriteCache      
+     G1GN                                                                      
+
+administrator@cli> 
+2017-12-11 16:58:08: wcache -a mod -p 5,16 -i 1
+
+administrator@cli> 
+2017-12-11 16:58:05: 
+Expect: 1. wcache should be modified dedication for pool 1 and pd_list is 6,16
+
+2017-12-11 16:58:05: 'result': 'p'
+2017-12-11 16:58:05: wcache
+-------------------------------------------------------------------------------
+Status: ONLINE
+dedicate to pool: 0
+ 
+Physical Drives in Cache
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         WriteCache      
+6    SSD U110    SAS SSD  31 GB       Encl1 Slot6   OK         WriteCache      
+     32GB                                                                      
+
+administrator@cli> 
+2017-12-11 16:58:03: wcache -a add -p 5,6 -i 0
+
+administrator@cli> 
+2017-12-11 16:58:00: 
+Expect: wcache should be created dedication for pool 0
+
+2017-12-11 16:32:56: 'result': 'f'
+2017-12-11 16:32:56: 
+Fail: please check out dedicate to pool: 1
+
+2017-12-11 16:32:56: wcache
+-------------------------------------------------------------------------------
+Status: ONLINE
+dedicate to pool: 0
+ 
+Physical Drives in Cache
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         WriteCache      
+16   SSDSA2SH032 SAS SSD  31 GB       Encl1 Slot16  OK         WriteCache      
+     G1GN                                                                      
+
+administrator@cli> 
+2017-12-11 16:32:54: wcache -a mod -p 5,16 -i 1
+
+administrator@cli> 
+2017-12-11 16:32:51: 
+Expect: 1. wcache should be modified dedication for pool 1 and pd_list is 6,16
+
+2017-12-11 16:32:41: 'result': 'p'
+2017-12-11 16:32:41: wcache
+-------------------------------------------------------------------------------
+Status: ONLINE
+dedicate to pool: 0
+ 
+Physical Drives in Cache
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         WriteCache      
+6    SSD U110    SAS SSD  31 GB       Encl1 Slot6   OK         WriteCache      
+     32GB                                                                      
+
+administrator@cli> 
+2017-12-11 16:32:39: wcache -a add -p 5,6 -i 0
+
+administrator@cli> 
+2017-12-11 16:32:36: 
+Expect: wcache should be created dedication for pool 0
+
+2017-12-11 16:27:47: 'result': 'f'
+2017-12-11 16:27:47: wcache -a del -p 0
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 0 (1,512)
+
+administrator@cli> 
+2017-12-11 16:27:47: 
+Expect: Invalid setting parameters
+
+2017-12-11 16:27:47: wcache -a del -p test
+Error (0x2013): Invalid setting parameters
+-p: invalid setting test
+
+administrator@cli> 
+2017-12-11 16:27:47: 
+Expect: Invalid setting parameters
+
+2017-12-11 16:27:47: wcache -a del test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-12-11 16:27:47: 
+Expect: Invalid setting parameters
+
+2017-12-11 16:27:47: 
+Fail: wcache -a mod -p 1,2
+
+2017-12-11 16:27:47: wcache -a mod -p 1,2
+
+administrator@cli> 
+2017-12-11 16:27:29: 
+Expect: Invalid physical drive type
+
+2017-12-11 16:27:29: wcache -a mod -i -1
+Error (0x2013): Invalid setting parameters
+-i: invalid setting -1
+
+administrator@cli> 
+2017-12-11 16:27:29: 
+Expect: Invalid setting parameters
+
+2017-12-11 16:27:29: wcache -a mod -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2017-12-11 16:27:29: 
+Expect: Invalid setting parameters
+
+2017-12-11 16:27:29: wcache -a mod test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-12-11 16:27:29: 
+Expect: Invalid setting parameters
+
+2017-12-11 16:27:29: wcache -a add -p 5,6 -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2017-12-11 16:27:29: 
+Expect: Invalid setting parameters
+
+2017-12-11 16:27:29: wcache -a add -p -1
+Error (0x2013): Invalid setting parameters
+-p: invalid setting -1
+
+administrator@cli> 
+2017-12-11 16:27:29: 
+Expect: Invalid setting parameters
+
+2017-12-11 16:27:29: wcache -a add -p 0
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 0 (1,512)
+
+administrator@cli> 
+2017-12-11 16:27:29: 
+Expect: Invalid setting parameters
+
+2017-12-11 16:27:29: wcache -a add -p test
+Error (0x2013): Invalid setting parameters
+-p: invalid setting test
+
+administrator@cli> 
+2017-12-11 16:27:29: 
+Expect: Invalid setting parameters
+
+2017-12-11 16:27:29: wcache -a add test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-12-11 16:27:29: 
+Expect: Invalid setting parameters
+
+2017-12-11 16:27:29: wcache -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|add|del|mod)
+
+administrator@cli> 
+2017-12-11 16:27:29: 
+Expect: Invalid setting parameters
+
+2017-12-11 16:27:29: wcache test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-12-11 16:27:29: 
+Expect: Invalid setting parameters
+
