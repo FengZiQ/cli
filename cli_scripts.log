@@ -1,444 +1,1119 @@
-2017-12-11 16:58:40: 'result': 'f'
-2017-12-11 16:58:40: wcache -a mod -i  
+2017-12-13 17:24:52: 'result': 'f'
+2017-12-13 17:24:52: user -a del -t snmp -u
 Error (0x403): Missing parameter
--i: missing value
+-u: missing value
 
 administrator@cli> 
-2017-12-11 16:58:40: 
+2017-12-13 17:24:52: 
 Expect: Missing parameter
 
-2017-12-11 16:58:40: 
-Fail: wcache -a mod
+2017-12-13 17:24:52: user -a del -t nas -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+2017-12-13 17:24:52: 
+Expect: Missing parameter
 
-2017-12-11 16:58:40: wcache -a mod
+2017-12-13 17:24:52: user -a del -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+2017-12-13 17:24:52: 
+Expect: Missing parameter
+
+2017-12-13 17:24:52: user -a del
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a del'
+
+administrator@cli> 
+2017-12-13 17:24:52: 
+Expect: Missing parameter
+
+2017-12-13 17:24:52: 
+Fail: user -a mod -t snmp -u 1
+
+2017-12-13 17:24:52: user -a mod -t snmp -u 1
 unexpected error
 please send service report to your administrator
 administrator@cli> 
-2017-12-11 16:58:40: 
+2017-12-13 17:24:52: 
 Expect: Missing parameter
 
-2017-12-11 16:58:40: wcache -a add -p 
+2017-12-13 17:24:52: user -a mod -t snmp -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+2017-12-13 17:24:52: 
+Expect: Missing parameter
+
+2017-12-13 17:24:52: user -a mod -t snmp
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a mod'
+
+administrator@cli> 
+2017-12-13 17:24:52: 
+Expect: Missing parameter
+
+2017-12-13 17:24:52: 
+Fail: user -a mod -t nas -u 1
+
+2017-12-13 17:24:52: user -a mod -t nas -u 1
+unexpected error
+please send service report to your administrator
+administrator@cli> 
+2017-12-13 17:24:52: 
+Expect: Missing parameter
+
+2017-12-13 17:24:52: user -a mod -t nas -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+2017-12-13 17:24:52: 
+Expect: Missing parameter
+
+2017-12-13 17:24:52: user -a mod -t nas
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a mod'
+
+administrator@cli> 
+2017-12-13 17:24:52: 
+Expect: Missing parameter
+
+2017-12-13 17:24:52: user -a mod -u 1111_1111_1111_1111_1111_11130 -s 
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2017-12-13 17:24:52: 
+Expect: Missing parameter
+
+2017-12-13 17:24:52: user -a mod -u 1111_1111_1111_1111_1111_11130 -p 
 Error (0x403): Missing parameter
 -p: missing value
 
 administrator@cli> 
-2017-12-11 16:58:40: 
+2017-12-13 17:24:52: 
 Expect: Missing parameter
 
-2017-12-11 16:58:40: wcache -a add 
+2017-12-13 17:24:52: user -a mod -u 
 Error (0x403): Missing parameter
-missing parameter '-p' for '-a add'
+-u: missing value
 
 administrator@cli> 
-2017-12-11 16:58:40: 
+2017-12-13 17:24:52: 
 Expect: Missing parameter
 
-2017-12-11 16:58:40: wcache -a 
+2017-12-13 17:24:52: user -a mod 
 Error (0x403): Missing parameter
--a: missing value
+missing parameter '-u' for '-a mod'
 
 administrator@cli> 
-2017-12-11 16:58:40: 
+2017-12-13 17:24:52: 
 Expect: Missing parameter
 
-2017-12-11 16:58:40: 'result': 'p'
-2017-12-11 16:58:40: wcache -a mod -test
+2017-12-13 17:24:52: user -a add -u test -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2017-12-13 17:24:52: 
+Expect: Missing parameter
+
+2017-12-13 17:24:52: user -a add -u test -p 
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2017-12-13 17:24:52: 
+Expect: Missing parameter
+
+2017-12-13 17:24:52: user -a add -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+2017-12-13 17:24:52: 
+Expect: Missing parameter
+
+2017-12-13 17:24:52: user -a add 
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a add'
+
+administrator@cli> 
+2017-12-13 17:24:52: 
+Expect: Missing parameter
+
+2017-12-13 17:24:52: user -t snmp -u 
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+2017-12-13 17:24:52: 
+Expect: Missing parameter
+
+2017-12-13 17:24:52: user -t nas -u 
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+2017-12-13 17:24:52: 
+Expect: Missing parameter
+
+2017-12-13 17:24:52: user -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2017-12-13 17:24:52: 
+Expect: Missing parameter
+
+2017-12-13 17:24:52: user -u 
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+2017-12-13 17:24:52: 
+Expect: Missing parameter
+
+2017-12-13 17:24:52: 'result': 'p'
+2017-12-13 17:24:52: user -a del -t snmp -test
 Error (0x2012): Invalid option for the command or the action
 invalid option: -test
 
 administrator@cli> 
-2017-12-11 16:58:40: 
+2017-12-13 17:24:52: 
 Expect: Invalid option for the command or the action
 
-2017-12-11 16:58:40: wcache -a del -test
+2017-12-13 17:24:52: user -a del -t nas -test
 Error (0x2012): Invalid option for the command or the action
 invalid option: -test
 
 administrator@cli> 
-2017-12-11 16:58:40: 
+2017-12-13 17:24:52: 
 Expect: Invalid option for the command or the action
 
-2017-12-11 16:58:40: wcache -a add -test
+2017-12-13 17:24:52: user -a del -test
 Error (0x2012): Invalid option for the command or the action
 invalid option: -test
 
 administrator@cli> 
-2017-12-11 16:58:40: 
+2017-12-13 17:24:52: 
 Expect: Invalid option for the command or the action
 
-2017-12-11 16:58:40: wcache -test
+2017-12-13 17:24:52: user -a mod -u -test
 Error (0x2012): Invalid option for the command or the action
 invalid option: -test
 
 administrator@cli> 
-2017-12-11 16:58:40: 
+2017-12-13 17:24:52: 
 Expect: Invalid option for the command or the action
 
-2017-12-11 16:58:40: 'result': 'f'
-2017-12-11 16:58:40: wcache -a del -p 0
-Error (0x2013): Invalid setting parameters
--p: invalid setting 0 (1,512)
+2017-12-13 17:24:52: user -a mod -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
 
 administrator@cli> 
-2017-12-11 16:58:40: 
-Expect: Invalid setting parameters
+2017-12-13 17:24:52: 
+Expect: Invalid option for the command or the action
 
-2017-12-11 16:58:40: wcache -a del -p test
-Error (0x2013): Invalid setting parameters
--p: invalid setting test
+2017-12-13 17:24:52: user -a add -t snmp -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
 
 administrator@cli> 
-2017-12-11 16:58:40: 
-Expect: Invalid setting parameters
+2017-12-13 17:24:52: 
+Expect: Invalid option for the command or the action
 
-2017-12-11 16:58:40: wcache -a del test
-Error (0x2013): Invalid setting parameters
-invalid setting: test
+2017-12-13 17:24:52: user -a add -t nas -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
 
 administrator@cli> 
-2017-12-11 16:58:40: 
-Expect: Invalid setting parameters
+2017-12-13 17:24:52: 
+Expect: Invalid option for the command or the action
 
-2017-12-11 16:58:40: 
-Fail: wcache -a mod -p 1,2
-
-2017-12-11 16:58:40: wcache -a mod -p 1,2
+2017-12-13 17:24:52: user -a add -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
 
 administrator@cli> 
-2017-12-11 16:58:22: 
-Expect: Invalid physical drive type
+2017-12-13 17:24:52: 
+Expect: Invalid option for the command or the action
 
-2017-12-11 16:58:22: wcache -a mod -i -1
-Error (0x2013): Invalid setting parameters
--i: invalid setting -1
+2017-12-13 17:24:52: user -t snmp -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
 
 administrator@cli> 
-2017-12-11 16:58:22: 
-Expect: Invalid setting parameters
+2017-12-13 17:24:52: 
+Expect: Invalid option for the command or the action
 
-2017-12-11 16:58:22: wcache -a mod -i test
-Error (0x2013): Invalid setting parameters
--i: invalid setting test
+2017-12-13 17:24:52: user -t nas -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
 
 administrator@cli> 
-2017-12-11 16:58:22: 
-Expect: Invalid setting parameters
+2017-12-13 17:24:52: 
+Expect: Invalid option for the command or the action
 
-2017-12-11 16:58:22: wcache -a mod test
-Error (0x2013): Invalid setting parameters
-invalid setting: test
+2017-12-13 17:24:52: user -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
 
 administrator@cli> 
-2017-12-11 16:58:22: 
-Expect: Invalid setting parameters
+2017-12-13 17:24:52: 
+Expect: Invalid option for the command or the action
 
-2017-12-11 16:58:22: wcache -a add -p 5,6 -i test
-Error (0x2013): Invalid setting parameters
--i: invalid setting test
+2017-12-13 17:24:51: 'result': 'f'
+2017-12-13 17:24:51: user -a del -t snmp -u test
+Error (0x200): Invalid username
 
 administrator@cli> 
-2017-12-11 16:58:22: 
-Expect: Invalid setting parameters
+2017-12-13 17:24:51: 
+Expect: Invalid username
 
-2017-12-11 16:58:22: wcache -a add -p -1
-Error (0x2013): Invalid setting parameters
--p: invalid setting -1
+2017-12-13 17:24:51: 
+Fail: please check out Invalid username
+
+2017-12-13 17:24:51: user -a del -t nas -u test
+Error (0x4100104): Incorrect parameters: The parameter [user_list] is invalid.
 
 administrator@cli> 
-2017-12-11 16:58:22: 
-Expect: Invalid setting parameters
+2017-12-13 17:24:51: 
+Expect: Invalid username
 
-2017-12-11 16:58:22: wcache -a add -p 0
-Error (0x2013): Invalid setting parameters
--p: invalid setting 0 (1,512)
+2017-12-13 17:24:51: user -a del -u test
+Error (0x200): Invalid username
 
 administrator@cli> 
-2017-12-11 16:58:22: 
-Expect: Invalid setting parameters
+2017-12-13 17:24:51: 
+Expect: Invalid username
 
-2017-12-11 16:58:22: wcache -a add -p test
-Error (0x2013): Invalid setting parameters
--p: invalid setting test
-
-administrator@cli> 
-2017-12-11 16:58:22: 
-Expect: Invalid setting parameters
-
-2017-12-11 16:58:22: wcache -a add test
+2017-12-13 17:24:51: user -a del test
 Error (0x2013): Invalid setting parameters
 invalid setting: test
 
 administrator@cli> 
-2017-12-11 16:58:22: 
+2017-12-13 17:24:51: 
 Expect: Invalid setting parameters
 
-2017-12-11 16:58:22: wcache -a test
+2017-12-13 17:24:51: user -a mod -t snmp -u 1 -s "priv=test"
 Error (0x2013): Invalid setting parameters
--a: invalid setting test (list|add|del|mod)
+priv: invalid setting test (des|aes)
 
 administrator@cli> 
-2017-12-11 16:58:22: 
+2017-12-13 17:24:51: 
 Expect: Invalid setting parameters
 
-2017-12-11 16:58:22: wcache test
+2017-12-13 17:24:51: user -a mod -t snmp -u 1 -s "auth=test"
+Error (0x2013): Invalid setting parameters
+auth: invalid setting test (md5|sha)
+
+administrator@cli> 
+2017-12-13 17:24:51: 
+Expect: Invalid setting parameters
+
+2017-12-13 17:24:51: user -a mod -t snmp test
 Error (0x2013): Invalid setting parameters
 invalid setting: test
 
 administrator@cli> 
-2017-12-11 16:58:22: 
+2017-12-13 17:24:51: 
 Expect: Invalid setting parameters
 
-2017-12-11 16:58:20: 'result': 'p'
-2017-12-11 16:58:20: wcache
-no cache in system
-
-administrator@cli> 
-2017-12-11 16:58:20: wcache -a del
-
-administrator@cli> 
-2017-12-11 16:58:19: 
-Expect: wcache should be deleted
+2017-12-13 17:24:51: 
+Fail: user -a mod -t nas -u 1 -s "phone=test#$%&*"
 
-2017-12-11 16:58:19: 'result': 'p'
-2017-12-11 16:58:19: wcache
+2017-12-13 17:24:51: user -a mod -t nas -u 1 -s "phone=test#$%&*"
+
+administrator@cli> 
+2017-12-13 17:24:51: 
+Expect: Invalid setting parameters
+
+2017-12-13 17:24:51: user -a mod -t nas -u 1 -s "group=test"
+Error (0x4100104): Incorrect parameters: Invalid input group name: test.
+
+administrator@cli> 
+2017-12-13 17:24:51: 
+Expect: Invalid input group name
+
+2017-12-13 17:24:51: user -a mod -t nas test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-12-13 17:24:51: 
+Expect: Invalid setting parameters
+
+2017-12-13 17:24:51: user -a mod -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (mgmt|snmp|nas)
+
+administrator@cli> 
+2017-12-13 17:24:51: 
+Expect: Invalid setting parameters
+
+2017-12-13 17:24:51: user -a mod -u 1111_1111_1111_1111_1111_11130 -s "status=test"
+Error (0x2013): Invalid setting parameters
+status: invalid setting test (enable|disable)
+
+administrator@cli> 
+2017-12-13 17:24:51: 
+Expect: Invalid setting parameters
+
+2017-12-13 17:24:51: user -a mod -u 1111_1111_1111_1111_1111_11130 -p test
+Error (0x2013): Invalid setting parameters
+-p: invalid setting test (super|power|maintenance|view)
+
+administrator@cli> 
+2017-12-13 17:24:51: 
+Expect: Invalid setting parameters
+
+2017-12-13 17:24:51: user -a mod -u test
+Error (0x2013): Invalid setting parameters
+
+administrator@cli> 
+2017-12-13 17:24:51: 
+Expect: Invalid setting parameters
+
+2017-12-13 17:24:51: user -a mod test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-12-13 17:24:51: 
+Expect: Invalid setting parameters
+
+2017-12-13 17:24:51: user -a add -t snmp -u test -s "auth=md5,priv=test"
+Error (0x2013): Invalid setting parameters
+priv: invalid setting test (des|aes)
+
+administrator@cli> 
+2017-12-13 17:24:51: 
+Expect: Invalid setting parameters
+
+2017-12-13 17:24:51: user -a add -t snmp -u test -s "auth=test,priv=des"
+Error (0x2013): Invalid setting parameters
+auth: invalid setting test (md5|sha)
+
+administrator@cli> 
+2017-12-13 17:24:51: 
+Expect: Invalid setting parameters
+
+2017-12-13 17:24:51: user -a add -t snmp -u test_test_test_test_test_test_32
+Error (0x2014): Setting parameters too long
+-u: invalid setting test_test_test_test_test_test_32
+
+administrator@cli> 
+2017-12-13 17:24:51: 
+Expect: Setting parameters too long
+
+2017-12-13 17:24:51: user -a add -t nas -u test_test_test_test_test_test_32
+Error (0x2014): Setting parameters too long
+-u: invalid setting test_test_test_test_test_test_32
+
+administrator@cli> 
+2017-12-13 17:24:51: 
+Expect: Setting parameters too long
+
+2017-12-13 17:24:51: user -a add -u test -p view -s "status=test"
+Error (0x2013): Invalid setting parameters
+status: invalid setting test (enable|disable)
+
+administrator@cli> 
+2017-12-13 17:24:51: 
+Expect: Invalid setting parameters
+
+2017-12-13 17:24:51: user -a add -u test_test_test_test_test_test_32 -p view
+Error (0x2014): Setting parameters too long
+-u: invalid setting test_test_test_test_test_test_32
+
+administrator@cli> 
+2017-12-13 17:24:51: 
+Expect: Setting parameters too long
+
+2017-12-13 17:24:51: user -a add -u #$% -p view
+Error (0x2013): Invalid setting parameters
+id contain only alphanumeric characters and underscores
+
+administrator@cli> 
+2017-12-13 17:24:51: 
+Expect: Invalid setting parameters
+
+2017-12-13 17:24:51: user -a add -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (mgmt|snmp|nas)
+
+administrator@cli> 
+2017-12-13 17:24:51: 
+Expect: Invalid setting parameters
+
+2017-12-13 17:24:51: user -a add test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-12-13 17:24:51: 
+Expect: Invalid setting parameters
+
+2017-12-13 17:24:51: user -t snmp -u test
+Error (0x200): Invalid username
+
+administrator@cli> 
+2017-12-13 17:24:51: 
+Expect: Invalid username
+
+2017-12-13 17:24:51: user -t nas -u test
+Error (0x4100104): Incorrect parameters: User is not found.
+
+administrator@cli> 
+2017-12-13 17:24:51: 
+Expect: User is not found
+
+2017-12-13 17:24:51: user -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (mgmt|snmp|nas)
+
+administrator@cli> 
+2017-12-13 17:24:51: 
+Expect: Invalid setting parameters
+
+2017-12-13 17:24:51: user -u test
+Error (0x200): Invalid username
+Username not found
+
+administrator@cli> 
+2017-12-13 17:24:51: 
+Expect: Invalid username
+
+2017-12-13 17:24:51: user test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-12-13 17:24:51: 
+Expect: Invalid setting parameters
+
+2017-12-13 17:24:51: 'result': 'f'
+2017-12-13 17:24:51: user -t snmp -u T2
+Error (0x200): Invalid username
+
+administrator@cli> 
+2017-12-13 17:24:51: user -a del -t snmp -u T2
+
+administrator@cli> 
+2017-12-13 17:24:51: 
+Expect: specific snmp type user should be deleted
+
+2017-12-13 17:24:51: user -t nas -u T2
+Error (0x4100104): Incorrect parameters: User is not found.
+
+administrator@cli> 
+2017-12-13 17:24:51: user -a del -t nas -u T2
+
+administrator@cli> 
+2017-12-13 17:24:50: 
+Expect: specific nas type user should be deleted
+
+2017-12-13 17:24:50: 
+Fail: please check out Username
+
+2017-12-13 17:24:50: user -t mgmt -u 1
+Error (0x200): Invalid username
+Username not found
+
+administrator@cli> 
+2017-12-13 17:24:50: user -a del -t mgmt -u 1
+
+administrator@cli> 
+2017-12-13 17:24:44: 
+Expect: specific mgmt type user should be deleted
+
+2017-12-13 17:24:44: 
+Fail: please check out Username
+
+2017-12-13 17:24:44: user -u T_
+Error (0x200): Invalid username
+Username not found
+
+administrator@cli> 
+2017-12-13 17:24:44: user -a del -u T_
+
+administrator@cli> 
+2017-12-13 17:24:40: 
+Expect: specific user should be deleted
+
+2017-12-13 17:24:40: 'result': 'f'
+2017-12-13 17:24:40: 
+Fail: please check out EngineId:
+
+2017-12-13 17:24:40: user -t snmp -u 1 -v
 -------------------------------------------------------------------------------
-Status: WAIT_ASSIGN
-dedicate to pool: 
- 
-Physical Drives in Cache
-===============================================================================
-PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
-===============================================================================
-5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         WriteCache      
-6    SSD U110    SAS SSD  31 GB       Encl1 Slot6   OK         WriteCache      
-     32GB                                                                      
+Username: 1                             Permission: READ_ONLY
+Auth: SHA                               Priv: DES
+Type: SNMP
 
 administrator@cli> 
-2017-12-11 16:58:19: 
-Expect: wcache and pd informaiont should be listed
+2017-12-13 17:24:40: 
+Expect: specific snmp type user should be listed by verbose mode
 
-2017-12-11 16:58:19: 'result': 'p'
-2017-12-11 16:58:19: wcache
+2017-12-13 17:24:40: user -t nas -u 1 -v
 -------------------------------------------------------------------------------
-Status: WAIT_ASSIGN
-dedicate to pool: 
- 
-Physical Drives in Cache
-===============================================================================
-PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
-===============================================================================
-5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         WriteCache      
-6    SSD U110    SAS SSD  31 GB       Encl1 Slot6   OK         WriteCache      
-     32GB                                                                      
+UserName: 1                             Email: ab@cd.ef
+DisplayName: test_test_test_test_test_test31
+Telephone: 0123456789                   Department: new_group
+PriGroupName: users                     Status: Ready
+SecGroupName: 
 
 administrator@cli> 
-2017-12-11 16:58:17: wcache -a add -p 5,6
-
-administrator@cli> 
-2017-12-11 16:58:15: 
-Expect: wcache should be created
+2017-12-13 17:24:39: 
+Expect: specific nas type user should be listed by verbose mode
 
-2017-12-11 16:58:10: 'result': 'f'
-2017-12-11 16:58:10: 
-Fail: please check out dedicate to pool: 1
-
-2017-12-11 16:58:10: wcache
+2017-12-13 17:24:39: user -t mgmt -u 1 -v
 -------------------------------------------------------------------------------
-Status: ONLINE
-dedicate to pool: 0
- 
-Physical Drives in Cache
-===============================================================================
-PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
-===============================================================================
-5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         WriteCache      
-16   SSDSA2SH032 SAS SSD  31 GB       Encl1 Slot16  OK         WriteCache      
-     G1GN                                                                      
+Username: 1                             Status: Enabled
+Location: Local                         Privilege: Super
+DisplayName: t                          Email: 11@11.11
 
 administrator@cli> 
-2017-12-11 16:58:08: wcache -a mod -p 5,16 -i 1
-
-administrator@cli> 
-2017-12-11 16:58:05: 
-Expect: 1. wcache should be modified dedication for pool 1 and pd_list is 6,16
+2017-12-13 17:24:39: 
+Expect: specific mgmt type user should be listed by verbose mode
 
-2017-12-11 16:58:05: 'result': 'p'
-2017-12-11 16:58:05: wcache
+2017-12-13 17:24:39: user -u 1 -v 
 -------------------------------------------------------------------------------
-Status: ONLINE
-dedicate to pool: 0
- 
-Physical Drives in Cache
-===============================================================================
-PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
-===============================================================================
-5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         WriteCache      
-6    SSD U110    SAS SSD  31 GB       Encl1 Slot6   OK         WriteCache      
-     32GB                                                                      
+Username: 1                             Status: Enabled
+Location: Local                         Privilege: Super
+DisplayName: t                          Email: 11@11.11
 
 administrator@cli> 
-2017-12-11 16:58:03: wcache -a add -p 5,6 -i 0
-
-administrator@cli> 
-2017-12-11 16:58:00: 
-Expect: wcache should be created dedication for pool 0
+2017-12-13 17:24:39: 
+Expect: specific mgmt type user should be listed by verbose mode
 
-2017-12-11 16:32:56: 'result': 'f'
-2017-12-11 16:32:56: 
-Fail: please check out dedicate to pool: 1
-
-2017-12-11 16:32:56: wcache
+2017-12-13 17:24:39: user -t snmp -v 
 -------------------------------------------------------------------------------
-Status: ONLINE
-dedicate to pool: 0
- 
-Physical Drives in Cache
-===============================================================================
-PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
-===============================================================================
-5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         WriteCache      
-16   SSDSA2SH032 SAS SSD  31 GB       Encl1 Slot16  OK         WriteCache      
-     G1GN                                                                      
-
-administrator@cli> 
-2017-12-11 16:32:54: wcache -a mod -p 5,16 -i 1
-
-administrator@cli> 
-2017-12-11 16:32:51: 
-Expect: 1. wcache should be modified dedication for pool 1 and pd_list is 6,16
-
-2017-12-11 16:32:41: 'result': 'p'
-2017-12-11 16:32:41: wcache
+EngineId: 0x80001f888069eec86e0aa8305a00000000
+Username: 1                             Permission: READ_ONLY
+Auth: SHA                               Priv: DES
+Type: SNMP
 -------------------------------------------------------------------------------
-Status: ONLINE
-dedicate to pool: 0
- 
-Physical Drives in Cache
+EngineId: 0x80001f888069eec86e0aa8305a00000000
+Username: T2                            Permission: READ_ONLY
+Auth: SHA                               Priv: DES
+Type: SNMP
+-------------------------------------------------------------------------------
+EngineId: 0x80001f888069eec86e0aa8305a00000000
+Username: Snmp_snmp_snmp_snmp_snmp_snm30
+Permission: READ_ONLY                   Auth: N/A
+Priv: N/A                               Type: SNMP
+-------------------------------------------------------------------------------
+EngineId: 0x80001f888069eec86e0aa8305a00000000
+Username: snmp_snmp_snmp_snmp_snmp_snmp31
+Permission: READ_ONLY                   Auth: SHA
+Priv: DES                               Type: SNMP
+
+administrator@cli> 
+2017-12-13 17:24:39: 
+Expect: all of snmp type user should be listed by verbose mode
+
+2017-12-13 17:24:39: user -t nas -v
+-------------------------------------------------------------------------------
+UserName: admin                         Email: 
+DisplayName: NAS default User           Telephone: 
+Department:                             PriGroupName: users
+Status: Ready                           SecGroupName: 
+-------------------------------------------------------------------------------
+UserName: 1                             Email: ab@cd.ef
+DisplayName: test_test_test_test_test_test31
+Telephone: 0123456789                   Department: new_group
+PriGroupName: users                     Status: Ready
+SecGroupName: 
+-------------------------------------------------------------------------------
+UserName: T2                            Email: 12@11.23
+DisplayName:                            Telephone: 0123456789
+Department: new_group                   PriGroupName: test_users
+Status: Ready                           SecGroupName: 
+-------------------------------------------------------------------------------
+UserName: test_test_test_test_test_nas30
+Email:                                  DisplayName: 
+Telephone: 123456000                    Department: 1
+PriGroupName: users                     Status: Ready
+SecGroupName: 
+
+administrator@cli> 
+2017-12-13 17:24:39: 
+Expect: all of nas type user should be listed by verbose mode
+
+2017-12-13 17:24:39: user -v
+-------------------------------------------------------------------------------
+Username: administrator                 Status: Enabled
+Location: Local                         Privilege: Super
+DisplayName: Super user                 Email: admin@yourcompany.com
+-------------------------------------------------------------------------------
+Username: Test_Test_Test_Test_Test_Test31
+Status: Enabled                         Location: Local
+Privilege: View                         DisplayName: 
+Email: 
+-------------------------------------------------------------------------------
+Username: 1111_1111_1111_1111_1111_11130
+Status: Enabled                         Location: Local
+Privilege: Maintenance                  DisplayName: T2
+Email: 
+-------------------------------------------------------------------------------
+Username: T_                            Status: Disabled
+Location: Local                         Privilege: Power
+DisplayName: 1111_1111_1111_1111_1111_1111_1
+Email: 11@11.11
+-------------------------------------------------------------------------------
+Username: 1                             Status: Enabled
+Location: Local                         Privilege: Super
+DisplayName: t                          Email: 11@11.11
+
+administrator@cli> 
+2017-12-13 17:24:39: 
+Expect: all of mgmt type user should be listed by verbose mode
+
+2017-12-13 17:24:39: 'result': 'p'
+2017-12-13 17:24:39: user -t snmp -u 1
 ===============================================================================
-PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+Username          Type          Auth          Priv          Permission         
 ===============================================================================
-5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         WriteCache      
-6    SSD U110    SAS SSD  31 GB       Encl1 Slot6   OK         WriteCache      
-     32GB                                                                      
+1                 SNMP          SHA           DES           READ_ONLY          
 
 administrator@cli> 
-2017-12-11 16:32:39: wcache -a add -p 5,6 -i 0
-
-administrator@cli> 
-2017-12-11 16:32:36: 
-Expect: wcache should be created dedication for pool 0
+2017-12-13 17:24:39: 
+Expect: specific snmp type user should be listed
 
-2017-12-11 16:27:47: 'result': 'f'
-2017-12-11 16:27:47: wcache -a del -p 0
-Error (0x2013): Invalid setting parameters
--p: invalid setting 0 (1,512)
+2017-12-13 17:24:39: user -t nas -u 1
+===============================================================================
+UserName   DisplayName                       Department  Telephone   Email     
+===============================================================================
+1          test_test_test_test_test_test31   new_group   0123456789  ab@cd.ef  
 
 administrator@cli> 
-2017-12-11 16:27:47: 
-Expect: Invalid setting parameters
+2017-12-13 17:24:39: 
+Expect: specific nas type user should be listed
 
-2017-12-11 16:27:47: wcache -a del -p test
-Error (0x2013): Invalid setting parameters
--p: invalid setting test
+2017-12-13 17:24:39: user -t mgmt -u 1
+===============================================================================
+Username              Location  Status    Privilege  DisplayName Email        
+===============================================================================
+1                     Local     Enabled   Super      t           11@11.11      
 
 administrator@cli> 
-2017-12-11 16:27:47: 
-Expect: Invalid setting parameters
+2017-12-13 17:24:39: 
+Expect: specific mgmt type user should be listed
 
-2017-12-11 16:27:47: wcache -a del test
-Error (0x2013): Invalid setting parameters
-invalid setting: test
+2017-12-13 17:24:39: user -u 1
+===============================================================================
+Username              Location  Status    Privilege  DisplayName Email        
+===============================================================================
+1                     Local     Enabled   Super      t           11@11.11      
 
 administrator@cli> 
-2017-12-11 16:27:47: 
-Expect: Invalid setting parameters
+2017-12-13 17:24:39: 
+Expect: specific mgmt type user should be listed
 
-2017-12-11 16:27:47: 
-Fail: wcache -a mod -p 1,2
-
-2017-12-11 16:27:47: wcache -a mod -p 1,2
+2017-12-13 17:24:39: user -t snmp
+===============================================================================
+Username                             Type     Auth     Priv     Permission     
+===============================================================================
+1                                    SNMP     SHA      DES      READ_ONLY      
+T2                                   SNMP     SHA      DES      READ_ONLY      
+Snmp_snmp_snmp_snmp_snmp_snm30       SNMP     N/A      N/A      READ_ONLY      
+snmp_snmp_snmp_snmp_snmp_snmp31      SNMP     SHA      DES      READ_ONLY      
 
 administrator@cli> 
-2017-12-11 16:27:29: 
-Expect: Invalid physical drive type
+2017-12-13 17:24:39: 
+Expect: all of snmp type user should be listed
 
-2017-12-11 16:27:29: wcache -a mod -i -1
-Error (0x2013): Invalid setting parameters
--i: invalid setting -1
+2017-12-13 17:24:39: user -t nas
+===============================================================================
+UserName                DisplayName             Department Telephone  Email    
+===============================================================================
+admin                   NAS default User                                       
+1                       test_test_test_test_tes new_group  0123456789 ab@cd.ef 
+                        t_test31                                               
+T2                                              new_group  0123456789 12@11.23 
+test_test_test_test_tes                         1          123456000           
+t_nas30                                                                        
 
 administrator@cli> 
-2017-12-11 16:27:29: 
-Expect: Invalid setting parameters
+2017-12-13 17:24:39: 
+Expect: all of nas type user should be listed
 
-2017-12-11 16:27:29: wcache -a mod -i test
-Error (0x2013): Invalid setting parameters
--i: invalid setting test
+2017-12-13 17:24:39: user
+===============================================================================
+Username              Location  Status    Privilege  DisplayName Email        
+===============================================================================
+administrator         Local     Enabled   Super      Super user  admin@yourco  
+                                                                 mpany.com     
+Test_Test_Test_Test_T Local     Enabled   View                                 
+est_Test31                                                                     
+1111_1111_1111_1111_1 Local     Enabled   Maintenanc T2                        
+111_11130                                 e                                    
+T_                    Local     Disabled  Power      1111_1111_1 11@11.11      
+                                                     111_1111_11               
+                                                     11_1111_1                 
+1                     Local     Enabled   Super      t           11@11.11      
 
 administrator@cli> 
-2017-12-11 16:27:29: 
-Expect: Invalid setting parameters
+2017-12-13 17:24:39: 
+Expect: all of mgmt type user should be listed
 
-2017-12-11 16:27:29: wcache -a mod test
-Error (0x2013): Invalid setting parameters
-invalid setting: test
+2017-12-13 17:24:39: 'result': 'p'
+2017-12-13 17:24:39: user -t nas -v -u 1
+-------------------------------------------------------------------------------
+UserName: 1                             Email: ab@cd.ef
+DisplayName: test_test_test_test_test_test31
+Telephone: 0123456789                   Department: new_group
+PriGroupName: users                     Status: Ready
+SecGroupName: 
 
 administrator@cli> 
-2017-12-11 16:27:29: 
-Expect: Invalid setting parameters
-
-2017-12-11 16:27:29: wcache -a add -p 5,6 -i test
-Error (0x2013): Invalid setting parameters
--i: invalid setting test
+2017-12-13 17:24:38: user -a mod -t nas -u 1 -s "name=test_test_test_test_test_test31"
 
 administrator@cli> 
-2017-12-11 16:27:29: 
-Expect: Invalid setting parameters
+2017-12-13 17:24:37: 
+Expect: nas user should be modified by "name=test_test_test_test_test_test31"
 
-2017-12-11 16:27:29: wcache -a add -p -1
-Error (0x2013): Invalid setting parameters
--p: invalid setting -1
+2017-12-13 17:24:37: user -t nas -v -u 1
+-------------------------------------------------------------------------------
+UserName: 1                             Email: ab@cd.ef
+DisplayName: test_test_test_test_test_tes30
+Telephone: 0123456789                   Department: new_group
+PriGroupName: users                     Status: Ready
+SecGroupName: 
 
 administrator@cli> 
-2017-12-11 16:27:29: 
-Expect: Invalid setting parameters
-
-2017-12-11 16:27:29: wcache -a add -p 0
-Error (0x2013): Invalid setting parameters
--p: invalid setting 0 (1,512)
+2017-12-13 17:24:36: user -a mod -t nas -u 1 -s "name=test_test_test_test_test_tes30"
 
 administrator@cli> 
-2017-12-11 16:27:29: 
-Expect: Invalid setting parameters
+2017-12-13 17:24:36: 
+Expect: nas user should be modified by "name=test_test_test_test_test_tes30"
 
-2017-12-11 16:27:29: wcache -a add -p test
-Error (0x2013): Invalid setting parameters
--p: invalid setting test
+2017-12-13 17:24:36: user -t nas -v -u 1
+-------------------------------------------------------------------------------
+UserName: 1                             Email: ab@cd.ef
+DisplayName: T1                         Telephone: 0123456789
+Department: new_group                   PriGroupName: users
+Status: Ready                           SecGroupName: 
 
 administrator@cli> 
-2017-12-11 16:27:29: 
-Expect: Invalid setting parameters
-
-2017-12-11 16:27:29: wcache -a add test
-Error (0x2013): Invalid setting parameters
-invalid setting: test
+2017-12-13 17:24:35: user -a mod -t nas -u 1 -s "group=users,department=new_group,phone=0123456789,name=T1"
 
 administrator@cli> 
-2017-12-11 16:27:29: 
-Expect: Invalid setting parameters
+2017-12-13 17:24:35: 
+Expect: nas user should be modified by "group=users,department=new_group,phone=0123456789,name=T1"
 
-2017-12-11 16:27:29: wcache -a test
-Error (0x2013): Invalid setting parameters
--a: invalid setting test (list|add|del|mod)
+2017-12-13 17:24:35: user -t nas -v -u 1
+-------------------------------------------------------------------------------
+UserName: 1                             Email: ab@cd.ef
+DisplayName: 1                          Telephone: test_number
+Department: default_group               PriGroupName: test_users
+Status: Ready                           SecGroupName: 
 
 administrator@cli> 
-2017-12-11 16:27:29: 
-Expect: Invalid setting parameters
-
-2017-12-11 16:27:29: wcache test
-Error (0x2013): Invalid setting parameters
-invalid setting: test
+2017-12-13 17:24:34: user -a mod -t nas -u 1 -s "group=test_users,department=default_group,phone=test_number,email=ab@cd.ef,name=1"
 
 administrator@cli> 
-2017-12-11 16:27:29: 
-Expect: Invalid setting parameters
+2017-12-13 17:24:34: 
+Expect: nas user should be modified by "group=test_users,department=default_group,phone=test_number,email=ab@cd.ef,name=1"
+
+2017-12-13 17:24:34: 'result': 'f'
+2017-12-13 17:24:34: 
+Fail: user -a add -t nas -u test_test_test_test_test_test31
+
+2017-12-13 17:24:33: user -a add -t nas -u test_test_test_test_test_test31
+Enter password for the new nas user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mEnter password for the new nas user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[44D[0m
+Retype password for the new nas user:[37D[37C[0m[?12l[?25h[?25l[37D[0m[J[0mRetype password for the new nas user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+Error (0x4100104): Incorrect parameters: The parameter [username] length is over 30 bytes.
+
+administrator@cli> 
+2017-12-13 17:24:31: 
+Expect: nas user should be added by -u test_test_test_test_test_test31
+
+2017-12-13 17:24:31: user -t nas -v -u test_test_test_test_test_nas30
+-------------------------------------------------------------------------------
+UserName: test_test_test_test_test_nas30
+Email:                                  DisplayName: 
+Telephone: 123456000                    Department: 1
+PriGroupName: users                     Status: Ready
+SecGroupName: 
+
+administrator@cli> 
+2017-12-13 17:24:30: user -a add -t nas -u test_test_test_test_test_nas30 -s "department=1,phone=123456000"
+Enter password for the new nas user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mEnter password for the new nas user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[44D[0m
+Retype password for the new nas user:[37D[37C[0m[?12l[?25h[?25l[37D[0m[J[0mRetype password for the new nas user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+
+administrator@cli> 
+2017-12-13 17:24:28: 
+Expect: nas user should be added by -u test_test_test_test_test_nas30 -s "department=1,phone=123456000"
+
+2017-12-13 17:24:28: user -t nas -v -u T2
+-------------------------------------------------------------------------------
+UserName: T2                            Email: 12@11.23
+DisplayName:                            Telephone: 0123456789
+Department: new_group                   PriGroupName: test_users
+Status: Ready                           SecGroupName: 
+
+administrator@cli> 
+2017-12-13 17:24:27: user -a add -t nas -u T2 -s "group=test_users,department=new_group,phone=0123456789,email=12@11.23"
+Enter password for the new nas user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mEnter password for the new nas user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[44D[0m
+Retype password for the new nas user:[37D[37C[0m[?12l[?25h[?25l[37D[0m[J[0mRetype password for the new nas user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+
+administrator@cli> 
+2017-12-13 17:24:25: 
+Expect: nas user should be added by T2 -s "group=test_users,department=new_group,phone=0123456789,email=12@11.23"
+
+2017-12-13 17:24:25: user -t nas -v -u 1
+-------------------------------------------------------------------------------
+UserName: 1                             Email: 12@11.23
+DisplayName: 123                        Telephone: test_number
+Department: default_group               PriGroupName: users
+Status: Ready                           SecGroupName: 
+
+administrator@cli> 
+2017-12-13 17:24:24: user -a add -t nas -u 1 -s "group=users,department=default_group,phone=test_number,email=12@11.23,name=123"
+Enter password for the new nas user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mEnter password for the new nas user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[44D[0m
+Retype password for the new nas user:[37D[37C[0m[?12l[?25h[?25l[37D[0m[J[0mRetype password for the new nas user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[45D[0m
+
+administrator@cli> 
+2017-12-13 17:24:22: 
+Expect: nas user should be added by -u 1 -s "group=users,department=default_group,phone=test_number,email=12@11.23,name=123"
+
+2017-12-13 17:24:21: 'result': 'p'
+2017-12-13 17:24:21: user -t snmp -u snmp_snmp_snmp_snmp_snmp_snmp31 -v
+-------------------------------------------------------------------------------
+Username: snmp_snmp_snmp_snmp_snmp_snmp31
+Permission: READ_ONLY                   Auth: SHA
+Priv: DES                               Type: SNMP
+
+administrator@cli> 
+2017-12-13 17:24:20: user -a mod -t snmp -u snmp_snmp_snmp_snmp_snmp_snmp31 -s "auth=sha,priv=des"
+Enter auth password:[20D[20C[0m[?12l[?25h[?25l[20D[0m[J[0mEnter auth password:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[30D[0m
+Retype password:[16D[16C[0m[?12l[?25h[?25l[16D[0m[J[0mRetype password:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[26D[0m
+Enter priv password:[20D[20C[0m[?12l[?25h[?25l[20D[0m[J[0mEnter priv password:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[30D[0m
+Retype password:[16D[16C[0m[?12l[?25h[?25l[16D[0m[J[0mRetype password:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[26D[0m
+
+administrator@cli> 
+2017-12-13 17:24:16: 
+Expect: no password snmp user should be modified by "auth=sha,priv=des"
+
+2017-12-13 17:24:16: user -t snmp -u 1 -v
+-------------------------------------------------------------------------------
+Username: 1                             Permission: READ_ONLY
+Auth: SHA                               Priv: DES
+Type: SNMP
+
+administrator@cli> 
+2017-12-13 17:24:15: user -a mod -t snmp -u 1 -s "auth=sha,priv=des"
+Enter auth password:[20D[20C[0m[?12l[?25h[?25l[20D[0m[J[0mEnter auth password:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[30D[0m
+Retype password:[16D[16C[0m[?12l[?25h[?25l[16D[0m[J[0mRetype password:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[26D[0m
+Enter priv password:[20D[20C[0m[?12l[?25h[?25l[20D[0m[J[0mEnter priv password:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[30D[0m
+Retype password:[16D[16C[0m[?12l[?25h[?25l[16D[0m[J[0mRetype password:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[26D[0m
+
+administrator@cli> 
+2017-12-13 17:24:11: 
+Expect: snmp user should be modified by "auth=sha,priv=des"
+
+2017-12-13 17:24:11: user -t snmp -u 1 -v
+-------------------------------------------------------------------------------
+Username: 1                             Permission: READ_ONLY
+Auth: MD5                               Priv: AES
+Type: SNMP
+
+administrator@cli> 
+2017-12-13 17:24:09: user -a mod -t snmp -u 1 -s "auth=md5,priv=aes"
+Enter auth password:[20D[20C[0m[?12l[?25h[?25l[20D[0m[J[0mEnter auth password:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[30D[0m
+Retype password:[16D[16C[0m[?12l[?25h[?25l[16D[0m[J[0mRetype password:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[26D[0m
+Enter priv password:[20D[20C[0m[?12l[?25h[?25l[20D[0m[J[0mEnter priv password:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[30D[0m
+Retype password:[16D[16C[0m[?12l[?25h[?25l[16D[0m[J[0mRetype password:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[26D[0m
+
+administrator@cli> 
+2017-12-13 17:24:05: 
+Expect: snmp user should be modified by "auth=md5,priv=aes"
+
+2017-12-13 17:24:05: 'result': 'p'
+2017-12-13 17:24:05: user -t snmp -u snmp_snmp_snmp_snmp_snmp_snmp31 -v
+-------------------------------------------------------------------------------
+Username: snmp_snmp_snmp_snmp_snmp_snmp31
+Permission: READ_ONLY                   Auth: N/A
+Priv: N/A                               Type: SNMP
+
+administrator@cli> 
+2017-12-13 17:24:04: user -a add -t snmp -u snmp_snmp_snmp_snmp_snmp_snmp31
+
+administrator@cli> 
+2017-12-13 17:24:04: 
+Expect: snmp user should be added by -u snmp_snmp_snmp_snmp_snmp_snmp31
+
+2017-12-13 17:24:04: user -t snmp -u Snmp_snmp_snmp_snmp_snmp_snm30 -v
+-------------------------------------------------------------------------------
+Username: Snmp_snmp_snmp_snmp_snmp_snm30
+Permission: READ_ONLY                   Auth: N/A
+Priv: N/A                               Type: SNMP
+
+administrator@cli> 
+2017-12-13 17:24:03: user -a add -t snmp -u Snmp_snmp_snmp_snmp_snmp_snm30
+
+administrator@cli> 
+2017-12-13 17:24:03: 
+Expect: snmp user should be added by -u Snmp_snmp_snmp_snmp_snmp_snm30
+
+2017-12-13 17:24:03: user -t snmp -u T2 -v
+-------------------------------------------------------------------------------
+Username: T2                            Permission: READ_ONLY
+Auth: SHA                               Priv: DES
+Type: SNMP
+
+administrator@cli> 
+2017-12-13 17:24:02: user -a add -t snmp -u T2 -s "auth=sha,priv=des"
+Enter auth password:[20D[20C[0m[?12l[?25h[?25l[20D[0m[J[0mEnter auth password:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[30D[0m
+Retype password:[16D[16C[0m[?12l[?25h[?25l[16D[0m[J[0mRetype password:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[26D[0m
+Enter priv password:[20D[20C[0m[?12l[?25h[?25l[20D[0m[J[0mEnter priv password:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[30D[0m
+Retype password:[16D[16C[0m[?12l[?25h[?25l[16D[0m[J[0mRetype password:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[26D[0m
+
+administrator@cli> 
+2017-12-13 17:23:58: 
+Expect: snmp user should be added by -u T2 -s "auth=sha,priv=des"
+
+2017-12-13 17:23:58: user -t snmp -u 1 -v
+-------------------------------------------------------------------------------
+Username: 1                             Permission: READ_ONLY
+Auth: MD5                               Priv: AES
+Type: SNMP
+
+administrator@cli> 
+2017-12-13 17:23:57: user -a add -t snmp -u 1 -s "auth=md5,priv=aes"
+Enter auth password:[20D[20C[0m[?12l[?25h[?25l[20D[0m[J[0mEnter auth password:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[30D[0m
+Retype password:[16D[16C[0m[?12l[?25h[?25l[16D[0m[J[0mRetype password:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[26D[0m
+Enter priv password:[20D[20C[0m[?12l[?25h[?25l[20D[0m[J[0mEnter priv password:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[30D[0m
+Retype password:[16D[16C[0m[?12l[?25h[?25l[16D[0m[J[0mRetype password:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[26D[0m
+
+administrator@cli> 
+2017-12-13 17:23:53: 
+Expect: snmp user should be added by -u 1 -s "auth=md5,priv=aes"
+
+2017-12-13 17:23:53: 'result': 'p'
+2017-12-13 17:23:53: user -u 1 -v
+-------------------------------------------------------------------------------
+Username: 1                             Status: Enabled
+Location: Local                         Privilege: Super
+DisplayName: t                          Email: 11@11.11
+
+administrator@cli> 
+2017-12-13 17:23:52: user -a mod -u 1 -p super -s "name=t"
+
+administrator@cli> 
+2017-12-13 17:23:47: 
+Expect: mgmt user should be modified by -p view -s "name=t"
+
+2017-12-13 17:23:47: user -u 1 -v
+-------------------------------------------------------------------------------
+Username: 1                             Status: Enabled
+Location: Local                         Privilege: Power
+DisplayName: T1                         Email: 11@11.11
+
+administrator@cli> 
+2017-12-13 17:23:45: user -a mod -u 1 -p power -s "name=T1"
+
+administrator@cli> 
+2017-12-13 17:23:40: 
+Expect: mgmt user should be modified by -p power -s "name=T1"
+
+2017-12-13 17:23:40: user -u 1 -v
+-------------------------------------------------------------------------------
+Username: 1                             Status: Enabled
+Location: Local                         Privilege: Maintenance
+DisplayName: 1111_1111_1111_1111_1111_test3
+Email: 11@11.11
+
+administrator@cli> 
+2017-12-13 17:23:39: user -a mod -u 1 -p maintenance -s "name=1111_1111_1111_1111_1111_test3,status=enable"
+
+administrator@cli> 
+2017-12-13 17:23:34: 
+Expect: mgmt user should be modified by -p maintenance -s "name=1111_1111_1111_1111_1111_test3,status=enable"
+
+2017-12-13 17:23:34: user -u 1 -v
+-------------------------------------------------------------------------------
+Username: 1                             Status: Disabled
+Location: Local                         Privilege: View
+DisplayName: 1111_1111_1111_1111_1111_test31
+Email: 11@11.11
+
+administrator@cli> 
+2017-12-13 17:23:33: user -a mod -u 1 -p view -s "name=1111_1111_1111_1111_1111_test31,status=disable,email=11@11.11"
+
+administrator@cli> 
+2017-12-13 17:23:28: 
+Expect: mgmt user should be modified by -p view -s "name=1111_1111_1111_1111_1111_test31,status=disable,email=11@11.11"
+
+2017-12-13 17:23:27: 'result': 'p'
+2017-12-13 17:23:27: user -u 1 -v
+-------------------------------------------------------------------------------
+Username: 1                             Status: Disabled
+Location: Local                         Privilege: Super
+DisplayName: t                          Email: 11@11.11
+
+administrator@cli> 
+2017-12-13 17:23:26: user -a add -t mgmt -u 1 -p super -s "name=t,status=disable,email=11@11.11"
+Enter password for the new user:[32D[32C[0m[?12l[?25h[?25l[32D[0m[J[0mEnter password for the new user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[40D[0m
+Retype password for the new user:[33D[33C[0m[?12l[?25h[?25l[33D[0m[J[0mRetype password for the new user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+
+administrator@cli> 
+2017-12-13 17:23:21: 
+Expect: mgmt user should be added by -u t -p super -s "name=t,status=disable,email=11@11.11"
+
+2017-12-13 17:23:21: user -u T_ -v
+-------------------------------------------------------------------------------
+Username: T_                            Status: Disabled
+Location: Local                         Privilege: Power
+DisplayName: 1111_1111_1111_1111_1111_1111_1
+Email: 11@11.11
+
+administrator@cli> 
+2017-12-13 17:23:20: user -a add -t mgmt -u T_ -p power -s "name=1111_1111_1111_1111_1111_1111_1,status=disable,email=11@11.11"
+Enter password for the new user:[32D[32C[0m[?12l[?25h[?25l[32D[0m[J[0mEnter password for the new user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[40D[0m
+Retype password for the new user:[33D[33C[0m[?12l[?25h[?25l[33D[0m[J[0mRetype password for the new user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+
+administrator@cli> 
+2017-12-13 17:23:15: 
+Expect: mgmt user should be added by -u T_ -p power -s "name=1111_1111_1111_1111_1111_1111_1,status=disable,email=11@11.11"
+
+2017-12-13 17:23:15: user -u 1111_1111_1111_1111_1111_11130 -v
+-------------------------------------------------------------------------------
+Username: 1111_1111_1111_1111_1111_11130
+Status: Enabled                         Location: Local
+Privilege: Maintenance                  DisplayName: T2
+Email: 
+
+administrator@cli> 
+2017-12-13 17:23:14: user -a add -t mgmt -u 1111_1111_1111_1111_1111_11130 -p maintenance -s "name=T2,status=enable"
+Enter password for the new user:[32D[32C[0m[?12l[?25h[?25l[32D[0m[J[0mEnter password for the new user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[40D[0m
+Retype password for the new user:[33D[33C[0m[?12l[?25h[?25l[33D[0m[J[0mRetype password for the new user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+
+administrator@cli> 
+2017-12-13 17:23:08: 
+Expect: mgmt user should be added by -u 1111_1111_1111_1111_1111_11130 -p maintenance -s "name=T2,status=enable"
+
+2017-12-13 17:23:08: user -u Test_Test_Test_Test_Test_Test31 -v
+-------------------------------------------------------------------------------
+Username: Test_Test_Test_Test_Test_Test31
+Status: Enabled                         Location: Local
+Privilege: View                         DisplayName: 
+Email: 
+
+administrator@cli> 
+2017-12-13 17:23:07: user -a add -u Test_Test_Test_Test_Test_Test31 -p view
+Enter password for the new user:[32D[32C[0m[?12l[?25h[?25l[32D[0m[J[0mEnter password for the new user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[40D[0m
+Retype password for the new user:[33D[33C[0m[?12l[?25h[?25l[33D[0m[J[0mRetype password for the new user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[41D[0m
+
+administrator@cli> 
+2017-12-13 17:23:01: 
+Expect: mgmt user should be added by default setting and -u Test_Test_Test_Test_Test_Test31
 

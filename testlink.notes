@@ -1,23 +1,55 @@
 
 Expect: Missing parameter
 
-wcache -a 
+user -u 
 Error (0x403): Missing parameter
--a: missing value
+-u: missing value
 
 administrator@cli> 
 
 Expect: Missing parameter
 
-wcache -a add 
+user -t 
 Error (0x403): Missing parameter
-missing parameter '-p' for '-a add'
+-t: missing value
 
 administrator@cli> 
 
 Expect: Missing parameter
 
-wcache -a add -p 
+user -t nas -u 
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -t snmp -u 
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -a add 
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -a add -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -a add -u test -p 
 Error (0x403): Missing parameter
 -p: missing value
 
@@ -25,19 +57,125 @@ administrator@cli>
 
 Expect: Missing parameter
 
-wcache -a mod
+user -a add -u test -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -a mod 
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -a mod -u 
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -a mod -u 1111_1111_1111_1111_1111_11130 -p 
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -a mod -u 1111_1111_1111_1111_1111_11130 -s 
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -a mod -t nas
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -a mod -t nas -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -a mod -t nas -u 1
 unexpected error
 please send service report to your administrator
 administrator@cli> 
 
-Fail: wcache -a mod
+Fail: user -a mod -t nas -u 1
 
 
 Expect: Missing parameter
 
-wcache -a mod -i  
+user -a mod -t snmp
 Error (0x403): Missing parameter
--i: missing value
+missing parameter '-u' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -a mod -t snmp -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -a mod -t snmp -u 1
+unexpected error
+please send service report to your administrator
+administrator@cli> 
+
+Fail: user -a mod -t snmp -u 1
+
+
+Expect: Missing parameter
+
+user -a del
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a del'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -a del -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -a del -t nas -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -a del -t snmp -u
+Error (0x403): Missing parameter
+-u: missing value
 
 administrator@cli> 
 'result': 'f'

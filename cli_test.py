@@ -55,7 +55,38 @@ class cli_test_setting():
         for i in range(1, table.nrows):
 
             tolog('\r\nExpect: ' + table.cell(i, 1).value + '\r\n')
-            result = SendCmdpassword(c, table.cell(i, 0).value, '0123456789')
+            result = SendCmdpassword(c, table.cell(i, 0).value, '00000000')
+            time.sleep(hold_time)
+
+            if 'Error (' in result or 'unexpected error' in result:
+
+                self.FailFlag = True
+                tolog('\r\nFail: ' + table.cell(i, 0).value + '\r\n')
+
+            else:
+                check = SendCmd(c, table.cell(i, 2).value)
+
+                for j in range(3, table.ncols):
+
+                    if table.cell(i, j).value not in check:
+                        self.FailFlag = True
+                        tolog('\r\nFail: please check out ' + table.cell(i, j).value + '\r\n')
+
+        if self.FailFlag:
+            tolog(Fail)
+        else:
+            tolog(Pass)
+
+    def setting_need_double_password(self, c, data_file_name, sheet_name, hold_time=0):
+
+        # data = xlrd.open_workbook('/home/work/zach/clitest/' + data_file_name)
+        data = xlrd.open_workbook(data_file_name)
+        table = data.sheet_by_name(sheet_name)
+
+        for i in range(1, table.nrows):
+
+            tolog('\r\nExpect: ' + table.cell(i, 1).value + '\r\n')
+            result = SendCmdDoublepassword(c, table.cell(i, 0).value, '0123456789')
             time.sleep(hold_time)
 
             if 'Error (' in result or 'unexpected error' in result:
