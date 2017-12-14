@@ -57,7 +57,34 @@ def BuildVerification(c):
             tolog(result)
 
     if reconnectflag:
-        # there are 40 command that can be tested
+        # there are 41 command that can be tested
+        tolog('Start verifying user')
+        import user
+        if (user.add_mgmt_user(c)):
+            FailCasesList.append('The case ' + user.add_mgmt_user.__name__ + ' failed')
+        if (user.mod_mgmt_user(c)):
+            FailCasesList.append('The case ' + user.mod_mgmt_user.__name__ + ' failed')
+        if (user.add_snmp_user(c)):
+            FailCasesList.append('The case ' + user.add_snmp_user.__name__ + ' failed')
+        if (user.mod_snmp_user(c)):
+            FailCasesList.append('The case ' + user.mod_snmp_user.__name__ + ' failed')
+        if (user.add_nas_user(c)):
+            FailCasesList.append('The case ' + user.add_nas_user.__name__ + ' failed')
+        if (user.mod_nas_user(c)):
+            FailCasesList.append('The case ' + user.mod_nas_user.__name__ + ' failed')
+        if (user.list_user(c)):
+            FailCasesList.append('The case ' + user.list_user.__name__ + ' failed')
+        if (user.list_user_by_verbose_mode(c)):
+            FailCasesList.append('The case ' + user.list_user_by_verbose_mode.__name__ + ' failed')
+        if (user.del_user(c)):
+            FailCasesList.append('The case ' + user.del_user.__name__ + ' failed')
+        if (user.invalid_setting_for_user(c)):
+            FailCasesList.append('The case ' + user.invalid_setting_for_user.__name__ + ' failed')
+        if (user.invalid_option_for_user(c)):
+            FailCasesList.append('The case ' + user.invalid_option_for_user.__name__ + ' failed')
+        if (user.missing_parameter_for_user(c)):
+            FailCasesList.append('The case ' + user.missing_parameter_for_user.__name__ + ' failed')
+
         tolog('Start verifying wcache')
         import wcache
         if (wcache.add_wcache_dedication(c)):
