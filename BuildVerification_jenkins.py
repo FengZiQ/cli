@@ -278,8 +278,8 @@ def BuildVerification(c):
             FailCasesList.append('The case ' + acl.acl_unset.__name__ + ' failed')
         if (acl.clear_acl(c)):
             FailCasesList.append('The case ' + acl.clear_acl.__name__ + ' failed')
-        if (acl.cancel_acl(c)):
-            FailCasesList.append('The case ' + acl.cancel_acl.__name__ + ' failed')
+        # if (acl.cancel_acl(c)):
+        #     FailCasesList.append('The case ' + acl.cancel_acl.__name__ + ' failed')
         if (acl.invalid_setting_parameter(c)):
             FailCasesList.append('The case ' + acl.invalid_setting_parameter.__name__ + ' failed')
         if (acl.invalid_option(c)):

@@ -24,11 +24,6 @@ def precondition():
     for i in range(2):
         server.webapi('post', 'nasshare', {'pool_id': 0, 'name': 'test_acl_nas_' + str(i), 'capacity': '2GB'})
 
-    # # create clone
-    # server.webapi('post', 'snapshot', {"name": "test_acl_snap", "type": 'nasshare', "source_id": 0})
-    # for i in range(2):
-    #     server.webapi('post', 'clone', {"name": "test_acl_clone_" + str(i), "source_id": 0})
-
     # create nas user
     for i in range(10):
         server.webapi('post', 'dsuser', {"id": 'test_acl_' + str(i), "password": '000000'})
@@ -66,12 +61,26 @@ def clean_up_environment():
     server.webapi('delete', 'pool/0?force=1')
 
     # delete nas user
-    for i in range(10):
-        server.webapi('delete', 'dsuser/test_acl_' + str(i))
+    ds_users_request = server.webapi('get', 'dsusers?page=1&page_size=200')
+    ds_users = json.loads(ds_users_request["text"])
+
+    for ds_use in ds_users:
+
+        if ds_use["id"] != 'admin':
+
+            server.webapi('delete', 'dsuser/' + ds_use["id"])
 
     # delete nas group
-    for i in range(10):
-        server.webapi('delete', 'dsgroup/test_acl_group_' + str(i))
+    ds_groups_request = server.webapi('get', 'dsgroups?page=1&page_size=200')
+    ds_groups = json.loads(ds_groups_request["text"])
+
+    for ds_group in ds_groups:
+
+        if ds_group["id"] != 'users':
+
+            server.webapi('delete', 'dsgroup/' + ds_group["id"])
+
+    return
 
 
 def set_acl(c):
@@ -142,11 +151,11 @@ def cancel_acl(c):
 
 
 def invalid_setting_parameter(c):
-    cli_failed_test = cli_test_failed_test()
-
     # precondition
     server.webapi('post', 'acl/editcancel/nasshare_0')
     server.webapi('post', 'acl/editcancel/clone_0')
+
+    cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'invalid_setting_parameter', 1)
 
@@ -154,6 +163,7 @@ def invalid_setting_parameter(c):
 
 
 def invalid_option(c):
+
     cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'invalid_option')
@@ -162,6 +172,7 @@ def invalid_option(c):
 
 
 def missing_parameter(c):
+
     cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'missing_parameter')

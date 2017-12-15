@@ -59,6 +59,8 @@ def precondition():
 
         server.webapi('post', 'dsgroup/editcancel')
 
+    return
+
 
 def clean_up_environment():
     # clean up environment
@@ -66,20 +68,35 @@ def clean_up_environment():
     server.webapi('delete', 'pool/0?force=1')
 
     # delete nas user
-    for i in range(10):
-        server.webapi('delete', 'dsuser/test_quota_' + str(i))
+    ds_users_request = server.webapi('get', 'dsusers?page=1&page_size=200')
+    ds_users = json.loads(ds_users_request["text"])
+
+    for ds_use in ds_users:
+
+        if ds_use["id"] != 'admin':
+
+            server.webapi('delete', 'dsuser/' + ds_use["id"])
 
     # delete nas group
-    for i in range(10):
-        server.webapi('delete', 'dsgroup/test_quota_group_' + str(i))
+    ds_groups_request = server.webapi('get', 'dsgroups?page=1&page_size=200')
+    ds_groups = json.loads(ds_groups_request["text"])
+
+    for ds_group in ds_groups:
+
+        if ds_group["id"] != 'users':
+
+            server.webapi('delete', 'dsgroup/' + ds_group["id"])
+
+    return
 
 
 def set_quota(c):
 
-    cli_setting = cli_test_setting()
-
+    clean_up_environment()
     # precondition
     precondition()
+
+    cli_setting = cli_test_setting()
 
     cli_setting.setting(c, data, 'set_quota', 3)
 
@@ -87,6 +104,8 @@ def set_quota(c):
 
 
 def list_quota(c):
+    # precondition
+    server.webapi('post', 'dsuser', {"id": 'test_quota_followed', "password": '000000', "grp_name": 'test_quota_group_0'})
 
     cli_list = cli_test_list()
 
@@ -114,6 +133,8 @@ def refresh_quota(c):
 
 
 def cancel_quota(c):
+    # precondition
+    server.webapi('post', 'quota/editcancel/nasshare_0')
 
     cli_test_other = cli_test_other_action()
 
@@ -123,6 +144,8 @@ def cancel_quota(c):
 
 
 def delete_quota(c):
+    # precondition
+    server.webapi('post', 'quota/editcancel/nasshare_0')
 
     cli_delete = cli_test_delete()
 
