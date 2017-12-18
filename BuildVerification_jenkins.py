@@ -57,7 +57,7 @@ def BuildVerification(c):
             tolog(result)
 
     if reconnectflag:
-        # there are 41 command that can be tested
+        # there are 42 command that can be tested
         tolog('Start verifying user')
         import user
         if (user.add_mgmt_user(c)):
@@ -163,8 +163,8 @@ def BuildVerification(c):
             FailCasesList.append('The case ' + quota.list_quota_by_verbose_mode.__name__ + ' failed')
         if (quota.refresh_quota(c)):
             FailCasesList.append('The case ' + quota.refresh_quota.__name__ + ' failed')
-        # if (quota.cancel_quota(c)):
-        #     FailCasesList.append('The case ' + quota.cancel_quota.__name__ + ' failed')
+        if (quota.cancel_quota(c)):
+            FailCasesList.append('The case ' + quota.cancel_quota.__name__ + ' failed')
         if (quota.delete_quota(c)):
             FailCasesList.append('The case ' + quota.delete_quota.__name__ + ' failed')
         if (quota.invalid_setting_for_quota(c)):
@@ -278,8 +278,8 @@ def BuildVerification(c):
             FailCasesList.append('The case ' + acl.acl_unset.__name__ + ' failed')
         if (acl.clear_acl(c)):
             FailCasesList.append('The case ' + acl.clear_acl.__name__ + ' failed')
-        # if (acl.cancel_acl(c)):
-        #     FailCasesList.append('The case ' + acl.cancel_acl.__name__ + ' failed')
+        if (acl.cancel_acl(c)):
+            FailCasesList.append('The case ' + acl.cancel_acl.__name__ + ' failed')
         if (acl.invalid_setting_parameter(c)):
             FailCasesList.append('The case ' + acl.invalid_setting_parameter.__name__ + ' failed')
         if (acl.invalid_option(c)):
@@ -621,38 +621,22 @@ def BuildVerification(c):
         # (chap.verifyChapInvalidParameters(c))
         # (chap.verifyChapMissingParameters(c))
 
-        # import ctrl
-        # tolog("Start verifying ctrl")
-        # if (ctrl.verifyCtrl(c)):
-        #     FailCasesList.append('The case ' + ctrl.verifyCtrl.__name__ + ' failed')
-        # if (ctrl.verifyCtrlSpecifyId(c)):
-        #     FailCasesList.append('The case ' + ctrl.verifyCtrlSpecifyId.__name__ + ' failed')
-        # if (ctrl.verifyCtrlSpecifyInexistentId(c)):
-        #     FailCasesList.append('The case ' + ctrl.verifyCtrlSpecifyInexistentId.__name__ + ' failed')
-        # if (ctrl.verifyCtrlList(c)):
-        #     FailCasesList.append('The case ' + ctrl.verifyCtrlList.__name__ + ' failed')
-        # if (ctrl.verifyCtrlV(c)):
-        #     FailCasesList.append('The case ' + ctrl.verifyCtrlV.__name__ + ' failed')
-        # if (ctrl.verifyCtrlListV(c)):
-        #     FailCasesList.append('The case ' + ctrl.verifyCtrlListV.__name__ + ' failed')
-        # if (ctrl.verifyCtrlModNormativeAlias(c)):
-        #     FailCasesList.append('The case ' + ctrl.verifyCtrlModNormativeAlias.__name__ + ' failed')
-        # if (ctrl.verifyCtrlModValuesIsEnableOrDisable(c)):
-        #     FailCasesList.append('The case ' + ctrl.verifyCtrlModValuesIsEnableOrDisable.__name__ + ' failed')
-        # if (ctrl.verifyCtrlModValuesIsTime(c)):
-        #     FailCasesList.append('The case ' + ctrl.verifyCtrlModValuesIsTime.__name__ + ' failed')
-        # if (ctrl.verifyCtrlClear(c)):
-        #     FailCasesList.append('The case ' + ctrl.verifyCtrlClear.__name__ + ' failed')
-        # if (ctrl.verifyCtrlHelp(c)):
-        #     FailCasesList.append('The case ' + ctrl.verifyCtrlHelp.__name__ + ' failed')
-        # if (ctrl.verifyCtrlInvalidOption(c)):
-        #     FailCasesList.append('The case ' + ctrl.verifyCtrlInvalidOption.__name__ + ' failed')
-        # if (ctrl.verifyCtrlInvalidParameters(c)):
-        #     FailCasesList.append('The case ' + ctrl.verifyCtrlInvalidParameters.__name__ + ' failed')
-        # if (ctrl.verifyCtrlMissingParameters(c)):
-        #     FailCasesList.append('The case ' + ctrl.verifyCtrlMissingParameters.__name__ + ' failed')
-        # if (ctrl.verifyCtrlSpecifyInexistentId(c)):
-        #     FailCasesList.append('The case ' + ctrl.verifyCtrlSpecifyInexistentId.__name__ + ' failed')
+        tolog("Start verifying ctrl")
+        import ctrl
+        if (ctrl.list_ctrl(c)):
+            FailCasesList.append('The case ' + ctrl.list_ctrl.__name__ + ' failed')
+        if (ctrl.list_ctrl_by_verbose_mode(c)):
+            FailCasesList.append('The case ' + ctrl.list_ctrl_by_verbose_mode.__name__ + ' failed')
+        if (ctrl.mod_ctrl(c)):
+            FailCasesList.append('The case ' + ctrl.mod_ctrl.__name__ + ' failed')
+        if (ctrl.clear_ctrl(c)):
+            FailCasesList.append('The case ' + ctrl.clear_ctrl.__name__ + ' failed')
+        if (ctrl.invalid_setting_for_ctrl(c)):
+            FailCasesList.append('The case ' + ctrl.invalid_setting_for_ctrl.__name__ + ' failed')
+        if (ctrl.invalid_option_for_ctrl(c)):
+            FailCasesList.append('The case ' + ctrl.invalid_option_for_ctrl.__name__ + ' failed')
+        if (ctrl.missing_parameter_for_ctrl(c)):
+            FailCasesList.append('The case ' + ctrl.missing_parameter_for_ctrl.__name__ + ' failed')
 
         tolog("Start verifying encldiag")
         import encldiag
