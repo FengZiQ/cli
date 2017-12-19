@@ -1,3 +1,300 @@
+2017-12-19 15:16:25: 'result': 'p'
+2017-12-19 15:16:25: phydrv -a clear -p 1
+Error (0x4023): Invalid physical drive id
+Only DDF on a dead drive can be cleared
+
+administrator@cli> 
+2017-12-19 15:16:25: 
+Expect: Only DDF on a dead drive can be cleared
+
+2017-12-19 15:16:25: phydrv -a clear -p 17
+Error (0x49841602): Invalid physical drive id in data buffer
+
+administrator@cli> 
+2017-12-19 15:16:25: 
+Expect: Invalid physical drive id in data buffer
+
+2017-12-19 15:16:25: phydrv -a clear -p 1 -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (pfa|staleconfig)
+
+administrator@cli> 
+2017-12-19 15:16:25: 
+Expect: Invalid setting parameters
+
+2017-12-19 15:16:25: phydrv -a clear -p 1 test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-12-19 15:16:25: 
+Expect: Invalid setting parameters
+
+2017-12-19 15:16:25: phydrv -a clear test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-12-19 15:16:25: 
+Expect: Invalid setting parameters
+
+2017-12-19 15:16:25: phydrv -a online -p test
+Error (0x2013): Invalid setting parameters
+-p: invalid setting test
+
+administrator@cli> 
+2017-12-19 15:16:25: 
+Expect: Invalid setting parameters
+
+2017-12-19 15:16:25: phydrv -a online -p 17
+Error (0x49841602): Invalid physical drive id in data buffer
+
+administrator@cli> 
+2017-12-19 15:16:25: 
+Expect: Invalid physical drive id in data buffer
+
+2017-12-19 15:16:25: phydrv -a online test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-12-19 15:16:25: 
+Expect: Invalid setting parameters
+
+2017-12-19 15:16:25: phydrv -a offline -p test
+Error (0x2013): Invalid setting parameters
+-p: invalid setting test
+
+administrator@cli> 
+2017-12-19 15:16:25: 
+Expect: Invalid setting parameters
+
+2017-12-19 15:16:25: phydrv -a offline -p 17
+Error (0x49841602): Invalid physical drive id in data buffer
+
+administrator@cli> 
+2017-12-19 15:16:25: 
+Expect: Invalid physical drive id in data buffer
+
+2017-12-19 15:16:25: phydrv -a offline test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-12-19 15:16:25: 
+Expect: Invalid setting parameters
+
+2017-12-19 15:16:25: phydrv -a locate -p 17
+Error (0x498F0D02): Invalid physical drive id
+
+administrator@cli> 
+2017-12-19 15:16:25: 
+Expect: Invalid physical drive id
+
+2017-12-19 15:16:25: phydrv -a locate -p test
+Error (0x2013): Invalid setting parameters
+-p: invalid setting test
+
+administrator@cli> 
+2017-12-19 15:16:25: 
+Expect: Invalid setting parameters
+
+2017-12-19 15:16:25: phydrv -a locate test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-12-19 15:16:25: 
+Expect: Invalid setting parameters
+
+2017-12-19 15:16:25: phydrv -a mod -d sas -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+2017-12-19 15:16:25: 
+Expect: Invalid setting parameters
+
+2017-12-19 15:16:25: phydrv -a mod -d sas -s test
+Error (0x2013): Invalid setting parameters
+invalid option: ['test']
+
+administrator@cli> 
+2017-12-19 15:16:25: 
+Expect: Invalid setting parameters
+
+2017-12-19 15:16:25: phydrv -a mod -d sata -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+2017-12-19 15:16:25: 
+Expect: Invalid setting parameters
+
+2017-12-19 15:16:25: phydrv -a mod -d sata -s test
+Error (0x2013): Invalid setting parameters
+invalid option: ['test']
+
+administrator@cli> 
+2017-12-19 15:16:25: 
+Expect: Invalid setting parameters
+
+2017-12-19 15:16:25: phydrv -a mod -d all -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+2017-12-19 15:16:25: 
+Expect: Invalid setting parameters
+
+2017-12-19 15:16:25: phydrv -a mod -d all -s test
+Error (0x2013): Invalid setting parameters
+invalid option: ['test']
+
+administrator@cli> 
+2017-12-19 15:16:25: 
+Expect: Invalid setting parameters
+
+2017-12-19 15:16:25: phydrv -a mod -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+2017-12-19 15:16:25: 
+Expect: Invalid setting parameters
+
+2017-12-19 15:16:25: phydrv -a mod -s test
+Error (0x2013): Invalid setting parameters
+invalid option: ['test']
+
+administrator@cli> 
+2017-12-19 15:16:25: 
+Expect: Invalid setting parameters
+
+2017-12-19 15:16:25: phydrv -a mod -p 1 -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+2017-12-19 15:16:25: 
+Expect: Invalid setting parameters
+
+2017-12-19 15:16:25: phydrv -a mod -p 1 -s test
+Error (0x2013): Invalid setting parameters
+invalid option: ['test']
+
+administrator@cli> 
+2017-12-19 15:16:25: 
+Expect: Invalid setting parameters
+
+2017-12-19 15:16:25: phydrv -a mod -p test -s "alias=1,writecache=enable,rlacache=disable"
+Error (0x2013): Invalid setting parameters
+-p: invalid setting test
+
+administrator@cli> 
+2017-12-19 15:16:25: 
+Expect: Invalid setting parameters
+
+2017-12-19 15:16:25: phydrv -a mod -p 1 -s "alias=test"
+Error (0x4023): Invalid physical drive id
+Cannot modify alias of an unconfigured drive
+
+administrator@cli> 
+2017-12-19 15:16:25: 
+Expect: Invalid physical drive id
+
+2017-12-19 15:16:25: phydrv -a mod -d sata -p 1 -s "alias=test"
+Error (0x402): Invalid parameter
+-p: do not specify physical drive id due to -d is specified
+
+administrator@cli> 
+2017-12-19 15:16:25: 
+Expect: Invalid
+
+2017-12-19 15:16:25: phydrv -a mod -p 17 -s "alias=test"
+Error (0x49841602): Invalid physical drive id in data buffer
+
+administrator@cli> 
+2017-12-19 15:16:25: 
+Expect: Invalid physical drive id in data buffer
+
+2017-12-19 15:16:25: phydrv -a mod test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-12-19 15:16:25: 
+Expect: Invalid setting parameters
+
+2017-12-19 15:16:25: phydrv -c -1
+Error (0x2013): Invalid setting parameters
+-c: invalid setting -1 (0,512)
+
+administrator@cli> 
+2017-12-19 15:16:25: 
+Expect: Invalid setting parameters
+
+2017-12-19 15:16:25: phydrv -c test
+Error (0x2013): Invalid setting parameters
+-c: invalid setting test
+
+administrator@cli> 
+2017-12-19 15:16:25: 
+Expect: Invalid setting parameters
+
+2017-12-19 15:16:25: phydrv -p test
+Error (0x2013): Invalid setting parameters
+-p: invalid setting test
+
+administrator@cli> 
+2017-12-19 15:16:25: 
+Expect: Invalid setting parameters
+
+2017-12-19 15:16:25: phydrv -p 513
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 513 (1,512)
+
+administrator@cli> 
+2017-12-19 15:16:25: 
+Expect: Invalid setting parameters
+
+2017-12-19 15:16:25: phydrv test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-12-19 15:16:25: 
+Expect: Invalid setting parameters
+
+2017-12-19 15:16:04: 'result': 'p'
+2017-12-19 15:16:04: phydrv -p 1
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Unconfigured    
+     S640                                                                      
+
+administrator@cli> 
+2017-12-19 15:16:00: phydrv -a clear -p 1 -t staleconfig
+
+administrator@cli> 
+2017-12-19 15:15:59: 
+Expect: to clear the stale configuration on the drive
+
+2017-12-19 15:15:59: phydrv -p 1
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   Stale      StaleConfig     
+     S640                                                                      
+
+administrator@cli> 
+2017-12-19 15:15:55: phydrv -a offline -p 1
+
+administrator@cli> 
+2017-12-19 15:15:55: 
+Expect: precondition
+
 2017-12-19 14:44:38: 'result': 'p'
 2017-12-19 14:44:38: phydrv -a clear
 Error (0x403): Missing parameter

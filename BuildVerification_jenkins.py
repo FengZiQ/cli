@@ -58,98 +58,192 @@ def BuildVerification(c):
 
     if reconnectflag:
         # there are 43 command that can be tested
-        tolog("Start verifying chap")
-        import chap
-        if (chap.add_chap(c)):
-            FailCasesList.append('The case ' + chap.add_chap.__name__ + ' failed')
-        if (chap.list_chap(c)):
-            FailCasesList.append('The case ' + chap.list_chap.__name__ + ' failed')
-        if (chap.mod_chap(c)):
-            FailCasesList.append('The case ' + chap.mod_chap.__name__ + ' failed')
-        if (chap.del_chap(c)):
-            FailCasesList.append('The case ' + chap.del_chap.__name__ + ' failed')
-        if (chap.invalid_setting_for_chap(c)):
-            FailCasesList.append('The case ' + chap.invalid_setting_for_chap.__name__ + ' failed')
-        if (chap.invalid_option_for_chap(c)):
-            FailCasesList.append('The case ' + chap.invalid_option_for_chap.__name__ + ' failed')
-        if (chap.missing_parameter_for_chap(c)):
-            FailCasesList.append('The case ' + chap.missing_parameter_for_chap.__name__ + ' failed')
+        tolog("Start verifying pool add")
+        import pool
+        if (pool.add_pool_raid0(c)):
+            FailCasesList.append('The case ' + pool.add_pool_raid0.__name__ + ' failed')
+        if (pool.add_pool_raid1(c)):
+            FailCasesList.append('The case ' + pool.add_pool_raid1.__name__ + ' failed')
+        if (pool.add_pool_raid5(c)):
+            FailCasesList.append('The case ' + pool.add_pool_raid5.__name__ + ' failed')
+        if (pool.add_pool_raid6(c)):
+            FailCasesList.append('The case ' + pool.add_pool_raid6.__name__ + ' failed')
+        if (pool.add_pool_raid10(c)):
+            FailCasesList.append('The case ' + pool.add_pool_raid10.__name__ + ' failed')
+        if (pool.add_pool_raid50(c)):
+            FailCasesList.append('The case ' + pool.add_pool_raid50.__name__ + ' failed')
+        if (pool.add_pool_raid60(c)):
+            FailCasesList.append('The case ' + pool.add_pool_raid60.__name__ + ' failed')
+        if (pool.add_pool_default_setting(c)):
+            FailCasesList.append('The case ' + pool.add_pool_default_setting.__name__ + ' failed')
+        if (pool.modify_pool_name(c)):
+            FailCasesList.append('The case ' + pool.modify_pool_name.__name__ + ' failed')
+        if (pool.list_pool(c)):
+            FailCasesList.append('The case ' + pool.list_pool.__name__ + ' failed')
+        if (pool.list_verbose_mode_pool(c)):
+            FailCasesList.append('The case ' + pool.list_verbose_mode_pool.__name__ + ' failed')
+        if (pool.expand_raid0_pool(c)):
+            FailCasesList.append('The case ' + pool.expand_raid0_pool.__name__ + ' failed')
+        if (pool.expand_raid1_pool(c)):
+            FailCasesList.append('The case ' + pool.expand_raid1_pool.__name__ + ' failed')
+        if (pool.expand_raid5_pool(c)):
+            FailCasesList.append('The case ' + pool.expand_raid5_pool.__name__ + ' failed')
+        if (pool.expand_raid6_pool(c)):
+            FailCasesList.append('The case ' + pool.expand_raid6_pool.__name__ + ' failed')
+        if (pool.expand_raid10_pool(c)):
+            FailCasesList.append('The case ' + pool.expand_raid10_pool.__name__ + ' failed')
+        if (pool.expand_raid50_pool(c)):
+            FailCasesList.append('The case ' + pool.expand_raid50_pool.__name__ + ' failed')
+        if (pool.expand_raid60_pool(c)):
+            FailCasesList.append('The case ' + pool.expand_raid60_pool.__name__ + ' failed')
+        if (pool.delete_pool(c)):
+            FailCasesList.append('The case ' + pool.delete_pool.__name__ + ' failed')
+        if (pool.invalid_settings_parameter(c)):
+            FailCasesList.append('The case ' + pool.invalid_settings_parameter.__name__ + ' failed')
+        if (pool.invalid_option(c)):
+            FailCasesList.append('The case ' + pool.invalid_option.__name__ + ' failed')
+        if (pool.missing_parameter(c)):
+            FailCasesList.append('The case ' + pool.missing_parameter.__name__ + ' failed')
 
-        tolog('Start verifying user')
-        import user
-        if (user.add_mgmt_user(c)):
-            FailCasesList.append('The case ' + user.add_mgmt_user.__name__ + ' failed')
-        if (user.mod_mgmt_user(c)):
-            FailCasesList.append('The case ' + user.mod_mgmt_user.__name__ + ' failed')
-        if (user.add_snmp_user(c)):
-            FailCasesList.append('The case ' + user.add_snmp_user.__name__ + ' failed')
-        if (user.mod_snmp_user(c)):
-            FailCasesList.append('The case ' + user.mod_snmp_user.__name__ + ' failed')
-        if (user.add_nas_user(c)):
-            FailCasesList.append('The case ' + user.add_nas_user.__name__ + ' failed')
-        if (user.mod_nas_user(c)):
-            FailCasesList.append('The case ' + user.mod_nas_user.__name__ + ' failed')
-        if (user.list_user(c)):
-            FailCasesList.append('The case ' + user.list_user.__name__ + ' failed')
-        if (user.list_user_by_verbose_mode(c)):
-            FailCasesList.append('The case ' + user.list_user_by_verbose_mode.__name__ + ' failed')
-        if (user.del_user(c)):
-            FailCasesList.append('The case ' + user.del_user.__name__ + ' failed')
-        if (user.invalid_setting_for_user(c)):
-            FailCasesList.append('The case ' + user.invalid_setting_for_user.__name__ + ' failed')
-        if (user.invalid_option_for_user(c)):
-            FailCasesList.append('The case ' + user.invalid_option_for_user.__name__ + ' failed')
-        if (user.missing_parameter_for_user(c)):
-            FailCasesList.append('The case ' + user.missing_parameter_for_user.__name__ + ' failed')
+        tolog('Start verifying volume')
+        import volume
+        if (volume.addVolume(c)):
+            FailCasesList.append('The case ' + volume.addVolume.__name__ + ' failed')
+        if (volume.listVolume(c)):
+            FailCasesList.append('The case ' + volume.listVolume.__name__ + ' failed')
+        if (volume.listVolume_by_verbose_mode(c)):
+            FailCasesList.append('The case ' + volume.listVolume_by_verbose_mode.__name__ + ' failed')
+        if (volume.modVolume(c)):
+            FailCasesList.append('The case ' + volume.modVolume.__name__ + ' failed')
+        if (volume.exportVolume(c)):
+            FailCasesList.append('The case ' + volume.exportVolume.__name__ + ' failed')
+        if (volume.unexportVolume(c)):
+            FailCasesList.append('The case ' + volume.unexportVolume.__name__ + ' failed')
+        if (volume.invalidParameter(c)):
+            FailCasesList.append('The case ' + volume.invalidParameter.__name__ + ' failed')
+        if (volume.invalidOption(c)):
+            FailCasesList.append('The case ' + volume.invalidOption.__name__ + ' failed')
+        if (volume.missingParameter(c)):
+            FailCasesList.append('The case ' + volume.missingParameter.__name__ + ' failed')
+        if (volume.deleteVolume(c)):
+            FailCasesList.append('The case ' + volume.deleteVolume.__name__ + ' failed')
 
-        tolog('Start verifying wcache')
-        import wcache
-        if (wcache.add_wcache_dedication(c)):
-            FailCasesList.append('The case ' + wcache.add_wcache_dedication.__name__ + ' failed')
-        if (wcache.mod_wcache(c)):
-            FailCasesList.append('The case ' + wcache.mod_wcache.__name__ + ' failed')
-        if (wcache.add_wcache_no_dedication(c)):
-            FailCasesList.append('The case ' + wcache.add_wcache_no_dedication.__name__ + ' failed')
-        if (wcache.list_wcache(c)):
-            FailCasesList.append('The case ' + wcache.list_wcache.__name__ + ' failed')
-        if (wcache.def_wcache(c)):
-            FailCasesList.append('The case ' + wcache.def_wcache.__name__ + ' failed')
-        if (wcache.invalid_setting_for_wcache(c)):
-            FailCasesList.append('The case ' + wcache.invalid_setting_for_wcache.__name__ + ' failed')
-        if (wcache.invalid_option_for_wcache(c)):
-            FailCasesList.append('The case ' + wcache.invalid_option_for_wcache.__name__ + ' failed')
-        if (wcache.missing_parameter_for_wcache(c)):
-            FailCasesList.append('The case ' + wcache.missing_parameter_for_wcache.__name__ + ' failed')
+        tolog('Start verifying NASShare')
+        import nasShare
+        if (nasShare.addNASShare(c)):
+            FailCasesList.append('The case ' + nasShare.addNASShare.__name__ + ' failed')
+        if (nasShare.listNASShare(c)):
+            FailCasesList.append('The case ' + nasShare.listNASShare.__name__ + ' failed')
+        if (nasShare.listVerboseNASShare(c)):
+            FailCasesList.append('The case ' + nasShare.listVerboseNASShare.__name__ + ' failed')
+        if (nasShare.modNASShare(c)):
+            FailCasesList.append('The case ' + nasShare.modNASShare.__name__ + ' failed')
+        if (nasShare.mountNASShare(c)):
+            FailCasesList.append('The case ' + nasShare.mountNASShare.__name__ + ' failed')
+        if (nasShare.unmountNASShare(c)):
+            FailCasesList.append('The case ' + nasShare.unmountNASShare.__name__ + ' failed')
+        if (nasShare.helpNASShare(c)):
+            FailCasesList.append('The case ' + nasShare.helpNASShare.__name__ + ' failed')
+        if (nasShare.failedTest_InexistentId(c)):
+            FailCasesList.append('The case ' + nasShare.failedTest_InexistentId.__name__ + ' failed')
+        if (nasShare.failedTest_InvalidOption(c)):
+            FailCasesList.append('The case ' + nasShare.failedTest_InvalidOption.__name__ + ' failed')
+        if (nasShare.failedTest_InvalidParameters(c)):
+            FailCasesList.append('The case ' + nasShare.failedTest_InvalidParameters.__name__ + ' failed')
+        if (nasShare.failedTest_MissingParameters(c)):
+            FailCasesList.append('The case ' + nasShare.failedTest_MissingParameters.__name__ + ' failed')
+        if (nasShare.deleteNASShare(c)):
+            FailCasesList.append('The case ' + nasShare.deleteNASShare.__name__ + ' failed')
 
-        tolog('Start verifying rcache')
-        import rcache
-        if (rcache.add_rcache_by_one_pd(c)):
-            FailCasesList.append('The case ' + rcache.add_rcache_by_one_pd.__name__ + ' failed')
-        if (rcache.add_rcache_by_multiple_pd(c)):
-            FailCasesList.append('The case ' + rcache.add_rcache_by_multiple_pd.__name__ + ' failed')
-        if (rcache.list_rcache(c)):
-            FailCasesList.append('The case ' + rcache.list_rcache.__name__ + ' failed')
-        if (rcache.def_rcache(c)):
-            FailCasesList.append('The case ' + rcache.def_rcache.__name__ + ' failed')
-        if (rcache.invalid_setting_for_rcache(c)):
-            FailCasesList.append('The case ' + rcache.invalid_setting_for_rcache.__name__ + ' failed')
-        if (rcache.invalid_option_for_rcache(c)):
-            FailCasesList.append('The case ' + rcache.invalid_option_for_rcache.__name__ + ' failed')
-        if (rcache.missing_parameter_for_rcache(c)):
-            FailCasesList.append('The case ' + rcache.missing_parameter_for_rcache.__name__ + ' failed')
+        tolog('Start verifying snapshot')
+        import snapshot
+        if (snapshot.add_snapshot(c)):
+            FailCasesList.append('The case ' + snapshot.add_snapshot.__name__ + ' failed')
+        if (snapshot.list_snapshot(c)):
+            FailCasesList.append('The case ' + snapshot.list_snapshot.__name__ + ' failed')
+        if (snapshot.list_snapshot_by_verbose_mode(c)):
+            FailCasesList.append('The case ' + snapshot.list_snapshot_by_verbose_mode.__name__ + ' failed')
+        if (snapshot.mod_snapshot(c)):
+            FailCasesList.append('The case ' + snapshot.mod_snapshot.__name__ + ' failed')
+        if (snapshot.export_unexport_snapshot(c)):
+            FailCasesList.append('The case ' + snapshot.export_unexport_snapshot.__name__ + ' failed')
+        if (snapshot.mount_umount_snapshot(c)):
+            FailCasesList.append('The case ' + snapshot.mount_umount_snapshot.__name__ + ' failed')
+        if (snapshot.rollback_snapshot(c)):
+            FailCasesList.append('The case ' + snapshot.rollback_snapshot.__name__ + ' failed')
+        if (snapshot.del_snapshot(c)):
+            FailCasesList.append('The case ' + snapshot.del_snapshot.__name__ + ' failed')
+        if (snapshot.invalid_setting_parameter(c)):
+            FailCasesList.append('The case ' + snapshot.invalid_setting_parameter.__name__ + ' failed')
+        if (snapshot.invalid_option(c)):
+            FailCasesList.append('The case ' + snapshot.invalid_option.__name__ + ' failed')
+        if (snapshot.missing_parameter(c)):
+            FailCasesList.append('The case ' + snapshot.missing_parameter.__name__ + ' failed')
 
-        tolog('Start verifying sc')
-        import sc
-        if (sc.start_sc(c)):
-            FailCasesList.append('The case ' + sc.start_sc.__name__ + ' failed')
-        if (sc.list_sc(c)):
-            FailCasesList.append('The case ' + sc.list_sc.__name__ + ' failed')
-        if (sc.invalid_setting_for_sc(c)):
-            FailCasesList.append('The case ' + sc.invalid_setting_for_sc.__name__ + ' failed')
-        if (sc.invalid_option_for_sc(c)):
-            FailCasesList.append('The case ' + sc.invalid_option_for_sc.__name__ + ' failed')
-        if (sc.missing_parameter_for_sc(c)):
-            FailCasesList.append('The case ' + sc.missing_parameter_for_sc.__name__ + ' failed')
+        tolog('Start verifying clone')
+        import clone
+        if (clone.add_clone(c)):
+            FailCasesList.append('The case ' + clone.add_clone.__name__ + ' failed')
+        if (clone.list_clone(c)):
+            FailCasesList.append('The case ' + clone.list_clone.__name__ + ' failed')
+        if (clone.list_clone_verbose_mode(c)):
+            FailCasesList.append('The case ' + clone.list_clone_verbose_mode.__name__ + ' failed')
+        if (clone.mod_clone(c)):
+            FailCasesList.append('The case ' + clone.mod_clone.__name__ + ' failed')
+        if (clone.export_unexport_clone(c)):
+            FailCasesList.append('The case ' + clone.export_unexport_clone.__name__ + ' failed')
+        if (clone.mount_umount_clone(c)):
+            FailCasesList.append('The case ' + clone.mount_umount_clone.__name__ + ' failed')
+        if (clone.del_clone(c)):
+            FailCasesList.append('The case ' + clone.del_clone.__name__ + ' failed')
+        if (clone.invalid_setting_parameter(c)):
+            FailCasesList.append('The case ' + clone.invalid_setting_parameter.__name__ + ' failed')
+        if (clone.invalid_option(c)):
+            FailCasesList.append('The case ' + clone.invalid_option.__name__ + ' failed')
+        if (clone.missing_parameter(c)):
+            FailCasesList.append('The case ' + clone.missing_parameter.__name__ + ' failed')
+
+        tolog('Start verifying spare')
+        import spare
+        if (spare.add_global_spare(c)):
+            FailCasesList.append('The case ' + spare.add_global_spare.__name__ + ' failed')
+        if (spare.add_dedicated_spare(c)):
+            FailCasesList.append('The case ' + spare.add_dedicated_spare.__name__ + ' failed')
+        if (spare.list_spare(c)):
+            FailCasesList.append('The case ' + spare.list_spare.__name__ + ' failed')
+        if (spare.list_spare_by_verbose_mode(c)):
+            FailCasesList.append('The case ' + spare.list_spare_by_verbose_mode.__name__ + ' failed')
+        if (spare.delete_spare(c)):
+            FailCasesList.append('The case ' + spare.delete_spare.__name__ + ' failed')
+        if (spare.invalid_parameter_for_spare(c)):
+            FailCasesList.append('The case ' + spare.invalid_parameter_for_spare.__name__ + ' failed')
+        if (spare.invalid_option_for_spare(c)):
+            FailCasesList.append('The case ' + spare.invalid_option_for_spare.__name__ + ' failed')
+        if (spare.missing_parameter_for_spare(c)):
+            FailCasesList.append('The case ' + spare.missing_parameter_for_spare.__name__ + ' failed')
+
+        tolog('Start verifying acl')
+        import acl
+        if (acl.set_acl(c)):
+            FailCasesList.append('The case ' + acl.set_acl.__name__ + ' failed')
+        if (acl.list_acl(c)):
+            FailCasesList.append('The case ' + acl.list_acl.__name__ + ' failed')
+        if (acl.list_acl_by_verbose_mode(c)):
+            FailCasesList.append('The case ' + acl.list_acl_by_verbose_mode.__name__ + ' failed')
+        if (acl.refresh_acl(c)):
+            FailCasesList.append('The case ' + acl.refresh_acl.__name__ + ' failed')
+        if (acl.acl_unset(c)):
+            FailCasesList.append('The case ' + acl.acl_unset.__name__ + ' failed')
+        if (acl.clear_acl(c)):
+            FailCasesList.append('The case ' + acl.clear_acl.__name__ + ' failed')
+        if (acl.cancel_acl(c)):
+            FailCasesList.append('The case ' + acl.cancel_acl.__name__ + ' failed')
+        if (acl.invalid_setting_parameter(c)):
+            FailCasesList.append('The case ' + acl.invalid_setting_parameter.__name__ + ' failed')
+        if (acl.invalid_option(c)):
+            FailCasesList.append('The case ' + acl.invalid_option.__name__ + ' failed')
+        if (acl.missing_parameter(c)):
+            FailCasesList.append('The case ' + acl.missing_parameter.__name__ + ' failed')
 
         tolog('Start verifying periodsnap')
         import periodsnap
@@ -262,165 +356,98 @@ def BuildVerification(c):
         if (group.missing_parameter_for_group(c)):
             FailCasesList.append('The case ' + group.missing_parameter_for_group.__name__ + ' failed')
 
-        tolog('Start verifying spare')
-        import spare
-        if (spare.add_global_spare(c)):
-            FailCasesList.append('The case ' + spare.add_global_spare.__name__ + ' failed')
-        if (spare.add_dedicated_spare(c)):
-            FailCasesList.append('The case ' + spare.add_dedicated_spare.__name__ + ' failed')
-        if (spare.list_spare(c)):
-            FailCasesList.append('The case ' + spare.list_spare.__name__ + ' failed')
-        if (spare.list_spare_by_verbose_mode(c)):
-            FailCasesList.append('The case ' + spare.list_spare_by_verbose_mode.__name__ + ' failed')
-        if (spare.delete_spare(c)):
-            FailCasesList.append('The case ' + spare.delete_spare.__name__ + ' failed')
-        if (spare.invalid_parameter_for_spare(c)):
-            FailCasesList.append('The case ' + spare.invalid_parameter_for_spare.__name__ + ' failed')
-        if (spare.invalid_option_for_spare(c)):
-            FailCasesList.append('The case ' + spare.invalid_option_for_spare.__name__ + ' failed')
-        if (spare.missing_parameter_for_spare(c)):
-            FailCasesList.append('The case ' + spare.missing_parameter_for_spare.__name__ + ' failed')
+        tolog("Start verifying chap")
+        import chap
+        if (chap.add_chap(c)):
+            FailCasesList.append('The case ' + chap.add_chap.__name__ + ' failed')
+        if (chap.list_chap(c)):
+            FailCasesList.append('The case ' + chap.list_chap.__name__ + ' failed')
+        if (chap.mod_chap(c)):
+            FailCasesList.append('The case ' + chap.mod_chap.__name__ + ' failed')
+        if (chap.del_chap(c)):
+            FailCasesList.append('The case ' + chap.del_chap.__name__ + ' failed')
+        if (chap.invalid_setting_for_chap(c)):
+            FailCasesList.append('The case ' + chap.invalid_setting_for_chap.__name__ + ' failed')
+        if (chap.invalid_option_for_chap(c)):
+            FailCasesList.append('The case ' + chap.invalid_option_for_chap.__name__ + ' failed')
+        if (chap.missing_parameter_for_chap(c)):
+            FailCasesList.append('The case ' + chap.missing_parameter_for_chap.__name__ + ' failed')
 
-        tolog('Start verifying acl')
-        import acl
-        if (acl.set_acl(c)):
-            FailCasesList.append('The case ' + acl.set_acl.__name__ + ' failed')
-        if (acl.list_acl(c)):
-            FailCasesList.append('The case ' + acl.list_acl.__name__ + ' failed')
-        if (acl.list_acl_by_verbose_mode(c)):
-            FailCasesList.append('The case ' + acl.list_acl_by_verbose_mode.__name__ + ' failed')
-        if (acl.refresh_acl(c)):
-            FailCasesList.append('The case ' + acl.refresh_acl.__name__ + ' failed')
-        if (acl.acl_unset(c)):
-            FailCasesList.append('The case ' + acl.acl_unset.__name__ + ' failed')
-        if (acl.clear_acl(c)):
-            FailCasesList.append('The case ' + acl.clear_acl.__name__ + ' failed')
-        if (acl.cancel_acl(c)):
-            FailCasesList.append('The case ' + acl.cancel_acl.__name__ + ' failed')
-        if (acl.invalid_setting_parameter(c)):
-            FailCasesList.append('The case ' + acl.invalid_setting_parameter.__name__ + ' failed')
-        if (acl.invalid_option(c)):
-            FailCasesList.append('The case ' + acl.invalid_option.__name__ + ' failed')
-        if (acl.missing_parameter(c)):
-            FailCasesList.append('The case ' + acl.missing_parameter.__name__ + ' failed')
+        tolog('Start verifying user')
+        import user
+        if (user.add_mgmt_user(c)):
+            FailCasesList.append('The case ' + user.add_mgmt_user.__name__ + ' failed')
+        if (user.mod_mgmt_user(c)):
+            FailCasesList.append('The case ' + user.mod_mgmt_user.__name__ + ' failed')
+        if (user.add_snmp_user(c)):
+            FailCasesList.append('The case ' + user.add_snmp_user.__name__ + ' failed')
+        if (user.mod_snmp_user(c)):
+            FailCasesList.append('The case ' + user.mod_snmp_user.__name__ + ' failed')
+        if (user.add_nas_user(c)):
+            FailCasesList.append('The case ' + user.add_nas_user.__name__ + ' failed')
+        if (user.mod_nas_user(c)):
+            FailCasesList.append('The case ' + user.mod_nas_user.__name__ + ' failed')
+        if (user.list_user(c)):
+            FailCasesList.append('The case ' + user.list_user.__name__ + ' failed')
+        if (user.list_user_by_verbose_mode(c)):
+            FailCasesList.append('The case ' + user.list_user_by_verbose_mode.__name__ + ' failed')
+        if (user.del_user(c)):
+            FailCasesList.append('The case ' + user.del_user.__name__ + ' failed')
+        if (user.invalid_setting_for_user(c)):
+            FailCasesList.append('The case ' + user.invalid_setting_for_user.__name__ + ' failed')
+        if (user.invalid_option_for_user(c)):
+            FailCasesList.append('The case ' + user.invalid_option_for_user.__name__ + ' failed')
+        if (user.missing_parameter_for_user(c)):
+            FailCasesList.append('The case ' + user.missing_parameter_for_user.__name__ + ' failed')
 
-        tolog("Start verifying pool add")
-        import pool
-        if (pool.add_pool_raid0(c)):
-            FailCasesList.append('The case ' + pool.add_pool_raid0.__name__ + ' failed')
-        if (pool.add_pool_raid1(c)):
-            FailCasesList.append('The case ' + pool.add_pool_raid1.__name__ + ' failed')
-        if (pool.add_pool_raid5(c)):
-            FailCasesList.append('The case ' + pool.add_pool_raid5.__name__ + ' failed')
-        if (pool.add_pool_raid6(c)):
-            FailCasesList.append('The case ' + pool.add_pool_raid6.__name__ + ' failed')
-        if (pool.add_pool_raid10(c)):
-            FailCasesList.append('The case ' + pool.add_pool_raid10.__name__ + ' failed')
-        if (pool.add_pool_raid50(c)):
-            FailCasesList.append('The case ' + pool.add_pool_raid50.__name__ + ' failed')
-        if (pool.add_pool_raid60(c)):
-            FailCasesList.append('The case ' + pool.add_pool_raid60.__name__ + ' failed')
-        if (pool.add_pool_default_setting(c)):
-            FailCasesList.append('The case ' + pool.add_pool_default_setting.__name__ + ' failed')
-        if (pool.modify_pool_name(c)):
-            FailCasesList.append('The case ' + pool.modify_pool_name.__name__ + ' failed')
-        if (pool.list_pool(c)):
-            FailCasesList.append('The case ' + pool.list_pool.__name__ + ' failed')
-        if (pool.list_verbose_mode_pool(c)):
-            FailCasesList.append('The case ' + pool.list_verbose_mode_pool.__name__ + ' failed')
-        if (pool.expand_raid0_pool(c)):
-            FailCasesList.append('The case ' + pool.expand_raid0_pool.__name__ + ' failed')
-        if (pool.expand_raid1_pool(c)):
-            FailCasesList.append('The case ' + pool.expand_raid1_pool.__name__ + ' failed')
-        if (pool.expand_raid5_pool(c)):
-            FailCasesList.append('The case ' + pool.expand_raid5_pool.__name__ + ' failed')
-        if (pool.expand_raid6_pool(c)):
-            FailCasesList.append('The case ' + pool.expand_raid6_pool.__name__ + ' failed')
-        if (pool.expand_raid10_pool(c)):
-            FailCasesList.append('The case ' + pool.expand_raid10_pool.__name__ + ' failed')
-        if (pool.expand_raid50_pool(c)):
-            FailCasesList.append('The case ' + pool.expand_raid50_pool.__name__ + ' failed')
-        if (pool.expand_raid60_pool(c)):
-            FailCasesList.append('The case ' + pool.expand_raid60_pool.__name__ + ' failed')
-        if (pool.delete_pool(c)):
-            FailCasesList.append('The case ' + pool.delete_pool.__name__ + ' failed')
-        if (pool.invalid_settings_parameter(c)):
-            FailCasesList.append('The case ' + pool.invalid_settings_parameter.__name__ + ' failed')
-        if (pool.invalid_option(c)):
-            FailCasesList.append('The case ' + pool.invalid_option.__name__ + ' failed')
-        if (pool.missing_parameter(c)):
-            FailCasesList.append('The case ' + pool.missing_parameter.__name__ + ' failed')
+        tolog('Start verifying wcache')
+        import wcache
+        if (wcache.add_wcache_dedication(c)):
+            FailCasesList.append('The case ' + wcache.add_wcache_dedication.__name__ + ' failed')
+        if (wcache.mod_wcache(c)):
+            FailCasesList.append('The case ' + wcache.mod_wcache.__name__ + ' failed')
+        if (wcache.add_wcache_no_dedication(c)):
+            FailCasesList.append('The case ' + wcache.add_wcache_no_dedication.__name__ + ' failed')
+        if (wcache.list_wcache(c)):
+            FailCasesList.append('The case ' + wcache.list_wcache.__name__ + ' failed')
+        if (wcache.def_wcache(c)):
+            FailCasesList.append('The case ' + wcache.def_wcache.__name__ + ' failed')
+        if (wcache.invalid_setting_for_wcache(c)):
+            FailCasesList.append('The case ' + wcache.invalid_setting_for_wcache.__name__ + ' failed')
+        if (wcache.invalid_option_for_wcache(c)):
+            FailCasesList.append('The case ' + wcache.invalid_option_for_wcache.__name__ + ' failed')
+        if (wcache.missing_parameter_for_wcache(c)):
+            FailCasesList.append('The case ' + wcache.missing_parameter_for_wcache.__name__ + ' failed')
 
-        tolog('Start verifying volume')
-        import volume
-        if (volume.addVolume(c)):
-            FailCasesList.append('The case ' + volume.addVolume.__name__ + ' failed')
-        if (volume.listVolume(c)):
-            FailCasesList.append('The case ' + volume.listVolume.__name__ + ' failed')
-        if (volume.listVolume_by_verbose_mode(c)):
-            FailCasesList.append('The case ' + volume.listVolume_by_verbose_mode.__name__ + ' failed')
-        if (volume.modVolume(c)):
-            FailCasesList.append('The case ' + volume.modVolume.__name__ + ' failed')
-        if (volume.exportVolume(c)):
-            FailCasesList.append('The case ' + volume.exportVolume.__name__ + ' failed')
-        if (volume.unexportVolume(c)):
-            FailCasesList.append('The case ' + volume.unexportVolume.__name__ + ' failed')
-        if (volume.invalidParameter(c)):
-            FailCasesList.append('The case ' + volume.invalidParameter.__name__ + ' failed')
-        if (volume.invalidOption(c)):
-            FailCasesList.append('The case ' + volume.invalidOption.__name__ + ' failed')
-        if (volume.missingParameter(c)):
-            FailCasesList.append('The case ' + volume.missingParameter.__name__ + ' failed')
-        if (volume.deleteVolume(c)):
-            FailCasesList.append('The case ' + volume.deleteVolume.__name__ + ' failed')
+        tolog('Start verifying rcache')
+        import rcache
+        if (rcache.add_rcache_by_one_pd(c)):
+            FailCasesList.append('The case ' + rcache.add_rcache_by_one_pd.__name__ + ' failed')
+        if (rcache.add_rcache_by_multiple_pd(c)):
+            FailCasesList.append('The case ' + rcache.add_rcache_by_multiple_pd.__name__ + ' failed')
+        if (rcache.list_rcache(c)):
+            FailCasesList.append('The case ' + rcache.list_rcache.__name__ + ' failed')
+        if (rcache.def_rcache(c)):
+            FailCasesList.append('The case ' + rcache.def_rcache.__name__ + ' failed')
+        if (rcache.invalid_setting_for_rcache(c)):
+            FailCasesList.append('The case ' + rcache.invalid_setting_for_rcache.__name__ + ' failed')
+        if (rcache.invalid_option_for_rcache(c)):
+            FailCasesList.append('The case ' + rcache.invalid_option_for_rcache.__name__ + ' failed')
+        if (rcache.missing_parameter_for_rcache(c)):
+            FailCasesList.append('The case ' + rcache.missing_parameter_for_rcache.__name__ + ' failed')
 
-        tolog('Start verifying snapshot')
-        import snapshot
-        if (snapshot.add_snapshot(c)):
-            FailCasesList.append('The case ' + snapshot.add_snapshot.__name__ + ' failed')
-        if (snapshot.list_snapshot(c)):
-            FailCasesList.append('The case ' + snapshot.list_snapshot.__name__ + ' failed')
-        if (snapshot.list_snapshot_by_verbose_mode(c)):
-            FailCasesList.append('The case ' + snapshot.list_snapshot_by_verbose_mode.__name__ + ' failed')
-        if (snapshot.mod_snapshot(c)):
-            FailCasesList.append('The case ' + snapshot.mod_snapshot.__name__ + ' failed')
-        if (snapshot.export_unexport_snapshot(c)):
-            FailCasesList.append('The case ' + snapshot.export_unexport_snapshot.__name__ + ' failed')
-        if (snapshot.mount_umount_snapshot(c)):
-            FailCasesList.append('The case ' + snapshot.mount_umount_snapshot.__name__ + ' failed')
-        if (snapshot.rollback_snapshot(c)):
-            FailCasesList.append('The case ' + snapshot.rollback_snapshot.__name__ + ' failed')
-        if (snapshot.del_snapshot(c)):
-            FailCasesList.append('The case ' + snapshot.del_snapshot.__name__ + ' failed')
-        if (snapshot.invalid_setting_parameter(c)):
-            FailCasesList.append('The case ' + snapshot.invalid_setting_parameter.__name__ + ' failed')
-        if (snapshot.invalid_option(c)):
-            FailCasesList.append('The case ' + snapshot.invalid_option.__name__ + ' failed')
-        if (snapshot.missing_parameter(c)):
-            FailCasesList.append('The case ' + snapshot.missing_parameter.__name__ + ' failed')
-
-        tolog('Start verifying clone')
-        import clone
-        if (clone.add_clone(c)):
-            FailCasesList.append('The case ' + clone.add_clone.__name__ + ' failed')
-        if (clone.list_clone(c)):
-            FailCasesList.append('The case ' + clone.list_clone.__name__ + ' failed')
-        if (clone.list_clone_verbose_mode(c)):
-            FailCasesList.append('The case ' + clone.list_clone_verbose_mode.__name__ + ' failed')
-        if (clone.mod_clone(c)):
-            FailCasesList.append('The case ' + clone.mod_clone.__name__ + ' failed')
-        if (clone.export_unexport_clone(c)):
-            FailCasesList.append('The case ' + clone.export_unexport_clone.__name__ + ' failed')
-        if (clone.mount_umount_clone(c)):
-            FailCasesList.append('The case ' + clone.mount_umount_clone.__name__ + ' failed')
-        if (clone.del_clone(c)):
-            FailCasesList.append('The case ' + clone.del_clone.__name__ + ' failed')
-        if (clone.invalid_setting_parameter(c)):
-            FailCasesList.append('The case ' + clone.invalid_setting_parameter.__name__ + ' failed')
-        if (clone.invalid_option(c)):
-            FailCasesList.append('The case ' + clone.invalid_option.__name__ + ' failed')
-        if (clone.missing_parameter(c)):
-            FailCasesList.append('The case ' + clone.missing_parameter.__name__ + ' failed')
+        tolog('Start verifying sc')
+        import sc
+        if (sc.start_sc(c)):
+            FailCasesList.append('The case ' + sc.start_sc.__name__ + ' failed')
+        if (sc.list_sc(c)):
+            FailCasesList.append('The case ' + sc.list_sc.__name__ + ' failed')
+        if (sc.invalid_setting_for_sc(c)):
+            FailCasesList.append('The case ' + sc.invalid_setting_for_sc.__name__ + ' failed')
+        if (sc.invalid_option_for_sc(c)):
+            FailCasesList.append('The case ' + sc.invalid_option_for_sc.__name__ + ' failed')
+        if (sc.missing_parameter_for_sc(c)):
+            FailCasesList.append('The case ' + sc.missing_parameter_for_sc.__name__ + ' failed')
 
         tolog('Start verifying phydrv')
         import phydrv
@@ -495,33 +522,6 @@ def BuildVerification(c):
             FailCasesList.append('The case ' + ping.invalid_option.__name__ + ' failed')
         if (ping.missing_parameter(c)):
             FailCasesList.append('The case ' + ping.missing_parameter.__name__ + ' failed')
-
-        tolog('Start verifying NASShare')
-        import nasShare
-        if (nasShare.addNASShare(c)):
-            FailCasesList.append('The case ' + nasShare.addNASShare.__name__ + ' failed')
-        if (nasShare.listNASShare(c)):
-            FailCasesList.append('The case ' + nasShare.listNASShare.__name__ + ' failed')
-        if (nasShare.listVerboseNASShare(c)):
-            FailCasesList.append('The case ' + nasShare.listVerboseNASShare.__name__ + ' failed')
-        if (nasShare.modNASShare(c)):
-            FailCasesList.append('The case ' + nasShare.modNASShare.__name__ + ' failed')
-        if (nasShare.mountNASShare(c)):
-            FailCasesList.append('The case ' + nasShare.mountNASShare.__name__ + ' failed')
-        if (nasShare.unmountNASShare(c)):
-            FailCasesList.append('The case ' + nasShare.unmountNASShare.__name__ + ' failed')
-        if (nasShare.helpNASShare(c)):
-            FailCasesList.append('The case ' + nasShare.helpNASShare.__name__ + ' failed')
-        if (nasShare.failedTest_InexistentId(c)):
-            FailCasesList.append('The case ' + nasShare.failedTest_InexistentId.__name__ + ' failed')
-        if (nasShare.failedTest_InvalidOption(c)):
-            FailCasesList.append('The case ' + nasShare.failedTest_InvalidOption.__name__ + ' failed')
-        if (nasShare.failedTest_InvalidParameters(c)):
-            FailCasesList.append('The case ' + nasShare.failedTest_InvalidParameters.__name__ + ' failed')
-        if (nasShare.failedTest_MissingParameters(c)):
-            FailCasesList.append('The case ' + nasShare.failedTest_MissingParameters.__name__ + ' failed')
-        if (nasShare.deleteNASShare(c)):
-            FailCasesList.append('The case ' + nasShare.deleteNASShare.__name__ + ' failed')
 
         tolog("Start verifying about")
         import about

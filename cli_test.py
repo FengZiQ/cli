@@ -35,11 +35,13 @@ class cli_test_setting():
             else:
                 check = SendCmd(c, table.cell(i, 2).value)
 
-                for j in range(3, table.ncols):
+                if 'Error (' not in check:
 
-                    if table.cell(i, j).value not in check:
-                        self.FailFlag = True
-                        tolog('\r\nFail: please check out ' + table.cell(i, j).value + '\r\n')
+                    for j in range(3, table.ncols):
+
+                        if table.cell(i, j).value not in check:
+                            self.FailFlag = True
+                            tolog('\r\nFail: please check out ' + table.cell(i, j).value + '\r\n')
 
         if self.FailFlag:
             tolog(Fail)
@@ -66,11 +68,13 @@ class cli_test_setting():
             else:
                 check = SendCmd(c, table.cell(i, 2).value)
 
-                for j in range(3, table.ncols):
+                if 'Error (' not in check:
 
-                    if table.cell(i, j).value not in check:
-                        self.FailFlag = True
-                        tolog('\r\nFail: please check out ' + table.cell(i, j).value + '\r\n')
+                    for j in range(3, table.ncols):
+
+                        if table.cell(i, j).value not in check:
+                            self.FailFlag = True
+                            tolog('\r\nFail: please check out ' + table.cell(i, j).value + '\r\n')
 
         if self.FailFlag:
             tolog(Fail)
@@ -97,11 +101,13 @@ class cli_test_setting():
             else:
                 check = SendCmd(c, table.cell(i, 2).value)
 
-                for j in range(3, table.ncols):
+                if 'Error (' not in check:
 
-                    if table.cell(i, j).value not in check:
-                        self.FailFlag = True
-                        tolog('\r\nFail: please check out ' + table.cell(i, j).value + '\r\n')
+                    for j in range(3, table.ncols):
+
+                        if table.cell(i, j).value not in check:
+                            self.FailFlag = True
+                            tolog('\r\nFail: please check out ' + table.cell(i, j).value + '\r\n')
 
         if self.FailFlag:
             tolog(Fail)
@@ -218,11 +224,13 @@ class cli_test_delete():
             else:
                 check = SendCmd(c, table.cell(i, 2).value)
 
-                for j in range(3, table.ncols):
+                if 'Error (' not in check:
 
-                    if table.cell(i, j).value in check:
-                        self.FailFlag = True
-                        tolog('\r\nFail: please check out ' + table.cell(i, j).value + '\r\n')
+                    for j in range(3, table.ncols):
+
+                        if table.cell(i, j).value in check:
+                            self.FailFlag = True
+                            tolog('\r\nFail: please check out ' + table.cell(i, j).value + '\r\n')
 
         if self.FailFlag:
             tolog(Fail)
@@ -249,11 +257,13 @@ class cli_test_delete():
             else:
                 check = SendCmd(c, table.cell(i, 2).value)
 
-                for j in range(3, table.ncols):
+                if 'Error (' not in check:
 
-                    if table.cell(i, j).value in check:
-                        self.FailFlag = True
-                        tolog('\r\nFail: please check out ' + table.cell(i, j).value + '\r\n')
+                    for j in range(3, table.ncols):
+
+                        if table.cell(i, j).value in check:
+                            self.FailFlag = True
+                            tolog('\r\nFail: please check out ' + table.cell(i, j).value + '\r\n')
 
         if self.FailFlag:
             tolog(Fail)

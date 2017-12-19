@@ -6404,3 +6404,300 @@ missing parameter '-p' for '-a clear'
 
 administrator@cli> 
 'result': 'p'
+
+Expect: precondition
+
+phydrv -a offline -p 1
+
+administrator@cli> 
+phydrv -p 1
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   Stale      StaleConfig     
+     S640                                                                      
+
+administrator@cli> 
+
+Expect: to clear the stale configuration on the drive
+
+phydrv -a clear -p 1 -t staleconfig
+
+administrator@cli> 
+phydrv -p 1
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Unconfigured    
+     S640                                                                      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Invalid setting parameters
+
+phydrv test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+phydrv -p 513
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 513 (1,512)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+phydrv -p test
+Error (0x2013): Invalid setting parameters
+-p: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+phydrv -c test
+Error (0x2013): Invalid setting parameters
+-c: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+phydrv -c -1
+Error (0x2013): Invalid setting parameters
+-c: invalid setting -1 (0,512)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+phydrv -a mod test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid physical drive id in data buffer
+
+phydrv -a mod -p 17 -s "alias=test"
+Error (0x49841602): Invalid physical drive id in data buffer
+
+administrator@cli> 
+
+Expect: Invalid
+
+phydrv -a mod -d sata -p 1 -s "alias=test"
+Error (0x402): Invalid parameter
+-p: do not specify physical drive id due to -d is specified
+
+administrator@cli> 
+
+Expect: Invalid physical drive id
+
+phydrv -a mod -p 1 -s "alias=test"
+Error (0x4023): Invalid physical drive id
+Cannot modify alias of an unconfigured drive
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+phydrv -a mod -p test -s "alias=1,writecache=enable,rlacache=disable"
+Error (0x2013): Invalid setting parameters
+-p: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+phydrv -a mod -p 1 -s test
+Error (0x2013): Invalid setting parameters
+invalid option: ['test']
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+phydrv -a mod -p 1 -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+phydrv -a mod -s test
+Error (0x2013): Invalid setting parameters
+invalid option: ['test']
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+phydrv -a mod -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+phydrv -a mod -d all -s test
+Error (0x2013): Invalid setting parameters
+invalid option: ['test']
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+phydrv -a mod -d all -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+phydrv -a mod -d sata -s test
+Error (0x2013): Invalid setting parameters
+invalid option: ['test']
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+phydrv -a mod -d sata -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+phydrv -a mod -d sas -s test
+Error (0x2013): Invalid setting parameters
+invalid option: ['test']
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+phydrv -a mod -d sas -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+phydrv -a locate test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+phydrv -a locate -p test
+Error (0x2013): Invalid setting parameters
+-p: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid physical drive id
+
+phydrv -a locate -p 17
+Error (0x498F0D02): Invalid physical drive id
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+phydrv -a offline test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid physical drive id in data buffer
+
+phydrv -a offline -p 17
+Error (0x49841602): Invalid physical drive id in data buffer
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+phydrv -a offline -p test
+Error (0x2013): Invalid setting parameters
+-p: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+phydrv -a online test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid physical drive id in data buffer
+
+phydrv -a online -p 17
+Error (0x49841602): Invalid physical drive id in data buffer
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+phydrv -a online -p test
+Error (0x2013): Invalid setting parameters
+-p: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+phydrv -a clear test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+phydrv -a clear -p 1 test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+phydrv -a clear -p 1 -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (pfa|staleconfig)
+
+administrator@cli> 
+
+Expect: Invalid physical drive id in data buffer
+
+phydrv -a clear -p 17
+Error (0x49841602): Invalid physical drive id in data buffer
+
+administrator@cli> 
+
+Expect: Only DDF on a dead drive can be cleared
+
+phydrv -a clear -p 1
+Error (0x4023): Invalid physical drive id
+Only DDF on a dead drive can be cleared
+
+administrator@cli> 
+'result': 'p'
