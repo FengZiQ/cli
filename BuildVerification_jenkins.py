@@ -26,7 +26,7 @@ def BuildVerification(c):
     files = glob.glob("/var/lib/jenkins/workspace/HyperionDS/build/build/*.ptif")
     # files = glob.glob("/var/lib/jenkins/workspace/Hyperion-DS_Hulda/build/build/*.ptif")
 
-    reconnectflag = False
+    reconnectflag = True
 
     for file in files:
 
@@ -57,7 +57,24 @@ def BuildVerification(c):
             tolog(result)
 
     if reconnectflag:
-        # there are 42 command that can be tested
+        # there are 43 command that can be tested
+        tolog("Start verifying chap")
+        import chap
+        if (chap.add_chap(c)):
+            FailCasesList.append('The case ' + chap.add_chap.__name__ + ' failed')
+        if (chap.list_chap(c)):
+            FailCasesList.append('The case ' + chap.list_chap.__name__ + ' failed')
+        if (chap.mod_chap(c)):
+            FailCasesList.append('The case ' + chap.mod_chap.__name__ + ' failed')
+        if (chap.del_chap(c)):
+            FailCasesList.append('The case ' + chap.del_chap.__name__ + ' failed')
+        if (chap.invalid_setting_for_chap(c)):
+            FailCasesList.append('The case ' + chap.invalid_setting_for_chap.__name__ + ' failed')
+        if (chap.invalid_option_for_chap(c)):
+            FailCasesList.append('The case ' + chap.invalid_option_for_chap.__name__ + ' failed')
+        if (chap.missing_parameter_for_chap(c)):
+            FailCasesList.append('The case ' + chap.missing_parameter_for_chap.__name__ + ' failed')
+
         tolog('Start verifying user')
         import user
         if (user.add_mgmt_user(c)):
@@ -607,19 +624,6 @@ def BuildVerification(c):
             FailCasesList.append('The case ' + buzzer.verifyBuzzerInvalidParameters.__name__ + ' failed')
         if (buzzer.verifyBuzzerInvalidOption((c))):
             FailCasesList.append('The case ' + buzzer.verifyBuzzerInvalidOption.__name__ + ' failed')
-
-        # tolog("Start verifying chap")
-        # import chap
-        # (chap.verifyChapAdd(c))
-        # (chap.verifyChap(c))
-        # (chap.verifyChapList(c))
-        # (chap.verifyChapMod(c))
-        # (chap.verifyChapDel(c))
-        # (chap.verifyChapHelp(c))
-        # (chap.verifyChapSpecifyErrorId(c))
-        # (chap.verifyChapInvalidOption(c))
-        # (chap.verifyChapInvalidParameters(c))
-        # (chap.verifyChapMissingParameters(c))
 
         tolog("Start verifying ctrl")
         import ctrl

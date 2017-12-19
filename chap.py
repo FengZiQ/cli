@@ -1,306 +1,101 @@
-# coding=utf-8
+# coding = utf-8
+# 2017.12.18
 
-from send_cmd import *
 from ssh_connect import ssh_conn
-from to_log import tolog
-import time
+from cli_test import *
+import json
+from remote import server
+from to_log import *
 
-Pass = "'result': 'p'"
-Fail = "'result': 'f'"
+data = 'data/chap.xlsx'
 
-def findChapId(c):
-    ChapInfo = SendCmd(c, "chap")
-    ChapId = []
-    row = ChapInfo.split('ChapId: ')
-    for i in range(1, len(row)):
-        print "wait to complete"
 
-    return ChapId
+def clean_up_environment():
 
-def verifyChapAdd(c):
-    FailFlag = False
-    tolog("<b>Verify chap -a add</b>")
-    tolog("<b>Verify CHAP legal name and type </b>")
+    chap_request = server.webapi('get', 'chap')
+    chaps = json.loads(chap_request["text"])
 
-    result = SendCmdpassword(c, 'chap -a add -s "name=a+-/(.)b,type=peer"', '111122221111')
+    for chap in chaps:
 
-    if 'Error (' in result:
-        FailFlag = True
-        tolog('\n<font color="red">Fail: chap -a add -s "name=a+-/(.)b,type=peer" </font>')
+        server.webapi('delete', 'chap/' + str(chap["id"]))
 
-    result = SendCmdpassword(c, 'chap -a add -s "name=testType,type=local,targetid=0"', '1111222211112222')
 
-    if 'Error (' in result:
-        FailFlag = True
-        tolog('\n<font color="red">Fail: chap -a add -s "name=a+-/(.)b,type=peer" </font>')
+def add_chap(c):
+    # precondition
+    clean_up_environment()
 
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify chap -a add</font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
-
-    return FailFlag
+    cli_setting = cli_test_setting()
 
-def verifyChap(c):
-    FailFlag = False
-    tolog("<b>Verify chap </b>")
+    cli_setting.setting_need_password(c, data, 'add_chap', 1)
 
-    chapId = findChapId(c)
+    return cli_setting.FailFlag
 
-    if len(chapId) != 0:
-        result = SendCmd(c, 'chap')
-
-        if "Error (" in result or 'ChapId:' not in result or 'Name:' not in result:
-            FailFlag = True
-            tolog('\n<font color="red">Fail: chap </font>')
-
-        tolog('<b>Verify chap -i chap id</b>')
-
-        for i in chapId:
-            result = SendCmd(c, 'chap -i ' + i)
-
-            if 'ChapId:' not in result or 'Name:' not in result or i not in result:
-                FailFlag = True
-                tolog('\n<font color="red">Fail: chap -i ' + i + '</font>')
-    else:
-        result = SendCmd(c, 'chap')
-        if 'CHAP record not found' not in result:
-            FailFlag = True
-            tolog('\n<font color="red">Fail: chap </font>')
 
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify chap </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
-
-    return FailFlag
-
-def verifyChapList(c):
-    FailFlag = False
-    tolog("<b>Verify chap -a list</b>")
+def list_chap(c):
 
-    chapId = findChapId(c)
-
-    if len(chapId) != 0:
-        result = SendCmd(c, 'chap -a list')
-
-        if "Error (" in result or 'ChapId:' not in result or 'Name:' not in result:
-            FailFlag = True
-            tolog('\n<font color="red">Fail: chap -a list</font>')
-
-        tolog('<b>Verify chap -a list -i chap id</b>')
+    cli_list = cli_test_list()
 
-        for i in chapId:
-            result = SendCmd(c, 'chap -a list -i ' + i)
-
-            if 'ChapId:' not in result or 'Name:' not in result or i not in result:
-                FailFlag = True
-                tolog('\n<font color="red">Fail: chap -a list -i ' + i + '</font>')
-    else:
-        result = SendCmd(c, 'chap -a list')
+    cli_list.list(c, data, 'list_chap')
 
-        if 'CHAP record not found' not in result:
-            FailFlag = True
-            tolog('\n<font color="red">Fail: chap -a list</font>')
-
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify chap -a list</font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
-
-    return FailFlag
-
-def verifyChapMod(c):
-    FailFlag = False
-    tolog("<b>Verify chap -a mod</b>")
-
-    chapId = findChapId(c)
-
-    if len(chapId) != 0:
-        result = SendCmdpassword(c, 'chap -a mod -s "name=testModifyName" -i 0', '111122221111')
-        c.close()
-        c,ssh = ssh_conn()
-        checkResult = SendCmd(c, 'chap')
-
-        if "Error (" in result or 'testModifyName' not in checkResult:
-            FailFlag = True
-            tolog('\n<font color="red">Fail: chap -a mod -s "name=testModifyName" -i 0</font>')
-    else:
-        tolog('\n<font color="red">Fail: CHAP record not found </font>')
-
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify chap -a mod</font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
-
-    return FailFlag
-
-def verifyChapDel(c):
-    FailFlag = False
-    tolog("<b>Verify chap -a del</b>")
-
-    ChapId = findChapId(c)
-    for i in ChapId:
-        result = SendCmd(c, 'chap -a del -i ' + i)
-        if 'Error (' in result:
-            FailFlag = True
-            tolog('\n<font color="red">Fail: chap -a del -i ' + i + '</font>')
-
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify chap -a del</font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
-
-    return FailFlag
-
-def verifyChapHelp(c):
-    FailFlag = False
-    tolog("<b> Verify chap -h </b>")
-
-    result = SendCmd(c, 'chap -h')
-
-    if "Error (" in result or 'chap' not in result:
-        FailFlag = True
-        tolog('\n<font color="red">Fail: chap -h </font>')
-
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify chap -h </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
-
-    return FailFlag
-
-def verifyChapSpecifyErrorId(c):
-    FailFlag = False
-    tolog("<b> Verify chap specify error Id </b>")
-
-    result = SendCmd(c, 'chap -a del -i 4')
-
-    if 'Error (' not in result:
-        FailFlag = True
-        tolog('\n<font color="red">Fail: chap -a del -i 4 </font>')
-
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify chap specify error Id </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
-
-    return FailFlag
-
-def verifyChapInvalidOption(c):
-    FailFlag = False
-    tolog("<b>Verify chap invalid option</b>")
-
-    command = [
-        'chap -x',
-        'chap -a list -x',
-        'chap -a add -x',
-        'chap -a mod -x',
-        'chap -a del -x'
-    ]
-
-    for com in command:
-        tolog('<b> Verify ' + com + '</b>')
-        result = SendCmd(c, com)
-
-        if "Error (" not in result or "Invalid option" not in result:
-            FailFlag = True
-            tolog('\n<font color="red">Fail: ' + com + ' </font>')
-
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify chap invalid option </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
-
-    return FailFlag
-
-def verifyChapInvalidParameters(c):
-    FailFlag = False
-    tolog("<b>Verify chap invalid parameters</b>")
-
-    command = [
-        'chap test',
-        'chap -a test',
-        'chap -a add -s test',
-        'chap -a mod -i test',
-        'chap -a del -i test'
-    ]
-
-    for com in command:
-        tolog('<b> Verify ' + com + '</b>')
-        result = SendCmd(c, com)
-
-        if "Error (" not in result or "Invalid setting parameters" not in result:
-            FailFlag = True
-            tolog('\n<font color="red">Fail: ' + com + ' </font>')
-
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify chap invalid parameters </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
-
-    return FailFlag
-
-def verifyChapMissingParameters(c):
-    FailFlag = False
-    tolog("<b>Verify chap missing parameters</b>")
-
-    command = [
-        'chap -i',
-        'chap -a list -i ',
-        'chap -a add -s ',
-        'chap -a mod -i',
-        'chap -a del -i'
-    ]
-
-    for com in command:
-        tolog('<b> Verify ' + com + '</b>')
-        result = SendCmd(c, com)
-
-        if "Error (" not in result or "Missing parameter" not in result:
-            FailFlag = True
-            tolog('\n<font color="red">Fail: ' + com + ' </font>')
-
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify chap missing parameters </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
-
-    return FailFlag
+    return cli_list.FailFlag
+
+
+def mod_chap(c):
+
+    tolog('need manual test\r\n')
+
+
+def del_chap(c):
+
+    cli_delete = cli_test_delete()
+
+    cli_delete.delete(c, data, 'del_chap')
+
+    return cli_delete.FailFlag
+
+
+def invalid_setting_for_chap(c):
+
+    cli_failed_test = cli_test_failed_test()
+
+    cli_failed_test.failed_test(c, data, 'invalid_setting_for_chap')
+
+    return cli_failed_test.FailFlag
+
+
+def invalid_option_for_chap(c):
+
+    cli_failed_test = cli_test_failed_test()
+
+    cli_failed_test.failed_test(c, data, 'invalid_option_for_chap')
+
+    return cli_failed_test.FailFlag
+
+
+def missing_parameter_for_chap(c):
+
+    cli_failed_test = cli_test_failed_test()
+
+    cli_failed_test.failed_test(c, data, 'missing_parameter_for_chap')
+
+    # clean up environment
+    clean_up_environment()
+
+    return cli_failed_test.FailFlag
+
 
 if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
-    verifyChapAdd(c)
-    verifyChap(c)
-    verifyChapList(c)
-    verifyChapMod(c)
-    verifyChapDel(c)
-    verifyChapHelp(c)
-    verifyChapSpecifyErrorId(c)
-    verifyChapInvalidOption(c)
-    verifyChapInvalidParameters(c)
-    verifyChapMissingParameters(c)
+
+    add_chap(c)
+    list_chap(c)
+    mod_chap(c)
+    del_chap(c)
+    invalid_setting_for_chap(c)
+    invalid_option_for_chap(c)
+    missing_parameter_for_chap(c)
+
     ssh.close()
     elasped = time.clock() - start
     print "Elasped %s" % elasped

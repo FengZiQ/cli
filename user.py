@@ -47,10 +47,13 @@ def clean_up_environment():
 
     # delete snmp users
     snmp_user_request = server.webapi('get', 'snmpuser')
-    snmp_users = json.loads(snmp_user_request["text"])
+    if isinstance(snmp_user_request, dict):
+        snmp_users = json.loads(snmp_user_request["text"])
 
-    for snmp_user in snmp_users:
-        server.webapi('delete', 'snmpuser/' + snmp_user["id"])
+        for snmp_user in snmp_users:
+            server.webapi('delete', 'snmpuser/' + snmp_user["id"])
+    else:
+        tolog('to get snmp user info is failed\r\n')
 
     # delete nas users
     nas_user_request = server.webapi('get', 'dsusers?page=1&page_size=100')

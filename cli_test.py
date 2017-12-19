@@ -46,7 +46,7 @@ class cli_test_setting():
         else:
             tolog(Pass)
 
-    def setting_need_password(self, c, data_file_name, sheet_name, hold_time=0):
+    def setting_need_password(self, c, data_file_name, sheet_name, hold_time=0, password='12341234123'):
 
         # data = xlrd.open_workbook('/home/work/zach/clitest/' + data_file_name)
         data = xlrd.open_workbook(data_file_name)
@@ -55,7 +55,7 @@ class cli_test_setting():
         for i in range(1, table.nrows):
 
             tolog('\r\nExpect: ' + table.cell(i, 1).value + '\r\n')
-            result = SendCmdpassword(c, table.cell(i, 0).value, '00000000')
+            result = SendCmdpassword(c, table.cell(i, 0).value, password+str(i))
             time.sleep(hold_time)
 
             if 'Error (' in result or 'unexpected error' in result:
