@@ -1,3 +1,2649 @@
+2017-12-20 09:16:00: 'result': 'p'
+2017-12-20 09:16:00: phydrv -p 1
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Unconfigured    
+     S640                                                                      
+
+administrator@cli> 
+2017-12-20 09:15:56: phydrv -a clear -p 1 -t staleconfig
+
+administrator@cli> 
+2017-12-20 09:15:55: 
+Expect: to clear the stale configuration on the drive
+
+2017-12-20 09:15:55: phydrv -p 1
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   Stale      StaleConfig     
+     S640                                                                      
+
+administrator@cli> 
+2017-12-20 09:15:51: phydrv -a offline -p 1
+
+administrator@cli> 
+2017-12-20 09:15:51: 
+Expect: precondition
+
+2017-12-20 09:12:33: 'result': 'p'
+2017-12-20 09:12:33: phydrv -p 1
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Unconfigured    
+     S640                                                                      
+
+administrator@cli> 
+2017-12-20 09:12:30: phydrv -a clear -p 1 -t staleconfig
+
+administrator@cli> 
+2017-12-20 09:12:28: 
+Expect: to clear the stale configuration on the drive
+
+2017-12-20 09:12:28: phydrv -p 1
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   Stale      StaleConfig     
+     S640                                                                      
+
+administrator@cli> 
+2017-12-20 09:12:25: phydrv -a offline -p 1
+
+administrator@cli> 
+2017-12-20 09:12:24: 
+Expect: precondition
+
+2017-12-20 09:09:36: 'result': 'p'
+2017-12-20 09:09:36: phydrv -p 1
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Unconfigured    
+     S640                                                                      
+
+administrator@cli> 
+2017-12-20 09:09:33: phydrv -a clear -p 1 -t staleconfig
+
+administrator@cli> 
+2017-12-20 09:09:31: 
+Expect: to clear the stale configuration on the drive
+
+2017-12-20 09:09:31: phydrv -p 1
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   Stale      StaleConfig     
+     S640                                                                      
+
+administrator@cli> 
+2017-12-20 09:09:28: phydrv -a offline -p 1
+
+administrator@cli> 
+2017-12-20 09:09:27: 
+Expect: precondition
+
+2017-12-19 17:00:34: 'result': 'p'
+2017-12-19 17:00:34: user -a del -t snmp -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+2017-12-19 17:00:34: 
+Expect: Missing parameter
+
+2017-12-19 17:00:34: user -a del -t nas -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+2017-12-19 17:00:34: 
+Expect: Missing parameter
+
+2017-12-19 17:00:34: user -a del -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+2017-12-19 17:00:34: 
+Expect: Missing parameter
+
+2017-12-19 17:00:34: user -a del
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a del'
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Missing parameter
+
+2017-12-19 17:00:33: user -a mod -t snmp -u 1
+Error (0x403): Missing parameter
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Missing parameter
+
+2017-12-19 17:00:33: user -a mod -t snmp -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Missing parameter
+
+2017-12-19 17:00:33: user -a mod -t snmp
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a mod'
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Missing parameter
+
+2017-12-19 17:00:33: user -a mod -t nas -u 1
+Error (0x403): Missing parameter
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Missing parameter
+
+2017-12-19 17:00:33: user -a mod -t nas -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Missing parameter
+
+2017-12-19 17:00:33: user -a mod -t nas
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a mod'
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Missing parameter
+
+2017-12-19 17:00:33: user -a mod -u 1111_1111_1111_1111_1111_11130 -s 
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Missing parameter
+
+2017-12-19 17:00:33: user -a mod -u 1111_1111_1111_1111_1111_11130 -p 
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Missing parameter
+
+2017-12-19 17:00:33: user -a mod -u 
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Missing parameter
+
+2017-12-19 17:00:33: user -a mod 
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a mod'
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Missing parameter
+
+2017-12-19 17:00:33: user -a add -u test -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Missing parameter
+
+2017-12-19 17:00:33: user -a add -u test -p 
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Missing parameter
+
+2017-12-19 17:00:33: user -a add -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Missing parameter
+
+2017-12-19 17:00:33: user -a add 
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a add'
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Missing parameter
+
+2017-12-19 17:00:33: user -t snmp -u 
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Missing parameter
+
+2017-12-19 17:00:33: user -t nas -u 
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Missing parameter
+
+2017-12-19 17:00:33: user -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Missing parameter
+
+2017-12-19 17:00:33: user -u 
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Missing parameter
+
+2017-12-19 17:00:33: 'result': 'p'
+2017-12-19 17:00:33: user -a del -t snmp -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid option for the command or the action
+
+2017-12-19 17:00:33: user -a del -t nas -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid option for the command or the action
+
+2017-12-19 17:00:33: user -a del -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid option for the command or the action
+
+2017-12-19 17:00:33: user -a mod -u -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid option for the command or the action
+
+2017-12-19 17:00:33: user -a mod -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid option for the command or the action
+
+2017-12-19 17:00:33: user -a add -t snmp -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid option for the command or the action
+
+2017-12-19 17:00:33: user -a add -t nas -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid option for the command or the action
+
+2017-12-19 17:00:33: user -a add -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid option for the command or the action
+
+2017-12-19 17:00:33: user -t snmp -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid option for the command or the action
+
+2017-12-19 17:00:33: user -t nas -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid option for the command or the action
+
+2017-12-19 17:00:33: user -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid option for the command or the action
+
+2017-12-19 17:00:33: 'result': 'p'
+2017-12-19 17:00:33: user -a del -t snmp -u test
+Error (0x200): Invalid username
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid username
+
+2017-12-19 17:00:33: user -a del -t nas -u test
+Error (0x4100104): Incorrect parameters: Invalid username
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid username
+
+2017-12-19 17:00:33: user -a del -u test
+Error (0x200): Invalid username
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid username
+
+2017-12-19 17:00:33: user -a del test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid setting parameters
+
+2017-12-19 17:00:33: user -a mod -t snmp -u 1 -s "priv=test"
+Error (0x2013): Invalid setting parameters
+priv: invalid setting test (des|aes)
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid setting parameters
+
+2017-12-19 17:00:33: user -a mod -t snmp -u 1 -s "auth=test"
+Error (0x2013): Invalid setting parameters
+auth: invalid setting test (md5|sha)
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid setting parameters
+
+2017-12-19 17:00:33: user -a mod -t snmp test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid setting parameters
+
+2017-12-19 17:00:33: user -a mod -t nas -u 1 -s "phone=test#$%&*"
+Error (0x2013): Invalid setting parameters
+invalid phone: test#$%&*
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid setting parameters
+
+2017-12-19 17:00:33: user -a mod -t nas -u 1 -s "group=test"
+Error (0x4100104): Incorrect parameters: Invalid input group name: test.
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid input group name
+
+2017-12-19 17:00:33: user -a mod -t nas test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid setting parameters
+
+2017-12-19 17:00:33: user -a mod -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (mgmt|snmp|nas)
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid setting parameters
+
+2017-12-19 17:00:33: user -a mod -u 1111_1111_1111_1111_1111_11130 -s "status=test"
+Error (0x2013): Invalid setting parameters
+status: invalid setting test (enable|disable)
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid setting parameters
+
+2017-12-19 17:00:33: user -a mod -u 1111_1111_1111_1111_1111_11130 -p test
+Error (0x2013): Invalid setting parameters
+-p: invalid setting test (super|power|maintenance|view)
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid setting parameters
+
+2017-12-19 17:00:33: user -a mod -u test
+Error (0x2013): Invalid setting parameters
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid setting parameters
+
+2017-12-19 17:00:33: user -a mod test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid setting parameters
+
+2017-12-19 17:00:33: user -a add -t snmp -u test -s "auth=md5,priv=test"
+Error (0x2013): Invalid setting parameters
+priv: invalid setting test (des|aes)
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid setting parameters
+
+2017-12-19 17:00:33: user -a add -t snmp -u test -s "auth=test,priv=des"
+Error (0x2013): Invalid setting parameters
+auth: invalid setting test (md5|sha)
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid setting parameters
+
+2017-12-19 17:00:33: user -a add -t snmp -u test_test_test_test_test_test_32
+Error (0x2014): Setting parameters too long
+-u: invalid setting test_test_test_test_test_test_32
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Setting parameters too long
+
+2017-12-19 17:00:33: user -a add -t nas -u test_test_test_test_test_test_32
+Error (0x2014): Setting parameters too long
+-u: invalid setting test_test_test_test_test_test_32
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Setting parameters too long
+
+2017-12-19 17:00:33: user -a add -u test -p view -s "status=test"
+Error (0x2013): Invalid setting parameters
+status: invalid setting test (enable|disable)
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid setting parameters
+
+2017-12-19 17:00:33: user -a add -u test_test_test_test_test_test_32 -p view
+Error (0x2014): Setting parameters too long
+-u: invalid setting test_test_test_test_test_test_32
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Setting parameters too long
+
+2017-12-19 17:00:33: user -a add -u #$% -p view
+Error (0x2013): Invalid setting parameters
+id contain only alphanumeric characters and underscores
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid setting parameters
+
+2017-12-19 17:00:33: user -a add -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (mgmt|snmp|nas)
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid setting parameters
+
+2017-12-19 17:00:33: user -a add test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid setting parameters
+
+2017-12-19 17:00:33: user -t snmp -u test
+Error (0x200): Invalid username
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid username
+
+2017-12-19 17:00:33: user -t nas -u test
+Error (0x4100104): Incorrect parameters: User is not found.
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: User is not found
+
+2017-12-19 17:00:33: user -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (mgmt|snmp|nas)
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid setting parameters
+
+2017-12-19 17:00:33: user -u test
+Error (0x200): Invalid username
+Username not found
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid username
+
+2017-12-19 17:00:33: user test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-12-19 17:00:33: 
+Expect: Invalid setting parameters
+
+2017-12-19 17:00:33: 'result': 'p'
+2017-12-19 17:00:33: user -t snmp -u T2
+Error (0x200): Invalid username
+
+administrator@cli> 
+2017-12-19 17:00:32: user -a del -t snmp -u T2
+
+administrator@cli> 
+2017-12-19 17:00:32: 
+Expect: specific snmp type user should be deleted
+
+2017-12-19 17:00:32: user -t nas -u T2
+Error (0x4100104): Incorrect parameters: User is not found.
+
+administrator@cli> 
+2017-12-19 17:00:32: user -a del -t nas -u T2
+
+administrator@cli> 
+2017-12-19 17:00:32: 
+Expect: specific nas type user should be deleted
+
+2017-12-19 17:00:32: user -t mgmt -u 1
+Error (0x200): Invalid username
+Username not found
+
+administrator@cli> 
+2017-12-19 17:00:32: user -a del -t mgmt -u 1
+
+administrator@cli> 
+2017-12-19 17:00:29: 
+Expect: specific mgmt type user should be deleted
+
+2017-12-19 17:00:29: user -u T_
+Error (0x200): Invalid username
+Username not found
+
+administrator@cli> 
+2017-12-19 17:00:29: user -a del -u T_
+
+administrator@cli> 
+2017-12-19 17:00:26: 
+Expect: specific user should be deleted
+
+2017-12-19 17:00:26: 'result': 'f'
+2017-12-19 17:00:25: 
+Fail: please check out EngineId:
+
+2017-12-19 17:00:25: user -t snmp -u 1 -v
+
+EngineID: 0x80001f888064caf51a07a8385a00000000
+
+-------------------------------------------------------------------------------
+Username: 1                             Permission: READ_ONLY
+Auth: SHA                               Priv: DES
+Type: SNMP
+
+administrator@cli> 
+2017-12-19 17:00:25: 
+Expect: specific snmp type user should be listed by verbose mode
+
+2017-12-19 17:00:25: user -t nas -u 1 -v
+-------------------------------------------------------------------------------
+UserName: 1                             Email: ab@cd.ef
+DisplayName: test_test_test_test_test_test31
+Telephone: 0123456789                   Department: new_group
+PriGroupName: users                     Status: Ready
+SecGroupName: users,test_users
+
+administrator@cli> 
+2017-12-19 17:00:25: 
+Expect: specific nas type user should be listed by verbose mode
+
+2017-12-19 17:00:25: user -t mgmt -u 1 -v
+-------------------------------------------------------------------------------
+Username: 1                             Status: Enabled
+Location: Local                         Privilege: Super
+DisplayName: t                          Email: 11@11.11
+
+administrator@cli> 
+2017-12-19 17:00:25: 
+Expect: specific mgmt type user should be listed by verbose mode
+
+2017-12-19 17:00:25: user -u 1 -v 
+-------------------------------------------------------------------------------
+Username: 1                             Status: Enabled
+Location: Local                         Privilege: Super
+DisplayName: t                          Email: 11@11.11
+
+administrator@cli> 
+2017-12-19 17:00:25: 
+Expect: specific mgmt type user should be listed by verbose mode
+
+2017-12-19 17:00:25: 
+Fail: please check out EngineId:
+
+2017-12-19 17:00:25: user -t snmp -v 
+
+EngineID: 0x80001f888064caf51a07a8385a00000000
+
+-------------------------------------------------------------------------------
+Username: 1                             Permission: READ_ONLY
+Auth: SHA                               Priv: DES
+Type: SNMP
+-------------------------------------------------------------------------------
+Username: T2                            Permission: READ_ONLY
+Auth: SHA                               Priv: DES
+Type: SNMP
+-------------------------------------------------------------------------------
+Username: Snmp_snmp_snmp_snmp_snmp_snm30
+Permission: READ_ONLY                   Auth: N/A
+Priv: N/A                               Type: SNMP
+-------------------------------------------------------------------------------
+Username: snmp_snmp_snmp_snmp_snmp_snmp31
+Permission: READ_ONLY                   Auth: SHA
+Priv: DES                               Type: SNMP
+
+administrator@cli> 
+2017-12-19 17:00:25: 
+Expect: all of snmp type user should be listed by verbose mode
+
+2017-12-19 17:00:25: user -t nas -v
+-------------------------------------------------------------------------------
+UserName: admin                         Email: 
+DisplayName: NAS default User           Telephone: 
+Department:                             PriGroupName: users
+Status: Ready                           SecGroupName: 
+-------------------------------------------------------------------------------
+UserName: 1                             Email: ab@cd.ef
+DisplayName: test_test_test_test_test_test31
+Telephone: 0123456789                   Department: new_group
+PriGroupName: users                     Status: Ready
+SecGroupName: users,test_users
+-------------------------------------------------------------------------------
+UserName: T2                            Email: 12@11.23
+DisplayName:                            Telephone: 0123456789
+Department: new_group                   PriGroupName: test_users
+Status: Ready                           SecGroupName: test_users
+-------------------------------------------------------------------------------
+UserName: name_name_name_name_name_name31
+Email:                                  DisplayName: 
+Telephone:                              Department: 
+PriGroupName: users                     Status: Ready
+SecGroupName: users
+-------------------------------------------------------------------------------
+UserName: test_test_test_test_test_nas30
+Email:                                  DisplayName: 
+Telephone: 123456000                    Department: 1
+PriGroupName: users                     Status: Ready
+SecGroupName: users
+
+administrator@cli> 
+2017-12-19 17:00:25: 
+Expect: all of nas type user should be listed by verbose mode
+
+2017-12-19 17:00:25: user -v
+-------------------------------------------------------------------------------
+Username: administrator                 Status: Enabled
+Location: Local                         Privilege: Super
+DisplayName: Super user                 Email: admin@yourcompany.com
+-------------------------------------------------------------------------------
+Username: Test_Test_Test_Test_Test_Test31
+Status: Enabled                         Location: Local
+Privilege: View                         DisplayName: 
+Email: 
+-------------------------------------------------------------------------------
+Username: 1111_1111_1111_1111_1111_11130
+Status: Enabled                         Location: Local
+Privilege: Maintenance                  DisplayName: T2
+Email: 
+-------------------------------------------------------------------------------
+Username: T_                            Status: Disabled
+Location: Local                         Privilege: Power
+DisplayName: 1111_1111_1111_1111_1111_1111_1
+Email: 11@11.11
+-------------------------------------------------------------------------------
+Username: 1                             Status: Enabled
+Location: Local                         Privilege: Super
+DisplayName: t                          Email: 11@11.11
+
+administrator@cli> 
+2017-12-19 17:00:25: 
+Expect: all of mgmt type user should be listed by verbose mode
+
+2017-12-19 17:00:25: 'result': 'p'
+2017-12-19 17:00:25: user -t snmp -u 1
+===============================================================================
+Username          Type          Auth          Priv          Permission         
+===============================================================================
+1                 SNMP          SHA           DES           READ_ONLY          
+
+administrator@cli> 
+2017-12-19 17:00:25: 
+Expect: specific snmp type user should be listed
+
+2017-12-19 17:00:25: user -t nas -u 1
+===============================================================================
+UserName   DisplayName                       Department  Telephone   Email     
+===============================================================================
+1          test_test_test_test_test_test31   new_group   0123456789  ab@cd.ef  
+
+administrator@cli> 
+2017-12-19 17:00:25: 
+Expect: specific nas type user should be listed
+
+2017-12-19 17:00:25: user -t mgmt -u 1
+===============================================================================
+Username              Location  Status    Privilege  DisplayName Email        
+===============================================================================
+1                     Local     Enabled   Super      t           11@11.11      
+
+administrator@cli> 
+2017-12-19 17:00:25: 
+Expect: specific mgmt type user should be listed
+
+2017-12-19 17:00:25: user -u 1
+===============================================================================
+Username              Location  Status    Privilege  DisplayName Email        
+===============================================================================
+1                     Local     Enabled   Super      t           11@11.11      
+
+administrator@cli> 
+2017-12-19 17:00:25: 
+Expect: specific mgmt type user should be listed
+
+2017-12-19 17:00:25: user -t snmp
+===============================================================================
+Username                             Type     Auth     Priv     Permission     
+===============================================================================
+1                                    SNMP     SHA      DES      READ_ONLY      
+T2                                   SNMP     SHA      DES      READ_ONLY      
+Snmp_snmp_snmp_snmp_snmp_snm30       SNMP     N/A      N/A      READ_ONLY      
+snmp_snmp_snmp_snmp_snmp_snmp31      SNMP     SHA      DES      READ_ONLY      
+
+administrator@cli> 
+2017-12-19 17:00:25: 
+Expect: all of snmp type user should be listed
+
+2017-12-19 17:00:25: user -t nas
+===============================================================================
+UserName                DisplayName             Department Telephone  Email    
+===============================================================================
+admin                   NAS default User                                       
+1                       test_test_test_test_tes new_group  0123456789 ab@cd.ef 
+                        t_test31                                               
+T2                                              new_group  0123456789 12@11.23 
+name_name_name_name_nam                                                        
+e_name31                                                                       
+test_test_test_test_tes                         1          123456000           
+t_nas30                                                                        
+
+administrator@cli> 
+2017-12-19 17:00:25: 
+Expect: all of nas type user should be listed
+
+2017-12-19 17:00:25: user
+===============================================================================
+Username              Location  Status    Privilege  DisplayName Email        
+===============================================================================
+administrator         Local     Enabled   Super      Super user  admin@yourco  
+                                                                 mpany.com     
+Test_Test_Test_Test_T Local     Enabled   View                                 
+est_Test31                                                                     
+1111_1111_1111_1111_1 Local     Enabled   Maintenanc T2                        
+111_11130                                 e                                    
+T_                    Local     Disabled  Power      1111_1111_1 11@11.11      
+                                                     111_1111_11               
+                                                     11_1111_1                 
+1                     Local     Enabled   Super      t           11@11.11      
+
+administrator@cli> 
+2017-12-19 17:00:24: 
+Expect: all of mgmt type user should be listed
+
+2017-12-19 17:00:24: 'result': 'p'
+2017-12-19 17:00:24: user -t nas -v -u 1
+-------------------------------------------------------------------------------
+UserName: 1                             Email: ab@cd.ef
+DisplayName: test_test_test_test_test_test31
+Telephone: 0123456789                   Department: new_group
+PriGroupName: users                     Status: Ready
+SecGroupName: users,test_users
+
+administrator@cli> 
+2017-12-19 17:00:23: user -a mod -t nas -u 1 -s "name=test_test_test_test_test_test31"
+
+administrator@cli> 
+2017-12-19 17:00:23: 
+Expect: nas user should be modified by "name=test_test_test_test_test_test31"
+
+2017-12-19 17:00:23: user -t nas -v -u 1
+-------------------------------------------------------------------------------
+UserName: 1                             Email: ab@cd.ef
+DisplayName: test_test_test_test_test_tes30
+Telephone: 0123456789                   Department: new_group
+PriGroupName: users                     Status: Ready
+SecGroupName: users,test_users
+
+administrator@cli> 
+2017-12-19 17:00:22: user -a mod -t nas -u 1 -s "name=test_test_test_test_test_tes30"
+
+administrator@cli> 
+2017-12-19 17:00:22: 
+Expect: nas user should be modified by "name=test_test_test_test_test_tes30"
+
+2017-12-19 17:00:22: user -t nas -v -u 1
+-------------------------------------------------------------------------------
+UserName: 1                             Email: ab@cd.ef
+DisplayName: T1                         Telephone: 0123456789
+Department: new_group                   PriGroupName: users
+Status: Ready                           SecGroupName: users,test_users
+
+administrator@cli> 
+2017-12-19 17:00:21: user -a mod -t nas -u 1 -s "group=users,department=new_group,phone=0123456789,name=T1"
+
+administrator@cli> 
+2017-12-19 17:00:21: 
+Expect: nas user should be modified by "group=users,department=new_group,phone=0123456789,name=T1"
+
+2017-12-19 17:00:21: user -t nas -v -u 1
+-------------------------------------------------------------------------------
+UserName: 1                             Email: ab@cd.ef
+DisplayName: 1                          Telephone: 123456789
+Department: default_group               PriGroupName: test_users
+Status: Ready                           SecGroupName: users,test_users
+
+administrator@cli> 
+2017-12-19 17:00:20: user -a mod -t nas -u 1 -s "group=test_users,department=default_group,phone=123456789,email=ab@cd.ef,name=1"
+
+administrator@cli> 
+2017-12-19 17:00:19: 
+Expect: nas user should be modified by "group=test_users,department=default_group,phone=123456789,email=ab@cd.ef,name=1"
+
+2017-12-19 17:00:19: 'result': 'p'
+2017-12-19 17:00:19: user -t nas -v -u name_name_name_name_name_name31
+-------------------------------------------------------------------------------
+UserName: name_name_name_name_name_name31
+Email:                                  DisplayName: 
+Telephone:                              Department: 
+PriGroupName: users                     Status: Ready
+SecGroupName: users
+
+administrator@cli> 
+2017-12-19 17:00:18: user -a add -t nas -u name_name_name_name_name_name31
+Enter password for the new nas user:[36D[36C[0m
+Enter password for the new nas user:
+[J
+Retype password for the new nas user:[37D[37C[0mRetype password for the new nas user:
+[J
+
+administrator@cli> 
+2017-12-19 17:00:16: 
+Expect: nas user should be added by -u name_name_name_name_name_name31
+
+2017-12-19 17:00:16: user -t nas -v -u test_test_test_test_test_nas30
+-------------------------------------------------------------------------------
+UserName: test_test_test_test_test_nas30
+Email:                                  DisplayName: 
+Telephone: 123456000                    Department: 1
+PriGroupName: users                     Status: Ready
+SecGroupName: users
+
+administrator@cli> 
+2017-12-19 17:00:15: user -a add -t nas -u test_test_test_test_test_nas30 -s "department=1,phone=123456000"
+Enter password for the new nas user:[36D[36C[0m
+Enter password for the new nas user:
+[J
+Retype password for the new nas user:[37D[37C[0mRetype password for the new nas user:
+[J
+
+administrator@cli> 
+2017-12-19 17:00:13: 
+Expect: nas user should be added by -u test_test_test_test_test_nas30 -s "department=1,phone=123456000"
+
+2017-12-19 17:00:13: user -t nas -v -u T2
+-------------------------------------------------------------------------------
+UserName: T2                            Email: 12@11.23
+DisplayName:                            Telephone: 0123456789
+Department: new_group                   PriGroupName: test_users
+Status: Ready                           SecGroupName: test_users
+
+administrator@cli> 
+2017-12-19 17:00:12: user -a add -t nas -u T2 -s "group=test_users,department=new_group,phone=0123456789,email=12@11.23"
+Enter password for the new nas user:[36D[36C[0m
+Enter password for the new nas user:
+[J
+Retype password for the new nas user:[37D[37C[0mRetype password for the new nas user:
+[J
+
+administrator@cli> 
+2017-12-19 17:00:10: 
+Expect: nas user should be added by T2 -s "group=test_users,department=new_group,phone=0123456789,email=12@11.23"
+
+2017-12-19 17:00:10: user -t nas -v -u 1
+-------------------------------------------------------------------------------
+UserName: 1                             Email: 12@11.23
+DisplayName: 123                        Telephone: 123456789
+Department: default_group               PriGroupName: users
+Status: Ready                           SecGroupName: users
+
+administrator@cli> 
+2017-12-19 17:00:09: user -a add -t nas -u 1 -s "group=users,department=default_group,phone=123456789,email=12@11.23,name=123"
+Enter password for the new nas user:[36D[36C[0m
+Enter password for the new nas user:
+[J
+Retype password for the new nas user:[37D[37C[0mRetype password for the new nas user:
+[J
+
+administrator@cli> 
+2017-12-19 17:00:07: 
+Expect: nas user should be added by -u 1 -s "group=users,department=default_group,phone=123456789,email=12@11.23,name=123"
+
+2017-12-19 17:00:06: 'result': 'p'
+2017-12-19 17:00:06: user -t snmp -u snmp_snmp_snmp_snmp_snmp_snmp31 -v
+
+EngineID: 0x80001f888064caf51a07a8385a00000000
+
+-------------------------------------------------------------------------------
+Username: snmp_snmp_snmp_snmp_snmp_snmp31
+Permission: READ_ONLY                   Auth: SHA
+Priv: DES                               Type: SNMP
+
+administrator@cli> 
+2017-12-19 17:00:05: user -a mod -t snmp -u snmp_snmp_snmp_snmp_snmp_snmp31 -s "auth=sha,priv=des"
+Enter auth password:[20D[20C[0m
+Enter auth password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+Enter priv password:[20D[20C[0m
+Enter priv password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+
+administrator@cli> 
+2017-12-19 17:00:01: 
+Expect: no password snmp user should be modified by "auth=sha,priv=des"
+
+2017-12-19 17:00:01: user -t snmp -u 1 -v
+
+EngineID: 0x80001f888064caf51a07a8385a00000000
+
+-------------------------------------------------------------------------------
+Username: 1                             Permission: READ_ONLY
+Auth: SHA                               Priv: DES
+Type: SNMP
+
+administrator@cli> 
+2017-12-19 17:00:00: user -a mod -t snmp -u 1 -s "auth=sha,priv=des"
+Enter auth password:[20D[20C[0m
+Enter auth password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+Enter priv password:[20D[20C[0m
+Enter priv password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+
+administrator@cli> 
+2017-12-19 16:59:56: 
+Expect: snmp user should be modified by "auth=sha,priv=des"
+
+2017-12-19 16:59:56: user -t snmp -u 1 -v
+
+EngineID: 0x80001f888064caf51a07a8385a00000000
+
+-------------------------------------------------------------------------------
+Username: 1                             Permission: READ_ONLY
+Auth: MD5                               Priv: AES
+Type: SNMP
+
+administrator@cli> 
+2017-12-19 16:59:55: user -a mod -t snmp -u 1 -s "auth=md5,priv=aes"
+Enter auth password:[20D[20C[0m
+Enter auth password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+Enter priv password:[20D[20C[0m
+Enter priv password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+
+administrator@cli> 
+2017-12-19 16:59:51: 
+Expect: snmp user should be modified by "auth=md5,priv=aes"
+
+2017-12-19 16:59:51: 'result': 'p'
+2017-12-19 16:59:51: user -t snmp -u snmp_snmp_snmp_snmp_snmp_snmp31 -v
+
+EngineID: 0x80001f888064caf51a07a8385a00000000
+
+-------------------------------------------------------------------------------
+Username: snmp_snmp_snmp_snmp_snmp_snmp31
+Permission: READ_ONLY                   Auth: N/A
+Priv: N/A                               Type: SNMP
+
+administrator@cli> 
+2017-12-19 16:59:50: user -a add -t snmp -u snmp_snmp_snmp_snmp_snmp_snmp31
+
+administrator@cli> 
+2017-12-19 16:59:49: 
+Expect: snmp user should be added by -u snmp_snmp_snmp_snmp_snmp_snmp31
+
+2017-12-19 16:59:49: user -t snmp -u Snmp_snmp_snmp_snmp_snmp_snm30 -v
+
+EngineID: 0x80001f888064caf51a07a8385a00000000
+
+-------------------------------------------------------------------------------
+Username: Snmp_snmp_snmp_snmp_snmp_snm30
+Permission: READ_ONLY                   Auth: N/A
+Priv: N/A                               Type: SNMP
+
+administrator@cli> 
+2017-12-19 16:59:48: user -a add -t snmp -u Snmp_snmp_snmp_snmp_snmp_snm30
+
+administrator@cli> 
+2017-12-19 16:59:48: 
+Expect: snmp user should be added by -u Snmp_snmp_snmp_snmp_snmp_snm30
+
+2017-12-19 16:59:48: user -t snmp -u T2 -v
+
+EngineID: 0x80001f888064caf51a07a8385a00000000
+
+-------------------------------------------------------------------------------
+Username: T2                            Permission: READ_ONLY
+Auth: SHA                               Priv: DES
+Type: SNMP
+
+administrator@cli> 
+2017-12-19 16:59:47: user -a add -t snmp -u T2 -s "auth=sha,priv=des"
+Enter auth password:[20D[20C[0m
+Enter auth password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+Enter priv password:[20D[20C[0m
+Enter priv password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+
+administrator@cli> 
+2017-12-19 16:59:43: 
+Expect: snmp user should be added by -u T2 -s "auth=sha,priv=des"
+
+2017-12-19 16:59:43: user -t snmp -u 1 -v
+
+EngineID: 0x80001f888064caf51a07a8385a00000000
+
+-------------------------------------------------------------------------------
+Username: 1                             Permission: READ_ONLY
+Auth: MD5                               Priv: AES
+Type: SNMP
+
+administrator@cli> 
+2017-12-19 16:59:42: user -a add -t snmp -u 1 -s "auth=md5,priv=aes"
+Enter auth password:[20D[20C[0m
+Enter auth password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+Enter priv password:[20D[20C[0m
+Enter priv password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+
+administrator@cli> 
+2017-12-19 16:59:38: 
+Expect: snmp user should be added by -u 1 -s "auth=md5,priv=aes"
+
+2017-12-19 16:59:38: 'result': 'p'
+2017-12-19 16:59:38: user -u 1 -v
+-------------------------------------------------------------------------------
+Username: 1                             Status: Enabled
+Location: Local                         Privilege: Super
+DisplayName: t                          Email: 11@11.11
+
+administrator@cli> 
+2017-12-19 16:59:37: user -a mod -u 1 -p super -s "name=t"
+
+administrator@cli> 
+2017-12-19 16:59:34: 
+Expect: mgmt user should be modified by -p view -s "name=t"
+
+2017-12-19 16:59:34: user -u 1 -v
+-------------------------------------------------------------------------------
+Username: 1                             Status: Enabled
+Location: Local                         Privilege: Power
+DisplayName: T1                         Email: 11@11.11
+
+administrator@cli> 
+2017-12-19 16:59:33: user -a mod -u 1 -p power -s "name=T1"
+
+administrator@cli> 
+2017-12-19 16:59:29: 
+Expect: mgmt user should be modified by -p power -s "name=T1"
+
+2017-12-19 16:59:29: user -u 1 -v
+-------------------------------------------------------------------------------
+Username: 1                             Status: Enabled
+Location: Local                         Privilege: Maintenance
+DisplayName: 1111_1111_1111_1111_1111_test3
+Email: 11@11.11
+
+administrator@cli> 
+2017-12-19 16:59:28: user -a mod -u 1 -p maintenance -s "name=1111_1111_1111_1111_1111_test3,status=enable"
+
+administrator@cli> 
+2017-12-19 16:59:25: 
+Expect: mgmt user should be modified by -p maintenance -s "name=1111_1111_1111_1111_1111_test3,status=enable"
+
+2017-12-19 16:59:25: user -u 1 -v
+-------------------------------------------------------------------------------
+Username: 1                             Status: Disabled
+Location: Local                         Privilege: View
+DisplayName: 1111_1111_1111_1111_1111_test31
+Email: 11@11.11
+
+administrator@cli> 
+2017-12-19 16:59:24: user -a mod -u 1 -p view -s "name=1111_1111_1111_1111_1111_test31,status=disable,email=11@11.11"
+
+administrator@cli> 
+2017-12-19 16:59:21: 
+Expect: mgmt user should be modified by -p view -s "name=1111_1111_1111_1111_1111_test31,status=disable,email=11@11.11"
+
+2017-12-19 16:59:21: 'result': 'p'
+2017-12-19 16:59:21: user -u 1 -v
+-------------------------------------------------------------------------------
+Username: 1                             Status: Disabled
+Location: Local                         Privilege: Super
+DisplayName: t                          Email: 11@11.11
+
+administrator@cli> 
+2017-12-19 16:59:20: user -a add -t mgmt -u 1 -p super -s "name=t,status=disable,email=11@11.11"
+Enter password for the new user:
+Enter password for the new user:
+[J
+Retype password for the new user:
+Retype password for the new user:
+[J
+
+administrator@cli> 
+2017-12-19 16:59:16: 
+Expect: mgmt user should be added by -u t -p super -s "name=t,status=disable,email=11@11.11"
+
+2017-12-19 16:59:16: user -u T_ -v
+-------------------------------------------------------------------------------
+Username: T_                            Status: Disabled
+Location: Local                         Privilege: Power
+DisplayName: 1111_1111_1111_1111_1111_1111_1
+Email: 11@11.11
+
+administrator@cli> 
+2017-12-19 16:59:15: user -a add -t mgmt -u T_ -p power -s "name=1111_1111_1111_1111_1111_1111_1,status=disable,email=11@11.11"
+Enter password for the new user:
+Enter password for the new user:
+[J
+Retype password for the new user:
+Retype password for the new user:
+[J
+
+administrator@cli> 
+2017-12-19 16:59:10: 
+Expect: mgmt user should be added by -u T_ -p power -s "name=1111_1111_1111_1111_1111_1111_1,status=disable,email=11@11.11"
+
+2017-12-19 16:59:10: user -u 1111_1111_1111_1111_1111_11130 -v
+-------------------------------------------------------------------------------
+Username: 1111_1111_1111_1111_1111_11130
+Status: Enabled                         Location: Local
+Privilege: Maintenance                  DisplayName: T2
+Email: 
+
+administrator@cli> 
+2017-12-19 16:59:09: user -a add -t mgmt -u 1111_1111_1111_1111_1111_11130 -p maintenance -s "name=T2,status=enable"
+Enter password for the new user:
+Enter password for the new user:
+[J
+Retype password for the new user:
+Retype password for the new user:
+[J
+
+administrator@cli> 
+2017-12-19 16:59:05: 
+Expect: mgmt user should be added by -u 1111_1111_1111_1111_1111_11130 -p maintenance -s "name=T2,status=enable"
+
+2017-12-19 16:59:05: user -u Test_Test_Test_Test_Test_Test31 -v
+-------------------------------------------------------------------------------
+Username: Test_Test_Test_Test_Test_Test31
+Status: Enabled                         Location: Local
+Privilege: View                         DisplayName: 
+Email: 
+
+administrator@cli> 
+2017-12-19 16:59:04: user -a add -u Test_Test_Test_Test_Test_Test31 -p view
+Enter password for the new user:
+Enter password for the new user:
+[J
+Retype password for the new user:
+Retype password for the new user:
+[J
+
+administrator@cli> 
+2017-12-19 16:58:58: 
+Expect: mgmt user should be added by default setting and -u Test_Test_Test_Test_Test_Test31
+
+2017-12-19 16:20:44: 'result': 'p'
+2017-12-19 16:20:44: snapshot -v -i 3
+-------------------------------------------------------------------------------
+Id: 3                                   Name: __test_test_test_test_test_test_
+Type: volume                            SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+UsedCapacity: 0 Byte                    CreateDate: 2017-12-19 22:21:28
+MountPoint: -
+
+administrator@cli> 
+2017-12-19 16:20:42: snapshot -a add -t volume -d 0 -s "name=__test_test_test_test_test_test_"
+
+administrator@cli> 
+2017-12-19 16:20:42: 
+Expect: snapshot of volume should be created when name is the under line +alp and length is 32
+
+2017-12-19 16:20:42: snapshot -v -i 2
+-------------------------------------------------------------------------------
+Id: 2                                   Name: test_test_test_test_test_test_1
+Type: nasshare                          SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Mounted                      OperationalStatus: OK, Synchronizing
+UsedCapacity: 0 Byte                    CreateDate: 2017-12-19 22:21:26
+MountPoint: /FS/test_test_test_test_test_test_1
+
+administrator@cli> 
+2017-12-19 16:20:41: snapshot -a add -t nasshare -d 0 -s "name=test_test_test_test_test_test_1"
+
+administrator@cli> 
+2017-12-19 16:20:39: 
+Expect: snapshot of nasshare should be created when name is the alp+under line+num,length is 31
+
+2017-12-19 16:20:39: snapshot -v -i 1
+-------------------------------------------------------------------------------
+Id: 1                                   Name: ab
+Type: volume                            SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+UsedCapacity: 8.19 KB                   CreateDate: 2017-12-19 22:21:24
+MountPoint: -
+
+administrator@cli> 
+2017-12-19 16:20:38: snapshot -a add -t volume -d 0 -s "name=ab"
+
+administrator@cli> 
+2017-12-19 16:20:37: 
+Expect: snapshot of volume should be created when name is the alp and length is 2
+
+2017-12-19 16:20:37: snapshot -v -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   Name: 1
+Type: nasshare                          SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Mounted                      OperationalStatus: OK, Synchronizing
+UsedCapacity: 19.46 KB                  CreateDate: 2017-12-19 22:21:22
+MountPoint: /FS/1
+
+administrator@cli> 
+2017-12-19 16:20:36: snapshot -a add -t nasshare -d 0 -s "name=1"
+
+administrator@cli> 
+2017-12-19 16:20:34: 
+Expect: snapshot of nasshare type should be created when name is the num and length is 1
+
+2017-12-19 16:19:47: 'result': 'f'
+2017-12-19 16:19:47: 
+Fail: snapshot -a rollback -i 1 -f
+
+2017-12-19 16:19:47: snapshot -a rollback -i 1 -f
+Notice: the data will be gone. The snapshots took after the selected one will 
+be deleted.
+Do you want to continue? (y|n):[31D[31C[0m
+Do you want to continue? (y|n):
+[JError (0x4100107): Fail to rollback Snapshot.
+
+administrator@cli> 
+2017-12-19 16:19:46: 
+Expect: snapshot of nasshare type should be rollbacked
+
+2017-12-19 16:19:46: snapshot -a rollback -i 5
+Notice: the data will be gone. The snapshots took after the selected one will 
+be deleted.
+Do you want to continue? (y|n):[31D[31C[0m
+Do you want to continue? (y|n):
+[J
+administrator@cli> 
+2017-12-19 16:19:45: 
+Expect: snapshot of volume type should be rollbacked
+
+2017-12-19 16:19:42: 'result': 'p'
+2017-12-19 16:19:42: snapshot -v -i 3
+-------------------------------------------------------------------------------
+Id: 3                                   Name: __test_test_test_test_test_test_
+Type: volume                            SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+UsedCapacity: 0 Byte                    CreateDate: 2017-12-19 22:20:27
+MountPoint: -
+
+administrator@cli> 
+2017-12-19 16:19:41: snapshot -a add -t volume -d 0 -s "name=__test_test_test_test_test_test_"
+
+administrator@cli> 
+2017-12-19 16:19:41: 
+Expect: snapshot of volume should be created when name is the under line +alp and length is 32
+
+2017-12-19 16:19:41: snapshot -v -i 2
+-------------------------------------------------------------------------------
+Id: 2                                   Name: test_test_test_test_test_test_1
+Type: nasshare                          SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Mounted                      OperationalStatus: OK, Synchronizing
+UsedCapacity: 0 Byte                    CreateDate: 2017-12-19 22:20:25
+MountPoint: /FS/test_test_test_test_test_test_1
+
+administrator@cli> 
+2017-12-19 16:19:40: snapshot -a add -t nasshare -d 0 -s "name=test_test_test_test_test_test_1"
+
+administrator@cli> 
+2017-12-19 16:19:38: 
+Expect: snapshot of nasshare should be created when name is the alp+under line+num,length is 31
+
+2017-12-19 16:19:38: snapshot -v -i 1
+-------------------------------------------------------------------------------
+Id: 1                                   Name: ab
+Type: volume                            SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+UsedCapacity: 8.19 KB                   CreateDate: 2017-12-19 22:20:22
+MountPoint: -
+
+administrator@cli> 
+2017-12-19 16:19:37: snapshot -a add -t volume -d 0 -s "name=ab"
+
+administrator@cli> 
+2017-12-19 16:19:36: 
+Expect: snapshot of volume should be created when name is the alp and length is 2
+
+2017-12-19 16:19:36: snapshot -v -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   Name: 1
+Type: nasshare                          SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Mounted                      OperationalStatus: OK, Synchronizing
+UsedCapacity: 19.46 KB                  CreateDate: 2017-12-19 22:20:21
+MountPoint: /FS/1
+
+administrator@cli> 
+2017-12-19 16:19:35: snapshot -a add -t nasshare -d 0 -s "name=1"
+
+administrator@cli> 
+2017-12-19 16:19:33: 
+Expect: snapshot of nasshare type should be created when name is the num and length is 1
+
+2017-12-19 16:16:42: 'result': 'f'
+2017-12-19 16:16:42: 
+Fail: snapshot -a rollback -i 1 -f
+
+2017-12-19 16:16:42: snapshot -a rollback -i 1 -f
+Notice: the data will be gone. The snapshots took after the selected one will 
+be deleted.
+Do you want to continue? (y|n):[31D[31C[0m[?12l[?25h[?25l[31D[0m[J[0mDo you want to continue? (y|n):[0my[32D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x4100107): Fail to rollback Snapshot.
+
+administrator@cli> 
+2017-12-19 16:16:41: 
+Expect: snapshot of nasshare type should be rollbacked
+
+2017-12-19 16:16:41: snapshot -a rollback -i 5
+Notice: the data will be gone. The snapshots took after the selected one will 
+be deleted.
+Do you want to continue? (y|n):[31D[31C[0m[?12l[?25h[?25l[31D[0m[J[0mDo you want to continue? (y|n):[0my[32D[0m
+[J[?7h[0m[?12l[?25h[?2004l
+administrator@cli> 
+2017-12-19 16:16:40: 
+Expect: snapshot of volume type should be rollbacked
+
+2017-12-19 16:16:20: 'result': 'p'
+2017-12-19 16:16:20: snapshot -v -i 3
+-------------------------------------------------------------------------------
+Id: 3                                   Name: __test_test_test_test_test_test_
+Type: volume                            SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+UsedCapacity: 0 Byte                    CreateDate: 2017-12-19 22:17:05
+MountPoint: -
+
+administrator@cli> 
+2017-12-19 16:16:19: snapshot -a add -t volume -d 0 -s "name=__test_test_test_test_test_test_"
+
+administrator@cli> 
+2017-12-19 16:16:19: 
+Expect: snapshot of volume should be created when name is the under line +alp and length is 32
+
+2017-12-19 16:16:19: snapshot -v -i 2
+-------------------------------------------------------------------------------
+Id: 2                                   Name: test_test_test_test_test_test_1
+Type: nasshare                          SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Mounted                      OperationalStatus: OK, Synchronizing
+UsedCapacity: 0 Byte                    CreateDate: 2017-12-19 22:17:03
+MountPoint: /FS/test_test_test_test_test_test_1
+
+administrator@cli> 
+2017-12-19 16:16:17: snapshot -a add -t nasshare -d 0 -s "name=test_test_test_test_test_test_1"
+
+administrator@cli> 
+2017-12-19 16:16:16: 
+Expect: snapshot of nasshare should be created when name is the alp+under line+num,length is 31
+
+2017-12-19 16:16:16: snapshot -v -i 1
+-------------------------------------------------------------------------------
+Id: 1                                   Name: ab
+Type: volume                            SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+UsedCapacity: 8.19 KB                   CreateDate: 2017-12-19 22:17:00
+MountPoint: -
+
+administrator@cli> 
+2017-12-19 16:16:15: snapshot -a add -t volume -d 0 -s "name=ab"
+
+administrator@cli> 
+2017-12-19 16:16:14: 
+Expect: snapshot of volume should be created when name is the alp and length is 2
+
+2017-12-19 16:16:14: snapshot -v -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   Name: 1
+Type: nasshare                          SourceId: 0
+PoolId: 0                               PoolName: test_snap_pool
+Status: Un-Mounted                      OperationalStatus: OK, Synchronizing
+UsedCapacity: 19.46 KB                  CreateDate: 2017-12-19 22:16:58
+MountPoint: /FS/1
+
+administrator@cli> 
+2017-12-19 16:16:13: snapshot -a add -t nasshare -d 0 -s "name=1"
+
+administrator@cli> 
+2017-12-19 16:16:11: 
+Expect: snapshot of nasshare type should be created when name is the num and length is 1
+
+2017-12-19 16:13:47: 'result': 'p'
+2017-12-19 16:13:47: chap -i 2
+-------------------------------------------------------------------------------
+ChapId: 2 (Peer) Name: a1_.-/+():
+
+administrator@cli> 
+2017-12-19 16:13:46: chap -a add -s "name=a1_.-/+():,type=peer"
+Chap Secret(12 - 16 characters): 
+Chap Secret(12 - 16 characters): 
+[J
+Confirm Secret:  [17D[17C[0mConfirm Secret:  
+[J
+
+administrator@cli> 
+2017-12-19 16:13:44: 
+Expect: chap should be added by "name=a1_.-/+():,type=peer"
+
+2017-12-19 16:13:44: chap -i 1
+-------------------------------------------------------------------------------
+ChapId: 1 (Local) TargetID: 0 Name: T(
+
+administrator@cli> 
+2017-12-19 16:13:42: chap -a add -s "name=T(,type=local"
+Chap Secret(12 - 16 characters): 
+Chap Secret(12 - 16 characters): 
+[J
+Confirm Secret:  [17D[17C[0mConfirm Secret:  
+[J
+
+administrator@cli> 
+2017-12-19 16:13:40: 
+Expect: chap should be added by "name=T(,type=local"
+
+2017-12-19 16:13:40: chap -i 0
+-------------------------------------------------------------------------------
+ChapId: 0 (Peer) Name: 1
+
+administrator@cli> 
+2017-12-19 16:13:39: chap -a add -s "name=1,type=peer"
+Chap Secret(12 - 16 characters): 
+Chap Secret(12 - 16 characters): 
+[J
+Confirm Secret:  [17D[17C[0mConfirm Secret:  
+[J
+
+administrator@cli> 
+2017-12-19 16:13:37: 
+Expect: chap should be added by "name=1,type=peer"
+
+2017-12-19 16:12:37: 'result': 'p'
+2017-12-19 16:12:37: chap -i 2
+-------------------------------------------------------------------------------
+ChapId: 2 (Peer) Name: a1_.-/+():
+
+administrator@cli> 
+2017-12-19 16:12:36: chap -a add -s "name=a1_.-/+():,type=peer"
+Chap Secret(12 - 16 characters): 
+Chap Secret(12 - 16 characters): 
+[J
+Confirm Secret:  [17D[17C[0m[?12l[?25h[?25l[17D[0m[J[0mConfirm Secret:  [0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[29D[0m
+[J
+
+administrator@cli> 
+2017-12-19 16:12:34: 
+Expect: chap should be added by "name=a1_.-/+():,type=peer"
+
+2017-12-19 16:12:34: chap -i 1
+-------------------------------------------------------------------------------
+ChapId: 1 (Local) TargetID: 0 Name: T(
+
+administrator@cli> 
+2017-12-19 16:12:33: chap -a add -s "name=T(,type=local"
+Chap Secret(12 - 16 characters): 
+Chap Secret(12 - 16 characters): 
+[J
+Confirm Secret:  [17D[17C[0m[?12l[?25h[?25l[17D[0m[J[0mConfirm Secret:  [0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[29D[0m
+[J
+
+administrator@cli> 
+2017-12-19 16:12:30: 
+Expect: chap should be added by "name=T(,type=local"
+
+2017-12-19 16:12:30: chap -i 0
+-------------------------------------------------------------------------------
+ChapId: 0 (Peer) Name: 1
+
+administrator@cli> 
+2017-12-19 16:12:29: chap -a add -s "name=1,type=peer"
+Chap Secret(12 - 16 characters): 
+Chap Secret(12 - 16 characters): 
+[J
+Confirm Secret:  [17D[17C[0m[?12l[?25h[?25l[17D[0m[J[0mConfirm Secret:  [0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[29D[0m
+[J
+
+administrator@cli> 
+2017-12-19 16:12:27: 
+Expect: chap should be added by "name=1,type=peer"
+
+2017-12-19 16:11:34: 'result': 'p'
+2017-12-19 16:11:34: user -t nas -v -u name_name_name_name_name_name31
+-------------------------------------------------------------------------------
+UserName: name_name_name_name_name_name31
+Email:                                  DisplayName: 
+Telephone:                              Department: 
+PriGroupName: users                     Status: Ready
+SecGroupName: users
+
+administrator@cli> 
+2017-12-19 16:11:33: user -a add -t nas -u name_name_name_name_name_name31
+Enter password for the new nas user:[36D[36C[0m
+Enter password for the new nas user:
+[J
+Retype password for the new nas user:[37D[37C[0mRetype password for the new nas user:
+[J
+
+administrator@cli> 
+2017-12-19 16:11:31: 
+Expect: nas user should be added by -u name_name_name_name_name_name31
+
+2017-12-19 16:11:31: user -t nas -v -u test_test_test_test_test_nas30
+-------------------------------------------------------------------------------
+UserName: test_test_test_test_test_nas30
+Email:                                  DisplayName: 
+Telephone: 123456000                    Department: 1
+PriGroupName: users                     Status: Ready
+SecGroupName: users
+
+administrator@cli> 
+2017-12-19 16:11:30: user -a add -t nas -u test_test_test_test_test_nas30 -s "department=1,phone=123456000"
+Enter password for the new nas user:[36D[36C[0m
+Enter password for the new nas user:
+[J
+Retype password for the new nas user:[37D[37C[0mRetype password for the new nas user:
+[J
+
+administrator@cli> 
+2017-12-19 16:11:28: 
+Expect: nas user should be added by -u test_test_test_test_test_nas30 -s "department=1,phone=123456000"
+
+2017-12-19 16:11:28: user -t nas -v -u T2
+-------------------------------------------------------------------------------
+UserName: T2                            Email: 12@11.23
+DisplayName:                            Telephone: 0123456789
+Department: new_group                   PriGroupName: test_users
+Status: Ready                           SecGroupName: test_users
+
+administrator@cli> 
+2017-12-19 16:11:27: user -a add -t nas -u T2 -s "group=test_users,department=new_group,phone=0123456789,email=12@11.23"
+Enter password for the new nas user:[36D[36C[0m
+Enter password for the new nas user:
+[J
+Retype password for the new nas user:[37D[37C[0mRetype password for the new nas user:
+[J
+
+administrator@cli> 
+2017-12-19 16:11:25: 
+Expect: nas user should be added by T2 -s "group=test_users,department=new_group,phone=0123456789,email=12@11.23"
+
+2017-12-19 16:11:25: user -t nas -v -u 1
+-------------------------------------------------------------------------------
+UserName: 1                             Email: 12@11.23
+DisplayName: 123                        Telephone: 123456789
+Department: default_group               PriGroupName: users
+Status: Ready                           SecGroupName: users
+
+administrator@cli> 
+2017-12-19 16:11:24: user -a add -t nas -u 1 -s "group=users,department=default_group,phone=123456789,email=12@11.23,name=123"
+Enter password for the new nas user:[36D[36C[0m
+Enter password for the new nas user:
+[J
+Retype password for the new nas user:[37D[37C[0mRetype password for the new nas user:
+[J
+
+administrator@cli> 
+2017-12-19 16:11:22: 
+Expect: nas user should be added by -u 1 -s "group=users,department=default_group,phone=123456789,email=12@11.23,name=123"
+
+2017-12-19 16:11:21: 'result': 'p'
+2017-12-19 16:11:21: user -t snmp -u snmp_snmp_snmp_snmp_snmp_snmp31 -v
+
+EngineID: 0x80001f888064caf51a07a8385a00000000
+
+-------------------------------------------------------------------------------
+Username: snmp_snmp_snmp_snmp_snmp_snmp31
+Permission: READ_ONLY                   Auth: N/A
+Priv: N/A                               Type: SNMP
+
+administrator@cli> 
+2017-12-19 16:11:20: user -a add -t snmp -u snmp_snmp_snmp_snmp_snmp_snmp31
+
+administrator@cli> 
+2017-12-19 16:11:20: 
+Expect: snmp user should be added by -u snmp_snmp_snmp_snmp_snmp_snmp31
+
+2017-12-19 16:11:20: user -t snmp -u Snmp_snmp_snmp_snmp_snmp_snm30 -v
+
+EngineID: 0x80001f888064caf51a07a8385a00000000
+
+-------------------------------------------------------------------------------
+Username: Snmp_snmp_snmp_snmp_snmp_snm30
+Permission: READ_ONLY                   Auth: N/A
+Priv: N/A                               Type: SNMP
+
+administrator@cli> 
+2017-12-19 16:11:19: user -a add -t snmp -u Snmp_snmp_snmp_snmp_snmp_snm30
+
+administrator@cli> 
+2017-12-19 16:11:18: 
+Expect: snmp user should be added by -u Snmp_snmp_snmp_snmp_snmp_snm30
+
+2017-12-19 16:11:18: user -t snmp -u T2 -v
+
+EngineID: 0x80001f888064caf51a07a8385a00000000
+
+-------------------------------------------------------------------------------
+Username: T2                            Permission: READ_ONLY
+Auth: SHA                               Priv: DES
+Type: SNMP
+
+administrator@cli> 
+2017-12-19 16:11:17: user -a add -t snmp -u T2 -s "auth=sha,priv=des"
+Enter auth password:[20D[20C[0m
+Enter auth password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+Enter priv password:[20D[20C[0m
+Enter priv password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+
+administrator@cli> 
+2017-12-19 16:11:13: 
+Expect: snmp user should be added by -u T2 -s "auth=sha,priv=des"
+
+2017-12-19 16:11:13: user -t snmp -u 1 -v
+
+EngineID: 0x80001f888064caf51a07a8385a00000000
+
+-------------------------------------------------------------------------------
+Username: 1                             Permission: READ_ONLY
+Auth: MD5                               Priv: AES
+Type: SNMP
+
+administrator@cli> 
+2017-12-19 16:11:12: user -a add -t snmp -u 1 -s "auth=md5,priv=aes"
+Enter auth password:[20D[20C[0m
+Enter auth password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+Enter priv password:[20D[20C[0m
+Enter priv password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+
+administrator@cli> 
+2017-12-19 16:11:08: 
+Expect: snmp user should be added by -u 1 -s "auth=md5,priv=aes"
+
+2017-12-19 16:11:08: 'result': 'p'
+2017-12-19 16:11:08: user -u 1 -v
+-------------------------------------------------------------------------------
+Username: 1                             Status: Disabled
+Location: Local                         Privilege: Super
+DisplayName: t                          Email: 11@11.11
+
+administrator@cli> 
+2017-12-19 16:11:07: user -a add -t mgmt -u 1 -p super -s "name=t,status=disable,email=11@11.11"
+Enter password for the new user:
+Enter password for the new user:
+[J
+Retype password for the new user:
+Retype password for the new user:
+[J
+
+administrator@cli> 
+2017-12-19 16:11:03: 
+Expect: mgmt user should be added by -u t -p super -s "name=t,status=disable,email=11@11.11"
+
+2017-12-19 16:11:03: user -u T_ -v
+-------------------------------------------------------------------------------
+Username: T_                            Status: Disabled
+Location: Local                         Privilege: Power
+DisplayName: 1111_1111_1111_1111_1111_1111_1
+Email: 11@11.11
+
+administrator@cli> 
+2017-12-19 16:11:02: user -a add -t mgmt -u T_ -p power -s "name=1111_1111_1111_1111_1111_1111_1,status=disable,email=11@11.11"
+Enter password for the new user:
+Enter password for the new user:
+[J
+Retype password for the new user:
+Retype password for the new user:
+[J
+
+administrator@cli> 
+2017-12-19 16:10:58: 
+Expect: mgmt user should be added by -u T_ -p power -s "name=1111_1111_1111_1111_1111_1111_1,status=disable,email=11@11.11"
+
+2017-12-19 16:10:58: user -u 1111_1111_1111_1111_1111_11130 -v
+-------------------------------------------------------------------------------
+Username: 1111_1111_1111_1111_1111_11130
+Status: Enabled                         Location: Local
+Privilege: Maintenance                  DisplayName: T2
+Email: 
+
+administrator@cli> 
+2017-12-19 16:10:57: user -a add -t mgmt -u 1111_1111_1111_1111_1111_11130 -p maintenance -s "name=T2,status=enable"
+Enter password for the new user:
+Enter password for the new user:
+[J
+Retype password for the new user:
+Retype password for the new user:
+[J
+
+administrator@cli> 
+2017-12-19 16:10:52: 
+Expect: mgmt user should be added by -u 1111_1111_1111_1111_1111_11130 -p maintenance -s "name=T2,status=enable"
+
+2017-12-19 16:10:52: user -u Test_Test_Test_Test_Test_Test31 -v
+-------------------------------------------------------------------------------
+Username: Test_Test_Test_Test_Test_Test31
+Status: Enabled                         Location: Local
+Privilege: View                         DisplayName: 
+Email: 
+
+administrator@cli> 
+2017-12-19 16:10:51: user -a add -u Test_Test_Test_Test_Test_Test31 -p view
+Enter password for the new user:
+Enter password for the new user:
+[J
+Retype password for the new user:
+Retype password for the new user:
+[J
+
+administrator@cli> 
+2017-12-19 16:10:47: 
+Expect: mgmt user should be added by default setting and -u Test_Test_Test_Test_Test_Test31
+
+2017-12-19 16:10:16: 'result': 'p'
+2017-12-19 16:10:16: user -t nas -v -u name_name_name_name_name_name31
+-------------------------------------------------------------------------------
+UserName: name_name_name_name_name_name31
+Email:                                  DisplayName: 
+Telephone:                              Department: 
+PriGroupName: users                     Status: Ready
+SecGroupName: users
+
+administrator@cli> 
+2017-12-19 16:10:15: user -a add -t nas -u name_name_name_name_name_name31
+Enter password for the new nas user:[36D[36C[0m
+Enter password for the new nas user:
+[J
+Retype password for the new nas user:[37D[37C[0mRetype password for the new nas user:
+[J
+
+administrator@cli> 
+2017-12-19 16:10:13: 
+Expect: nas user should be added by -u name_name_name_name_name_name31
+
+2017-12-19 16:10:13: user -t nas -v -u test_test_test_test_test_nas30
+-------------------------------------------------------------------------------
+UserName: test_test_test_test_test_nas30
+Email:                                  DisplayName: 
+Telephone: 123456000                    Department: 1
+PriGroupName: users                     Status: Ready
+SecGroupName: users
+
+administrator@cli> 
+2017-12-19 16:10:12: user -a add -t nas -u test_test_test_test_test_nas30 -s "department=1,phone=123456000"
+Enter password for the new nas user:[36D[36C[0m
+Enter password for the new nas user:
+[J
+Retype password for the new nas user:[37D[37C[0mRetype password for the new nas user:
+[J
+
+administrator@cli> 
+2017-12-19 16:10:10: 
+Expect: nas user should be added by -u test_test_test_test_test_nas30 -s "department=1,phone=123456000"
+
+2017-12-19 16:10:10: user -t nas -v -u T2
+-------------------------------------------------------------------------------
+UserName: T2                            Email: 12@11.23
+DisplayName:                            Telephone: 0123456789
+Department: new_group                   PriGroupName: test_users
+Status: Ready                           SecGroupName: test_users
+
+administrator@cli> 
+2017-12-19 16:10:09: user -a add -t nas -u T2 -s "group=test_users,department=new_group,phone=0123456789,email=12@11.23"
+Enter password for the new nas user:[36D[36C[0m
+Enter password for the new nas user:
+[J
+Retype password for the new nas user:[37D[37C[0mRetype password for the new nas user:
+[J
+
+administrator@cli> 
+2017-12-19 16:10:07: 
+Expect: nas user should be added by T2 -s "group=test_users,department=new_group,phone=0123456789,email=12@11.23"
+
+2017-12-19 16:10:07: user -t nas -v -u 1
+-------------------------------------------------------------------------------
+UserName: 1                             Email: 12@11.23
+DisplayName: 123                        Telephone: 123456789
+Department: default_group               PriGroupName: users
+Status: Ready                           SecGroupName: users
+
+administrator@cli> 
+2017-12-19 16:10:06: user -a add -t nas -u 1 -s "group=users,department=default_group,phone=123456789,email=12@11.23,name=123"
+Enter password for the new nas user:[36D[36C[0m
+Enter password for the new nas user:
+[J
+Retype password for the new nas user:[37D[37C[0mRetype password for the new nas user:
+[J
+
+administrator@cli> 
+2017-12-19 16:10:04: 
+Expect: nas user should be added by -u 1 -s "group=users,department=default_group,phone=123456789,email=12@11.23,name=123"
+
+2017-12-19 16:09:13: 'result': 'p'
+2017-12-19 16:09:13: user -t nas -v -u name_name_name_name_name_name31
+-------------------------------------------------------------------------------
+UserName: name_name_name_name_name_name31
+Email:                                  DisplayName: 
+Telephone:                              Department: 
+PriGroupName: users                     Status: Ready
+SecGroupName: users
+
+administrator@cli> 
+2017-12-19 16:09:12: user -a add -t nas -u name_name_name_name_name_name31
+Enter password for the new nas user:[36D[36C[0m
+Enter password for the new nas user:
+[J
+Retype password for the new nas user:[37D[37C[0m[?12l[?25h[?25l[37D[0m[J[0mRetype password for the new nas user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[49D[0m
+[J
+
+administrator@cli> 
+2017-12-19 16:09:10: 
+Expect: nas user should be added by -u name_name_name_name_name_name31
+
+2017-12-19 16:09:10: user -t nas -v -u test_test_test_test_test_nas30
+-------------------------------------------------------------------------------
+UserName: test_test_test_test_test_nas30
+Email:                                  DisplayName: 
+Telephone: 123456000                    Department: 1
+PriGroupName: users                     Status: Ready
+SecGroupName: users
+
+administrator@cli> 
+2017-12-19 16:09:09: user -a add -t nas -u test_test_test_test_test_nas30 -s "department=1,phone=123456000"
+Enter password for the new nas user:[36D[36C[0m
+Enter password for the new nas user:
+[J
+Retype password for the new nas user:[37D[37C[0m[?12l[?25h[?25l[37D[0m[J[0mRetype password for the new nas user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[49D[0m
+[J
+
+administrator@cli> 
+2017-12-19 16:09:07: 
+Expect: nas user should be added by -u test_test_test_test_test_nas30 -s "department=1,phone=123456000"
+
+2017-12-19 16:09:07: user -t nas -v -u T2
+-------------------------------------------------------------------------------
+UserName: T2                            Email: 12@11.23
+DisplayName:                            Telephone: 0123456789
+Department: new_group                   PriGroupName: test_users
+Status: Ready                           SecGroupName: test_users
+
+administrator@cli> 
+2017-12-19 16:09:06: user -a add -t nas -u T2 -s "group=test_users,department=new_group,phone=0123456789,email=12@11.23"
+Enter password for the new nas user:[36D[36C[0m
+Enter password for the new nas user:
+[J
+Retype password for the new nas user:[37D[37C[0m[?12l[?25h[?25l[37D[0m[J[0mRetype password for the new nas user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[49D[0m
+[J
+
+administrator@cli> 
+2017-12-19 16:09:04: 
+Expect: nas user should be added by T2 -s "group=test_users,department=new_group,phone=0123456789,email=12@11.23"
+
+2017-12-19 16:09:04: user -t nas -v -u 1
+-------------------------------------------------------------------------------
+UserName: 1                             Email: 12@11.23
+DisplayName: 123                        Telephone: 123456789
+Department: default_group               PriGroupName: users
+Status: Ready                           SecGroupName: users
+
+administrator@cli> 
+2017-12-19 16:09:03: user -a add -t nas -u 1 -s "group=users,department=default_group,phone=123456789,email=12@11.23,name=123"
+Enter password for the new nas user:[36D[36C[0m
+Enter password for the new nas user:
+[J
+Retype password for the new nas user:[37D[37C[0m[?12l[?25h[?25l[37D[0m[J[0mRetype password for the new nas user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[49D[0m
+[J
+
+administrator@cli> 
+2017-12-19 16:09:01: 
+Expect: nas user should be added by -u 1 -s "group=users,department=default_group,phone=123456789,email=12@11.23,name=123"
+
+2017-12-19 16:07:36: 'result': 'p'
+2017-12-19 16:07:36: user -t nas -v -u name_name_name_name_name_name31
+-------------------------------------------------------------------------------
+UserName: name_name_name_name_name_name31
+Email:                                  DisplayName: 
+Telephone:                              Department: 
+PriGroupName: users                     Status: Ready
+SecGroupName: users
+
+administrator@cli> 
+2017-12-19 16:07:35: user -a add -t nas -u name_name_name_name_name_name31
+Enter password for the new nas user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mEnter password for the new nas user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[48D[0m
+[J
+Retype password for the new nas user:[37D[37C[0m[?12l[?25h[?25l[37D[0m[J[0mRetype password for the new nas user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[49D[0m
+[J
+
+administrator@cli> 
+2017-12-19 16:07:33: 
+Expect: nas user should be added by -u name_name_name_name_name_name31
+
+2017-12-19 16:07:33: user -t nas -v -u test_test_test_test_test_nas30
+-------------------------------------------------------------------------------
+UserName: test_test_test_test_test_nas30
+Email:                                  DisplayName: 
+Telephone: 123456000                    Department: 1
+PriGroupName: users                     Status: Ready
+SecGroupName: users
+
+administrator@cli> 
+2017-12-19 16:07:32: user -a add -t nas -u test_test_test_test_test_nas30 -s "department=1,phone=123456000"
+Enter password for the new nas user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mEnter password for the new nas user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[48D[0m
+[J
+Retype password for the new nas user:[37D[37C[0m[?12l[?25h[?25l[37D[0m[J[0mRetype password for the new nas user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[49D[0m
+[J
+
+administrator@cli> 
+2017-12-19 16:07:30: 
+Expect: nas user should be added by -u test_test_test_test_test_nas30 -s "department=1,phone=123456000"
+
+2017-12-19 16:07:30: user -t nas -v -u T2
+-------------------------------------------------------------------------------
+UserName: T2                            Email: 12@11.23
+DisplayName:                            Telephone: 0123456789
+Department: new_group                   PriGroupName: test_users
+Status: Ready                           SecGroupName: test_users
+
+administrator@cli> 
+2017-12-19 16:07:29: user -a add -t nas -u T2 -s "group=test_users,department=new_group,phone=0123456789,email=12@11.23"
+Enter password for the new nas user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mEnter password for the new nas user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[48D[0m
+[J
+Retype password for the new nas user:[37D[37C[0m[?12l[?25h[?25l[37D[0m[J[0mRetype password for the new nas user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[49D[0m
+[J
+
+administrator@cli> 
+2017-12-19 16:07:27: 
+Expect: nas user should be added by T2 -s "group=test_users,department=new_group,phone=0123456789,email=12@11.23"
+
+2017-12-19 16:07:27: user -t nas -v -u 1
+-------------------------------------------------------------------------------
+UserName: 1                             Email: 12@11.23
+DisplayName: 123                        Telephone: 123456789
+Department: default_group               PriGroupName: users
+Status: Ready                           SecGroupName: users
+
+administrator@cli> 
+2017-12-19 16:07:26: user -a add -t nas -u 1 -s "group=users,department=default_group,phone=123456789,email=12@11.23,name=123"
+Enter password for the new nas user:[36D[36C[0m[?12l[?25h[?25l[36D[0m[J[0mEnter password for the new nas user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[48D[0m
+[J
+Retype password for the new nas user:[37D[37C[0m[?12l[?25h[?25l[37D[0m[J[0mRetype password for the new nas user:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[49D[0m
+[J
+
+administrator@cli> 
+2017-12-19 16:07:23: 
+Expect: nas user should be added by -u 1 -s "group=users,department=default_group,phone=123456789,email=12@11.23,name=123"
+
+2017-12-19 16:07:03: 'result': 'p'
+2017-12-19 16:07:03: user -t snmp -u snmp_snmp_snmp_snmp_snmp_snmp31 -v
+
+EngineID: 0x80001f888064caf51a07a8385a00000000
+
+-------------------------------------------------------------------------------
+Username: snmp_snmp_snmp_snmp_snmp_snmp31
+Permission: READ_ONLY                   Auth: SHA
+Priv: DES                               Type: SNMP
+
+administrator@cli> 
+2017-12-19 16:07:02: user -a mod -t snmp -u snmp_snmp_snmp_snmp_snmp_snmp31 -s "auth=sha,priv=des"
+Enter auth password:[20D[20C[0m
+Enter auth password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+Enter priv password:[20D[20C[0m
+Enter priv password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+
+administrator@cli> 
+2017-12-19 16:06:57: 
+Expect: no password snmp user should be modified by "auth=sha,priv=des"
+
+2017-12-19 16:06:57: user -t snmp -u 1 -v
+
+EngineID: 0x80001f888064caf51a07a8385a00000000
+
+-------------------------------------------------------------------------------
+Username: 1                             Permission: READ_ONLY
+Auth: SHA                               Priv: DES
+Type: SNMP
+
+administrator@cli> 
+2017-12-19 16:06:56: user -a mod -t snmp -u 1 -s "auth=sha,priv=des"
+Enter auth password:[20D[20C[0m
+Enter auth password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+Enter priv password:[20D[20C[0m
+Enter priv password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+
+administrator@cli> 
+2017-12-19 16:06:52: 
+Expect: snmp user should be modified by "auth=sha,priv=des"
+
+2017-12-19 16:06:52: user -t snmp -u 1 -v
+
+EngineID: 0x80001f888064caf51a07a8385a00000000
+
+-------------------------------------------------------------------------------
+Username: 1                             Permission: READ_ONLY
+Auth: MD5                               Priv: AES
+Type: SNMP
+
+administrator@cli> 
+2017-12-19 16:06:51: user -a mod -t snmp -u 1 -s "auth=md5,priv=aes"
+Enter auth password:[20D[20C[0m
+Enter auth password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+Enter priv password:[20D[20C[0m
+Enter priv password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+
+administrator@cli> 
+2017-12-19 16:06:47: 
+Expect: snmp user should be modified by "auth=md5,priv=aes"
+
+2017-12-19 16:06:36: 'result': 'p'
+2017-12-19 16:06:36: user -t snmp -u snmp_snmp_snmp_snmp_snmp_snmp31 -v
+
+EngineID: 0x80001f888064caf51a07a8385a00000000
+
+-------------------------------------------------------------------------------
+Username: snmp_snmp_snmp_snmp_snmp_snmp31
+Permission: READ_ONLY                   Auth: N/A
+Priv: N/A                               Type: SNMP
+
+administrator@cli> 
+2017-12-19 16:06:35: user -a add -t snmp -u snmp_snmp_snmp_snmp_snmp_snmp31
+
+administrator@cli> 
+2017-12-19 16:06:35: 
+Expect: snmp user should be added by -u snmp_snmp_snmp_snmp_snmp_snmp31
+
+2017-12-19 16:06:35: user -t snmp -u Snmp_snmp_snmp_snmp_snmp_snm30 -v
+
+EngineID: 0x80001f888064caf51a07a8385a00000000
+
+-------------------------------------------------------------------------------
+Username: Snmp_snmp_snmp_snmp_snmp_snm30
+Permission: READ_ONLY                   Auth: N/A
+Priv: N/A                               Type: SNMP
+
+administrator@cli> 
+2017-12-19 16:06:33: user -a add -t snmp -u Snmp_snmp_snmp_snmp_snmp_snm30
+
+administrator@cli> 
+2017-12-19 16:06:33: 
+Expect: snmp user should be added by -u Snmp_snmp_snmp_snmp_snmp_snm30
+
+2017-12-19 16:06:33: user -t snmp -u T2 -v
+
+EngineID: 0x80001f888064caf51a07a8385a00000000
+
+-------------------------------------------------------------------------------
+Username: T2                            Permission: READ_ONLY
+Auth: SHA                               Priv: DES
+Type: SNMP
+
+administrator@cli> 
+2017-12-19 16:06:32: user -a add -t snmp -u T2 -s "auth=sha,priv=des"
+Enter auth password:[20D[20C[0m
+Enter auth password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+Enter priv password:[20D[20C[0m
+Enter priv password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+
+administrator@cli> 
+2017-12-19 16:06:28: 
+Expect: snmp user should be added by -u T2 -s "auth=sha,priv=des"
+
+2017-12-19 16:06:28: user -t snmp -u 1 -v
+
+EngineID: 0x80001f888064caf51a07a8385a00000000
+
+-------------------------------------------------------------------------------
+Username: 1                             Permission: READ_ONLY
+Auth: MD5                               Priv: AES
+Type: SNMP
+
+administrator@cli> 
+2017-12-19 16:06:27: user -a add -t snmp -u 1 -s "auth=md5,priv=aes"
+Enter auth password:[20D[20C[0m
+Enter auth password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+Enter priv password:[20D[20C[0m
+Enter priv password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+
+administrator@cli> 
+2017-12-19 16:06:23: 
+Expect: snmp user should be added by -u 1 -s "auth=md5,priv=aes"
+
+2017-12-19 16:05:46: 'result': 'f'
+2017-12-19 16:05:46: 
+Fail: user -a mod -t snmp -u snmp_snmp_snmp_snmp_snmp_snmp31 -s "auth=sha,priv=des"
+
+2017-12-19 16:05:45: user -a mod -t snmp -u snmp_snmp_snmp_snmp_snmp_snmp31 -s "auth=sha,priv=des"
+Enter auth password:[20D[20C[0m
+Enter auth password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+Error (0x200): Invalid username
+
+administrator@cli> 0123456789
+Error (0x401): Invalid command or request
+invalid command: 0123456789
+
+administrator@cli> 0123456789
+Error (0x401): Invalid command or request
+invalid command: 0123456789
+
+administrator@cli> 
+2017-12-19 16:05:41: 
+Expect: no password snmp user should be modified by "auth=sha,priv=des"
+
+2017-12-19 16:05:41: 
+Fail: user -a mod -t snmp -u 1 -s "auth=sha,priv=des"
+
+2017-12-19 16:05:40: user -a mod -t snmp -u 1 -s "auth=sha,priv=des"
+Enter auth password:[20D[20C[0m
+Enter auth password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+Error (0x200): Invalid username
+
+administrator@cli> 0123456789
+Error (0x401): Invalid command or request
+invalid command: 0123456789
+
+administrator@cli> 0123456789
+Error (0x401): Invalid command or request
+invalid command: 0123456789
+
+administrator@cli> 
+2017-12-19 16:05:36: 
+Expect: snmp user should be modified by "auth=sha,priv=des"
+
+2017-12-19 16:05:36: 
+Fail: user -a mod -t snmp -u 1 -s "auth=md5,priv=aes"
+
+2017-12-19 16:05:35: user -a mod -t snmp -u 1 -s "auth=md5,priv=aes"
+Enter auth password:[20D[20C[0m
+Enter auth password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+Error (0x200): Invalid username
+
+administrator@cli> 0123456789
+Error (0x401): Invalid command or request
+invalid command: 0123456789
+
+administrator@cli> 0123456789
+Error (0x401): Invalid command or request
+invalid command: 0123456789
+
+administrator@cli> 
+2017-12-19 16:05:31: 
+Expect: snmp user should be modified by "auth=md5,priv=aes"
+
+2017-12-19 16:02:42: 'result': 'f'
+2017-12-19 16:02:42: 
+Fail: user -a mod -t snmp -u snmp_snmp_snmp_snmp_snmp_snmp31 -s "auth=sha,priv=des"
+
+2017-12-19 16:02:41: user -a mod -t snmp -u snmp_snmp_snmp_snmp_snmp_snmp31 -s "auth=sha,priv=des"
+Enter auth password:[20D[20C[0m
+Enter auth password:222
+[J
+Retype password:[16D[16C[0m
+Retype password:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[26D[0m
+[J
+Error (0x200): Invalid username
+
+administrator@cli> 0123456789
+Error (0x401): Invalid command or request
+invalid command: 0123456789
+
+administrator@cli> 0123456789
+Error (0x401): Invalid command or request
+invalid command: 0123456789
+
+administrator@cli> 
+2017-12-19 16:02:37: 
+Expect: no password snmp user should be modified by "auth=sha,priv=des"
+
+2017-12-19 16:02:37: 
+Fail: user -a mod -t snmp -u 1 -s "auth=sha,priv=des"
+
+2017-12-19 16:02:36: user -a mod -t snmp -u 1 -s "auth=sha,priv=des"
+Enter auth password:[20D[20C[0m
+Enter auth password:222
+[J
+Retype password:[16D[16C[0m
+Retype password:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[26D[0m
+[J
+Error (0x200): Invalid username
+
+administrator@cli> 0123456789
+Error (0x401): Invalid command or request
+invalid command: 0123456789
+
+administrator@cli> 0123456789
+Error (0x401): Invalid command or request
+invalid command: 0123456789
+
+administrator@cli> 
+2017-12-19 16:02:32: 
+Expect: snmp user should be modified by "auth=sha,priv=des"
+
+2017-12-19 16:02:32: 
+Fail: user -a mod -t snmp -u 1 -s "auth=md5,priv=aes"
+
+2017-12-19 16:02:31: user -a mod -t snmp -u 1 -s "auth=md5,priv=aes"
+Enter auth password:[20D[20C[0m
+Enter auth password:222
+[J
+Retype password:[16D[16C[0m
+Retype password:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[26D[0m
+[J
+Error (0x200): Invalid username
+
+administrator@cli> 0123456789
+Error (0x401): Invalid command or request
+invalid command: 0123456789
+
+administrator@cli> 0123456789
+Error (0x401): Invalid command or request
+invalid command: 0123456789
+
+administrator@cli> 
+2017-12-19 16:02:27: 
+Expect: snmp user should be modified by "auth=md5,priv=aes"
+
+2017-12-19 16:01:50: 'result': 'f'
+2017-12-19 16:01:50: 
+Fail: user -a mod -t snmp -u snmp_snmp_snmp_snmp_snmp_snmp31 -s "auth=sha,priv=des"
+
+2017-12-19 16:01:49: user -a mod -t snmp -u snmp_snmp_snmp_snmp_snmp_snmp31 -s "auth=sha,priv=des"
+Enter auth password:[20D[20C[0m
+Enter auth password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+Error (0x200): Invalid username
+
+administrator@cli> 0123456789
+Error (0x401): Invalid command or request
+invalid command: 0123456789
+
+administrator@cli> 0123456789
+Error (0x401): Invalid command or request
+invalid command: 0123456789
+
+administrator@cli> 
+2017-12-19 16:01:45: 
+Expect: no password snmp user should be modified by "auth=sha,priv=des"
+
+2017-12-19 16:01:45: 
+Fail: user -a mod -t snmp -u 1 -s "auth=sha,priv=des"
+
+2017-12-19 16:01:44: user -a mod -t snmp -u 1 -s "auth=sha,priv=des"
+Enter auth password:[20D[20C[0m
+Enter auth password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+Error (0x200): Invalid username
+
+administrator@cli> 0123456789
+Error (0x401): Invalid command or request
+invalid command: 0123456789
+
+administrator@cli> 0123456789
+Error (0x401): Invalid command or request
+invalid command: 0123456789
+
+administrator@cli> 
+2017-12-19 16:01:40: 
+Expect: snmp user should be modified by "auth=sha,priv=des"
+
+2017-12-19 16:01:40: 
+Fail: user -a mod -t snmp -u 1 -s "auth=md5,priv=aes"
+
+2017-12-19 16:01:39: user -a mod -t snmp -u 1 -s "auth=md5,priv=aes"
+Enter auth password:[20D[20C[0m
+Enter auth password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+Error (0x200): Invalid username
+
+administrator@cli> 0123456789
+Error (0x401): Invalid command or request
+invalid command: 0123456789
+
+administrator@cli> 0123456789
+Error (0x401): Invalid command or request
+invalid command: 0123456789
+
+administrator@cli> 
+2017-12-19 16:01:35: 
+Expect: snmp user should be modified by "auth=md5,priv=aes"
+
+2017-12-19 16:00:39: 'result': 'f'
+2017-12-19 16:00:39: 
+Fail: user -a mod -t snmp -u snmp_snmp_snmp_snmp_snmp_snmp31 -s "auth=sha,priv=des"
+
+2017-12-19 16:00:38: user -a mod -t snmp -u snmp_snmp_snmp_snmp_snmp_snmp31 -s "auth=sha,priv=des"
+Enter auth password:[20D[20C[0m
+Enter auth password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+Error (0x200): Invalid username
+
+administrator@cli> 0123456789
+Error (0x401): Invalid command or request
+invalid command: 0123456789
+
+administrator@cli> 0123456789
+Error (0x401): Invalid command or request
+invalid command: 0123456789
+
+administrator@cli> 
+2017-12-19 16:00:34: 
+Expect: no password snmp user should be modified by "auth=sha,priv=des"
+
+2017-12-19 16:00:34: 
+Fail: user -a mod -t snmp -u 1 -s "auth=sha,priv=des"
+
+2017-12-19 16:00:33: user -a mod -t snmp -u 1 -s "auth=sha,priv=des"
+Enter auth password:[20D[20C[0m
+Enter auth password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+Error (0x200): Invalid username
+
+administrator@cli> 0123456789
+Error (0x401): Invalid command or request
+invalid command: 0123456789
+
+administrator@cli> 0123456789
+Error (0x401): Invalid command or request
+invalid command: 0123456789
+
+administrator@cli> 
+2017-12-19 16:00:29: 
+Expect: snmp user should be modified by "auth=sha,priv=des"
+
+2017-12-19 16:00:29: 
+Fail: user -a mod -t snmp -u 1 -s "auth=md5,priv=aes"
+
+2017-12-19 16:00:28: user -a mod -t snmp -u 1 -s "auth=md5,priv=aes"
+Enter auth password:[20D[20C[0m
+Enter auth password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+Error (0x200): Invalid username
+
+administrator@cli> 0123456789
+Error (0x401): Invalid command or request
+invalid command: 0123456789
+
+administrator@cli> 0123456789
+Error (0x401): Invalid command or request
+invalid command: 0123456789
+
+administrator@cli> 
+2017-12-19 16:00:24: 
+Expect: snmp user should be modified by "auth=md5,priv=aes"
+
+2017-12-19 15:59:39: 'result': 'f'
+2017-12-19 15:59:39: 
+Fail: user -a mod -t snmp -u snmp_snmp_snmp_snmp_snmp_snmp31 -s "auth=sha,priv=des"
+
+2017-12-19 15:59:38: user -a mod -t snmp -u snmp_snmp_snmp_snmp_snmp_snmp31 -s "auth=sha,priv=des"
+[?1l[6n[?2004h[?25l[?7l[0m[0m[J[0mEnter auth password:[20D[20C[0m[?12l[?25h[?25l[20D[0m[J[0mEnter auth password:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[30D[0m
+[JRetype password:[16D[16C[0m[?12l[?25h[?25l[16D[0m[J[0mRetype password:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[26D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x200): Invalid username
+
+administrator@cli> 0123456789
+Error (0x401): Invalid command or request
+invalid command: 0123456789
+
+administrator@cli> 0123456789
+Error (0x401): Invalid command or request
+invalid command: 0123456789
+
+administrator@cli> 
+2017-12-19 15:59:34: 
+Expect: no password snmp user should be modified by "auth=sha,priv=des"
+
+2017-12-19 15:59:34: 
+Fail: user -a mod -t snmp -u 1 -s "auth=sha,priv=des"
+
+2017-12-19 15:59:33: user -a mod -t snmp -u 1 -s "auth=sha,priv=des"
+[?1l[6n[?2004h[?25l[?7l[0m[0m[J[0mEnter auth password:[20D[20C[0m[?12l[?25h[?25l[20D[0m[J[0mEnter auth password:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[30D[0m
+[JRetype password:[16D[16C[0m[?12l[?25h[?25l[16D[0m[J[0mRetype password:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[26D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x200): Invalid username
+
+administrator@cli> 0123456789
+Error (0x401): Invalid command or request
+invalid command: 0123456789
+
+administrator@cli> 0123456789
+Error (0x401): Invalid command or request
+invalid command: 0123456789
+
+administrator@cli> 
+2017-12-19 15:59:29: 
+Expect: snmp user should be modified by "auth=sha,priv=des"
+
+2017-12-19 15:59:29: 
+Fail: user -a mod -t snmp -u 1 -s "auth=md5,priv=aes"
+
+2017-12-19 15:59:28: user -a mod -t snmp -u 1 -s "auth=md5,priv=aes"
+[?1l[6n[?2004h[?25l[?7l[0m[0m[J[0mEnter auth password:[20D[20C[0m[?12l[?25h[?25l[20D[0m[J[0mEnter auth password:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[30D[0m
+[JRetype password:[16D[16C[0m[?12l[?25h[?25l[16D[0m[J[0mRetype password:[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[26D[0m
+[J[?7h[0m[?12l[?25h[?2004lError (0x200): Invalid username
+
+administrator@cli> 0123456789
+Error (0x401): Invalid command or request
+invalid command: 0123456789
+
+administrator@cli> 0123456789
+Error (0x401): Invalid command or request
+invalid command: 0123456789
+
+administrator@cli> 
+2017-12-19 15:59:24: 
+Expect: snmp user should be modified by "auth=md5,priv=aes"
+
 2017-12-19 15:16:25: 'result': 'p'
 2017-12-19 15:16:25: phydrv -a clear -p 1
 Error (0x4023): Invalid physical drive id

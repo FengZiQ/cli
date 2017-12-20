@@ -168,6 +168,12 @@ def SendCmdconfirm(c, cmdstr):
         "[32D[32C[0m[?12l[?25h", ''
     ).replace(
         "[?7h[0m[?12l[?25h[?2004l[?1l[6n[?2004h[?25l[?7l[0m[0m[J[0m", ''
+    ).replace(
+        '[?12l[?25h[?25l[31D[0m[J[0m', '\r\n'
+    ).replace(
+        '[0my[32D[0m', ''
+    ).replace(
+        '[?7h[0m[?12l[?25h[?2004l', ''
     )
 
     tolog(data)
@@ -237,11 +243,17 @@ def SendCmdpassword(c, cmdstr,password):
     ).replace(
         '[?25l[32D[0m[J[0m', '\r\n'
     ).replace(
-        '[17D[17C[0m[?12l[?25h[?25l[17D[0m[J[0m', '\r\n'
+        '[?12l[?25h[?25l[36D[0m[J[0m', '\r\n'
+    ).replace(
+        '[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[48D[0m', ''
+    ).replace(
+        '[?12l[?25h[?25l[37D[0m[J[0m', ''
+    ).replace(
+        '[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[49D[0m', ''
+    ).replace(
+        '[?12l[?25h[?25l[17D[0m[J[0m', ''
     ).replace(
         '[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[0m*[29D[0m', ''
-    ).replace(
-        '[J', ''
     )
 
     tolog(data)
