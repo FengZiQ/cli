@@ -510,28 +510,23 @@ def deleteNASShare(c):
     Failflag = False
 
     # test data
-    nasShareId = []
     nasShareName = ['X', '1_a', 'N'*32]
 
-    nasShareInfo = SendCmd(c, 'nasshare')
-    totalRow = nasShareInfo.split('\r\n')
+    tolog('Expect: delete NASShare ' + nasShareName[0] + '\r\n')
+    result = SendCmd(c, 'nasshare -a del -i ' + nasShareName[0])
 
-    for row in totalRow:
-        if len(row.split()) >= 9:
-            nasShareId.append(row.split()[0])
+    checkResult = SendCmd(c, 'nasshare')
 
-    tolog('To delete NASShare \r\n')
+    if 'Error (' in result:
 
-    for i in nasShareId:
-        tolog('Expect: delete NASShare ' + i + '\r\n')
-        result = SendCmd(c, 'nasshare -a del -i ' + i)
-        checkResult = SendCmd(c, 'nasshare')
+        Failflag = True
+        tolog('Fail: to delete NASShare ' + nasShareName[0] + ' is failed \r\n')
 
-        if 'Error (' in result or nasShareName[int(i)] in checkResult:
-            Failflag = True
-            tolog('Fail: to delete NASShare ' + i + ' is failed \r\n')
-        else:
-            tolog('Actual: NASShare ' + i + ' is deleted \r\n')
+    else:
+
+        if nasShareName[0] in checkResult:
+
+            tolog('Fail: please check out nasshare: ' + nasShareName[0])
 
     if Failflag:
         tolog(Fail)

@@ -6,7 +6,7 @@ import json
 from to_log import tolog
 
 
-def find_pd_id(physical_capacity = None):
+def find_pd_id(physical_capacity=None):
 
     pd_id = []
 
@@ -16,62 +16,63 @@ def find_pd_id(physical_capacity = None):
 
         pd_info = json.loads(pd_request["text"])
 
-        for info in pd_info:
+        str_pd_info = str(pd_info)
 
-            # delete pool
-            if 'Pool' in info["cfg_status"]:
+        # delete pool
+        if 'Pool' in str_pd_info:
 
-                pool_response = server.webapi('get', 'pool')
+            pool_response = server.webapi('get', 'pool')
 
-                if isinstance(pool_response, dict):
+            if isinstance(pool_response, dict):
 
-                    pool_info = json.loads(pool_response["text"])
+                pool_info = json.loads(pool_response["text"])
 
-                    if len(pool_info) != 0:
+                if len(pool_info) != 0:
 
-                        for pool in pool_info:
-                            server.webapiurl('delete', 'pool', str(pool['id']) + '?force=1')
+                    for pool in pool_info:
+                        server.webapiurl('delete', 'pool', str(pool['id']) + '?force=1')
 
-                else:
-                    tolog(str(pool_response))
+            else:
+                tolog(str(pool_response))
 
-            # delete spare
-            elif 'Spare' in info["cfg_status"]:
+        # delete spare
+        if 'Spare' in str_pd_info:
 
-                spare_response = server.webapi('get', 'spare')
+            spare_response = server.webapi('get', 'spare')
 
-                if isinstance(spare_response, dict):
+            if isinstance(spare_response, dict):
 
-                    spare_info = json.loads(spare_response["text"])
+                spare_info = json.loads(spare_response["text"])
 
-                    for spare in spare_info:
+                for spare in spare_info:
 
-                        server.webapiurl('delete', 'spare', str(spare["id"]))
+                    server.webapiurl('delete', 'spare', str(spare["id"]))
 
-                else:
+            else:
 
-                    tolog(str(spare_response))
+                tolog(str(spare_response))
 
-            # delete read cache
-            elif 'ReadCache' in info["cfg_status"]:
+        # delete read cache
+        if 'ReadCache' in str_pd_info:
 
-                read_ache_response = server.webapi('get', 'rcache')
+            read_ache_response = server.webapi('get', 'rcache')
 
-                if isinstance(read_ache_response, dict):
+            if isinstance(read_ache_response, dict):
 
-                    cache_info = json.loads(read_ache_response["text"])[0]["pd_list"][0]
+                cache_info = json.loads(read_ache_response["text"])[0]["pd_list"][0]
 
-                    sdd_id = cache_info["pd_id"]
+                sdd_id = cache_info["pd_id"]
 
-                    server.webapi('post', 'rcache/detach', {"pd_list": [sdd_id]})
+                server.webapi('post', 'rcache/detach', {"pd_list": [sdd_id]})
 
-                else:
-                    tolog(str(read_ache_response))
+            else:
+                tolog(str(read_ache_response))
 
-            # delete write cache
-            elif 'WriteCache' in info["cfg_status"]:
+        # delete write cache
+        if 'WriteCache' in str_pd_info:
 
-                server.webapi('post', 'wcache/detach', {"id": 'detach'})
+            server.webapi('post', 'wcache/detach', {"id": 'detach'})
+
     else:
         tolog(str(pd_request))
 
