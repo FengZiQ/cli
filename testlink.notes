@@ -1231,3 +1231,9 @@ DisplayName: t                          Email: 11@11.11
 
 administrator@cli> 
 'result': 'p'
+ptiflash -y -t -s 10.84.2.99 -f 12
+Downloading the image, please wait ...
+Error (0x103): File is not found
+There was an error while transferring the flash image.
+
+administrator@cli> 
