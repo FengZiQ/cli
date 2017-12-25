@@ -35,11 +35,19 @@ def add_clone(c):
     cli_setting = cli_test_setting()
 
     # precondition
-    precondition()
+    try:
 
-    cli_setting.setting(c, data, 'add_clone', 1)
+        precondition()
 
-    return cli_setting.FailFlag
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        cli_setting.setting(c, data, 'add_clone', 1)
+
+        return cli_setting.FailFlag
 
 
 def list_clone(c):

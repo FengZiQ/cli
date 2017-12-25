@@ -88,17 +88,25 @@ def set_acl(c):
     cli_setting = cli_test_setting()
 
     # precondition
-    precondition()
+    try:
+        precondition()
 
-    server.webapi('post', 'acl/editcancel/nasshare_0')
-    server.webapi('post', 'acl/editcancel/clone_0')
+    except TypeError:
 
-    cli_setting.setting(c, data, 'set_acl', 5)
+        tolog('precondition is failed\r\n')
 
-    return cli_setting.FailFlag
+    else:
+
+        server.webapi('post', 'acl/editcancel/nasshare_0')
+        server.webapi('post', 'acl/editcancel/clone_0')
+
+        cli_setting.setting(c, data, 'set_acl', 5)
+
+        return cli_setting.FailFlag
 
 
 def list_acl(c):
+
     cli_list = cli_test_list()
 
     cli_list.list(c, data, 'list_acl')
@@ -107,6 +115,7 @@ def list_acl(c):
 
 
 def list_acl_by_verbose_mode(c):
+
     cli_list = cli_test_list()
 
     cli_list.list(c, data, 'list_acl_by_verbose_mode')
@@ -178,7 +187,13 @@ def missing_parameter(c):
     cli_failed_test.failed_test(c, data, 'missing_parameter')
 
     # clean_up_environment
-    clean_up_environment()
+    try:
+
+        clean_up_environment()
+
+    except TypeError:
+
+        tolog('to clean up environment is failed\r\n')
 
     return cli_failed_test.FailFlag
 

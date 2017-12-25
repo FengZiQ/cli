@@ -33,13 +33,22 @@ def precondition():
 
 def add_allowip(c):
     # precondition
-    precondition()
 
-    cli_setting = cli_test_setting()
+    try:
 
-    cli_setting.setting(c, data, 'add_allowip', 3)
+        precondition()
 
-    return cli_setting.FailFlag
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        cli_setting = cli_test_setting()
+
+        cli_setting.setting(c, data, 'add_allowip', 3)
+
+        return cli_setting.FailFlag
 
 
 def list_allowip(c):
@@ -103,7 +112,10 @@ def missing_parameter_for_allowip(c):
     cli_failed_test.failed_test(c, data, 'missing_parameter_for_allowip')
 
     # clean up environment
-    find_pd_id()
+    try:
+        find_pd_id()
+    except TypeError:
+        tolog('to clean up environment is failed\r\n')
 
     return cli_failed_test.FailFlag
 

@@ -11,94 +11,167 @@ data = 'data/pool.xlsx'
 
 
 def add_pool_raid0(c):
+
     cli_setting = cli_test_setting()
 
     # precondition
-    find_pd_id()
+    try:
 
-    cli_setting.setting(c, data, 'add_pool_raid0', 3)
+        find_pd_id()
+
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        cli_setting.setting(c, data, 'add_pool_raid0', 3)
 
     return cli_setting.FailFlag
 
 
 def add_pool_raid1(c):
+
     cli_setting = cli_test_setting()
 
     # precondition
-    find_pd_id()
+    try:
 
-    cli_setting.setting(c, data, 'add_pool_raid1', 3)
+        find_pd_id()
+
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        cli_setting.setting(c, data, 'add_pool_raid1', 3)
 
     return cli_setting.FailFlag
 
 
 def add_pool_raid5(c):
+
     cli_setting = cli_test_setting()
 
     # precondition
-    find_pd_id()
+    try:
 
-    cli_setting.setting(c, data, 'add_pool_raid5', 3)
+        find_pd_id()
+
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        cli_setting.setting(c, data, 'add_pool_raid5', 3)
 
     return cli_setting.FailFlag
 
 
 def add_pool_raid6(c):
+
     cli_setting = cli_test_setting()
 
     # precondition
-    find_pd_id()
+    try:
 
-    cli_setting.setting(c, data, 'add_pool_raid6', 3)
+        find_pd_id()
+
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        cli_setting.setting(c, data, 'add_pool_raid6', 3)
 
     return cli_setting.FailFlag
 
 
 def add_pool_raid10(c):
+
     cli_setting = cli_test_setting()
 
     # precondition
-    find_pd_id()
+    try:
 
-    cli_setting.setting(c, data, 'add_pool_raid10', 3)
+        find_pd_id()
+
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        cli_setting.setting(c, data, 'add_pool_raid10', 3)
 
     return cli_setting.FailFlag
 
 
 def add_pool_raid50(c):
+
     cli_setting = cli_test_setting()
 
     # precondition
-    find_pd_id()
+    try:
 
-    cli_setting.setting(c, data, 'add_pool_raid50', 3)
+        find_pd_id()
+
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        cli_setting.setting(c, data, 'add_pool_raid50', 3)
 
     return cli_setting.FailFlag
 
 
 def add_pool_raid60(c):
+
     cli_setting = cli_test_setting()
 
     # precondition
-    find_pd_id()
+    try:
 
-    cli_setting.setting(c, data, 'add_pool_raid60', 3)
+        find_pd_id()
+
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        cli_setting.setting(c, data, 'add_pool_raid60', 3)
 
     return cli_setting.FailFlag
 
 
 def add_pool_default_setting(c):
+
     cli_setting = cli_test_setting()
 
     # precondition
-    find_pd_id()
+    try:
 
-    cli_setting.setting(c, data, 'add_pool_default_setting', 3)
+        find_pd_id()
+
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        cli_setting.setting(c, data, 'add_pool_default_setting', 3)
 
     return cli_setting.FailFlag
 
 
 def modify_pool_name(c):
+
     cli_setting = cli_test_setting()
 
     cli_setting.setting(c, data, 'modify_pool_name', 3)
@@ -107,20 +180,29 @@ def modify_pool_name(c):
 
 
 def list_pool(c):
+
     cli_list = cli_test_list()
 
     # precondition
-    pdId = find_pd_id()
-    # create pool
-    server.webapi('post', 'pool', {"name": "raid0_pool", "pds": [pdId[0]], "raid_level": "raid0"})
-    server.webapi('post', 'pool', {"name": "raid5_pool", "pds": pdId[1:4], "raid_level": "raid5"})
+    try:
+        pdId = find_pd_id()
+        # create pool
+        server.webapi('post', 'pool', {"name": "raid0_pool", "pds": [pdId[0]], "raid_level": "raid0"})
+        server.webapi('post', 'pool', {"name": "raid5_pool", "pds": pdId[1:4], "raid_level": "raid5"})
 
-    cli_list.list(c, data, 'list_pool')
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        cli_list.list(c, data, 'list_pool')
 
     return cli_list.FailFlag
 
 
 def list_verbose_mode_pool(c):
+
     cli_list = cli_test_list()
 
     cli_list.list(c, data, 'list_verbose_mode_pool')
@@ -129,134 +211,206 @@ def list_verbose_mode_pool(c):
 
 
 def expand_raid0_pool(c):
+
     cli_setting = cli_test_setting()
 
     # precondition
-    pdId = find_pd_id()
-    # create pool
-    server.webapi('post', 'pool', {"name": "expand_raid0_pool", "pds": [pdId[0]], "raid_level": "raid0"})
+    try:
+        pdId = find_pd_id()
+        # create pool
+        server.webapi('post', 'pool', {"name": "expand_raid0_pool", "pds": [pdId[0]], "raid_level": "raid0"})
 
-    time.sleep(3)
+        time.sleep(3)
 
-    cli_setting.setting(c, data, 'expand_raid0_pool', 3)
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        cli_setting.setting(c, data, 'expand_raid0_pool', 3)
 
     return cli_setting.FailFlag
 
 
 def expand_raid1_pool(c):
+
     cli_setting = cli_test_setting()
 
     # precondition
-    pdId = find_pd_id()
-    # create pool
-    server.webapi('post', 'pool', {"name": "expand_raid1_pool", "pds": pdId[:2], "raid_level": "raid1"})
+    try:
 
-    time.sleep(3)
+        pdId = find_pd_id()
+        # create pool
+        server.webapi('post', 'pool', {"name": "expand_raid1_pool", "pds": pdId[:2], "raid_level": "raid1"})
 
-    cli_setting.setting(c, data, 'expand_raid1_pool', 3)
+        time.sleep(3)
+
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        cli_setting.setting(c, data, 'expand_raid1_pool', 3)
 
     return cli_setting.FailFlag
 
 
 def expand_raid5_pool(c):
+
     cli_setting = cli_test_setting()
 
     # precondition
-    pdId = find_pd_id()
-    # create pool
-    server.webapi('post', 'pool', {"name": "expand_raid5_pool", "pds": pdId[:3], "raid_level": "raid5"})
+    try:
 
-    time.sleep(3)
+        pdId = find_pd_id()
+        # create pool
+        server.webapi('post', 'pool', {"name": "expand_raid5_pool", "pds": pdId[:3], "raid_level": "raid5"})
 
-    cli_setting.setting(c, data, 'expand_raid5_pool', 3)
+        time.sleep(3)
+
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        cli_setting.setting(c, data, 'expand_raid5_pool', 3)
 
     return cli_setting.FailFlag
 
 
 def expand_raid6_pool(c):
+
     cli_setting = cli_test_setting()
 
     # precondition
-    pdId = find_pd_id()
-    # create pool
-    server.webapi('post', 'pool', {"name": "expand_raid6_pool", "pds": pdId[:4], "raid_level": "raid6"})
+    try:
 
-    time.sleep(3)
+        pdId = find_pd_id()
+        # create pool
+        server.webapi('post', 'pool', {"name": "expand_raid6_pool", "pds": pdId[:4], "raid_level": "raid6"})
 
-    cli_setting.setting(c, data, 'expand_raid6_pool', 3)
+        time.sleep(3)
+
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        cli_setting.setting(c, data, 'expand_raid6_pool', 3)
 
     return cli_setting.FailFlag
 
 
 def expand_raid10_pool(c):
+
     cli_setting = cli_test_setting()
 
     # precondition
-    pdId = find_pd_id()
-    # create pool
-    server.webapi('post', 'pool', {"name": "expand_raid10_pool", "pds": pdId[:4], "raid_level": "raid10"})
+    try:
 
-    time.sleep(3)
+        pdId = find_pd_id()
+        # create pool
+        server.webapi('post', 'pool', {"name": "expand_raid10_pool", "pds": pdId[:4], "raid_level": "raid10"})
 
-    cli_setting.setting(c, data, 'expand_raid10_pool', 3)
+        time.sleep(3)
+
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        cli_setting.setting(c, data, 'expand_raid10_pool', 3)
 
     return cli_setting.FailFlag
 
 
 def expand_raid50_pool(c):
+
     cli_setting = cli_test_setting()
 
     # precondition
-    pdId = find_pd_id()
-    # create pool
-    server.webapi('post', 'pool', {"name": "expand_raid50_pool", "pds": pdId[:6], "raid_level": "raid50", "axle": 2})
+    try:
 
-    time.sleep(3)
+        pdId = find_pd_id()
+        # create pool
+        server.webapi('post', 'pool', {"name": "expand_raid50_pool", "pds": pdId[:6], "raid_level": "raid50", "axle": 2})
 
-    cli_setting.setting(c, data, 'expand_raid50_pool', 3)
+        time.sleep(3)
+
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        cli_setting.setting(c, data, 'expand_raid50_pool', 3)
 
     return cli_setting.FailFlag
 
 
 def expand_raid60_pool(c):
+
     cli_setting = cli_test_setting()
 
     # precondition
-    pdId = find_pd_id()
-    # create pool
-    server.webapi('post', 'pool', {"name": "expand_raid60_pool", "pds": pdId[:8], "raid_level": "raid60", "axle": 2})
+    try:
 
-    time.sleep(3)
+        pdId = find_pd_id()
+        # create pool
+        server.webapi('post', 'pool', {"name": "expand_raid60_pool", "pds": pdId[:8], "raid_level": "raid60", "axle": 2})
 
-    cli_setting.setting(c, data, 'expand_raid60_pool', 3)
+        time.sleep(3)
+
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        cli_setting.setting(c, data, 'expand_raid60_pool', 3)
 
     return cli_setting.FailFlag
 
 
 def delete_pool(c):
+
     cli_delete = cli_test_delete()
 
     # precondition
-    pdId = find_pd_id()
-    # create pool
-    server.webapi('post', 'pool', {"name": "del_pool_0", "pds": [pdId[0]], "raid_level": "raid0"})
+    try:
 
-    time.sleep(3)
+        pdId = find_pd_id()
+        # create pool
+        server.webapi('post', 'pool', {"name": "del_pool_0", "pds": [pdId[0]], "raid_level": "raid0"})
 
-    server.webapi('post', 'pool', {"name": "del_pool_1", "pds": pdId[1:4], "raid_level": "raid5"})
+        time.sleep(3)
 
-    time.sleep(3)
-    # create volume
-    server.webapi('post', 'volume', {'pool_id': 1, 'name': 'del_pool_2', 'capacity': '2GB'})
+        server.webapi('post', 'pool', {"name": "del_pool_1", "pds": pdId[1:4], "raid_level": "raid5"})
 
-    time.sleep(3)
+        time.sleep(3)
+        # create volume
+        server.webapi('post', 'volume', {'pool_id': 1, 'name': 'del_pool_2', 'capacity': '2GB'})
 
-    cli_delete.delete(c, data, 'delete_pool')
+        time.sleep(3)
+
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        cli_delete.delete(c, data, 'delete_pool')
 
     return cli_delete.FailFlag
 
 
 def invalid_settings_parameter(c):
+
     cli_failed_test = cli_test_failed_test()
 
     # precondition
@@ -270,6 +424,7 @@ def invalid_settings_parameter(c):
 
 
 def invalid_option(c):
+
     cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'invalid_option')
@@ -278,12 +433,19 @@ def invalid_option(c):
 
 
 def missing_parameter(c):
+
     cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'missing_parameter')
 
     # clean up environment
-    find_pd_id()
+    try:
+
+        find_pd_id()
+
+    except TypeError:
+
+        tolog('to clean up environment is failed\r\n')
 
     return cli_failed_test.FailFlag
 

@@ -45,15 +45,23 @@ def clean_up_environment():
 
 def add_periodsnap(c):
     # precondition
-    clean_up_environment()
+    try:
 
-    precondition()
+        clean_up_environment()
 
-    cli_setting = cli_test_setting()
+        precondition()
 
-    cli_setting.setting(c, data, 'add_periodsnap', 3)
+    except TypeError:
 
-    return cli_setting.FailFlag
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        cli_setting = cli_test_setting()
+
+        cli_setting.setting(c, data, 'add_periodsnap', 3)
+
+        return cli_setting.FailFlag
 
 
 def list_periodsnap(c):
@@ -117,7 +125,13 @@ def missing_parameter_periodsnap(c):
     cli_failed_test.failed_test(c, data, 'missing_parameter_periodsnap')
 
     # clean_up_environment
-    clean_up_environment()
+    try:
+
+        clean_up_environment()
+
+    except TypeError:
+
+        tolog('to clean up environment is failed\r\n')
 
     return cli_failed_test.FailFlag
 

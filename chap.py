@@ -22,7 +22,10 @@ def clean_up_environment():
 
 def add_chap(c):
     # precondition
-    clean_up_environment()
+    try:
+        clean_up_environment()
+    except TypeError:
+        tolog('precondition is failed\r\n')
 
     cli_setting = cli_test_setting()
 
@@ -79,7 +82,13 @@ def missing_parameter_for_chap(c):
     cli_failed_test.failed_test(c, data, 'missing_parameter_for_chap')
 
     # clean up environment
-    clean_up_environment()
+    try:
+
+        clean_up_environment()
+
+    except TypeError:
+
+        tolog('to clean up environment is failed\r\n')
 
     return cli_failed_test.FailFlag
 

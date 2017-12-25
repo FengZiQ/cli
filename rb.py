@@ -11,92 +11,147 @@ data = 'data/rb.xlsx'
 
 
 def raid1_start_rb(c):
+
     cli_setting = cli_test_setting()
 
     # precondition
-    pdId = find_pd_id()
+    try:
 
-    # create pool
-    server.webapi('post', 'pool', {"name": "test_rb_1", "pds": pdId[:2], "raid_level": "raid1"})
+        pdId = find_pd_id()
 
-    cli_setting.setting(c, data, 'raid1_start_rb', 3)
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        # create pool
+        server.webapi('post', 'pool', {"name": "test_rb_1", "pds": pdId[:2], "raid_level": "raid1"})
+
+        cli_setting.setting(c, data, 'raid1_start_rb', 3)
 
     return cli_setting.FailFlag
 
 
 def raid5_start_rb(c):
+
     cli_setting = cli_test_setting()
 
     # precondition
-    pdId = find_pd_id()
+    try:
 
-    # create pool
-    server.webapi('post', 'pool', {"name": "test_rb_5", "pds": pdId[:3], "raid_level": "raid5"})
+        pdId = find_pd_id()
 
-    cli_setting.setting(c, data, 'raid5_start_rb', 3)
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        # create pool
+        server.webapi('post', 'pool', {"name": "test_rb_5", "pds": pdId[:3], "raid_level": "raid5"})
+
+        cli_setting.setting(c, data, 'raid5_start_rb', 3)
 
     return cli_setting.FailFlag
 
 
 def raid6_start_rb(c):
+
     cli_setting = cli_test_setting()
 
     # precondition
-    pdId = find_pd_id()
+    try:
 
-    # create pool
-    server.webapi('post', 'pool', {"name": "test_rb_6", "pds": pdId[:4], "raid_level": "raid6"})
+        pdId = find_pd_id()
 
-    cli_setting.setting(c, data, 'raid6_start_rb', 3)
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        # create pool
+        server.webapi('post', 'pool', {"name": "test_rb_6", "pds": pdId[:4], "raid_level": "raid6"})
+
+        cli_setting.setting(c, data, 'raid6_start_rb', 3)
 
     return cli_setting.FailFlag
 
 
 def raid10_start_rb(c):
+
     cli_setting = cli_test_setting()
 
     # precondition
-    pdId = find_pd_id()
+    try:
 
-    # create pool
-    server.webapi('post', 'pool', {"name": "test_rb_10", "pds": pdId[:4], "raid_level": "raid10"})
+        pdId = find_pd_id()
 
-    cli_setting.setting(c, data, 'raid10_start_rb', 3)
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        # create pool
+        server.webapi('post', 'pool', {"name": "test_rb_10", "pds": pdId[:4], "raid_level": "raid10"})
+
+        cli_setting.setting(c, data, 'raid10_start_rb', 3)
 
     return cli_setting.FailFlag
 
 
 def raid50_start_rb(c):
+
     cli_setting = cli_test_setting()
 
     # precondition
-    pdId = find_pd_id()
+    try:
 
-    # create pool
-    server.webapi('post', 'pool', {"name": "test_rb_50", "pds": pdId[:6], "raid_level": "raid50", "axle": 2})
-    time.sleep(5)
+        pdId = find_pd_id()
 
-    cli_setting.setting(c, data, 'raid50_start_rb', 3)
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        # create pool
+        server.webapi('post', 'pool', {"name": "test_rb_50", "pds": pdId[:6], "raid_level": "raid50", "axle": 2})
+        time.sleep(5)
+
+        cli_setting.setting(c, data, 'raid50_start_rb', 3)
 
     return cli_setting.FailFlag
 
 
 def raid60_start_rb(c):
+
     cli_setting = cli_test_setting()
 
     # precondition
-    pdId = find_pd_id()
+    try:
 
-    # create pool
-    server.webapi('post', 'pool', {"name": "test_rb_60", "pds": pdId[:8], "raid_level": "raid60", "axle": 2})
-    time.sleep(5)
+        pdId = find_pd_id()
 
-    cli_setting.setting(c, data, 'raid60_start_rb', 3)
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        # create pool
+        server.webapi('post', 'pool', {"name": "test_rb_60", "pds": pdId[:8], "raid_level": "raid60", "axle": 2})
+        time.sleep(5)
+
+        cli_setting.setting(c, data, 'raid60_start_rb', 3)
 
     return cli_setting.FailFlag
 
 
 def list_rb(c):
+
     cli_list = cli_test_list()
 
     cli_list.list(c, data, 'list_rb')
@@ -105,6 +160,7 @@ def list_rb(c):
 
 
 def stop_rb(c):
+
     cli_setting = cli_test_setting()
 
     cli_setting.setting(c, data, 'stop_rb', 3)
@@ -113,6 +169,7 @@ def stop_rb(c):
 
 
 def invalid_setting_parameter(c):
+
     cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'invalid_setting_parameter')
@@ -121,6 +178,7 @@ def invalid_setting_parameter(c):
 
 
 def invalid_option(c):
+
     cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'invalid_option')
@@ -129,6 +187,7 @@ def invalid_option(c):
 
 
 def missing_parameter(c):
+
     cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'missing_parameter')

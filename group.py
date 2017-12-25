@@ -112,7 +112,11 @@ def missing_parameter_for_group(c):
     cli_failed_test.failed_test(c, data, 'missing_parameter_for_group')
 
     # clean up environment
-    clean_up_environment()
+    try:
+        clean_up_environment()
+
+    except TypeError:
+        tolog('to clean up environment is failed\r\n')
 
     return cli_failed_test.FailFlag
 
@@ -120,15 +124,17 @@ def missing_parameter_for_group(c):
 def clean_up_environment():
     # delete nas user
     users = server.webapi('get', 'dsusers?page=1&page_size=500')
-    user_info = json.loads(users["text"])
-    for user in user_info:
-        server.webapi('delete', 'dsuser/' + user["id"])
+    if isinstance(users, dict):
+        user_info = json.loads(users["text"])
+        for user in user_info:
+            server.webapi('delete', 'dsuser/' + user["id"])
 
     # delete group
     groups = server.webapi('get', 'dsgroups?page=1&page_size=500')
-    groups_info = json.loads(groups["text"])
-    for group in groups_info:
-        server.webapi('delete', 'dsgroup/' + group["id"])
+    if isinstance(groups, dict):
+        groups_info = json.loads(groups["text"])
+        for group in groups_info:
+            server.webapi('delete', 'dsgroup/' + group["id"])
 
 
 if __name__ == "__main__":

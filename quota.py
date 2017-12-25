@@ -42,22 +42,25 @@ def precondition():
         })
 
         token = json.loads(step1["text"])[0]["token"]
-        get_page_data = json.loads(step1["text"])[0]["page_data"]
-        page_data = [[0, uid["uid"]] for uid in get_page_data]
 
-        server.webapi('post', 'dsgroup/editnext', {
-            "page": 1,
-            "page_size": 20,
-            "token": token,
-            "page_data": page_data
-        })
-        server.webapi('post', 'dsgroup/editsave', {
-            "id": 'test_quota_group_' + str(i),
-            "token": token,
-            "page_data": page_data
-        })
+        if isinstance(token, dict):
 
-        server.webapi('post', 'dsgroup/editcancel')
+            get_page_data = json.loads(step1["text"])[0]["page_data"]
+            page_data = [[0, uid["uid"]] for uid in get_page_data]
+
+            server.webapi('post', 'dsgroup/editnext', {
+                "page": 1,
+                "page_size": 20,
+                "token": token,
+                "page_data": page_data
+            })
+            server.webapi('post', 'dsgroup/editsave', {
+                "id": 'test_quota_group_' + str(i),
+                "token": token,
+                "page_data": page_data
+            })
+
+            server.webapi('post', 'dsgroup/editcancel')
 
     return
 
@@ -69,36 +72,50 @@ def clean_up_environment():
 
     # delete nas user
     ds_users_request = server.webapi('get', 'dsusers?page=1&page_size=200')
-    ds_users = json.loads(ds_users_request["text"])
 
-    for ds_use in ds_users:
+    if isinstance(ds_users_request, dict):
 
-        if ds_use["id"] != 'admin':
+        ds_users = json.loads(ds_users_request["text"])
 
-            server.webapi('delete', 'dsuser/' + ds_use["id"])
+        for ds_use in ds_users:
+
+            if ds_use["id"] != 'admin':
+
+                server.webapi('delete', 'dsuser/' + ds_use["id"])
 
     # delete nas group
     ds_groups_request = server.webapi('get', 'dsgroups?page=1&page_size=200')
-    ds_groups = json.loads(ds_groups_request["text"])
 
-    for ds_group in ds_groups:
+    if isinstance(ds_groups_request, dict):
 
-        if ds_group["id"] != 'users':
+        ds_groups = json.loads(ds_groups_request["text"])
 
-            server.webapi('delete', 'dsgroup/' + ds_group["id"])
+        for ds_group in ds_groups:
+
+            if ds_group["id"] != 'users':
+
+                server.webapi('delete', 'dsgroup/' + ds_group["id"])
 
     return
 
 
 def set_quota(c):
 
-    clean_up_environment()
-    # precondition
-    precondition()
-
     cli_setting = cli_test_setting()
 
-    cli_setting.setting(c, data, 'set_quota', 3)
+    try:
+
+        clean_up_environment()
+        # precondition
+        precondition()
+
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        cli_setting.setting(c, data, 'set_quota', 3)
 
     return cli_setting.FailFlag
 
@@ -179,7 +196,13 @@ def missing_parameter_for_quota(c):
     cli_failed_test.failed_test(c, data, 'missing_parameter_for_quota')
 
     # clean up environment
-    clean_up_environment()
+    try:
+
+        clean_up_environment()
+
+    except TypeError:
+
+        tolog('to clean up environment is failed\r\n')
 
     return cli_failed_test.FailFlag
 

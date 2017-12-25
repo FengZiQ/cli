@@ -11,43 +11,53 @@ data = 'data/protocol.xlsx'
 
 
 def precondition():
-    pdId = find_pd_id("2TB")
 
-    # create pool
-    server.webapi('post', 'pool', {
-        "name": 'test_protocol_pool',
-        "raid_level": 'raid5',
-        "pds": pdId
-    })
+    try:
+        pdId = find_pd_id("2TB")
 
-    # create nasShare
-    for i in range(3):
-        server.webapi('post', 'nasshare', {
-            "pool_id": 0,
-            "name": 'test_protocol_nasShare_' + str(i),
-            "capacity": '2GB'
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        # create pool
+        server.webapi('post', 'pool', {
+            "name": 'test_protocol_pool',
+            "raid_level": 'raid5',
+            "pds": pdId
         })
 
-    # create snapshot
-    for i in range(3):
-        server.webapi('post', 'snapshot', {
-            "name": 'test_protocol_snap_' + str(i),
-            "type": 'nasshare',
-            "source_id": 0
+        # create nasShare
+        for i in range(3):
+            server.webapi('post', 'nasshare', {
+                "pool_id": 0,
+                "name": 'test_protocol_nasShare_' + str(i),
+                "capacity": '2GB'
+            })
+
+        # create snapshot
+        for i in range(3):
+            server.webapi('post', 'snapshot', {
+                "name": 'test_protocol_snap_' + str(i),
+                "type": 'nasshare',
+                "source_id": 0
+            })
+
+        # create clone
+        for i in range(3):
+            server.webapi('post', 'clone', {
+                "name": 'test_protocol_clone_' + str(i),
+                "source_id": 0
+            })
+
+        # create nas user
+        server.webapi('post', 'dsuser', {
+            "id": 'test_protocol',
+            "password": '000000'
         })
 
-    # create clone
-    for i in range(3):
-        server.webapi('post', 'clone', {
-            "name": 'test_protocol_clone_' + str(i),
-            "source_id": 0
-        })
-
-    # create nas user
-    server.webapi('post', 'dsuser', {
-        "id": 'test_protocol',
-        "password": '000000'
-    })
+    return
 
 
 def list_all_protocol(c):

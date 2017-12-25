@@ -11,19 +11,29 @@ data = 'data/volume.xlsx'
 
 
 def addVolume(c):
+
     cli_setting = cli_test_setting()
 
     # precondition
-    pdId = find_pd_id('4TB')
-    # create pool
-    server.webapi('post', 'pool', {"name": "test_volume", "pds": pdId[:3], "raid_level": "raid5"})
+    try:
 
-    cli_setting.setting(c, data, 'addVolume', 3)
+        pdId = find_pd_id('4TB')
+        # create pool
+        server.webapi('post', 'pool', {"name": "test_volume", "pds": pdId[:3], "raid_level": "raid5"})
+
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        cli_setting.setting(c, data, 'addVolume', 3)
 
     return cli_setting.FailFlag
 
 
 def listVolume(c):
+
     cli_list = cli_test_list()
 
     cli_list.list(c, data, 'listVolume')
@@ -32,6 +42,7 @@ def listVolume(c):
 
 
 def listVolume_by_verbose_mode(c):
+
     cli_list = cli_test_list()
 
     cli_list.list(c, data, 'listVolume_by_verbose_mode')
@@ -40,6 +51,7 @@ def listVolume_by_verbose_mode(c):
 
 
 def modVolume(c):
+
     cli_setting = cli_test_setting()
 
     cli_setting.setting(c, data, 'modVolume', 3)
@@ -48,6 +60,7 @@ def modVolume(c):
 
 
 def exportVolume(c):
+
     cli_setting = cli_test_setting()
 
     # precondition
@@ -59,6 +72,7 @@ def exportVolume(c):
 
 
 def unexportVolume(c):
+
     cli_setting = cli_test_setting()
 
     # precondition
@@ -70,6 +84,7 @@ def unexportVolume(c):
 
 
 def invalidParameter(c):
+
     cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'invalidParameter')
@@ -78,6 +93,7 @@ def invalidParameter(c):
 
 
 def invalidOption(c):
+
     cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'invalidOption')
@@ -86,6 +102,7 @@ def invalidOption(c):
 
 
 def missingParameter(c):
+
     cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'missingParameter')
@@ -94,6 +111,7 @@ def missingParameter(c):
 
 
 def deleteVolume(c):
+
     cli_delete = cli_test_delete()
 
     # precondition: create volume snapshot
@@ -102,7 +120,13 @@ def deleteVolume(c):
     cli_delete.delete(c, data, 'deleteVolume', 3)
 
     # clean up environment
-    find_pd_id()
+    try:
+
+        find_pd_id()
+
+    except TypeError:
+
+        tolog('to clean up environment is failed\r\n')
 
     return cli_delete.FailFlag
 

@@ -11,7 +11,9 @@ data = 'data/user.xlsx'
 
 
 def precondition():
+
     server.webapi('post', 'dsgroup/editcancel')
+
     step1 = server.webapi('post', 'dsgroup/editbegin', {
         "page": 1,
         "page_size": 20
@@ -20,22 +22,25 @@ def precondition():
     if isinstance(step1, dict):
 
         token = json.loads(step1["text"])[0]["token"]
-        get_page_data = json.loads(step1["text"])[0]["page_data"]
-        page_data = [[0, uid["uid"]] for uid in get_page_data]
 
-        server.webapi('post', 'dsgroup/editnext', {
-            "page": 1,
-            "page_size": 20,
-            "token": token,
-            "page_data": page_data
-        })
-        server.webapi('post', 'dsgroup/editsave', {
-            "id": 'test_users',
-            "token": token,
-            "page_data": page_data
-        })
+        if isinstance(token, dict):
 
-        server.webapi('post', 'dsgroup/editcancel')
+            get_page_data = json.loads(step1["text"])[0]["page_data"]
+            page_data = [[0, uid["uid"]] for uid in get_page_data]
+
+            server.webapi('post', 'dsgroup/editnext', {
+                "page": 1,
+                "page_size": 20,
+                "token": token,
+                "page_data": page_data
+            })
+            server.webapi('post', 'dsgroup/editsave', {
+                "id": 'test_users',
+                "token": token,
+                "page_data": page_data
+            })
+
+            server.webapi('post', 'dsgroup/editcancel')
 
     else:
         tolog(step1)
@@ -78,12 +83,22 @@ def clean_up_environment():
             
 
 def add_mgmt_user(c):
-    # precondition: clear all of user
-    clean_up_environment()
 
     cli_setting = cli_test_setting()
 
-    cli_setting.setting_need_password(c, data, 'add_mgmt_user', 1)
+    # precondition: clear all of user
+    try:
+
+
+        clean_up_environment()
+
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        cli_setting.setting_need_password(c, data, 'add_mgmt_user', 1)
 
     return cli_setting.FailFlag
 
@@ -116,12 +131,21 @@ def mod_snmp_user(c):
 
 
 def add_nas_user(c):
-    # precondition: create group test_users
-    precondition()
 
     cli_setting = cli_test_setting()
 
-    cli_setting.setting_need_password(c, data, 'add_nas_user', 1)
+    # precondition: create group test_users
+    try:
+
+        precondition()
+
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        cli_setting.setting_need_password(c, data, 'add_nas_user', 1)
 
     return cli_setting.FailFlag
 
@@ -187,7 +211,13 @@ def missing_parameter_for_user(c):
     cli_failed_test.failed_test(c, data, 'missing_parameter_for_user')
 
     # clean up environment
-    clean_up_environment()
+    try:
+
+        clean_up_environment()
+
+    except TypeError:
+
+        tolog('to clean up environment is failed\r\n')
 
     return cli_failed_test.FailFlag
 

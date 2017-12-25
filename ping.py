@@ -10,6 +10,7 @@ data = 'data/ping.xlsx'
 
 
 def iscsi_ping(c):
+
     cli_list = cli_test_list()
     # precondition
 
@@ -36,6 +37,7 @@ def iscsi_ping(c):
 
 
 def mgmt_ping(c):
+
     cli_list = cli_test_list()
 
     cli_list.list(c, data, 'mgmt_ping')
@@ -44,6 +46,7 @@ def mgmt_ping(c):
 
 
 def fc_ping(c):
+
     cli_list = cli_test_list()
 
     """
@@ -56,6 +59,7 @@ def fc_ping(c):
 
 
 def invalid_setting_parameter(c):
+
     cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'invalid_setting_parameter')
@@ -64,6 +68,7 @@ def invalid_setting_parameter(c):
 
 
 def invalid_option(c):
+
     cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'invalid_option')
@@ -72,6 +77,7 @@ def invalid_option(c):
 
 
 def missing_parameter(c):
+
     cli_failed_test = cli_test_failed_test()
 
     cli_failed_test.failed_test(c, data, 'missing_parameter')

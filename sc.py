@@ -13,14 +13,22 @@ data = 'data/sc.xlsx'
 
 def precondition():
 
-    pdId = find_pd_id()
+    try:
 
-    # create pool
-    server.webapi('post', 'pool', {"name": "test_phy_1", "pds": pdId[:4], "raid_level": "raid5"})
+        pdId = find_pd_id()
 
-    # create spare
-    server.webapi('post', 'spare', {"pd_id": pdId[4], "dedicated": 'global', "revertible": 0})
-    server.webapi('post', 'spare', {"pd_id": pdId[5], "dedicated": 'dedicated', "revertible": 0, "pool_list": [0]})
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        # create pool
+        server.webapi('post', 'pool', {"name": "test_phy_1", "pds": pdId[:4], "raid_level": "raid5"})
+
+        # create spare
+        server.webapi('post', 'spare', {"pd_id": pdId[4], "dedicated": 'global', "revertible": 0})
+        server.webapi('post', 'spare', {"pd_id": pdId[5], "dedicated": 'dedicated', "revertible": 0, "pool_list": [0]})
 
 
 def start_sc(c):
@@ -69,7 +77,13 @@ def missing_parameter_for_sc(c):
     cli_failed_test.failed_test(c, data, 'invalid_option_for_sc')
 
     # clean up environment
-    find_pd_id()
+    try:
+
+        find_pd_id()
+
+    except TypeError:
+
+        tolog('to clean up environment is failed\r\n')
 
     return cli_failed_test.FailFlag
 

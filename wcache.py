@@ -10,16 +10,24 @@ data = 'data/wcache.xlsx'
 
 
 def add_wcache_dedication(c):
-    # precondition
-    pdId = find_pd_id()
-
-    # create pool
-    server.webapi('post', 'pool', {"name": "test_cache_0", "pds": pdId[:3], "raid_level": "raid5"})
-    server.webapi('post', 'pool', {"name": "test_cache_1", "pds": pdId[4:7], "raid_level": "raid5"})
 
     cli_setting = cli_test_setting()
 
-    cli_setting.setting(c, data, 'add_wcache_dedication', 1)
+    # precondition
+    try:
+
+        pdId = find_pd_id()
+        # create pool
+        server.webapi('post', 'pool', {"name": "test_cache_0", "pds": pdId[:3], "raid_level": "raid5"})
+        server.webapi('post', 'pool', {"name": "test_cache_1", "pds": pdId[4:7], "raid_level": "raid5"})
+
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        cli_setting.setting(c, data, 'add_wcache_dedication', 1)
 
     return cli_setting.FailFlag
 
@@ -34,12 +42,21 @@ def mod_wcache(c):
 
 
 def add_wcache_no_dedication(c):
-    # precondition
-    find_pd_id()
 
     cli_setting = cli_test_setting()
 
-    cli_setting.setting(c, data, 'add_wcache_no_dedication', 1)
+    # precondition
+    try:
+
+        find_pd_id()
+
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        cli_setting.setting(c, data, 'add_wcache_no_dedication', 1)
 
     return cli_setting.FailFlag
 
@@ -89,7 +106,13 @@ def missing_parameter_for_wcache(c):
     cli_failed_test.failed_test(c, data, 'missing_parameter_for_wcache')
 
     # clean up environment
-    find_pd_id()
+    try:
+
+        find_pd_id()
+
+    except TypeError:
+
+        tolog('to clean up environment is failed\r\n')
 
     return cli_failed_test.FailFlag
 

@@ -10,28 +10,47 @@ data = 'data/spare.xlsx'
 
 
 def add_global_spare(c):
+
     cli_setting = cli_test_setting()
 
     # precondition
-    pdId = find_pd_id("2TB")
-    # create pool
-    server.webapi('post', 'pool', {"name": "test_spare_pool", "pds": pdId[:3], "raid_level": "raid5"})
+    try:
 
-    cli_setting.setting(c, data, 'add_global_spare', 3)
+        pdId = find_pd_id("2TB")
+        # create pool
+        server.webapi('post', 'pool', {"name": "test_spare_pool", "pds": pdId[:3], "raid_level": "raid5"})
+
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        cli_setting.setting(c, data, 'add_global_spare', 3)
 
     return cli_setting.FailFlag
 
 
 def add_dedicated_spare(c):
+
     cli_setting = cli_test_setting()
 
     # precondition
-    pdId = find_pd_id()
-    # create pool
-    server.webapi('post', 'pool', {"name": "test_spare_pool_0", "pds": pdId[:3], "raid_level": "raid5"})
-    server.webapi('post', 'pool', {"name": "test_spare_pool_1", "pds": pdId[3:6], "raid_level": "raid5"})
+    try:
 
-    cli_setting.setting(c, data, 'add_dedicated_spare', 3)
+        pdId = find_pd_id()
+
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        # create pool
+        server.webapi('post', 'pool', {"name": "test_spare_pool_0", "pds": pdId[:3], "raid_level": "raid5"})
+        server.webapi('post', 'pool', {"name": "test_spare_pool_1", "pds": pdId[3:6], "raid_level": "raid5"})
+
+        cli_setting.setting(c, data, 'add_dedicated_spare', 3)
 
     return cli_setting.FailFlag
 
@@ -55,6 +74,7 @@ def list_spare(c):
 
 
 def list_spare_by_verbose_mode(c):
+
     cli_list = cli_test_list()
 
     cli_list.list(c, data, 'list_spare_by_verbose_mode')
@@ -63,6 +83,7 @@ def list_spare_by_verbose_mode(c):
 
 
 def delete_spare(c):
+
     cli_delete = cli_test_delete()
 
     cli_delete.delete(c, data, 'delete_spare')
@@ -73,13 +94,22 @@ def delete_spare(c):
 def invalid_parameter_for_spare(c):
 
     cli_failed_test = cli_test_failed_test()
+
     # precondition
-    pdId = find_pd_id()
+    try:
 
-    # create pool
-    server.webapi('post', 'pool', {"name": "test_spare_pool", "pds": pdId[:3], "raid_level": "raid0"})
+        pdId = find_pd_id()
 
-    cli_failed_test.failed_test(c, data, 'invalid_parameter_for_spare')
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        # create pool
+        server.webapi('post', 'pool', {"name": "test_spare_pool", "pds": pdId[:3], "raid_level": "raid0"})
+
+        cli_failed_test.failed_test(c, data, 'invalid_parameter_for_spare')
 
     return cli_failed_test.FailFlag
 
@@ -100,7 +130,13 @@ def missing_parameter_for_spare(c):
     cli_failed_test.failed_test(c, data, 'missing_parameter_for_spare')
 
     # clean up environment
-    find_pd_id()
+    try:
+
+        find_pd_id()
+
+    except TypeError:
+
+        tolog('to clean up environment is failed\r\n')
 
     return cli_failed_test.FailFlag
 

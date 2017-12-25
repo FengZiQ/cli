@@ -11,23 +11,39 @@ data = 'data/rcache.xlsx'
 
 
 def add_rcache_by_one_pd(c):
-    # precondition
-    find_pd_id()
 
     cli_setting = cli_test_setting()
 
-    cli_setting.setting(c, data, 'add_rcache_by_one_pd', 1)
+    # precondition
+    try:
+        find_pd_id()
+
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        cli_setting.setting(c, data, 'add_rcache_by_one_pd', 1)
 
     return cli_setting.FailFlag
 
 
 def add_rcache_by_multiple_pd(c):
-    # precondition
-    find_pd_id()
 
     cli_setting = cli_test_setting()
 
-    cli_setting.setting(c, data, 'add_rcache_by_multiple_pd', 1)
+    # precondition
+    try:
+        find_pd_id()
+
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        cli_setting.setting(c, data, 'add_rcache_by_multiple_pd', 1)
 
     return cli_setting.FailFlag
 

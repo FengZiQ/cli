@@ -39,11 +39,19 @@ def start_perfstats(c):
     cli_other_action = cli_test_other_action()
 
     # precondition
-    precondition()
+    try:
 
-    cli_other_action.other(c, data, 'start_perfstats')
+        precondition()
 
-    return cli_other_action.FailFlag
+    except TypeError:
+
+        tolog('precondition is failed\r\n')
+
+    else:
+
+        cli_other_action.other(c, data, 'start_perfstats')
+
+        return cli_other_action.FailFlag
 
 
 def list_perfstats(c):
