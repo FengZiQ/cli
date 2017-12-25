@@ -17,51 +17,62 @@ def precondition():
         "page_size": 20
     })
 
-    token = json.loads(step1["text"])[0]["token"]
-    get_page_data = json.loads(step1["text"])[0]["page_data"]
-    page_data = [[0, uid["uid"]] for uid in get_page_data]
+    if isinstance(step1, dict):
 
-    server.webapi('post', 'dsgroup/editnext', {
-        "page": 1,
-        "page_size": 20,
-        "token": token,
-        "page_data": page_data
-    })
-    server.webapi('post', 'dsgroup/editsave', {
-        "id": 'test_users',
-        "token": token,
-        "page_data": page_data
-    })
+        token = json.loads(step1["text"])[0]["token"]
+        get_page_data = json.loads(step1["text"])[0]["page_data"]
+        page_data = [[0, uid["uid"]] for uid in get_page_data]
 
-    server.webapi('post', 'dsgroup/editcancel')
+        server.webapi('post', 'dsgroup/editnext', {
+            "page": 1,
+            "page_size": 20,
+            "token": token,
+            "page_data": page_data
+        })
+        server.webapi('post', 'dsgroup/editsave', {
+            "id": 'test_users',
+            "token": token,
+            "page_data": page_data
+        })
+
+        server.webapi('post', 'dsgroup/editcancel')
+
+    else:
+        tolog(step1)
 
 
 def clean_up_environment():
     # delete management users
     user_request = server.webapi('get', 'user')
-    users = json.loads(user_request["text"])
 
-    for user in users:
-        if user["id"] != 'administrator':
-            server.webapi('delete', 'user/' + user["id"])
+    if isinstance(user_request, dict):
+
+        users = json.loads(user_request["text"])
+
+        for user in users:
+            if user["id"] != 'administrator':
+                server.webapi('delete', 'user/' + user["id"])
 
     # delete snmp users
     snmp_user_request = server.webapi('get', 'snmpuser')
+
     if isinstance(snmp_user_request, dict):
+
         snmp_users = json.loads(snmp_user_request["text"])
 
         for snmp_user in snmp_users:
             server.webapi('delete', 'snmpuser/' + snmp_user["id"])
-    else:
-        tolog('to get snmp user info is failed\r\n')
 
     # delete nas users
     nas_user_request = server.webapi('get', 'dsusers?page=1&page_size=100')
-    nas_users = json.loads(nas_user_request["text"])
 
-    for nas_user in nas_users:
-        if nas_user["id"] != 'admin':
-            server.webapi('delete', 'dsuser/' + nas_user["id"])
+    if isinstance(nas_user_request, dict):
+
+        nas_users = json.loads(nas_user_request["text"])
+
+        for nas_user in nas_users:
+            if nas_user["id"] != 'admin':
+                server.webapi('delete', 'dsuser/' + nas_user["id"])
 
     return
             

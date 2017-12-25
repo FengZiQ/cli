@@ -1,3 +1,974 @@
+2017-12-22 17:39:45: 'result': 'p'
+2017-12-22 17:39:45: user -u 1 -v
+-------------------------------------------------------------------------------
+Username: 1                             Status: Disabled
+Location: Local                         Privilege: Super
+DisplayName: t                          Email: 11@11.11
+
+administrator@cli> 
+2017-12-22 17:39:44: user -a add -t mgmt -u 1 -p super -s "name=t,status=disable,email=11@11.11"
+Enter password for the new user:
+Enter password for the new user:
+[J
+Retype password for the new user:
+Retype password for the new user:
+[J
+
+administrator@cli> 
+2017-12-22 17:39:40: 
+Expect: mgmt user should be added by -u t -p super -s "name=t,status=disable,email=11@11.11"
+
+2017-12-22 17:39:40: user -u T_ -v
+-------------------------------------------------------------------------------
+Username: T_                            Status: Disabled
+Location: Local                         Privilege: Power
+DisplayName: 1111_1111_1111_1111_1111_1111_1
+Email: 11@11.11
+
+administrator@cli> 
+2017-12-22 17:39:39: user -a add -t mgmt -u T_ -p power -s "name=1111_1111_1111_1111_1111_1111_1,status=disable,email=11@11.11"
+Enter password for the new user:
+Enter password for the new user:
+[J
+Retype password for the new user:
+Retype password for the new user:
+[J
+
+administrator@cli> 
+2017-12-22 17:39:34: 
+Expect: mgmt user should be added by -u T_ -p power -s "name=1111_1111_1111_1111_1111_1111_1,status=disable,email=11@11.11"
+
+2017-12-22 17:39:34: user -u 1111_1111_1111_1111_1111_11130 -v
+-------------------------------------------------------------------------------
+Username: 1111_1111_1111_1111_1111_11130
+Status: Enabled                         Location: Local
+Privilege: Maintenance                  DisplayName: T2
+Email: 
+
+administrator@cli> 
+2017-12-22 17:39:33: user -a add -t mgmt -u 1111_1111_1111_1111_1111_11130 -p maintenance -s "name=T2,status=enable"
+Enter password for the new user:
+Enter password for the new user:
+[J
+Retype password for the new user:
+Retype password for the new user:
+[J
+
+administrator@cli> 
+2017-12-22 17:39:29: 
+Expect: mgmt user should be added by -u 1111_1111_1111_1111_1111_11130 -p maintenance -s "name=T2,status=enable"
+
+2017-12-22 17:39:29: user -u Test_Test_Test_Test_Test_Test31 -v
+-------------------------------------------------------------------------------
+Username: Test_Test_Test_Test_Test_Test31
+Status: Enabled                         Location: Local
+Privilege: View                         DisplayName: 
+Email: 
+
+administrator@cli> 
+2017-12-22 17:39:28: user -a add -u Test_Test_Test_Test_Test_Test31 -p view
+Enter password for the new user:
+Enter password for the new user:
+[J
+Retype password for the new user:
+Retype password for the new user:
+[J
+
+administrator@cli> 
+2017-12-22 17:39:24: 
+Expect: mgmt user should be added by default setting and -u Test_Test_Test_Test_Test_Test31
+
+2017-12-21 13:05:44: 'result': 'p'
+2017-12-21 13:05:44: allowip -a del -t nasshare -d 0 -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2017-12-21 13:05:44: 
+Expect: Missing parameter
+
+2017-12-21 13:05:44: allowip -a del -t nasshare -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+2017-12-21 13:05:44: 
+Expect: Missing parameter
+
+2017-12-21 13:05:44: allowip -a del -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2017-12-21 13:05:44: 
+Expect: Missing parameter
+
+2017-12-21 13:05:44: allowip -a del
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a del'
+
+administrator@cli> 
+2017-12-21 13:05:44: 
+Expect: Missing parameter
+
+2017-12-21 13:05:44: allowip -a mod -t nasshare -d 0 -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2017-12-21 13:05:44: 
+Expect: Missing parameter
+
+2017-12-21 13:05:44: allowip -a mod -t nasshare -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+2017-12-21 13:05:44: 
+Expect: Missing parameter
+
+2017-12-21 13:05:44: allowip -a mod
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a mod'
+
+administrator@cli> 
+2017-12-21 13:05:44: 
+Expect: Missing parameter
+
+2017-12-21 13:05:44: allowip -a add -t nasshare -d 0 -s "ip=255.255.255.255,squash=root"
+Error (0x403): Missing parameter
+missing parameter 'permission' for '-a add'
+
+administrator@cli> 
+2017-12-21 13:05:44: 
+Expect: Missing parameter
+
+2017-12-21 13:05:44: allowip -a add -t nasshare -d 0 -s "ip=0.0.0.0,permission=ro"
+Error (0x403): Missing parameter
+missing parameter 'squash' for '-a add'
+
+administrator@cli> 
+2017-12-21 13:05:44: 
+Expect: Missing parameter
+
+2017-12-21 13:05:44: allowip -a add -t nasshare -d 0 -s "permission=ro,squash=root"
+Error (0x403): Missing parameter
+missing parameter 'ip' for '-a add'
+
+administrator@cli> 
+2017-12-21 13:05:44: 
+Expect: Missing parameter
+
+2017-12-21 13:05:44: allowip -a add -t nasshare -d 0 -s 
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2017-12-21 13:05:44: 
+Expect: Missing parameter
+
+2017-12-21 13:05:44: allowip -a add -t nasshare -d 
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+2017-12-21 13:05:44: 
+Expect: Missing parameter
+
+2017-12-21 13:05:44: allowip -a add -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2017-12-21 13:05:44: 
+Expect: Missing parameter
+
+2017-12-21 13:05:44: allowip -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+2017-12-21 13:05:44: 
+Expect: Missing parameter
+
+2017-12-21 13:05:44: allowip -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2017-12-21 13:05:44: 
+Expect: Missing parameter
+
+2017-12-21 13:05:44: 'result': 'p'
+2017-12-21 13:05:44: allowip -a del -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-12-21 13:05:44: 
+Expect: Invalid option for the command or the action
+
+2017-12-21 13:05:43: allowip -a mod -t nasshare -d 0 -s "test=255.255.255.255,permission=ro,squash=root" -i 0
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+2017-12-21 13:05:43: 
+Expect: Invalid option for the command or the action
+
+2017-12-21 13:05:43: allowip -a mod -t nasshare -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-12-21 13:05:43: 
+Expect: Invalid option for the command or the action
+
+2017-12-21 13:05:43: allowip -a mod -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-12-21 13:05:43: 
+Expect: Invalid option for the command or the action
+
+2017-12-21 13:05:43: allowip -a add -t nasshare -d 0 -s "ip=255.255.255.255,permission=ro,test=root"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+2017-12-21 13:05:43: 
+Expect: Invalid option for the command or the action
+
+2017-12-21 13:05:43: allowip -a add -t nasshare -d 0 -s "ip=255.255.255.255,test=ro,squash=root"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+2017-12-21 13:05:43: 
+Expect: Invalid option for the command or the action
+
+2017-12-21 13:05:43: allowip -a add -t nasshare -d 0 -s "test=255.255.255.255,permission=ro,squash=root"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+2017-12-21 13:05:43: 
+Expect: Invalid option for the command or the action
+
+2017-12-21 13:05:43: allowip -a add -t nasshare -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-12-21 13:05:43: 
+Expect: Invalid option for the command or the action
+
+2017-12-21 13:05:43: allowip -a add -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-12-21 13:05:43: 
+Expect: Invalid option for the command or the action
+
+2017-12-21 13:05:43: allowip -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2017-12-21 13:05:43: 
+Expect: Invalid option for the command or the action
+
+2017-12-21 13:05:43: 'result': 'p'
+2017-12-21 13:05:43: allowip -a del -t nasshare -d 0 -i 100
+Error (0x2013): Invalid setting parameters
+invalid index settings
+
+administrator@cli> 
+2017-12-21 13:05:43: 
+Expect: Invalid setting parameters
+
+2017-12-21 13:05:43: allowip -a del -t nasshare -d 100 -i 0
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[100] is not existed.
+
+administrator@cli> 
+2017-12-21 13:05:43: 
+Expect: NAS Share id=[100] is not existed
+
+2017-12-21 13:05:43: allowip -a del -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (nasshare|snapshot|clone)
+
+administrator@cli> 
+2017-12-21 13:05:43: 
+Expect: Invalid setting parameters
+
+2017-12-21 13:05:43: allowip -a del test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-12-21 13:05:43: 
+Expect: Invalid setting parameters
+
+2017-12-21 13:05:43: allowip -a mod -t nasshare -d 0 -s "ip=256.255.255.255,permission=ro,squash=root" -i 0
+Error (0x2013): Invalid setting parameters
+invalid allow_ip: 256.255.255.255
+
+administrator@cli> 
+2017-12-21 13:05:43: 
+Expect: Invalid setting parameters
+
+2017-12-21 13:05:43: allowip -a mod -t nasshare -d 0 -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+2017-12-21 13:05:43: 
+Expect: Invalid setting parameters
+
+2017-12-21 13:05:43: allowip -a mod -t nasshare -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+2017-12-21 13:05:43: 
+Expect: Invalid setting parameters
+
+2017-12-21 13:05:43: allowip -a mod test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-12-21 13:05:43: 
+Expect: Invalid setting parameters
+
+2017-12-21 13:05:43: allowip -a add -t nasshare -d 0 -s "ip=255.255.255.255,permission=ro,squash=test"
+Error (0x2013): Invalid setting parameters
+squash: invalid setting test (all|root|noroot)
+
+administrator@cli> 
+2017-12-21 13:05:43: 
+Expect: Invalid setting parameters
+
+2017-12-21 13:05:43: allowip -a add -t nasshare -d 0 -s "ip=255.255.255.255,permission=test,squash=root"
+Error (0x2013): Invalid setting parameters
+permission: invalid setting test (ro|rw)
+
+administrator@cli> 
+2017-12-21 13:05:43: 
+Expect: Invalid setting parameters
+
+2017-12-21 13:05:43: allowip -a add -t nasshare -d 0 -s "ip=255.255.255.256,permission=ro,squash=root"
+Error (0x2013): Invalid setting parameters
+invalid allow_ip: 255.255.255.256
+
+administrator@cli> 
+2017-12-21 13:05:43: 
+Expect: Invalid setting parameters
+
+2017-12-21 13:05:43: allowip -a add -t nasshare -d 0 -s "ip=255.255.256.255,permission=ro,squash=root"
+Error (0x2013): Invalid setting parameters
+invalid allow_ip: 255.255.256.255
+
+administrator@cli> 
+2017-12-21 13:05:43: 
+Expect: Invalid setting parameters
+
+2017-12-21 13:05:43: allowip -a add -t nasshare -d 0 -s "ip=255.256.255.255,permission=ro,squash=root"
+Error (0x2013): Invalid setting parameters
+invalid allow_ip: 255.256.255.255
+
+administrator@cli> 
+2017-12-21 13:05:43: 
+Expect: Invalid setting parameters
+
+2017-12-21 13:05:43: allowip -a add -t nasshare -d 0 -s "ip=256.255.255.255,permission=ro,squash=root"
+Error (0x2013): Invalid setting parameters
+invalid allow_ip: 256.255.255.255
+
+administrator@cli> 
+2017-12-21 13:05:43: 
+Expect: Invalid setting parameters
+
+2017-12-21 13:05:43: allowip -a add -t nasshare -d 0 -s "ip=test,permission=ro,squash=root"
+Error (0x2013): Invalid setting parameters
+invalid allow_ip: test
+
+administrator@cli> 
+2017-12-21 13:05:43: 
+Expect: Invalid setting parameters
+
+2017-12-21 13:05:43: allowip -a add -t nasshare -d 0 -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+2017-12-21 13:05:43: 
+Expect: Invalid setting parameters
+
+2017-12-21 13:05:43: allowip -a add -t nasshare -d 0 -s test
+Error (0x2013): Invalid setting parameters
+invalid option: ['test']
+
+administrator@cli> 
+2017-12-21 13:05:43: 
+Expect: Invalid setting parameters
+
+2017-12-21 13:05:43: allowip -a add -t nasshare -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+2017-12-21 13:05:43: 
+Expect: Invalid setting parameters
+
+2017-12-21 13:05:43: allowip -a add -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (nasshare|snapshot|clone)
+
+administrator@cli> 
+2017-12-21 13:05:43: 
+Expect: Invalid setting parameters
+
+2017-12-21 13:05:43: allowip -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|add|mod|del|clear)
+
+administrator@cli> 
+2017-12-21 13:05:43: 
+Expect: Invalid setting parameters
+
+2017-12-21 13:05:43: allowip test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2017-12-21 13:05:43: 
+Expect: Invalid setting parameters
+
+2017-12-21 13:05:43: 'result': 'p'
+2017-12-21 13:05:43: allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         223.255.255.254                         RW          root_squash      
+
+administrator@cli> 
+2017-12-21 13:05:40: allowip -a del -t clone -d 0 -i 0
+
+administrator@cli> 
+2017-12-21 13:05:39: 
+Expect: index 0 of allowip should be deleted on clone 0
+
+2017-12-21 13:05:39: allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         191.255.255.254                         RW          no_root_squash   
+
+administrator@cli> 
+2017-12-21 13:05:36: allowip -a del -t snapshot -d 0 -i 0
+
+administrator@cli> 
+2017-12-21 13:05:35: 
+Expect: index 0 of allowip should be deleted on snapshot 0
+
+2017-12-21 13:05:35: allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         126.255.255.254                         RW          all_squash       
+
+administrator@cli> 
+2017-12-21 13:05:32: allowip -a del -t nasshare -d 0 -i 0
+
+administrator@cli> 
+2017-12-21 13:05:32: 
+Expect: index 0 of allowip should be deleted on nasshare 0
+
+2017-12-21 13:05:32: 'result': 'p'
+2017-12-21 13:05:32: allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.3                               RW          no_root_squash   
+1         223.255.255.254                         RW          root_squash      
+
+administrator@cli> 
+2017-12-21 13:05:29: allowip -a mod -t clone -d 0 -i 0 -s "ip=10.84.2.3, permission=rw, squash=noroot"
+
+administrator@cli> 
+2017-12-21 13:05:28: 
+Expect: allowip of clone type should be modified by "ip=10.84.2.3, permission=rw, squash=noroot"
+
+2017-12-21 13:05:28: allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.2                               RO          all_squash       
+1         223.255.255.254                         RW          root_squash      
+
+administrator@cli> 
+2017-12-21 13:05:25: allowip -a mod -t clone -d 0 -i 0 -s "ip=10.84.2.2, permission=ro, squash=all"
+
+administrator@cli> 
+2017-12-21 13:05:24: 
+Expect: allowip of clone type should be modified by "ip=10.84.2.2, permission=ro, squash=all"
+
+2017-12-21 13:05:24: allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.1                               RW          root_squash      
+1         223.255.255.254                         RW          root_squash      
+
+administrator@cli> 
+2017-12-21 13:05:21: allowip -a mod -t clone -d 0 -i 0 -s "ip=10.84.2.1, permission=rw, squash=root"
+
+administrator@cli> 
+2017-12-21 13:05:20: 
+Expect: allowip of clone type should be modified by "ip=10.84.2.1, permission=rw, squash=root"
+
+2017-12-21 13:05:20: allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.3                               RW          no_root_squash   
+1         191.255.255.254                         RW          no_root_squash   
+
+administrator@cli> 
+2017-12-21 13:05:17: allowip -a mod -t snapshot -d 0 -i 0 -s "ip=10.84.2.3, permission=rw, squash=noroot"
+
+administrator@cli> 
+2017-12-21 13:05:16: 
+Expect: allowip of snapshot type should be modified by "ip=10.84.2.3, permission=rw, squash=noroot"
+
+2017-12-21 13:05:16: allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.2                               RO          all_squash       
+1         191.255.255.254                         RW          no_root_squash   
+
+administrator@cli> 
+2017-12-21 13:05:13: allowip -a mod -t snapshot -d 0 -i 0 -s "ip=10.84.2.2, permission=ro, squash=all"
+
+administrator@cli> 
+2017-12-21 13:05:13: 
+Expect: allowip of snapshot type should be modified by "ip=10.84.2.2, permission=ro, squash=all"
+
+2017-12-21 13:05:13: allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.1                               RW          root_squash      
+1         191.255.255.254                         RW          no_root_squash   
+
+administrator@cli> 
+2017-12-21 13:05:10: allowip -a mod -t snapshot -d 0 -i 0 -s "ip=10.84.2.1, permission=rw, squash=root"
+
+administrator@cli> 
+2017-12-21 13:05:09: 
+Expect: allowip of snapshot type should be modified by "ip=10.84.2.1, permission=rw, squash=root"
+
+2017-12-21 13:05:09: allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.3                               RW          no_root_squash   
+1         126.255.255.254                         RW          all_squash       
+
+administrator@cli> 
+2017-12-21 13:05:06: allowip -a mod -t nasshare -d 0 -i 0 -s "ip=10.84.2.3, permission=rw, squash=noroot"
+
+administrator@cli> 
+2017-12-21 13:05:05: 
+Expect: allowip of nasshare type should be modified by "ip=10.84.2.3, permission=rw, squash=noroot"
+
+2017-12-21 13:05:05: allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.2                               RO          all_squash       
+1         126.255.255.254                         RW          all_squash       
+
+administrator@cli> 
+2017-12-21 13:05:02: allowip -a mod -t nasshare -d 0 -i 0 -s "ip=10.84.2.2, permission=ro, squash=all"
+
+administrator@cli> 
+2017-12-21 13:05:01: 
+Expect: allowip of nasshare type should be modified by "ip=10.84.2.2, permission=ro, squash=all"
+
+2017-12-21 13:05:01: allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.1                               RW          root_squash      
+1         126.255.255.254                         RW          all_squash       
+
+administrator@cli> 
+2017-12-21 13:04:58: allowip -a mod -t nasshare -d 0 -i 0 -s "ip=10.84.2.1, permission=rw, squash=root"
+
+administrator@cli> 
+2017-12-21 13:04:57: 
+Expect: allowip of nasshare type should be modified by "ip=10.84.2.1, permission=rw, squash=root"
+
+2017-12-21 13:04:57: 'result': 'p'
+2017-12-21 13:04:57: allowip -v -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         192.0.0.0                               RO          all_squash       
+1         223.255.255.254                         RW          root_squash      
+
+administrator@cli> 
+2017-12-21 13:04:57: 
+Expect: list allowip settings of clone 1 by verbose moed
+
+2017-12-21 13:04:57: allowip -v -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         128.0.0.0                               RO          root_squash      
+1         191.255.255.254                         RW          no_root_squash   
+
+administrator@cli> 
+2017-12-21 13:04:57: 
+Expect: list allowip settings on snapshot 1 by verbose moed
+
+2017-12-21 13:04:57: allowip -v -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         1.0.0.0                                 RO          root_squash      
+1         126.255.255.254                         RW          all_squash       
+
+administrator@cli> 
+2017-12-21 13:04:57: 
+Expect: list allowip settings on nasshare 1 by verbose moed
+
+2017-12-21 13:04:57: 'result': 'p'
+2017-12-21 13:04:57: allowip
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         1.0.0.0                                 RO          root_squash      
+1         126.255.255.254                         RW          all_squash       
+
+administrator@cli> 
+2017-12-21 13:04:57: 
+Expect: list allowip settings on nasshare 0
+
+2017-12-21 13:04:57: allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         192.0.0.0                               RO          all_squash       
+1         223.255.255.254                         RW          root_squash      
+
+administrator@cli> 
+2017-12-21 13:04:57: 
+Expect: list allowip settings of clone 0
+
+2017-12-21 13:04:57: allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         128.0.0.0                               RO          root_squash      
+1         191.255.255.254                         RW          no_root_squash   
+
+administrator@cli> 
+2017-12-21 13:04:57: 
+Expect: list allowip settings on snapshot 0
+
+2017-12-21 13:04:57: allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         1.0.0.0                                 RO          root_squash      
+1         126.255.255.254                         RW          all_squash       
+
+administrator@cli> 
+2017-12-21 13:04:57: 
+Expect: list allowip settings on nasshare 0
+
+2017-12-21 13:04:57: 'result': 'p'
+2017-12-21 13:04:57: allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         192.0.0.0                               RO          all_squash       
+1         223.255.255.254                         RW          root_squash      
+
+administrator@cli> 
+2017-12-21 13:04:54: allowip -a add -t clone -d 0 -s "ip=223.255.255.254, permission=rw, squash=root"
+
+administrator@cli> 
+2017-12-21 13:04:53: 
+Expect: allowip should be set by "ip=223.255.255.254, permission=rw, squash=root"
+
+2017-12-21 13:04:53: allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         192.0.0.0                               RO          all_squash       
+
+administrator@cli> 
+2017-12-21 13:04:50: allowip -a add -t clone -d 0 -s "ip=192.0.0.0, permission=ro, squash=all"
+
+administrator@cli> 
+2017-12-21 13:04:49: 
+Expect: allowip should be set by "ip=192.0.0.0, permission=ro, squash=all"
+
+2017-12-21 13:04:49: allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         128.0.0.0                               RO          root_squash      
+1         191.255.255.254                         RW          no_root_squash   
+
+administrator@cli> 
+2017-12-21 13:04:46: allowip -a add -t snapshot -d 0 -s "ip=191.255.255.254, permission=rw, squash=noroot"
+
+administrator@cli> 
+2017-12-21 13:04:46: 
+Expect: allowip should be set by "ip=191.255.255.254, permission=rw, squash=noroot"
+
+2017-12-21 13:04:46: allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         128.0.0.0                               RO          root_squash      
+
+administrator@cli> 
+2017-12-21 13:04:43: allowip -a add -t snapshot -d 0 -s "ip=128.0.0.0, permission=ro, squash=root"
+
+administrator@cli> 
+2017-12-21 13:04:42: 
+Expect: allowip should be set by "ip=128.0.0.0, permission=ro, squash=root"
+
+2017-12-21 13:04:42: allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         1.0.0.0                                 RO          root_squash      
+1         126.255.255.254                         RW          all_squash       
+
+administrator@cli> 
+2017-12-21 13:04:39: allowip -a add -t nasshare -d 0 -s "ip=126.255.255.254, permission=rw, squash=all"
+
+administrator@cli> 
+2017-12-21 13:04:38: 
+Expect: allowip should be set by "ip=126.255.255.254, permission=rw, squash=all"
+
+2017-12-21 13:04:38: allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         1.0.0.0                                 RO          root_squash      
+
+administrator@cli> 
+2017-12-21 13:04:35: allowip -a add -t nasshare -d 0 -s "ip=1.0.0.0, permission=ro, squash=root"
+
+administrator@cli> 
+2017-12-21 13:04:34: 
+Expect: allowip should be set by "ip=1.0.0.0, permission=ro, squash=root"
+
+2017-12-21 13:04:04: 
+Expect: clone of volume type should be modified name of 31 char
+
+2017-12-21 13:04:04: clone -v -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   Name: 12
+SourceId: 0                             Type: nasshare
+TotalCapacity: 2 GB                     UsedCapacity: 9.22 KB
+PoolAvailableCapacity: 90.44 GB         CreateDate: 2017-12-21 19:04:41
+Status: Un-Mounted                      OperationalStatus: OK, Synchronizing
+MountPoint: /FS/12                      QtEdit: Ready
+PermEdit: Ready
+
+administrator@cli> 
+2017-12-21 13:04:03: clone -a mod -i 0 -s "name=12"
+
+administrator@cli> 
+2017-12-21 13:04:02: 
+Expect: clone of nasshare type should be modified name of 2 char
+
+2017-12-21 13:04:02: clone -v -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   Name: t
+SourceId: 0                             Type: nasshare
+TotalCapacity: 2 GB                     UsedCapacity: 9.22 KB
+PoolAvailableCapacity: 90.44 GB         CreateDate: 2017-12-21 19:04:41
+Status: Un-Mounted                      OperationalStatus: OK, Synchronizing
+MountPoint: /FS/t                       QtEdit: Ready
+PermEdit: Ready
+
+administrator@cli> 
+2017-12-21 13:04:01: clone -a mod -i 0 -s "name=t"
+
+administrator@cli> 
+2017-12-21 13:04:00: 
+Expect: clone of nasshare type should be modified name of l char
+
+2017-12-21 13:03:58: 'result': 'p'
+2017-12-21 13:03:58: clone -i 0 -v
+-------------------------------------------------------------------------------
+Id: 0                                   Name: 1
+SourceId: 0                             Type: nasshare
+TotalCapacity: 2 GB                     UsedCapacity: 1.02 KB
+PoolAvailableCapacity: 90.44 GB         CreateDate: 2017-12-21 19:04:41
+Status: Mounted                         OperationalStatus: OK, Synchronizing
+MountPoint: /FS/1                       QtEdit: Ready
+PermEdit: Ready
+
+administrator@cli> 
+2017-12-21 13:03:58: 
+Expect: Clone of id 0 should be listed by verbose mode
+
+2017-12-21 13:03:58: clone -v
+-------------------------------------------------------------------------------
+Id: 0                                   Name: 1
+SourceId: 0                             Type: nasshare
+TotalCapacity: 2 GB                     UsedCapacity: 1.02 KB
+PoolAvailableCapacity: 90.44 GB         CreateDate: 2017-12-21 19:04:41
+Status: Mounted                         OperationalStatus: OK, Synchronizing
+MountPoint: /FS/1                       QuotaStatus: Ready
+ACLStatus: Ready
+-------------------------------------------------------------------------------
+Id: 1                                   Name: ab
+SourceId: 1                             Type: volume
+TotalCapacity: 2 GB                     UsedCapacity: 1.02 KB
+PoolAvailableCapacity: 90.44 GB         CreateDate: 2017-12-21 19:04:43
+Status: Exported                        ExportedId: 1
+ExportedWWN: 2238000155493c56           OperationalStatus: OK, Synchronizing
+MountPoint: -
+-------------------------------------------------------------------------------
+Id: 2                                   Name: test_test_test_test_test_test_1
+SourceId: 0                             Type: nasshare
+TotalCapacity: 2 GB                     UsedCapacity: 1.02 KB
+PoolAvailableCapacity: 90.44 GB         CreateDate: 2017-12-21 19:04:45
+Status: Mounted                         OperationalStatus: OK, Synchronizing
+MountPoint: /FS/test_test_test_test_test_test_1
+QuotaStatus: Ready                      ACLStatus: Ready
+-------------------------------------------------------------------------------
+Id: 3                                   Name: __test_test_test_test_test_test_
+SourceId: 1                             Type: volume
+TotalCapacity: 2 GB                     UsedCapacity: 1.02 KB
+PoolAvailableCapacity: 90.44 GB         CreateDate: 2017-12-21 19:04:47
+Status: Exported                        ExportedId: 2
+ExportedWWN: 2283000155f9f9c6           OperationalStatus: OK, Synchronizing
+MountPoint: -
+
+administrator@cli> 
+2017-12-21 13:03:58: 
+Expect: All of clone should be listed by verbose mode
+
+2017-12-21 13:03:58: 'result': 'p'
+2017-12-21 13:03:58: clone -i 0
+===============================================================================
+Id   Name          Type       SrcId TotalCap   UsedCap    Status      OpStatus 
+===============================================================================
+0    1             nasshare   0     2 GB       1.02 KB    Mounted     OK,      
+                                                                      Synchron 
+                                                                      izing    
+
+administrator@cli> 
+2017-12-21 13:03:58: 
+Expect: Clone of id 0 should be listed
+
+2017-12-21 13:03:58: clone
+===============================================================================
+Id   Name            Type       SrcId TotalCap   UsedCap    Status     OpStatus
+===============================================================================
+0    1               nasshare   0     2 GB       1.02 KB    Mounted    OK,     
+                                                                       Synchro 
+                                                                       nizing  
+1    ab              volume     1     2 GB       1.02 KB    Exported   OK,     
+                                                                       Synchro 
+                                                                       nizing  
+2    test_test_test_ nasshare   0     2 GB       1.02 KB    Mounted    OK,     
+     test_test_test_                                                   Synchro 
+     1                                                                 nizing  
+3    __test_test_tes volume     1     2 GB       1.02 KB    Exported   OK,     
+     t_test_test_tes                                                   Synchro 
+     t_                                                                nizing  
+
+administrator@cli> 
+2017-12-21 13:03:58: 
+Expect: All of clone should be listed
+
+2017-12-21 13:03:58: 'result': 'p'
+2017-12-21 13:03:58: clone -v -i 3
+-------------------------------------------------------------------------------
+Id: 3                                   Name: __test_test_test_test_test_test_
+SourceId: 1                             Type: volume
+TotalCapacity: 2 GB                     UsedCapacity: 1.02 KB
+PoolAvailableCapacity: 90.44 GB         CreateDate: 2017-12-21 19:04:47
+Status: Exported                        ExportedId: 2
+ExportedWWN: 2283000155f9f9c6           OperationalStatus: OK, Synchronizing
+MountPoint: -
+
+administrator@cli> 
+2017-12-21 13:03:57: clone -a add -d 1 -s "name=__test_test_test_test_test_test_"
+
+administrator@cli> 
+2017-12-21 13:03:56: 
+Expect: clone of volume should be created when name is the under line +alp and length is 32
+
+2017-12-21 13:03:56: clone -v -i 2
+-------------------------------------------------------------------------------
+Id: 2                                   Name: test_test_test_test_test_test_1
+SourceId: 0                             Type: nasshare
+TotalCapacity: 2 GB                     UsedCapacity: 1.02 KB
+PoolAvailableCapacity: 90.44 GB         CreateDate: 2017-12-21 19:04:45
+Status: Mounted                         OperationalStatus: OK, Synchronizing
+MountPoint: /FS/test_test_test_test_test_test_1
+QtEdit: Ready                           PermEdit: Ready
+
+administrator@cli> 
+2017-12-21 13:03:55: clone -a add -d 0 -s "name=test_test_test_test_test_test_1"
+
+administrator@cli> 
+2017-12-21 13:03:54: 
+Expect: clone of nasshare should be created when name is the alp+under line+num,length is 31
+
+2017-12-21 13:03:54: clone -v -i 1
+-------------------------------------------------------------------------------
+Id: 1                                   Name: ab
+SourceId: 1                             Type: volume
+TotalCapacity: 2 GB                     UsedCapacity: 1.02 KB
+PoolAvailableCapacity: 90.44 GB         CreateDate: 2017-12-21 19:04:43
+Status: Exported                        ExportedId: 1
+ExportedWWN: 2238000155493c56           OperationalStatus: OK, Synchronizing
+MountPoint: -
+
+administrator@cli> 
+2017-12-21 13:03:53: clone -a add -d 1 -s "name=ab"
+
+administrator@cli> 
+2017-12-21 13:03:52: 
+Expect: clone of volume should be created when name is the alp and length is 2
+
+2017-12-21 13:03:52: clone -v -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   Name: 1
+SourceId: 0                             Type: nasshare
+TotalCapacity: 2 GB                     UsedCapacity: 1.02 KB
+PoolAvailableCapacity: 90.44 GB         CreateDate: 2017-12-21 19:04:41
+Status: Mounted                         OperationalStatus: OK, Synchronizing
+MountPoint: /FS/1                       QtEdit: Ready
+PermEdit: Ready
+
+administrator@cli> 
+2017-12-21 13:03:51: clone -a add -d 0 -s "name=1"
+
+administrator@cli> 
+2017-12-21 13:03:49: 
+Expect: clone of nasshare type should be created when name is the num and length is 1
+
 2017-12-20 09:16:00: 'result': 'p'
 2017-12-20 09:16:00: phydrv -p 1
 ===============================================================================

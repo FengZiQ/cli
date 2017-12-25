@@ -356,6 +356,52 @@ def BuildVerification(c):
         if (group.missing_parameter_for_group(c)):
             FailCasesList.append('The case ' + group.missing_parameter_for_group.__name__ + ' failed')
 
+        tolog('Start verifying phydrv')
+        import phydrv
+        if (phydrv.list_phydrv(c)):
+            FailCasesList.append('The case ' + phydrv.list_phydrv.__name__ + ' failed')
+        if (phydrv.list_phydrv_by_verbose_mode(c)):
+            FailCasesList.append('The case ' + phydrv.list_phydrv_by_verbose_mode.__name__ + ' failed')
+        if (phydrv.mod_phydrv(c)):
+            FailCasesList.append('The case ' + phydrv.mod_phydrv.__name__ + ' failed')
+        if (phydrv.locate_phydrv(c)):
+            FailCasesList.append('The case ' + phydrv.locate_phydrv.__name__ + ' failed')
+        if (phydrv.online_offline_phydrv(c)):
+            FailCasesList.append('The case ' + phydrv.online_offline_phydrv.__name__ + ' failed')
+        if (phydrv.clear_phydrv(c)):
+            FailCasesList.append('The case ' + phydrv.clear_phydrv.__name__ + ' failed')
+        if (phydrv.invalid_setting_parameter(c)):
+            FailCasesList.append('The case ' + phydrv.invalid_setting_parameter.__name__ + ' failed')
+        if (phydrv.invalid_option(c)):
+            FailCasesList.append('The case ' + phydrv.invalid_option.__name__ + ' failed')
+        if (phydrv.missing_parameter(c)):
+            FailCasesList.append('The case ' + phydrv.missing_parameter.__name__ + ' failed')
+
+        tolog('Start verifying rb')
+        import rb
+        if (rb.raid1_start_rb(c)):
+            FailCasesList.append('The case ' + rb.raid1_start_rb.__name__ + ' failed')
+        if (rb.raid5_start_rb(c)):
+            FailCasesList.append('The case ' + rb.raid5_start_rb.__name__ + ' failed')
+        if (rb.raid6_start_rb(c)):
+            FailCasesList.append('The case ' + rb.raid6_start_rb.__name__ + ' failed')
+        if (rb.raid10_start_rb(c)):
+            FailCasesList.append('The case ' + rb.raid10_start_rb.__name__ + ' failed')
+        if (rb.raid50_start_rb(c)):
+            FailCasesList.append('The case ' + rb.raid50_start_rb.__name__ + ' failed')
+        if (rb.raid60_start_rb(c)):
+            FailCasesList.append('The case ' + rb.raid60_start_rb.__name__ + ' failed')
+        if (rb.list_rb(c)):
+            FailCasesList.append('The case ' + rb.list_rb.__name__ + ' failed')
+        if (rb.stop_rb(c)):
+            FailCasesList.append('The case ' + rb.stop_rb.__name__ + ' failed')
+        if (rb.invalid_setting_parameter(c)):
+            FailCasesList.append('The case ' + rb.invalid_setting_parameter.__name__ + ' failed')
+        if (rb.invalid_option(c)):
+            FailCasesList.append('The case ' + rb.invalid_option.__name__ + ' failed')
+        if (rb.missing_parameter(c)):
+            FailCasesList.append('The case ' + rb.missing_parameter.__name__ + ' failed')
+
         tolog("Start verifying chap")
         import chap
         if (chap.add_chap(c)):
@@ -448,52 +494,6 @@ def BuildVerification(c):
             FailCasesList.append('The case ' + sc.invalid_option_for_sc.__name__ + ' failed')
         if (sc.missing_parameter_for_sc(c)):
             FailCasesList.append('The case ' + sc.missing_parameter_for_sc.__name__ + ' failed')
-
-        tolog('Start verifying phydrv')
-        import phydrv
-        if (phydrv.list_phydrv(c)):
-            FailCasesList.append('The case ' + phydrv.list_phydrv.__name__ + ' failed')
-        if (phydrv.list_phydrv_by_verbose_mode(c)):
-            FailCasesList.append('The case ' + phydrv.list_phydrv_by_verbose_mode.__name__ + ' failed')
-        if (phydrv.mod_phydrv(c)):
-            FailCasesList.append('The case ' + phydrv.mod_phydrv.__name__ + ' failed')
-        if (phydrv.locate_phydrv(c)):
-            FailCasesList.append('The case ' + phydrv.locate_phydrv.__name__ + ' failed')
-        if (phydrv.online_offline_phydrv(c)):
-            FailCasesList.append('The case ' + phydrv.online_offline_phydrv.__name__ + ' failed')
-        if (phydrv.clear_phydrv(c)):
-            FailCasesList.append('The case ' + phydrv.clear_phydrv.__name__ + ' failed')
-        if (phydrv.invalid_setting_parameter(c)):
-            FailCasesList.append('The case ' + phydrv.invalid_setting_parameter.__name__ + ' failed')
-        if (phydrv.invalid_option(c)):
-            FailCasesList.append('The case ' + phydrv.invalid_option.__name__ + ' failed')
-        if (phydrv.missing_parameter(c)):
-            FailCasesList.append('The case ' + phydrv.missing_parameter.__name__ + ' failed')
-
-        tolog('Start verifying rb')
-        import rb
-        if (rb.raid1_start_rb(c)):
-            FailCasesList.append('The case ' + rb.raid1_start_rb.__name__ + ' failed')
-        if (rb.raid5_start_rb(c)):
-            FailCasesList.append('The case ' + rb.raid5_start_rb.__name__ + ' failed')
-        if (rb.raid6_start_rb(c)):
-            FailCasesList.append('The case ' + rb.raid6_start_rb.__name__ + ' failed')
-        if (rb.raid10_start_rb(c)):
-            FailCasesList.append('The case ' + rb.raid10_start_rb.__name__ + ' failed')
-        if (rb.raid50_start_rb(c)):
-            FailCasesList.append('The case ' + rb.raid50_start_rb.__name__ + ' failed')
-        if (rb.raid60_start_rb(c)):
-            FailCasesList.append('The case ' + rb.raid60_start_rb.__name__ + ' failed')
-        if (rb.list_rb(c)):
-            FailCasesList.append('The case ' + rb.list_rb.__name__ + ' failed')
-        if (rb.stop_rb(c)):
-            FailCasesList.append('The case ' + rb.stop_rb.__name__ + ' failed')
-        if (rb.invalid_setting_parameter(c)):
-            FailCasesList.append('The case ' + rb.invalid_setting_parameter.__name__ + ' failed')
-        if (rb.invalid_option(c)):
-            FailCasesList.append('The case ' + rb.invalid_option.__name__ + ' failed')
-        if (rb.missing_parameter(c)):
-            FailCasesList.append('The case ' + rb.missing_parameter.__name__ + ' failed')
 
         tolog('Start verifying perfstats')
         import perfstats
