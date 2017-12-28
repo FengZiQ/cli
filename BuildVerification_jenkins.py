@@ -26,7 +26,7 @@ def BuildVerification(c):
     files = glob.glob("/var/lib/jenkins/workspace/HyperionDS/build/build/*.ptif")
     # files = glob.glob("/var/lib/jenkins/workspace/Hyperion-DS_Hulda/build/build/*.ptif")
 
-    reconnectflag = True
+    reconnectflag = False
 
     for file in files:
 
@@ -57,7 +57,7 @@ def BuildVerification(c):
             tolog(result)
 
     if reconnectflag:
-        # there are 43 command that can be tested
+        # there are 44 command that can be tested
         tolog("Start verifying pool add")
         import pool
         if (pool.add_pool_raid0(c)):
@@ -202,6 +202,31 @@ def BuildVerification(c):
             FailCasesList.append('The case ' + clone.invalid_option.__name__ + ' failed')
         if (clone.missing_parameter(c)):
             FailCasesList.append('The case ' + clone.missing_parameter.__name__ + ' failed')
+
+        tolog('Start verifying replication')
+        import replication
+        if (replication.start_replication(c)):
+            FailCasesList.append('The case ' + replication.start_replication.__name__ + ' failed')
+        if (replication.forbidden_action(c)):
+            FailCasesList.append('The case ' + replication.forbidden_action.__name__ + ' failed')
+        if (replication.list_replication(c)):
+            FailCasesList.append('The case ' + replication.list_replication.__name__ + ' failed')
+        if (replication.list_replication_by_verbose(c)):
+            FailCasesList.append('The case ' + replication.list_replication_by_verbose.__name__ + ' failed')
+        if (replication.stop_replication(c)):
+            FailCasesList.append('The case ' + replication.stop_replication.__name__ + ' failed')
+        if (replication.pause_replication(c)):
+            FailCasesList.append('The case ' + replication.pause_replication.__name__ + ' failed')
+        if (replication.resume_replication(c)):
+            FailCasesList.append('The case ' + replication.resume_replication.__name__ + ' failed')
+        if (replication.help_replication(c)):
+            FailCasesList.append('The case ' + replication.help_replication.__name__ + ' failed')
+        if (replication.invalid_setting_for_replication(c)):
+            FailCasesList.append('The case ' + replication.invalid_setting_for_replication.__name__ + ' failed')
+        if (replication.invalid_option_for_replication(c)):
+            FailCasesList.append('The case ' + replication.invalid_option_for_replication.__name__ + ' failed')
+        if (replication.missing_parameter_replication(c)):
+            FailCasesList.append('The case ' + replication.missing_parameter_replication.__name__ + ' failed')
 
         tolog('Start verifying spare')
         import spare

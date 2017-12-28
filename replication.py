@@ -21,7 +21,7 @@ def precondition():
 
             for replica in json.loads(replica_request["text"]):
 
-                b=server.webapi('post', 'replicaloc/' + str(replica["src_id"]) + '/stop')
+                server.webapi('post', 'replicaloc/' + str(replica["src_id"]) + '/stop')
 
                 time.sleep(3)
 
@@ -98,6 +98,9 @@ def clean_up_environment():
 
                 server.webapi('delete', 'pool/' + str(i) + '?force=1')
 
+    # delete pool
+    find_pd_id()
+
     # delete initiator
     init_request = server.webapi('get', 'initiator')
     if isinstance(init_request, dict):
@@ -106,7 +109,7 @@ def clean_up_environment():
 
             for init in json.loads(init_request["text"]):
 
-                server.webapi('post', 'initiator/' + str(init["id"]))
+                server.webapi('delete', 'initiator/' + str(init["id"]))
 
         except (TypeError, KeyError):
 
@@ -219,24 +222,27 @@ def missing_parameter_replication(c):
 
     cli_failed_test.failed_test(c, data, 'missing_parameter_replication')
 
+    # clean up environment
+    clean_up_environment()
+
     return cli_failed_test.FailFlag
 
 
 if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
-    clean_up_environment()
-    # start_replication(c)
-    # forbidden_action(c)
-    # list_replication(c)
-    # list_replication_by_verbose(c)
-    # stop_replication(c)
-    # pause_replication(c)
-    # resume_replication(c)
-    # help_replication(c)
-    # invalid_setting_for_replication(c)
-    # invalid_option_for_replication(c)
-    # missing_parameter_replication(c)
+
+    start_replication(c)
+    forbidden_action(c)
+    list_replication(c)
+    list_replication_by_verbose(c)
+    stop_replication(c)
+    pause_replication(c)
+    resume_replication(c)
+    help_replication(c)
+    invalid_setting_for_replication(c)
+    invalid_option_for_replication(c)
+    missing_parameter_replication(c)
 
     ssh.close()
     elasped = time.clock() - start
