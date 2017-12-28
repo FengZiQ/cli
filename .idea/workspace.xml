@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e03c8b68-9846-4b80-8d73-1c116d755aef" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/migrate.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/allowip.xlsx" afterPath="$PROJECT_DIR$/data/allowip.xlsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/replication.xlsx" afterPath="$PROJECT_DIR$/data/replication.xlsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BuildVerification_jenkins.py" afterPath="$PROJECT_DIR$/BuildVerification_jenkins.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cli_scripts.log" afterPath="$PROJECT_DIR$/cli_scripts.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/replication.py" afterPath="$PROJECT_DIR$/replication.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testlink.notes" afterPath="$PROJECT_DIR$/testlink.notes" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,26 +19,22 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="replication.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/replication.py">
+      <file leaf-file-name="migrate.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/migrate.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+            <state relative-caret-position="243">
+              <caret line="185" column="20" lean-forward="true" selection-start-line="185" selection-start-column="20" selection-end-line="185" selection-end-column="20" />
               <folding>
                 <element signature="e#31#63#0" expanded="true" />
-                <element signature="e#242#2276#0" expanded="false" />
-                <element signature="e#2311#3255#0" expanded="false" />
-                <element signature="e#3289#3451#0" expanded="false" />
-                <element signature="e#3483#3828#0" expanded="false" />
-                <element signature="e#3861#3965#0" expanded="false" />
-                <element signature="e#4009#4124#0" expanded="false" />
-                <element signature="e#4157#4274#0" expanded="false" />
-                <element signature="e#4308#4431#0" expanded="false" />
-                <element signature="e#4466#4590#0" expanded="false" />
-                <element signature="e#4623#4727#0" expanded="false" />
-                <element signature="e#4775#4929#0" expanded="false" />
-                <element signature="e#4976#5129#0" expanded="false" />
-                <element signature="e#5175#5382#0" expanded="false" />
+                <element signature="e#238#2293#0" expanded="false" />
+                <element signature="e#2328#3102#0" expanded="false" />
+                <element signature="e#3132#3290#0" expanded="false" />
+                <element signature="e#3322#3667#0" expanded="false" />
+                <element signature="e#3696#3809#0" expanded="false" />
+                <element signature="e#3838#3938#0" expanded="false" />
+                <element signature="e#3982#4132#0" expanded="false" />
+                <element signature="e#4175#4324#0" expanded="false" />
+                <element signature="e#4366#4569#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -54,7 +51,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>test_acl</find>
       <find>fail_flag</find>
       <find>nasShare.</find>
       <find>ping.</find>
@@ -83,6 +79,7 @@
       <find>powersavingstoppedtime</find>
       <find>ctrl</find>
       <find>fail</find>
+      <find>replication</find>
       <find>fail:</find>
     </findStrings>
     <replaceStrings>
@@ -115,6 +112,7 @@
       <replace>quota.</replace>
       <replace>wcache</replace>
       <replace>nas_</replace>
+      <replace>migrate</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -123,7 +121,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ups.py" />
         <option value="$PROJECT_DIR$/bvt_testlink.py" />
         <option value="$PROJECT_DIR$/../webAPI/NASShareapi.py" />
         <option value="$PROJECT_DIR$/find_pd_id.py" />
@@ -171,9 +168,10 @@
         <option value="$PROJECT_DIR$/phydrv.py" />
         <option value="$PROJECT_DIR$/quota.py" />
         <option value="$PROJECT_DIR$/user.py" />
-        <option value="$PROJECT_DIR$/replication.py" />
         <option value="$PROJECT_DIR$/cli_scripts.log" />
         <option value="$PROJECT_DIR$/BuildVerification_jenkins.py" />
+        <option value="$PROJECT_DIR$/replication.py" />
+        <option value="$PROJECT_DIR$/migrate.py" />
       </list>
     </option>
   </component>
@@ -234,7 +232,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.cli_autoscripts_zach">
+  <component name="RunManager" selected="Python.migrate">
     <configuration default="false" name="user" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -248,24 +246,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="cli" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/user.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="install_official_release" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="cli" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/install_official_release.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -320,6 +300,24 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="cli" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cli_autoscripts_zach.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="migrate" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="cli" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/migrate.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -391,18 +389,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.user" />
-      <item index="1" class="java.lang.String" itemvalue="Python.install_official_release" />
-      <item index="2" class="java.lang.String" itemvalue="Python.replication" />
-      <item index="3" class="java.lang.String" itemvalue="Python.quota" />
-      <item index="4" class="java.lang.String" itemvalue="Python.cli_autoscripts_zach" />
+      <item index="1" class="java.lang.String" itemvalue="Python.replication" />
+      <item index="2" class="java.lang.String" itemvalue="Python.quota" />
+      <item index="3" class="java.lang.String" itemvalue="Python.cli_autoscripts_zach" />
+      <item index="4" class="java.lang.String" itemvalue="Python.migrate" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.cli_autoscripts_zach" />
-        <item index="1" class="java.lang.String" itemvalue="Python.replication" />
-        <item index="2" class="java.lang.String" itemvalue="Python.user" />
-        <item index="3" class="java.lang.String" itemvalue="Python.quota" />
-        <item index="4" class="java.lang.String" itemvalue="Python.install_official_release" />
+        <item index="0" class="java.lang.String" itemvalue="Python.migrate" />
+        <item index="1" class="java.lang.String" itemvalue="Python.cli_autoscripts_zach" />
+        <item index="2" class="java.lang.String" itemvalue="Python.replication" />
+        <item index="3" class="java.lang.String" itemvalue="Python.user" />
+        <item index="4" class="java.lang.String" itemvalue="Python.quota" />
       </list>
     </recent_temporary>
   </component>
@@ -435,11 +433,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22441365" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4355363" sideWeight="0.5053305" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.42470205" sideWeight="0.4946695" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34561214" sideWeight="0.4946695" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -545,18 +544,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="445" />
+      <option name="time" value="452" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://C:/Python27/Lib/os.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://D:/study/link_test.py" />
     <entry file="file://$PROJECT_DIR$/command.py" />
     <entry file="file://$PROJECT_DIR$/tz.py">
@@ -905,23 +897,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/replication.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+        <state relative-caret-position="114">
+          <caret line="6" column="22" lean-forward="true" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/migrate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="185" column="20" lean-forward="true" selection-start-line="185" selection-start-column="20" selection-end-line="185" selection-end-column="20" />
           <folding>
             <element signature="e#31#63#0" expanded="true" />
-            <element signature="e#242#2276#0" expanded="false" />
-            <element signature="e#2311#3255#0" expanded="false" />
-            <element signature="e#3289#3451#0" expanded="false" />
-            <element signature="e#3483#3828#0" expanded="false" />
-            <element signature="e#3861#3965#0" expanded="false" />
-            <element signature="e#4009#4124#0" expanded="false" />
-            <element signature="e#4157#4274#0" expanded="false" />
-            <element signature="e#4308#4431#0" expanded="false" />
-            <element signature="e#4466#4590#0" expanded="false" />
-            <element signature="e#4623#4727#0" expanded="false" />
-            <element signature="e#4775#4929#0" expanded="false" />
-            <element signature="e#4976#5129#0" expanded="false" />
-            <element signature="e#5175#5382#0" expanded="false" />
+            <element signature="e#238#2293#0" expanded="false" />
+            <element signature="e#2328#3102#0" expanded="false" />
+            <element signature="e#3132#3290#0" expanded="false" />
+            <element signature="e#3322#3667#0" expanded="false" />
+            <element signature="e#3696#3809#0" expanded="false" />
+            <element signature="e#3838#3938#0" expanded="false" />
+            <element signature="e#3982#4132#0" expanded="false" />
+            <element signature="e#4175#4324#0" expanded="false" />
+            <element signature="e#4366#4569#0" expanded="false" />
           </folding>
         </state>
       </provider>
