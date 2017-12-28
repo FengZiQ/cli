@@ -7,72 +7,78 @@ from ssh_connect import *
 Pass = "'result': 'p'"
 Fail = "'result': 'f'"
 
+
 def precondition(c):
-    tolog("<b>add initiator</b>")
-    for i in range(1, 3):
-        SendCmd(c, 'initiator -a add -t iscsi -n test.lunmapadd' + str(i) + '.com')
-    for i in range(1, 3):
-        SendCmd(c, 'initiator -a add -t fc -n aa-aa-aa-aa-aa-aa-aa-1' + str(i))
-    initID = []
-    initIfor = SendCmd(c, 'initiator')
-    row = initIfor.split('Id: ')
-    for i in range(1, len(row)):
-        if 'test.lunmapadd' in row[i] or 'aa-aa-aa-aa-aa-aa-aa-1' in row[i]:
-            initID.append(row[i].split()[0])
+    try:
+        tolog("<b>add initiator</b>")
+        for i in range(1, 3):
+            SendCmd(c, 'initiator -a add -t iscsi -n test.lunmapadd' + str(i) + '.com')
+        for i in range(1, 3):
+            SendCmd(c, 'initiator -a add -t fc -n aa-aa-aa-aa-aa-aa-aa-1' + str(i))
+        initID = []
+        initIfor = SendCmd(c, 'initiator')
+        row = initIfor.split('Id: ')
+        for i in range(1, len(row)):
+            if 'test.lunmapadd' in row[i] or 'aa-aa-aa-aa-aa-aa-aa-1' in row[i]:
+                initID.append(row[i].split()[0])
 
-    tolog("<b>add volume</b>")
-    pdinfo = SendCmd(c, 'phydrv')
-    if 'Pool' not in pdinfo:
-        pdID = []
-        row = pdinfo.split('\r\n')
-        for i in range(4, len(row) - 2):
-            if len(row[i].split()) >= 10 and 'Unconfigured' in row[i] and 'OK' in row[i]:
-                pdID.append(row[i].split()[0])
-        SendCmd(c, 'pool -a add -p ' + pdID[0] + ' -s "name=Ptestlunmap,raid=0"')
-        for i in range(1, 35):
-            SendCmd(c, 'volume -a add -p 0 -s "name=Vtestlunmap' + str(i) + ',capacity=1GB"')
-    else:
-        poolinfo = SendCmd(c, 'pool')
-        poolID = poolinfo.split('\r\n')[4].split()[0]
-        for i in range(1, 35):
-            SendCmd(c, 'volume -a add -p ' + poolID + ' -s "name=Vtestlunmap' + str(i) + ',capacity=1GB"')
-    volumeID = []
-    volumeInfo = SendCmd(c, 'volume')
-    row = volumeInfo.split('\r\n')
-    for i in range(4, (len(row)-2)):
-        if 'Vtestlunmap' in row[i]:
-            volumeID.append(row[i].split()[0])
+        tolog("<b>add volume</b>")
+        pdinfo = SendCmd(c, 'phydrv')
+        if 'Pool' not in pdinfo:
+            pdID = []
+            row = pdinfo.split('\r\n')
+            for i in range(4, len(row) - 2):
+                if len(row[i].split()) >= 10 and 'Unconfigured' in row[i] and 'OK' in row[i]:
+                    pdID.append(row[i].split()[0])
+            SendCmd(c, 'pool -a add -p ' + pdID[0] + ' -s "name=Ptestlunmap,raid=0"')
+            for i in range(1, 35):
+                SendCmd(c, 'volume -a add -p 0 -s "name=Vtestlunmap' + str(i) + ',capacity=1GB"')
+        else:
+            poolinfo = SendCmd(c, 'pool')
+            poolID = poolinfo.split('\r\n')[4].split()[0]
+            for i in range(1, 35):
+                SendCmd(c, 'volume -a add -p ' + poolID + ' -s "name=Vtestlunmap' + str(i) + ',capacity=1GB"')
+        volumeID = []
+        volumeInfo = SendCmd(c, 'volume')
+        row = volumeInfo.split('\r\n')
+        for i in range(4, (len(row)-2)):
+            if 'Vtestlunmap' in row[i]:
+                volumeID.append(row[i].split()[0])
 
-    tolog('<b> add snapshot</b>')
-    for i in range(1, 11):
-        SendCmd(c, 'snapshot -a add -t volume -d ' + volumeID[-1] + ' -s "name=testlunmapss' + str(i) + '"')
-    snapshotID = []
-    snapshotInfo = SendCmd(c, 'snapshot')
-    row = snapshotInfo.split('\r\n')
-    for i in range(4, (len(row)-2)):
-        if 'testlunmapss' in row[i]:
-            snapshotID.append(row[i].split()[0])
-    for i in snapshotID:
-        if 'Un-Exported' in snapshotInfo:
-            SendCmd(c, 'snapshot -a export -i ' + i)
+        tolog('<b> add snapshot</b>')
+        for i in range(1, 11):
+            SendCmd(c, 'snapshot -a add -t volume -d ' + volumeID[-1] + ' -s "name=testlunmapss' + str(i) + '"')
+        snapshotID = []
+        snapshotInfo = SendCmd(c, 'snapshot')
+        row = snapshotInfo.split('\r\n')
+        for i in range(4, (len(row)-2)):
+            if 'testlunmapss' in row[i]:
+                snapshotID.append(row[i].split()[0])
+        for i in snapshotID:
+            if 'Un-Exported' in snapshotInfo:
+                SendCmd(c, 'snapshot -a export -i ' + i)
 
-    tolog('<b> add clone</b>')
-    for i in range(1, 11):
-        SendCmd(c, 'clone -a add -d ' + snapshotID[-1] + ' -s "name=testlunmapcl' + str(i) + '"')
-    cloneID = []
-    cloneInfo = SendCmd(c, 'clone')
-    row = cloneInfo.split('\r\n')
-    for i in range(4, (len(row)-2)):
-        if 'testlunmapcl' in row[i]:
-            cloneID.append(row[i].split()[0])
-    for i in cloneID:
-        if 'Un-Exported' in cloneInfo:
-            SendCmd(c, 'clone -a export -i ' + i)
+        tolog('<b> add clone</b>')
+        for i in range(1, 11):
+            SendCmd(c, 'clone -a add -d ' + snapshotID[-1] + ' -s "name=testlunmapcl' + str(i) + '"')
+        cloneID = []
+        cloneInfo = SendCmd(c, 'clone')
+        row = cloneInfo.split('\r\n')
+        for i in range(4, (len(row)-2)):
+            if 'testlunmapcl' in row[i]:
+                cloneID.append(row[i].split()[0])
+        for i in cloneID:
+            if 'Un-Exported' in cloneInfo:
+                SendCmd(c, 'clone -a export -i ' + i)
 
-    tolog('<b> To enable lunmap</b>')
-    SendCmd(c, 'lunmap -a enable')
+        tolog('<b> To enable lunmap</b>')
+        SendCmd(c, 'lunmap -a enable')
 
-    return initID, volumeID, snapshotID, cloneID
+        return initID, volumeID, snapshotID, cloneID
+
+    except IndexError:
+
+        tolog('precondition is failed\r\n')
 
 def verifyLunmapAdd(c):
     FailFlag = False

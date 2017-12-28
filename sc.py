@@ -23,12 +23,15 @@ def precondition():
 
     else:
 
-        # create pool
-        server.webapi('post', 'pool', {"name": "test_phy_1", "pds": pdId[:4], "raid_level": "raid5"})
+        if len(pdId) > 0:
+            # create pool
+            server.webapi('post', 'pool', {"name": "test_phy_1", "pds": pdId[:4], "raid_level": "raid5"})
 
-        # create spare
-        server.webapi('post', 'spare', {"pd_id": pdId[4], "dedicated": 'global', "revertible": 0})
-        server.webapi('post', 'spare', {"pd_id": pdId[5], "dedicated": 'dedicated', "revertible": 0, "pool_list": [0]})
+            # create spare
+            server.webapi('post', 'spare', {"pd_id": pdId[4], "dedicated": 'global', "revertible": 0})
+            server.webapi('post', 'spare', {"pd_id": pdId[5], "dedicated": 'dedicated', "revertible": 0, "pool_list": [0]})
+
+    return
 
 
 def start_sc(c):

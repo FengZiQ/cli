@@ -15,8 +15,10 @@ Fail = "'result': 'f'"
 def findPoolId():
     # precondition
     pdId = find_pd_id('4TB')
-    # create pool
-    server.webapi('post', 'pool', {"name": "test_NASShare_pool", "pds": pdId[:3], "raid_level": "raid5"})
+
+    if len(pdId) > 0:
+        # create pool
+        server.webapi('post', 'pool', {"name": "test_NASShare_pool", "pds": pdId[:3], "raid_level": "raid5"})
 
     plId = '0'
     return plId
@@ -510,23 +512,23 @@ def deleteNASShare(c):
     Failflag = False
 
     # test data
-    nasShareName = ['X', '1_a', 'N'*32]
+    nasShareName = ['N'*31, '1_a', 'N'*32]
 
-    tolog('Expect: delete NASShare ' + nasShareName[0] + '\r\n')
-    result = SendCmd(c, 'nasshare -a del -i ' + nasShareName[0])
+    tolog('Expect: delete NASShare ' + nasShareName[1] + '\r\n')
+    result = SendCmd(c, 'nasshare -a del -i 1')
 
     checkResult = SendCmd(c, 'nasshare')
 
     if 'Error (' in result:
 
         Failflag = True
-        tolog('Fail: to delete NASShare ' + nasShareName[0] + ' is failed \r\n')
+        tolog('Fail: to delete NASShare ' + nasShareName[1] + ' is failed \r\n')
 
     else:
 
-        if nasShareName[0] in checkResult:
+        if nasShareName[1] in checkResult:
 
-            tolog('Fail: please check out nasshare: ' + nasShareName[0])
+            tolog('Fail: please check out nasshare: ' + nasShareName[1])
 
     if Failflag:
         tolog(Fail)
@@ -544,17 +546,17 @@ if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
 
-    addNASShare(c)
-    listNASShare(c)
-    listVerboseNASShare(c)
-    modNASShare(c)
-    mountNASShare(c)
-    unmountNASShare(c)
-    helpNASShare(c)
-    failedTest_InexistentId(c)
-    failedTest_InvalidOption(c)
-    failedTest_InvalidParameters(c)
-    failedTest_MissingParameters(c)
+    # addNASShare(c)
+    # listNASShare(c)
+    # listVerboseNASShare(c)
+    # modNASShare(c)
+    # mountNASShare(c)
+    # unmountNASShare(c)
+    # helpNASShare(c)
+    # failedTest_InexistentId(c)
+    # failedTest_InvalidOption(c)
+    # failedTest_InvalidParameters(c)
+    # failedTest_MissingParameters(c)
     deleteNASShare(c)
 
     ssh.close()

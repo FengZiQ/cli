@@ -296,7 +296,7 @@ class cli_test_failed_test():
 
             else:
 
-                for j in range(1, table.ncols):
+                for j in range(2, table.ncols):
 
                     if table.cell(i, j).value not in result:
                         self.FailFlag = True

@@ -43,7 +43,7 @@ def list_phydrv(c):
 
         precondition()
 
-    except TypeError:
+    except (TypeError, IndexError):
 
         tolog('precondition is failed\r\n')
 

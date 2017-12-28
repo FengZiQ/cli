@@ -43,24 +43,22 @@ def precondition():
 
         token = json.loads(step1["text"])[0]["token"]
 
-        if isinstance(token, dict):
+        get_page_data = json.loads(step1["text"])[0]["page_data"]
+        page_data = [[0, uid["uid"]] for uid in get_page_data]
 
-            get_page_data = json.loads(step1["text"])[0]["page_data"]
-            page_data = [[0, uid["uid"]] for uid in get_page_data]
+        server.webapi('post', 'dsgroup/editnext', {
+            "page": 1,
+            "page_size": 20,
+            "token": token,
+            "page_data": page_data
+        })
+        server.webapi('post', 'dsgroup/editsave', {
+            "id": 'test_quota_group_' + str(i),
+            "token": token,
+            "page_data": page_data
+        })
 
-            server.webapi('post', 'dsgroup/editnext', {
-                "page": 1,
-                "page_size": 20,
-                "token": token,
-                "page_data": page_data
-            })
-            server.webapi('post', 'dsgroup/editsave', {
-                "id": 'test_quota_group_' + str(i),
-                "token": token,
-                "page_data": page_data
-            })
-
-            server.webapi('post', 'dsgroup/editcancel')
+        server.webapi('post', 'dsgroup/editcancel')
 
     return
 

@@ -7,6 +7,7 @@ from ssh_connect import ssh_conn
 Pass = "'result': 'p'"
 Fail = "'result': 'f'"
 
+
 def verifyNtpMod(c):
     FailFlag = False
     tolog("Verify ntp -a mod")
@@ -27,7 +28,7 @@ def verifyNtpMod(c):
     tolog(' modify NTP dst disable ')
     
     for v in values[8:10]:
-        tolog('' + 'ntp -a mod -s "ntp=' + v + '"' + '')
+        tolog('verify: ' + 'ntp -a mod -s "ntp=' + v + '"' + '')
         
         result = SendCmd(c, 'ntp -a mod -s "ntp=' + v + '"')
         
@@ -35,26 +36,14 @@ def verifyNtpMod(c):
         
         if 'Error (' in result or 'Ntp: Disabled' not in checkResult:
             FailFlag = True
-            tolog(' Fail: ' + 'ntp -a mod -s "ntp=' + v + '"' )
+            tolog(' Fail: ' + 'ntp -a mod -s "ntp=' + v + '"')
 
-    SendCmd(c, 'ntp -a mod -s "ntp=enable,timezone=5:00,server1=210.72.145.44"')
+    SendCmd(c, 'ntp -a mod -s "ntp=enable,server1=210.72.145.44"')
     checkResult = SendCmd(c, 'ntp')
     
     if 'Ntp: Enabled' not in checkResult or "210.72.145.44" not in checkResult:
         FailFlag = True
-        tolog('Fail: ntp -a mod -s "ntp=enable,timezone=5:00,server1=210.72.145.44"')
-
-    tolog(' modify NTP server timezone')
-    
-    for v in values[:2]:
-        tolog('Verify: ntp -a mod -s "timezone=' + v + '"')
-        
-        result = SendCmd(c, 'ntp -a mod -s "timezone=' + v + '"')
-        checkResult = SendCmd(c, 'ntp')
-        
-        if v not in checkResult:
-            FailFlag = True
-            tolog(' Fail: ' + 'ntp -a mod -s "timezone=' + v + '"' )
+        tolog('Fail: ntp -a mod -s "ntp=enable,server1=210.72.145.44"')
 
     tolog(' modify NTP dst enable ')
     
@@ -101,6 +90,7 @@ def verifyNtpMod(c):
 
     return FailFlag
 
+
 def verifyNtp(c):
     FailFlag = False
     tolog("Verify ntp ")
@@ -119,6 +109,7 @@ def verifyNtp(c):
         tolog(Pass)
         
     return FailFlag
+
 
 def verifyNtpList(c):
     FailFlag = False
@@ -139,6 +130,7 @@ def verifyNtpList(c):
         
     return FailFlag
 
+
 def verifyNtpTest(c):
     FailFlag = False
     tolog("Verify ntp -a test")
@@ -157,6 +149,7 @@ def verifyNtpTest(c):
         tolog(Pass)
 
     return FailFlag
+
 
 def verifyNtpSync(c):
     FailFlag = False
@@ -194,6 +187,7 @@ def verifyNtpInvalidOption(c):
 
     return FailFlag
 
+
 def verifyNtpInvalidParameters(c):
     FailFlag = False
     tolog("Verify ntp invalid parameters")
@@ -224,6 +218,7 @@ def verifyNtpInvalidParameters(c):
         tolog(Pass)
 
     return FailFlag
+
 
 def verifyNtpMissingParameters(c):
     FailFlag = False
