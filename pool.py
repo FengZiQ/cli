@@ -414,6 +414,12 @@ def invalid_settings_parameter(c):
     cli_failed_test = cli_test_failed_test()
 
     # precondition
+    pdId = find_pd_id()
+
+    if len(pdId) > 3:
+
+        server.webapi('post', 'pool', {"name": "expand_pool", "pds": pdId[:2], "raid_level": "raid1"})
+
     server.webapi('post', 'rcache/attach', {"pd_list": [5]})
 
     time.sleep(3)

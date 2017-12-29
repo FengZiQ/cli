@@ -1017,3 +1017,769 @@ Error (0x403): Missing parameter
 
 administrator@cli> 
 'result': 'p'
+
+Expect: different types of pd can not compose the one pool 
+
+pool -a expand -i 0 -p 5
+Error (0x4100104): Incorrect parameters: Extend RAID level 5 requires at least 3 physical drives.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a add -s "name=1,raid=0" -p 513
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 513 (0,512)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a add -s "name=2,raid=7" -p 1,2,3,4,5
+Error (0x2013): Invalid setting parameters
+raid: invalid setting 7 (0|1|5|6|10|50|60)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a add -s "name=3,raid=0,stripe=64K" -p 1
+Error (0x2013): Invalid setting parameters
+stripe: invalid setting 64K (64kb|128kb|256kb|512kb|1mb)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a add -s "name=4,raid=0,sector=512KB" -p 1
+Error (0x2013): Invalid setting parameters
+sector: invalid setting 512KB (512b|1kb|2kb|4kb)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a add -s "name=5,raid=50,axle=33" -p 1
+Error (0x2013): Invalid setting parameters
+axle: invalid setting 33 (1,16)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a add -s "name=6,raid=0,ctrlid=3" -p 1
+Error (0x2013): Invalid setting parameters
+ctrlid: invalid setting 3 (1,2)
+
+administrator@cli> 
+
+Expect: Physical drive in use
+
+pool -a add -s "name=process_test,raid=0" -p 5
+Error (0x4021): Physical drive in use
+Physical drive in use
+
+administrator@cli> 
+
+Expect: name contain only alphanumeric characters and underscores
+
+pool -a add -s "name=,raid=0" -p 1
+Error (0x2013): Invalid setting parameters
+name contain only alphanumeric characters and underscores
+
+administrator@cli> 
+
+Expect: Setting parameters too long
+
+pool -a add -s "name=test_name_test_name_test_name_123,raid=0" -p 1
+Error (0x2014): Setting parameters too long
+name: invalid setting test_name_test_name_test_name_123
+
+administrator@cli> 
+
+Expect: name contain only alphanumeric characters and underscores
+
+pool -a add -s "name=a#,raid=0" -p 1
+Error (0x2013): Invalid setting parameters
+name contain only alphanumeric characters and underscores
+
+administrator@cli> 
+
+Expect: name contain only alphanumeric characters and underscores
+
+pool -a mod -s "name=b*" -i 1
+Error (0x2013): Invalid setting parameters
+name contain only alphanumeric characters and underscores
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -i 32
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 32 (0,31)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a mod -s "name=8" -i 32
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 32 (0,31)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a del -i 32
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 32 (0,31)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool 1
+Error (0x2013): Invalid setting parameters
+invalid setting: 1
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|mod|add|del|expand)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a add 1
+Error (0x2013): Invalid setting parameters
+invalid setting: 1
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a add test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a mod 1
+Error (0x2013): Invalid setting parameters
+invalid setting: 1
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a mod test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a del 1
+Error (0x2013): Invalid setting parameters
+invalid setting: 1
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a del test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a expand 1
+Error (0x2013): Invalid setting parameters
+invalid setting: 1
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a expand test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+'result': 'p'
+
+Expect: different types of pd can not compose the one pool 
+
+pool -a expand -i 0 -p 6,16
+Error (0x4100102): Empty query result, please check input parameters. Pool id=[0] is not existed.
+
+administrator@cli> 
+
+Fail: please check out Incorrect parameters
+
+
+Expect: Invalid setting parameters
+
+pool -a add -s "name=1,raid=0" -p 513
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 513 (0,512)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a add -s "name=2,raid=7" -p 1,2,3,4,5
+Error (0x2013): Invalid setting parameters
+raid: invalid setting 7 (0|1|5|6|10|50|60)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a add -s "name=3,raid=0,stripe=64K" -p 1
+Error (0x2013): Invalid setting parameters
+stripe: invalid setting 64K (64kb|128kb|256kb|512kb|1mb)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a add -s "name=4,raid=0,sector=512KB" -p 1
+Error (0x2013): Invalid setting parameters
+sector: invalid setting 512KB (512b|1kb|2kb|4kb)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a add -s "name=5,raid=50,axle=33" -p 1
+Error (0x2013): Invalid setting parameters
+axle: invalid setting 33 (1,16)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a add -s "name=6,raid=0,ctrlid=3" -p 1
+Error (0x2013): Invalid setting parameters
+ctrlid: invalid setting 3 (1,2)
+
+administrator@cli> 
+
+Expect: Physical drive in use
+
+pool -a add -s "name=process_test,raid=0" -p 5
+Error (0x4021): Physical drive in use
+Physical drive in use
+
+administrator@cli> 
+
+Expect: name contain only alphanumeric characters and underscores
+
+pool -a add -s "name=,raid=0" -p 1
+Error (0x2013): Invalid setting parameters
+name contain only alphanumeric characters and underscores
+
+administrator@cli> 
+
+Expect: Setting parameters too long
+
+pool -a add -s "name=test_name_test_name_test_name_123,raid=0" -p 1
+Error (0x2014): Setting parameters too long
+name: invalid setting test_name_test_name_test_name_123
+
+administrator@cli> 
+
+Expect: name contain only alphanumeric characters and underscores
+
+pool -a add -s "name=a#,raid=0" -p 1
+Error (0x2013): Invalid setting parameters
+name contain only alphanumeric characters and underscores
+
+administrator@cli> 
+
+Expect: name contain only alphanumeric characters and underscores
+
+pool -a mod -s "name=b*" -i 1
+Error (0x2013): Invalid setting parameters
+name contain only alphanumeric characters and underscores
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -i 32
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 32 (0,31)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a mod -s "name=8" -i 32
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 32 (0,31)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a del -i 32
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 32 (0,31)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool 1
+Error (0x2013): Invalid setting parameters
+invalid setting: 1
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|mod|add|del|expand)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a add 1
+Error (0x2013): Invalid setting parameters
+invalid setting: 1
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a add test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a mod 1
+Error (0x2013): Invalid setting parameters
+invalid setting: 1
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a mod test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a del 1
+Error (0x2013): Invalid setting parameters
+invalid setting: 1
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a del test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a expand 1
+Error (0x2013): Invalid setting parameters
+invalid setting: 1
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a expand test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+'result': 'f'
+
+Expect: different types of pd can not compose the one pool 
+
+pool -a expand -i 0 -p 6,16
+
+administrator@cli> 
+
+Fail: pool -a expand -i 0 -p 6,16
+
+
+Expect: Invalid setting parameters
+
+pool -a add -s "name=1,raid=0" -p 513
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 513 (0,512)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a add -s "name=2,raid=7" -p 1,2,3,4,5
+Error (0x2013): Invalid setting parameters
+raid: invalid setting 7 (0|1|5|6|10|50|60)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a add -s "name=3,raid=0,stripe=64K" -p 1
+Error (0x2013): Invalid setting parameters
+stripe: invalid setting 64K (64kb|128kb|256kb|512kb|1mb)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a add -s "name=4,raid=0,sector=512KB" -p 1
+Error (0x2013): Invalid setting parameters
+sector: invalid setting 512KB (512b|1kb|2kb|4kb)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a add -s "name=5,raid=50,axle=33" -p 1
+Error (0x2013): Invalid setting parameters
+axle: invalid setting 33 (1,16)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a add -s "name=6,raid=0,ctrlid=3" -p 1
+Error (0x2013): Invalid setting parameters
+ctrlid: invalid setting 3 (1,2)
+
+administrator@cli> 
+
+Expect: Physical drive in use
+
+pool -a add -s "name=process_test,raid=0" -p 5
+Error (0x4021): Physical drive in use
+Physical drive in use
+
+administrator@cli> 
+
+Expect: name contain only alphanumeric characters and underscores
+
+pool -a add -s "name=,raid=0" -p 1
+Error (0x2013): Invalid setting parameters
+name contain only alphanumeric characters and underscores
+
+administrator@cli> 
+
+Expect: Setting parameters too long
+
+pool -a add -s "name=test_name_test_name_test_name_123,raid=0" -p 1
+Error (0x2014): Setting parameters too long
+name: invalid setting test_name_test_name_test_name_123
+
+administrator@cli> 
+
+Expect: name contain only alphanumeric characters and underscores
+
+pool -a add -s "name=a#,raid=0" -p 1
+Error (0x2013): Invalid setting parameters
+name contain only alphanumeric characters and underscores
+
+administrator@cli> 
+
+Expect: name contain only alphanumeric characters and underscores
+
+pool -a mod -s "name=b*" -i 1
+Error (0x2013): Invalid setting parameters
+name contain only alphanumeric characters and underscores
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -i 32
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 32 (0,31)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a mod -s "name=8" -i 32
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 32 (0,31)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a del -i 32
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 32 (0,31)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool 1
+Error (0x2013): Invalid setting parameters
+invalid setting: 1
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|mod|add|del|expand)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a add 1
+Error (0x2013): Invalid setting parameters
+invalid setting: 1
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a add test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a mod 1
+Error (0x2013): Invalid setting parameters
+invalid setting: 1
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a mod test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a del 1
+Error (0x2013): Invalid setting parameters
+invalid setting: 1
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a del test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a expand 1
+Error (0x2013): Invalid setting parameters
+invalid setting: 1
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+pool -a expand test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+'result': 'f'
+
+Expect: Missing parameter
+
+pool -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+pool -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+pool -a add
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+pool -a add -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+pool -a add -s "name=1,raid=0"
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+pool -a add -s "name=1,raid=0" -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+pool -a add -s "name=1" -p 1
+Error (0x403): Missing parameter
+missing parameter 'raid' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+pool -a add -s "raid=0" -p 1
+Error (0x403): Missing parameter
+missing parameter 'name' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+pool -a mod
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+pool -a mod -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+pool -a expand
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a expand'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+pool -a expand -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+pool -a expand -s "axle=1"
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a expand'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+pool -a expand -s "axle=1" -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+pool -a expand -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+pool -a del
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a del'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+pool -a del -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+'result': 'p'
