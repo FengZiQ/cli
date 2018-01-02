@@ -33,13 +33,20 @@ def precondition():
 
             pdId = find_pd_id()
             # create pool
-            server.webapi('post', 'pool', {"name": "T_replication_0", "pds": pdId[:3], "raid_level": "raid5"})
 
-            server.webapi('post', 'pool', {"name": "T_replication_1", "pds": pdId[3:6], "raid_level": "raid5"})
+            if len(pdId) > 0:
 
-            server.webapi('post', 'pool', {"name": "T_replication_2", "pds": [pdId[6]], "raid_level": "raid0"})
+                server.webapi('post', 'pool', {"name": "T_replication_0", "pds": pdId[:3], "raid_level": "raid5"})
 
-            server.webapi('post', 'pool', {"name": "T_replication_3", "pds": [15], "raid_level": "raid0"})
+                server.webapi('post', 'pool', {"name": "T_replication_1", "pds": pdId[3:6], "raid_level": "raid5"})
+
+                server.webapi('post', 'pool', {"name": "T_replication_2", "pds": [pdId[6]], "raid_level": "raid0"})
+
+                server.webapi('post', 'pool', {"name": "T_replication_3", "pds": [15], "raid_level": "raid0"})
+
+            else:
+
+                tolog('precondition is failed\r\n')
 
             # create source volume
             for i in range(6):

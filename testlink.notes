@@ -1,6 +1,1175 @@
 
 Expect: Missing parameter
 
+migrate -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+migrate -a start
+Error (0x403): Missing parameter
+-i source volumd ID is missed
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+migrate -a start -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+migrate -a start -t local
+Error (0x403): Missing parameter
+-i source volumd ID is missed
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+migrate -a start -t local -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+migrate -a start -t local -i 0 -p 2 -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+migrate -a stop
+Error (0x403): Missing parameter
+-i source volumd ID is missed
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+migrate -a stop -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+'result': 'p'
+
+Expect: spare 0 sc should be started
+
+sc -a start -i 0
+
+administrator@cli> 
+
+Expect: spare 1 sc should be started
+
+sc -a start -i 1
+
+administrator@cli> 
+'result': 'p'
+
+Expect: all of sc should be listed
+
+sc
+===============================================================================
+SpareId                     PdId                    Status                     
+===============================================================================
+0                           8                       Healthy                    
+1                           9                       Healthy                    
+
+administrator@cli> 
+
+Expect: specific sc should be listed
+
+sc -i 0
+===============================================================================
+SpareId                     PdId                    Status                     
+===============================================================================
+0                           8                       Healthy                    
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Invalid setting parameters
+
+sc test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+sc -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+sc -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|start)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+sc -a start test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+sc -a start -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Invalid option for the command or the action
+
+sc -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+sc -a -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+sc -a start -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Invalid option for the command or the action
+
+sc -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+sc -a -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+sc -a start -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+'result': 'p'
+
+Expect: allowip should be set by "ip=1.0.0.0, permission=ro, squash=root"
+
+allowip -a add -t nasshare -d 0 -s "ip=1.0.0.0, permission=ro, squash=root"
+
+administrator@cli> 
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         1.0.0.0                                 RO          root_squash      
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=126.255.255.254, permission=rw, squash=all"
+
+allowip -a add -t nasshare -d 0 -s "ip=126.255.255.254, permission=rw, squash=all"
+
+administrator@cli> 
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         1.0.0.0                                 RO          root_squash      
+1         126.255.255.254                         RW          all_squash       
+
+administrator@cli> 
+
+Fail: please check out rw
+
+
+Expect: allowip should be set by "ip=128.0.0.0, permission=ro, squash=root"
+
+allowip -a add -t snapshot -d 0 -s "ip=128.0.0.0, permission=ro, squash=root"
+
+administrator@cli> 
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         128.0.0.0                               RO          root_squash      
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=191.255.255.254, permission=rw, squash=noroot"
+
+allowip -a add -t snapshot -d 0 -s "ip=191.255.255.254, permission=ro, squash=noroot"
+
+administrator@cli> 
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         128.0.0.0                               RO          root_squash      
+1         191.255.255.254                         RO          no_root_squash   
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=192.0.0.0, permission=ro, squash=all"
+
+allowip -a add -t clone -d 0 -s "ip=192.0.0.0, permission=ro, squash=all"
+
+administrator@cli> 
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         192.0.0.0                               RO          all_squash       
+
+administrator@cli> 
+
+Fail: please check out ro
+
+
+Expect: allowip should be set by "ip=223.255.255.254, permission=rw, squash=root"
+
+allowip -a add -t clone -d 0 -s "ip=223.255.255.254, permission=rw, squash=root"
+
+administrator@cli> 
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         192.0.0.0                               RO          all_squash       
+1         223.255.255.254                         RW          root_squash      
+
+administrator@cli> 
+
+Fail: please check out rw
+
+'result': 'f'
+
+Expect: Missing parameter
+
+allowip -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a add -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a add -t nasshare -d 
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a add -t nasshare -d 0 -s 
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a add -t nasshare -d 0 -s "permission=ro,squash=root"
+Error (0x403): Missing parameter
+missing parameter 'ip' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a add -t nasshare -d 0 -s "ip=0.0.0.0,permission=ro"
+Error (0x403): Missing parameter
+missing parameter 'squash' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a add -t nasshare -d 0 -s "ip=255.255.255.255,squash=root"
+Error (0x403): Missing parameter
+missing parameter 'permission' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a mod
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a mod -t nasshare -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a mod -t nasshare -d 0 -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a del
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a del'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a del -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a del -t nasshare -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a del -t nasshare -d 0 -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+'result': 'p'
+
+Expect: allowip should be set by "ip=1.0.0.0, permission=ro, squash=root"
+
+allowip -a add -t nasshare -d 0 -s "ip=1.0.0.0, permission=ro, squash=root"
+
+administrator@cli> 
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         1.0.0.0                                 RO          root_squash      
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=126.255.255.254, permission=rw, squash=all"
+
+allowip -a add -t nasshare -d 0 -s "ip=126.255.255.254, permission=rw, squash=all"
+
+administrator@cli> 
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         1.0.0.0                                 RO          root_squash      
+1         126.255.255.254                         RW          all_squash       
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=128.0.0.0, permission=ro, squash=root"
+
+allowip -a add -t snapshot -d 0 -s "ip=128.0.0.0, permission=ro, squash=root"
+
+administrator@cli> 
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         128.0.0.0                               RO          root_squash      
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=191.255.255.254, permission=rw, squash=noroot"
+
+allowip -a add -t snapshot -d 0 -s "ip=191.255.255.254, permission=ro, squash=noroot"
+
+administrator@cli> 
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         128.0.0.0                               RO          root_squash      
+1         191.255.255.254                         RO          no_root_squash   
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=192.0.0.0, permission=ro, squash=all"
+
+allowip -a add -t clone -d 0 -s "ip=192.0.0.0, permission=ro, squash=all"
+
+administrator@cli> 
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         192.0.0.0                               RO          all_squash       
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=223.255.255.254, permission=rw, squash=root"
+
+allowip -a add -t clone -d 0 -s "ip=223.255.255.254, permission=rw, squash=root"
+
+administrator@cli> 
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         192.0.0.0                               RO          all_squash       
+1         223.255.255.254                         RW          root_squash      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Missing parameter
+
+allowip -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a add -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a add -t nasshare -d 
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a add -t nasshare -d 0 -s 
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a add -t nasshare -d 0 -s "permission=ro,squash=root"
+Error (0x403): Missing parameter
+missing parameter 'ip' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a add -t nasshare -d 0 -s "ip=0.0.0.0,permission=ro"
+Error (0x403): Missing parameter
+missing parameter 'squash' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a add -t nasshare -d 0 -s "ip=255.255.255.255,squash=root"
+Error (0x403): Missing parameter
+missing parameter 'permission' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a mod
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a mod -t nasshare -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a mod -t nasshare -d 0 -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a del
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a del'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a del -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a del -t nasshare -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a del -t nasshare -d 0 -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+'result': 'p'
+
+Expect: replication should be started by "name=T, syncmode=async"
+
+replication -a start -i 2 -p 1 -s "name=T, syncmode=async"
+
+administrator@cli> 
+volume -i 6 -v
+-------------------------------------------------------------------------------
+Id: 6                                   Name: T
+PoolId: 1                               PoolName: T_replication_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 4 GB                     UsedCapacity: 4 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-02 09:46:02
+PreferCtrlId: 2                         AdvType: Replication
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Async
+AdvStatus: Warning                      AdvProgress: 0.0
+
+administrator@cli> 
+
+Fail: please check out AdvStatus: Syncing
+
+
+Expect: replication should be started by "name=t2, syncmode=semi-sync"
+
+replication -a start -i 3 -p 1 -s "name=t2, syncmode=semi-sync"
+
+administrator@cli> 
+volume -i 7 -v
+-------------------------------------------------------------------------------
+Id: 7                                   Name: t2
+PoolId: 1                               PoolName: T_replication_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 4 GB                     UsedCapacity: 4 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-02 09:46:06
+PreferCtrlId: 2                         AdvType: Replication
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Semi-Sync
+AdvStatus: Syncing                      AdvProgress: 0.3
+
+administrator@cli> 
+
+Expect: replication should be started by "name=test_Test_Test_Test_Test_Test31, syncmode=sync"
+
+replication -a start -i 4 -p 0 -s "name=test_Test_Test_Test_Test_Test31, syncmode=sync"
+
+administrator@cli> 
+volume -i 8 -v
+-------------------------------------------------------------------------------
+Id: 8                                   Name: test_Test_Test_Test_Test_Test31
+PoolId: 0                               PoolName: T_replication_0
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 107.22 GB        UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-02 09:46:10
+PreferCtrlId: 2                         AdvType: Replication
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 5.1
+
+administrator@cli> 
+
+Expect: replication should be started by "name=test_Test_Test_Test_Test_Test_32"
+
+replication -a start -i 5 -p 0 -s "name=test_Test_Test_Test_Test_Test_32"
+
+administrator@cli> 
+volume -i 5 -v
+-------------------------------------------------------------------------------
+Id: 5                                   Name: T_replication_vol_5
+PoolId: 1                               PoolName: T_replication_1
+Status: Exported                        ExportedId: 5
+ExportedWWN: 225200015513a31e           OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-02 09:46:01
+PreferCtrlId: 2                         AdvType: Replication
+AdvKind: Local                          AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 7.2
+
+administrator@cli> 
+'result': 'f'
+
+Expect: Max 4 pairs of replication
+
+replication -a start -i 0 -p 0 -s "name=firth_replica"
+Error (0x4100104): Incorrect parameters: Support maximum 4 local replication!
+
+administrator@cli> 
+
+Expect: destination volume should not be exported
+
+volume -a export -i 6
+Error (0x4100104): Incorrect parameters: Destination volume of replication in Active_Passive mode cannot be exported.
+
+administrator@cli> 
+
+Expect: destination volume should not be expanded
+
+volume -a mod -i 6 -s "capacity=6GB"
+Error (0x4100104): Incorrect parameters: Volume is replication or migration Volume.
+
+administrator@cli> 
+
+Expect: destination volume should not be modified
+
+volume -a mod -i 6 -s "name=no_way"
+Error (0x4100104): Incorrect parameters: Volume is replication or migration Volume.
+
+administrator@cli> 
+
+Expect: destination volume should not create snapshot
+
+snapshot -a add -t volume -d 6 -s "name=test_replica"
+Error (0x4100104): Incorrect parameters: Destination volume of replication or migration cannot create snapshot.
+
+administrator@cli> 
+
+Expect: destination volume should not be added for lunmap
+
+lunmap -a add -p volume -i 0 -l 6 -m 2
+Error (0x402): Invalid parameter
+The volume/snapshot/clone is un-exported
+
+administrator@cli> 
+
+Expect: destination volume should not be deleted
+
+volume -a del -i 6
+Error (0x4100104): Incorrect parameters: Volume is replication or migration Volume.
+
+administrator@cli> 
+
+Expect: source volume should not be expanded
+
+volume -a mod -i 2 -s "capacity=5GB"
+Error (0x4100104): Incorrect parameters: Volume is replication or migration Volume.
+
+administrator@cli> 
+
+Expect: source volume should not be deleted
+
+volume -a del -i 2
+Error (0x4100104): Incorrect parameters: Volume is replication or migration Volume.
+
+administrator@cli> 
+
+Expect: source pool should not be deleted
+
+pool -a del -i 1 -f -y
+Error (0x4100104): Incorrect parameters: There are replication or migration Volume in the Pool.
+
+administrator@cli> 
+
+Expect: destination pool should not be deleted
+
+pool -a del -i 0 -f -y
+Error (0x4100104): Incorrect parameters: There are replication or migration Volume in the Pool.
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Max 4 pairs of replication
+
+replication -a start -i 0 -p 0 -s "name=firth_replica"
+Error (0x4100104): Incorrect parameters: Support maximum 4 local replication!
+
+administrator@cli> 
+
+Expect: destination volume should not be exported
+
+volume -a export -i 6
+Error (0x4100104): Incorrect parameters: Destination volume of replication in Active_Passive mode cannot be exported.
+
+administrator@cli> 
+
+Expect: destination volume should not be expanded
+
+volume -a mod -i 6 -s "capacity=6GB"
+Error (0x4100104): Incorrect parameters: Volume is replication or migration Volume.
+
+administrator@cli> 
+
+Expect: destination volume should not be modified
+
+volume -a mod -i 6 -s "name=no_way"
+Error (0x4100104): Incorrect parameters: Volume is replication or migration Volume.
+
+administrator@cli> 
+
+Expect: destination volume should not create snapshot
+
+snapshot -a add -t volume -d 6 -s "name=test_replica"
+Error (0x4100104): Incorrect parameters: Destination volume of replication or migration cannot create snapshot.
+
+administrator@cli> 
+
+Expect: destination volume should not be added for lunmap
+
+lunmap -a add -p volume -i 0 -l 6 -m 2
+Error (0x402): Invalid parameter
+The volume/snapshot/clone is un-exported
+
+administrator@cli> 
+
+Expect: destination volume should not be deleted
+
+volume -a del -i 6
+Error (0x4100104): Incorrect parameters: Volume is replication or migration Volume.
+
+administrator@cli> 
+
+Expect: source volume should not be expanded
+
+volume -a mod -i 2 -s "capacity=5GB"
+Error (0x4100104): Incorrect parameters: Volume is replication or migration Volume.
+
+administrator@cli> 
+
+Expect: source volume should not be deleted
+
+volume -a del -i 2
+Error (0x4100104): Incorrect parameters: Volume is replication or migration Volume.
+
+administrator@cli> 
+
+Expect: source pool should not be deleted
+
+pool -a del -i 1 -f -y
+Error (0x4100104): Incorrect parameters: There are replication or migration Volume in the Pool.
+
+administrator@cli> 
+
+Expect: destination pool should not be deleted
+
+pool -a del -i 0 -f -y
+Error (0x4100104): Incorrect parameters: There are replication or migration Volume in the Pool.
+
+administrator@cli> 
+'result': 'p'
+
+Expect: all of replication should be listed by verbose mode
+
+replication -a list -v
+-------------------------------------------------------------------------------
+Location: Local                         Role: Destination
+Mode: Active-Passive                    SyncMode: Async
+Status: OK                              Description: Ready.
+Progress: 100.0                         SourceVolumeId: 2
+SourceVolumeName: T_replication_vol_2   SourcePoolName: T_replication_0
+SourcePortalIP: 10.128.0.2              DestinationVolumeId: 6
+DestinationVolumeName: T                DestinationPoolName: T_replication_1
+DestinationPortalIP: 10.128.0.2         TotalCapacity: 4 GB
+UsedCapacity: 4 GB
+-------------------------------------------------------------------------------
+Location: Local                         Role: Destination
+Mode: Active-Passive                    SyncMode: Semi-Sync
+Status: OK                              Description: Ready.
+Progress: 100.0                         SourceVolumeId: 3
+SourceVolumeName: T_replication_vol_3   SourcePoolName: T_replication_0
+SourcePortalIP: 10.128.0.2              DestinationVolumeId: 7
+DestinationVolumeName: t2               DestinationPoolName: T_replication_1
+DestinationPortalIP: 10.128.0.2         TotalCapacity: 4 GB
+UsedCapacity: 4 GB
+-------------------------------------------------------------------------------
+Location: Local                         Role: Source
+Mode: Active-Passive                    SyncMode: Sync
+Status: OK                              Description: Ready.
+Progress: 100.0                         SourceVolumeId: 5
+SourceVolumeName: T_replication_vol_5   SourcePoolName: T_replication_1
+SourcePortalIP: 10.128.0.2              DestinationVolumeId: 9
+DestinationVolumeName: test_Test_Test_Test_Test_Test_32
+DestinationPoolName: T_replication_0    DestinationPortalIP: 10.128.0.2
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+-------------------------------------------------------------------------------
+Location: Local                         Role: Source
+Mode: Active-Passive                    SyncMode: Sync
+Status: OK                              Description: Ready.
+Progress: 100.0                         SourceVolumeId: 4
+SourceVolumeName: T_replication_vol_4   SourcePoolName: T_replication_1
+SourcePortalIP: 10.128.0.2              DestinationVolumeId: 8
+DestinationVolumeName: test_Test_Test_Test_Test_Test31
+DestinationPoolName: T_replication_0    DestinationPortalIP: 10.128.0.2
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+
+administrator@cli> 
+'result': 'p'
+
+Expect: specific replication should be stopped
+
+replication -a stop -i 2
+
+administrator@cli> 
+volume -v -i 6
+-------------------------------------------------------------------------------
+Id: 6                                   Name: T
+PoolId: 1                               PoolName: T_replication_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 4 GB                     UsedCapacity: 4 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-02 09:46:02
+PreferCtrlId: 2                         AdvType: 
+
+administrator@cli> 
+'result': 'p'
+
+Expect: replication should be resumed
+
+replication -a resume -i 3
+Error (0x4100999): Fail to execute this method.
+
+administrator@cli> 
+
+Fail: replication -a resume -i 3
+
+'result': 'f'
+
+Expect: replication help document should be displayed
+
+replication -h
+replication
+
+Usage:
+   replication [-a <action>] [-i <ID>] [-p <pool ID>] [-s <settings>]
+
+Summary:
+   The replication command allows the user to replicate volume into another
+   pool.
+   Only with thin-provision disabled volume can be used to replicate. During
+   replication in progress, source volume cannot be expanded or removed;
+   destination volume disallowed to do any operations.
+
+Options:
+
+-a <action>           Which action to perform.
+   list               (Default) Displays the replication status.
+   start              Start a specific replication status.
+   stop               Stop the replication
+   pause              Pause the replication
+   resume             Resume a paused replication
+
+-i <ID>               Source volume ID.
+
+-p <pool id>          Destination pool ID.
+                      Only valid for -a add specified
+
+-s "<option>=<value>"
+                      Used to specify replication settings.
+                      Only valid for -a add specified
+
+   name=              Destination volume name
+
+   syncmode=          sync mode method
+     async
+     semi-sync
+     sync             (Default)
+
+-v                    Verbose mode.  Used with -a list.
+
+Examples:
+   replication -a list
+   replication -a start -i 1 -p 0 -s "name=test, syncmode=async"
+   replication -a stop -i 2
+   replication -a pause -i i
+   replication -a resume -i 1
+Type ' | grep "word1,word2,..."' at the end of each command, to display 
+filtered info.
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Invalid setting parameters
+
+replication test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+replication -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|start|stop|pause|resume)
+
+administrator@cli> 
+
+Expect: destination pool capacity should be more than soure volume
+
+replication -a start -i 0 -p 3 -s "name=test_capacity"
+Error (0x4100104): Incorrect parameters: Destination Pool availiable size is not enough.
+
+administrator@cli> 
+
+Expect: specify nonexistent source volume
+
+replication -a start -i 100 -p 0 -s "name=test_thin"
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: specify nonexistent destination pool
+
+replication -a start -i 0 -p 10 -s "name=test_thin"
+Error (0x4100102): Empty query result, please check input parameters. Pool id=[10] is not existed.
+
+administrator@cli> 
+
+Expect: thin provision volume cannot become source volume
+
+replication -a start -i 1 -p 0 -s "name=test_thin"
+Error (0x4100104): Incorrect parameters: Volume is not full-provision.
+
+administrator@cli> 
+
+Expect: Can not replicate Volume to the same Pool
+
+replication -a start -i 0 -p 2 -s "name=test_thin"
+Error (0x4100104): Incorrect parameters: Can not replicate Volume to the same Pool.
+
+administrator@cli> 
+
+Expect: name contain only alphanumeric characters and underscores
+
+replication -a start -i 0 -p 1 -s "name="
+Error (0x2013): Invalid setting parameters
+name contain only alphanumeric characters and underscores
+
+administrator@cli> 
+
+Expect: name contain only alphanumeric characters and underscores
+
+replication -a start -i 0 -p 1 -s "name=t*&"
+Error (0x2013): Invalid setting parameters
+name contain only alphanumeric characters and underscores
+
+administrator@cli> 
+
+Expect: should hint error when name shall not exceed 32 characters
+
+replication -a start -i 0 -p 1 -s "name=test_test_test_test_test_test_033"
+Error (0x2014): Setting parameters too long
+name shall not exceed 32 characters
+
+administrator@cli> 
+
+Expect: should hint error when specify wrong sync mode
+
+replication -a start -i 0 -p 1 -s "name=test,syncmode=test"
+Error (0x2013): Invalid setting parameters
+syncmode: invalid setting test (async|semi-sync|sync)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+replication -a stop -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+
+Expect: replication should not stop by destination volume
+
+replication -a stop -i 9
+Error (0x4100104): Incorrect parameters: Can not find meta device info by zp163267/ds462254 1.
+
+administrator@cli> 
+
+Fail: please check out zp254243d
+
+
+Expect: Volume id=[20] is not existed
+
+replication -a stop -i 20
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[20] is not existed.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+replication -a pause -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+
+Expect: replication should not pause by destination volume
+
+replication -a pause -i 9
+Error (0x4100999): Fail to execute this method.
+
+administrator@cli> 
+
+Expect: Volume id=[20] is not existed
+
+replication -a pause -i 20
+Error (0x4100999): Fail to execute this method.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+replication -a resume -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+
+Expect: should hint replication doesn't pause
+
+replication -a resume -i 4
+Error (0x4100999): Fail to execute this method.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+replication -a resume -i 9
+Error (0x4100999): Fail to execute this method.
+
+administrator@cli> 
+
+Expect: Volume id=[20] is not existed
+
+replication -a resume -i 20
+Error (0x4100999): Fail to execute this method.
+
+administrator@cli> 
+'result': 'f'
+
+Expect: Missing parameter
+
 replication -a
 Error (0x403): Missing parameter
 -a: missing value
@@ -87,65 +1256,25 @@ Error (0x403): Missing parameter
 
 administrator@cli> 
 'result': 'p'
-precondition is failed
-
 
 Expect: migrate should be started by "syncmode=async"
 
 migrate -a start -t local -i 2 -p 1 -s "syncmode=async"
-
-administrator@cli> 
-volume -i 6 -v
--------------------------------------------------------------------------------
-Id: 6                                   Name: T_migrate_vol_2_migrate
-PoolId: 1                               PoolName: T_migrate_1
-Status: Un-Exported                     OperationalStatus: OK, Synchronizing
-TotalCapacity: 4 GB                     UsedCapacity: 4 GB
-PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
-UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
-Block: 64 KB                            Sector: 4 KB
-Compress: gzip                          Ratio: 1.00x
-SyncMode: disabled                      ThinProv: Disabled
-Logbias: throughput                     RedundantMetaData: all
-CopiesOfNewData: 1                      SnapshotCount: 0
-MaxSnapshotCount: 1024                  CreateDate: 2017-12-28 20:56:59
-PreferCtrlId: 2                         AdvType: Migration
-AdvKind: Local                          AdvRole: Destination
-AdvMode: Active-Passive                 AdvProtocol: Async
-AdvStatus: Syncing                      AdvProgress: 0.3
+Error (0x4100999): Fail to execute this method.
 
 administrator@cli> 
 
-Fail: please check out AdvType: migrate
+Fail: migrate -a start -t local -i 2 -p 1 -s "syncmode=async"
 
 
 Expect: migrate should be started by "syncmode=semi-sync"
 
 migrate -a start -t local -i 3 -p 1 -s "syncmode=semi-sync"
-
-administrator@cli> 
-volume -i 7 -v
--------------------------------------------------------------------------------
-Id: 7                                   Name: T_migrate_vol_3_migrate
-PoolId: 1                               PoolName: T_migrate_1
-Status: Un-Exported                     OperationalStatus: OK, Synchronizing
-TotalCapacity: 4 GB                     UsedCapacity: 4 GB
-PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
-UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
-Block: 64 KB                            Sector: 4 KB
-Compress: gzip                          Ratio: 1.00x
-SyncMode: disabled                      ThinProv: Disabled
-Logbias: throughput                     RedundantMetaData: all
-CopiesOfNewData: 1                      SnapshotCount: 0
-MaxSnapshotCount: 1024                  CreateDate: 2017-12-28 20:57:20
-PreferCtrlId: 2                         AdvType: Migration
-AdvKind: Local                          AdvRole: Destination
-AdvMode: Active-Passive                 AdvProtocol: Semi-Sync
-AdvStatus: Syncing                      AdvProgress: 0.5
+Error (0x4100999): Fail to execute this method.
 
 administrator@cli> 
 
-Fail: please check out AdvType: migrate
+Fail: migrate -a start -t local -i 3 -p 1 -s "syncmode=semi-sync"
 
 
 Expect: migrate should be started by "syncmode=sync"
@@ -166,267 +1295,19 @@ Compress: off                           Ratio: 1.00x
 SyncMode: standard                      ThinProv: Disabled
 Logbias: latency                        RedundantMetaData: all
 CopiesOfNewData: 1                      SnapshotCount: 0
-MaxSnapshotCount: 1024                  CreateDate: 2017-12-28 20:57:56
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-02 09:57:07
 PreferCtrlId: 2                         AdvType: Migration
 AdvKind: Local                          AdvRole: Destination
-AdvMode: Active-Passive                 AdvProtocol: Sync
-AdvStatus: Syncing                      AdvProgress: 2.1
-
-administrator@cli> 
-
-Fail: please check out AdvType: migrate
-
-'result': 'f'
-precondition is failed
-
-
-Expect: migrate should be started by "syncmode=async"
-
-migrate -a start -t local -i 2 -p 1 -s "syncmode=async"
-
-administrator@cli> 
-volume -i 6 -v
--------------------------------------------------------------------------------
-Id: 6                                   Name: T_migrate_vol_2_migrate
-PoolId: 1                               PoolName: T_migrate_1
-Status: Un-Exported                     OperationalStatus: OK, Synchronizing
-TotalCapacity: 4 GB                     UsedCapacity: 4 GB
-PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
-UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
-Block: 64 KB                            Sector: 4 KB
-Compress: gzip                          Ratio: 1.00x
-SyncMode: disabled                      ThinProv: Disabled
-Logbias: throughput                     RedundantMetaData: all
-CopiesOfNewData: 1                      SnapshotCount: 0
-MaxSnapshotCount: 1024                  CreateDate: 2017-12-28 21:32:10
-PreferCtrlId: 2                         AdvType: Migration
-AdvKind: Local                          AdvRole: Destination
-AdvMode: Active-Passive                 AdvProtocol: Async
-AdvStatus: Syncing                      AdvProgress: 0.3
-
-administrator@cli> 
-
-Fail: please check out AdvType: migrate
-
-
-Expect: migrate should be started by "syncmode=semi-sync"
-
-migrate -a start -t local -i 3 -p 1 -s "syncmode=semi-sync"
-
-administrator@cli> 
-volume -i 7 -v
--------------------------------------------------------------------------------
-Id: 7                                   Name: T_migrate_vol_3_migrate
-PoolId: 1                               PoolName: T_migrate_1
-Status: Un-Exported                     OperationalStatus: OK, Synchronizing
-TotalCapacity: 4 GB                     UsedCapacity: 4 GB
-PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
-UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
-Block: 64 KB                            Sector: 4 KB
-Compress: gzip                          Ratio: 1.00x
-SyncMode: disabled                      ThinProv: Disabled
-Logbias: throughput                     RedundantMetaData: all
-CopiesOfNewData: 1                      SnapshotCount: 0
-MaxSnapshotCount: 1024                  CreateDate: 2017-12-28 21:32:32
-PreferCtrlId: 2                         AdvType: Migration
-AdvKind: Local                          AdvRole: Destination
-AdvMode: Active-Passive                 AdvProtocol: Semi-Sync
-AdvStatus: Syncing                      AdvProgress: 0.4
-
-administrator@cli> 
-
-Fail: please check out AdvType: migrate
-
-
-Expect: migrate should be started by "syncmode=sync"
-
-migrate -a start -t local -i 4 -p 0 -s "syncmode=sync"
-
-administrator@cli> 
-volume -i 8 -v
--------------------------------------------------------------------------------
-Id: 8                                   Name: T_migrate_vol_4_migrate
-PoolId: 0                               PoolName: T_migrate_0
-Status: Un-Exported                     OperationalStatus: OK, Synchronizing
-TotalCapacity: 1 GB                     UsedCapacity: 1 GB
-PoolAvailableCapacity: 107.22 GB        UsedCapacityByChild: 0 Byte
-UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
-Block: 8 KB                             Sector: 512 Bytes
-Compress: off                           Ratio: 1.00x
-SyncMode: standard                      ThinProv: Disabled
-Logbias: latency                        RedundantMetaData: all
-CopiesOfNewData: 1                      SnapshotCount: 0
-MaxSnapshotCount: 1024                  CreateDate: 2017-12-28 21:33:06
-PreferCtrlId: 2                         AdvType: Migration
-AdvKind: Local                          AdvRole: Destination
-AdvMode: Active-Passive                 AdvProtocol: Sync
-AdvStatus: Syncing                      AdvProgress: 1.7
-
-administrator@cli> 
-
-Fail: please check out AdvType: migrate
-
-'result': 'f'
-
-Expect: migrate should be started by "syncmode=async"
-
-migrate -a start -t local -i 2 -p 1 -s "syncmode=async"
-
-administrator@cli> 
-volume -i 6 -v
--------------------------------------------------------------------------------
-Id: 6                                   Name: T_migrate_vol_2_migrate
-PoolId: 1                               PoolName: T_migrate_1
-Status: Un-Exported                     OperationalStatus: OK, Synchronizing
-TotalCapacity: 4 GB                     UsedCapacity: 4 GB
-PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
-UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
-Block: 64 KB                            Sector: 4 KB
-Compress: gzip                          Ratio: 1.00x
-SyncMode: disabled                      ThinProv: Disabled
-Logbias: throughput                     RedundantMetaData: all
-CopiesOfNewData: 1                      SnapshotCount: 0
-MaxSnapshotCount: 1024                  CreateDate: 2017-12-28 23:04:14
-PreferCtrlId: 2                         AdvType: Migration
-AdvKind: Local                          AdvRole: Destination
-AdvMode: Active-Passive                 AdvProtocol: Async
-AdvStatus: Syncing                      AdvProgress: 0.3
-
-administrator@cli> 
-
-Expect: migrate should be started by "syncmode=semi-sync"
-
-migrate -a start -t local -i 3 -p 1 -s "syncmode=semi-sync"
-
-administrator@cli> 
-volume -i 7 -v
--------------------------------------------------------------------------------
-Id: 7                                   Name: T_migrate_vol_3_migrate
-PoolId: 1                               PoolName: T_migrate_1
-Status: Un-Exported                     OperationalStatus: OK, Synchronizing
-TotalCapacity: 4 GB                     UsedCapacity: 4 GB
-PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
-UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
-Block: 64 KB                            Sector: 4 KB
-Compress: gzip                          Ratio: 1.00x
-SyncMode: disabled                      ThinProv: Disabled
-Logbias: throughput                     RedundantMetaData: all
-CopiesOfNewData: 1                      SnapshotCount: 0
-MaxSnapshotCount: 1024                  CreateDate: 2017-12-28 23:04:18
-PreferCtrlId: 2                         AdvType: Migration
-AdvKind: Local                          AdvRole: Destination
-AdvMode: Active-Passive                 AdvProtocol: Semi-Sync
-AdvStatus: Syncing                      AdvProgress: 1.1
-
-administrator@cli> 
-
-Expect: migrate should be started by "syncmode=sync"
-
-migrate -a start -t local -i 4 -p 0 -s "syncmode=sync"
-
-administrator@cli> 
-volume -i 8 -v
--------------------------------------------------------------------------------
-Id: 8                                   Name: T_migrate_vol_4_migrate
-PoolId: 0                               PoolName: T_migrate_0
-Status: Un-Exported                     OperationalStatus: OK, Synchronizing
-TotalCapacity: 1 GB                     UsedCapacity: 1 GB
-PoolAvailableCapacity: 107.22 GB        UsedCapacityByChild: 0 Byte
-UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
-Block: 8 KB                             Sector: 512 Bytes
-Compress: off                           Ratio: 1.00x
-SyncMode: standard                      ThinProv: Disabled
-Logbias: latency                        RedundantMetaData: all
-CopiesOfNewData: 1                      SnapshotCount: 0
-MaxSnapshotCount: 1024                  CreateDate: 2017-12-28 23:04:22
-PreferCtrlId: 2                         AdvType: Migration
-AdvKind: Local                          AdvRole: Destination
-AdvMode: Active-Passive                 AdvProtocol: Sync
-AdvStatus: Syncing                      AdvProgress: 3.0
-
-administrator@cli> 
-'result': 'p'
-
-Expect: migrate should be started by "syncmode=async"
-
-migrate -a start -t local -i 2 -p 1 -s "syncmode=async"
-
-administrator@cli> 
-volume -i 6 -v
--------------------------------------------------------------------------------
-Id: 6                                   Name: T_migrate_vol_2_migrate
-PoolId: 1                               PoolName: T_migrate_1
-Status: Un-Exported                     OperationalStatus: OK, Synchronizing
-TotalCapacity: 4 GB                     UsedCapacity: 4 GB
-PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
-UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
-Block: 64 KB                            Sector: 4 KB
-Compress: gzip                          Ratio: 1.00x
-SyncMode: disabled                      ThinProv: Disabled
-Logbias: throughput                     RedundantMetaData: all
-CopiesOfNewData: 1                      SnapshotCount: 0
-MaxSnapshotCount: 1024                  CreateDate: 2017-12-28 23:16:11
-PreferCtrlId: 2                         AdvType: Migration
-AdvKind: Local                          AdvRole: Destination
-AdvMode: Active-Passive                 AdvProtocol: Async
+AdvMode: Active-Active                  AdvProtocol: Sync
 AdvStatus: Warning                      AdvProgress: 0.0
 
 administrator@cli> 
 
+Fail: please check out AdvMode: Active-Passive
+
+
 Fail: please check out AdvStatus: Syncing
 
-
-Expect: migrate should be started by "syncmode=semi-sync"
-
-migrate -a start -t local -i 3 -p 1 -s "syncmode=semi-sync"
-
-administrator@cli> 
-volume -i 7 -v
--------------------------------------------------------------------------------
-Id: 7                                   Name: T_migrate_vol_3_migrate
-PoolId: 1                               PoolName: T_migrate_1
-Status: Un-Exported                     OperationalStatus: OK, Synchronizing
-TotalCapacity: 4 GB                     UsedCapacity: 4 GB
-PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
-UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
-Block: 64 KB                            Sector: 4 KB
-Compress: gzip                          Ratio: 1.00x
-SyncMode: disabled                      ThinProv: Disabled
-Logbias: throughput                     RedundantMetaData: all
-CopiesOfNewData: 1                      SnapshotCount: 0
-MaxSnapshotCount: 1024                  CreateDate: 2017-12-28 23:16:15
-PreferCtrlId: 2                         AdvType: Migration
-AdvKind: Local                          AdvRole: Destination
-AdvMode: Active-Passive                 AdvProtocol: Semi-Sync
-AdvStatus: Syncing                      AdvProgress: 0.3
-
-administrator@cli> 
-
-Expect: migrate should be started by "syncmode=sync"
-
-migrate -a start -t local -i 4 -p 0 -s "syncmode=sync"
-
-administrator@cli> 
-volume -i 8 -v
--------------------------------------------------------------------------------
-Id: 8                                   Name: T_migrate_vol_4_migrate
-PoolId: 0                               PoolName: T_migrate_0
-Status: Un-Exported                     OperationalStatus: OK, Synchronizing
-TotalCapacity: 1 GB                     UsedCapacity: 1 GB
-PoolAvailableCapacity: 107.22 GB        UsedCapacityByChild: 0 Byte
-UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
-Block: 8 KB                             Sector: 512 Bytes
-Compress: off                           Ratio: 1.00x
-SyncMode: standard                      ThinProv: Disabled
-Logbias: latency                        RedundantMetaData: all
-CopiesOfNewData: 1                      SnapshotCount: 0
-MaxSnapshotCount: 1024                  CreateDate: 2017-12-28 23:16:20
-PreferCtrlId: 2                         AdvType: Migration
-AdvKind: Local                          AdvRole: Destination
-AdvMode: Active-Passive                 AdvProtocol: Sync
-AdvStatus: Syncing                      AdvProgress: 5.9
-
-administrator@cli> 
 
 Expect: migrate should be started by default volues
 
@@ -437,8 +1318,8 @@ volume -i 5 -v
 -------------------------------------------------------------------------------
 Id: 5                                   Name: T_migrate_vol_5
 PoolId: 1                               PoolName: T_migrate_1
-Status: Exported                        ExportedId: 6
-ExportedWWN: 226f000155e6c393           OperationalStatus: OK, Synchronizing
+Status: Exported                        ExportedId: -1
+ExportedWWN: 22a20001558ecae2           OperationalStatus: OK, Synchronizing
 TotalCapacity: 1 GB                     UsedCapacity: 1 GB
 PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
 UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
@@ -447,192 +1328,711 @@ Compress: off                           Ratio: 1.00x
 SyncMode: standard                      ThinProv: Disabled
 Logbias: latency                        RedundantMetaData: all
 CopiesOfNewData: 1                      SnapshotCount: 0
-MaxSnapshotCount: 1024                  CreateDate: 2017-12-28 23:16:10
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-02 09:56:56
 PreferCtrlId: 2                         AdvType: Migration
 AdvKind: Local                          AdvRole: Source
-AdvMode: Active-Passive                 AdvProtocol: Sync
-AdvStatus: Syncing                      AdvProgress: 2.6
+AdvMode: Active-Active                  AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 0.9
 
 administrator@cli> 
 
-Fail: please check out AdvRole: Destination
+Fail: please check out AdvMode: Active-Passive
 
 'result': 'f'
 
-Expect: Max 4 pairs of migrate
+Expect: migrate should be started by "syncmode=async"
 
-migrate -a start -i 0 -p 1
-Error (0x4100104): Incorrect parameters: Support maximum 4 local migration!
+migrate -a start -t local -i 2 -p 1 -s "syncmode=async"
+Error (0x4100999): Fail to execute this method.
 
 administrator@cli> 
 
-Expect: destination volume should not be exported
+Fail: migrate -a start -t local -i 2 -p 1 -s "syncmode=async"
 
-volume -a export -i 6
+
+Expect: migrate should be started by "syncmode=semi-sync"
+
+migrate -a start -t local -i 3 -p 1 -s "syncmode=semi-sync"
+Error (0x4100999): Fail to execute this method.
 
 administrator@cli> 
 
-Fail: volume -a export -i 6
+Fail: migrate -a start -t local -i 3 -p 1 -s "syncmode=semi-sync"
 
 
-Expect: destination volume should not be expanded
+Expect: migrate should be started by "syncmode=sync"
 
-volume -a mod -i 6 -s "capacity=6GB"
+migrate -a start -t local -i 4 -p 0 -s "syncmode=sync"
 
 administrator@cli> 
-
-Fail: volume -a mod -i 6 -s "capacity=6GB"
-
-
-Expect: destination volume should not be modified
-
-volume -a mod -i 6 -s "name=no_way"
-
-administrator@cli> 
-
-Fail: volume -a mod -i 6 -s "name=no_way"
-
-
-Expect: destination volume should not create snapshot
-
-snapshot -a add -t volume -d 6 -s "name=test_replica"
-
-administrator@cli> 
-
-Fail: snapshot -a add -t volume -d 6 -s "name=test_replica"
-
-
-Expect: destination volume should not be added for lunmap
-
-lunmap -a add -p volume -i 0 -l 6 -m 2
-
-administrator@cli> 
-
-Fail: lunmap -a add -p volume -i 0 -l 6 -m 2
-
-
-Expect: destination volume should not be deleted
-
-volume -a del -i 6
-Error (0x4100107): Fail to delete Volume.
-
-administrator@cli> 
-
-Expect: source volume should not be expanded
-
-volume -a mod -i 2 -s "capacity=5GB"
-
-administrator@cli> 
-
-Fail: volume -a mod -i 2 -s "capacity=5GB"
-
-
-Expect: source volume should not be deleted
-
-volume -a del -i 2
-Error (0x4100107): Fail to delete Volume.
-
-administrator@cli> 
-
-Expect: source pool should not be deleted
-
-pool -a del -i 1 -f -y
-Error (0x4100107): Fail to delete Pool.
-
-administrator@cli> 
-
-Expect: destination pool should not be deleted
-
-pool -a del -i 0 -f -y
-Error (0x4100107): Fail to delete Pool.
-
-administrator@cli> 
-'result': 'f'
-
-Expect: specific migrate should be stopped
-
-migrate -a stop -i 2
-
-administrator@cli> 
-volume -v -i 6
+volume -i 8 -v
 -------------------------------------------------------------------------------
-Id: 6                                   Name: no_way
-PoolId: 1                               PoolName: T_migrate_1
+Id: 8                                   Name: T_migrate_vol_4_migrate
+PoolId: 0                               PoolName: T_migrate_0
 Status: Un-Exported                     OperationalStatus: OK, Synchronizing
-TotalCapacity: 6 GB                     UsedCapacity: 6 GB
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 107.22 GB        UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-02 10:04:23
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Active                  AdvProtocol: Sync
+AdvStatus: Warning                      AdvProgress: 0.0
+
+administrator@cli> 
+
+Fail: please check out AdvMode: Active-Passive
+
+
+Fail: please check out AdvStatus: Syncing
+
+
+Expect: migrate should be started by default volues
+
+migrate -a start -t local -i 5 -p 0
+
+administrator@cli> 
+volume -i 5 -v
+-------------------------------------------------------------------------------
+Id: 5                                   Name: T_migrate_vol_5
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: -1
+ExportedWWN: 223b00015584b76c           OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
 PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
 UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
-Block: 64 KB                            Sector: 4 KB
-Compress: gzip                          Ratio: 1.00x
-SyncMode: disabled                      ThinProv: Disabled
-Logbias: throughput                     RedundantMetaData: all
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
 CopiesOfNewData: 1                      SnapshotCount: 0
-MaxSnapshotCount: 1024                  CreateDate: 2017-12-28 23:16:11
-PreferCtrlId: 2                         AdvType: 
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-02 10:04:07
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Source
+AdvMode: Active-Active                  AdvProtocol: Sync
+AdvStatus: Warning                      AdvProgress: 0.0
+
+administrator@cli> 
+
+Fail: please check out AdvMode: Active-Passive
+
+
+Fail: please check out AdvStatus: Syncing
+
+'result': 'f'
+
+Expect: Missing parameter
+
+migrate -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+migrate -a start
+Error (0x403): Missing parameter
+-i source volumd ID is missed
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+migrate -a start -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+migrate -a start -t local
+Error (0x403): Missing parameter
+-i source volumd ID is missed
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+migrate -a start -t local -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+migrate -a start -t local -i 0 -p 2 -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+migrate -a stop
+Error (0x403): Missing parameter
+-i source volumd ID is missed
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+migrate -a stop -i
+Error (0x403): Missing parameter
+-i: missing value
 
 administrator@cli> 
 'result': 'p'
 
-Expect: migrate help document should be displayed
+Expect: migrate should be started by "syncmode=async"
 
-migrate -h
-migrate
+migrate -a start -t local -i 2 -p 1 -s "syncmode=async"
+Error (0x4100999): Fail to execute this method.
 
-Usage:
-   migrate [-a <action>] [-i <ID>] [-t <location>] [-p <pool ID>]
-           [-s <settings>]
+administrator@cli> 
 
-Summary:
-   The migrate command allows the user to migrate volume into another pool
-   which located in same subsystem (Local) or other subsystem (Remote).
-   As well as to stop a specified migration.
-   Only with thin-provision disabled volume can be used to migrate. During
-   migration in progress, source volume cannot be expanded or removed;
-   destination volume disallowed to do any operations.
+Fail: migrate -a start -t local -i 2 -p 1 -s "syncmode=async"
+
 
-Options:
+Expect: migrate should be started by "syncmode=semi-sync"
+
+migrate -a start -t local -i 3 -p 1 -s "syncmode=semi-sync"
+Error (0x4100999): Fail to execute this method.
 
--a <action>           Which action to perform.
-   start              (Default) Start a specific migration progress.
-   stop               Stop the migration
+administrator@cli> 
 
--i <ID>               Source volume ID.
+Fail: migrate -a start -t local -i 3 -p 1 -s "syncmode=semi-sync"
+
 
--t <location>         Destination location.
-   local              (Default)
-   remote
+Expect: migrate should be started by "syncmode=sync"
+
+migrate -a start -t local -i 4 -p 0 -s "syncmode=sync"
 
--p <pool ID>          Destination pool ID.
+administrator@cli> 
+volume -i 8 -v
+-------------------------------------------------------------------------------
+Id: 8                                   Name: T_migrate_vol_4_migrate
+PoolId: 0                               PoolName: T_migrate_0
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 107.22 GB        UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-02 10:40:57
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Active                  AdvProtocol: Sync
+AdvStatus: Warning                      AdvProgress: 0.0
 
--s "<option>=<value>"
-                      Used to specify migration settings
-   syncmode=          Sync mode method
-     async
-     semi-sync
-     sync             (Default)
+administrator@cli> 
 
-   srcip=             Source portal IP
-                      Only valid for -t remote specified.
+Fail: please check out AdvMode: Active-Passive
+
 
-   dstip=             Destination portal IP of remote subsystem.
-                      Only valid for -t remote specified.
+Fail: please check out AdvStatus: Syncing
+
 
-   password=          Password of administrator of remote subsystem.
-                      Only valid for -t remote specified.
+Expect: migrate should be started by default volues
+
+migrate -a start -t local -i 5 -p 0
 
-Examples:
-   migrate -a start -i 1 -t local -p 0 -s "syncmode=async"
-   migrate -a start -i 2 -t remote -p 0 -s "sourceip=10.0.0.1,
-     destip=10.0.0.2, password=test"
-Type ' | grep "word1,word2,..."' at the end of each command, to display 
-filtered info.
+administrator@cli> 
+volume -i 5 -v
+-------------------------------------------------------------------------------
+Id: 5                                   Name: T_migrate_vol_5
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: -1
+ExportedWWN: 22b50001550e8c91           OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-02 10:40:42
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Source
+AdvMode: Active-Active                  AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 7.2
+
+administrator@cli> 
+
+Fail: please check out AdvMode: Active-Passive
+
+'result': 'f'
+
+Expect: migrate of remote type should be started by "syncmode=async"
+
+migrate -a start -t remote -i 2 -p 0 -s "syncmode=async,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+Error (0x4100999): Fail to execute this method.
+
+administrator@cli> 
+
+Fail: migrate -a start -t remote -i 2 -p 0 -s "syncmode=async,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+
+Expect: migrate of remote type should be started by "syncmode=semi-sync"
+
+migrate -a start -t remote -i 3 -p 0 -s "syncmode=semi-sync,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+Error (0x4100999): Fail to execute this method.
+
+administrator@cli> 
+
+Fail: migrate -a start -t remote -i 3 -p 0 -s "syncmode=semi-sync,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+
+Expect: migrate of remote type should be started by "syncmode=sync"
+
+migrate -a start -t remote -i 4 -p 0 -s "syncmode=sync,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+Error (0x4100104): Incorrect parameters: Only exported volume can be migrated.
+
+administrator@cli> 
+
+Fail: migrate -a start -t remote -i 4 -p 0 -s "syncmode=sync,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+
+Expect: migrate of remote type should be started by default volues
+
+migrate -a start -t remote -i 5 -p 0 -s "srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+Error (0x4100104): Incorrect parameters: Only exported volume can be migrated.
+
+administrator@cli> 
+
+Fail: migrate -a start -t remote -i 5 -p 0 -s "srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+'result': 'f'
+
+Expect: migrate of remote type should be started by "syncmode=async"
+
+migrate -a start -t remote -i 2 -p 0 -s "syncmode=async,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+Error (0x4100104): Incorrect parameters: Can not find meta device info by zp479338/ds306670 1.
+
+administrator@cli> 
+
+Fail: migrate -a start -t remote -i 2 -p 0 -s "syncmode=async,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+
+Expect: migrate of remote type should be started by "syncmode=semi-sync"
+
+migrate -a start -t remote -i 3 -p 0 -s "syncmode=semi-sync,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+Error (0x4100104): Incorrect parameters: Can not find meta device info by zp479338/ds850151 1.
+
+administrator@cli> 
+
+Fail: migrate -a start -t remote -i 3 -p 0 -s "syncmode=semi-sync,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+
+Expect: migrate of remote type should be started by "syncmode=sync"
+
+migrate -a start -t remote -i 4 -p 0 -s "syncmode=sync,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+administrator@cli> 
+volume -i 4 -v
+-------------------------------------------------------------------------------
+Id: 4                                   Name: T_migrate_vol_4
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: 10
+ExportedWWN: 2223000155798ba1           OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-02 10:40:42
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Remote                         AdvRole: Source
+AdvMode: Active-Active                  AdvProtocol: Sync
+AdvStatus: Warning                      AdvProgress: 0.0
+
+administrator@cli> 
+
+Fail: please check out AdvKind: Reomte
+
+
+Fail: please check out AdvStatus: Syncing
+
+
+Expect: migrate of remote type should be started by default volues
+
+migrate -a start -t remote -i 5 -p 0 -s "srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+administrator@cli> 
+volume -i 5 -v
+-------------------------------------------------------------------------------
+Id: 5                                   Name: T_migrate_vol_5
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: 11
+ExportedWWN: 22b50001550e8c91           OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-02 10:40:42
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Remote                         AdvRole: Source
+AdvMode: Active-Active                  AdvProtocol: Sync
+AdvStatus: Warning                      AdvProgress: 0.0
+
+administrator@cli> 
+
+Fail: please check out AdvKind: Reomte
+
+
+Fail: please check out AdvStatus: Syncing
+
+'result': 'f'
+
+Expect: allowip should be set by "ip=1.0.0.0, permission=ro, squash=root"
+
+allowip -a add -t nasshare -d 0 -s "ip=1.0.0.0, permission=ro, squash=root"
+
+administrator@cli> 
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         1.0.0.0                                 RO          root_squash      
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=126.255.255.254, permission=rw, squash=all"
+
+allowip -a add -t nasshare -d 0 -s "ip=126.255.255.254, permission=rw, squash=all"
+
+administrator@cli> 
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         1.0.0.0                                 RO          root_squash      
+1         126.255.255.254                         RW          all_squash       
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=128.0.0.0, permission=ro, squash=root"
+
+allowip -a add -t snapshot -d 0 -s "ip=128.0.0.0, permission=ro, squash=root"
+
+administrator@cli> 
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         128.0.0.0                               RO          root_squash      
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=191.255.255.254, permission=rw, squash=noroot"
+
+allowip -a add -t snapshot -d 0 -s "ip=191.255.255.254, permission=ro, squash=noroot"
+
+administrator@cli> 
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         128.0.0.0                               RO          root_squash      
+1         191.255.255.254                         RO          no_root_squash   
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=192.0.0.0, permission=ro, squash=all"
+
+allowip -a add -t clone -d 0 -s "ip=192.0.0.0, permission=ro, squash=all"
+
+administrator@cli> 
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         192.0.0.0                               RO          all_squash       
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=223.255.255.254, permission=rw, squash=root"
+
+allowip -a add -t clone -d 0 -s "ip=223.255.255.254, permission=rw, squash=root"
+
+administrator@cli> 
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         192.0.0.0                               RO          all_squash       
+1         223.255.255.254                         RW          root_squash      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: list allowip settings on nasshare 0
+
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         1.0.0.0                                 RO          root_squash      
+1         126.255.255.254                         RW          all_squash       
+
+administrator@cli> 
+
+Expect: list allowip settings on snapshot 0
+
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         128.0.0.0                               RO          root_squash      
+1         191.255.255.254                         RO          no_root_squash   
+
+administrator@cli> 
+
+Expect: list allowip settings of clone 0
+
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         192.0.0.0                               RO          all_squash       
+1         223.255.255.254                         RW          root_squash      
+
+administrator@cli> 
+
+Expect: list allowip settings on nasshare 0
+
+allowip
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         1.0.0.0                                 RO          root_squash      
+1         126.255.255.254                         RW          all_squash       
+
+administrator@cli> 
+'result': 'p'
+
+Expect: list allowip settings on nasshare 1 by verbose moed
+
+allowip -v -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         1.0.0.0                                 RO          root_squash      
+1         126.255.255.254                         RW          all_squash       
+
+administrator@cli> 
+
+Expect: list allowip settings on snapshot 1 by verbose moed
+
+allowip -v -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         128.0.0.0                               RO          root_squash      
+1         191.255.255.254                         RO          no_root_squash   
+
+administrator@cli> 
+
+Expect: list allowip settings of clone 1 by verbose moed
+
+allowip -v -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         192.0.0.0                               RO          all_squash       
+1         223.255.255.254                         RW          root_squash      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: allowip of nasshare type should be modified by "ip=10.84.2.1, permission=rw, squash=root"
+
+allowip -a mod -t nasshare -d 0 -i 0 -s "ip=10.84.2.1, permission=rw, squash=root"
+
+administrator@cli> 
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.1                               RW          root_squash      
+1         126.255.255.254                         RW          all_squash       
+
+administrator@cli> 
+
+Expect: allowip of nasshare type should be modified by "ip=10.84.2.2, permission=ro, squash=all"
+
+allowip -a mod -t nasshare -d 0 -i 0 -s "ip=10.84.2.2, permission=ro, squash=all"
+
+administrator@cli> 
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.2                               RO          all_squash       
+1         126.255.255.254                         RW          all_squash       
+
+administrator@cli> 
+
+Expect: allowip of nasshare type should be modified by "ip=10.84.2.3, permission=rw, squash=noroot"
+
+allowip -a mod -t nasshare -d 0 -i 0 -s "ip=10.84.2.3, permission=rw, squash=noroot"
+
+administrator@cli> 
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.3                               RW          no_root_squash   
+1         126.255.255.254                         RW          all_squash       
+
+administrator@cli> 
+
+Expect: allowip of snapshot type should be modified by "ip=10.84.2.1, permission=rw, squash=root"
+
+allowip -a mod -t snapshot -d 0 -i 0 -s "ip=10.84.2.1, permission=ro, squash=root"
+
+administrator@cli> 
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.1                               RO          root_squash      
+1         191.255.255.254                         RO          no_root_squash   
+
+administrator@cli> 
+
+Expect: allowip of snapshot type should be modified by "ip=10.84.2.2, permission=ro, squash=all"
+
+allowip -a mod -t snapshot -d 0 -i 0 -s "ip=10.84.2.2, permission=ro, squash=all"
+
+administrator@cli> 
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.2                               RO          all_squash       
+1         191.255.255.254                         RO          no_root_squash   
+
+administrator@cli> 
+
+Expect: allowip of snapshot type should be modified by "ip=10.84.2.3, permission=rw, squash=noroot"
+
+allowip -a mod -t snapshot -d 0 -i 0 -s "ip=10.84.2.3, permission=ro, squash=noroot"
+
+administrator@cli> 
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.3                               RO          no_root_squash   
+1         191.255.255.254                         RO          no_root_squash   
+
+administrator@cli> 
+
+Expect: allowip of clone type should be modified by "ip=10.84.2.1, permission=rw, squash=root"
+
+allowip -a mod -t clone -d 0 -i 0 -s "ip=10.84.2.1, permission=rw, squash=root"
+
+administrator@cli> 
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.1                               RW          root_squash      
+1         223.255.255.254                         RW          root_squash      
+
+administrator@cli> 
+
+Expect: allowip of clone type should be modified by "ip=10.84.2.2, permission=ro, squash=all"
+
+allowip -a mod -t clone -d 0 -i 0 -s "ip=10.84.2.2, permission=ro, squash=all"
+
+administrator@cli> 
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.2                               RO          all_squash       
+1         223.255.255.254                         RW          root_squash      
+
+administrator@cli> 
+
+Expect: allowip of clone type should be modified by "ip=10.84.2.3, permission=rw, squash=noroot"
+
+allowip -a mod -t clone -d 0 -i 0 -s "ip=10.84.2.3, permission=rw, squash=noroot"
+
+administrator@cli> 
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.3                               RW          no_root_squash   
+1         223.255.255.254                         RW          root_squash      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: index 0 of allowip should be deleted on nasshare 0
+
+allowip -a del -t nasshare -d 0 -i 0
+
+administrator@cli> 
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         126.255.255.254                         RW          all_squash       
+
+administrator@cli> 
+
+Expect: index 0 of allowip should be deleted on snapshot 0
+
+allowip -a del -t snapshot -d 0 -i 0
+
+administrator@cli> 
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         191.255.255.254                         RO          no_root_squash   
+
+administrator@cli> 
+
+Expect: index 0 of allowip should be deleted on clone 0
+
+allowip -a del -t clone -d 0 -i 0
+
+administrator@cli> 
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         223.255.255.254                         RW          root_squash      
 
 administrator@cli> 
 'result': 'p'
 
 Expect: Invalid setting parameters
 
-migrate test
+allowip test
 Error (0x2013): Invalid setting parameters
 invalid setting: test
 
@@ -640,87 +2040,103 @@ administrator@cli>
 
 Expect: Invalid setting parameters
 
-migrate -a test
+allowip -a test
 Error (0x2013): Invalid setting parameters
--a: invalid setting test (start|stop)
-
-administrator@cli> 
-
-Expect: destination pool capacity should be more than soure volume
-
-migrate -a start -t local -i 0 -p 3
-Error (0x4100999): Fail to execute this method.
-
-administrator@cli> 
-
-Expect: specify nonexistent source volume
-
-migrate -a start -t local -i 100 -p 0
-Error (0x4100102): Empty query result, please check input parameters. Volume id=[100] is not existed.
-
-administrator@cli> 
-
-Expect: specify nonexistent destination pool
-
-migrate -a start -t local -i 0 -p 10
-Error (0x4100102): Empty query result, please check input parameters. Pool id=[10] is not existed.
-
-administrator@cli> 
-
-Expect: thin provision volume cannot become source volume
-
-migrate -a start -t local -i 1 -p 1
-Error (0x4100104): Incorrect parameters: Volume is not full-provision.
-
-administrator@cli> 
-
-Expect: Can not replicate Volume to the same Pool
-
-migrate -a start -t local -i 0 -p 2
-Error (0x4100104): Incorrect parameters: Can not migrate Volume to the same Pool.
-
-administrator@cli> 
-
-Fail: please check out Can not replicate Volume to the same Pool
-
-
-Expect: should hint error when specify wrong sync mode
-
-migrate -a start -t local -i 0 -p 1 -s "syncmode=test"
-Error (0x2013): Invalid setting parameters
-syncmode: invalid setting test (async|semi-sync|sync)
+-a: invalid setting test (list|add|mod|del|clear)
 
 administrator@cli> 
 
 Expect: Invalid setting parameters
 
-migrate -a stop -i test
+allowip -a add -t test
 Error (0x2013): Invalid setting parameters
--i: invalid setting test
+-t: invalid setting test (nasshare|snapshot|clone)
 
 administrator@cli> 
-
-Expect: migrate should not stop by destination volume
-
-migrate -a stop -i 9
-Error (0x4100104): Incorrect parameters: Can not find meta device info by zp089040/ds202886 1.
-
-administrator@cli> 
-
-Fail: please check out zp254243d
-
-
-Expect: Volume id=[20] is not existed
-
-migrate -a stop -i 20
-Error (0x4100102): Empty query result, please check input parameters. Volume id=[20] is not existed.
-
-administrator@cli> 
-'result': 'f'
 
 Expect: Invalid setting parameters
 
-migrate test
+allowip -a add -t nasshare -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+allowip -a add -t nasshare -d 0 -s test
+Error (0x2013): Invalid setting parameters
+invalid option: ['test']
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+allowip -a add -t nasshare -d 0 -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+allowip -a add -t nasshare -d 0 -s "ip=test,permission=ro,squash=root"
+Error (0x2013): Invalid setting parameters
+invalid allow_ip: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+allowip -a add -t nasshare -d 0 -s "ip=256.255.255.255,permission=ro,squash=root"
+Error (0x2013): Invalid setting parameters
+invalid allow_ip: 256.255.255.255
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+allowip -a add -t nasshare -d 0 -s "ip=255.256.255.255,permission=ro,squash=root"
+Error (0x2013): Invalid setting parameters
+invalid allow_ip: 255.256.255.255
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+allowip -a add -t nasshare -d 0 -s "ip=255.255.256.255,permission=ro,squash=root"
+Error (0x2013): Invalid setting parameters
+invalid allow_ip: 255.255.256.255
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+allowip -a add -t nasshare -d 0 -s "ip=255.255.255.256,permission=ro,squash=root"
+Error (0x2013): Invalid setting parameters
+invalid allow_ip: 255.255.255.256
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+allowip -a add -t nasshare -d 0 -s "ip=255.255.255.255,permission=test,squash=root"
+Error (0x2013): Invalid setting parameters
+permission: invalid setting test (ro|rw)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+allowip -a add -t nasshare -d 0 -s "ip=255.255.255.255,permission=ro,squash=test"
+Error (0x2013): Invalid setting parameters
+squash: invalid setting test (all|root|noroot)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+allowip -a mod test
 Error (0x2013): Invalid setting parameters
 invalid setting: test
 
@@ -728,160 +2144,135 @@ administrator@cli>
 
 Expect: Invalid setting parameters
 
-migrate -a test
+allowip -a mod -t nasshare -d test
 Error (0x2013): Invalid setting parameters
--a: invalid setting test (start|stop)
-
-administrator@cli> 
-
-Expect: destination pool capacity should be more than soure volume
-
-migrate -a start -t local -i 0 -p 3
-Error (0x4100999): Fail to execute this method.
-
-administrator@cli> 
-
-Expect: specify nonexistent source volume
-
-migrate -a start -t local -i 100 -p 0
-Error (0x4100102): Empty query result, please check input parameters. Volume id=[100] is not existed.
-
-administrator@cli> 
-
-Expect: specify nonexistent destination pool
-
-migrate -a start -t local -i 0 -p 10
-Error (0x4100102): Empty query result, please check input parameters. Pool id=[10] is not existed.
-
-administrator@cli> 
-
-Expect: thin provision volume cannot become source volume
-
-migrate -a start -t local -i 1 -p 1
-Error (0x4100104): Incorrect parameters: Volume is not full-provision.
-
-administrator@cli> 
-
-Expect: Can not migrate Volume to the same Pool
-
-migrate -a start -t local -i 0 -p 2
-Error (0x4100104): Incorrect parameters: Can not migrate Volume to the same Pool.
-
-administrator@cli> 
-
-Expect: should hint error when specify wrong sync mode
-
-migrate -a start -t local -i 0 -p 1 -s "syncmode=test"
-Error (0x2013): Invalid setting parameters
-syncmode: invalid setting test (async|semi-sync|sync)
+-d: invalid setting test
 
 administrator@cli> 
 
 Expect: Invalid setting parameters
 
-migrate -a stop -i test
+allowip -a mod -t nasshare -d 0 -s ""
 Error (0x2013): Invalid setting parameters
--i: invalid setting test
+invalid comma: ','
 
 administrator@cli> 
 
-Expect: migrate should not stop by destination volume
+Expect: Invalid setting parameters
 
-migrate -a stop -i 9
-Error (0x4100104): Incorrect parameters: Can not find meta device info by zp089040/ds202886 1.
-
-administrator@cli> 
-
-Fail: please check out zp254243d
-
-
-Expect: Volume id=[20] is not existed
-
-migrate -a stop -i 20
-Error (0x4100102): Empty query result, please check input parameters. Volume id=[20] is not existed.
-
-administrator@cli> 
-'result': 'f'
-
-Expect: invalid option: -test
-
-migrate -test
-Error (0x2012): Invalid option for the command or the action
-invalid option: -test
-
-administrator@cli> 
-
-Expect: invalid option: -test
-
-migrate -a -test
-Error (0x2012): Invalid option for the command or the action
-invalid option: -test
-
-administrator@cli> 
-
-Expect: invalid option: -test
-
-migrate -a start -test
-Error (0x2012): Invalid option for the command or the action
-invalid option: -test
-
-administrator@cli> 
-
-Expect: invalid option: test
-
-migrate -a start -i 0 -p 1 -s "syncmode=test"
+allowip -a mod -t nasshare -d 0 -s "ip=256.255.255.255,permission=ro,squash=root" -i 0
 Error (0x2013): Invalid setting parameters
-syncmode: invalid setting test (async|semi-sync|sync)
+invalid allow_ip: 256.255.255.255
 
 administrator@cli> 
 
-Fail: please check out invalid option: test
+Expect: Invalid setting parameters
 
+allowip -a del test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
 
-Expect: invalid option: -test
+administrator@cli> 
+
+Expect: Invalid setting parameters
 
-migrate -a stop -test
+allowip -a del -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (nasshare|snapshot|clone)
+
+administrator@cli> 
+
+Expect: NAS Share id=[100] is not existed
+
+allowip -a del -t nasshare -d 100 -i 0
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+allowip -a del -t nasshare -d 0 -i 100
+Error (0x2013): Invalid setting parameters
+invalid index settings
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Invalid option for the command or the action
+
+allowip -test
 Error (0x2012): Invalid option for the command or the action
 invalid option: -test
 
 administrator@cli> 
-'result': 'f'
 
-Expect: invalid option: -test
+Expect: Invalid option for the command or the action
 
-migrate -test
+allowip -a add -test
 Error (0x2012): Invalid option for the command or the action
 invalid option: -test
 
 administrator@cli> 
 
-Expect: invalid option: -test
+Expect: Invalid option for the command or the action
 
-migrate -a -test
+allowip -a add -t nasshare -test
 Error (0x2012): Invalid option for the command or the action
 invalid option: -test
 
 administrator@cli> 
 
-Expect: invalid option: -test
+Expect: Invalid option for the command or the action
 
-migrate -a start -test
-Error (0x2012): Invalid option for the command or the action
-invalid option: -test
-
-administrator@cli> 
-
-Expect: invalid option: test
-
-migrate -a start -i 0 -p 1 -s "test=sync"
+allowip -a add -t nasshare -d 0 -s "test=255.255.255.255,permission=ro,squash=root"
 Error (0x2012): Invalid option for the command or the action
 -s: invalid option: test
 
 administrator@cli> 
 
-Expect: invalid option: -test
+Expect: Invalid option for the command or the action
 
-migrate -a stop -test
+allowip -a add -t nasshare -d 0 -s "ip=255.255.255.255,test=ro,squash=root"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+allowip -a add -t nasshare -d 0 -s "ip=255.255.255.255,permission=ro,test=root"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+allowip -a mod -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+allowip -a mod -t nasshare -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+allowip -a mod -t nasshare -d 0 -s "test=255.255.255.255,permission=ro,squash=root" -i 0
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+allowip -a del -test
 Error (0x2012): Invalid option for the command or the action
 invalid option: -test
 
@@ -890,23 +2281,7 @@ administrator@cli>
 
 Expect: Missing parameter
 
-migrate -a
-Error (0x403): Missing parameter
--a: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-migrate -a start
-Error (0x403): Missing parameter
--i source volumd ID is missed
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-migrate -a start -t
+allowip -t
 Error (0x403): Missing parameter
 -t: missing value
 
@@ -914,48 +2289,7 @@ administrator@cli>
 
 Expect: Missing parameter
 
-migrate -a start -t local
-Error (0x403): Missing parameter
--i source volumd ID is missed
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-migrate -a start -t local -i
-Error (0x403): Missing parameter
--i: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-migrate -a start -t local -i 0 -p 2 -s
-Error (0x403): Missing parameter
--s: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-migrate -a stop
-Error (0x403): Missing parameter
--i source volumd ID is missed
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-migrate -a stop -i
-Error (0x403): Missing parameter
--i: missing value
-
-administrator@cli> 
-'result': 'p'
-
-Expect: Missing parameter
-
-migrate -a
+allowip -a
 Error (0x403): Missing parameter
 -a: missing value
 
@@ -963,15 +2297,7 @@ administrator@cli>
 
 Expect: Missing parameter
 
-migrate -a start
-Error (0x403): Missing parameter
--i source volumd ID is missed
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-migrate -a start -t
+allowip -a add -t
 Error (0x403): Missing parameter
 -t: missing value
 
@@ -979,23 +2305,15 @@ administrator@cli>
 
 Expect: Missing parameter
 
-migrate -a start -t local
+allowip -a add -t nasshare -d 
 Error (0x403): Missing parameter
--i source volumd ID is missed
+-d: missing value
 
 administrator@cli> 
 
 Expect: Missing parameter
 
-migrate -a start -t local -i
-Error (0x403): Missing parameter
--i: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-migrate -a start -t local -i 0 -p 2 -s
+allowip -a add -t nasshare -d 0 -s 
 Error (0x403): Missing parameter
 -s: missing value
 
@@ -1003,362 +2321,180 @@ administrator@cli>
 
 Expect: Missing parameter
 
-migrate -a stop
+allowip -a add -t nasshare -d 0 -s "permission=ro,squash=root"
 Error (0x403): Missing parameter
--i source volumd ID is missed
+missing parameter 'ip' for '-a add'
 
 administrator@cli> 
 
 Expect: Missing parameter
 
-migrate -a stop -i
+allowip -a add -t nasshare -d 0 -s "ip=0.0.0.0,permission=ro"
+Error (0x403): Missing parameter
+missing parameter 'squash' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a add -t nasshare -d 0 -s "ip=255.255.255.255,squash=root"
+Error (0x403): Missing parameter
+missing parameter 'permission' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a mod
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a mod -t nasshare -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a mod -t nasshare -d 0 -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a del
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a del'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a del -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a del -t nasshare -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a del -t nasshare -d 0 -i
 Error (0x403): Missing parameter
 -i: missing value
 
 administrator@cli> 
 'result': 'p'
 
-Expect: different types of pd can not compose the one pool 
+Expect: wcache should be created dedication for pool 0
 
-pool -a expand -i 0 -p 5
-Error (0x4100104): Incorrect parameters: Extend RAID level 5 requires at least 3 physical drives.
+wcache -a add -p 5,6 -i 0
 
 administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a add -s "name=1,raid=0" -p 513
-Error (0x2013): Invalid setting parameters
--p: invalid setting 513 (0,512)
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a add -s "name=2,raid=7" -p 1,2,3,4,5
-Error (0x2013): Invalid setting parameters
-raid: invalid setting 7 (0|1|5|6|10|50|60)
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a add -s "name=3,raid=0,stripe=64K" -p 1
-Error (0x2013): Invalid setting parameters
-stripe: invalid setting 64K (64kb|128kb|256kb|512kb|1mb)
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a add -s "name=4,raid=0,sector=512KB" -p 1
-Error (0x2013): Invalid setting parameters
-sector: invalid setting 512KB (512b|1kb|2kb|4kb)
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a add -s "name=5,raid=50,axle=33" -p 1
-Error (0x2013): Invalid setting parameters
-axle: invalid setting 33 (1,16)
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a add -s "name=6,raid=0,ctrlid=3" -p 1
-Error (0x2013): Invalid setting parameters
-ctrlid: invalid setting 3 (1,2)
-
-administrator@cli> 
-
-Expect: Physical drive in use
-
-pool -a add -s "name=process_test,raid=0" -p 5
-Error (0x4021): Physical drive in use
-Physical drive in use
-
-administrator@cli> 
-
-Expect: name contain only alphanumeric characters and underscores
-
-pool -a add -s "name=,raid=0" -p 1
-Error (0x2013): Invalid setting parameters
-name contain only alphanumeric characters and underscores
-
-administrator@cli> 
-
-Expect: Setting parameters too long
-
-pool -a add -s "name=test_name_test_name_test_name_123,raid=0" -p 1
-Error (0x2014): Setting parameters too long
-name: invalid setting test_name_test_name_test_name_123
-
-administrator@cli> 
-
-Expect: name contain only alphanumeric characters and underscores
-
-pool -a add -s "name=a#,raid=0" -p 1
-Error (0x2013): Invalid setting parameters
-name contain only alphanumeric characters and underscores
-
-administrator@cli> 
-
-Expect: name contain only alphanumeric characters and underscores
-
-pool -a mod -s "name=b*" -i 1
-Error (0x2013): Invalid setting parameters
-name contain only alphanumeric characters and underscores
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -i 32
-Error (0x2013): Invalid setting parameters
--i: invalid setting 32 (0,31)
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a mod -s "name=8" -i 32
-Error (0x2013): Invalid setting parameters
--i: invalid setting 32 (0,31)
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a del -i 32
-Error (0x2013): Invalid setting parameters
--i: invalid setting 32 (0,31)
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool 1
-Error (0x2013): Invalid setting parameters
-invalid setting: 1
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool test
-Error (0x2013): Invalid setting parameters
-invalid setting: test
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a test
-Error (0x2013): Invalid setting parameters
--a: invalid setting test (list|mod|add|del|expand)
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a add 1
-Error (0x2013): Invalid setting parameters
-invalid setting: 1
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a add test
-Error (0x2013): Invalid setting parameters
-invalid setting: test
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a mod 1
-Error (0x2013): Invalid setting parameters
-invalid setting: 1
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a mod test
-Error (0x2013): Invalid setting parameters
-invalid setting: test
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a del 1
-Error (0x2013): Invalid setting parameters
-invalid setting: 1
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a del test
-Error (0x2013): Invalid setting parameters
-invalid setting: test
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a expand 1
-Error (0x2013): Invalid setting parameters
-invalid setting: 1
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a expand test
-Error (0x2013): Invalid setting parameters
-invalid setting: test
+wcache
+-------------------------------------------------------------------------------
+Status: ONLINE
+dedicate to pool: 0
+ 
+Physical Drives in Cache
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         WriteCache      
+6    SSD U110    SAS SSD  31 GB       Encl1 Slot6   OK         WriteCache      
+     32GB                                                                      
 
 administrator@cli> 
 'result': 'p'
 
-Expect: different types of pd can not compose the one pool 
+Expect: 1. wcache should be modified dedication for pool 1 and pd_list is 6,16
 
-pool -a expand -i 0 -p 6,16
-Error (0x4100102): Empty query result, please check input parameters. Pool id=[0] is not existed.
+wcache -a mod -p 5,16 -i 1
 
 administrator@cli> 
+wcache
+-------------------------------------------------------------------------------
+Status: ONLINE
+dedicate to pool: 1
+ 
+Physical Drives in Cache
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         WriteCache      
+16   SSDSA2SH032 SAS SSD  31 GB       Encl1 Slot16  OK         WriteCache      
+     G1GN                                                                      
 
-Fail: please check out Incorrect parameters
+administrator@cli> 
+'result': 'p'
+
+Expect: wcache should be created
 
+wcache -a add -p 5,6
+
+administrator@cli> 
+wcache
+-------------------------------------------------------------------------------
+Status: WAIT_ASSIGN
+dedicate to pool: 
+ 
+Physical Drives in Cache
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         WriteCache      
+6    SSD U110    SAS SSD  31 GB       Encl1 Slot6   OK         WriteCache      
+     32GB                                                                      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: wcache and pd informaiont should be listed
+
+wcache
+-------------------------------------------------------------------------------
+Status: WAIT_ASSIGN
+dedicate to pool: 
+ 
+Physical Drives in Cache
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         WriteCache      
+6    SSD U110    SAS SSD  31 GB       Encl1 Slot6   OK         WriteCache      
+     32GB                                                                      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: wcache should be deleted
+
+wcache -a del
+
+administrator@cli> 
+wcache
+no cache in system
+
+administrator@cli> 
+'result': 'p'
 
 Expect: Invalid setting parameters
 
-pool -a add -s "name=1,raid=0" -p 513
-Error (0x2013): Invalid setting parameters
--p: invalid setting 513 (0,512)
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a add -s "name=2,raid=7" -p 1,2,3,4,5
-Error (0x2013): Invalid setting parameters
-raid: invalid setting 7 (0|1|5|6|10|50|60)
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a add -s "name=3,raid=0,stripe=64K" -p 1
-Error (0x2013): Invalid setting parameters
-stripe: invalid setting 64K (64kb|128kb|256kb|512kb|1mb)
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a add -s "name=4,raid=0,sector=512KB" -p 1
-Error (0x2013): Invalid setting parameters
-sector: invalid setting 512KB (512b|1kb|2kb|4kb)
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a add -s "name=5,raid=50,axle=33" -p 1
-Error (0x2013): Invalid setting parameters
-axle: invalid setting 33 (1,16)
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a add -s "name=6,raid=0,ctrlid=3" -p 1
-Error (0x2013): Invalid setting parameters
-ctrlid: invalid setting 3 (1,2)
-
-administrator@cli> 
-
-Expect: Physical drive in use
-
-pool -a add -s "name=process_test,raid=0" -p 5
-Error (0x4021): Physical drive in use
-Physical drive in use
-
-administrator@cli> 
-
-Expect: name contain only alphanumeric characters and underscores
-
-pool -a add -s "name=,raid=0" -p 1
-Error (0x2013): Invalid setting parameters
-name contain only alphanumeric characters and underscores
-
-administrator@cli> 
-
-Expect: Setting parameters too long
-
-pool -a add -s "name=test_name_test_name_test_name_123,raid=0" -p 1
-Error (0x2014): Setting parameters too long
-name: invalid setting test_name_test_name_test_name_123
-
-administrator@cli> 
-
-Expect: name contain only alphanumeric characters and underscores
-
-pool -a add -s "name=a#,raid=0" -p 1
-Error (0x2013): Invalid setting parameters
-name contain only alphanumeric characters and underscores
-
-administrator@cli> 
-
-Expect: name contain only alphanumeric characters and underscores
-
-pool -a mod -s "name=b*" -i 1
-Error (0x2013): Invalid setting parameters
-name contain only alphanumeric characters and underscores
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -i 32
-Error (0x2013): Invalid setting parameters
--i: invalid setting 32 (0,31)
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a mod -s "name=8" -i 32
-Error (0x2013): Invalid setting parameters
--i: invalid setting 32 (0,31)
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a del -i 32
-Error (0x2013): Invalid setting parameters
--i: invalid setting 32 (0,31)
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool 1
-Error (0x2013): Invalid setting parameters
-invalid setting: 1
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool test
+wcache test
 Error (0x2013): Invalid setting parameters
 invalid setting: test
 
@@ -1366,23 +2502,15 @@ administrator@cli>
 
 Expect: Invalid setting parameters
 
-pool -a test
+wcache -a test
 Error (0x2013): Invalid setting parameters
--a: invalid setting test (list|mod|add|del|expand)
+-a: invalid setting test (list|add|del|mod)
 
 administrator@cli> 
 
 Expect: Invalid setting parameters
 
-pool -a add 1
-Error (0x2013): Invalid setting parameters
-invalid setting: 1
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a add test
+wcache -a add test
 Error (0x2013): Invalid setting parameters
 invalid setting: test
 
@@ -1390,15 +2518,39 @@ administrator@cli>
 
 Expect: Invalid setting parameters
 
-pool -a mod 1
+wcache -a add -p test
 Error (0x2013): Invalid setting parameters
-invalid setting: 1
+-p: invalid setting test
 
 administrator@cli> 
 
 Expect: Invalid setting parameters
 
-pool -a mod test
+wcache -a add -p 0
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 0 (1,512)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+wcache -a add -p -1
+Error (0x2013): Invalid setting parameters
+-p: invalid setting -1
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+wcache -a add -p 5,6 -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+wcache -a mod test
 Error (0x2013): Invalid setting parameters
 invalid setting: test
 
@@ -1406,15 +2558,31 @@ administrator@cli>
 
 Expect: Invalid setting parameters
 
-pool -a del 1
+wcache -a mod -i test
 Error (0x2013): Invalid setting parameters
-invalid setting: 1
+-i: invalid setting test
 
 administrator@cli> 
 
 Expect: Invalid setting parameters
 
-pool -a del test
+wcache -a mod -i -1
+Error (0x2013): Invalid setting parameters
+-i: invalid setting -1
+
+administrator@cli> 
+
+Expect: Invalid physical drive type
+
+wcache -a mod -p 1,2
+Error (0x4027): Invalid physical drive type
+only SSD type drive can be used
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+wcache -a del test
 Error (0x2013): Invalid setting parameters
 invalid setting: test
 
@@ -1422,242 +2590,57 @@ administrator@cli>
 
 Expect: Invalid setting parameters
 
-pool -a expand 1
+wcache -a del -p test
 Error (0x2013): Invalid setting parameters
-invalid setting: 1
+-p: invalid setting test
 
 administrator@cli> 
 
 Expect: Invalid setting parameters
 
-pool -a expand test
+wcache -a del -p 0
 Error (0x2013): Invalid setting parameters
-invalid setting: test
+-p: invalid setting 0 (1,512)
 
 administrator@cli> 
-'result': 'f'
+'result': 'p'
 
-Expect: different types of pd can not compose the one pool 
+Expect: Invalid option for the command or the action
 
-pool -a expand -i 0 -p 6,16
-
-administrator@cli> 
-
-Fail: pool -a expand -i 0 -p 6,16
-
-
-Expect: Invalid setting parameters
-
-pool -a add -s "name=1,raid=0" -p 513
-Error (0x2013): Invalid setting parameters
--p: invalid setting 513 (0,512)
+wcache -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
 
 administrator@cli> 
 
-Expect: Invalid setting parameters
+Expect: Invalid option for the command or the action
 
-pool -a add -s "name=2,raid=7" -p 1,2,3,4,5
-Error (0x2013): Invalid setting parameters
-raid: invalid setting 7 (0|1|5|6|10|50|60)
+wcache -a add -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
 
 administrator@cli> 
 
-Expect: Invalid setting parameters
+Expect: Invalid option for the command or the action
 
-pool -a add -s "name=3,raid=0,stripe=64K" -p 1
-Error (0x2013): Invalid setting parameters
-stripe: invalid setting 64K (64kb|128kb|256kb|512kb|1mb)
+wcache -a del -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
 
 administrator@cli> 
 
-Expect: Invalid setting parameters
+Expect: Invalid option for the command or the action
 
-pool -a add -s "name=4,raid=0,sector=512KB" -p 1
-Error (0x2013): Invalid setting parameters
-sector: invalid setting 512KB (512b|1kb|2kb|4kb)
+wcache -a mod -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
 
 administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a add -s "name=5,raid=50,axle=33" -p 1
-Error (0x2013): Invalid setting parameters
-axle: invalid setting 33 (1,16)
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a add -s "name=6,raid=0,ctrlid=3" -p 1
-Error (0x2013): Invalid setting parameters
-ctrlid: invalid setting 3 (1,2)
-
-administrator@cli> 
-
-Expect: Physical drive in use
-
-pool -a add -s "name=process_test,raid=0" -p 5
-Error (0x4021): Physical drive in use
-Physical drive in use
-
-administrator@cli> 
-
-Expect: name contain only alphanumeric characters and underscores
-
-pool -a add -s "name=,raid=0" -p 1
-Error (0x2013): Invalid setting parameters
-name contain only alphanumeric characters and underscores
-
-administrator@cli> 
-
-Expect: Setting parameters too long
-
-pool -a add -s "name=test_name_test_name_test_name_123,raid=0" -p 1
-Error (0x2014): Setting parameters too long
-name: invalid setting test_name_test_name_test_name_123
-
-administrator@cli> 
-
-Expect: name contain only alphanumeric characters and underscores
-
-pool -a add -s "name=a#,raid=0" -p 1
-Error (0x2013): Invalid setting parameters
-name contain only alphanumeric characters and underscores
-
-administrator@cli> 
-
-Expect: name contain only alphanumeric characters and underscores
-
-pool -a mod -s "name=b*" -i 1
-Error (0x2013): Invalid setting parameters
-name contain only alphanumeric characters and underscores
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -i 32
-Error (0x2013): Invalid setting parameters
--i: invalid setting 32 (0,31)
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a mod -s "name=8" -i 32
-Error (0x2013): Invalid setting parameters
--i: invalid setting 32 (0,31)
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a del -i 32
-Error (0x2013): Invalid setting parameters
--i: invalid setting 32 (0,31)
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool 1
-Error (0x2013): Invalid setting parameters
-invalid setting: 1
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool test
-Error (0x2013): Invalid setting parameters
-invalid setting: test
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a test
-Error (0x2013): Invalid setting parameters
--a: invalid setting test (list|mod|add|del|expand)
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a add 1
-Error (0x2013): Invalid setting parameters
-invalid setting: 1
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a add test
-Error (0x2013): Invalid setting parameters
-invalid setting: test
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a mod 1
-Error (0x2013): Invalid setting parameters
-invalid setting: 1
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a mod test
-Error (0x2013): Invalid setting parameters
-invalid setting: test
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a del 1
-Error (0x2013): Invalid setting parameters
-invalid setting: 1
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a del test
-Error (0x2013): Invalid setting parameters
-invalid setting: test
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a expand 1
-Error (0x2013): Invalid setting parameters
-invalid setting: 1
-
-administrator@cli> 
-
-Expect: Invalid setting parameters
-
-pool -a expand test
-Error (0x2013): Invalid setting parameters
-invalid setting: test
-
-administrator@cli> 
-'result': 'f'
+'result': 'p'
 
 Expect: Missing parameter
 
-pool -i
-Error (0x403): Missing parameter
--i: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-pool -a
+wcache -a 
 Error (0x403): Missing parameter
 -a: missing value
 
@@ -1665,23 +2648,7 @@ administrator@cli>
 
 Expect: Missing parameter
 
-pool -a add
-Error (0x403): Missing parameter
-missing parameter '-s' for '-a add'
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-pool -a add -s
-Error (0x403): Missing parameter
--s: missing value
-
-administrator@cli> 
-
-Expect: Missing parameter
-
-pool -a add -s "name=1,raid=0"
+wcache -a add 
 Error (0x403): Missing parameter
 missing parameter '-p' for '-a add'
 
@@ -1689,7 +2656,240 @@ administrator@cli>
 
 Expect: Missing parameter
 
-pool -a add -s "name=1,raid=0" -p
+wcache -a add -p 
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+
+Expect: Invalid parameter
+
+wcache -a mod
+Error (0x402): Invalid parameter
+Please specify the pool list or PD list.
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+wcache -a mod -i  
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+'result': 'p'
+
+Expect: rcache should be created by one pd
+
+rcache -a add -p 5
+
+administrator@cli> 
+rcache
+-------------------------------------------------------------------------------
+Status: ONLINE
+ 
+Physical Drives in Cache
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         ReadCache       
+
+administrator@cli> 
+'result': 'p'
+
+Expect: rcache should be created by one pd
+
+rcache -a add -p 5,6,16
+
+administrator@cli> 
+rcache
+-------------------------------------------------------------------------------
+Status: ONLINE
+ 
+Physical Drives in Cache
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         ReadCache       
+6    SSD U110    SAS SSD  31 GB       Encl1 Slot6   OK         ReadCache       
+     32GB                                                                      
+16   SSDSA2SH032 SAS SSD  31 GB       Encl1 Slot16  OK         ReadCache       
+     G1GN                                                                      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: rcache and pd informaiont should be listed
+
+rcache
+-------------------------------------------------------------------------------
+Status: ONLINE
+ 
+Physical Drives in Cache
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         ReadCache       
+6    SSD U110    SAS SSD  31 GB       Encl1 Slot6   OK         ReadCache       
+     32GB                                                                      
+16   SSDSA2SH032 SAS SSD  31 GB       Encl1 Slot16  OK         ReadCache       
+     G1GN                                                                      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: rcache should minus two pd
+
+rcache -a del -p 6,16
+
+administrator@cli> 
+rcache
+-------------------------------------------------------------------------------
+Status: ONLINE
+ 
+Physical Drives in Cache
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         ReadCache       
+
+administrator@cli> 
+
+Expect: rcache should minus one pd
+
+rcache -a del -p 5
+
+administrator@cli> 
+rcache
+no cache in system
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Invalid setting parameters
+
+rcache test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+rcache -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|add|del)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+rcache -a add test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+rcache -a add -p test
+Error (0x2013): Invalid setting parameters
+-p: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+rcache -a add -p 0
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 0 (1,512)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+rcache -a add -p -1
+Error (0x2013): Invalid setting parameters
+-p: invalid setting -1
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+rcache -a del test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+rcache -a del -p test
+Error (0x2013): Invalid setting parameters
+-p: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+rcache -a del -p 0
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 0 (1,512)
+
+administrator@cli> 
+
+Expect: Fail to delete Read Cache
+
+rcache -a del -p 3
+Error (0x4100107): Fail to delete Read Cache.
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Invalid option for the command or the action
+
+rcache -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+rcache -a add -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+rcache -a del -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Missing parameter
+
+rcache -a 
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+rcache -a add 
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+rcache -a add -p 
 Error (0x403): Missing parameter
 -p: missing value
 
@@ -1697,31 +2897,381 @@ administrator@cli>
 
 Expect: Missing parameter
 
-pool -a add -s "name=1" -p 1
+rcache -a del 
 Error (0x403): Missing parameter
-missing parameter 'raid' for '-a add'
+missing parameter '-p' for '-a del'
 
 administrator@cli> 
 
 Expect: Missing parameter
 
-pool -a add -s "raid=0" -p 1
+rcache -a del -p  
 Error (0x403): Missing parameter
-missing parameter 'name' for '-a add'
+-p: missing value
+
+administrator@cli> 
+'result': 'p'
+
+Expect: spare should be added
+
+spare -a add -t g -r y -p 11
+
+administrator@cli> 
+spare
+===============================================================================
+Id    Status    PdId    Capacity    Revertible    Type      DedicatedToPool    
+===============================================================================
+0     OK        11      2 TB        Yes           Global    N/A                
 
 administrator@cli> 
 
-Expect: Missing parameter
+Expect: rebuild should start
 
-pool -a mod
-Error (0x403): Missing parameter
-missing parameter '-s' for '-a mod'
+phydrv -a offline -p 1
+
+administrator@cli> 
+rb
+-------------------------------------------------------------------------------
+PoolId: 0
+===============================================================================
+PdId                    Percentage                   Status                    
+===============================================================================
+11                      0                            Running                   
 
 administrator@cli> 
 
+Expect: clean up environment
+
+phydrv -a clear -p 1 -t staleconfig
+
+administrator@cli> 
+phydrv -p 1
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Unconfigured    
+     S640                                                                      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: spare should be added
+
+spare -a add -t d -d 0 -r n -p 12
+
+administrator@cli> 
+spare
+===============================================================================
+Id    Status    PdId    Capacity    Revertible   Type        DedicatedToPool   
+===============================================================================
+0     OK        12      4 TB        No           Dedicated   0                 
+
+administrator@cli> 
+
+Expect: rebuild should do not start
+
+phydrv -a offline -p 4
+
+administrator@cli> 
+rb
+This background activity is not running.
+administrator@cli> 
+
+Expect: rebuild should start
+
+phydrv -a offline -p 1
+
+administrator@cli> 
+rb
+-------------------------------------------------------------------------------
+PoolId: 0
+===============================================================================
+PdId                    Percentage                   Status                    
+===============================================================================
+12                      0                            Running                   
+
+administrator@cli> 
+
+Expect: clean up environment
+
+phydrv -a clear -p 1 -t staleconfig
+
+administrator@cli> 
+phydrv -p 1
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Unconfigured    
+     S640                                                                      
+
+administrator@cli> 
+
+Expect: delete pool 0
+
+pool -a del -f -y -i 0
+
+administrator@cli> 
+spare
+No spare drive exists
+
+administrator@cli> 
+'result': 'p'
+
+Expect: all of spare drives should be listed
+
+spare
+===============================================================================
+Id    Status    PdId    Capacity    Revertible   Type        DedicatedToPool   
+===============================================================================
+0     OK        4       4 TB        No           Global      N/A               
+1     OK        9       4 TB        Yes          Dedicated   0                 
+
+administrator@cli> 
+
+Expect: spare 0 drives should be listed
+
+spare -i 0
+===============================================================================
+Id    Status    PdId    Capacity    Revertible    Type      DedicatedToPool    
+===============================================================================
+0     OK        4       4 TB        No            Global    N/A                
+
+administrator@cli> 
+
+Expect: spare 1 spare drives should be listed
+
+spare -i 1
+===============================================================================
+Id    Status    PdId    Capacity    Revertible   Type        DedicatedToPool   
+===============================================================================
+1     OK        9       4 TB        Yes          Dedicated   0                 
+
+administrator@cli> 
+'result': 'p'
+
+Expect: all of spare drives should be listed by verbose mode
+
+spare -v
+-------------------------------------------------------------------------------
+Id: 0                                   PdId: 4
+Type: Global                            Revertible: No
+PhysicalCapacity: 4 TB                  Status: OK
+PoolList: N/A
+-------------------------------------------------------------------------------
+Id: 1                                   PdId: 9
+Type: Dedicated                         Revertible: Yes
+PhysicalCapacity: 4 TB                  Status: OK
+PoolList: 0
+
+administrator@cli> 
+
+Expect: spare 0 drives should be listed by verbose mode
+
+spare -v -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   PdId: 4
+Type: Global                            Revertible: No
+PhysicalCapacity: 4 TB                  Status: OK
+PoolList: N/A
+
+administrator@cli> 
+
+Expect: spare 1 spare drives should be listed by verbose mode
+
+spare -v -i 1
+-------------------------------------------------------------------------------
+Id: 1                                   PdId: 9
+Type: Dedicated                         Revertible: Yes
+PhysicalCapacity: 4 TB                  Status: OK
+PoolList: 0
+
+administrator@cli> 
+'result': 'p'
+
+Expect: spare 0 should be deleted
+
+spare -a del -i 0
+
+administrator@cli> 
+spare
+===============================================================================
+Id    Status    PdId    Capacity    Revertible   Type        DedicatedToPool   
+===============================================================================
+1     OK        9       4 TB        Yes          Dedicated   0                 
+
+administrator@cli> 
+
+Expect: spare 1 should be deleted
+
+spare -a del -i 1
+
+administrator@cli> 
+spare
+No spare drive exists
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Physical drive in use
+
+spare -a add -t g -r n -p 1
+Error (0x4021): Physical drive in use
+Physical drive in use
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+spare test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+spare -i 257
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 257 (0,256)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+spare -a add -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (g|d)
+
+administrator@cli> 
+
+Expect: Physical drive not found
+
+spare -a add -t g -p 512
+Error (0x4020): Physical drive not found
+Physical drive not found
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+spare -a add -t g -p 513
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 513 (0,512)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+spare -a add -t d -d 31 -p 12
+Error (0x2013): Invalid setting parameters
+specified pool not found
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+spare -a add -t d -d 32 -p 12
+Error (0x2013): Invalid setting parameters
+-d: invalid setting 32 (0,31)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+spare -a add -t d -d 33 -p 12
+Error (0x2013): Invalid setting parameters
+-d: invalid setting 33 (0,31)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+spare -a add -t g -r test
+Error (0x2013): Invalid setting parameters
+-r: invalid setting test (y|n)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+spare -a add -t g -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+spare -a del test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid spare id
+
+spare -a del -i 256
+Error (0x49840C02): Invalid disk array id or spare id
+Invalid disk array id or spare id
+
+administrator@cli> 
+
+Fail: please check out Invalid spare id
+
+
+Expect: Invalid setting parameters
+
+spare -a del -i 257
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 257 (0,256)
+
+administrator@cli> 
+'result': 'f'
+
+Expect: invalid option: -test
+
+spare -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: invalid option: -test
+
+spare -a add -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: invalid option: -test
+
+spare -a add -t g -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: invalid option: -test
+
+spare -a add -t g -d 0 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: invalid option: -test
+
+spare -a del -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+'result': 'p'
+
 Expect: Missing parameter
 
-pool -a mod -i
+spare -i
 Error (0x403): Missing parameter
 -i: missing value
 
@@ -1729,31 +3279,71 @@ administrator@cli>
 
 Expect: Missing parameter
 
-pool -a expand
+spare -d
 Error (0x403): Missing parameter
-missing parameter '-p' for '-a expand'
+-d: missing value
 
 administrator@cli> 
 
 Expect: Missing parameter
 
-pool -a expand -s
+spare -a
 Error (0x403): Missing parameter
--s: missing value
+-a: missing value
 
 administrator@cli> 
 
 Expect: Missing parameter
 
-pool -a expand -s "axle=1"
+spare -v -i
 Error (0x403): Missing parameter
-missing parameter '-p' for '-a expand'
+-i: missing value
 
 administrator@cli> 
 
 Expect: Missing parameter
 
-pool -a expand -s "axle=1" -p
+spare -a add 
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a add -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a add -t g 
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a add -t g -r
+Error (0x403): Missing parameter
+-r: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a add -t g -r n
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a add -t g -r n -p
 Error (0x403): Missing parameter
 -p: missing value
 
@@ -1761,7 +3351,23 @@ administrator@cli>
 
 Expect: Missing parameter
 
-pool -a expand -p
+spare -a add -t d -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a add -t d -d 0
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+spare -a add -t d -d 0 -p
 Error (0x403): Missing parameter
 -p: missing value
 
@@ -1769,7 +3375,7 @@ administrator@cli>
 
 Expect: Missing parameter
 
-pool -a del
+spare -a del
 Error (0x403): Missing parameter
 missing parameter '-i' for '-a del'
 
@@ -1777,9 +3383,130 @@ administrator@cli>
 
 Expect: Missing parameter
 
-pool -a del -i
+spare -a del -i
 Error (0x403): Missing parameter
 -i: missing value
 
 administrator@cli> 
 'result': 'p'
+
+Expect: migrate should be started by "syncmode=async"
+
+migrate -a start -t local -i 2 -p 1 -s "syncmode=async"
+Error (0x4100999): Fail to execute this method.
+
+administrator@cli> 
+
+Fail: migrate -a start -t local -i 2 -p 1 -s "syncmode=async"
+
+
+Expect: migrate should be started by "syncmode=semi-sync"
+
+migrate -a start -t local -i 3 -p 1 -s "syncmode=semi-sync"
+Error (0x4100999): Fail to execute this method.
+
+administrator@cli> 
+
+Fail: migrate -a start -t local -i 3 -p 1 -s "syncmode=semi-sync"
+
+
+Expect: migrate should be started by "syncmode=sync"
+
+migrate -a start -t local -i 4 -p 0 -s "syncmode=sync"
+
+administrator@cli> 
+volume -i 8 -v
+-------------------------------------------------------------------------------
+Id: 8                                   Name: T_migrate_vol_4_migrate
+PoolId: 0                               PoolName: T_migrate_0
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 107.22 GB        UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-02 19:31:01
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Active                  AdvProtocol: Sync
+AdvStatus: Warning                      AdvProgress: 0.0
+
+administrator@cli> 
+
+Fail: please check out AdvStatus: Syncing
+
+
+Expect: migrate should be started by default volues
+
+migrate -a start -t local -i 5 -p 0
+
+administrator@cli> 
+volume -i 5 -v
+-------------------------------------------------------------------------------
+Id: 5                                   Name: T_migrate_vol_5
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: -1
+ExportedWWN: 22a7000155423090           OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-02 19:30:45
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Source
+AdvMode: Active-Active                  AdvProtocol: Sync
+AdvStatus: Warning                      AdvProgress: 0.0
+
+administrator@cli> 
+
+Fail: please check out AdvStatus: Syncing
+
+'result': 'f'
+
+Expect: migrate of remote type should be started by "syncmode=async"
+
+migrate -a start -t remote -i 2 -p 0 -s "syncmode=async,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+Error (0x4100104): Incorrect parameters: Can not find meta device info by zp250204/ds238902 1.
+
+administrator@cli> 
+
+Fail: migrate -a start -t remote -i 2 -p 0 -s "syncmode=async,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+
+Expect: migrate of remote type should be started by "syncmode=semi-sync"
+
+migrate -a start -t remote -i 3 -p 0 -s "syncmode=semi-sync,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+Error (0x4100104): Incorrect parameters: Can not find meta device info by zp250204/ds799830 1.
+
+administrator@cli> 
+
+Fail: migrate -a start -t remote -i 3 -p 0 -s "syncmode=semi-sync,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+
+Expect: migrate of remote type should be started by "syncmode=sync"
+
+migrate -a start -t remote -i 4 -p 0 -s "syncmode=sync,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[4] is not existed.
+
+administrator@cli> 
+
+Fail: migrate -a start -t remote -i 4 -p 0 -s "syncmode=sync,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+
+Expect: migrate of remote type should be started by default volues
+
+migrate -a start -t remote -i 5 -p 0 -s "srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+Error (0x4100104): Incorrect parameters: Only exported volume can be migrated.
+
+administrator@cli> 
+
+Fail: migrate -a start -t remote -i 5 -p 0 -s "srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+'result': 'f'

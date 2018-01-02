@@ -17,12 +17,6 @@ def precondition():
 
         pdId = find_pd_id()
 
-    except TypeError:
-
-        tolog('precondition is failed\r\n')
-
-    else:
-
         if len(pdId) > 0:
             # create pool
             server.webapi('post', 'pool', {"name": "test_phy_1", "pds": pdId[:4], "raid_level": "raid5"})
@@ -31,7 +25,11 @@ def precondition():
             server.webapi('post', 'spare', {"pd_id": pdId[4], "dedicated": 'global', "revertible": 0})
             server.webapi('post', 'spare', {"pd_id": pdId[5], "dedicated": 'dedicated', "revertible": 0, "pool_list": [0]})
 
-    return
+        return
+
+    except (TypeError, IndexError):
+
+        tolog('precondition is failed\r\n')
 
 
 def start_sc(c):
