@@ -33,11 +33,11 @@ def precondition_for_migrate():
 
         pd_info = json.loads(pd_request_1["text"])
 
-        pdId = [pd for pd in pd_info if pd['cfg_size'] >= 1000000000000]
+        pdId = [pd['id'] for pd in pd_info if pd['cfg_size'] >= 1000000000000]
 
         if len(pdId) > 0:
 
-            server.webapi('post', 'pool', {"name": "p0", "pds": [pdId[0]], "raid_level": "raid0"})
+            server.webapi('post', 'pool', {"name": "p0", "pds": [pdId[1]], "raid_level": "raid0"})
 
 
 if __name__ == "__main__":

@@ -52,7 +52,7 @@ def precondition_1():
                     server.webapi('post', 'volume', {
                         'pool_id': 0,
                         'name': 'T_migrate_vol_' + str(i),
-                        'capacity': '4GB',
+                        'capacity': '1GB',
                         'block': '64kb',
                         'sector': '4kb',
                         'compress': 'gzip',
@@ -65,8 +65,10 @@ def precondition_1():
                     server.webapi('post', 'volume', {
                         'pool_id': 1,
                         'name': 'T_migrate_vol_' + str(i),
-                        'capacity': '1GB'
+                        'capacity': '2GB'
                     })
+
+            server.webapi('post', 'snapshot', {"name": "test_migrate1", "type": 'volume', "source_id": 2})
 
         return
 
@@ -85,6 +87,10 @@ def precondition_2():
 
             if 'adv_role' in vol.keys() and vol['adv_role'] == 'Source':
                 server.webapi('post', 'migrate/' + str(vol['id']) + '/stop', {"location": 1})
+
+    server.webapi('post', 'snapshot', {"name": "test_migrate2", "type": 'volume', "source_id": 2})
+
+    return
 
 
 def clean_up_environment():
@@ -125,7 +131,7 @@ def start_local_migrate(c):
 
     cli_setting = cli_test_setting()
 
-    cli_setting.setting(c, data, 'start_local_migrate', 3)
+    cli_setting.setting(c, data, 'start_local_migrate', 10)
 
     return cli_setting.FailFlag
 
@@ -141,7 +147,7 @@ def start_remote_migrate(c):
 
     cli_setting = cli_test_setting()
 
-    cli_setting.setting(c, data, 'start_remote_migrate', 3)
+    cli_setting.setting(c, data, 'start_remote_migrate', 10)
 
     return cli_setting.FailFlag
 
@@ -213,13 +219,13 @@ if __name__ == "__main__":
     c, ssh = ssh_conn()
 
     start_local_migrate(c)
-    # start_remote_migrate(c)
-    # forbidden_action(c)
-    # stop_migrate(c)
-    # help_migrate(c)
-    # invalid_setting_for_migrate(c)
-    # invalid_option_for_migrate(c)
-    # missing_parameter_migrate(c)
+    start_remote_migrate(c)
+    forbidden_action(c)
+    stop_migrate(c)
+    help_migrate(c)
+    invalid_setting_for_migrate(c)
+    invalid_option_for_migrate(c)
+    missing_parameter_migrate(c)
 
     ssh.close()
     elasped = time.clock() - start

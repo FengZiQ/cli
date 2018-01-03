@@ -3510,3 +3510,388 @@ administrator@cli>
 Fail: migrate -a start -t remote -i 5 -p 0 -s "srcip=10.84.2.164,dstip=10.84.2.115,password=password"
 
 'result': 'f'
+
+Expect: Invalid setting parameters
+
+migrate test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+migrate -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (start|stop)
+
+administrator@cli> 
+
+Expect: destination pool capacity should be more than soure volume
+
+migrate -a start -t local -i 0 -p 3
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[0] is not existed.
+
+administrator@cli> 
+
+Fail: please check out Fail to execute this method
+
+
+Expect: specify nonexistent source volume
+
+migrate -a start -t local -i 100 -p 0
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: specify nonexistent destination pool
+
+migrate -a start -t local -i 0 -p 10
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[0] is not existed.
+
+administrator@cli> 
+
+Fail: please check out Pool id=[10] is not existed
+
+
+Expect: thin provision volume cannot become source volume
+
+migrate -a start -t local -i 1 -p 1
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[1] is not existed.
+
+administrator@cli> 
+
+Fail: please check out Volume is not full-provision
+
+
+Expect: Can not migrate Volume to the same Pool
+
+migrate -a start -t local -i 0 -p 2
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[0] is not existed.
+
+administrator@cli> 
+
+Fail: please check out Can not migrate Volume to the same Pool
+
+
+Expect: should hint error when specify wrong sync mode
+
+migrate -a start -t local -i 0 -p 1 -s "syncmode=test"
+Error (0x2013): Invalid setting parameters
+syncmode: invalid setting test (async|semi-sync|sync)
+
+administrator@cli> 
+
+Expect: should hint error when specify wrong sync mode
+
+migrate -a start -t remote -i 0 -p 0 -s "syncmode=t,srcip=10.84.2.164,dstip=10.84.2.115, password=password"
+Error (0x2013): Invalid setting parameters
+syncmode: invalid setting t (async|semi-sync|sync)
+
+administrator@cli> 
+
+Fail: please check out invalid setting test (async|semi-sync|sync)
+
+
+Expect: ip nonconformity
+
+migrate -a start -t remote -i 0 -p 0 -s "srcip=256.0.0.1,dstip=10.0.0.2, password=password"
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[0] is not existed.
+
+administrator@cli> 
+
+Expect: ip nonconformity
+
+migrate -a start -t remote -i 0 -p 0 -s "srcip=10.256.0.1,dstip=10.0.0.2, password=password"
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[0] is not existed.
+
+administrator@cli> 
+
+Expect: ip nonconformity
+
+migrate -a start -t remote -i 0 -p 0 -s "srcip=10.0.256.1,dstip=10.0.0.2, password=password"
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[0] is not existed.
+
+administrator@cli> 
+
+Expect: ip nonconformity
+
+migrate -a start -t remote -i 0 -p 0 -s "srcip=10.0.0.256,dstip=10.0.0.2, password=password"
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[0] is not existed.
+
+administrator@cli> 
+
+Expect: specify nonexistent destination host
+
+migrate -a start -t remote -i 0 -p 0 -s "srcip=10.84.2.164,dstip=10.0.254.2, password=password"
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[0] is not existed.
+
+administrator@cli> 
+
+Expect: specify nonexistent source host
+
+migrate -a start -t remote -i 0 -p 0 -s "srcip=10.84.254.164,dstip=10.84.1.115, password=password"
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[0] is not existed.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+migrate -a stop -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+
+Expect: migrate should not stop by destination volume
+
+migrate -a stop -i 9
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[9] is not existed.
+
+administrator@cli> 
+
+Fail: please check out Incorrect parameters
+
+
+Fail: please check out zp254243d
+
+
+Expect: Volume id=[20] is not existed
+
+migrate -a stop -i 20
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[20] is not existed.
+
+administrator@cli> 
+'result': 'f'
+
+Expect: migrate should be started by "syncmode=async"
+
+migrate -a start -t local -i 2 -p 1 -s "syncmode=async"
+Error (0x4100999): Fail to execute this method.
+
+administrator@cli> 
+
+Fail: migrate -a start -t local -i 2 -p 1 -s "syncmode=async"
+
+
+Expect: migrate should be started by "syncmode=semi-sync"
+
+migrate -a start -t local -i 3 -p 1 -s "syncmode=semi-sync"
+Error (0x4100999): Fail to execute this method.
+
+administrator@cli> 
+
+Fail: migrate -a start -t local -i 3 -p 1 -s "syncmode=semi-sync"
+
+
+Expect: migrate should be started by "syncmode=sync"
+
+migrate -a start -t local -i 4 -p 0 -s "syncmode=sync"
+
+administrator@cli> 
+volume -i 8 -v
+-------------------------------------------------------------------------------
+Id: 8                                   Name: T_migrate_vol_4_migrate
+PoolId: 0                               PoolName: T_migrate_0
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 107.22 GB        UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-03 15:00:22
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Active                  AdvProtocol: Sync
+AdvStatus: Warning                      AdvProgress: 0.0
+
+administrator@cli> 
+
+Fail: please check out AdvStatus: Syncing
+
+
+Expect: migrate should be started by default volues
+
+migrate -a start -t local -i 5 -p 0
+
+administrator@cli> 
+volume -i 5 -v
+-------------------------------------------------------------------------------
+Id: 5                                   Name: T_migrate_vol_5
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: 5
+ExportedWWN: 227c0001550b13e7           OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-03 15:00:06
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Source
+AdvMode: Active-Active                  AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 3.4
+
+administrator@cli> 
+'result': 'f'
+
+Expect: migrate of remote type should be started by "syncmode=async"
+
+migrate -a start -t remote -i 2 -p 0 -s "syncmode=async,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+Error (0x4100999): Fail to execute this method.
+
+administrator@cli> 
+
+Fail: migrate -a start -t remote -i 2 -p 0 -s "syncmode=async,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+
+Expect: migrate of remote type should be started by "syncmode=semi-sync"
+
+migrate -a start -t remote -i 3 -p 0 -s "syncmode=semi-sync,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+Error (0x4100999): Fail to execute this method.
+
+administrator@cli> 
+
+Fail: migrate -a start -t remote -i 3 -p 0 -s "syncmode=semi-sync,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+
+Expect: migrate of remote type should be started by "syncmode=sync"
+
+migrate -a start -t remote -i 4 -p 0 -s "syncmode=sync,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+administrator@cli> 
+volume -i 4 -v
+-------------------------------------------------------------------------------
+Id: 4                                   Name: T_migrate_vol_4
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: -1
+ExportedWWN: 22aa000155456c7a           OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 7.27 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-03 15:00:05
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Remote                         AdvRole: Source
+AdvMode: Active-Active                  AdvProtocol: Sync
+AdvStatus: Warning                      AdvProgress: 0.0
+
+administrator@cli> 
+
+Fail: please check out AdvStatus: Syncing
+
+
+Expect: migrate of remote type should be started by default volues
+
+migrate -a start -t remote -i 5 -p 0 -s "srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+administrator@cli> 
+volume -i 5 -v
+-------------------------------------------------------------------------------
+Id: 5                                   Name: T_migrate_vol_5
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: 7
+ExportedWWN: 227c0001550b13e7           OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 7.27 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-03 15:00:06
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Remote                         AdvRole: Source
+AdvMode: Active-Active                  AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 0.5
+
+administrator@cli> 
+'result': 'f'
+
+Expect: migrate should be started by "syncmode=async"
+
+migrate -a start -t local -i 2 -p 1 -s "syncmode=async"
+Error (0x4100999): Fail to execute this method.
+
+administrator@cli> 
+
+Fail: migrate -a start -t local -i 2 -p 1 -s "syncmode=async"
+
+
+Expect: migrate should be started by "syncmode=semi-sync"
+
+migrate -a start -t local -i 3 -p 1 -s "syncmode=semi-sync"
+Error (0x4100999): Fail to execute this method.
+
+administrator@cli> 
+
+Fail: migrate -a start -t local -i 3 -p 1 -s "syncmode=semi-sync"
+
+
+Expect: migrate should be started by "syncmode=sync"
+
+migrate -a start -t local -i 4 -p 0 -s "syncmode=sync"
+
+administrator@cli> 
+volume -i 8 -v
+-------------------------------------------------------------------------------
+Id: 8                                   Name: T_migrate_vol_4_migrate
+PoolId: 0                               PoolName: T_migrate_0
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 106.94 GB        UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-03 20:33:47
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Active                  AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 0.9
+
+administrator@cli> 
+
+Expect: migrate should be started by default volues
+
+migrate -a start -t local -i 5 -p 0
+
+administrator@cli> 
+volume -i 5 -v
+-------------------------------------------------------------------------------
+Id: 5                                   Name: T_migrate_vol_5
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: 7
+ExportedWWN: 2231000155cbb18a           OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-03 20:32:37
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Source
+AdvMode: Active-Active                  AdvProtocol: Sync
+AdvStatus: Warning                      AdvProgress: 0.0
+
+administrator@cli> 
+
+Fail: please check out AdvStatus: Syncing
+
+'result': 'f'
