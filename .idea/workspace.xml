@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e03c8b68-9846-4b80-8d73-1c116d755aef" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/migrate.xlsx" afterPath="$PROJECT_DIR$/data/migrate.xlsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/allowip.xlsx" afterPath="$PROJECT_DIR$/data/allowip.xlsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/periodsnap.xlsx" afterPath="$PROJECT_DIR$/data/periodsnap.xlsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/allowip.py" afterPath="$PROJECT_DIR$/allowip.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cli_scripts.log" afterPath="$PROJECT_DIR$/cli_scripts.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/migrate.py" afterPath="$PROJECT_DIR$/migrate.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/remote_migrate.py" afterPath="$PROJECT_DIR$/remote_migrate.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testlink.notes" afterPath="$PROJECT_DIR$/testlink.notes" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,13 +22,16 @@
       <file leaf-file-name="migrate.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/migrate.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="223" column="19" lean-forward="true" selection-start-line="223" selection-start-column="19" selection-end-line="223" selection-end-column="19" />
+            <state relative-caret-position="221">
+              <caret line="176" column="0" lean-forward="true" selection-start-line="176" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
               <folding>
                 <element signature="e#31#63#0" expanded="true" />
                 <element signature="e#292#2455#0" expanded="false" />
                 <element signature="e#2484#2944#0" expanded="false" />
                 <element signature="e#2979#3753#0" expanded="false" />
+                <element signature="e#3789#3956#0" expanded="false" />
+                <element signature="e#3992#4281#0" expanded="false" />
+                <element signature="e#4313#4658#0" expanded="false" />
                 <element signature="e#4687#4800#0" expanded="false" />
                 <element signature="e#4829#4929#0" expanded="false" />
                 <element signature="e#4973#5123#0" expanded="false" />
@@ -147,7 +150,6 @@
         <option value="$PROJECT_DIR$/clone.py" />
         <option value="$PROJECT_DIR$/chap.py" />
         <option value="$PROJECT_DIR$/acl.py" />
-        <option value="$PROJECT_DIR$/periodsnap.py" />
         <option value="$PROJECT_DIR$/ping.py" />
         <option value="$PROJECT_DIR$/protocol.py" />
         <option value="$PROJECT_DIR$/rb.py" />
@@ -165,12 +167,13 @@
         <option value="$PROJECT_DIR$/pool.py" />
         <option value="$PROJECT_DIR$/cli_autoscripts_zach.py" />
         <option value="$PROJECT_DIR$/sc.py" />
-        <option value="$PROJECT_DIR$/allowip.py" />
         <option value="$PROJECT_DIR$/replication.py" />
         <option value="$PROJECT_DIR$/remote_115.py" />
         <option value="$PROJECT_DIR$/find_unconfigured_pd_id.py" />
         <option value="$PROJECT_DIR$/remote_migrate.py" />
         <option value="$PROJECT_DIR$/migrate.py" />
+        <option value="$PROJECT_DIR$/periodsnap.py" />
+        <option value="$PROJECT_DIR$/allowip.py" />
       </list>
     </option>
   </component>
@@ -198,6 +201,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -212,8 +217,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -231,43 +234,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.migrate">
-    <configuration default="false" name="wcache" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="cli" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/wcache.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="rcache" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="cli" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/rcache.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.allowip">
     <configuration default="false" name="spare" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -317,6 +284,42 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="cli" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/remote_migrate.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="periodsnap" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="cli" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/periodsnap.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="allowip" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="cli" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/allowip.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -387,19 +390,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.wcache" />
-      <item index="1" class="java.lang.String" itemvalue="Python.rcache" />
-      <item index="2" class="java.lang.String" itemvalue="Python.spare" />
-      <item index="3" class="java.lang.String" itemvalue="Python.migrate" />
-      <item index="4" class="java.lang.String" itemvalue="Python.remote_migrate" />
+      <item index="0" class="java.lang.String" itemvalue="Python.spare" />
+      <item index="1" class="java.lang.String" itemvalue="Python.migrate" />
+      <item index="2" class="java.lang.String" itemvalue="Python.remote_migrate" />
+      <item index="3" class="java.lang.String" itemvalue="Python.periodsnap" />
+      <item index="4" class="java.lang.String" itemvalue="Python.allowip" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.migrate" />
-        <item index="1" class="java.lang.String" itemvalue="Python.remote_migrate" />
-        <item index="2" class="java.lang.String" itemvalue="Python.spare" />
-        <item index="3" class="java.lang.String" itemvalue="Python.rcache" />
-        <item index="4" class="java.lang.String" itemvalue="Python.wcache" />
+        <item index="0" class="java.lang.String" itemvalue="Python.allowip" />
+        <item index="1" class="java.lang.String" itemvalue="Python.periodsnap" />
+        <item index="2" class="java.lang.String" itemvalue="Python.migrate" />
+        <item index="3" class="java.lang.String" itemvalue="Python.remote_migrate" />
+        <item index="4" class="java.lang.String" itemvalue="Python.spare" />
       </list>
     </recent_temporary>
   </component>
@@ -434,7 +437,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20415778" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20842217" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4355363" sideWeight="0.5053305" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40303358" sideWeight="0.4946695" order="2" side_tool="false" content_ui="tabs" />
@@ -634,13 +637,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/periodsnap.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="132" column="0" lean-forward="true" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ping.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="429">
@@ -694,7 +690,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="473">
           <caret line="299" column="0" lean-forward="true" selection-start-line="299" selection-start-column="0" selection-end-line="299" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -793,7 +788,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="10" column="70" lean-forward="true" selection-start-line="10" selection-start-column="70" selection-end-line="10" selection-end-column="70" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -801,13 +795,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="29" column="39" lean-forward="true" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/allowip.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="130" column="18" lean-forward="true" selection-start-line="130" selection-start-column="18" selection-end-line="130" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -843,22 +830,39 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
           <caret line="25" column="4" lean-forward="false" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/periodsnap.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="143" column="22" lean-forward="true" selection-start-line="143" selection-start-column="22" selection-end-line="143" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/allowip.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="760">
+          <caret line="128" column="35" lean-forward="true" selection-start-line="128" selection-start-column="35" selection-end-line="128" selection-end-column="35" />
           <folding>
-            <element signature="e#941#1196#0" expanded="false" />
-            <element signature="e#1223#1321#0" expanded="false" />
+            <element signature="e#214#959#0" expanded="false" />
+            <element signature="e#986#1248#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/migrate.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="223" column="19" lean-forward="true" selection-start-line="223" selection-start-column="19" selection-end-line="223" selection-end-column="19" />
+        <state relative-caret-position="221">
+          <caret line="176" column="0" lean-forward="true" selection-start-line="176" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
           <folding>
             <element signature="e#31#63#0" expanded="true" />
             <element signature="e#292#2455#0" expanded="false" />
             <element signature="e#2484#2944#0" expanded="false" />
             <element signature="e#2979#3753#0" expanded="false" />
+            <element signature="e#3789#3956#0" expanded="false" />
+            <element signature="e#3992#4281#0" expanded="false" />
+            <element signature="e#4313#4658#0" expanded="false" />
             <element signature="e#4687#4800#0" expanded="false" />
             <element signature="e#4829#4929#0" expanded="false" />
             <element signature="e#4973#5123#0" expanded="false" />

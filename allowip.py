@@ -19,7 +19,7 @@ def precondition():
         server.webapi('post', 'nasshare', {'pool_id': 0, 'name': 'test_allowip_nas_' + str(i), 'capacity': '2GB'})
 
     # create snapshot
-    for i in range(2):
+    for i in range(3):
         server.webapi('post', 'snapshot', {"name": "test_allowip_snap_" + str(i), "type": 'nasshare', "source_id": 0})
 
     # create clone
