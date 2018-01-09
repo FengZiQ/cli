@@ -7,7 +7,7 @@ import json
 from cli_test import *
 from remote import server
 from find_unconfigured_pd_id import find_pd_id
-from remote_migrate import precondition_for_migrate
+from remote_migrate import precondition_for_migrate, clean_up
 
 data = 'data/migrate.xlsx'
 
@@ -38,7 +38,7 @@ def precondition_1():
             server.webapi('post', 'pool', {"name": "T_migrate_3", "pds": [15], "raid_level": "raid0"})
 
             # create source volume
-            for i in range(6):
+            for i in range(10):
 
                 if i <= 1:
                     server.webapi('post', 'volume', {
@@ -60,12 +60,12 @@ def precondition_1():
                         'logbias': 'throughput'
                     })
 
-                elif i == 4 or i == 5:
+                else:
 
                     server.webapi('post', 'volume', {
                         'pool_id': 1,
                         'name': 'T_migrate_vol_' + str(i),
-                        'capacity': '2GB'
+                        'capacity': '10GB'
                     })
 
             server.webapi('post', 'snapshot', {"name": "test_migrate1", "type": 'volume', "source_id": 2})
@@ -94,6 +94,8 @@ def precondition_2():
 
 
 def clean_up_environment():
+    clean_up()
+
     try:
         # stop all migrate
         vol_request = server.webapi('get', 'volume?page=1&page_size=100')
@@ -147,7 +149,7 @@ def start_remote_migrate(c):
 
     cli_setting = cli_test_setting()
 
-    cli_setting.setting(c, data, 'start_remote_migrate', 10)
+    cli_setting.setting(c, data, 'start_remote_migrate', 3)
 
     return cli_setting.FailFlag
 
@@ -220,7 +222,6 @@ if __name__ == "__main__":
 
     start_local_migrate(c)
     start_remote_migrate(c)
-    forbidden_action(c)
     stop_migrate(c)
     help_migrate(c)
     invalid_setting_for_migrate(c)

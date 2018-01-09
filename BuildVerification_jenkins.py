@@ -15,7 +15,7 @@ def BuildVerification(c):
     # To check whether the sw is compiled successfully
     # size = os.path.getsize('/var/lib/jenkins/workspace/Hyperion-DS_Hulda/sw.log')
     size = os.path.getsize('/var/lib/jenkins/workspace/HyperionDS/sw.log')
-    if size < 6000000:
+    if size < 2000000:
         tolog('sw compiles failure')
         exit(1)
 
@@ -227,6 +227,23 @@ def BuildVerification(c):
             FailCasesList.append('The case ' + replication.invalid_option_for_replication.__name__ + ' failed')
         if (replication.missing_parameter_replication(c)):
             FailCasesList.append('The case ' + replication.missing_parameter_replication.__name__ + ' failed')
+
+        tolog('Start verifying migrate')
+        import migrate
+        if (migrate.start_local_migrate(c)):
+            FailCasesList.append('The case ' + migrate.start_local_migrate.__name__ + ' failed')
+        if (migrate.start_remote_migrate(c)):
+            FailCasesList.append('The case ' + migrate.start_remote_migrate.__name__ + ' failed')
+        if (migrate.stop_migrate(c)):
+            FailCasesList.append('The case ' + migrate.stop_migrate.__name__ + ' failed')
+        if (migrate.help_migrate(c)):
+            FailCasesList.append('The case ' + migrate.help_migrate.__name__ + ' failed')
+        if (migrate.invalid_setting_for_migrate(c)):
+            FailCasesList.append('The case ' + migrate.invalid_setting_for_migrate.__name__ + ' failed')
+        if (migrate.invalid_option_for_migrate(c)):
+            FailCasesList.append('The case ' + migrate.invalid_option_for_migrate.__name__ + ' failed')
+        if (migrate.missing_parameter_migrate(c)):
+            FailCasesList.append('The case ' + migrate.missing_parameter_migrate.__name__ + ' failed')
 
         tolog('Start verifying spare')
         import spare

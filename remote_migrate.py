@@ -40,6 +40,11 @@ def precondition_for_migrate():
             server.webapi('post', 'pool', {"name": "p0", "pds": [pdId[1]], "raid_level": "raid0"})
 
 
+def clean_up():
+
+    server.webapiurl('delete', 'pool', '0?force=1')
+
+
 if __name__ == "__main__":
 
     precondition_for_migrate()

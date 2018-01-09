@@ -14,6 +14,8 @@ def add_group_and_verify_name(c):
     # disable domain, if enabled domain, to add user or group will happen error
     server.webapi('post', 'domain/leave')
 
+    clean_up_environment()
+
     cli_setting = cli_test_setting()
 
     cli_setting.setting(c, data, 'add_group_and_verify_name', 3)
@@ -134,7 +136,7 @@ def clean_up_environment():
     if isinstance(groups, dict):
         groups_info = json.loads(groups["text"])
         for group in groups_info:
-            server.webapi('delete', 'dsgroup/' + group["id"])
+            server.webapi('delete', 'dsgroup/' + group["id"] + '?force=1')
 
 
 if __name__ == "__main__":

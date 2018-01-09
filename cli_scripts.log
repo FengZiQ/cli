@@ -1,3 +1,2615 @@
+2018-01-09 17:24:19: 'result': 'p'
+2018-01-09 17:24:19: migrate -a stop -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-09 17:24:19: 
+Expect: Missing parameter
+
+2018-01-09 17:24:19: migrate -a stop
+Error (0x403): Missing parameter
+-i source volumd ID is missed
+
+administrator@cli> 
+2018-01-09 17:24:19: 
+Expect: Missing parameter
+
+2018-01-09 17:24:19: migrate -a start -t local -i 0 -p 2 -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2018-01-09 17:24:19: 
+Expect: Missing parameter
+
+2018-01-09 17:24:19: migrate -a start -t local -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-09 17:24:19: 
+Expect: Missing parameter
+
+2018-01-09 17:24:19: migrate -a start -t local
+Error (0x403): Missing parameter
+-i source volumd ID is missed
+
+administrator@cli> 
+2018-01-09 17:24:19: 
+Expect: Missing parameter
+
+2018-01-09 17:24:19: migrate -a start -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2018-01-09 17:24:19: 
+Expect: Missing parameter
+
+2018-01-09 17:24:19: migrate -a start
+Error (0x403): Missing parameter
+-i source volumd ID is missed
+
+administrator@cli> 
+2018-01-09 17:24:19: 
+Expect: Missing parameter
+
+2018-01-09 17:24:19: migrate -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+2018-01-09 17:24:19: 
+Expect: Missing parameter
+
+2018-01-09 17:22:50: 'result': 'f'
+2018-01-09 17:22:50: migrate -a stop -i 20
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[20] is not existed.
+
+administrator@cli> 
+2018-01-09 17:22:50: 
+Expect: Volume id=[20] is not existed
+
+2018-01-09 17:22:50: migrate -a stop -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2018-01-09 17:22:50: 
+Expect: Invalid setting parameters
+
+2018-01-09 17:22:50: migrate -a start -t remote -i 0 -p 0 -s "srcip=10.84.254.164,dstip=10.84.1.115, password=password"
+Error (0x4100104): Incorrect parameters: There is existing replication or migration pair to this Volume.
+
+administrator@cli> 
+2018-01-09 17:22:49: 
+Expect: specify nonexistent source host
+
+2018-01-09 17:22:49: migrate -a start -t remote -i 0 -p 0 -s "srcip=10.84.2.164,dstip=10.0.254.2, password=password"
+Error (0x4100104): Incorrect parameters: There is existing replication or migration pair to this Volume.
+
+administrator@cli> 
+2018-01-09 17:22:49: 
+Expect: specify nonexistent destination host
+
+2018-01-09 17:22:49: migrate -a start -t remote -i 0 -p 0 -s "srcip=10.0.0.256,dstip=10.0.0.2, password=password"
+Error (0x4100104): Incorrect parameters: There is existing replication or migration pair to this Volume.
+
+administrator@cli> 
+2018-01-09 17:22:48: 
+Expect: ip nonconformity
+
+2018-01-09 17:22:48: migrate -a start -t remote -i 0 -p 0 -s "srcip=10.0.256.1,dstip=10.0.0.2, password=password"
+Error (0x4100104): Incorrect parameters: There is existing replication or migration pair to this Volume.
+
+administrator@cli> 
+2018-01-09 17:22:48: 
+Expect: ip nonconformity
+
+2018-01-09 17:22:48: migrate -a start -t remote -i 0 -p 0 -s "srcip=10.256.0.1,dstip=10.0.0.2, password=password"
+Error (0x4100104): Incorrect parameters: There is existing replication or migration pair to this Volume.
+
+administrator@cli> 
+2018-01-09 17:22:48: 
+Expect: ip nonconformity
+
+2018-01-09 17:22:48: migrate -a start -t remote -i 0 -p 0 -s "srcip=256.0.0.1,dstip=10.0.0.2, password=password"
+Error (0x4100104): Incorrect parameters: There is existing replication or migration pair to this Volume.
+
+administrator@cli> 
+2018-01-09 17:22:47: 
+Expect: ip nonconformity
+
+2018-01-09 17:22:47: migrate -a start -t remote -i 0 -p 0 -s "syncmode=t,srcip=10.84.2.164,dstip=10.84.2.115, password=password"
+Error (0x2013): Invalid setting parameters
+syncmode: invalid setting t (async|semi-sync|sync)
+
+administrator@cli> 
+2018-01-09 17:22:47: 
+Expect: should hint error when specify wrong sync mode
+
+2018-01-09 17:22:47: migrate -a start -t local -i 0 -p 1 -s "syncmode=test"
+Error (0x2013): Invalid setting parameters
+syncmode: invalid setting test (async|semi-sync|sync)
+
+administrator@cli> 
+2018-01-09 17:22:47: 
+Expect: should hint error when specify wrong sync mode
+
+2018-01-09 17:22:47: migrate -a start -t local -i 0 -p 2
+Error (0x4100104): Incorrect parameters: Can not migrate Volume to the same Pool.
+
+administrator@cli> 
+2018-01-09 17:22:47: 
+Expect: Can not migrate Volume to the same Pool
+
+2018-01-09 17:22:47: migrate -a start -t local -i 1 -p 1
+Error (0x4100104): Incorrect parameters: Volume is not full-provision.
+
+administrator@cli> 
+2018-01-09 17:22:46: 
+Expect: thin provision volume cannot become source volume
+
+2018-01-09 17:22:46: 
+Fail: please check out Pool id=[10] is not existed
+
+2018-01-09 17:22:46: migrate -a start -t local -i 0 -p 10
+Error (0x4100104): Incorrect parameters: There is existing replication or migration pair to this Volume.
+
+administrator@cli> 
+2018-01-09 17:22:46: 
+Expect: specify nonexistent destination pool
+
+2018-01-09 17:22:46: migrate -a start -t local -i 100 -p 0
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[100] is not existed.
+
+administrator@cli> 
+2018-01-09 17:22:46: 
+Expect: specify nonexistent source volume
+
+2018-01-09 17:22:46: 
+Fail: please check out Destination Pool availiable size is not enough
+
+2018-01-09 17:22:46: migrate -a start -t local -i 0 -p 3
+Error (0x4100104): Incorrect parameters: There is existing replication or migration pair to this Volume.
+
+administrator@cli> 
+2018-01-09 17:22:45: 
+Expect: destination pool capacity should be more than soure volume
+
+2018-01-09 17:22:45: migrate -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (start|stop)
+
+administrator@cli> 
+2018-01-09 17:22:45: 
+Expect: Invalid setting parameters
+
+2018-01-09 17:22:45: migrate test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-09 17:22:45: 
+Expect: Invalid setting parameters
+
+2018-01-09 17:22:28: 'result': 'p'
+2018-01-09 17:22:28: migrate -a stop -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-09 17:22:28: 
+Expect: invalid option: -test
+
+2018-01-09 17:22:28: migrate -a start -i 0 -p 1 -s "test=sync"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+2018-01-09 17:22:28: 
+Expect: invalid option: test
+
+2018-01-09 17:22:28: migrate -a start -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-09 17:22:28: 
+Expect: invalid option: -test
+
+2018-01-09 17:22:28: migrate -a -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-09 17:22:28: 
+Expect: invalid option: -test
+
+2018-01-09 17:22:28: migrate -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-09 17:22:28: 
+Expect: invalid option: -test
+
+2018-01-09 17:19:27: 'result': 'f'
+2018-01-09 17:19:27: migrate -a stop -i 20
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[20] is not existed.
+
+administrator@cli> 
+2018-01-09 17:19:27: 
+Expect: Volume id=[20] is not existed
+
+2018-01-09 17:19:27: 
+Fail: please check out zp254243d
+
+2018-01-09 17:19:27: migrate -a stop -i 9
+Error (0x4100104): Incorrect parameters: The parameter [password] is empty.
+
+administrator@cli> 
+2018-01-09 17:19:26: 
+Expect: migrate should not stop by destination volume
+
+2018-01-09 17:19:26: migrate -a stop -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2018-01-09 17:19:26: 
+Expect: Invalid setting parameters
+
+2018-01-09 17:19:26: migrate -a start -t remote -i 0 -p 0 -s "srcip=10.84.254.164,dstip=10.84.1.115, password=password"
+Error (0x4100104): Incorrect parameters: There is existing replication or migration pair to this Volume.
+
+administrator@cli> 
+2018-01-09 17:19:26: 
+Expect: specify nonexistent source host
+
+2018-01-09 17:19:26: migrate -a start -t remote -i 0 -p 0 -s "srcip=10.84.2.164,dstip=10.0.254.2, password=password"
+Error (0x4100104): Incorrect parameters: There is existing replication or migration pair to this Volume.
+
+administrator@cli> 
+2018-01-09 17:19:25: 
+Expect: specify nonexistent destination host
+
+2018-01-09 17:19:25: migrate -a start -t remote -i 0 -p 0 -s "srcip=10.0.0.256,dstip=10.0.0.2, password=password"
+Error (0x4100104): Incorrect parameters: There is existing replication or migration pair to this Volume.
+
+administrator@cli> 
+2018-01-09 17:19:25: 
+Expect: ip nonconformity
+
+2018-01-09 17:19:25: migrate -a start -t remote -i 0 -p 0 -s "srcip=10.0.256.1,dstip=10.0.0.2, password=password"
+Error (0x4100104): Incorrect parameters: There is existing replication or migration pair to this Volume.
+
+administrator@cli> 
+2018-01-09 17:19:25: 
+Expect: ip nonconformity
+
+2018-01-09 17:19:25: migrate -a start -t remote -i 0 -p 0 -s "srcip=10.256.0.1,dstip=10.0.0.2, password=password"
+Error (0x4100104): Incorrect parameters: There is existing replication or migration pair to this Volume.
+
+administrator@cli> 
+2018-01-09 17:19:24: 
+Expect: ip nonconformity
+
+2018-01-09 17:19:24: migrate -a start -t remote -i 0 -p 0 -s "srcip=256.0.0.1,dstip=10.0.0.2, password=password"
+Error (0x4100104): Incorrect parameters: Can not find meta device info by zp912782/ds588912 1.
+
+administrator@cli> 
+2018-01-09 17:19:24: 
+Expect: ip nonconformity
+
+2018-01-09 17:19:24: 
+Fail: please check out invalid setting test (async|semi-sync|sync)
+
+2018-01-09 17:19:24: migrate -a start -t remote -i 0 -p 0 -s "syncmode=t,srcip=10.84.2.164,dstip=10.84.2.115, password=password"
+Error (0x2013): Invalid setting parameters
+syncmode: invalid setting t (async|semi-sync|sync)
+
+administrator@cli> 
+2018-01-09 17:19:24: 
+Expect: should hint error when specify wrong sync mode
+
+2018-01-09 17:19:24: migrate -a start -t local -i 0 -p 1 -s "syncmode=test"
+Error (0x2013): Invalid setting parameters
+syncmode: invalid setting test (async|semi-sync|sync)
+
+administrator@cli> 
+2018-01-09 17:19:24: 
+Expect: should hint error when specify wrong sync mode
+
+2018-01-09 17:19:24: migrate -a start -t local -i 0 -p 2
+Error (0x4100104): Incorrect parameters: Can not migrate Volume to the same Pool.
+
+administrator@cli> 
+2018-01-09 17:19:23: 
+Expect: Can not migrate Volume to the same Pool
+
+2018-01-09 17:19:23: migrate -a start -t local -i 1 -p 1
+Error (0x4100104): Incorrect parameters: Volume is not full-provision.
+
+administrator@cli> 
+2018-01-09 17:19:23: 
+Expect: thin provision volume cannot become source volume
+
+2018-01-09 17:19:23: migrate -a start -t local -i 0 -p 10
+Error (0x4100102): Empty query result, please check input parameters. Pool id=[10] is not existed.
+
+administrator@cli> 
+2018-01-09 17:19:23: 
+Expect: specify nonexistent destination pool
+
+2018-01-09 17:19:23: migrate -a start -t local -i 100 -p 0
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[100] is not existed.
+
+administrator@cli> 
+2018-01-09 17:19:22: 
+Expect: specify nonexistent source volume
+
+2018-01-09 17:19:22: 
+Fail: please check out Fail to execute this method
+
+2018-01-09 17:19:22: migrate -a start -t local -i 0 -p 3
+Error (0x4100104): Incorrect parameters: Destination Pool availiable size is not enough.
+
+administrator@cli> 
+2018-01-09 17:19:22: 
+Expect: destination pool capacity should be more than soure volume
+
+2018-01-09 17:19:22: migrate -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (start|stop)
+
+administrator@cli> 
+2018-01-09 17:19:22: 
+Expect: Invalid setting parameters
+
+2018-01-09 17:19:22: migrate test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-09 17:19:22: 
+Expect: Invalid setting parameters
+
+2018-01-09 17:19:12: 'result': 'p'
+2018-01-09 17:19:12: migrate -h
+migrate
+
+Usage:
+   migrate [-a <action>] [-i <ID>] [-t <location>] [-p <pool ID>]
+           [-s <settings>]
+
+Summary:
+   The migrate command allows the user to migrate volume into another pool
+   which located in same subsystem (Local) or other subsystem (Remote).
+   As well as to stop a specified migration.
+   Only with thin-provision disabled volume can be used to migrate. During
+   migration in progress, source volume cannot be expanded or removed;
+   destination volume disallowed to do any operations.
+
+Options:
+
+-a <action>           Which action to perform.
+   start              (Default) Start a specific migration progress.
+   stop               Stop the migration
+
+-i <ID>               Source volume ID.
+
+-t <location>         Destination location.
+   local              (Default)
+   remote
+
+-p <pool ID>          Destination pool ID.
+
+-s "<option>=<value>"
+                      Used to specify migration settings
+   syncmode=          Sync mode method
+     async
+     semi-sync
+     sync             (Default)
+
+   srcip=             Source portal IP
+                      Only valid for -t remote specified.
+
+   dstip=             Destination portal IP of remote subsystem.
+                      Only valid for -t remote specified.
+
+   password=          Password of administrator of remote subsystem.
+                      Only valid for -t remote specified.
+
+Examples:
+   migrate -a start -i 1 -t local -p 0 -s "syncmode=async"
+   migrate -a start -i 2 -t remote -p 0 -s "srcip=10.0.0.1,
+     dstip=10.0.0.2, password=test"
+Type ' | grep "word1,word2,..."' at the end of each command, to display 
+filtered info.
+
+administrator@cli> 
+2018-01-09 17:19:12: 
+Expect: migrate help document should be displayed
+
+2018-01-09 17:17:59: 'result': 'f'
+2018-01-09 17:17:59: 
+Fail: migrate -a stop -i 7
+
+2018-01-09 17:17:58: migrate -a stop -i 7
+Error (0x4100104): Incorrect parameters: The parameter [password] is empty.
+
+administrator@cli> 
+2018-01-09 17:17:57: 
+Expect: specific migrate should be stopped
+
+2018-01-09 17:16:09: 'result': 'f'
+2018-01-09 17:16:09: 
+Fail: migrate -a stop -i 2
+
+2018-01-09 17:16:08: migrate -a stop -i 2
+Error (0x2013): Invalid setting parameters
+specified source volume not in migration status
+
+administrator@cli> 
+2018-01-09 17:16:07: 
+Expect: specific migrate should be stopped
+
+2018-01-09 17:14:54: 'result': 'f'
+2018-01-09 17:14:54: volume -i 6 -v
+-i: specific volume not exists
+
+administrator@cli> 
+2018-01-09 17:14:51: volume -i 6 -v
+-i: specific volume not exists
+
+administrator@cli> 
+2018-01-09 17:14:51: 
+Expect: source volume should be delete
+
+2018-01-09 17:14:51: volume -i 9 -v
+-------------------------------------------------------------------------------
+Id: 9                                   Name: T_migrate_vol_9
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: -1
+ExportedWWN: 227100015589ed02           OperationalStatus: OK, Synchronizing
+TotalCapacity: 10 GB                    UsedCapacity: 10 GB
+PoolAvailableCapacity: 7.25 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 23:11:59
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Remote                         AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 0.1
+
+administrator@cli> 
+2018-01-09 17:14:47: migrate -a start -t remote -i 9 -p 0 -s "srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+administrator@cli> 
+2018-01-09 17:14:43: 
+Expect: migrate of remote type should be started by default volues
+
+2018-01-09 17:14:43: volume -i 8 -v
+-------------------------------------------------------------------------------
+Id: 8                                   Name: T_migrate_vol_8
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: 8
+ExportedWWN: 22e7000155feea32           OperationalStatus: OK, Synchronizing
+TotalCapacity: 10 GB                    UsedCapacity: 10 GB
+PoolAvailableCapacity: 7.24 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 23:11:59
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Remote                         AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Creating                     AdvProgress: 0.0
+
+administrator@cli> 
+2018-01-09 17:14:39: migrate -a start -t remote -i 8 -p 0 -s "syncmode=sync,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+administrator@cli> 
+2018-01-09 17:14:36: 
+Expect: migrate of remote type should be started by "syncmode=sync"
+
+2018-01-09 17:14:36: 
+Fail: please check out AdvProtocol: Sync
+
+2018-01-09 17:14:36: volume -i 7 -v
+-------------------------------------------------------------------------------
+Id: 7                                   Name: T_migrate_vol_7
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: -1
+ExportedWWN: 22b6000155797d4b           OperationalStatus: OK, Synchronizing
+TotalCapacity: 10 GB                    UsedCapacity: 10 GB
+PoolAvailableCapacity: 7.24 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 23:11:58
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Remote                         AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Semi-Sync
+AdvStatus: Syncing                      AdvProgress: 0.1
+
+administrator@cli> 
+2018-01-09 17:14:33: migrate -a start -t remote -i 7 -p 0 -s "syncmode=semi-sync,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+administrator@cli> 
+2018-01-09 17:14:26: 
+Expect: migrate of remote type should be started by "syncmode=semi-sync"
+
+2018-01-09 17:14:26: 
+Fail: please check out AdvProtocol: Sync
+
+2018-01-09 17:14:26: volume -i 6 -v
+-------------------------------------------------------------------------------
+Id: 6                                   Name: T_migrate_vol_6
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: 6
+ExportedWWN: 22600001553702d6           OperationalStatus: OK, Synchronizing
+TotalCapacity: 10 GB                    UsedCapacity: 10 GB
+PoolAvailableCapacity: 7.23 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 23:11:57
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Remote                         AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Async
+AdvStatus: Creating                     AdvProgress: 0.0
+
+administrator@cli> 
+2018-01-09 17:14:22: migrate -a start -t remote -i 6 -p 0 -s "syncmode=async,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+administrator@cli> 
+2018-01-09 17:14:19: 
+Expect: migrate of remote type should be started by "syncmode=async"
+
+2018-01-09 17:13:41: 'result': 'f'
+2018-01-09 17:13:41: 
+Fail: please check out No volume exists
+
+2018-01-09 17:13:41: volume -i 2 -v
+-------------------------------------------------------------------------------
+Id: 2                                   Name: T_migrate_vol_2
+PoolId: 0                               PoolName: T_migrate_0
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 94.56 GB         UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 0 Byte
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 1
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 23:11:55
+PreferCtrlId: 2                         AdvType: 
+
+administrator@cli> 
+2018-01-09 17:13:35: volume -i 2 -v
+-------------------------------------------------------------------------------
+Id: 2                                   Name: T_migrate_vol_2
+PoolId: 0                               PoolName: T_migrate_0
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 94.56 GB         UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 0 Byte
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 1
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 23:11:55
+PreferCtrlId: 2                         AdvType: 
+
+administrator@cli> 
+2018-01-09 17:13:35: 
+Expect: source volume should be delete
+
+2018-01-09 17:13:35: volume -i 5 -v
+-------------------------------------------------------------------------------
+Id: 5                                   Name: T_migrate_vol_5
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: -1
+ExportedWWN: 22da000155ae0b87           OperationalStatus: OK, Synchronizing
+TotalCapacity: 10 GB                    UsedCapacity: 10 GB
+PoolAvailableCapacity: 7.22 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 23:11:57
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Creating                     AdvProgress: 0.0
+
+administrator@cli> 
+2018-01-09 17:13:30: migrate -a start -t local -i 5 -p 0
+
+administrator@cli> 
+2018-01-09 17:13:24: 
+Expect: migrate should be started by default volues
+
+2018-01-09 17:13:24: volume -i 12 -v
+-------------------------------------------------------------------------------
+Id: 12                                  Name: T_migrate_vol_4_migrate
+PoolId: 0                               PoolName: T_migrate_0
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 10 GB                    UsedCapacity: 10 GB
+PoolAvailableCapacity: 104.88 GB        UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 23:12:19
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Creating                     AdvProgress: 0.0
+
+administrator@cli> 
+2018-01-09 17:13:19: migrate -a start -t local -i 4 -p 0 -s "syncmode=sync"
+
+administrator@cli> 
+2018-01-09 17:13:13: 
+Expect: migrate should be started by "syncmode=sync"
+
+2018-01-09 17:13:13: volume -i 11 -v
+-------------------------------------------------------------------------------
+Id: 11                                  Name: T_migrate_vol_3_migrate
+PoolId: 1                               PoolName: T_migrate_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 7.21 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 23:12:06
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Semi-Sync
+AdvStatus: Creating                     AdvProgress: 0.0
+
+administrator@cli> 
+2018-01-09 17:13:08: migrate -a start -t local -i 3 -p 1 -s "syncmode=semi-sync"
+
+administrator@cli> 
+2018-01-09 17:13:00: 
+Expect: migrate should be started by "syncmode=semi-sync"
+
+2018-01-09 17:13:00: volume -i 10 -v
+-------------------------------------------------------------------------------
+Id: 10                                  Name: T_migrate_vol_2_migrate
+PoolId: 1                               PoolName: T_migrate_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 7.21 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 23:12:01
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Async
+AdvStatus: Creating                     AdvProgress: 0.0
+
+administrator@cli> 
+2018-01-09 17:12:55: migrate -a start -t local -i 2 -p 1 -s "syncmode=async"
+
+administrator@cli> 
+2018-01-09 17:12:54: 
+Expect: migrate should be started by "syncmode=async"
+
+2018-01-09 16:51:00: 'result': 'f'
+2018-01-09 16:51:00: 
+Fail: please check out specific volume not exists
+
+2018-01-09 16:50:59: volume -i 6 -v
+-------------------------------------------------------------------------------
+Id: 6                                   Name: T_migrate_vol_6
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: 6
+ExportedWWN: 22b2000155fa2eea           OperationalStatus: OK, Synchronizing
+TotalCapacity: 2 GB                     UsedCapacity: 2 GB
+PoolAvailableCapacity: 7.27 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 22:43:25
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Remote                         AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Async
+AdvStatus: Creating                     AdvProgress: 0
+
+administrator@cli> 
+2018-01-09 16:50:56: volume -i 6 -v
+-------------------------------------------------------------------------------
+Id: 6                                   Name: T_migrate_vol_6
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: 6
+ExportedWWN: 22b2000155fa2eea           OperationalStatus: OK, Synchronizing
+TotalCapacity: 2 GB                     UsedCapacity: 2 GB
+PoolAvailableCapacity: 7.27 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 22:43:25
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Remote                         AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Async
+AdvStatus: Creating                     AdvProgress: 0
+
+administrator@cli> 
+2018-01-09 16:50:56: 
+Expect: source volume should be delete
+
+2018-01-09 16:50:56: 
+Fail: migrate -a start -t remote -i 9 -p 0 -s "srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+2018-01-09 16:50:53: migrate -a start -t remote -i 9 -p 0 -s "srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+Error (0x4100104): Incorrect parameters: Can not find meta device info by zp409076/ds359066 1.
+
+administrator@cli> 
+2018-01-09 16:50:51: 
+Expect: migrate of remote type should be started by default volues
+
+2018-01-09 16:50:51: 
+Fail: migrate -a start -t remote -i 8 -p 0 -s "syncmode=sync,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+2018-01-09 16:50:48: migrate -a start -t remote -i 8 -p 0 -s "syncmode=sync,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+Error (0x4100104): Incorrect parameters: There is existing replication or migration pair to this Volume.
+
+administrator@cli> 
+2018-01-09 16:50:48: 
+Expect: migrate of remote type should be started by "syncmode=sync"
+
+2018-01-09 16:50:48: 
+Fail: migrate -a start -t remote -i 7 -p 0 -s "syncmode=semi-sync,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+2018-01-09 16:50:45: migrate -a start -t remote -i 7 -p 0 -s "syncmode=semi-sync,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+Error (0x4100104): Incorrect parameters: Can not find meta device info by zp409076/ds350523 1.
+
+administrator@cli> 
+2018-01-09 16:50:42: 
+Expect: migrate of remote type should be started by "syncmode=semi-sync"
+
+2018-01-09 16:50:42: 
+Fail: migrate -a start -t remote -i 6 -p 0 -s "syncmode=async,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+2018-01-09 16:50:39: migrate -a start -t remote -i 6 -p 0 -s "syncmode=async,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+Error (0x4100104): Incorrect parameters: There is existing replication or migration pair to this Volume.
+
+administrator@cli> 
+2018-01-09 16:50:39: 
+Expect: migrate of remote type should be started by "syncmode=async"
+
+2018-01-09 16:49:43: 'result': 'f'
+2018-01-09 16:49:43: 
+Fail: please check out No volume exists
+
+2018-01-09 16:49:43: volume -i 2 -v
+-------------------------------------------------------------------------------
+Id: 2                                   Name: T_migrate_vol_4
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: 4
+ExportedWWN: 22c4000155de03dd           OperationalStatus: OK, Synchronizing
+TotalCapacity: 10 GB                    UsedCapacity: 10 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 0 Byte
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 1
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 22:48:12
+PreferCtrlId: 2                         AdvType: 
+
+administrator@cli> 
+2018-01-09 16:49:38: volume -i 2 -v
+-------------------------------------------------------------------------------
+Id: 2                                   Name: T_migrate_vol_4
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: 4
+ExportedWWN: 22c4000155de03dd           OperationalStatus: OK, Synchronizing
+TotalCapacity: 10 GB                    UsedCapacity: 10 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 0 Byte
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 1
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 22:48:12
+PreferCtrlId: 2                         AdvType: 
+
+administrator@cli> 
+2018-01-09 16:49:37: 
+Expect: source volume should be delete
+
+2018-01-09 16:49:37: volume -i 5 -v
+-------------------------------------------------------------------------------
+Id: 5                                   Name: T_migrate_vol_9
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: -1
+ExportedWWN: 221500015577c46d           OperationalStatus: OK, Synchronizing
+TotalCapacity: 10 GB                    UsedCapacity: 10 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 22:48:15
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Creating                     AdvProgress: 0.0
+
+administrator@cli> 
+2018-01-09 16:49:32: migrate -a start -t local -i 5 -p 0
+
+administrator@cli> 
+2018-01-09 16:49:26: 
+Expect: migrate should be started by default volues
+
+2018-01-09 16:49:26: 
+Fail: please check out AdvProtocol: Sync
+
+2018-01-09 16:49:26: 
+Fail: please check out AdvMode: Active-Passive
+
+2018-01-09 16:49:26: 
+Fail: please check out AdvRole: Destination
+
+2018-01-09 16:49:26: 
+Fail: please check out AdvKind: Local
+
+2018-01-09 16:49:26: 
+Fail: please check out AdvType: Migration
+
+2018-01-09 16:49:26: 
+Fail: please check out Compress: off
+
+2018-01-09 16:49:26: 
+Fail: please check out Logbias: latency
+
+2018-01-09 16:49:26: 
+Fail: please check out SyncMode: standard
+
+2018-01-09 16:49:26: 
+Fail: please check out Sector: 512 Bytes
+
+2018-01-09 16:49:26: 
+Fail: please check out Block: 8 KB
+
+2018-01-09 16:49:26: volume -i 12 -v
+-i: specific volume not exists
+
+administrator@cli> 
+2018-01-09 16:49:20: migrate -a start -t local -i 4 -p 0 -s "syncmode=sync"
+
+administrator@cli> 
+2018-01-09 16:49:19: 
+Expect: migrate should be started by "syncmode=sync"
+
+2018-01-09 16:49:19: 
+Fail: migrate -a start -t local -i 3 -p 1 -s "syncmode=semi-sync"
+
+2018-01-09 16:49:14: migrate -a start -t local -i 3 -p 1 -s "syncmode=semi-sync"
+Error (0x4100104): Incorrect parameters: Can not migrate Volume to the same Pool.
+
+administrator@cli> 
+2018-01-09 16:49:14: 
+Expect: migrate should be started by "syncmode=semi-sync"
+
+2018-01-09 16:49:14: 
+Fail: migrate -a start -t local -i 2 -p 1 -s "syncmode=async"
+
+2018-01-09 16:49:09: migrate -a start -t local -i 2 -p 1 -s "syncmode=async"
+Error (0x4100104): Incorrect parameters: Can not migrate Volume to the same Pool.
+
+administrator@cli> 
+2018-01-09 16:49:08: 
+Expect: migrate should be started by "syncmode=async"
+
+2018-01-09 16:47:25: 'result': 'f'
+2018-01-09 16:47:25: 
+Fail: please check out specific volume not exists
+
+2018-01-09 16:47:25: volume -i 6 -v
+-------------------------------------------------------------------------------
+Id: 6                                   Name: T_migrate_vol_6
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: -1
+ExportedWWN: 22b2000155fa2eea           OperationalStatus: OK, Synchronizing
+TotalCapacity: 2 GB                     UsedCapacity: 2 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 22:43:25
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Remote                         AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Async
+AdvStatus: Syncing                      AdvProgress: 27.7
+
+administrator@cli> 
+2018-01-09 16:47:15: volume -i 6 -v
+-------------------------------------------------------------------------------
+Id: 6                                   Name: T_migrate_vol_6
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: -1
+ExportedWWN: 22b2000155fa2eea           OperationalStatus: OK, Synchronizing
+TotalCapacity: 2 GB                     UsedCapacity: 2 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 22:43:25
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Remote                         AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Async
+AdvStatus: Syncing                      AdvProgress: 26.3
+
+administrator@cli> 
+2018-01-09 16:47:14: 
+Expect: source volume should be delete
+
+2018-01-09 16:47:14: 
+Fail: please check out AdvProtocol: Sync
+
+2018-01-09 16:47:14: 
+Fail: please check out AdvMode: Active-Passive
+
+2018-01-09 16:47:14: 
+Fail: please check out AdvRole: Source
+
+2018-01-09 16:47:14: 
+Fail: please check out AdvKind: Remote
+
+2018-01-09 16:47:14: 
+Fail: please check out AdvType: Migration
+
+2018-01-09 16:47:14: volume -i 9 -v
+-------------------------------------------------------------------------------
+Id: 9                                   Name: T_migrate_vol_9
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: 11
+ExportedWWN: 228f000155aacf5f           OperationalStatus: OK, Synchronizing
+TotalCapacity: 2 GB                     UsedCapacity: 2 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 22:43:27
+PreferCtrlId: 2                         AdvType: 
+
+administrator@cli> 
+2018-01-09 16:47:04: migrate -a start -t remote -i 9 -p 0 -s "srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+administrator@cli> 
+2018-01-09 16:46:52: 
+Expect: migrate of remote type should be started by default volues
+
+2018-01-09 16:46:52: volume -i 8 -v
+-------------------------------------------------------------------------------
+Id: 8                                   Name: T_migrate_vol_8
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: 10
+ExportedWWN: 2219000155ddc86f           OperationalStatus: OK, Synchronizing
+TotalCapacity: 2 GB                     UsedCapacity: 2 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 22:43:27
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Remote                         AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 1.9
+
+administrator@cli> 
+2018-01-09 16:46:42: migrate -a start -t remote -i 8 -p 0 -s "syncmode=sync,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+administrator@cli> 
+2018-01-09 16:46:37: 
+Expect: migrate of remote type should be started by "syncmode=sync"
+
+2018-01-09 16:46:37: 
+Fail: please check out AdvProtocol: Sync
+
+2018-01-09 16:46:37: 
+Fail: please check out AdvMode: Active-Passive
+
+2018-01-09 16:46:37: 
+Fail: please check out AdvRole: Source
+
+2018-01-09 16:46:37: 
+Fail: please check out AdvKind: Remote
+
+2018-01-09 16:46:37: 
+Fail: please check out AdvType: Migration
+
+2018-01-09 16:46:37: volume -i 7 -v
+-------------------------------------------------------------------------------
+Id: 7                                   Name: T_migrate_vol_7
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: 8
+ExportedWWN: 22f500015524ee6a           OperationalStatus: OK, Synchronizing
+TotalCapacity: 2 GB                     UsedCapacity: 2 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 22:43:26
+PreferCtrlId: 2                         AdvType: 
+
+administrator@cli> 
+2018-01-09 16:46:27: migrate -a start -t remote -i 7 -p 0 -s "syncmode=semi-sync,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+administrator@cli> 
+2018-01-09 16:46:22: 
+Expect: migrate of remote type should be started by "syncmode=semi-sync"
+
+2018-01-09 16:46:22: 
+Fail: please check out AdvProtocol: Sync
+
+2018-01-09 16:46:22: volume -i 6 -v
+-------------------------------------------------------------------------------
+Id: 6                                   Name: T_migrate_vol_6
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: -1
+ExportedWWN: 22b2000155fa2eea           OperationalStatus: OK, Synchronizing
+TotalCapacity: 2 GB                     UsedCapacity: 2 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 22:43:25
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Remote                         AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Async
+AdvStatus: Syncing                      AdvProgress: 4.7
+
+administrator@cli> 
+2018-01-09 16:46:12: migrate -a start -t remote -i 6 -p 0 -s "syncmode=async,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+administrator@cli> 
+2018-01-09 16:46:08: 
+Expect: migrate of remote type should be started by "syncmode=async"
+
+2018-01-09 16:45:17: 'result': 'f'
+2018-01-09 16:45:17: 
+Fail: please check out No volume exists
+
+2018-01-09 16:45:17: volume -i 2 -v
+-------------------------------------------------------------------------------
+Id: 2                                   Name: T_migrate_vol_2
+PoolId: 0                               PoolName: T_migrate_0
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 111.07 GB        UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 0 Byte
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 1
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 22:43:23
+PreferCtrlId: 2                         AdvType: 
+
+administrator@cli> 
+2018-01-09 16:45:07: volume -i 2 -v
+-------------------------------------------------------------------------------
+Id: 2                                   Name: T_migrate_vol_2
+PoolId: 0                               PoolName: T_migrate_0
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 111.07 GB        UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 0 Byte
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 1
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 22:43:23
+PreferCtrlId: 2                         AdvType: 
+
+administrator@cli> 
+2018-01-09 16:45:07: 
+Expect: source volume should be delete
+
+2018-01-09 16:45:07: volume -i 5 -v
+-------------------------------------------------------------------------------
+Id: 5                                   Name: T_migrate_vol_5
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: 5
+ExportedWWN: 22080001556327bb           OperationalStatus: OK, Synchronizing
+TotalCapacity: 2 GB                     UsedCapacity: 2 GB
+PoolAvailableCapacity: 7.25 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 22:43:25
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 29.2
+
+administrator@cli> 
+2018-01-09 16:44:57: migrate -a start -t local -i 5 -p 0
+
+administrator@cli> 
+2018-01-09 16:44:55: 
+Expect: migrate should be started by default volues
+
+2018-01-09 16:44:55: volume -i 12 -v
+-------------------------------------------------------------------------------
+Id: 12                                  Name: T_migrate_vol_4_migrate
+PoolId: 0                               PoolName: T_migrate_0
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 2 GB                     UsedCapacity: 2 GB
+PoolAvailableCapacity: 113.13 GB        UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 202.80 MB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 22:43:51
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 34.0
+
+administrator@cli> 
+2018-01-09 16:44:44: migrate -a start -t local -i 4 -p 0 -s "syncmode=sync"
+
+administrator@cli> 
+2018-01-09 16:44:43: 
+Expect: migrate should be started by "syncmode=sync"
+
+2018-01-09 16:44:43: volume -i 11 -v
+-------------------------------------------------------------------------------
+Id: 11                                  Name: T_migrate_vol_3_migrate
+PoolId: 1                               PoolName: T_migrate_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 7.25 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 22:43:40
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Semi-Sync
+AdvStatus: Syncing                      AdvProgress: 77.0
+
+administrator@cli> 
+2018-01-09 16:44:33: migrate -a start -t local -i 3 -p 1 -s "syncmode=semi-sync"
+
+administrator@cli> 
+2018-01-09 16:44:32: 
+Expect: migrate should be started by "syncmode=semi-sync"
+
+2018-01-09 16:44:32: volume -i 10 -v
+-------------------------------------------------------------------------------
+Id: 10                                  Name: T_migrate_vol_2_migrate
+PoolId: 1                               PoolName: T_migrate_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 7.25 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 22:43:29
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Async
+AdvStatus: Syncing                      AdvProgress: 74.1
+
+administrator@cli> 
+2018-01-09 16:44:22: migrate -a start -t local -i 2 -p 1 -s "syncmode=async"
+
+administrator@cli> 
+2018-01-09 16:44:21: 
+Expect: migrate should be started by "syncmode=async"
+
+2018-01-09 15:59:34: 'result': 'f'
+2018-01-09 15:59:34: 
+Fail: pool -a del -i 0 -f -y
+
+2018-01-09 15:59:34: pool -a del -i 0 -f -y
+
+administrator@cli> 
+2018-01-09 15:59:33: 
+Expect: destination pool should not be deleted
+
+2018-01-09 15:59:33: 
+Fail: pool -a del -i 1 -f -y
+
+2018-01-09 15:59:32: pool -a del -i 1 -f -y
+
+administrator@cli> 
+2018-01-09 15:59:31: 
+Expect: source pool should not be deleted
+
+2018-01-09 15:59:31: volume -a del -i 4
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[4] is not existed.
+
+administrator@cli> 
+2018-01-09 15:59:31: 
+Expect: source volume should not be deleted
+
+2018-01-09 15:59:31: volume -a mod -i 4 -s "capacity=102GB"
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[4] is not existed.
+
+administrator@cli> 
+2018-01-09 15:59:31: 
+Expect: source volume should not be expanded
+
+2018-01-09 15:59:30: volume -a del -i 12
+Error (0x4100104): Incorrect parameters: Can't delete Volume due to there exists derivatives.
+
+administrator@cli> 
+2018-01-09 15:59:30: 
+Expect: destination volume should not be deleted
+
+2018-01-09 15:59:30: lunmap -a add -p volume -i 0 -l 12 -m 2
+Error (0x498B5902): The specified LUN map table already exists. Try adding LD to LUN map instead
+
+administrator@cli> 
+2018-01-09 15:59:30: 
+Expect: destination volume should not be added for lunmap
+
+2018-01-09 15:59:30: 
+Fail: snapshot -a add -t volume -d 12 -s "name=test_replica"
+
+2018-01-09 15:59:30: snapshot -a add -t volume -d 12 -s "name=test_replica"
+
+administrator@cli> 
+2018-01-09 15:59:29: 
+Expect: destination volume should not create snapshot
+
+2018-01-09 15:59:29: 
+Fail: volume -a mod -i 12 -s "name=no_way"
+
+2018-01-09 15:59:29: volume -a mod -i 12 -s "name=no_way"
+
+administrator@cli> 
+2018-01-09 15:59:29: 
+Expect: destination volume should not be modified
+
+2018-01-09 15:59:29: 
+Fail: volume -a mod -i 12 -s "capacity=102GB"
+
+2018-01-09 15:59:29: volume -a mod -i 12 -s "capacity=102GB"
+
+administrator@cli> 
+2018-01-09 15:59:28: 
+Expect: destination volume should not be expanded
+
+2018-01-09 15:59:28: volume -a export -i 12
+Error (0x4100104): Incorrect parameters: Volume is already exported.
+
+administrator@cli> 
+2018-01-09 15:59:28: 
+Expect: destination volume should not be exported
+
+2018-01-09 15:59:28: 'result': 'f'
+2018-01-09 15:59:28: 
+Fail: please check out No volume exists
+
+2018-01-09 15:59:28: volume -i 2 -v
+-------------------------------------------------------------------------------
+Id: 2                                   Name: T_migrate_vol_2
+PoolId: 0                               PoolName: T_migrate_0
+Status: Un-Exported                     OperationalStatus: OK
+TotalCapacity: 100 GB                   UsedCapacity: 100 GB
+PoolAvailableCapacity: 3.32 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 0 Byte
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 1
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 21:57:38
+PreferCtrlId: 2                         AdvType: 
+
+administrator@cli> 
+2018-01-09 15:59:25: volume -i 2 -v
+-------------------------------------------------------------------------------
+Id: 2                                   Name: T_migrate_vol_2
+PoolId: 0                               PoolName: T_migrate_0
+Status: Un-Exported                     OperationalStatus: OK
+TotalCapacity: 100 GB                   UsedCapacity: 100 GB
+PoolAvailableCapacity: 3.32 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 0 Byte
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 1
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 21:57:38
+PreferCtrlId: 2                         AdvType: 
+
+administrator@cli> 
+2018-01-09 15:59:24: 
+Expect: source volume should be delete
+
+2018-01-09 15:59:24: volume -i 5 -v
+-------------------------------------------------------------------------------
+Id: 5                                   Name: T_migrate_vol_5
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: 5
+ExportedWWN: 224d0001555c71ce           OperationalStatus: OK
+TotalCapacity: 100 GB                   UsedCapacity: 100 GB
+PoolAvailableCapacity: 2.90 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 21:57:39
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Creating                     AdvProgress: 0.0
+
+administrator@cli> 
+2018-01-09 15:59:21: migrate -a start -t local -i 5 -p 0
+
+administrator@cli> 
+2018-01-09 15:59:11: 
+Expect: migrate should be started by default volues
+
+2018-01-09 15:59:11: volume -i 12 -v
+-------------------------------------------------------------------------------
+Id: 12                                  Name: T_migrate_vol_4_migrate
+PoolId: 0                               PoolName: T_migrate_0
+Status: Un-Exported                     OperationalStatus: OK
+TotalCapacity: 100 GB                   UsedCapacity: 100 GB
+PoolAvailableCapacity: 3.42 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 21:58:05
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Creating                     AdvProgress: 0.0
+
+administrator@cli> 
+2018-01-09 15:59:07: migrate -a start -t local -i 4 -p 0 -s "syncmode=sync"
+
+administrator@cli> 
+2018-01-09 15:58:57: 
+Expect: migrate should be started by "syncmode=sync"
+
+2018-01-09 15:58:57: volume -i 11 -v
+-------------------------------------------------------------------------------
+Id: 11                                  Name: T_migrate_vol_3_migrate
+PoolId: 1                               PoolName: T_migrate_1
+Status: Un-Exported                     OperationalStatus: OK
+TotalCapacity: 100 GB                   UsedCapacity: 100 GB
+PoolAvailableCapacity: 2.80 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 21:57:50
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Semi-Sync
+AdvStatus: Creating                     AdvProgress: 0.0
+
+administrator@cli> 
+2018-01-09 15:58:54: migrate -a start -t local -i 3 -p 1 -s "syncmode=semi-sync"
+
+administrator@cli> 
+2018-01-09 15:58:43: 
+Expect: migrate should be started by "syncmode=semi-sync"
+
+2018-01-09 15:58:43: volume -i 10 -v
+-------------------------------------------------------------------------------
+Id: 10                                  Name: T_migrate_vol_2_migrate
+PoolId: 1                               PoolName: T_migrate_1
+Status: Un-Exported                     OperationalStatus: OK
+TotalCapacity: 100 GB                   UsedCapacity: 100 GB
+PoolAvailableCapacity: 2.90 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 21:57:44
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Async
+AdvStatus: Creating                     AdvProgress: 0.0
+
+administrator@cli> 
+2018-01-09 15:58:39: migrate -a start -t local -i 2 -p 1 -s "syncmode=async"
+
+administrator@cli> 
+2018-01-09 15:58:36: 
+Expect: migrate should be started by "syncmode=async"
+
+2018-01-09 15:56:04: 'result': 'f'
+2018-01-09 15:56:04: pool -a del -i 0 -f -y
+Error (0x4100104): Incorrect parameters: There are replication or migration Volume in the Pool.
+
+administrator@cli> 
+2018-01-09 15:56:03: 
+Expect: destination pool should not be deleted
+
+2018-01-09 15:56:03: pool -a del -i 1 -f -y
+Error (0x4100104): Incorrect parameters: There are replication or migration Volume in the Pool.
+
+administrator@cli> 
+2018-01-09 15:56:03: 
+Expect: source pool should not be deleted
+
+2018-01-09 15:56:03: volume -a del -i 4
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[4] is not existed.
+
+administrator@cli> 
+2018-01-09 15:56:03: 
+Expect: source volume should not be deleted
+
+2018-01-09 15:56:03: volume -a mod -i 4 -s "capacity=5GB"
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[4] is not existed.
+
+administrator@cli> 
+2018-01-09 15:56:02: 
+Expect: source volume should not be expanded
+
+2018-01-09 15:56:02: volume -a del -i 12
+Error (0x4100104): Incorrect parameters: Can't delete Volume due to there exists derivatives.
+
+administrator@cli> 
+2018-01-09 15:56:02: 
+Expect: destination volume should not be deleted
+
+2018-01-09 15:56:02: 
+Fail: lunmap -a add -p volume -i 0 -l 12 -m 2
+
+2018-01-09 15:56:02: lunmap -a add -p volume -i 0 -l 12 -m 2
+
+administrator@cli> 
+2018-01-09 15:56:01: 
+Expect: destination volume should not be added for lunmap
+
+2018-01-09 15:56:01: 
+Fail: snapshot -a add -t volume -d 12 -s "name=test_replica"
+
+2018-01-09 15:56:01: snapshot -a add -t volume -d 12 -s "name=test_replica"
+
+administrator@cli> 
+2018-01-09 15:56:00: 
+Expect: destination volume should not create snapshot
+
+2018-01-09 15:56:00: 
+Fail: volume -a mod -i 12 -s "name=no_way"
+
+2018-01-09 15:56:00: volume -a mod -i 12 -s "name=no_way"
+
+administrator@cli> 
+2018-01-09 15:55:58: 
+Expect: destination volume should not be modified
+
+2018-01-09 15:55:58: volume -a mod -i 12 -s "capacity=6GB"
+Error (0x4100104): Incorrect parameters: The parameter [capacity] is smaller than original capacity
+
+administrator@cli> 
+2018-01-09 15:55:58: 
+Expect: destination volume should not be expanded
+
+2018-01-09 15:55:58: volume -a export -i 12
+Error (0x4100104): Incorrect parameters: Volume is already exported.
+
+administrator@cli> 
+2018-01-09 15:55:58: 
+Expect: destination volume should not be exported
+
+2018-01-09 15:54:52: 'result': 'f'
+2018-01-09 15:54:52: 
+Fail: please check out No volume exists
+
+2018-01-09 15:54:52: volume -i 2 -v
+-------------------------------------------------------------------------------
+Id: 2                                   Name: T_migrate_vol_2
+PoolId: 0                               PoolName: T_migrate_0
+Status: Un-Exported                     OperationalStatus: OK
+TotalCapacity: 100 GB                   UsedCapacity: 100 GB
+PoolAvailableCapacity: 3.32 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 0 Byte
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 1
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 21:53:05
+PreferCtrlId: 2                         AdvType: 
+
+administrator@cli> 
+2018-01-09 15:54:49: volume -i 2 -v
+-------------------------------------------------------------------------------
+Id: 2                                   Name: T_migrate_vol_2
+PoolId: 0                               PoolName: T_migrate_0
+Status: Un-Exported                     OperationalStatus: OK
+TotalCapacity: 100 GB                   UsedCapacity: 100 GB
+PoolAvailableCapacity: 3.32 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 0 Byte
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 1
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 21:53:05
+PreferCtrlId: 2                         AdvType: 
+
+administrator@cli> 
+2018-01-09 15:54:49: 
+Expect: source volume should be delete
+
+2018-01-09 15:54:49: volume -i 5 -v
+-------------------------------------------------------------------------------
+Id: 5                                   Name: T_migrate_vol_5
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: 5
+ExportedWWN: 22920001556a5c07           OperationalStatus: OK
+TotalCapacity: 100 GB                   UsedCapacity: 100 GB
+PoolAvailableCapacity: 2.90 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 21:53:07
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 0.1
+
+administrator@cli> 
+2018-01-09 15:54:45: migrate -a start -t local -i 5 -p 0
+
+administrator@cli> 
+2018-01-09 15:54:36: 
+Expect: migrate should be started by default volues
+
+2018-01-09 15:54:36: volume -i 12 -v
+-------------------------------------------------------------------------------
+Id: 12                                  Name: T_migrate_vol_4_migrate
+PoolId: 0                               PoolName: T_migrate_0
+Status: Un-Exported                     OperationalStatus: OK
+TotalCapacity: 100 GB                   UsedCapacity: 100 GB
+PoolAvailableCapacity: 3.42 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 21:53:30
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Creating                     AdvProgress: 0.0
+
+administrator@cli> 
+2018-01-09 15:54:32: migrate -a start -t local -i 4 -p 0 -s "syncmode=sync"
+
+administrator@cli> 
+2018-01-09 15:54:22: 
+Expect: migrate should be started by "syncmode=sync"
+
+2018-01-09 15:54:22: volume -i 11 -v
+-------------------------------------------------------------------------------
+Id: 11                                  Name: T_migrate_vol_3_migrate
+PoolId: 1                               PoolName: T_migrate_1
+Status: Un-Exported                     OperationalStatus: OK
+TotalCapacity: 100 GB                   UsedCapacity: 100 GB
+PoolAvailableCapacity: 2.80 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 21:53:17
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Semi-Sync
+AdvStatus: Creating                     AdvProgress: 0.0
+
+administrator@cli> 
+2018-01-09 15:54:19: migrate -a start -t local -i 3 -p 1 -s "syncmode=semi-sync"
+
+administrator@cli> 
+2018-01-09 15:54:09: 
+Expect: migrate should be started by "syncmode=semi-sync"
+
+2018-01-09 15:54:09: volume -i 10 -v
+-------------------------------------------------------------------------------
+Id: 10                                  Name: T_migrate_vol_2_migrate
+PoolId: 1                               PoolName: T_migrate_1
+Status: Un-Exported                     OperationalStatus: OK
+TotalCapacity: 100 GB                   UsedCapacity: 100 GB
+PoolAvailableCapacity: 2.90 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 21:53:11
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Async
+AdvStatus: Creating                     AdvProgress: 0.0
+
+administrator@cli> 
+2018-01-09 15:54:06: migrate -a start -t local -i 2 -p 1 -s "syncmode=async"
+
+administrator@cli> 
+2018-01-09 15:54:03: 
+Expect: migrate should be started by "syncmode=async"
+
+2018-01-09 15:52:02: 
+Expect: migrate should be started by "syncmode=sync"
+
+2018-01-09 15:52:02: 
+Fail: migrate -a start -t local -i 3 -p 1 -s "syncmode=semi-sync"
+
+2018-01-09 15:51:59: migrate -a start -t local -i 3 -p 1 -s "syncmode=semi-sync"
+Error (0x4100104): Incorrect parameters: Destination Pool availiable size is not enough.
+
+administrator@cli> 
+2018-01-09 15:51:59: 
+Expect: migrate should be started by "syncmode=semi-sync"
+
+2018-01-09 15:51:59: volume -i 10 -v
+-------------------------------------------------------------------------------
+Id: 10                                  Name: T_migrate_vol_2_migrate
+PoolId: 1                               PoolName: T_migrate_1
+Status: Un-Exported                     OperationalStatus: OK
+TotalCapacity: 500 GB                   UsedCapacity: 500 GB
+PoolAvailableCapacity: 99.40 GB         UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 21:50:50
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Async
+AdvStatus: Creating                     AdvProgress: 0.0
+
+administrator@cli> 
+2018-01-09 15:51:56: migrate -a start -t local -i 2 -p 1 -s "syncmode=async"
+
+administrator@cli> 
+2018-01-09 15:51:42: 
+Expect: migrate should be started by "syncmode=async"
+
+2018-01-09 13:02:10: 'result': 'f'
+2018-01-09 13:02:10: 
+Fail: please check out No volume exists
+
+2018-01-09 13:02:10: volume -i 6 -v
+-i: specific volume not exists
+
+administrator@cli> 
+2018-01-09 13:02:00: volume -i 6 -v
+-i: specific volume not exists
+
+administrator@cli> 
+2018-01-09 13:01:59: 
+Expect: source volume should be delete
+
+2018-01-09 13:01:59: volume -i 9 -v
+-------------------------------------------------------------------------------
+Id: 9                                   Name: T_migrate_vol_9
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: -1
+ExportedWWN: 2201000155fa18a7           OperationalStatus: OK, Synchronizing
+TotalCapacity: 2 GB                     UsedCapacity: 2 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 18:16:18
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Remote                         AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Creating                     AdvProgress: 0
+
+administrator@cli> 
+2018-01-09 13:01:49: migrate -a start -t remote -i 9 -p 0 -s "srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+administrator@cli> 
+2018-01-09 13:01:44: 
+Expect: migrate of remote type should be started by default volues
+
+2018-01-09 13:01:44: volume -i 8 -v
+-------------------------------------------------------------------------------
+Id: 8                                   Name: T_migrate_vol_8
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: 8
+ExportedWWN: 22970001558d1f97           OperationalStatus: OK, Synchronizing
+TotalCapacity: 2 GB                     UsedCapacity: 2 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 18:16:18
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Remote                         AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Creating                     AdvProgress: 0
+
+administrator@cli> 
+2018-01-09 13:01:34: migrate -a start -t remote -i 8 -p 0 -s "syncmode=sync,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+administrator@cli> 
+2018-01-09 13:01:29: 
+Expect: migrate of remote type should be started by "syncmode=sync"
+
+2018-01-09 13:01:29: 
+Fail: please check out AdvProtocol: Sync
+
+2018-01-09 13:01:29: volume -i 7 -v
+-------------------------------------------------------------------------------
+Id: 7                                   Name: T_migrate_vol_7
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: -1
+ExportedWWN: 224600015524d827           OperationalStatus: OK, Synchronizing
+TotalCapacity: 2 GB                     UsedCapacity: 2 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 18:16:17
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Remote                         AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Semi-Sync
+AdvStatus: Creating                     AdvProgress: 0
+
+administrator@cli> 
+2018-01-09 13:01:19: migrate -a start -t remote -i 7 -p 0 -s "syncmode=semi-sync,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+administrator@cli> 
+2018-01-09 13:01:17: 
+Expect: migrate of remote type should be started by "syncmode=semi-sync"
+
+2018-01-09 13:01:17: 
+Fail: please check out AdvProtocol: Sync
+
+2018-01-09 13:01:17: volume -i 6 -v
+-------------------------------------------------------------------------------
+Id: 6                                   Name: T_migrate_vol_6
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: 6
+ExportedWWN: 221000015544f773           OperationalStatus: OK, Synchronizing
+TotalCapacity: 2 GB                     UsedCapacity: 2 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 18:16:16
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Remote                         AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Async
+AdvStatus: Creating                     AdvProgress: 0
+
+administrator@cli> 
+2018-01-09 13:01:06: migrate -a start -t remote -i 6 -p 0 -s "syncmode=async,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+administrator@cli> 
+2018-01-09 13:01:04: 
+Expect: migrate of remote type should be started by "syncmode=async"
+
+2018-01-09 12:18:11: 'result': 'f'
+2018-01-09 12:18:11: 
+Fail: please check out No volume exists
+
+2018-01-09 12:18:11: volume -i 2 -v
+-------------------------------------------------------------------------------
+Id: 2                                   Name: T_migrate_vol_2
+PoolId: 0                               PoolName: T_migrate_0
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 111.07 GB        UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 0 Byte
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 1
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 18:16:14
+PreferCtrlId: 2                         AdvType: 
+
+administrator@cli> 
+2018-01-09 12:18:00: volume -i 2 -v
+-------------------------------------------------------------------------------
+Id: 2                                   Name: T_migrate_vol_2
+PoolId: 0                               PoolName: T_migrate_0
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 111.07 GB        UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 0 Byte
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 1
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 18:16:14
+PreferCtrlId: 2                         AdvType: 
+
+administrator@cli> 
+2018-01-09 12:18:00: 
+Expect: source volume should be delete
+
+2018-01-09 12:18:00: 
+Fail: please check out AdvStatus: Creating
+
+2018-01-09 12:18:00: volume -i 5 -v
+-------------------------------------------------------------------------------
+Id: 5                                   Name: T_migrate_vol_5
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: -1
+ExportedWWN: 22aa000155ddfe22           OperationalStatus: OK, Synchronizing
+TotalCapacity: 2 GB                     UsedCapacity: 2 GB
+PoolAvailableCapacity: 7.25 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 18:16:16
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 30.7
+
+administrator@cli> 
+2018-01-09 12:17:50: migrate -a start -t local -i 5 -p 0
+
+administrator@cli> 
+2018-01-09 12:17:48: 
+Expect: migrate should be started by default volues
+
+2018-01-09 12:17:48: 
+Fail: please check out AdvStatus: Creating
+
+2018-01-09 12:17:48: volume -i 12 -v
+-------------------------------------------------------------------------------
+Id: 12                                  Name: T_migrate_vol_4_migrate
+PoolId: 0                               PoolName: T_migrate_0
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 2 GB                     UsedCapacity: 2 GB
+PoolAvailableCapacity: 113.13 GB        UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 330.98 MB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 18:16:43
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 32.3
+
+administrator@cli> 
+2018-01-09 12:17:38: migrate -a start -t local -i 4 -p 0 -s "syncmode=sync"
+
+administrator@cli> 
+2018-01-09 12:17:37: 
+Expect: migrate should be started by "syncmode=sync"
+
+2018-01-09 12:17:37: 
+Fail: please check out AdvStatus: Creating
+
+2018-01-09 12:17:37: volume -i 11 -v
+-------------------------------------------------------------------------------
+Id: 11                                  Name: T_migrate_vol_3_migrate
+PoolId: 1                               PoolName: T_migrate_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 7.25 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 18:16:31
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Semi-Sync
+AdvStatus: Syncing                      AdvProgress: 68.7
+
+administrator@cli> 
+2018-01-09 12:17:26: migrate -a start -t local -i 3 -p 1 -s "syncmode=semi-sync"
+
+administrator@cli> 
+2018-01-09 12:17:24: 
+Expect: migrate should be started by "syncmode=semi-sync"
+
+2018-01-09 12:17:24: volume -i 10 -v
+-------------------------------------------------------------------------------
+Id: 10                                  Name: T_migrate_vol_2_migrate
+PoolId: 1                               PoolName: T_migrate_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 7.25 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 18:16:20
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Async
+AdvStatus: Creating                     AdvProgress: 0.0
+
+administrator@cli> 
+2018-01-09 12:17:14: migrate -a start -t local -i 2 -p 1 -s "syncmode=async"
+
+administrator@cli> 
+2018-01-09 12:17:13: 
+Expect: migrate should be started by "syncmode=async"
+
+2018-01-09 11:09:14: 'result': 'f'
+2018-01-09 11:09:14: 
+Fail: please check out No volume exists
+
+2018-01-09 11:09:14: volume -i 2 -v
+-------------------------------------------------------------------------------
+Id: 2                                   Name: T_migrate_vol_2
+PoolId: 0                               PoolName: T_migrate_0
+Status: Exported                        ExportedId: 2
+ExportedWWN: 2225000155c673af           OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 110.03 GB        UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 0 Byte
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 1
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 17:07:18
+PreferCtrlId: 2                         AdvType: 
+
+administrator@cli> 
+2018-01-09 11:09:04: volume -i 2 -v
+-------------------------------------------------------------------------------
+Id: 2                                   Name: T_migrate_vol_2
+PoolId: 0                               PoolName: T_migrate_0
+Status: Exported                        ExportedId: 2
+ExportedWWN: 2225000155c673af           OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 110.03 GB        UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 0 Byte
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 1
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 17:07:18
+PreferCtrlId: 2                         AdvType: 
+
+administrator@cli> 
+2018-01-09 11:09:04: 
+Expect: source volume should be delete
+
+2018-01-09 11:09:04: volume -i 5 -v
+-------------------------------------------------------------------------------
+Id: 5                                   Name: T_migrate_vol_5
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: -1
+ExportedWWN: 220600015593a546           OperationalStatus: OK, Synchronizing
+TotalCapacity: 2 GB                     UsedCapacity: 2 GB
+PoolAvailableCapacity: 7.25 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 17:07:20
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Creating                     AdvProgress: 0
+
+administrator@cli> 
+2018-01-09 11:08:54: migrate -a start -t local -i 5 -p 0
+
+administrator@cli> 
+2018-01-09 11:08:51: 
+Expect: migrate should be started by default volues
+
+2018-01-09 11:08:51: volume -i 12 -v
+-------------------------------------------------------------------------------
+Id: 12                                  Name: T_migrate_vol_4_migrate
+PoolId: 0                               PoolName: T_migrate_0
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 2 GB                     UsedCapacity: 2 GB
+PoolAvailableCapacity: 112.10 GB        UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 17:07:47
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Creating                     AdvProgress: 0.0
+
+administrator@cli> 
+2018-01-09 11:08:41: migrate -a start -t local -i 4 -p 0 -s "syncmode=sync"
+
+administrator@cli> 
+2018-01-09 11:08:38: 
+Expect: migrate should be started by "syncmode=sync"
+
+2018-01-09 11:08:38: volume -i 11 -v
+-------------------------------------------------------------------------------
+Id: 11                                  Name: T_migrate_vol_3_migrate
+PoolId: 1                               PoolName: T_migrate_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 7.25 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 17:07:35
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Semi-Sync
+AdvStatus: Creating                     AdvProgress: 0.0
+
+administrator@cli> 
+2018-01-09 11:08:28: migrate -a start -t local -i 3 -p 1 -s "syncmode=semi-sync"
+
+administrator@cli> 
+2018-01-09 11:08:25: 
+Expect: migrate should be started by "syncmode=semi-sync"
+
+2018-01-09 11:08:25: volume -i 10 -v
+-------------------------------------------------------------------------------
+Id: 10                                  Name: T_migrate_vol_2_migrate
+PoolId: 1                               PoolName: T_migrate_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 7.25 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 17:07:24
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Async
+AdvStatus: Creating                     AdvProgress: 0.0
+
+administrator@cli> 
+2018-01-09 11:08:15: migrate -a start -t local -i 2 -p 1 -s "syncmode=async"
+
+administrator@cli> 
+2018-01-09 11:08:14: 
+Expect: migrate should be started by "syncmode=async"
+
+2018-01-09 11:05:42: migrate -a start -t local -i 3 -p 1 -s "syncmode=semi-sync"
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[3] is not existed.
+
+administrator@cli> 
+2018-01-09 11:05:42: 
+Expect: migrate should be started by "syncmode=semi-sync"
+
+2018-01-09 11:05:42: 
+Fail: migrate -a start -t local -i 2 -p 1 -s "syncmode=async"
+
+2018-01-09 11:05:32: migrate -a start -t local -i 2 -p 1 -s "syncmode=async"
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[2] is not existed.
+
+administrator@cli> 
+2018-01-09 11:05:32: 
+Expect: migrate should be started by "syncmode=async"
+
+2018-01-09 10:48:24: 'result': 'f'
+2018-01-09 10:48:24: 
+Fail: please check out No volume exists
+
+2018-01-09 10:48:24: volume -i 2 -v
+-i: specific volume not exists
+
+administrator@cli> 
+2018-01-09 10:48:13: volume -i 2 -v
+-i: specific volume not exists
+
+administrator@cli> 
+2018-01-09 10:48:13: 
+Expect: source volume should be delete
+
+2018-01-09 10:48:13: 
+Fail: migrate -a start -t remote -i 5 -p 0 -s "srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+2018-01-09 10:48:03: migrate -a start -t remote -i 5 -p 0 -s "srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[5] is not existed.
+
+administrator@cli> 
+2018-01-09 10:48:03: 
+Expect: migrate of remote type should be started by default volues
+
+2018-01-09 10:48:03: 
+Fail: migrate -a start -t remote -i 4 -p 0 -s "syncmode=sync,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+2018-01-09 10:47:53: migrate -a start -t remote -i 4 -p 0 -s "syncmode=sync,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[4] is not existed.
+
+administrator@cli> 
+2018-01-09 10:47:53: 
+Expect: migrate of remote type should be started by "syncmode=sync"
+
+2018-01-09 10:47:53: 
+Fail: please check out AdvStatus: Syncing
+
+2018-01-09 10:47:53: 
+Fail: please check out AdvMode: Active-Active
+
+2018-01-09 10:47:53: volume -i 3 -v
+-------------------------------------------------------------------------------
+Id: 3                                   Name: T_migrate_vol_3
+PoolId: 0                               PoolName: T_migrate_0
+Status: Exported                        ExportedId: 3
+ExportedWWN: 22c8000155e25a63           OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 111.22 GB        UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 16:44:27
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Remote                         AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Semi-Sync
+AdvStatus: Creating                     AdvProgress: 0
+
+administrator@cli> 
+2018-01-09 10:47:42: migrate -a start -t remote -i 3 -p 0 -s "syncmode=semi-sync,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+administrator@cli> 
+2018-01-09 10:47:38: 
+Expect: migrate of remote type should be started by "syncmode=semi-sync"
+
+2018-01-09 10:47:38: 
+Fail: please check out AdvStatus: Syncing
+
+2018-01-09 10:47:38: 
+Fail: please check out AdvMode: Active-Active
+
+2018-01-09 10:47:38: volume -i 2 -v
+-------------------------------------------------------------------------------
+Id: 2                                   Name: T_migrate_vol_2
+PoolId: 0                               PoolName: T_migrate_0
+Status: Exported                        ExportedId: 2
+ExportedWWN: 229e000155827537           OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 110.03 GB        UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 0 Byte
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 2
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 16:44:26
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Remote                         AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Async
+AdvStatus: Creating                     AdvProgress: 0
+
+administrator@cli> 
+2018-01-09 10:47:27: migrate -a start -t remote -i 2 -p 0 -s "syncmode=async,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+administrator@cli> 
+2018-01-09 10:47:24: 
+Expect: migrate of remote type should be started by "syncmode=async"
+
+2018-01-09 10:46:18: 'result': 'f'
+2018-01-09 10:46:18: 
+Fail: please check out No volume exists
+
+2018-01-09 10:46:18: volume -i 2 -v
+-------------------------------------------------------------------------------
+Id: 2                                   Name: T_migrate_vol_2
+PoolId: 0                               PoolName: T_migrate_0
+Status: Exported                        ExportedId: 2
+ExportedWWN: 229e000155827537           OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 110.03 GB        UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 0 Byte
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 1
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 16:44:26
+PreferCtrlId: 2                         AdvType: 
+
+administrator@cli> 
+2018-01-09 10:46:08: volume -i 2 -v
+-------------------------------------------------------------------------------
+Id: 2                                   Name: T_migrate_vol_2
+PoolId: 0                               PoolName: T_migrate_0
+Status: Exported                        ExportedId: 2
+ExportedWWN: 229e000155827537           OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 110.03 GB        UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 0 Byte
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 1
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 16:44:26
+PreferCtrlId: 2                         AdvType: 
+
+administrator@cli> 
+2018-01-09 10:46:08: 
+Expect: source volume should be delete
+
+2018-01-09 10:46:08: 
+Fail: please check out AdvStatus: Syncing
+
+2018-01-09 10:46:08: 
+Fail: please check out AdvMode: Active-Active
+
+2018-01-09 10:46:08: volume -i 5 -v
+-------------------------------------------------------------------------------
+Id: 5                                   Name: T_migrate_vol_5
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: -1
+ExportedWWN: 22bd0001556ee0f8           OperationalStatus: OK, Synchronizing
+TotalCapacity: 2 GB                     UsedCapacity: 2 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 16:44:28
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Creating                     AdvProgress: 0
+
+administrator@cli> 
+2018-01-09 10:45:58: migrate -a start -t local -i 5 -p 0
+
+administrator@cli> 
+2018-01-09 10:45:56: 
+Expect: migrate should be started by default volues
+
+2018-01-09 10:45:56: 
+Fail: please check out AdvStatus: Syncing
+
+2018-01-09 10:45:56: 
+Fail: please check out AdvMode: Active-Active
+
+2018-01-09 10:45:56: volume -i 8 -v
+-------------------------------------------------------------------------------
+Id: 8                                   Name: T_migrate_vol_4_migrate
+PoolId: 0                               PoolName: T_migrate_0
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 2 GB                     UsedCapacity: 2 GB
+PoolAvailableCapacity: 112.10 GB        UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 16:44:53
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Creating                     AdvProgress: 0.0
+
+administrator@cli> 
+2018-01-09 10:45:46: migrate -a start -t local -i 4 -p 0 -s "syncmode=sync"
+
+administrator@cli> 
+2018-01-09 10:45:44: 
+Expect: migrate should be started by "syncmode=sync"
+
+2018-01-09 10:45:44: 
+Fail: please check out AdvStatus: Syncing
+
+2018-01-09 10:45:44: 
+Fail: please check out AdvMode: Active-Active
+
+2018-01-09 10:45:44: volume -i 7 -v
+-------------------------------------------------------------------------------
+Id: 7                                   Name: T_migrate_vol_3_migrate
+PoolId: 1                               PoolName: T_migrate_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 16:44:41
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Semi-Sync
+AdvStatus: Creating                     AdvProgress: 0.0
+
+administrator@cli> 
+2018-01-09 10:45:34: migrate -a start -t local -i 3 -p 1 -s "syncmode=semi-sync"
+
+administrator@cli> 
+2018-01-09 10:45:32: 
+Expect: migrate should be started by "syncmode=semi-sync"
+
+2018-01-09 10:45:32: 
+Fail: please check out AdvStatus: Syncing
+
+2018-01-09 10:45:32: 
+Fail: please check out AdvMode: Active-Active
+
+2018-01-09 10:45:32: volume -i 6 -v
+-------------------------------------------------------------------------------
+Id: 6                                   Name: T_migrate_vol_2_migrate
+PoolId: 1                               PoolName: T_migrate_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-09 16:44:30
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Async
+AdvStatus: Creating                     AdvProgress: 0.0
+
+administrator@cli> 
+2018-01-09 10:45:22: migrate -a start -t local -i 2 -p 1 -s "syncmode=async"
+
+administrator@cli> 
+2018-01-09 10:45:21: 
+Expect: migrate should be started by "syncmode=async"
+
+2018-01-08 10:24:33: 'result': 'f'
+2018-01-08 10:24:33: 
+Fail: please check out No volume exists
+
+2018-01-08 10:24:33: volume -i 2 -v
+-------------------------------------------------------------------------------
+Id: 2                                   Name: T_migrate_vol_2
+PoolId: 0                               PoolName: T_migrate_0
+Status: Exported                        ExportedId: 2
+ExportedWWN: 22c0000155cd1db7           OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 110.03 GB        UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 0 Byte
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 1
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-08 16:22:41
+PreferCtrlId: 2                         AdvType: 
+
+administrator@cli> 
+2018-01-08 10:24:23: volume -i 2 -v
+-------------------------------------------------------------------------------
+Id: 2                                   Name: T_migrate_vol_2
+PoolId: 0                               PoolName: T_migrate_0
+Status: Exported                        ExportedId: 2
+ExportedWWN: 22c0000155cd1db7           OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 110.03 GB        UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 0 Byte
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 1
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-08 16:22:41
+PreferCtrlId: 2                         AdvType: 
+
+administrator@cli> 
+2018-01-08 10:24:22: 
+Expect: source volume should be delete
+
+2018-01-08 10:24:22: 
+Fail: please check out AdvStatus: Syncing
+
+2018-01-08 10:24:22: volume -i 5 -v
+-------------------------------------------------------------------------------
+Id: 5                                   Name: T_migrate_vol_5
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: -1
+ExportedWWN: 2259000155e420ba           OperationalStatus: OK, Synchronizing
+TotalCapacity: 2 GB                     UsedCapacity: 2 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-08 16:22:43
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Source
+AdvMode: Active-Active                  AdvProtocol: Sync
+AdvStatus: Creating                     AdvProgress: 0
+
+administrator@cli> 
+2018-01-08 10:24:12: migrate -a start -t local -i 5 -p 0
+
+administrator@cli> 
+2018-01-08 10:24:11: 
+Expect: migrate should be started by default volues
+
+2018-01-08 10:24:11: 
+Fail: please check out AdvStatus: Syncing
+
+2018-01-08 10:24:11: volume -i 8 -v
+-------------------------------------------------------------------------------
+Id: 8                                   Name: T_migrate_vol_4_migrate
+PoolId: 0                               PoolName: T_migrate_0
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 2 GB                     UsedCapacity: 2 GB
+PoolAvailableCapacity: 112.10 GB        UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-08 16:23:14
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Active                  AdvProtocol: Sync
+AdvStatus: Creating                     AdvProgress: 0.0
+
+administrator@cli> 
+2018-01-08 10:24:01: migrate -a start -t local -i 4 -p 0 -s "syncmode=sync"
+
+administrator@cli> 
+2018-01-08 10:24:00: 
+Expect: migrate should be started by "syncmode=sync"
+
+2018-01-08 10:24:00: 
+Fail: migrate -a start -t local -i 3 -p 1 -s "syncmode=semi-sync"
+
+2018-01-08 10:23:50: migrate -a start -t local -i 3 -p 1 -s "syncmode=semi-sync"
+Error (0x4100999): Fail to execute this method.
+
+administrator@cli> 
+2018-01-08 10:23:45: 
+Expect: migrate should be started by "syncmode=semi-sync"
+
+2018-01-08 10:23:45: 
+Fail: migrate -a start -t local -i 2 -p 1 -s "syncmode=async"
+
+2018-01-08 10:23:35: migrate -a start -t local -i 2 -p 1 -s "syncmode=async"
+Error (0x4100999): Fail to execute this method.
+
+administrator@cli> 
+2018-01-08 10:23:31: 
+Expect: migrate should be started by "syncmode=async"
+
 2018-01-05 09:53:50: 'result': 'p'
 2018-01-05 09:53:50: allowip -a del -t nasshare -d 0 -i
 Error (0x403): Missing parameter
