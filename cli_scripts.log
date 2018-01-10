@@ -1,3 +1,4571 @@
+2018-01-10 13:14:06: 'result': 'p'
+2018-01-10 13:14:06: fc -a clear -i 2 -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2018-01-10 13:14:06: 
+Expect: Missing parameter
+
+2018-01-10 13:14:06: fc -a clear -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-10 13:14:06: 
+Expect: Missing parameter
+
+2018-01-10 13:14:06: fc -a reset -i 2 -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2018-01-10 13:14:06: 
+Expect: Missing parameter
+
+2018-01-10 13:14:06: fc -a reset -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-10 13:14:06: 
+Expect: Missing parameter
+
+2018-01-10 13:14:06: fc -a reset
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a reset'
+
+administrator@cli> 
+2018-01-10 13:14:06: 
+Expect: Missing parameter
+
+2018-01-10 13:14:06: fc -a mod -t port -p 3 -s 
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2018-01-10 13:14:06: 
+Expect: Missing parameter
+
+2018-01-10 13:14:05: fc -a mod -t port -p 2
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: Missing parameter
+
+2018-01-10 13:14:05: fc -a mod -t port
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: Missing parameter
+
+2018-01-10 13:14:05: fc -a mod -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: Missing parameter
+
+2018-01-10 13:14:05: fc -a mod
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: Missing parameter
+
+2018-01-10 13:14:05: fc -i 2 -t port -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: Missing parameter
+
+2018-01-10 13:14:05: fc -i 
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: Missing parameter
+
+2018-01-10 13:14:05: fc -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: Missing parameter
+
+2018-01-10 13:14:05: 'result': 'p'
+2018-01-10 13:14:05: fc -a clear -i 2 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: Invalid option for the command or the action
+
+2018-01-10 13:14:05: fc -a clear -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: Invalid option for the command or the action
+
+2018-01-10 13:14:05: fc -a reset -i 2 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: Invalid option for the command or the action
+
+2018-01-10 13:14:05: fc -a reset -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: Invalid option for the command or the action
+
+2018-01-10 13:14:05: fc -a mod -i 2 -t port -p 4 -s "test=auto"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: Invalid option for the command or the action
+
+2018-01-10 13:14:05: fc -a mod -t port -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: Invalid option for the command or the action
+
+2018-01-10 13:14:05: fc -a mod -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: Invalid option for the command or the action
+
+2018-01-10 13:14:05: fc -i 2 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: Invalid option for the command or the action
+
+2018-01-10 13:14:05: fc -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: Invalid option for the command or the action
+
+2018-01-10 13:14:05: 'result': 'p'
+2018-01-10 13:14:05: fc -a clear -i 2 -p 5
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 5 (1,4)
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: Invalid port id when executes clearing
+
+2018-01-10 13:14:05: fc -a clear -i 3 -p 2
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 3 (1,2)
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: Invalid ctrl id when executes clearing
+
+2018-01-10 13:14:05: fc -a clear test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: Invalid setting parameters when executes clearing
+
+2018-01-10 13:14:05: fc -a reset -i 2 -p 5
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 5 (1,4)
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: Invalid port id when executes reseting
+
+2018-01-10 13:14:05: fc -a reset -i 3 -p 2
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 3 (1,2)
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: Invalid ctrl id when executes reseting
+
+2018-01-10 13:14:05: fc -a reset test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: Invalid setting parameters when executes reseting
+
+2018-01-10 13:14:05: fc -a mod -t node -p 2 -s "linkspeed=4gb"
+Error (0x402): Invalid parameter
+invalid fc setting type
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: invalid fc setting type
+
+2018-01-10 13:14:05: fc -a mod -i 3 -t port -p 4 -s "hardalpa=1"
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 3 (1,2)
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: Invalid ctrl id when executes modification
+
+2018-01-10 13:14:05: fc -a mod -i 2 -t port -p 4 -s "hardalpa=test"
+Error (0x2013): Invalid setting parameters
+hardalpa: invalid setting test
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: Invalid type of hardalpa setting parameters
+
+2018-01-10 13:14:05: fc -a mod -i 2 -t port -p 4 -s "hardalpa=256"
+Error (0x2013): Invalid setting parameters
+hardalpa: invalid setting 256 (0,255)
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: Invalid type of hardalpa setting parameters
+
+2018-01-10 13:14:05: fc -a mod -t port -p 3 -s "topology=test"
+Error (0x2013): Invalid setting parameters
+topology: invalid setting test (auto|nlport|nport)
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: Invalid type of topology setting parameters
+
+2018-01-10 13:14:05: fc -a mod -t port -p 2 -s "linkspeed=test"
+Error (0x2013): Invalid setting parameters
+linkspeed: invalid setting test (auto|4gb|8gb|16gb)
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: Invalid type of linkspeed setting parameters
+
+2018-01-10 13:14:05: fc -a mod -t port -p 5 -s "linkspeed=4gb,topology=nlport,hardalpa=0"
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 5 (1,4)
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: Invalid port id when executes modification
+
+2018-01-10 13:14:05: fc -a mod -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (node|port|stats|sfp|loggedininitiators|loggedintargets|allinitiators)
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: Invalid type setting parameters when executes modification
+
+2018-01-10 13:14:05: fc -a mod test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: Invalid setting parameters when executes modification
+
+2018-01-10 13:14:05: fc -i 2 -t port -p test
+Error (0x2013): Invalid setting parameters
+-p: invalid setting test
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: Invalid setting parameters of port id
+
+2018-01-10 13:14:05: fc -i test -t port -p 3
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: Invalid setting parameters of ctrl id
+
+2018-01-10 13:14:05: fc -i 3 -t port -p 2
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 3 (1,2)
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: Invalid ctrl id
+
+2018-01-10 13:14:05: fc -i 2 -t port -p 5 
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 5 (1,4)
+
+administrator@cli> 
+2018-01-10 13:14:05: 
+Expect: Invalid port id
+
+2018-01-10 13:14:04: fc -t 1
+Error (0x2013): Invalid setting parameters
+-t: invalid setting 1 (node|port|stats|sfp|loggedininitiators|loggedintargets|allinitiators)
+
+administrator@cli> 
+2018-01-10 13:14:04: 
+Expect: Invalid type setting parameters
+
+2018-01-10 13:14:04: fc -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (node|port|stats|sfp|loggedininitiators|loggedintargets|allinitiators)
+
+administrator@cli> 
+2018-01-10 13:14:04: 
+Expect: Invalid type setting parameters
+
+2018-01-10 13:14:04: fc -1
+Error (0x2013): Invalid setting parameters
+invalid setting: -1
+
+administrator@cli> 
+2018-01-10 13:14:04: 
+Expect: Invalid setting parameters
+
+2018-01-10 13:14:04: fc test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-10 13:14:04: 
+Expect: Invalid setting parameters when executes list
+
+2018-01-10 13:14:04: 'result': 'p'
+2018-01-10 13:14:04: fc -a clear
+
+administrator@cli> 
+2018-01-10 13:14:04: 
+Expect: all port on primary ctrl should be cleared
+
+2018-01-10 13:14:04: fc -a clear -i 2
+
+administrator@cli> 
+2018-01-10 13:14:04: 
+Expect: all port on ctrl 2 should be cleared
+
+2018-01-10 13:14:04: fc -a clear -i 2 -p 4
+
+administrator@cli> 
+2018-01-10 13:14:04: 
+Expect: port 4 should be cleared
+
+2018-01-10 13:14:04: fc -a clear -i 2 -p 3
+
+administrator@cli> 
+2018-01-10 13:14:04: 
+Expect: port 3 should be cleared
+
+2018-01-10 13:14:04: fc -a clear -i 2 -p 2
+
+administrator@cli> 
+2018-01-10 13:14:04: 
+Expect: port 2 should be cleared
+
+2018-01-10 13:14:04: fc -a clear -i 2 -p 1
+
+administrator@cli> 
+2018-01-10 13:14:04: 
+Expect: port 1 should be cleared
+
+2018-01-10 13:14:04: 'result': 'p'
+2018-01-10 13:14:04: fc -a reset -i 2 -p 4
+
+administrator@cli> 
+2018-01-10 13:14:03: 
+Expect: port 4 should be reset
+
+2018-01-10 13:14:03: fc -a reset -i 2 -p 3
+
+administrator@cli> 
+2018-01-10 13:14:03: 
+Expect: port 3 should be reset
+
+2018-01-10 13:14:03: fc -a reset -i 2 -p 2
+
+administrator@cli> 
+2018-01-10 13:14:03: 
+Expect: port 2 should be reset
+
+2018-01-10 13:14:03: fc -a reset -i 2 -p 1
+
+administrator@cli> 
+2018-01-10 13:14:02: 
+Expect: port 1 should be reset
+
+2018-01-10 13:14:02: 'result': 'p'
+2018-01-10 13:14:02: fc -i 2 -t port -p 4 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+State: Online                           PortIdentifier: 0x010700
+TopologyAttached: N-Port (Fabric Direct)
+WWPN: 26-04-00-01-55-5b-3d-29           AliasWWPN: N/A
+NumCurrentAlias: 0                      FabricWWNN: 10-00-c4-f5-7c-e2-70-a6
+FabricWWPN: 20-07-c4-f5-7c-e2-70-a6     CurrentSpeed: 16Gb/s
+LinkType: Laser Short Wave              ConfiguredLinkSpeed: Auto
+ConfiguredTopology: Auto                HardALPA: 255
+
+administrator@cli> 
+2018-01-10 13:14:01: fc -a mod -i 2 -t port -p 4 -s "linkspeed=auto,hardalpa=255"
+
+administrator@cli> 
+2018-01-10 13:14:01: 
+Expect: port 4 should be modified by "linkspeed=auto,hardalpa=255"
+
+2018-01-10 13:14:01: fc -t port -p 3 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-05-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: 16 Gb/s            ConfiguredTopology: Auto
+HardALPA: 254
+
+administrator@cli> 
+2018-01-10 13:14:00: fc -a mod -t port -p 3 -s "linkspeed=16gb,topology=auto,hardalpa=254"
+
+administrator@cli> 
+2018-01-10 13:13:59: 
+Expect: port 3 should be modified by "linkspeed=16gb,topology=auto,hardalpa=254"
+
+2018-01-10 13:13:59: fc -t port -p 2 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-06-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: 8 Gb/s             ConfiguredTopology: N-Port
+HardALPA: 1
+
+administrator@cli> 
+2018-01-10 13:13:58: fc -a mod -t port -p 2 -s "linkspeed=8gb,topology=nport,hardalpa=1"
+
+administrator@cli> 
+2018-01-10 13:13:58: 
+Expect: port 2 should be modified by "linkspeed=8gb,topology=nport,hardalpa=1"
+
+2018-01-10 13:13:58: fc -t port -p 1 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-07-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: 4 Gb/s             ConfiguredTopology: NL-Port
+HardALPA: 0
+
+administrator@cli> 
+2018-01-10 13:13:57: fc -a mod -t port -p 1 -s "linkspeed=4gb,topology=nlport,hardalpa=0"
+
+administrator@cli> 
+2018-01-10 13:13:56: 
+Expect: port 1 should be modified by "linkspeed=4gb,topology=nlport,hardalpa=0"
+
+2018-01-10 13:13:56: 'result': 'p'
+2018-01-10 13:13:56: fc -i 2 -t port -p 4 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+State: Online                           PortIdentifier: 0x010700
+TopologyAttached: N-Port (Fabric Direct)
+WWPN: 26-04-00-01-55-5b-3d-29           AliasWWPN: N/A
+NumCurrentAlias: 0                      FabricWWNN: 10-00-c4-f5-7c-e2-70-a6
+FabricWWPN: 20-07-c4-f5-7c-e2-70-a6     CurrentSpeed: 16Gb/s
+LinkType: Laser Short Wave              ConfiguredLinkSpeed: Auto
+ConfiguredTopology: Auto                HardALPA: 255
+
+administrator@cli> 
+2018-01-10 13:13:56: 
+Expect: port 4 info should be listed on ctrl 2 by verbose mode
+
+2018-01-10 13:13:56: fc -i 2 -t port -p 3 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-05-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+
+administrator@cli> 
+2018-01-10 13:13:56: 
+Expect: port 3 info should be listed on ctrl 2 by verbose mode
+
+2018-01-10 13:13:56: fc -i 2 -t port -p 2 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-06-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+
+administrator@cli> 
+2018-01-10 13:13:56: 
+Expect: port 2 info should be listed on ctrl 2 by verbose mode
+
+2018-01-10 13:13:56: fc -i 2 -t port -p 1 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-07-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+
+administrator@cli> 
+2018-01-10 13:13:56: 
+Expect: port 1 info should be listed on ctrl 2 by verbose mode
+
+2018-01-10 13:13:56: fc -t allinitiators -v
+-------------------------------------------------------------------------------
+Index: 1                                CtrlId: 2
+PortId: 4                               WWPN: 26-05-00-01-55-5b-3c-fc
+WWNN: 25-01-00-01-55-5b-3c-fc           NPortId: 0x010100
+SymbolicName: Promise VTrak 16G FC product
+-------------------------------------------------------------------------------
+Index: 2                                CtrlId: 2
+PortId: 4                               WWPN: 26-04-00-01-55-5b-3d-29
+WWNN: 25-01-00-01-55-5b-3d-29           NPortId: 0x010700
+SymbolicName: Promise VTrak 16G FC product
+-------------------------------------------------------------------------------
+Index: 3                                CtrlId: 2
+PortId: 4                               WWPN: 26-01-00-01-55-00-00-00
+WWNN: 25-00-00-01-55-00-00-00           NPortId: 0x010a00
+SymbolicName: Promise VTrak 16G FC product
+-------------------------------------------------------------------------------
+Index: 4                                CtrlId: 2
+PortId: 4                               WWPN: 26-02-00-01-55-00-00-00
+WWNN: 25-00-00-01-55-00-00-00           NPortId: 0x010b00
+SymbolicName: Promise VTrak 16G FC product
+
+administrator@cli> 
+2018-01-10 13:13:55: 
+Expect: Display initiator list from fibre switch by verbose mode
+
+2018-01-10 13:13:55: fc -t loggedintargets -v
+-------------------------------------------------------------------------------
+No targets logged in
+
+administrator@cli> 
+2018-01-10 13:13:55: 
+Expect: Display port logged in target information by verbose mode
+
+2018-01-10 13:13:55: fc -t loggedininitiators -v
+-------------------------------------------------------------------------------
+No devices logged in
+
+administrator@cli> 
+2018-01-10 13:13:55: 
+Expect: Display port logged in initiator information by verbose mode
+
+2018-01-10 13:13:55: fc -t stats -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+
+administrator@cli> 
+2018-01-10 13:13:55: 
+Expect: Display port statistics information by verbose mode
+
+2018-01-10 13:13:55: fc -t sfp -v
+-------------------------------------------------------------------------------
+Controller 2 Port 1 : No SFP found
+
+-------------------------------------------------------------------------------
+Controller 2 Port 2 : No SFP found
+
+-------------------------------------------------------------------------------
+Controller 2 Port 3 : No SFP found
+
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+Transceiver: SFP                        Connector: LC
+TransCode: 00-00-00-00-40-40-04-70      SerialEncoding: 64B66B
+BitRate: 14.0 Gb/s                      ManufacturingDateCode: 170518
+LinkLength_9/125um: 0 m                 LinkLength_50/125um: 30 m
+LinkLength_62.5/125um: 0 m              VendorName: BROCADE
+VendorOUI: 00-05-1e                     VendorPartNum: 57-0000088-01
+VendorRevision: A                       VendorSerialNum: HAF317200000J34
+
+administrator@cli> 
+2018-01-10 13:13:55: 
+Expect: Display port SFP information by verbose mode
+
+2018-01-10 13:13:55: fc -t port -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-07-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-06-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-05-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+State: Online                           PortIdentifier: 0x010700
+TopologyAttached: N-Port (Fabric Direct)
+WWPN: 26-04-00-01-55-5b-3d-29           AliasWWPN: N/A
+NumCurrentAlias: 0                      FabricWWNN: 10-00-c4-f5-7c-e2-70-a6
+FabricWWPN: 20-07-c4-f5-7c-e2-70-a6     CurrentSpeed: 16Gb/s
+LinkType: Laser Short Wave              ConfiguredLinkSpeed: Auto
+ConfiguredTopology: Auto                HardALPA: 255
+
+administrator@cli> 
+2018-01-10 13:13:55: 
+Expect: Specifies fc port as the device type to display or modify information by verbose mode
+
+2018-01-10 13:13:55: fc -t node -v
+-------------------------------------------------------------------------------
+WWNN: 25-01-00-01-55-5b-3d-29           SupportedFCClass: Class Of Service 3
+MaxFrameSize: 2048                      SpeedSupported: 16Gb/s, 8Gb/s, 4Gb/s
+
+administrator@cli> 
+2018-01-10 13:13:54: 
+Expect: Display fc node information by verbose mode
+
+2018-01-10 13:13:54: fc -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-07-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-06-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-05-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+State: Online                           PortIdentifier: 0x010700
+TopologyAttached: N-Port (Fabric Direct)
+WWPN: 26-04-00-01-55-5b-3d-29           AliasWWPN: N/A
+NumCurrentAlias: 0                      FabricWWNN: 10-00-c4-f5-7c-e2-70-a6
+FabricWWPN: 20-07-c4-f5-7c-e2-70-a6     CurrentSpeed: 16Gb/s
+LinkType: Laser Short Wave              ConfiguredLinkSpeed: Auto
+ConfiguredTopology: Auto                HardALPA: 255
+
+administrator@cli> 
+2018-01-10 13:13:54: 
+Expect: all of fc info should be displayed by verbose mode
+
+2018-01-10 13:13:54: 'result': 'p'
+2018-01-10 13:13:54: fc -i 2 -t port -p 4
+===============================================================================
+CtrlId Port   State     WWPN                          
+===============================================================================
+2      4      Online    26-04-00-01-55-5b-3d-29                                
+
+administrator@cli> 
+2018-01-10 13:13:54: 
+Expect: port 4 info should be listed on ctrl 2
+
+2018-01-10 13:13:54: fc -i 2 -t port -p 3
+===============================================================================
+CtrlId Port   State     WWPN                          
+===============================================================================
+2      3      Offline   26-05-00-01-55-5b-3d-29                                
+
+administrator@cli> 
+2018-01-10 13:13:54: 
+Expect: port 3 info should be listed on ctrl 2
+
+2018-01-10 13:13:54: fc -i 2 -t port -p 2
+===============================================================================
+CtrlId Port   State     WWPN                          
+===============================================================================
+2      2      Offline   26-06-00-01-55-5b-3d-29                                
+
+administrator@cli> 
+2018-01-10 13:13:54: 
+Expect: port 2 info should be listed on ctrl 2
+
+2018-01-10 13:13:54: fc -i 2 -t port -p 1 
+===============================================================================
+CtrlId Port   State     WWPN                          
+===============================================================================
+2      1      Offline   26-07-00-01-55-5b-3d-29                                
+
+administrator@cli> 
+2018-01-10 13:13:54: 
+Expect: port 1 info should be listed on ctrl 2
+
+2018-01-10 13:13:54: fc -t allinitiators
+===============================================================================
+Index   CtrlId  PortId  WWPN                          
+===============================================================================
+1       2       4       26-05-00-01-55-5b-3c-fc                                
+2       2       4       26-04-00-01-55-5b-3d-29                                
+3       2       4       26-01-00-01-55-00-00-00                                
+4       2       4       26-02-00-01-55-00-00-00                                
+
+administrator@cli> 
+2018-01-10 13:13:53: 
+Expect: Display initiator list from fibre switch
+
+2018-01-10 13:13:53: fc -t loggedintargets
+-------------------------------------------------------------------------------
+No targets logged in
+
+administrator@cli> 
+2018-01-10 13:13:53: 
+Expect: Display port logged in target information
+
+2018-01-10 13:13:53: fc -t loggedininitiators
+-------------------------------------------------------------------------------
+No devices logged in
+
+administrator@cli> 
+2018-01-10 13:13:53: 
+Expect: Display port logged in initiator information
+
+2018-01-10 13:13:53: fc -t stats
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+
+administrator@cli> 
+2018-01-10 13:13:53: 
+Expect: Display port statistics information
+
+2018-01-10 13:13:53: fc -t sfp
+-------------------------------------------------------------------------------
+Controller 2 Port 1 : No SFP found
+
+-------------------------------------------------------------------------------
+Controller 2 Port 2 : No SFP found
+
+-------------------------------------------------------------------------------
+Controller 2 Port 3 : No SFP found
+
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+Transceiver: SFP                        Connector: LC
+TransCode: 00-00-00-00-40-40-04-70      SerialEncoding: 64B66B
+BitRate: 14.0 Gb/s                      ManufacturingDateCode: 170518
+LinkLength_9/125um: 0 m                 LinkLength_50/125um: 30 m
+LinkLength_62.5/125um: 0 m              VendorName: BROCADE
+VendorOUI: 00-05-1e                     VendorPartNum: 57-0000088-01
+VendorRevision: A                       VendorSerialNum: HAF317200000J34
+
+administrator@cli> 
+2018-01-10 13:13:53: 
+Expect: Display port SFP information
+
+2018-01-10 13:13:53: fc -t port
+===============================================================================
+CtrlId Port   State     WWPN                          
+===============================================================================
+2      1      Offline   26-07-00-01-55-5b-3d-29                                
+2      2      Offline   26-06-00-01-55-5b-3d-29                                
+2      3      Offline   26-05-00-01-55-5b-3d-29                                
+2      4      Online    26-04-00-01-55-5b-3d-29                                
+
+administrator@cli> 
+2018-01-10 13:13:53: 
+Expect: Specifies fc port as the device type to display or modify information
+
+2018-01-10 13:13:52: fc -t node
+-------------------------------------------------------------------------------
+WWNN: 25-01-00-01-55-5b-3d-29           SupportedFCClass: Class Of Service 3
+MaxFrameSize: 2048                      SpeedSupported: 16Gb/s, 8Gb/s, 4Gb/s
+
+administrator@cli> 
+2018-01-10 13:13:52: 
+Expect: Display fc node information
+
+2018-01-10 13:13:52: fc
+===============================================================================
+CtrlId Port   State     WWPN                          
+===============================================================================
+2      1      Offline   26-07-00-01-55-5b-3d-29                                
+2      2      Offline   26-06-00-01-55-5b-3d-29                                
+2      3      Offline   26-05-00-01-55-5b-3d-29                                
+2      4      Online    26-04-00-01-55-5b-3d-29                                
+
+administrator@cli> 
+2018-01-10 13:13:52: 
+Expect: all of fc info should be displayed
+
+2018-01-10 13:12:44: 'result': 'p'
+2018-01-10 13:12:44: fc -a clear
+
+administrator@cli> 
+2018-01-10 13:12:44: 
+Expect: all port on primary ctrl should be cleared
+
+2018-01-10 13:12:44: fc -a clear -i 2
+
+administrator@cli> 
+2018-01-10 13:12:44: 
+Expect: all port on ctrl 2 should be cleared
+
+2018-01-10 13:12:44: fc -a clear -i 2 -p 4
+
+administrator@cli> 
+2018-01-10 13:12:43: 
+Expect: port 4 should be cleared
+
+2018-01-10 13:12:43: fc -a clear -i 2 -p 3
+
+administrator@cli> 
+2018-01-10 13:12:43: 
+Expect: port 3 should be cleared
+
+2018-01-10 13:12:43: fc -a clear -i 2 -p 2
+
+administrator@cli> 
+2018-01-10 13:12:43: 
+Expect: port 2 should be cleared
+
+2018-01-10 13:12:43: fc -a clear -i 2 -p 1
+
+administrator@cli> 
+2018-01-10 13:12:43: 
+Expect: port 1 should be cleared
+
+2018-01-10 13:10:41: 'result': 'f'
+2018-01-10 13:10:41: fc -a clear -i 2 -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2018-01-10 13:10:41: 
+Expect: Missing parameter
+
+2018-01-10 13:10:41: fc -a clear -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-10 13:10:41: 
+Expect: Missing parameter
+
+2018-01-10 13:10:41: 
+Fail: fc -a clear
+
+2018-01-10 13:10:41: fc -a clear
+
+administrator@cli> 
+2018-01-10 13:10:41: 
+Expect: Missing parameter
+
+2018-01-10 13:10:41: fc -a reset -i 2 -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2018-01-10 13:10:41: 
+Expect: Missing parameter
+
+2018-01-10 13:10:41: fc -a reset -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-10 13:10:41: 
+Expect: Missing parameter
+
+2018-01-10 13:10:41: fc -a reset
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a reset'
+
+administrator@cli> 
+2018-01-10 13:10:41: 
+Expect: Missing parameter
+
+2018-01-10 13:10:41: fc -a mod -t port -p 3 -s 
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2018-01-10 13:10:41: 
+Expect: Missing parameter
+
+2018-01-10 13:10:40: fc -a mod -t port -p 2
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+2018-01-10 13:10:40: 
+Expect: Missing parameter
+
+2018-01-10 13:10:40: fc -a mod -t port
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+2018-01-10 13:10:40: 
+Expect: Missing parameter
+
+2018-01-10 13:10:40: fc -a mod -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2018-01-10 13:10:40: 
+Expect: Missing parameter
+
+2018-01-10 13:10:40: fc -a mod
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+2018-01-10 13:10:40: 
+Expect: Missing parameter
+
+2018-01-10 13:10:40: fc -i 2 -t port -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2018-01-10 13:10:40: 
+Expect: Missing parameter
+
+2018-01-10 13:10:40: fc -i 
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-10 13:10:40: 
+Expect: Missing parameter
+
+2018-01-10 13:10:40: fc -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2018-01-10 13:10:40: 
+Expect: Missing parameter
+
+2018-01-10 13:10:12: 'result': 'f'
+2018-01-10 13:10:12: fc -a clear -i 2 -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2018-01-10 13:10:12: 
+Expect: Missing parameter
+
+2018-01-10 13:10:12: fc -a clear -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-10 13:10:12: 
+Expect: Missing parameter
+
+2018-01-10 13:10:12: 
+Fail: fc -a clear
+
+2018-01-10 13:10:12: fc -a clear
+
+administrator@cli> 
+2018-01-10 13:10:11: 
+Expect: Missing parameter
+
+2018-01-10 13:10:11: fc -a reset -i 2 -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2018-01-10 13:10:11: 
+Expect: Missing parameter
+
+2018-01-10 13:10:11: fc -a reset -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-10 13:10:11: 
+Expect: Missing parameter
+
+2018-01-10 13:10:11: fc -a reset
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a reset'
+
+administrator@cli> 
+2018-01-10 13:10:11: 
+Expect: Missing parameter
+
+2018-01-10 13:10:11: fc -a mod -t port -p 3 -s 
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2018-01-10 13:10:11: 
+Expect: Missing parameter
+
+2018-01-10 13:10:11: fc -a mod -t port -p 2
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+2018-01-10 13:10:11: 
+Expect: Missing parameter
+
+2018-01-10 13:10:11: fc -a mod -t port
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+2018-01-10 13:10:11: 
+Expect: Missing parameter
+
+2018-01-10 13:10:11: fc -a mod -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2018-01-10 13:10:11: 
+Expect: Missing parameter
+
+2018-01-10 13:10:11: fc -a mod
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+2018-01-10 13:10:11: 
+Expect: Missing parameter
+
+2018-01-10 13:10:11: 
+Fail: please check out Missing parameter
+
+2018-01-10 13:10:11: fc -i 3 -t port -p
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 3 (1,2)
+
+administrator@cli> 
+2018-01-10 13:10:11: 
+Expect: Missing parameter
+
+2018-01-10 13:10:11: fc -i 
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-10 13:10:11: 
+Expect: Missing parameter
+
+2018-01-10 13:10:11: fc -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2018-01-10 13:10:11: 
+Expect: Missing parameter
+
+2018-01-10 13:09:49: 'result': 'f'
+2018-01-10 13:09:49: fc -a clear -i 2 -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2018-01-10 13:09:49: 
+Expect: Missing parameter
+
+2018-01-10 13:09:49: fc -a clear -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-10 13:09:49: 
+Expect: Missing parameter
+
+2018-01-10 13:09:49: 
+Fail: fc -a clear
+
+2018-01-10 13:09:49: fc -a clear
+
+administrator@cli> 
+2018-01-10 13:09:49: 
+Expect: Missing parameter
+
+2018-01-10 13:09:49: fc -a reset -i 2 -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2018-01-10 13:09:49: 
+Expect: Missing parameter
+
+2018-01-10 13:09:49: fc -a reset -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-10 13:09:49: 
+Expect: Missing parameter
+
+2018-01-10 13:09:49: fc -a reset
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a reset'
+
+administrator@cli> 
+2018-01-10 13:09:49: 
+Expect: Missing parameter
+
+2018-01-10 13:09:49: fc -a mod -t port -p 3 -s 
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2018-01-10 13:09:49: 
+Expect: Missing parameter
+
+2018-01-10 13:09:49: fc -a mod -t port -p 2
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+2018-01-10 13:09:49: 
+Expect: Missing parameter
+
+2018-01-10 13:09:49: fc -a mod -t port
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+2018-01-10 13:09:49: 
+Expect: Missing parameter
+
+2018-01-10 13:09:49: fc -a mod -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2018-01-10 13:09:49: 
+Expect: Missing parameter
+
+2018-01-10 13:09:48: fc -a mod
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+2018-01-10 13:09:48: 
+Expect: Missing parameter
+
+2018-01-10 13:09:48: 
+Fail: please check out Missing parameter
+
+2018-01-10 13:09:48: fc -i 3 -t port -p
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 3 (1,2)
+
+administrator@cli> 
+2018-01-10 13:09:48: 
+Expect: Missing parameter
+
+2018-01-10 13:09:48: fc -i 
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-10 13:09:48: 
+Expect: Missing parameter
+
+2018-01-10 13:09:48: 
+Fail: please check out Missing parameter
+
+2018-01-10 13:09:48: fc -t 1
+Error (0x2013): Invalid setting parameters
+-t: invalid setting 1 (node|port|stats|sfp|loggedininitiators|loggedintargets|allinitiators)
+
+administrator@cli> 
+2018-01-10 13:09:48: 
+Expect: Missing parameter
+
+2018-01-10 13:06:54: 'result': 'p'
+2018-01-10 13:06:54: fc -a clear -i 2 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-10 13:06:54: 
+Expect: Invalid option for the command or the action
+
+2018-01-10 13:06:54: fc -a clear -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-10 13:06:54: 
+Expect: Invalid option for the command or the action
+
+2018-01-10 13:06:54: fc -a reset -i 2 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-10 13:06:54: 
+Expect: Invalid option for the command or the action
+
+2018-01-10 13:06:54: fc -a reset -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-10 13:06:54: 
+Expect: Invalid option for the command or the action
+
+2018-01-10 13:06:54: fc -a mod -i 2 -t port -p 4 -s "test=auto"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+2018-01-10 13:06:54: 
+Expect: Invalid option for the command or the action
+
+2018-01-10 13:06:54: fc -a mod -t port -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-10 13:06:54: 
+Expect: Invalid option for the command or the action
+
+2018-01-10 13:06:54: fc -a mod -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-10 13:06:54: 
+Expect: Invalid option for the command or the action
+
+2018-01-10 13:06:54: fc -i 2 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-10 13:06:54: 
+Expect: Invalid option for the command or the action
+
+2018-01-10 13:06:54: fc -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-10 13:06:54: 
+Expect: Invalid option for the command or the action
+
+2018-01-10 13:06:36: 'result': 'f'
+2018-01-10 13:06:36: 
+Fail: please check out Invalid option for the command or the action
+
+2018-01-10 13:06:36: fc -a clear -i 3 -test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 3 (1,2)
+
+administrator@cli> 
+2018-01-10 13:06:36: 
+Expect: Invalid option for the command or the action
+
+2018-01-10 13:06:36: fc -a clear -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-10 13:06:36: 
+Expect: Invalid option for the command or the action
+
+2018-01-10 13:06:36: 
+Fail: please check out Invalid option for the command or the action
+
+2018-01-10 13:06:36: fc -a reset -i 3 -test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 3 (1,2)
+
+administrator@cli> 
+2018-01-10 13:06:36: 
+Expect: Invalid option for the command or the action
+
+2018-01-10 13:06:36: fc -a reset -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-10 13:06:36: 
+Expect: Invalid option for the command or the action
+
+2018-01-10 13:06:36: fc -a mod -i 2 -t port -p 4 -s "test=auto"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+2018-01-10 13:06:36: 
+Expect: Invalid option for the command or the action
+
+2018-01-10 13:06:36: fc -a mod -t port -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-10 13:06:36: 
+Expect: Invalid option for the command or the action
+
+2018-01-10 13:06:36: fc -a mod -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-10 13:06:35: 
+Expect: Invalid option for the command or the action
+
+2018-01-10 13:06:35: fc -i 2 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-10 13:06:35: 
+Expect: Invalid option for the command or the action
+
+2018-01-10 13:06:35: fc -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-10 13:06:35: 
+Expect: Invalid option for the command or the action
+
+2018-01-10 13:02:00: 'result': 'p'
+2018-01-10 13:02:00: fc -a clear -i 2 -p 5
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 5 (1,4)
+
+administrator@cli> 
+2018-01-10 13:02:00: 
+Expect: Invalid port id when executes clearing
+
+2018-01-10 13:02:00: fc -a clear -i 3 -p 2
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 3 (1,2)
+
+administrator@cli> 
+2018-01-10 13:02:00: 
+Expect: Invalid ctrl id when executes clearing
+
+2018-01-10 13:02:00: fc -a clear test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-10 13:02:00: 
+Expect: Invalid setting parameters when executes clearing
+
+2018-01-10 13:02:00: fc -a reset -i 2 -p 5
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 5 (1,4)
+
+administrator@cli> 
+2018-01-10 13:02:00: 
+Expect: Invalid port id when executes reseting
+
+2018-01-10 13:02:00: fc -a reset -i 3 -p 2
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 3 (1,2)
+
+administrator@cli> 
+2018-01-10 13:02:00: 
+Expect: Invalid ctrl id when executes reseting
+
+2018-01-10 13:02:00: fc -a reset test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-10 13:02:00: 
+Expect: Invalid setting parameters when executes reseting
+
+2018-01-10 13:02:00: fc -a mod -t node -p 2 -s "linkspeed=4gb"
+Error (0x402): Invalid parameter
+invalid fc setting type
+
+administrator@cli> 
+2018-01-10 13:02:00: 
+Expect: invalid fc setting type
+
+2018-01-10 13:02:00: fc -a mod -i 3 -t port -p 4 -s "hardalpa=1"
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 3 (1,2)
+
+administrator@cli> 
+2018-01-10 13:02:00: 
+Expect: Invalid ctrl id when executes modification
+
+2018-01-10 13:02:00: fc -a mod -i 2 -t port -p 4 -s "hardalpa=test"
+Error (0x2013): Invalid setting parameters
+hardalpa: invalid setting test
+
+administrator@cli> 
+2018-01-10 13:02:00: 
+Expect: Invalid type of hardalpa setting parameters
+
+2018-01-10 13:02:00: fc -a mod -i 2 -t port -p 4 -s "hardalpa=256"
+Error (0x2013): Invalid setting parameters
+hardalpa: invalid setting 256 (0,255)
+
+administrator@cli> 
+2018-01-10 13:02:00: 
+Expect: Invalid type of hardalpa setting parameters
+
+2018-01-10 13:02:00: fc -a mod -t port -p 3 -s "topology=test"
+Error (0x2013): Invalid setting parameters
+topology: invalid setting test (auto|nlport|nport)
+
+administrator@cli> 
+2018-01-10 13:02:00: 
+Expect: Invalid type of topology setting parameters
+
+2018-01-10 13:02:00: fc -a mod -t port -p 2 -s "linkspeed=test"
+Error (0x2013): Invalid setting parameters
+linkspeed: invalid setting test (auto|4gb|8gb|16gb)
+
+administrator@cli> 
+2018-01-10 13:02:00: 
+Expect: Invalid type of linkspeed setting parameters
+
+2018-01-10 13:02:00: fc -a mod -t port -p 5 -s "linkspeed=4gb,topology=nlport,hardalpa=0"
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 5 (1,4)
+
+administrator@cli> 
+2018-01-10 13:02:00: 
+Expect: Invalid port id when executes modification
+
+2018-01-10 13:02:00: fc -a mod -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (node|port|stats|sfp|loggedininitiators|loggedintargets|allinitiators)
+
+administrator@cli> 
+2018-01-10 13:02:00: 
+Expect: Invalid type setting parameters when executes modification
+
+2018-01-10 13:02:00: fc -a mod test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-10 13:02:00: 
+Expect: Invalid setting parameters when executes modification
+
+2018-01-10 13:02:00: fc -i 2 -t port -p test
+Error (0x2013): Invalid setting parameters
+-p: invalid setting test
+
+administrator@cli> 
+2018-01-10 13:02:00: 
+Expect: Invalid setting parameters of port id
+
+2018-01-10 13:02:00: fc -i test -t port -p 3
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2018-01-10 13:02:00: 
+Expect: Invalid setting parameters of ctrl id
+
+2018-01-10 13:02:00: fc -i 3 -t port -p 2
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 3 (1,2)
+
+administrator@cli> 
+2018-01-10 13:02:00: 
+Expect: Invalid ctrl id
+
+2018-01-10 13:02:00: fc -i 2 -t port -p 5 
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 5 (1,4)
+
+administrator@cli> 
+2018-01-10 13:02:00: 
+Expect: Invalid port id
+
+2018-01-10 13:02:00: fc -t 1
+Error (0x2013): Invalid setting parameters
+-t: invalid setting 1 (node|port|stats|sfp|loggedininitiators|loggedintargets|allinitiators)
+
+administrator@cli> 
+2018-01-10 13:02:00: 
+Expect: Invalid type setting parameters
+
+2018-01-10 13:02:00: fc -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (node|port|stats|sfp|loggedininitiators|loggedintargets|allinitiators)
+
+administrator@cli> 
+2018-01-10 13:02:00: 
+Expect: Invalid type setting parameters
+
+2018-01-10 13:02:00: fc -1
+Error (0x2013): Invalid setting parameters
+invalid setting: -1
+
+administrator@cli> 
+2018-01-10 13:02:00: 
+Expect: Invalid setting parameters
+
+2018-01-10 13:02:00: fc test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-10 13:02:00: 
+Expect: Invalid setting parameters when executes list
+
+2018-01-10 13:00:58: 'result': 'f'
+2018-01-10 13:00:58: fc -a clear -i 2 -p 5
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 5 (1,4)
+
+administrator@cli> 
+2018-01-10 13:00:58: 
+Expect: Invalid port id when executes clearing
+
+2018-01-10 13:00:58: fc -a clear -i 3 -p 2
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 3 (1,2)
+
+administrator@cli> 
+2018-01-10 13:00:58: 
+Expect: Invalid ctrl id when executes clearing
+
+2018-01-10 13:00:58: fc -a clear test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-10 13:00:58: 
+Expect: Invalid setting parameters when executes clearing
+
+2018-01-10 13:00:58: fc -a reset -i 2 -p 5
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 5 (1,4)
+
+administrator@cli> 
+2018-01-10 13:00:58: 
+Expect: Invalid port id when executes reseting
+
+2018-01-10 13:00:58: fc -a reset -i 3 -p 2
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 3 (1,2)
+
+administrator@cli> 
+2018-01-10 13:00:58: 
+Expect: Invalid ctrl id when executes reseting
+
+2018-01-10 13:00:58: fc -a reset test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-10 13:00:58: 
+Expect: Invalid setting parameters when executes reseting
+
+2018-01-10 13:00:58: fc -a mod -t node -p 2 -s "linkspeed=4gb"
+Error (0x402): Invalid parameter
+invalid fc setting type
+
+administrator@cli> 
+2018-01-10 13:00:58: 
+Expect: invalid fc setting type
+
+2018-01-10 13:00:58: fc -a mod -i 3 -t port -p 4 -s "hardalpa=1"
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 3 (1,2)
+
+administrator@cli> 
+2018-01-10 13:00:58: 
+Expect: Invalid ctrl id when executes modification
+
+2018-01-10 13:00:58: fc -a mod -i 2 -t port -p 4 -s "hardalpa=test"
+Error (0x2013): Invalid setting parameters
+hardalpa: invalid setting test
+
+administrator@cli> 
+2018-01-10 13:00:58: 
+Expect: Invalid type of hardalpa setting parameters
+
+2018-01-10 13:00:58: fc -a mod -i 2 -t port -p 4 -s "hardalpa=256"
+Error (0x2013): Invalid setting parameters
+hardalpa: invalid setting 256 (0,255)
+
+administrator@cli> 
+2018-01-10 13:00:58: 
+Expect: Invalid type of hardalpa setting parameters
+
+2018-01-10 13:00:58: fc -a mod -t port -p 3 -s "topology=test"
+Error (0x2013): Invalid setting parameters
+topology: invalid setting test (auto|nlport|nport)
+
+administrator@cli> 
+2018-01-10 13:00:58: 
+Expect: Invalid type of topology setting parameters
+
+2018-01-10 13:00:58: fc -a mod -t port -p 2 -s "linkspeed=test"
+Error (0x2013): Invalid setting parameters
+linkspeed: invalid setting test (auto|4gb|8gb|16gb)
+
+administrator@cli> 
+2018-01-10 13:00:58: 
+Expect: Invalid type of linkspeed setting parameters
+
+2018-01-10 13:00:58: fc -a mod -t port -p 5 -s "linkspeed=4gb,topology=nlport,hardalpa=0"
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 5 (1,4)
+
+administrator@cli> 
+2018-01-10 13:00:58: 
+Expect: Invalid port id when executes modification
+
+2018-01-10 13:00:58: fc -a mod -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (node|port|stats|sfp|loggedininitiators|loggedintargets|allinitiators)
+
+administrator@cli> 
+2018-01-10 13:00:58: 
+Expect: Invalid type setting parameters when executes modification
+
+2018-01-10 13:00:58: fc -a mod test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-10 13:00:58: 
+Expect: Invalid setting parameters when executes modification
+
+2018-01-10 13:00:58: fc -i 2 -t port -p test
+Error (0x2013): Invalid setting parameters
+-p: invalid setting test
+
+administrator@cli> 
+2018-01-10 13:00:58: 
+Expect: Invalid setting parameters of port id
+
+2018-01-10 13:00:58: fc -i test -t port -p 3
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2018-01-10 13:00:58: 
+Expect: Invalid setting parameters of ctrl id
+
+2018-01-10 13:00:58: fc -i 3 -t port -p 2
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 3 (1,2)
+
+administrator@cli> 
+2018-01-10 13:00:58: 
+Expect: Invalid ctrl id
+
+2018-01-10 13:00:58: fc -i 2 -t port -p 5 
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 5 (1,4)
+
+administrator@cli> 
+2018-01-10 13:00:58: 
+Expect: Invalid port id
+
+2018-01-10 13:00:58: fc -t 1
+Error (0x2013): Invalid setting parameters
+-t: invalid setting 1 (node|port|stats|sfp|loggedininitiators|loggedintargets|allinitiators)
+
+administrator@cli> 
+2018-01-10 13:00:58: 
+Expect: Invalid type setting parameters
+
+2018-01-10 13:00:58: fc -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (node|port|stats|sfp|loggedininitiators|loggedintargets|allinitiators)
+
+administrator@cli> 
+2018-01-10 13:00:58: 
+Expect: Invalid type setting parameters
+
+2018-01-10 13:00:58: 
+Fail: please check out Invalid type setting parameters
+
+2018-01-10 13:00:58: fc -1
+Error (0x2013): Invalid setting parameters
+invalid setting: -1
+
+administrator@cli> 
+2018-01-10 13:00:58: 
+Expect: Invalid type setting parameters
+
+2018-01-10 13:00:58: fc test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-10 13:00:57: 
+Expect: Invalid setting parameters when executes list
+
+2018-01-10 11:29:28: 'result': 'p'
+2018-01-10 11:29:28: fc -a clear -i 2 -p 5
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 5 (1,4)
+
+administrator@cli> 
+2018-01-10 11:29:28: 
+Expect: Invalid port id when executes clearing
+
+2018-01-10 11:29:28: fc -a clear -i 3 -p 2
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 3 (1,2)
+
+administrator@cli> 
+2018-01-10 11:29:28: 
+Expect: Invalid ctrl id when executes clearing
+
+2018-01-10 11:29:28: fc -a clear test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-10 11:29:28: 
+Expect: Invalid setting parameters when executes clearing
+
+2018-01-10 11:29:28: fc -a reset -i 2 -p 5
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 5 (1,4)
+
+administrator@cli> 
+2018-01-10 11:29:28: 
+Expect: Invalid port id when executes reseting
+
+2018-01-10 11:29:28: fc -a reset -i 3 -p 2
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 3 (1,2)
+
+administrator@cli> 
+2018-01-10 11:29:28: 
+Expect: Invalid ctrl id when executes reseting
+
+2018-01-10 11:29:28: fc -a reset test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-10 11:29:28: 
+Expect: Invalid setting parameters when executes reseting
+
+2018-01-10 11:29:28: fc -a mod -t node -p 2 -s "linkspeed=4gb"
+Error (0x402): Invalid parameter
+invalid fc setting type
+
+administrator@cli> 
+2018-01-10 11:29:28: 
+Expect: invalid fc setting type
+
+2018-01-10 11:29:28: fc -a mod -i 3 -t port -p 4 -s "hardalpa=1"
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 3 (1,2)
+
+administrator@cli> 
+2018-01-10 11:29:28: 
+Expect: Invalid ctrl id when executes modification
+
+2018-01-10 11:29:28: fc -a mod -i 2 -t port -p 4 -s "hardalpa=test"
+Error (0x2013): Invalid setting parameters
+hardalpa: invalid setting test
+
+administrator@cli> 
+2018-01-10 11:29:28: 
+Expect: Invalid type of hardalpa setting parameters
+
+2018-01-10 11:29:28: fc -a mod -i 2 -t port -p 4 -s "hardalpa=256"
+Error (0x2013): Invalid setting parameters
+hardalpa: invalid setting 256 (0,255)
+
+administrator@cli> 
+2018-01-10 11:29:28: 
+Expect: Invalid type of hardalpa setting parameters
+
+2018-01-10 11:29:28: fc -a mod -t port -p 3 -s "topology=test"
+Error (0x2013): Invalid setting parameters
+topology: invalid setting test (auto|nlport|nport)
+
+administrator@cli> 
+2018-01-10 11:29:28: 
+Expect: Invalid type of topology setting parameters
+
+2018-01-10 11:29:28: fc -a mod -t port -p 2 -s "linkspeed=test"
+Error (0x2013): Invalid setting parameters
+linkspeed: invalid setting test (auto|4gb|8gb|16gb)
+
+administrator@cli> 
+2018-01-10 11:29:28: 
+Expect: Invalid type of linkspeed setting parameters
+
+2018-01-10 11:29:28: fc -a mod -t port -p 5 -s "linkspeed=4gb,topology=nlport,hardalpa=0"
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 5 (1,4)
+
+administrator@cli> 
+2018-01-10 11:29:28: 
+Expect: Invalid port id when executes modification
+
+2018-01-10 11:29:28: fc -a mod -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (node|port|stats|sfp|loggedininitiators|loggedintargets|allinitiators)
+
+administrator@cli> 
+2018-01-10 11:29:28: 
+Expect: Invalid type setting parameters when executes modification
+
+2018-01-10 11:29:28: fc -a mod test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-10 11:29:28: 
+Expect: Invalid setting parameters when executes modification
+
+2018-01-10 11:29:28: fc -i 2 -t port -p test
+Error (0x2013): Invalid setting parameters
+-p: invalid setting test
+
+administrator@cli> 
+2018-01-10 11:29:28: 
+Expect: Invalid setting parameters of port id
+
+2018-01-10 11:29:28: fc -i test -t port -p 3
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2018-01-10 11:29:28: 
+Expect: Invalid setting parameters of ctrl id
+
+2018-01-10 11:29:28: fc -i 3 -t port -p 2
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 3 (1,2)
+
+administrator@cli> 
+2018-01-10 11:29:28: 
+Expect: Invalid ctrl id
+
+2018-01-10 11:29:28: fc -i 2 -t port -p 5 
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 5 (1,4)
+
+administrator@cli> 
+2018-01-10 11:29:28: 
+Expect: Invalid port id
+
+2018-01-10 11:29:28: fc -t 1
+Error (0x2013): Invalid setting parameters
+-t: invalid setting 1 (node|port|stats|sfp|loggedininitiators|loggedintargets|allinitiators)
+
+administrator@cli> 
+2018-01-10 11:29:28: 
+Expect: Invalid type setting parameters
+
+2018-01-10 11:29:28: fc -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (node|port|stats|sfp|loggedininitiators|loggedintargets|allinitiators)
+
+administrator@cli> 
+2018-01-10 11:29:28: 
+Expect: Invalid type setting parameters
+
+2018-01-10 11:29:28: fc test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-10 11:29:28: 
+Expect: Invalid setting parameters when executes list
+
+2018-01-10 11:26:16: 'result': 'p'
+2018-01-10 11:26:16: fc -a clear -i 2 -p 5
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 5 (1,4)
+
+administrator@cli> 
+2018-01-10 11:26:16: 
+Expect: Invalid port id when executes clearing
+
+2018-01-10 11:26:16: fc -a clear -i 3 -p 2
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 3 (1,2)
+
+administrator@cli> 
+2018-01-10 11:26:16: 
+Expect: Invalid ctrl id when executes clearing
+
+2018-01-10 11:26:16: fc -a clear test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-10 11:26:16: 
+Expect: Invalid setting parameters when executes clearing
+
+2018-01-10 11:26:16: fc -a reset -i 2 -p 5
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 5 (1,4)
+
+administrator@cli> 
+2018-01-10 11:26:16: 
+Expect: Invalid port id when executes reseting
+
+2018-01-10 11:26:16: fc -a reset -i 3 -p 2
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 3 (1,2)
+
+administrator@cli> 
+2018-01-10 11:26:16: 
+Expect: Invalid ctrl id when executes reseting
+
+2018-01-10 11:26:16: fc -a reset test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-10 11:26:16: 
+Expect: Invalid setting parameters when executes reseting
+
+2018-01-10 11:26:16: fc -a mod -i 3 -t port -p 4 -s "hardalpa=1"
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 3 (1,2)
+
+administrator@cli> 
+2018-01-10 11:26:16: 
+Expect: Invalid ctrl id when executes modification
+
+2018-01-10 11:26:16: fc -a mod -i 2 -t port -p 4 -s "hardalpa=test"
+Error (0x2013): Invalid setting parameters
+hardalpa: invalid setting test
+
+administrator@cli> 
+2018-01-10 11:26:16: 
+Expect: Invalid type of hardalpa setting parameters
+
+2018-01-10 11:26:16: fc -a mod -i 2 -t port -p 4 -s "hardalpa=256"
+Error (0x2013): Invalid setting parameters
+hardalpa: invalid setting 256 (0,255)
+
+administrator@cli> 
+2018-01-10 11:26:16: 
+Expect: Invalid type of hardalpa setting parameters
+
+2018-01-10 11:26:16: fc -a mod -t port -p 3 -s "topology=test"
+Error (0x2013): Invalid setting parameters
+topology: invalid setting test (auto|nlport|nport)
+
+administrator@cli> 
+2018-01-10 11:26:16: 
+Expect: Invalid type of topology setting parameters
+
+2018-01-10 11:26:16: fc -a mod -t port -p 2 -s "linkspeed=test"
+Error (0x2013): Invalid setting parameters
+linkspeed: invalid setting test (auto|4gb|8gb|16gb)
+
+administrator@cli> 
+2018-01-10 11:26:16: 
+Expect: Invalid type of linkspeed setting parameters
+
+2018-01-10 11:26:16: fc -a mod -t port -p 5 -s "linkspeed=4gb,topology=nlport,hardalpa=0"
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 5 (1,4)
+
+administrator@cli> 
+2018-01-10 11:26:16: 
+Expect: Invalid port id when executes modification
+
+2018-01-10 11:26:16: fc -a mod -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (node|port|stats|sfp|loggedininitiators|loggedintargets|allinitiators)
+
+administrator@cli> 
+2018-01-10 11:26:16: 
+Expect: Invalid type setting parameters when executes modification
+
+2018-01-10 11:26:16: fc -a mod test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-10 11:26:16: 
+Expect: Invalid setting parameters when executes modification
+
+2018-01-10 11:26:16: fc -i 2 -t port -p test
+Error (0x2013): Invalid setting parameters
+-p: invalid setting test
+
+administrator@cli> 
+2018-01-10 11:26:16: 
+Expect: Invalid setting parameters of port id
+
+2018-01-10 11:26:16: fc -i test -t port -p 3
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2018-01-10 11:26:16: 
+Expect: Invalid setting parameters of ctrl id
+
+2018-01-10 11:26:16: fc -i 3 -t port -p 2
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 3 (1,2)
+
+administrator@cli> 
+2018-01-10 11:26:15: 
+Expect: Invalid ctrl id
+
+2018-01-10 11:26:15: fc -i 2 -t port -p 5 
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 5 (1,4)
+
+administrator@cli> 
+2018-01-10 11:26:15: 
+Expect: Invalid port id
+
+2018-01-10 11:26:15: fc -t 1
+Error (0x2013): Invalid setting parameters
+-t: invalid setting 1 (node|port|stats|sfp|loggedininitiators|loggedintargets|allinitiators)
+
+administrator@cli> 
+2018-01-10 11:26:15: 
+Expect: Invalid type setting parameters
+
+2018-01-10 11:26:15: fc -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (node|port|stats|sfp|loggedininitiators|loggedintargets|allinitiators)
+
+administrator@cli> 
+2018-01-10 11:26:15: 
+Expect: Invalid type setting parameters
+
+2018-01-10 11:26:15: fc test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-10 11:26:15: 
+Expect: Invalid setting parameters when executes list
+
+2018-01-10 11:22:28: 'result': 'p'
+2018-01-10 11:22:28: fc -a clear -i 2 -p 5
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 5 (1,4)
+
+administrator@cli> 
+2018-01-10 11:22:28: 
+Expect: Invalid port id when executes clearing
+
+2018-01-10 11:22:28: fc -a clear -i 3 -p 2
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 3 (1,2)
+
+administrator@cli> 
+2018-01-10 11:22:28: 
+Expect: Invalid ctrl id when executes clearing
+
+2018-01-10 11:22:28: fc -a clear test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-10 11:22:28: 
+Expect: Invalid setting parameters when executes clearing
+
+2018-01-10 11:22:28: fc -a reset -i 2 -p 5
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 5 (1,4)
+
+administrator@cli> 
+2018-01-10 11:22:28: 
+Expect: Invalid port id when executes reseting
+
+2018-01-10 11:22:28: fc -a reset -i 3 -p 2
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 3 (1,2)
+
+administrator@cli> 
+2018-01-10 11:22:28: 
+Expect: Invalid ctrl id when executes reseting
+
+2018-01-10 11:22:28: fc -a reset test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-10 11:22:28: 
+Expect: Invalid setting parameters when executes reseting
+
+2018-01-10 11:22:28: fc -a mod -i 3 -t port -p 4 -s "hardalpa=1"
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 3 (1,2)
+
+administrator@cli> 
+2018-01-10 11:22:28: 
+Expect: Invalid ctrl id when executes modification
+
+2018-01-10 11:22:28: fc -a mod -i 2 -t port -p 4 -s "hardalpa=test"
+Error (0x2013): Invalid setting parameters
+hardalpa: invalid setting test
+
+administrator@cli> 
+2018-01-10 11:22:28: 
+Expect: Invalid type of hardalpa setting parameters
+
+2018-01-10 11:22:28: fc -a mod -i 2 -t port -p 4 -s "hardalpa=256"
+Error (0x2013): Invalid setting parameters
+hardalpa: invalid setting 256 (0,255)
+
+administrator@cli> 
+2018-01-10 11:22:28: 
+Expect: Invalid type of hardalpa setting parameters
+
+2018-01-10 11:22:28: fc -a mod -t port -p 3 -s "topology=test"
+Error (0x2013): Invalid setting parameters
+topology: invalid setting test (auto|nlport|nport)
+
+administrator@cli> 
+2018-01-10 11:22:28: 
+Expect: Invalid type of topology setting parameters
+
+2018-01-10 11:22:28: fc -a mod -t port -p 2 -s "linkspeed=test"
+Error (0x2013): Invalid setting parameters
+linkspeed: invalid setting test (auto|4gb|8gb|16gb)
+
+administrator@cli> 
+2018-01-10 11:22:28: 
+Expect: Invalid type of linkspeed setting parameters
+
+2018-01-10 11:22:28: fc -a mod -t port -p 5 -s "linkspeed=4gb,topology=nlport,hardalpa=0"
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 5 (1,4)
+
+administrator@cli> 
+2018-01-10 11:22:28: 
+Expect: Invalid port id when executes modification
+
+2018-01-10 11:22:28: fc -a mod -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (node|port|stats|sfp|loggedininitiators|loggedintargets|allinitiators)
+
+administrator@cli> 
+2018-01-10 11:22:28: 
+Expect: Invalid type setting parameters when executes modification
+
+2018-01-10 11:22:28: fc -a mod test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-10 11:22:28: 
+Expect: Invalid setting parameters when executes modification
+
+2018-01-10 11:22:28: fc -i 2 -t port -p test
+Error (0x2013): Invalid setting parameters
+-p: invalid setting test
+
+administrator@cli> 
+2018-01-10 11:22:28: 
+Expect: Invalid setting parameters of port id
+
+2018-01-10 11:22:28: fc -i test -t port -p 3
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2018-01-10 11:22:28: 
+Expect: Invalid setting parameters of ctrl id
+
+2018-01-10 11:22:28: fc -i 3 -t port -p 2
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 3 (1,2)
+
+administrator@cli> 
+2018-01-10 11:22:28: 
+Expect: Invalid ctrl id
+
+2018-01-10 11:22:28: fc -i 2 -t port -p 5 
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 5 (1,4)
+
+administrator@cli> 
+2018-01-10 11:22:28: 
+Expect: Invalid port id
+
+2018-01-10 11:22:28: fc -t 1
+Error (0x2013): Invalid setting parameters
+-t: invalid setting 1 (node|port|stats|sfp|loggedininitiators|loggedintargets|allinitiators)
+
+administrator@cli> 
+2018-01-10 11:22:28: 
+Expect: Invalid type setting parameters
+
+2018-01-10 11:22:28: fc -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (node|port|stats|sfp|loggedininitiators|loggedintargets|allinitiators)
+
+administrator@cli> 
+2018-01-10 11:22:28: 
+Expect: Invalid type setting parameters
+
+2018-01-10 11:22:28: fc test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-10 11:22:28: 
+Expect: Invalid setting parameters when executes list
+
+2018-01-10 11:13:20: 'result': 'p'
+2018-01-10 11:13:20: fc -i 2 -t port -p test
+Error (0x2013): Invalid setting parameters
+-p: invalid setting test
+
+administrator@cli> 
+2018-01-10 11:13:20: 
+Expect: Invalid setting parameters of port id
+
+2018-01-10 11:13:20: fc -i test -t port -p 3
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2018-01-10 11:13:20: 
+Expect: Invalid setting parameters of ctrl id
+
+2018-01-10 11:13:20: fc -i 3 -t port -p 2
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 3 (1,2)
+
+administrator@cli> 
+2018-01-10 11:13:20: 
+Expect: Invalid ctrl id
+
+2018-01-10 11:13:19: fc -i 2 -t port -p 5 
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 5 (1,4)
+
+administrator@cli> 
+2018-01-10 11:13:19: 
+Expect: Invalid port id
+
+2018-01-10 11:13:19: fc -t 1
+Error (0x2013): Invalid setting parameters
+-t: invalid setting 1 (node|port|stats|sfp|loggedininitiators|loggedintargets|allinitiators)
+
+administrator@cli> 
+2018-01-10 11:13:19: 
+Expect: Invalid type setting parameters
+
+2018-01-10 11:13:19: fc -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (node|port|stats|sfp|loggedininitiators|loggedintargets|allinitiators)
+
+administrator@cli> 
+2018-01-10 11:13:19: 
+Expect: Invalid type setting parameters
+
+2018-01-10 11:13:19: fc test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-10 11:13:19: 
+Expect: Invalid setting parameters
+
+2018-01-10 11:09:33: 'result': 'p'
+2018-01-10 11:09:33: fc -i 2 -t port -p test
+Error (0x2013): Invalid setting parameters
+-p: invalid setting test
+
+administrator@cli> 
+2018-01-10 11:09:33: 
+Expect: Invalid setting parameters
+
+2018-01-10 11:09:33: fc -i test -t port -p 3
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2018-01-10 11:09:33: 
+Expect: Invalid setting parameters
+
+2018-01-10 11:09:33: fc -i 3 -t port -p 2
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 3 (1,2)
+
+administrator@cli> 
+2018-01-10 11:09:33: 
+Expect: Invalid setting parameters
+
+2018-01-10 11:09:33: fc -i 2 -t port -p 5 
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 5 (1,4)
+
+administrator@cli> 
+2018-01-10 11:09:33: 
+Expect: Invalid setting parameters
+
+2018-01-10 11:09:33: fc -t 1
+Error (0x2013): Invalid setting parameters
+-t: invalid setting 1 (node|port|stats|sfp|loggedininitiators|loggedintargets|allinitiators)
+
+administrator@cli> 
+2018-01-10 11:09:33: 
+Expect: Invalid setting parameters
+
+2018-01-10 11:09:33: fc -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (node|port|stats|sfp|loggedininitiators|loggedintargets|allinitiators)
+
+administrator@cli> 
+2018-01-10 11:09:33: 
+Expect: Invalid setting parameters
+
+2018-01-10 11:09:33: fc test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-10 11:09:33: 
+Expect: Invalid setting parameters
+
+2018-01-10 11:09:33: ctrl test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-10 11:09:33: 
+Expect: Invalid setting parameters
+
+2018-01-10 11:04:38: 'result': 'p'
+2018-01-10 11:04:38: fc -a clear -i 2 -p 4
+
+administrator@cli> 
+2018-01-10 11:04:38: 
+Expect: port 4 should be cleared
+
+2018-01-10 11:04:38: fc -a clear -i 2 -p 3
+
+administrator@cli> 
+2018-01-10 11:04:38: 
+Expect: port 3 should be cleared
+
+2018-01-10 11:04:38: fc -a clear -i 2 -p 2
+
+administrator@cli> 
+2018-01-10 11:04:37: 
+Expect: port 2 should be cleared
+
+2018-01-10 11:04:37: fc -a clear -i 2 -p 1
+
+administrator@cli> 
+2018-01-10 11:04:37: 
+Expect: port 1 should be cleared
+
+2018-01-10 11:04:29: 'result': 'p'
+2018-01-10 11:04:29: fc -a reset -i 2 -p 4
+
+administrator@cli> 
+2018-01-10 11:04:28: 
+Expect: port 4 should be reset
+
+2018-01-10 11:04:28: fc -a reset -i 2 -p 3
+
+administrator@cli> 
+2018-01-10 11:04:28: 
+Expect: port 3 should be reset
+
+2018-01-10 11:04:28: fc -a reset -i 2 -p 2
+
+administrator@cli> 
+2018-01-10 11:04:28: 
+Expect: port 2 should be reset
+
+2018-01-10 11:04:28: fc -a reset -i 2 -p 1
+
+administrator@cli> 
+2018-01-10 11:04:27: 
+Expect: port 1 should be reset
+
+2018-01-10 11:03:04: 'result': 'p'
+2018-01-10 11:03:04: fc -a reset -i 2 -p 4
+
+administrator@cli> 
+2018-01-10 11:03:03: 
+Expect: port 4 should be reset
+
+2018-01-10 11:03:03: fc -a reset -i 2 -p 3
+
+administrator@cli> 
+2018-01-10 11:03:03: 
+Expect: port 3 should be reset
+
+2018-01-10 11:03:03: fc -a reset -i 2 -p 2
+
+administrator@cli> 
+2018-01-10 11:03:03: 
+Expect: port 2 should be reset
+
+2018-01-10 11:03:03: fc -a reset -i 2 -p 1
+
+administrator@cli> 
+2018-01-10 11:03:02: 
+Expect: port 1 should be reset
+
+2018-01-10 11:02:36: 'result': 'f'
+2018-01-10 11:02:36: 
+Fail: fc -a reset -p 4
+
+2018-01-10 11:02:36: fc -a reset -p 4
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a reset'
+
+administrator@cli> 
+2018-01-10 11:02:36: 
+Expect: port 4 should be reset
+
+2018-01-10 11:02:36: fc -a reset -i 2 -p 3
+
+administrator@cli> 
+2018-01-10 11:02:35: 
+Expect: port 3 should be reset
+
+2018-01-10 11:02:35: fc -a reset -i 2 -p 2
+
+administrator@cli> 
+2018-01-10 11:02:35: 
+Expect: port 2 should be reset
+
+2018-01-10 11:02:35: fc -a reset -i 2 -p 1
+
+administrator@cli> 
+2018-01-10 11:02:34: 
+Expect: port 1 should be reset
+
+2018-01-10 10:57:22: 'result': 'p'
+2018-01-10 10:57:22: fc -i 2 -t port -p 4 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+State: Online                           PortIdentifier: 0x010700
+TopologyAttached: N-Port (Fabric Direct)
+WWPN: 26-04-00-01-55-5b-3d-29           AliasWWPN: N/A
+NumCurrentAlias: 0                      FabricWWNN: 10-00-c4-f5-7c-e2-70-a6
+FabricWWPN: 20-07-c4-f5-7c-e2-70-a6     CurrentSpeed: 16Gb/s
+LinkType: Laser Short Wave              ConfiguredLinkSpeed: Auto
+ConfiguredTopology: Auto                HardALPA: 255
+
+administrator@cli> 
+2018-01-10 10:57:21: fc -a mod -i 2 -t port -p 4 -s "linkspeed=auto,hardalpa=255"
+
+administrator@cli> 
+2018-01-10 10:57:21: 
+Expect: port 4 should be modified by "linkspeed=auto,hardalpa=255"
+
+2018-01-10 10:57:21: fc -t port -p 3 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-05-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: 16 Gb/s            ConfiguredTopology: Auto
+HardALPA: 254
+
+administrator@cli> 
+2018-01-10 10:57:20: fc -a mod -t port -p 3 -s "linkspeed=16gb,topology=auto,hardalpa=254"
+
+administrator@cli> 
+2018-01-10 10:57:19: 
+Expect: port 3 should be modified by "linkspeed=16gb,topology=auto,hardalpa=254"
+
+2018-01-10 10:57:19: fc -t port -p 2 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-06-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: 8 Gb/s             ConfiguredTopology: N-Port
+HardALPA: 1
+
+administrator@cli> 
+2018-01-10 10:57:18: fc -a mod -t port -p 2 -s "linkspeed=8gb,topology=nport,hardalpa=1"
+
+administrator@cli> 
+2018-01-10 10:57:18: 
+Expect: port 2 should be modified by "linkspeed=8gb,topology=nport,hardalpa=1"
+
+2018-01-10 10:57:18: fc -t port -p 1 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-07-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: 4 Gb/s             ConfiguredTopology: NL-Port
+HardALPA: 0
+
+administrator@cli> 
+2018-01-10 10:57:17: fc -a mod -t port -p 1 -s "linkspeed=4gb,topology=nlport,hardalpa=0"
+
+administrator@cli> 
+2018-01-10 10:57:16: 
+Expect: port 1 should be modified by "linkspeed=4gb,topology=nlport,hardalpa=0"
+
+2018-01-10 10:54:29: 'result': 'p'
+2018-01-10 10:54:29: fc -i 2 -t port -p 4 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+State: Online                           PortIdentifier: 0x010700
+TopologyAttached: N-Port (Fabric Direct)
+WWPN: 26-04-00-01-55-5b-3d-29           AliasWWPN: N/A
+NumCurrentAlias: 0                      FabricWWNN: 10-00-c4-f5-7c-e2-70-a6
+FabricWWPN: 20-07-c4-f5-7c-e2-70-a6     CurrentSpeed: 16Gb/s
+LinkType: Laser Short Wave              ConfiguredLinkSpeed: Auto
+ConfiguredTopology: Auto                HardALPA: 255
+
+administrator@cli> 
+2018-01-10 10:54:28: fc -a mod -i 2 -t port -p 4 -s "linkspeed=auto,hardalpa=255"
+
+administrator@cli> 
+2018-01-10 10:54:28: 
+Expect: port 4 should be modified by "linkspeed=auto,hardalpa=255"
+
+2018-01-10 10:54:28: fc -t port -p 3 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-05-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: 16 Gb/s            ConfiguredTopology: Auto
+HardALPA: 254
+
+administrator@cli> 
+2018-01-10 10:54:27: fc -a mod -t port -p 3 -s "linkspeed=16gb,topology=auto,hardalpa=254"
+
+administrator@cli> 
+2018-01-10 10:54:27: 
+Expect: port 3 should be modified by "linkspeed=16gb,topology=auto,hardalpa=254"
+
+2018-01-10 10:54:27: fc -t port -p 2 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-06-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: 8 Gb/s             ConfiguredTopology: N-Port
+HardALPA: 1
+
+administrator@cli> 
+2018-01-10 10:54:25: fc -a mod -t port -p 2 -s "linkspeed=8gb,topology=nport,hardalpa=1"
+
+administrator@cli> 
+2018-01-10 10:54:25: 
+Expect: port 2 should be modified by "linkspeed=8gb,topology=nport,hardalpa=1"
+
+2018-01-10 10:54:25: fc -t port -p 1 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-07-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: 4 Gb/s             ConfiguredTopology: NL-Port
+HardALPA: 0
+
+administrator@cli> 
+2018-01-10 10:54:24: fc -a mod -t port -p 1 -s "linkspeed=4gb,topology=nlport,hardalpa=0"
+
+administrator@cli> 
+2018-01-10 10:54:24: 
+Expect: port 1 should be modified by "linkspeed=4gb,topology=nlport,hardalpa=0"
+
+2018-01-10 10:54:01: 'result': 'p'
+2018-01-10 10:54:01: fc -i 2 -t port -p 4
+===============================================================================
+CtrlId Port   State     WWPN                          
+===============================================================================
+2      4      Online    26-04-00-01-55-5b-3d-29                                
+
+administrator@cli> 
+2018-01-10 10:54:00: fc -a mod -i 2 -t port -p 4 -s "linkspeed=auto,hardalpa=255"
+
+administrator@cli> 
+2018-01-10 10:54:00: 
+Expect: port 4 should be modified by "linkspeed=auto,hardalpa=255"
+
+2018-01-10 10:54:00: fc -t port -p 3
+===============================================================================
+CtrlId Port   State     WWPN                          
+===============================================================================
+2      3      Offline   26-05-00-01-55-5b-3d-29                                
+
+administrator@cli> 
+2018-01-10 10:53:59: fc -a mod -t port -p 3 -s "linkspeed=16gb,topology=auto,hardalpa=254"
+
+administrator@cli> 
+2018-01-10 10:53:58: 
+Expect: port 3 should be modified by "linkspeed=16gb,topology=auto,hardalpa=254"
+
+2018-01-10 10:53:58: fc -t port -p 2
+===============================================================================
+CtrlId Port   State     WWPN                          
+===============================================================================
+2      2      Offline   26-06-00-01-55-5b-3d-29                                
+
+administrator@cli> 
+2018-01-10 10:53:57: fc -a mod -t port -p 2 -s "linkspeed=8gb,topology=nport,hardalpa=1"
+
+administrator@cli> 
+2018-01-10 10:53:57: 
+Expect: port 2 should be modified by "linkspeed=8gb,topology=nport,hardalpa=1"
+
+2018-01-10 10:53:57: fc -t port -p 1 
+===============================================================================
+CtrlId Port   State     WWPN                          
+===============================================================================
+2      1      Offline   26-07-00-01-55-5b-3d-29                                
+
+administrator@cli> 
+2018-01-10 10:53:56: fc -a mod -t port -p 1 -s "linkspeed=4gb,topology=nlport,hardalpa=0"
+
+administrator@cli> 
+2018-01-10 10:53:55: 
+Expect: port 1 should be modified by "linkspeed=4gb,topology=nlport,hardalpa=0"
+
+2018-01-10 10:46:01: 'result': 'p'
+2018-01-10 10:46:01: fc -i 2 -t port -p 4 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+State: Online                           PortIdentifier: 0x010700
+TopologyAttached: N-Port (Fabric Direct)
+WWPN: 26-04-00-01-55-5b-3d-29           AliasWWPN: N/A
+NumCurrentAlias: 0                      FabricWWNN: 10-00-c4-f5-7c-e2-70-a6
+FabricWWPN: 20-07-c4-f5-7c-e2-70-a6     CurrentSpeed: 16Gb/s
+LinkType: Laser Short Wave              ConfiguredLinkSpeed: Auto
+ConfiguredTopology: Auto                HardALPA: 255
+
+administrator@cli> 
+2018-01-10 10:46:00: 
+Expect: port 4 info should be listed on ctrl 2 by verbose mode
+
+2018-01-10 10:46:00: fc -i 2 -t port -p 3 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-05-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+
+administrator@cli> 
+2018-01-10 10:46:00: 
+Expect: port 3 info should be listed on ctrl 2 by verbose mode
+
+2018-01-10 10:46:00: fc -i 2 -t port -p 2 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-06-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+
+administrator@cli> 
+2018-01-10 10:46:00: 
+Expect: port 2 info should be listed on ctrl 2 by verbose mode
+
+2018-01-10 10:46:00: fc -i 2 -t port -p 1 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-07-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+
+administrator@cli> 
+2018-01-10 10:46:00: 
+Expect: port 1 info should be listed on ctrl 2 by verbose mode
+
+2018-01-10 10:46:00: fc -t allinitiators -v
+-------------------------------------------------------------------------------
+Index: 1                                CtrlId: 2
+PortId: 4                               WWPN: 26-05-00-01-55-5b-3c-fc
+WWNN: 25-01-00-01-55-5b-3c-fc           NPortId: 0x010100
+SymbolicName: Promise VTrak 16G FC product
+-------------------------------------------------------------------------------
+Index: 2                                CtrlId: 2
+PortId: 4                               WWPN: 26-04-00-01-55-5b-3d-29
+WWNN: 25-01-00-01-55-5b-3d-29           NPortId: 0x010700
+SymbolicName: Promise VTrak 16G FC product
+-------------------------------------------------------------------------------
+Index: 3                                CtrlId: 2
+PortId: 4                               WWPN: 26-01-00-01-55-00-00-00
+WWNN: 25-00-00-01-55-00-00-00           NPortId: 0x010a00
+SymbolicName: Promise VTrak 16G FC product
+-------------------------------------------------------------------------------
+Index: 4                                CtrlId: 2
+PortId: 4                               WWPN: 26-02-00-01-55-00-00-00
+WWNN: 25-00-00-01-55-00-00-00           NPortId: 0x010b00
+SymbolicName: Promise VTrak 16G FC product
+
+administrator@cli> 
+2018-01-10 10:45:59: 
+Expect: Display initiator list from fibre switch by verbose mode
+
+2018-01-10 10:45:59: fc -t loggedintargets -v
+-------------------------------------------------------------------------------
+No targets logged in
+
+administrator@cli> 
+2018-01-10 10:45:59: 
+Expect: Display port logged in target information by verbose mode
+
+2018-01-10 10:45:59: fc -t loggedininitiators -v
+-------------------------------------------------------------------------------
+No devices logged in
+
+administrator@cli> 
+2018-01-10 10:45:59: 
+Expect: Display port logged in initiator information by verbose mode
+
+2018-01-10 10:45:59: fc -t stats -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+
+administrator@cli> 
+2018-01-10 10:45:59: 
+Expect: Display port statistics information by verbose mode
+
+2018-01-10 10:45:59: fc -t sfp -v
+-------------------------------------------------------------------------------
+Controller 2 Port 1 : No SFP found
+
+-------------------------------------------------------------------------------
+Controller 2 Port 2 : No SFP found
+
+-------------------------------------------------------------------------------
+Controller 2 Port 3 : No SFP found
+
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+Transceiver: SFP                        Connector: LC
+TransCode: 00-00-00-00-40-40-04-70      SerialEncoding: 64B66B
+BitRate: 14.0 Gb/s                      ManufacturingDateCode: 170518
+LinkLength_9/125um: 0 m                 LinkLength_50/125um: 30 m
+LinkLength_62.5/125um: 0 m              VendorName: BROCADE
+VendorOUI: 00-05-1e                     VendorPartNum: 57-0000088-01
+VendorRevision: A                       VendorSerialNum: HAF317200000J34
+
+administrator@cli> 
+2018-01-10 10:45:58: 
+Expect: Display port SFP information by verbose mode
+
+2018-01-10 10:45:58: fc -t port -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-07-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-06-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-05-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+State: Online                           PortIdentifier: 0x010700
+TopologyAttached: N-Port (Fabric Direct)
+WWPN: 26-04-00-01-55-5b-3d-29           AliasWWPN: N/A
+NumCurrentAlias: 0                      FabricWWNN: 10-00-c4-f5-7c-e2-70-a6
+FabricWWPN: 20-07-c4-f5-7c-e2-70-a6     CurrentSpeed: 16Gb/s
+LinkType: Laser Short Wave              ConfiguredLinkSpeed: Auto
+ConfiguredTopology: Auto                HardALPA: 255
+
+administrator@cli> 
+2018-01-10 10:45:58: 
+Expect: Specifies fc port as the device type to display or modify information by verbose mode
+
+2018-01-10 10:45:58: fc -t node -v
+-------------------------------------------------------------------------------
+WWNN: 25-01-00-01-55-5b-3d-29           SupportedFCClass: Class Of Service 3
+MaxFrameSize: 2048                      SpeedSupported: 16Gb/s, 8Gb/s, 4Gb/s
+
+administrator@cli> 
+2018-01-10 10:45:58: 
+Expect: Display fc node information by verbose mode
+
+2018-01-10 10:45:58: fc -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-07-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-06-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-05-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+State: Online                           PortIdentifier: 0x010700
+TopologyAttached: N-Port (Fabric Direct)
+WWPN: 26-04-00-01-55-5b-3d-29           AliasWWPN: N/A
+NumCurrentAlias: 0                      FabricWWNN: 10-00-c4-f5-7c-e2-70-a6
+FabricWWPN: 20-07-c4-f5-7c-e2-70-a6     CurrentSpeed: 16Gb/s
+LinkType: Laser Short Wave              ConfiguredLinkSpeed: Auto
+ConfiguredTopology: Auto                HardALPA: 255
+
+administrator@cli> 
+2018-01-10 10:45:58: 
+Expect: all of fc info should be displayed by verbose mode
+
+2018-01-10 10:38:51: 'result': 'p'
+2018-01-10 10:38:51: fc -i 2 -t port -p 4 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+State: Online                           PortIdentifier: 0x010700
+TopologyAttached: N-Port (Fabric Direct)
+WWPN: 26-04-00-01-55-5b-3d-29           AliasWWPN: N/A
+NumCurrentAlias: 0                      FabricWWNN: 10-00-c4-f5-7c-e2-70-a6
+FabricWWPN: 20-07-c4-f5-7c-e2-70-a6     CurrentSpeed: 16Gb/s
+LinkType: Laser Short Wave              ConfiguredLinkSpeed: Auto
+ConfiguredTopology: Auto                HardALPA: 255
+
+administrator@cli> 
+2018-01-10 10:38:50: 
+Expect: port 4 info should be listed on ctrl 2 by verbose mode
+
+2018-01-10 10:38:50: fc -i 2 -t port -p 3 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-05-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+
+administrator@cli> 
+2018-01-10 10:38:50: 
+Expect: port 3 info should be listed on ctrl 2 by verbose mode
+
+2018-01-10 10:38:50: fc -i 2 -t port -p 2 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-06-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+
+administrator@cli> 
+2018-01-10 10:38:50: 
+Expect: port 2 info should be listed on ctrl 2 by verbose mode
+
+2018-01-10 10:38:50: fc -i 2 -t port -p 1 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-07-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+
+administrator@cli> 
+2018-01-10 10:38:50: 
+Expect: port 1 info should be listed on ctrl 2 by verbose mode
+
+2018-01-10 10:38:50: fc -t allinitiators -v
+-------------------------------------------------------------------------------
+Index: 1                                CtrlId: 2
+PortId: 4                               WWPN: 26-05-00-01-55-5b-3c-fc
+WWNN: 25-01-00-01-55-5b-3c-fc           NPortId: 0x010100
+SymbolicName: Promise VTrak 16G FC product
+-------------------------------------------------------------------------------
+Index: 2                                CtrlId: 2
+PortId: 4                               WWPN: 26-04-00-01-55-5b-3d-29
+WWNN: 25-01-00-01-55-5b-3d-29           NPortId: 0x010700
+SymbolicName: Promise VTrak 16G FC product
+-------------------------------------------------------------------------------
+Index: 3                                CtrlId: 2
+PortId: 4                               WWPN: 26-01-00-01-55-00-00-00
+WWNN: 25-00-00-01-55-00-00-00           NPortId: 0x010a00
+SymbolicName: Promise VTrak 16G FC product
+-------------------------------------------------------------------------------
+Index: 4                                CtrlId: 2
+PortId: 4                               WWPN: 26-02-00-01-55-00-00-00
+WWNN: 25-00-00-01-55-00-00-00           NPortId: 0x010b00
+SymbolicName: Promise VTrak 16G FC product
+
+administrator@cli> 
+2018-01-10 10:38:49: 
+Expect: Display initiator list from fibre switch by verbose mode
+
+2018-01-10 10:38:49: fc -t loggedintargets -v
+-------------------------------------------------------------------------------
+No targets logged in
+
+administrator@cli> 
+2018-01-10 10:38:49: 
+Expect: Display port logged in target information by verbose mode
+
+2018-01-10 10:38:49: fc -t loggedininitiators -v
+-------------------------------------------------------------------------------
+No devices logged in
+
+administrator@cli> 
+2018-01-10 10:38:49: 
+Expect: Display port logged in initiator information by verbose mode
+
+2018-01-10 10:38:49: fc -t stats -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+
+administrator@cli> 
+2018-01-10 10:38:49: 
+Expect: Display port statistics information by verbose mode
+
+2018-01-10 10:38:49: fc -t sfp -v
+-------------------------------------------------------------------------------
+Controller 2 Port 1 : No SFP found
+
+-------------------------------------------------------------------------------
+Controller 2 Port 2 : No SFP found
+
+-------------------------------------------------------------------------------
+Controller 2 Port 3 : No SFP found
+
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+Transceiver: SFP                        Connector: LC
+TransCode: 00-00-00-00-40-40-04-70      SerialEncoding: 64B66B
+BitRate: 14.0 Gb/s                      ManufacturingDateCode: 170518
+LinkLength_9/125um: 0 m                 LinkLength_50/125um: 30 m
+LinkLength_62.5/125um: 0 m              VendorName: BROCADE
+VendorOUI: 00-05-1e                     VendorPartNum: 57-0000088-01
+VendorRevision: A                       VendorSerialNum: HAF317200000J34
+
+administrator@cli> 
+2018-01-10 10:38:48: 
+Expect: Display port SFP information by verbose mode
+
+2018-01-10 10:38:48: fc -t port -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-07-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-06-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-05-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+State: Online                           PortIdentifier: 0x010700
+TopologyAttached: N-Port (Fabric Direct)
+WWPN: 26-04-00-01-55-5b-3d-29           AliasWWPN: N/A
+NumCurrentAlias: 0                      FabricWWNN: 10-00-c4-f5-7c-e2-70-a6
+FabricWWPN: 20-07-c4-f5-7c-e2-70-a6     CurrentSpeed: 16Gb/s
+LinkType: Laser Short Wave              ConfiguredLinkSpeed: Auto
+ConfiguredTopology: Auto                HardALPA: 255
+
+administrator@cli> 
+2018-01-10 10:38:48: 
+Expect: Specifies fc port as the device type to display or modify information by verbose mode
+
+2018-01-10 10:38:48: fc -t node -v
+-------------------------------------------------------------------------------
+WWNN: 25-01-00-01-55-5b-3d-29           SupportedFCClass: Class Of Service 3
+MaxFrameSize: 2048                      SpeedSupported: 16Gb/s, 8Gb/s, 4Gb/s
+
+administrator@cli> 
+2018-01-10 10:38:48: 
+Expect: Display fc node information by verbose mode
+
+2018-01-10 10:38:48: fc -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-07-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-06-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-05-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+State: Online                           PortIdentifier: 0x010700
+TopologyAttached: N-Port (Fabric Direct)
+WWPN: 26-04-00-01-55-5b-3d-29           AliasWWPN: N/A
+NumCurrentAlias: 0                      FabricWWNN: 10-00-c4-f5-7c-e2-70-a6
+FabricWWPN: 20-07-c4-f5-7c-e2-70-a6     CurrentSpeed: 16Gb/s
+LinkType: Laser Short Wave              ConfiguredLinkSpeed: Auto
+ConfiguredTopology: Auto                HardALPA: 255
+
+administrator@cli> 
+2018-01-10 10:38:48: 
+Expect: all of fc info should be displayed by verbose mode
+
+2018-01-10 10:27:47: 'result': 'p'
+2018-01-10 10:27:47: fc -i 2 -t port -p 4
+===============================================================================
+CtrlId Port   State     WWPN                          
+===============================================================================
+2      4      Online    26-04-00-01-55-5b-3d-29                                
+
+administrator@cli> 
+2018-01-10 10:27:47: 
+Expect: port 4 info should be listed on ctrl 2
+
+2018-01-10 10:27:47: fc -i 2 -t port -p 3
+===============================================================================
+CtrlId Port   State     WWPN                          
+===============================================================================
+2      3      Offline   26-05-00-01-55-5b-3d-29                                
+
+administrator@cli> 
+2018-01-10 10:27:47: 
+Expect: port 3 info should be listed on ctrl 2
+
+2018-01-10 10:27:47: fc -i 2 -t port -p 2
+===============================================================================
+CtrlId Port   State     WWPN                          
+===============================================================================
+2      2      Offline   26-06-00-01-55-5b-3d-29                                
+
+administrator@cli> 
+2018-01-10 10:27:47: 
+Expect: port 2 info should be listed on ctrl 2
+
+2018-01-10 10:27:47: fc -i 2 -t port -p 1 
+===============================================================================
+CtrlId Port   State     WWPN                          
+===============================================================================
+2      1      Offline   26-07-00-01-55-5b-3d-29                                
+
+administrator@cli> 
+2018-01-10 10:27:47: 
+Expect: port 1 info should be listed on ctrl 2
+
+2018-01-10 10:27:46: fc -t allinitiators
+===============================================================================
+Index   CtrlId  PortId  WWPN                          
+===============================================================================
+1       2       4       26-05-00-01-55-5b-3c-fc                                
+2       2       4       26-04-00-01-55-5b-3d-29                                
+3       2       4       26-01-00-01-55-00-00-00                                
+4       2       4       26-02-00-01-55-00-00-00                                
+
+administrator@cli> 
+2018-01-10 10:27:46: 
+Expect: Display initiator list from fibre switch
+
+2018-01-10 10:27:46: fc -t loggedintargets
+-------------------------------------------------------------------------------
+No targets logged in
+
+administrator@cli> 
+2018-01-10 10:27:46: 
+Expect: Display port logged in target information
+
+2018-01-10 10:27:46: fc -t loggedininitiators
+-------------------------------------------------------------------------------
+No devices logged in
+
+administrator@cli> 
+2018-01-10 10:27:45: 
+Expect: Display port logged in initiator information
+
+2018-01-10 10:27:45: fc -t stats
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+
+administrator@cli> 
+2018-01-10 10:27:45: 
+Expect: Display port statistics information
+
+2018-01-10 10:27:45: fc -t sfp
+-------------------------------------------------------------------------------
+Controller 2 Port 1 : No SFP found
+
+-------------------------------------------------------------------------------
+Controller 2 Port 2 : No SFP found
+
+-------------------------------------------------------------------------------
+Controller 2 Port 3 : No SFP found
+
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+Transceiver: SFP                        Connector: LC
+TransCode: 00-00-00-00-40-40-04-70      SerialEncoding: 64B66B
+BitRate: 14.0 Gb/s                      ManufacturingDateCode: 170518
+LinkLength_9/125um: 0 m                 LinkLength_50/125um: 30 m
+LinkLength_62.5/125um: 0 m              VendorName: BROCADE
+VendorOUI: 00-05-1e                     VendorPartNum: 57-0000088-01
+VendorRevision: A                       VendorSerialNum: HAF317200000J34
+
+administrator@cli> 
+2018-01-10 10:27:45: 
+Expect: Display port SFP information
+
+2018-01-10 10:27:45: fc -t port
+===============================================================================
+CtrlId Port   State     WWPN                          
+===============================================================================
+2      1      Offline   26-07-00-01-55-5b-3d-29                                
+2      2      Offline   26-06-00-01-55-5b-3d-29                                
+2      3      Offline   26-05-00-01-55-5b-3d-29                                
+2      4      Online    26-04-00-01-55-5b-3d-29                                
+
+administrator@cli> 
+2018-01-10 10:27:45: 
+Expect: Specifies fc port as the device type to display or modify information
+
+2018-01-10 10:27:45: fc -t node
+-------------------------------------------------------------------------------
+WWNN: 25-01-00-01-55-5b-3d-29           SupportedFCClass: Class Of Service 3
+MaxFrameSize: 2048                      SpeedSupported: 16Gb/s, 8Gb/s, 4Gb/s
+
+administrator@cli> 
+2018-01-10 10:27:45: 
+Expect: Display fc node information
+
+2018-01-10 10:27:45: fc
+===============================================================================
+CtrlId Port   State     WWPN                          
+===============================================================================
+2      1      Offline   26-07-00-01-55-5b-3d-29                                
+2      2      Offline   26-06-00-01-55-5b-3d-29                                
+2      3      Offline   26-05-00-01-55-5b-3d-29                                
+2      4      Online    26-04-00-01-55-5b-3d-29                                
+
+administrator@cli> 
+2018-01-10 10:27:45: 
+Expect: all of fc info should be displayed
+
+2018-01-10 10:24:35: 'result': 'f'
+2018-01-10 10:24:35: 
+Fail: fc -t 
+
+2018-01-10 10:24:35: fc -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2018-01-10 10:24:35: 
+Expect: 
+
+2018-01-10 10:24:35: 
+Fail: fc -t 
+
+2018-01-10 10:24:35: fc -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2018-01-10 10:24:35: 
+Expect: 
+
+2018-01-10 10:24:35: 
+Fail: fc -t 
+
+2018-01-10 10:24:35: fc -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2018-01-10 10:24:35: 
+Expect: 
+
+2018-01-10 10:24:35: 
+Fail: fc -t 
+
+2018-01-10 10:24:35: fc -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2018-01-10 10:24:35: 
+Expect: 
+
+2018-01-10 10:24:34: 
+Fail: fc -t 
+
+2018-01-10 10:24:34: fc -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2018-01-10 10:24:34: 
+Expect: 
+
+2018-01-10 10:24:34: 
+Fail: fc -t 
+
+2018-01-10 10:24:34: fc -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2018-01-10 10:24:34: 
+Expect: 
+
+2018-01-10 10:24:34: 
+Fail: fc -t 
+
+2018-01-10 10:24:34: fc -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2018-01-10 10:24:34: 
+Expect: 
+
+2018-01-10 10:24:34: fc -t allinitiators
+===============================================================================
+Index   CtrlId  PortId  WWPN                          
+===============================================================================
+1       2       4       26-05-00-01-55-5b-3c-fc                                
+2       2       4       26-04-00-01-55-5b-3d-29                                
+3       2       4       26-01-00-01-55-00-00-00                                
+4       2       4       26-02-00-01-55-00-00-00                                
+
+administrator@cli> 
+2018-01-10 10:24:34: 
+Expect: Display initiator list from fibre switch
+
+2018-01-10 10:24:34: fc -t loggedintargets
+-------------------------------------------------------------------------------
+No targets logged in
+
+administrator@cli> 
+2018-01-10 10:24:34: 
+Expect: Display port logged in target information
+
+2018-01-10 10:24:34: fc -t loggedininitiators
+-------------------------------------------------------------------------------
+No devices logged in
+
+administrator@cli> 
+2018-01-10 10:24:33: 
+Expect: Display port logged in initiator information
+
+2018-01-10 10:24:33: fc -t stats
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+
+administrator@cli> 
+2018-01-10 10:24:33: 
+Expect: Display port statistics information
+
+2018-01-10 10:24:33: fc -t sfp
+-------------------------------------------------------------------------------
+Controller 2 Port 1 : No SFP found
+
+-------------------------------------------------------------------------------
+Controller 2 Port 2 : No SFP found
+
+-------------------------------------------------------------------------------
+Controller 2 Port 3 : No SFP found
+
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+Transceiver: SFP                        Connector: LC
+TransCode: 00-00-00-00-40-40-04-70      SerialEncoding: 64B66B
+BitRate: 14.0 Gb/s                      ManufacturingDateCode: 170518
+LinkLength_9/125um: 0 m                 LinkLength_50/125um: 30 m
+LinkLength_62.5/125um: 0 m              VendorName: BROCADE
+VendorOUI: 00-05-1e                     VendorPartNum: 57-0000088-01
+VendorRevision: A                       VendorSerialNum: HAF317200000J34
+
+administrator@cli> 
+2018-01-10 10:24:33: 
+Expect: Display port SFP information
+
+2018-01-10 10:24:33: fc -t port
+===============================================================================
+CtrlId Port   State     WWPN                          
+===============================================================================
+2      1      Offline   26-07-00-01-55-5b-3d-29                                
+2      2      Offline   26-06-00-01-55-5b-3d-29                                
+2      3      Offline   26-05-00-01-55-5b-3d-29                                
+2      4      Online    26-04-00-01-55-5b-3d-29                                
+
+administrator@cli> 
+2018-01-10 10:24:33: 
+Expect: Specifies fc port as the device type to display or modify information
+
+2018-01-10 10:24:33: fc -t node
+-------------------------------------------------------------------------------
+WWNN: 25-01-00-01-55-5b-3d-29           SupportedFCClass: Class Of Service 3
+MaxFrameSize: 2048                      SpeedSupported: 16Gb/s, 8Gb/s, 4Gb/s
+
+administrator@cli> 
+2018-01-10 10:24:33: 
+Expect: Display fc node information
+
+2018-01-10 10:24:33: fc
+===============================================================================
+CtrlId Port   State     WWPN                          
+===============================================================================
+2      1      Offline   26-07-00-01-55-5b-3d-29                                
+2      2      Offline   26-06-00-01-55-5b-3d-29                                
+2      3      Offline   26-05-00-01-55-5b-3d-29                                
+2      4      Online    26-04-00-01-55-5b-3d-29                                
+
+administrator@cli> 
+2018-01-10 10:24:33: 
+Expect: all of fc info should be displayed
+
+2018-01-10 10:18:44: 'result': 'f'
+2018-01-10 10:18:44: 
+Fail: fc -t 
+
+2018-01-10 10:18:44: fc -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2018-01-10 10:18:44: 
+Expect: 
+
+2018-01-10 10:18:44: 
+Fail: fc -t 
+
+2018-01-10 10:18:44: fc -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2018-01-10 10:18:44: 
+Expect: 
+
+2018-01-10 10:18:44: 
+Fail: fc -t 
+
+2018-01-10 10:18:44: fc -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2018-01-10 10:18:44: 
+Expect: 
+
+2018-01-10 10:18:44: 
+Fail: fc -t 
+
+2018-01-10 10:18:44: fc -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2018-01-10 10:18:43: 
+Expect: 
+
+2018-01-10 10:18:43: 
+Fail: fc -t 
+
+2018-01-10 10:18:43: fc -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2018-01-10 10:18:43: 
+Expect: 
+
+2018-01-10 10:18:43: 
+Fail: fc -t 
+
+2018-01-10 10:18:43: fc -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2018-01-10 10:18:43: 
+Expect: 
+
+2018-01-10 10:18:43: 
+Fail: fc -t 
+
+2018-01-10 10:18:43: fc -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2018-01-10 10:18:43: 
+Expect: 
+
+2018-01-10 10:18:43: fc -t allinitiators
+===============================================================================
+Index   CtrlId  PortId  WWPN                          
+===============================================================================
+1       2       4       26-05-00-01-55-5b-3c-fc                                
+2       2       4       26-04-00-01-55-5b-3d-29                                
+3       2       4       26-01-00-01-55-00-00-00                                
+4       2       4       26-02-00-01-55-00-00-00                                
+
+administrator@cli> 
+2018-01-10 10:18:43: 
+Expect: Display initiator list from fibre switch
+
+2018-01-10 10:18:43: fc -t loggedintargets
+-------------------------------------------------------------------------------
+No targets logged in
+
+administrator@cli> 
+2018-01-10 10:18:43: 
+Expect: Display port logged in target information
+
+2018-01-10 10:18:43: fc -t loggedininitiators
+-------------------------------------------------------------------------------
+No devices logged in
+
+administrator@cli> 
+2018-01-10 10:18:42: 
+Expect: Display port logged in initiator information
+
+2018-01-10 10:18:42: fc -t stats
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+
+administrator@cli> 
+2018-01-10 10:18:42: 
+Expect: Display port statistics information
+
+2018-01-10 10:18:42: fc -t sfp
+-------------------------------------------------------------------------------
+Controller 2 Port 1 : No SFP found
+
+-------------------------------------------------------------------------------
+Controller 2 Port 2 : No SFP found
+
+-------------------------------------------------------------------------------
+Controller 2 Port 3 : No SFP found
+
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+Transceiver: SFP                        Connector: LC
+TransCode: 00-00-00-00-40-40-04-70      SerialEncoding: 64B66B
+BitRate: 14.0 Gb/s                      ManufacturingDateCode: 170518
+LinkLength_9/125um: 0 m                 LinkLength_50/125um: 30 m
+LinkLength_62.5/125um: 0 m              VendorName: BROCADE
+VendorOUI: 00-05-1e                     VendorPartNum: 57-0000088-01
+VendorRevision: A                       VendorSerialNum: HAF317200000J34
+
+administrator@cli> 
+2018-01-10 10:18:42: 
+Expect: Display port SFP information
+
+2018-01-10 10:18:42: fc -t port
+===============================================================================
+CtrlId Port   State     WWPN                          
+===============================================================================
+2      1      Offline   26-07-00-01-55-5b-3d-29                                
+2      2      Offline   26-06-00-01-55-5b-3d-29                                
+2      3      Offline   26-05-00-01-55-5b-3d-29                                
+2      4      Online    26-04-00-01-55-5b-3d-29                                
+
+administrator@cli> 
+2018-01-10 10:18:42: 
+Expect: Specifies fc port as the device type to display or modify information
+
+2018-01-10 10:18:42: fc -t node
+-------------------------------------------------------------------------------
+WWNN: 25-01-00-01-55-5b-3d-29           SupportedFCClass: Class Of Service 3
+MaxFrameSize: 2048                      SpeedSupported: 16Gb/s, 8Gb/s, 4Gb/s
+
+administrator@cli> 
+2018-01-10 10:18:42: 
+Expect: Display fc node information
+
+2018-01-10 10:18:42: fc
+===============================================================================
+CtrlId Port   State     WWPN                          
+===============================================================================
+2      1      Offline   26-07-00-01-55-5b-3d-29                                
+2      2      Offline   26-06-00-01-55-5b-3d-29                                
+2      3      Offline   26-05-00-01-55-5b-3d-29                                
+2      4      Online    26-04-00-01-55-5b-3d-29                                
+
+administrator@cli> 
+2018-01-10 10:18:42: 
+Expect: all of fc info should be displayed
+
+2018-01-10 10:09:05: 'result': 'p'
+2018-01-10 10:09:05: 
+<font color="green">Pass</font>
+2018-01-10 10:09:05: fc -a clear -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2018-01-10 10:09:05: <b> Verify fc -a clear -p</b>
+2018-01-10 10:09:05: fc -a reset -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-10 10:09:05: <b> Verify fc -a reset -i</b>
+2018-01-10 10:09:05: fc -a mod -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-10 10:09:05: <b> Verify fc -a mod -i</b>
+2018-01-10 10:09:05: fc -a list -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2018-01-10 10:09:05: <b> Verify fc -a list -p</b>
+2018-01-10 10:09:05: <b>Verify fc missing parameters</b>
+2018-01-10 10:09:05: 'result': 'p'
+2018-01-10 10:09:05: 
+<font color="green">Pass</font>
+2018-01-10 10:09:05: fc -i 2 -t port -p 5
+Error (0x2013): Invalid setting parameters
+-p: invalid setting 5 (1,4)
+
+administrator@cli> 
+2018-01-10 10:09:05: <b> Verify fc -i 2 -t port -p 5</b>
+2018-01-10 10:09:05: fc -i 3 -t port
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 3 (1,2)
+
+administrator@cli> 
+2018-01-10 10:09:05: <b> Verify fc -i 3 -t port</b>
+2018-01-10 10:09:05: fc -a clear test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-10 10:09:05: <b> Verify fc -a clear test</b>
+2018-01-10 10:09:05: fc -a reset test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-10 10:09:05: <b> Verify fc -a reset test</b>
+2018-01-10 10:09:05: fc -a mod test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-10 10:09:05: <b> Verify fc -a mod test</b>
+2018-01-10 10:09:05: fc -a list test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-10 10:09:05: <b> Verify fc -a list test</b>
+2018-01-10 10:09:05: fc test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-10 10:09:05: <b> Verify fc test</b>
+2018-01-10 10:09:05: <b>Verify fc invalid parameters</b>
+2018-01-10 10:09:05: 'result': 'p'
+2018-01-10 10:09:05: 
+<font color="green">Pass</font>
+2018-01-10 10:09:05: fc -a clear -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+2018-01-10 10:09:05: <b> Verify fc -a clear -x</b>
+2018-01-10 10:09:05: fc -a reset -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+2018-01-10 10:09:05: <b> Verify fc -a reset -x</b>
+2018-01-10 10:09:05: fc -a mod -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+2018-01-10 10:09:05: <b> Verify fc -a mod -x</b>
+2018-01-10 10:09:05: fc -a list -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+2018-01-10 10:09:05: <b> Verify fc -a list -x</b>
+2018-01-10 10:09:05: fc -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+2018-01-10 10:09:05: <b> Verify fc -x</b>
+2018-01-10 10:09:05: <b>Verify fc invalid option</b>
+2018-01-10 10:09:05: 'result': 'p'
+2018-01-10 10:09:05: 
+<font color="green">Pass</font>
+2018-01-10 10:09:05: fc -v -t stats -i 2 -p 4
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+
+administrator@cli> 
+2018-01-10 10:09:04: fc -a clear -i 2 -p 4
+
+administrator@cli> 
+2018-01-10 10:09:04: <b>Verify: fc -a clear -i 2 -p 4</b>
+2018-01-10 10:09:04: fc -v -t stats -i 2 -p 3
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+
+administrator@cli> 
+2018-01-10 10:09:04: fc -a clear -i 2 -p 3
+
+administrator@cli> 
+2018-01-10 10:09:04: <b>Verify: fc -a clear -i 2 -p 3</b>
+2018-01-10 10:09:04: fc -v -t stats -i 2 -p 2
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+
+administrator@cli> 
+2018-01-10 10:09:04: fc -a clear -i 2 -p 2
+
+administrator@cli> 
+2018-01-10 10:09:04: <b>Verify: fc -a clear -i 2 -p 2</b>
+2018-01-10 10:09:04: fc -v -t stats -i 2 -p 1
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+
+administrator@cli> 
+2018-01-10 10:09:04: fc -a clear -i 2 -p 1
+
+administrator@cli> 
+2018-01-10 10:09:04: <b>Verify: fc -a clear -i 2 -p 1</b>
+2018-01-10 10:09:04: 'result': 'p'
+2018-01-10 10:09:04: 
+<font color="green">Pass</font>
+2018-01-10 10:09:04: fc -v -t port -i 2 -p 4
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-04-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+
+administrator@cli> 
+2018-01-10 10:09:04: fc -a reset -i 2 -p 4
+
+administrator@cli> 
+2018-01-10 10:09:03: <b>Verify: fc -a reset -i 2 -p 4</b>
+2018-01-10 10:09:03: fc -v -t port -i 2 -p 3
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-05-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+
+administrator@cli> 
+2018-01-10 10:09:03: fc -a reset -i 2 -p 3
+
+administrator@cli> 
+2018-01-10 10:09:03: <b>Verify: fc -a reset -i 2 -p 3</b>
+2018-01-10 10:09:03: fc -v -t port -i 2 -p 2
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-06-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+
+administrator@cli> 
+2018-01-10 10:09:02: fc -a reset -i 2 -p 2
+
+administrator@cli> 
+2018-01-10 10:09:02: <b>Verify: fc -a reset -i 2 -p 2</b>
+2018-01-10 10:09:02: fc -v -t port -i 2 -p 1
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-07-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+
+administrator@cli> 
+2018-01-10 10:09:02: fc -a reset -i 2 -p 1
+
+administrator@cli> 
+2018-01-10 10:09:02: <b>Verify: fc -a reset -i 2 -p 1</b>
+2018-01-10 10:09:02: 'result': 'p'
+2018-01-10 10:09:02: 
+<font color="green">Pass</font>
+2018-01-10 10:09:02: fc -t port -i 2 -t port -p 4 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-04-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+
+administrator@cli> 
+2018-01-10 10:09:02: fc -a mod -i 2 -t port -p 4 -s "linkspeed=auto,topology=auto,hardalpa=255"
+
+administrator@cli> 
+2018-01-10 10:09:01: <b> Verify fc -a mod -i 2 -t port -p 4 -s "linkspeed=auto,topology=auto,hardalpa=255"</b>
+2018-01-10 10:09:01: fc -t port -i 2 -t port -p 4 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-04-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: 16 Gb/s            ConfiguredTopology: N-Port
+HardALPA: 126
+
+administrator@cli> 
+2018-01-10 10:09:01: fc -a mod -i 2 -t port -p 4 -s "linkspeed=16gb,topology=nport,hardalpa=126"
+
+administrator@cli> 
+2018-01-10 10:09:01: <b> Verify fc -a mod -i 2 -t port -p 4 -s "linkspeed=16gb,topology=nport,hardalpa=126"</b>
+2018-01-10 10:09:01: fc -t port -i 2 -t port -p 4 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-04-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: 4 Gb/s             ConfiguredTopology: NL-Port
+HardALPA: 0
+
+administrator@cli> 
+2018-01-10 10:09:01: fc -a mod -i 2 -t port -p 4 -s "linkspeed=4gb,topology=nlport,hardalpa=0"
+
+administrator@cli> 
+2018-01-10 10:09:00: <b> Verify fc -a mod -i 2 -t port -p 4 -s "linkspeed=4gb,topology=nlport,hardalpa=0"</b>
+2018-01-10 10:09:00: fc -t port -i 2 -t port -p 3 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-05-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+
+administrator@cli> 
+2018-01-10 10:09:00: fc -a mod -i 2 -t port -p 3 -s "linkspeed=auto,topology=auto,hardalpa=255"
+
+administrator@cli> 
+2018-01-10 10:09:00: <b> Verify fc -a mod -i 2 -t port -p 3 -s "linkspeed=auto,topology=auto,hardalpa=255"</b>
+2018-01-10 10:09:00: fc -t port -i 2 -t port -p 3 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-05-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: 16 Gb/s            ConfiguredTopology: N-Port
+HardALPA: 126
+
+administrator@cli> 
+2018-01-10 10:09:00: fc -a mod -i 2 -t port -p 3 -s "linkspeed=16gb,topology=nport,hardalpa=126"
+
+administrator@cli> 
+2018-01-10 10:08:59: <b> Verify fc -a mod -i 2 -t port -p 3 -s "linkspeed=16gb,topology=nport,hardalpa=126"</b>
+2018-01-10 10:08:59: fc -t port -i 2 -t port -p 3 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-05-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: 4 Gb/s             ConfiguredTopology: NL-Port
+HardALPA: 0
+
+administrator@cli> 
+2018-01-10 10:08:59: fc -a mod -i 2 -t port -p 3 -s "linkspeed=4gb,topology=nlport,hardalpa=0"
+
+administrator@cli> 
+2018-01-10 10:08:59: <b> Verify fc -a mod -i 2 -t port -p 3 -s "linkspeed=4gb,topology=nlport,hardalpa=0"</b>
+2018-01-10 10:08:59: fc -t port -i 2 -t port -p 2 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-06-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+
+administrator@cli> 
+2018-01-10 10:08:58: fc -a mod -i 2 -t port -p 2 -s "linkspeed=auto,topology=auto,hardalpa=255"
+
+administrator@cli> 
+2018-01-10 10:08:58: <b> Verify fc -a mod -i 2 -t port -p 2 -s "linkspeed=auto,topology=auto,hardalpa=255"</b>
+2018-01-10 10:08:58: fc -t port -i 2 -t port -p 2 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-06-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: 16 Gb/s            ConfiguredTopology: N-Port
+HardALPA: 126
+
+administrator@cli> 
+2018-01-10 10:08:58: fc -a mod -i 2 -t port -p 2 -s "linkspeed=16gb,topology=nport,hardalpa=126"
+
+administrator@cli> 
+2018-01-10 10:08:58: <b> Verify fc -a mod -i 2 -t port -p 2 -s "linkspeed=16gb,topology=nport,hardalpa=126"</b>
+2018-01-10 10:08:58: fc -t port -i 2 -t port -p 2 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-06-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: 4 Gb/s             ConfiguredTopology: NL-Port
+HardALPA: 0
+
+administrator@cli> 
+2018-01-10 10:08:57: fc -a mod -i 2 -t port -p 2 -s "linkspeed=4gb,topology=nlport,hardalpa=0"
+
+administrator@cli> 
+2018-01-10 10:08:57: <b> Verify fc -a mod -i 2 -t port -p 2 -s "linkspeed=4gb,topology=nlport,hardalpa=0"</b>
+2018-01-10 10:08:57: fc -t port -i 2 -t port -p 1 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-07-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+
+administrator@cli> 
+2018-01-10 10:08:57: fc -a mod -i 2 -t port -p 1 -s "linkspeed=auto,topology=auto,hardalpa=255"
+
+administrator@cli> 
+2018-01-10 10:08:57: <b> Verify fc -a mod -i 2 -t port -p 1 -s "linkspeed=auto,topology=auto,hardalpa=255"</b>
+2018-01-10 10:08:57: fc -t port -i 2 -t port -p 1 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-07-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: 16 Gb/s            ConfiguredTopology: N-Port
+HardALPA: 126
+
+administrator@cli> 
+2018-01-10 10:08:56: fc -a mod -i 2 -t port -p 1 -s "linkspeed=16gb,topology=nport,hardalpa=126"
+
+administrator@cli> 
+2018-01-10 10:08:56: <b> Verify fc -a mod -i 2 -t port -p 1 -s "linkspeed=16gb,topology=nport,hardalpa=126"</b>
+2018-01-10 10:08:56: fc -t port -i 2 -t port -p 1 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-07-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: 4 Gb/s             ConfiguredTopology: NL-Port
+HardALPA: 0
+
+administrator@cli> 
+2018-01-10 10:08:56: fc -a mod -i 2 -t port -p 1 -s "linkspeed=4gb,topology=nlport,hardalpa=0"
+
+administrator@cli> 
+2018-01-10 10:08:56: <b> Verify fc -a mod -i 2 -t port -p 1 -s "linkspeed=4gb,topology=nlport,hardalpa=0"</b>
+2018-01-10 10:08:56: 'result': 'f'
+2018-01-10 10:08:56: 
+<font color="red">Fail: Verify fc -a list -v</font>
+2018-01-10 10:08:56: fc -a list -t port -p 3 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-05-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+
+administrator@cli> 
+2018-01-10 10:08:55: <b>Verify: fc -a list -t port -p 3 -v</b>
+2018-01-10 10:08:55: fc -a list -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-07-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-06-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-05-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+State: Online                           PortIdentifier: 0x010700
+TopologyAttached: N-Port (Fabric Direct)
+WWPN: 26-04-00-01-55-5b-3d-29           AliasWWPN: N/A
+NumCurrentAlias: 0                      FabricWWNN: 10-00-c4-f5-7c-e2-70-a6
+FabricWWPN: 20-07-c4-f5-7c-e2-70-a6     CurrentSpeed: 16Gb/s
+LinkType: Laser Short Wave              ConfiguredLinkSpeed: Auto
+ConfiguredTopology: Auto                HardALPA: 255
+
+administrator@cli> 
+2018-01-10 10:08:55: <b>Verify: fc -a list -v</b>
+2018-01-10 10:08:55: <font color="red">Fail: fc -a list -t fabricdevices -v</font>
+2018-01-10 10:08:55: fc -a list -t fabricdevices -v
+Error (0x2013): Invalid setting parameters
+-t: invalid setting fabricdevices (node|port|stats|sfp|loggedininitiators|loggedintargets|allinitiators)
+
+administrator@cli> 
+2018-01-10 10:08:55: <b>Verify: fc -a list -t fabricdevices -v</b>
+2018-01-10 10:08:55: <font color="red">Fail: fc -a list -t device -v</font>
+2018-01-10 10:08:55: fc -a list -t device -v
+Error (0x2013): Invalid setting parameters
+-t: invalid setting device (node|port|stats|sfp|loggedininitiators|loggedintargets|allinitiators)
+
+administrator@cli> 
+2018-01-10 10:08:55: <b>Verify: fc -a list -t device -v</b>
+2018-01-10 10:08:55: fc -a list -t stats -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+LinkFailureCount: 1                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+
+administrator@cli> 
+2018-01-10 10:08:55: <b>Verify: fc -a list -t stats -v</b>
+2018-01-10 10:08:55: fc -a list -t SFP -v
+-------------------------------------------------------------------------------
+Controller 2 Port 1 : No SFP found
+
+-------------------------------------------------------------------------------
+Controller 2 Port 2 : No SFP found
+
+-------------------------------------------------------------------------------
+Controller 2 Port 3 : No SFP found
+
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+Transceiver: SFP                        Connector: LC
+TransCode: 00-00-00-00-40-40-04-70      SerialEncoding: 64B66B
+BitRate: 14.0 Gb/s                      ManufacturingDateCode: 170518
+LinkLength_9/125um: 0 m                 LinkLength_50/125um: 30 m
+LinkLength_62.5/125um: 0 m              VendorName: BROCADE
+VendorOUI: 00-05-1e                     VendorPartNum: 57-0000088-01
+VendorRevision: A                       VendorSerialNum: HAF317200000J34
+
+administrator@cli> 
+2018-01-10 10:08:55: <b>Verify: fc -a list -t SFP -v</b>
+2018-01-10 10:08:55: fc -a list -t port -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-07-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-06-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-05-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: Auto               ConfiguredTopology: Auto
+HardALPA: 255
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+State: Online                           PortIdentifier: 0x010700
+TopologyAttached: N-Port (Fabric Direct)
+WWPN: 26-04-00-01-55-5b-3d-29           AliasWWPN: N/A
+NumCurrentAlias: 0                      FabricWWNN: 10-00-c4-f5-7c-e2-70-a6
+FabricWWPN: 20-07-c4-f5-7c-e2-70-a6     CurrentSpeed: 16Gb/s
+LinkType: Laser Short Wave              ConfiguredLinkSpeed: Auto
+ConfiguredTopology: Auto                HardALPA: 255
+
+administrator@cli> 
+2018-01-10 10:08:55: <b>Verify: fc -a list -t port -v</b>
+2018-01-10 10:08:55: fc -a list -t node -v
+-------------------------------------------------------------------------------
+WWNN: 25-01-00-01-55-5b-3d-29           SupportedFCClass: Class Of Service 3
+MaxFrameSize: 2048                      SpeedSupported: 16Gb/s, 8Gb/s, 4Gb/s
+
+administrator@cli> 
+2018-01-10 10:08:54: <b>Verify: fc -a list -t node -v</b>
+2018-01-10 10:08:54: 'result': 'f'
+2018-01-10 10:08:54: 
+<font color="red">Fail: Verify fc -a list</font>
+2018-01-10 10:08:54: fc -a list -t port -p 3
+===============================================================================
+CtrlId Port   State     WWPN                          
+===============================================================================
+2      3      Offline   26-05-00-01-55-5b-3d-29                                
+
+administrator@cli> 
+2018-01-10 10:08:54: <b>Verify: fc -a list -t port -p 3</b>
+2018-01-10 10:08:54: fc -a list
+===============================================================================
+CtrlId Port   State     WWPN                          
+===============================================================================
+2      1      Offline   26-07-00-01-55-5b-3d-29                                
+2      2      Offline   26-06-00-01-55-5b-3d-29                                
+2      3      Offline   26-05-00-01-55-5b-3d-29                                
+2      4      Online    26-04-00-01-55-5b-3d-29                                
+
+administrator@cli> 
+2018-01-10 10:08:54: <b>Verify: fc -a list</b>
+2018-01-10 10:08:54: <font color="red">Fail: fc -a list -t fabricdevices</font>
+2018-01-10 10:08:54: fc -a list -t fabricdevices
+Error (0x2013): Invalid setting parameters
+-t: invalid setting fabricdevices (node|port|stats|sfp|loggedininitiators|loggedintargets|allinitiators)
+
+administrator@cli> 
+2018-01-10 10:08:54: <b>Verify: fc -a list -t fabricdevices</b>
+2018-01-10 10:08:54: <font color="red">Fail: fc -a list -t device</font>
+2018-01-10 10:08:54: fc -a list -t device
+Error (0x2013): Invalid setting parameters
+-t: invalid setting device (node|port|stats|sfp|loggedininitiators|loggedintargets|allinitiators)
+
+administrator@cli> 
+2018-01-10 10:08:54: <b>Verify: fc -a list -t device</b>
+2018-01-10 10:08:54: fc -a list -t stats
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+LinkFailureCount: 1                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+
+administrator@cli> 
+2018-01-10 10:08:54: <b>Verify: fc -a list -t stats</b>
+2018-01-10 10:08:54: fc -a list -t SFP
+-------------------------------------------------------------------------------
+Controller 2 Port 1 : No SFP found
+
+-------------------------------------------------------------------------------
+Controller 2 Port 2 : No SFP found
+
+-------------------------------------------------------------------------------
+Controller 2 Port 3 : No SFP found
+
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+Transceiver: SFP                        Connector: LC
+TransCode: 00-00-00-00-40-40-04-70      SerialEncoding: 64B66B
+BitRate: 14.0 Gb/s                      ManufacturingDateCode: 170518
+LinkLength_9/125um: 0 m                 LinkLength_50/125um: 30 m
+LinkLength_62.5/125um: 0 m              VendorName: BROCADE
+VendorOUI: 00-05-1e                     VendorPartNum: 57-0000088-01
+VendorRevision: A                       VendorSerialNum: HAF317200000J34
+
+administrator@cli> 
+2018-01-10 10:08:54: <b>Verify: fc -a list -t SFP</b>
+2018-01-10 10:08:54: fc -a list -t port
+===============================================================================
+CtrlId Port   State     WWPN                          
+===============================================================================
+2      1      Offline   26-07-00-01-55-5b-3d-29                                
+2      2      Offline   26-06-00-01-55-5b-3d-29                                
+2      3      Offline   26-05-00-01-55-5b-3d-29                                
+2      4      Online    26-04-00-01-55-5b-3d-29                                
+
+administrator@cli> 
+2018-01-10 10:08:54: <b>Verify: fc -a list -t port</b>
+2018-01-10 10:08:54: fc -a list -t node
+-------------------------------------------------------------------------------
+WWNN: 25-01-00-01-55-5b-3d-29           SupportedFCClass: Class Of Service 3
+MaxFrameSize: 2048                      SpeedSupported: 16Gb/s, 8Gb/s, 4Gb/s
+
+administrator@cli> 
+2018-01-10 10:08:54: <b>Verify: fc -a list -t node</b>
+2018-01-10 10:08:54: 'result': 'f'
+2018-01-10 10:08:54: 
+<font color="red">Fail: Verify fc </font>
+2018-01-10 10:08:54: fc -t port -p 3
+===============================================================================
+CtrlId Port   State     WWPN                          
+===============================================================================
+2      3      Offline   26-05-00-01-55-5b-3d-29                                
+
+administrator@cli> 
+2018-01-10 10:08:53: <b>Verify: fc -t port -p 3</b>
+2018-01-10 10:08:53: fc
+===============================================================================
+CtrlId Port   State     WWPN                          
+===============================================================================
+2      1      Offline   26-07-00-01-55-5b-3d-29                                
+2      2      Offline   26-06-00-01-55-5b-3d-29                                
+2      3      Offline   26-05-00-01-55-5b-3d-29                                
+2      4      Online    26-04-00-01-55-5b-3d-29                                
+
+administrator@cli> 
+2018-01-10 10:08:53: <b>Verify: fc</b>
+2018-01-10 10:08:53: <font color="red">Fail: fc -t fabricdevices</font>
+2018-01-10 10:08:53: fc -t fabricdevices
+Error (0x2013): Invalid setting parameters
+-t: invalid setting fabricdevices (node|port|stats|sfp|loggedininitiators|loggedintargets|allinitiators)
+
+administrator@cli> 
+2018-01-10 10:08:53: <b>Verify: fc -t fabricdevices</b>
+2018-01-10 10:08:53: <font color="red">Fail: fc -t device</font>
+2018-01-10 10:08:53: fc -t device
+Error (0x2013): Invalid setting parameters
+-t: invalid setting device (node|port|stats|sfp|loggedininitiators|loggedintargets|allinitiators)
+
+administrator@cli> 
+2018-01-10 10:08:53: <b>Verify: fc -t device</b>
+2018-01-10 10:08:53: fc -t stats
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+LinkFailureCount: 1                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+
+administrator@cli> 
+2018-01-10 10:08:53: <b>Verify: fc -t stats</b>
+2018-01-10 10:08:53: fc -t SFP
+-------------------------------------------------------------------------------
+Controller 2 Port 1 : No SFP found
+
+-------------------------------------------------------------------------------
+Controller 2 Port 2 : No SFP found
+
+-------------------------------------------------------------------------------
+Controller 2 Port 3 : No SFP found
+
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+Transceiver: SFP                        Connector: LC
+TransCode: 00-00-00-00-40-40-04-70      SerialEncoding: 64B66B
+BitRate: 14.0 Gb/s                      ManufacturingDateCode: 170518
+LinkLength_9/125um: 0 m                 LinkLength_50/125um: 30 m
+LinkLength_62.5/125um: 0 m              VendorName: BROCADE
+VendorOUI: 00-05-1e                     VendorPartNum: 57-0000088-01
+VendorRevision: A                       VendorSerialNum: HAF317200000J34
+
+administrator@cli> 
+2018-01-10 10:08:53: <b>Verify: fc -t SFP</b>
+2018-01-10 10:08:53: fc -t port
+===============================================================================
+CtrlId Port   State     WWPN                          
+===============================================================================
+2      1      Offline   26-07-00-01-55-5b-3d-29                                
+2      2      Offline   26-06-00-01-55-5b-3d-29                                
+2      3      Offline   26-05-00-01-55-5b-3d-29                                
+2      4      Online    26-04-00-01-55-5b-3d-29                                
+
+administrator@cli> 
+2018-01-10 10:08:53: <b>Verify: fc -t port</b>
+2018-01-10 10:08:53: fc -t node
+-------------------------------------------------------------------------------
+WWNN: 25-01-00-01-55-5b-3d-29           SupportedFCClass: Class Of Service 3
+MaxFrameSize: 2048                      SpeedSupported: 16Gb/s, 8Gb/s, 4Gb/s
+
+administrator@cli> 
+2018-01-10 10:08:52: <b>Verify: fc -t node</b>
 2018-01-09 17:24:19: 'result': 'p'
 2018-01-09 17:24:19: migrate -a stop -i
 Error (0x403): Missing parameter

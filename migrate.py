@@ -149,7 +149,7 @@ def start_remote_migrate(c):
 
     cli_setting = cli_test_setting()
 
-    cli_setting.setting(c, data, 'start_remote_migrate', 3)
+    cli_setting.setting(c, data, 'start_remote_migrate', 10)
 
     return cli_setting.FailFlag
 

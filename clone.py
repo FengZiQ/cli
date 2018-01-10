@@ -73,6 +73,7 @@ def mod_clone(c):
 
     # precondition
     server.webapi('post', 'clone/0/unmount')
+    server.webapi('post', 'clone/1/unmount')
 
     cli_setting.setting(c, data, 'mod_clone', 1)
 

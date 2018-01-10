@@ -228,23 +228,6 @@ def BuildVerification(c):
         if (replication.missing_parameter_replication(c)):
             FailCasesList.append('The case ' + replication.missing_parameter_replication.__name__ + ' failed')
 
-        tolog('Start verifying migrate')
-        import migrate
-        if (migrate.start_local_migrate(c)):
-            FailCasesList.append('The case ' + migrate.start_local_migrate.__name__ + ' failed')
-        if (migrate.start_remote_migrate(c)):
-            FailCasesList.append('The case ' + migrate.start_remote_migrate.__name__ + ' failed')
-        if (migrate.stop_migrate(c)):
-            FailCasesList.append('The case ' + migrate.stop_migrate.__name__ + ' failed')
-        if (migrate.help_migrate(c)):
-            FailCasesList.append('The case ' + migrate.help_migrate.__name__ + ' failed')
-        if (migrate.invalid_setting_for_migrate(c)):
-            FailCasesList.append('The case ' + migrate.invalid_setting_for_migrate.__name__ + ' failed')
-        if (migrate.invalid_option_for_migrate(c)):
-            FailCasesList.append('The case ' + migrate.invalid_option_for_migrate.__name__ + ' failed')
-        if (migrate.missing_parameter_migrate(c)):
-            FailCasesList.append('The case ' + migrate.missing_parameter_migrate.__name__ + ' failed')
-
         tolog('Start verifying spare')
         import spare
         if (spare.add_global_spare(c)):
@@ -788,24 +771,22 @@ def BuildVerification(c):
 
         tolog("Start verifying fc")
         import fc
-        if (fc.verifyFc(c)):
-            FailCasesList.append('The case ' + fc.verifyFc.__name__ + ' failed')
-        if (fc.verifyFcList(c)):
-            FailCasesList.append('The case ' + fc.verifyFcList.__name__ + ' failed')
-        if (fc.verifyFcListV(c)):
-            FailCasesList.append('The case ' + fc.verifyFcListV.__name__ + ' failed')
-        if (fc.verifyFcMod(c)):
-            FailCasesList.append('The case ' + fc.verifyFcMod.__name__ + ' failed')
-        if (fc.verifyFcReset(c)):
-            FailCasesList.append('The case ' + fc.verifyFcReset.__name__ + ' failed')
-        if (fc.verifyFcClear(c)):
-            FailCasesList.append('The case ' + fc.verifyFcClear.__name__ + ' failed')
-        if (fc.verifyFcInvalidOption(c)):
-            FailCasesList.append('The case ' + fc.verifyFcInvalidOption.__name__ + ' failed')
-        if (fc.verifyFcInvalidParameters(c)):
-            FailCasesList.append('The case ' + fc.verifyFcInvalidParameters.__name__ + ' failed')
-        if (fc.verifyFcMissingParameters(c)):
-            FailCasesList.append('The case ' + fc.verifyFcMissingParameters.__name__ + ' failed')
+        if (fc.list_fc(c)):
+            FailCasesList.append('The case ' + fc.list_fc.__name__ + ' failed')
+        if (fc.list_fc_by_verbose_mode(c)):
+            FailCasesList.append('The case ' + fc.list_fc_by_verbose_mode.__name__ + ' failed')
+        if (fc.mod_fc(c)):
+            FailCasesList.append('The case ' + fc.mod_fc.__name__ + ' failed')
+        if (fc.reset_fc(c)):
+            FailCasesList.append('The case ' + fc.reset_fc.__name__ + ' failed')
+        if (fc.clear_fc(c)):
+            FailCasesList.append('The case ' + fc.clear_fc.__name__ + ' failed')
+        if (fc.invalid_setting_for_fc(c)):
+            FailCasesList.append('The case ' + fc.invalid_setting_for_fc.__name__ + ' failed')
+        if (fc.invalid_option_for_fc(c)):
+            FailCasesList.append('The case ' + fc.invalid_option_for_fc.__name__ + ' failed')
+        if (fc.missing_parameter_for_fc(c)):
+            FailCasesList.append('The case ' + fc.missing_parameter_for_fc.__name__ + ' failed')
 
         tolog("Start verifying help")
         import help
@@ -999,6 +980,23 @@ def BuildVerification(c):
             FailCasesList.append('The case ' + tz.invalid_option_for_tz.__name__ + ' failed')
         if (tz.missing_parameter_for_tz(c)):
             FailCasesList.append('The case ' + tz.missing_parameter_for_tz.__name__ + ' failed')
+
+        tolog('Start verifying migrate')
+        import migrate
+        if (migrate.start_local_migrate(c)):
+            FailCasesList.append('The case ' + migrate.start_local_migrate.__name__ + ' failed')
+        if (migrate.start_remote_migrate(c)):
+            FailCasesList.append('The case ' + migrate.start_remote_migrate.__name__ + ' failed')
+        if (migrate.stop_migrate(c)):
+            FailCasesList.append('The case ' + migrate.stop_migrate.__name__ + ' failed')
+        if (migrate.help_migrate(c)):
+            FailCasesList.append('The case ' + migrate.help_migrate.__name__ + ' failed')
+        if (migrate.invalid_setting_for_migrate(c)):
+            FailCasesList.append('The case ' + migrate.invalid_setting_for_migrate.__name__ + ' failed')
+        if (migrate.invalid_option_for_migrate(c)):
+            FailCasesList.append('The case ' + migrate.invalid_option_for_migrate.__name__ + ' failed')
+        if (migrate.missing_parameter_migrate(c)):
+            FailCasesList.append('The case ' + migrate.missing_parameter_migrate.__name__ + ' failed')
 
     if len(FailCasesList) != 0:
         for f in FailCasesList:
