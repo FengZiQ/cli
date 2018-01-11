@@ -471,42 +471,6 @@ def BuildVerification(c):
         if (user.missing_parameter_for_user(c)):
             FailCasesList.append('The case ' + user.missing_parameter_for_user.__name__ + ' failed')
 
-        tolog('Start verifying wcache')
-        import wcache
-        if (wcache.add_wcache_dedication(c)):
-            FailCasesList.append('The case ' + wcache.add_wcache_dedication.__name__ + ' failed')
-        if (wcache.mod_wcache(c)):
-            FailCasesList.append('The case ' + wcache.mod_wcache.__name__ + ' failed')
-        if (wcache.add_wcache_no_dedication(c)):
-            FailCasesList.append('The case ' + wcache.add_wcache_no_dedication.__name__ + ' failed')
-        if (wcache.list_wcache(c)):
-            FailCasesList.append('The case ' + wcache.list_wcache.__name__ + ' failed')
-        if (wcache.def_wcache(c)):
-            FailCasesList.append('The case ' + wcache.def_wcache.__name__ + ' failed')
-        if (wcache.invalid_setting_for_wcache(c)):
-            FailCasesList.append('The case ' + wcache.invalid_setting_for_wcache.__name__ + ' failed')
-        if (wcache.invalid_option_for_wcache(c)):
-            FailCasesList.append('The case ' + wcache.invalid_option_for_wcache.__name__ + ' failed')
-        if (wcache.missing_parameter_for_wcache(c)):
-            FailCasesList.append('The case ' + wcache.missing_parameter_for_wcache.__name__ + ' failed')
-
-        tolog('Start verifying rcache')
-        import rcache
-        if (rcache.add_rcache_by_one_pd(c)):
-            FailCasesList.append('The case ' + rcache.add_rcache_by_one_pd.__name__ + ' failed')
-        if (rcache.add_rcache_by_multiple_pd(c)):
-            FailCasesList.append('The case ' + rcache.add_rcache_by_multiple_pd.__name__ + ' failed')
-        if (rcache.list_rcache(c)):
-            FailCasesList.append('The case ' + rcache.list_rcache.__name__ + ' failed')
-        if (rcache.def_rcache(c)):
-            FailCasesList.append('The case ' + rcache.def_rcache.__name__ + ' failed')
-        if (rcache.invalid_setting_for_rcache(c)):
-            FailCasesList.append('The case ' + rcache.invalid_setting_for_rcache.__name__ + ' failed')
-        if (rcache.invalid_option_for_rcache(c)):
-            FailCasesList.append('The case ' + rcache.invalid_option_for_rcache.__name__ + ' failed')
-        if (rcache.missing_parameter_for_rcache(c)):
-            FailCasesList.append('The case ' + rcache.missing_parameter_for_rcache.__name__ + ' failed')
-
         tolog('Start verifying sc')
         import sc
         if (sc.start_sc(c)):
@@ -997,6 +961,42 @@ def BuildVerification(c):
             FailCasesList.append('The case ' + migrate.invalid_option_for_migrate.__name__ + ' failed')
         if (migrate.missing_parameter_migrate(c)):
             FailCasesList.append('The case ' + migrate.missing_parameter_migrate.__name__ + ' failed')
+
+        tolog('Start verifying wcache')
+        import wcache
+        if (wcache.add_wcache_dedication(c)):
+            FailCasesList.append('The case ' + wcache.add_wcache_dedication.__name__ + ' failed')
+        if (wcache.mod_wcache(c)):
+            FailCasesList.append('The case ' + wcache.mod_wcache.__name__ + ' failed')
+        if (wcache.add_wcache_no_dedication(c)):
+            FailCasesList.append('The case ' + wcache.add_wcache_no_dedication.__name__ + ' failed')
+        if (wcache.list_wcache(c)):
+            FailCasesList.append('The case ' + wcache.list_wcache.__name__ + ' failed')
+        if (wcache.def_wcache(c)):
+            FailCasesList.append('The case ' + wcache.def_wcache.__name__ + ' failed')
+        if (wcache.invalid_setting_for_wcache(c)):
+            FailCasesList.append('The case ' + wcache.invalid_setting_for_wcache.__name__ + ' failed')
+        if (wcache.invalid_option_for_wcache(c)):
+            FailCasesList.append('The case ' + wcache.invalid_option_for_wcache.__name__ + ' failed')
+        if (wcache.missing_parameter_for_wcache(c)):
+            FailCasesList.append('The case ' + wcache.missing_parameter_for_wcache.__name__ + ' failed')
+
+        tolog('Start verifying rcache')
+        import rcache
+        if (rcache.add_rcache_by_one_pd(c)):
+            FailCasesList.append('The case ' + rcache.add_rcache_by_one_pd.__name__ + ' failed')
+        if (rcache.add_rcache_by_multiple_pd(c)):
+            FailCasesList.append('The case ' + rcache.add_rcache_by_multiple_pd.__name__ + ' failed')
+        if (rcache.list_rcache(c)):
+            FailCasesList.append('The case ' + rcache.list_rcache.__name__ + ' failed')
+        if (rcache.def_rcache(c)):
+            FailCasesList.append('The case ' + rcache.def_rcache.__name__ + ' failed')
+        if (rcache.invalid_setting_for_rcache(c)):
+            FailCasesList.append('The case ' + rcache.invalid_setting_for_rcache.__name__ + ' failed')
+        if (rcache.invalid_option_for_rcache(c)):
+            FailCasesList.append('The case ' + rcache.invalid_option_for_rcache.__name__ + ' failed')
+        if (rcache.missing_parameter_for_rcache(c)):
+            FailCasesList.append('The case ' + rcache.missing_parameter_for_rcache.__name__ + ' failed')
 
     if len(FailCasesList) != 0:
         for f in FailCasesList:

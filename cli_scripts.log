@@ -1,3 +1,965 @@
+2018-01-11 09:19:50: 'result': 'p'
+2018-01-11 09:19:50: quota -t nasshare -d 0
+===============================================================================
+Name                    Limit           Used             AccountType           
+===============================================================================
+test_quota_1            3 GB            0 Byte           User                  
+
+administrator@cli> 
+2018-01-11 09:19:47: quota -a set -d 0 -t nasshare -s "role=user,name=test_quota_0,limit=0"
+
+administrator@cli> 
+2018-01-11 09:19:47: 
+Expect: quota of user for test_quota_0 should be deleted
+
+2018-01-11 09:19:01: 'result': 'f'
+2018-01-11 09:19:01: 
+Fail: quota -a set -d 0 -t nasshare -s "role=user,name=test_quota_0,limit="
+
+2018-01-11 09:18:58: quota -a set -d 0 -t nasshare -s "role=user,name=test_quota_0,limit="
+Error (0x2013): Invalid setting parameters
+invalid setting: 
+
+administrator@cli> 
+2018-01-11 09:18:58: 
+Expect: quota of user for test_quota_0 should be deleted
+
+2018-01-11 09:17:16: 'result': 'f'
+2018-01-11 09:17:16: 
+Fail: quota -a set -d 0 -t nasshare -s "role=user,name=test_quota_0,limit=0GB"
+
+2018-01-11 09:17:13: quota -a set -d 0 -t nasshare -s "role=user,name=test_quota_0,limit=0GB"
+Error (0x2013): Invalid setting parameters
+invalid setting: 0GB
+
+administrator@cli> 
+2018-01-11 09:17:13: 
+Expect: quota of user for test_quota_0 should be deleted
+
+2018-01-11 09:16:56: 'result': 'p'
+2018-01-11 09:16:56: quota -v -d 1
+-------------------------------------------------------------------------------
+Name: test_quota_group_0                AccountType: Group
+Gid: 1001                               Limit: 999 GB
+Used: 0 Byte                            Status: Ready
+-------------------------------------------------------------------------------
+Name: test_quota_group_1                AccountType: Group
+Gid: 1002                               Limit: 1 TB
+Used: 0 Byte                            Status: Ready
+
+administrator@cli> 
+2018-01-11 09:16:53: quota -a set -d 1 -t nasshare -s "role=group,limit=1000GB,name=test_quota_group_1"
+
+administrator@cli> 
+2018-01-11 09:16:53: 
+Expect: specific nas user should have 1000GB of storage limit in nasshare
+
+2018-01-11 09:16:53: quota -v -d 1
+-------------------------------------------------------------------------------
+Name: test_quota_group_0                AccountType: Group
+Gid: 1001                               Limit: 999 GB
+Used: 0 Byte                            Status: Ready
+
+administrator@cli> 
+2018-01-11 09:16:50: quota -a set -d 1 -t nasshare -s "role=group,limit=999GB,name=test_quota_group_0"
+
+administrator@cli> 
+2018-01-11 09:16:49: 
+Expect: specific nas user should have 999GB of storage limit in nasshare
+
+2018-01-11 09:16:49: quota -v -d 1
+-------------------------------------------------------------------------------
+Name: test_quota_group_0                AccountType: Group
+Gid: 1001                               Limit: 998 GB
+Used: 0 Byte                            Status: Ready
+
+administrator@cli> 
+2018-01-11 09:16:46: quota -a set -d 1 -t nasshare -s "role=group,limit=998GB,name=test_quota_group_0"
+
+administrator@cli> 
+2018-01-11 09:16:46: 
+Expect: specific nas user should have 998GB of storage limit in nasshare
+
+2018-01-11 09:16:46: quota -v -d 0
+-------------------------------------------------------------------------------
+Name: test_quota_0                      AccountType: User
+Uid: 1001                               Limit: 2 GB
+Used: 0 Byte                            Status: Ready
+-------------------------------------------------------------------------------
+Name: test_quota_1                      AccountType: User
+Uid: 1002                               Limit: 3 GB
+Used: 0 Byte                            Status: Ready
+
+administrator@cli> 
+2018-01-11 09:16:43: quota -a set -d 0 -t nasshare -s "role=user,limit=3GB,name=test_quota_1"
+
+administrator@cli> 
+2018-01-11 09:16:43: 
+Expect: specific nas user should have 3GB of storage limit in nasshare
+
+2018-01-11 09:16:43: quota -v -d 0
+-------------------------------------------------------------------------------
+Name: test_quota_0                      AccountType: User
+Uid: 1001                               Limit: 2 GB
+Used: 0 Byte                            Status: Ready
+
+administrator@cli> 
+2018-01-11 09:16:40: quota -a set -d 0 -t nasshare -s "role=user,limit=2GB,name=test_quota_0"
+
+administrator@cli> 
+2018-01-11 09:16:40: 
+Expect: specific nas user should have 2GB of storage limit in nasshare
+
+2018-01-11 09:16:40: quota -v -d 0
+-------------------------------------------------------------------------------
+Name: test_quota_0                      AccountType: User
+Uid: 1001                               Limit: 1 GB
+Used: 0 Byte                            Status: Ready
+
+administrator@cli> 
+2018-01-11 09:16:37: quota -a set -d 0 -t nasshare -s "role=user,limit=1GB,name=test_quota_0"
+
+administrator@cli> 
+2018-01-11 09:16:36: 
+Expect: specific nas user should have 1GB of storage limit in nasshare
+
+2018-01-10 16:42:23: 'result': 'f'
+2018-01-10 16:42:23: 
+Fail: domain -a enable -t ad -s "domain=2008ad.com,kdc=WIN-CC18N6QMNLL.2008AD.com, netbios=2008ad, username=administrator,password=password"
+
+2018-01-10 16:42:22: domain -a enable -t ad -s "domain=2008ad.com,kdc=WIN-CC18N6QMNLL.2008AD.com, netbios=2008ad, username=administrator,password=password"
+Error (0x4100104): Incorrect parameters: System DNS IP is empty. Please set it first.
+
+administrator@cli> 
+2018-01-10 16:42:22: 
+Expect: 
+
+2018-01-10 16:42:22: 
+Fail: domain -a enable -t ad -s "domain=2008ad.com,kdc=WIN-CC18N6QMNLL.2008AD.com, netbios=2008ad, username=administrator,password=password"
+
+2018-01-10 16:42:21: domain -a enable -t ad -s "domain=2008ad.com,kdc=WIN-CC18N6QMNLL.2008AD.com, netbios=2008ad, username=administrator,password=password"
+Error (0x4100104): Incorrect parameters: System DNS IP is empty. Please set it first.
+
+administrator@cli> 
+2018-01-10 16:42:21: 
+Expect: 
+
+2018-01-10 16:42:21: 
+Fail: domain -a enable -t ad -s "domain=2008ad.com,kdc=WIN-CC18N6QMNLL.2008AD.com, netbios=2008ad, username=administrator,password=password"
+
+2018-01-10 16:42:20: domain -a enable -t ad -s "domain=2008ad.com,kdc=WIN-CC18N6QMNLL.2008AD.com, netbios=2008ad, username=administrator,password=password"
+Error (0x4100104): Incorrect parameters: System DNS IP is empty. Please set it first.
+
+administrator@cli> 
+2018-01-10 16:42:20: 
+Expect: 
+
+2018-01-10 16:42:20: 
+Fail: domain -a enable -t ad -s "domain=2008ad.com,kdc=WIN-CC18N6QMNLL.2008AD.com, netbios=2008ad, username=administrator,password=password"
+
+2018-01-10 16:42:18: domain -a enable -t ad -s "domain=2008ad.com,kdc=WIN-CC18N6QMNLL.2008AD.com, netbios=2008ad, username=administrator,password=password"
+Error (0x4100104): Incorrect parameters: System DNS IP is empty. Please set it first.
+
+administrator@cli> 
+2018-01-10 16:42:18: 
+Expect: 
+
+2018-01-10 16:22:52: 'result': 'f'
+2018-01-10 16:22:52: 
+Fail: domain -a enable -t ad -s "domain=2008ad.com,kdc=WIN-CC18N6QMNLL.2008AD.com, netbios=2008ad, username=administrator,password=password"
+
+2018-01-10 16:22:51: domain -a enable -t ad -s "domain=2008ad.com,kdc=WIN-CC18N6QMNLL.2008AD.com, netbios=2008ad, username=administrator,password=password"
+Error (0x4100104): Incorrect parameters: System DNS IP is empty. Please set it first.
+
+administrator@cli> 
+2018-01-10 16:22:51: 
+Expect: 
+
+2018-01-10 16:22:51: 
+Fail: domain -a enable -t ad -s "domain=2008ad.com,kdc=WIN-CC18N6QMNLL.2008AD.com, netbios=2008ad, username=administrator,password=password"
+
+2018-01-10 16:22:50: domain -a enable -t ad -s "domain=2008ad.com,kdc=WIN-CC18N6QMNLL.2008AD.com, netbios=2008ad, username=administrator,password=password"
+Error (0x4100104): Incorrect parameters: System DNS IP is empty. Please set it first.
+
+administrator@cli> 
+2018-01-10 16:22:50: 
+Expect: 
+
+2018-01-10 16:22:50: 
+Fail: domain -a enable -t ad -s "domain=2008ad.com,kdc=WIN-CC18N6QMNLL.2008AD.com, netbios=2008ad, username=administrator,password=password"
+
+2018-01-10 16:22:49: domain -a enable -t ad -s "domain=2008ad.com,kdc=WIN-CC18N6QMNLL.2008AD.com, netbios=2008ad, username=administrator,password=password"
+Error (0x4100104): Incorrect parameters: System DNS IP is empty. Please set it first.
+
+administrator@cli> 
+2018-01-10 16:22:49: 
+Expect: 
+
+2018-01-10 16:22:49: 
+Fail: domain -a enable -t ad -s "domain=2008ad.com,kdc=WIN-CC18N6QMNLL.2008AD.com, netbios=2008ad, username=administrator,password=password"
+
+2018-01-10 16:22:48: domain -a enable -t ad -s "domain=2008ad.com,kdc=WIN-CC18N6QMNLL.2008AD.com, netbios=2008ad, username=administrator,password=password"
+Error (0x4100104): Incorrect parameters: System DNS IP is empty. Please set it first.
+
+administrator@cli> 
+2018-01-10 16:22:48: 
+Expect: 
+
+2018-01-10 16:03:52: 'result': 'p'
+2018-01-10 16:03:52: domain -v
+===============================================================================
+ControllerId                            DomainStatus                           
+===============================================================================
+2                                       error                                  
+ 
+Not Joined into Domain mode
+ 
+-------------------------------------------------------------------------------
+Last successfully joined domain setting
+-------------------------------------------------------------------------------
+Netbios:                                Kdc: 
+Domain:                                 Username: 
+
+administrator@cli> 
+2018-01-10 16:03:52: 
+Expect: domain setting should be listed by verbose mode
+
+2018-01-10 16:03:52: 'result': 'p'
+2018-01-10 16:03:52: domain
+===============================================================================
+ControllerId                            DomainStatus                           
+===============================================================================
+2                                       error                                  
+ 
+Not Joined into Domain mode
+ 
+-------------------------------------------------------------------------------
+Last successfully joined domain setting
+-------------------------------------------------------------------------------
+Netbios:                                Kdc: 
+Domain:                                 Username: 
+
+administrator@cli> 
+2018-01-10 16:03:52: 
+Expect: domain setting should be listed
+
+2018-01-10 13:42:56: 'result': 'f'
+2018-01-10 13:42:56: 
+Fail: replication -a pause -i 3
+
+2018-01-10 13:42:55: replication -a pause -i 3
+Error (0x4100107): Fail to pause local replication.
+
+administrator@cli> 
+2018-01-10 13:42:54: 
+Expect: replication should be paused by source volume
+
+2018-01-10 13:42:41: 'result': 'p'
+2018-01-10 13:42:41: volume -i 5 -v
+-------------------------------------------------------------------------------
+Id: 5                                   Name: T_replication_vol_5
+PoolId: 1                               PoolName: T_replication_1
+Status: Exported                        ExportedId: 6
+ExportedWWN: 22bd000155da21b5           OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-10 19:41:11
+PreferCtrlId: 2                         AdvType: Replication
+AdvKind: Local                          AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 8.0
+
+administrator@cli> 
+2018-01-10 13:42:38: replication -a start -i 5 -p 0 -s "name=test_Test_Test_Test_Test_Test_32"
+
+administrator@cli> 
+2018-01-10 13:42:35: 
+Expect: replication should be started by "name=test_Test_Test_Test_Test_Test_32"
+
+2018-01-10 13:42:35: volume -i 8 -v
+-------------------------------------------------------------------------------
+Id: 8                                   Name: test_Test_Test_Test_Test_Test31
+PoolId: 0                               PoolName: T_replication_0
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 107.22 GB        UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-10 19:41:30
+PreferCtrlId: 2                         AdvType: Replication
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 15.5
+
+administrator@cli> 
+2018-01-10 13:42:31: replication -a start -i 4 -p 0 -s "name=test_Test_Test_Test_Test_Test31, syncmode=sync"
+
+administrator@cli> 
+2018-01-10 13:42:28: 
+Expect: replication should be started by "name=test_Test_Test_Test_Test_Test31, syncmode=sync"
+
+2018-01-10 13:42:28: volume -i 7 -v
+-------------------------------------------------------------------------------
+Id: 7                                   Name: t2
+PoolId: 1                               PoolName: T_replication_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 4 GB                     UsedCapacity: 4 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-10 19:41:24
+PreferCtrlId: 2                         AdvType: Replication
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Semi-Sync
+AdvStatus: Syncing                      AdvProgress: 3.1
+
+administrator@cli> 
+2018-01-10 13:42:25: replication -a start -i 3 -p 1 -s "name=t2, syncmode=semi-sync"
+
+administrator@cli> 
+2018-01-10 13:42:22: 
+Expect: replication should be started by "name=t2, syncmode=semi-sync"
+
+2018-01-10 13:42:22: volume -i 6 -v
+-------------------------------------------------------------------------------
+Id: 6                                   Name: T
+PoolId: 1                               PoolName: T_replication_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 4 GB                     UsedCapacity: 4 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-10 19:41:12
+PreferCtrlId: 2                         AdvType: Replication
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Async
+AdvStatus: Syncing                      AdvProgress: 2.0
+
+administrator@cli> 
+2018-01-10 13:42:19: replication -a start -i 2 -p 1 -s "name=T, syncmode=async"
+
+administrator@cli> 
+2018-01-10 13:42:10: 
+Expect: replication should be started by "name=T, syncmode=async"
+
+2018-01-10 13:24:58: 'result': 'f'
+2018-01-10 13:24:58: 
+Fail: replication -a pause -i 3
+
+2018-01-10 13:24:57: replication -a pause -i 3
+Error (0x4100107): Fail to pause local replication.
+
+administrator@cli> 
+2018-01-10 13:24:56: 
+Expect: replication should be paused by source volume
+
+2018-01-10 13:24:50: 'result': 'p'
+2018-01-10 13:24:50: volume -v -i 6
+-------------------------------------------------------------------------------
+Id: 6                                   Name: T
+PoolId: 1                               PoolName: T_replication_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 4 GB                     UsedCapacity: 4 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-10 19:22:42
+PreferCtrlId: 2                         AdvType: 
+
+administrator@cli> 
+2018-01-10 13:24:49: replication -a stop -i 2
+
+administrator@cli> 
+2018-01-10 13:24:42: 
+Expect: specific replication should be stopped
+
+2018-01-10 13:24:35: 'result': 'p'
+2018-01-10 13:24:35: replication -a list -v
+-------------------------------------------------------------------------------
+Location: Local                         Role: Destination
+Mode: Active-Passive                    SyncMode: Sync
+Status: Warning                         Description: Unconnected.
+Progress: 0.0                           SourceVolumeId: 5
+SourceVolumeName: T_replication_vol_5   SourcePoolName: T_replication_1
+SourcePortalIP: 10.128.0.2              DestinationVolumeId: 9
+DestinationVolumeName: test_Test_Test_Test_Test_Test_32
+DestinationPoolName: T_replication_0    DestinationPortalIP: 10.128.0.2
+Enable: 1                               Period: 0
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+-------------------------------------------------------------------------------
+Location: Local                         Role: Destination
+Mode: Active-Passive                    SyncMode: Sync
+Status: Warning                         Description: Unconnected.
+Progress: 0.0                           SourceVolumeId: 4
+SourceVolumeName: T_replication_vol_4   SourcePoolName: T_replication_1
+SourcePortalIP: 10.128.0.2              DestinationVolumeId: 8
+DestinationVolumeName: test_Test_Test_Test_Test_Test31
+DestinationPoolName: T_replication_0    DestinationPortalIP: 10.128.0.2
+Enable: 1                               Period: 0
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+-------------------------------------------------------------------------------
+Location: Local                         Role: Source
+Mode: Active-Passive                    SyncMode: Async
+Status: Creating                        Description: 
+Progress: 0                             SourceVolumeId: 2
+SourceVolumeName: T_replication_vol_2   SourcePoolName: T_replication_0
+SourcePortalIP: 10.128.0.2              DestinationVolumeId: 6
+DestinationVolumeName: T                DestinationPoolName: T_replication_1
+DestinationPortalIP: 10.128.0.2         Enable: 1
+Period: 0                               TotalCapacity: 4 GB
+UsedCapacity: 4 GB
+-------------------------------------------------------------------------------
+Location: Local                         Role: Source
+Mode: Active-Passive                    SyncMode: Semi-Sync
+Status: Creating                        Description: 
+Progress: 0                             SourceVolumeId: 3
+SourceVolumeName: T_replication_vol_3   SourcePoolName: T_replication_0
+SourcePortalIP: 10.128.0.2              DestinationVolumeId: 7
+DestinationVolumeName: t2               DestinationPoolName: T_replication_1
+DestinationPortalIP: 10.128.0.2         Enable: 1
+Period: 0                               TotalCapacity: 4 GB
+UsedCapacity: 4 GB
+
+administrator@cli> 
+2018-01-10 13:24:35: 
+Expect: all of replication should be listed by verbose mode
+
+2018-01-10 13:24:28: 'result': 'p'
+2018-01-10 13:24:28: replication
+===============================================================================
+SrcVol         DestVol        Location  TotalCap  UsedCap   Status         
+===============================================================================
+T_replication_ test_Test_Test Local     1 GB      1 GB      Warning            
+vol_5          _Test_Test_Tes                                                  
+               t_32                                                            
+T_replication_ test_Test_Test Local     1 GB      1 GB      Warning            
+vol_4          _Test_Test_Tes                                                  
+               t31                                                             
+T_replication_ T              Local     4 GB      4 GB      Creating           
+vol_2                                                                          
+T_replication_ t2             Local     4 GB      4 GB      Creating           
+vol_3                                                                          
+
+administrator@cli> 
+2018-01-10 13:24:28: 
+Expect: all of replication should be listed
+
+2018-01-10 13:24:22: 'result': 'p'
+2018-01-10 13:24:22: pool -a del -i 0 -f -y
+Error (0x4100104): Incorrect parameters: There are replication or migration Volume in the Pool.
+
+administrator@cli> 
+2018-01-10 13:24:22: 
+Expect: destination pool should not be deleted
+
+2018-01-10 13:24:22: pool -a del -i 1 -f -y
+Error (0x4100104): Incorrect parameters: There are replication or migration Volume in the Pool.
+
+administrator@cli> 
+2018-01-10 13:24:22: 
+Expect: source pool should not be deleted
+
+2018-01-10 13:24:22: volume -a del -i 2
+Error (0x4100104): Incorrect parameters: Volume is replication or migration Volume.
+
+administrator@cli> 
+2018-01-10 13:24:21: 
+Expect: source volume should not be deleted
+
+2018-01-10 13:24:21: volume -a mod -i 2 -s "capacity=5GB"
+Error (0x4100104): Incorrect parameters: Volume is replication or migration Volume.
+
+administrator@cli> 
+2018-01-10 13:24:21: 
+Expect: source volume should not be expanded
+
+2018-01-10 13:24:21: volume -a del -i 6
+Error (0x4100104): Incorrect parameters: Volume is replication or migration Volume.
+
+administrator@cli> 
+2018-01-10 13:24:21: 
+Expect: destination volume should not be deleted
+
+2018-01-10 13:24:21: lunmap -a add -p volume -i 0 -l 6 -m 2
+Error (0x402): Invalid parameter
+The volume/snapshot/clone is un-exported
+
+administrator@cli> 
+2018-01-10 13:24:20: 
+Expect: destination volume should not be added for lunmap
+
+2018-01-10 13:24:20: snapshot -a add -t volume -d 6 -s "name=test_replica"
+Error (0x4100104): Incorrect parameters: Destination volume of replication or migration cannot create snapshot.
+
+administrator@cli> 
+2018-01-10 13:24:20: 
+Expect: destination volume should not create snapshot
+
+2018-01-10 13:24:20: volume -a mod -i 6 -s "name=no_way"
+Error (0x4100104): Incorrect parameters: Volume is replication or migration Volume.
+
+administrator@cli> 
+2018-01-10 13:24:20: 
+Expect: destination volume should not be modified
+
+2018-01-10 13:24:20: volume -a mod -i 6 -s "capacity=6GB"
+Error (0x4100104): Incorrect parameters: Volume is replication or migration Volume.
+
+administrator@cli> 
+2018-01-10 13:24:19: 
+Expect: destination volume should not be expanded
+
+2018-01-10 13:24:19: volume -a export -i 6
+Error (0x4100104): Incorrect parameters: Destination volume of replication in Active_Passive mode cannot be exported.
+
+administrator@cli> 
+2018-01-10 13:24:19: 
+Expect: destination volume should not be exported
+
+2018-01-10 13:24:19: replication -a start -i 0 -p 0 -s "name=firth_replica"
+Error (0x4100104): Incorrect parameters: Support maximum 4 local replication!
+
+administrator@cli> 
+2018-01-10 13:24:19: 
+Expect: Max 4 pairs of replication
+
+2018-01-10 13:24:10: 'result': 'p'
+2018-01-10 13:24:10: volume -i 5 -v
+-------------------------------------------------------------------------------
+Id: 5                                   Name: T_replication_vol_5
+PoolId: 1                               PoolName: T_replication_1
+Status: Exported                        ExportedId: 5
+ExportedWWN: 22ba0001554099d3           OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-10 19:22:41
+PreferCtrlId: 2                         AdvType: Replication
+AdvKind: Local                          AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 8.0
+
+administrator@cli> 
+2018-01-10 13:24:07: replication -a start -i 5 -p 0 -s "name=test_Test_Test_Test_Test_Test_32"
+
+administrator@cli> 
+2018-01-10 13:24:03: 
+Expect: replication should be started by "name=test_Test_Test_Test_Test_Test_32"
+
+2018-01-10 13:24:03: volume -i 8 -v
+-------------------------------------------------------------------------------
+Id: 8                                   Name: test_Test_Test_Test_Test_Test31
+PoolId: 0                               PoolName: T_replication_0
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 107.22 GB        UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 4.21 MB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-10 19:22:57
+PreferCtrlId: 2                         AdvType: Replication
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 7.2
+
+administrator@cli> 
+2018-01-10 13:24:00: replication -a start -i 4 -p 0 -s "name=test_Test_Test_Test_Test_Test31, syncmode=sync"
+
+administrator@cli> 
+2018-01-10 13:23:55: 
+Expect: replication should be started by "name=test_Test_Test_Test_Test_Test31, syncmode=sync"
+
+2018-01-10 13:23:55: volume -i 7 -v
+-------------------------------------------------------------------------------
+Id: 7                                   Name: t2
+PoolId: 1                               PoolName: T_replication_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 4 GB                     UsedCapacity: 4 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-10 19:22:51
+PreferCtrlId: 2                         AdvType: Replication
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Semi-Sync
+AdvStatus: Syncing                      AdvProgress: 3.6
+
+administrator@cli> 
+2018-01-10 13:23:52: replication -a start -i 3 -p 1 -s "name=t2, syncmode=semi-sync"
+
+administrator@cli> 
+2018-01-10 13:23:49: 
+Expect: replication should be started by "name=t2, syncmode=semi-sync"
+
+2018-01-10 13:23:49: volume -i 6 -v
+-------------------------------------------------------------------------------
+Id: 6                                   Name: T
+PoolId: 1                               PoolName: T_replication_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 4 GB                     UsedCapacity: 4 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-10 19:22:42
+PreferCtrlId: 2                         AdvType: Replication
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Async
+AdvStatus: Syncing                      AdvProgress: 2.9
+
+administrator@cli> 
+2018-01-10 13:23:46: replication -a start -i 2 -p 1 -s "name=T, syncmode=async"
+
+administrator@cli> 
+2018-01-10 13:23:40: 
+Expect: replication should be started by "name=T, syncmode=async"
+
+2018-01-10 13:23:17: 
+Expect: Display port logged in target information by verbose mode
+
+2018-01-10 13:23:17: fc -t loggedininitiators -v
+-------------------------------------------------------------------------------
+No devices logged in
+
+administrator@cli> 
+2018-01-10 13:23:17: 
+Expect: Display port logged in initiator information by verbose mode
+
+2018-01-10 13:23:17: fc -t stats -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+
+administrator@cli> 
+2018-01-10 13:23:17: 
+Expect: Display port statistics information by verbose mode
+
+2018-01-10 13:23:17: fc -t sfp -v
+-------------------------------------------------------------------------------
+Controller 2 Port 1 : No SFP found
+
+-------------------------------------------------------------------------------
+Controller 2 Port 2 : No SFP found
+
+-------------------------------------------------------------------------------
+Controller 2 Port 3 : No SFP found
+
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+Transceiver: SFP                        Connector: LC
+TransCode: 00-00-00-00-40-40-04-70      SerialEncoding: 64B66B
+BitRate: 14.0 Gb/s                      ManufacturingDateCode: 170518
+LinkLength_9/125um: 0 m                 LinkLength_50/125um: 30 m
+LinkLength_62.5/125um: 0 m              VendorName: BROCADE
+VendorOUI: 00-05-1e                     VendorPartNum: 57-0000088-01
+VendorRevision: A                       VendorSerialNum: HAF317200000J34
+
+administrator@cli> 
+2018-01-10 13:23:17: 
+Expect: Display port SFP information by verbose mode
+
+2018-01-10 13:23:17: fc -t port -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-07-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: 4 Gb/s             ConfiguredTopology: NL-Port
+HardALPA: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-06-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: 8 Gb/s             ConfiguredTopology: N-Port
+HardALPA: 1
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-05-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: 16 Gb/s            ConfiguredTopology: Auto
+HardALPA: 254
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+State: Online                           PortIdentifier: 0x010700
+TopologyAttached: N-Port (Fabric Direct)
+WWPN: 26-04-00-01-55-5b-3d-29           AliasWWPN: N/A
+NumCurrentAlias: 0                      FabricWWNN: 10-00-c4-f5-7c-e2-70-a6
+FabricWWPN: 20-07-c4-f5-7c-e2-70-a6     CurrentSpeed: 16Gb/s
+LinkType: Laser Short Wave              ConfiguredLinkSpeed: Auto
+ConfiguredTopology: Auto                HardALPA: 255
+
+administrator@cli> 
+2018-01-10 13:23:17: 
+Expect: Specifies fc port as the device type to display or modify information by verbose mode
+
+2018-01-10 13:23:17: fc -t node -v
+-------------------------------------------------------------------------------
+WWNN: 25-01-00-01-55-5b-3d-29           SupportedFCClass: Class Of Service 3
+MaxFrameSize: 2048                      SpeedSupported: 16Gb/s, 8Gb/s, 4Gb/s
+
+administrator@cli> 
+2018-01-10 13:23:16: 
+Expect: Display fc node information by verbose mode
+
+2018-01-10 13:23:16: fc -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-07-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: 4 Gb/s             ConfiguredTopology: NL-Port
+HardALPA: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-06-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: 8 Gb/s             ConfiguredTopology: N-Port
+HardALPA: 1
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+State: Offline                          PortIdentifier: 0xffffff
+TopologyAttached: N/A                   WWPN: 26-05-00-01-55-5b-3d-29
+AliasWWPN: N/A                          NumCurrentAlias: 0
+FabricWWNN: N/A                         FabricWWPN: N/A
+CurrentSpeed: Unknown                   LinkType: Unknown
+ConfiguredLinkSpeed: 16 Gb/s            ConfiguredTopology: Auto
+HardALPA: 254
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+State: Online                           PortIdentifier: 0x010700
+TopologyAttached: N-Port (Fabric Direct)
+WWPN: 26-04-00-01-55-5b-3d-29           AliasWWPN: N/A
+NumCurrentAlias: 0                      FabricWWNN: 10-00-c4-f5-7c-e2-70-a6
+FabricWWPN: 20-07-c4-f5-7c-e2-70-a6     CurrentSpeed: 16Gb/s
+LinkType: Laser Short Wave              ConfiguredLinkSpeed: Auto
+ConfiguredTopology: Auto                HardALPA: 255
+
+administrator@cli> 
+2018-01-10 13:23:16: 
+Expect: all of fc info should be displayed by verbose mode
+
+2018-01-10 13:23:16: 'result': 'p'
+2018-01-10 13:23:16: fc -i 2 -t port -p 4
+===============================================================================
+CtrlId Port   State     WWPN                          
+===============================================================================
+2      4      Online    26-04-00-01-55-5b-3d-29                                
+
+administrator@cli> 
+2018-01-10 13:23:16: 
+Expect: port 4 info should be listed on ctrl 2
+
+2018-01-10 13:23:16: fc -i 2 -t port -p 3
+===============================================================================
+CtrlId Port   State     WWPN                          
+===============================================================================
+2      3      Offline   26-05-00-01-55-5b-3d-29                                
+
+administrator@cli> 
+2018-01-10 13:23:16: 
+Expect: port 3 info should be listed on ctrl 2
+
+2018-01-10 13:23:16: fc -i 2 -t port -p 2
+===============================================================================
+CtrlId Port   State     WWPN                          
+===============================================================================
+2      2      Offline   26-06-00-01-55-5b-3d-29                                
+
+administrator@cli> 
+2018-01-10 13:23:16: 
+Expect: port 2 info should be listed on ctrl 2
+
+2018-01-10 13:23:16: fc -i 2 -t port -p 1 
+===============================================================================
+CtrlId Port   State     WWPN                          
+===============================================================================
+2      1      Offline   26-07-00-01-55-5b-3d-29                                
+
+administrator@cli> 
+2018-01-10 13:23:16: 
+Expect: port 1 info should be listed on ctrl 2
+
+2018-01-10 13:23:16: fc -t allinitiators
+===============================================================================
+Index   CtrlId  PortId  WWPN                          
+===============================================================================
+1       2       4       26-05-00-01-55-5b-3c-fc                                
+2       2       4       26-04-00-01-55-5b-3d-29                                
+3       2       4       26-01-00-01-55-00-00-00                                
+4       2       4       26-02-00-01-55-00-00-00                                
+
+administrator@cli> 
+2018-01-10 13:23:15: 
+Expect: Display initiator list from fibre switch
+
+2018-01-10 13:23:15: fc -t loggedintargets
+-------------------------------------------------------------------------------
+No targets logged in
+
+administrator@cli> 
+2018-01-10 13:23:15: 
+Expect: Display port logged in target information
+
+2018-01-10 13:23:15: fc -t loggedininitiators
+-------------------------------------------------------------------------------
+No devices logged in
+
+administrator@cli> 
+2018-01-10 13:23:15: 
+Expect: Display port logged in initiator information
+
+2018-01-10 13:23:15: fc -t stats
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 1
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 2
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 3
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+LinkFailureCount: 0                     LossSyncCount: 0
+LossSignalCount: 0                      PrimitiveSeqErrorCount: 0
+InvalidWordsSentCount: 0                InvalidCRCCount: 0
+
+administrator@cli> 
+2018-01-10 13:23:15: 
+Expect: Display port statistics information
+
+2018-01-10 13:23:15: fc -t sfp
+-------------------------------------------------------------------------------
+Controller 2 Port 1 : No SFP found
+
+-------------------------------------------------------------------------------
+Controller 2 Port 2 : No SFP found
+
+-------------------------------------------------------------------------------
+Controller 2 Port 3 : No SFP found
+
+-------------------------------------------------------------------------------
+CtrlId: 2                               PortId: 4
+Transceiver: SFP                        Connector: LC
+TransCode: 00-00-00-00-40-40-04-70      SerialEncoding: 64B66B
+BitRate: 14.0 Gb/s                      ManufacturingDateCode: 170518
+LinkLength_9/125um: 0 m                 LinkLength_50/125um: 30 m
+LinkLength_62.5/125um: 0 m              VendorName: BROCADE
+VendorOUI: 00-05-1e                     VendorPartNum: 57-0000088-01
+VendorRevision: A                       VendorSerialNum: HAF317200000J34
+
+administrator@cli> 
+2018-01-10 13:23:14: 
+Expect: Display port SFP information
+
+2018-01-10 13:23:14: fc -t port
+===============================================================================
+CtrlId Port   State     WWPN                          
+===============================================================================
+2      1      Offline   26-07-00-01-55-5b-3d-29                                
+2      2      Offline   26-06-00-01-55-5b-3d-29                                
+2      3      Offline   26-05-00-01-55-5b-3d-29                                
+2      4      Online    26-04-00-01-55-5b-3d-29                                
+
+administrator@cli> 
+2018-01-10 13:23:14: 
+Expect: Specifies fc port as the device type to display or modify information
+
+2018-01-10 13:23:14: fc -t node
+-------------------------------------------------------------------------------
+WWNN: 25-01-00-01-55-5b-3d-29           SupportedFCClass: Class Of Service 3
+MaxFrameSize: 2048                      SpeedSupported: 16Gb/s, 8Gb/s, 4Gb/s
+
+administrator@cli> 
+2018-01-10 13:23:14: 
+Expect: Display fc node information
+
+2018-01-10 13:23:14: fc
+===============================================================================
+CtrlId Port   State     WWPN                          
+===============================================================================
+2      1      Offline   26-07-00-01-55-5b-3d-29                                
+2      2      Offline   26-06-00-01-55-5b-3d-29                                
+2      3      Offline   26-05-00-01-55-5b-3d-29                                
+2      4      Online    26-04-00-01-55-5b-3d-29                                
+
+administrator@cli> 
+2018-01-10 13:23:14: 
+Expect: all of fc info should be displayed
+
 2018-01-10 13:14:06: 'result': 'p'
 2018-01-10 13:14:06: fc -a clear -i 2 -p
 Error (0x403): Missing parameter
