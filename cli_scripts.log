@@ -1,3 +1,735 @@
+2018-01-11 13:41:09: 'result': 'f'
+2018-01-11 13:41:09: domain -a check -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2018-01-11 13:41:09: 
+Expect: Missing parameter
+
+2018-01-11 13:41:09: domain -a check
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a check'
+
+administrator@cli> 
+2018-01-11 13:41:09: 
+Expect: Missing parameter
+
+2018-01-11 13:41:09: domain -a enable -t od -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2018-01-11 13:41:09: 
+Expect: Missing parameter
+
+2018-01-11 13:41:09: domain -a enable -t ldap -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2018-01-11 13:41:09: 
+Expect: Missing parameter
+
+2018-01-11 13:41:09: domain -a enable -t ad 
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a enable'
+
+administrator@cli> 
+2018-01-11 13:41:09: 
+Expect: Missing parameter
+
+2018-01-11 13:41:09: domain -a enable -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2018-01-11 13:41:09: 
+Expect: Missing parameter
+
+2018-01-11 13:41:09: domain -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+2018-01-11 13:41:09: 
+Expect: Missing parameter
+
+2018-01-11 13:41:08: 
+Fail: domain -a enable -t od -s "domain=test.com,server=10.84.2.55,basedn='dc=test,dc=com',password=password"
+
+2018-01-11 13:41:08: domain -a enable -t od -s "domain=test.com,server=10.84.2.55,basedn='dc=test,dc=com',password=password"
+unexpected error
+please send service report to your administrator
+administrator@cli> 
+2018-01-11 13:41:08: 
+Expect: Missing parameter
+
+2018-01-11 13:41:08: 
+Fail: domain -a enable -t ldap -s "server=10.84.2.46,security=none, basedn='dc=test,dc=com', username=admin,password=password, usersuffix='ou=People', grpsuffix='ou=Group'"
+
+2018-01-11 13:41:08: domain -a enable -t ldap -s "server=10.84.2.46,security=none, basedn='dc=test,dc=com', username=admin,password=password, usersuffix='ou=People', grpsuffix='ou=Group'"
+unexpected error
+please send service report to your administrator
+administrator@cli> 
+2018-01-11 13:41:08: 
+Expect: Missing parameter
+
+2018-01-11 13:41:08: 
+Fail: domain -a enable -t ad -s "domain=2008ad.com,kdc=WIN-CC18N6QMNLL.2008AD.com, netbios=2008ad,password=test"
+
+2018-01-11 13:41:08: domain -a enable -t ad -s "domain=2008ad.com,kdc=WIN-CC18N6QMNLL.2008AD.com, netbios=2008ad,password=test"
+unexpected error
+please send service report to your administrator
+administrator@cli> 
+2018-01-11 13:41:08: 
+Expect: Missing parameter
+
+2018-01-11 13:41:08: 
+Fail: domain -a enable -t ad -s "domain=2008ad.com,kdc=WIN-CC18N6QMNLL.2008AD.com, netbios=2008ad,username=administrator"
+
+2018-01-11 13:41:08: domain -a enable -t ad -s "domain=2008ad.com,kdc=WIN-CC18N6QMNLL.2008AD.com, netbios=2008ad,username=administrator"
+unexpected error
+please send service report to your administrator
+administrator@cli> 
+2018-01-11 13:41:08: 
+Expect: Missing parameter
+
+2018-01-11 13:41:08: 'result': 'p'
+2018-01-11 13:41:08: domain -a refresh -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-11 13:41:08: 
+Expect: Invalid option for the command or the action
+
+2018-01-11 13:41:08: domain -a disable -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-11 13:41:08: 
+Expect: Invalid option for the command or the action
+
+2018-01-11 13:41:08: domain -a check -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-11 13:41:08: 
+Expect: Invalid option for the command or the action
+
+2018-01-11 13:41:08: domain -a enable -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-11 13:41:08: 
+Expect: Invalid option for the command or the action
+
+2018-01-11 13:41:08: domain -a -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-11 13:41:08: 
+Expect: Invalid option for the command or the action
+
+2018-01-11 13:41:08: domain -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-11 13:41:08: 
+Expect: Invalid option for the command or the action
+
+2018-01-11 13:41:08: 'result': 'f'
+2018-01-11 13:41:08: domain -a refresh test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-11 13:41:08: 
+Expect: Invalid setting parameters
+
+2018-01-11 13:41:08: domain -a disable test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-11 13:41:08: 
+Expect: Invalid setting parameters
+
+2018-01-11 13:41:08: domain -a check -t ldap -l "server=test,security=none,basedn=122"
+Error (0x4100104): Incorrect parameters: Invalid IP address format of [test]
+
+administrator@cli> 
+2018-01-11 13:41:08: 
+Expect: Invalid IP address
+
+2018-01-11 13:41:08: domain -a check -t ldap -l "server=10.84.2.71,security=test,basedn=122"
+Error (0x2013): Invalid setting parameters
+security: invalid setting test (none|tls|ssl)
+
+administrator@cli> 
+2018-01-11 13:41:08: 
+Expect: Invalid setting parameter basedn
+
+2018-01-11 13:41:08: domain -a check -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (ad|ldap|od)
+
+administrator@cli> 
+2018-01-11 13:41:08: 
+Expect: Invalid setting parameters
+
+2018-01-11 13:41:07: 
+Fail: domain -a enable -t od -s "domain=test.com,server=test,basedn='dc=test,dc=com',username=administrator,password=password"
+
+2018-01-11 13:41:07: domain -a enable -t od -s "domain=test.com,server=test,basedn='dc=test,dc=com',username=administrator,password=password"
+unexpected error
+please send service report to your administrator
+administrator@cli> 
+2018-01-11 13:41:07: 
+Expect: Invalid IP address
+
+2018-01-11 13:41:07: domain -a enable -t ldap -s "domain=test.com,server=10.84.2.46,security=tset, basedn='dc=test,dc=com', username=admin,password=password, usersuffix='ou=People', grpsuffix='ou=Group'"
+Error (0x2013): Invalid setting parameters
+security: invalid setting tset (none|tls|ssl)
+
+administrator@cli> 
+2018-01-11 13:41:07: 
+Expect: Invalid setting parameter security
+
+2018-01-11 13:41:07: domain -a enable -t ldap -s "domain=test.com,server=test,security=none, basedn='dc=test,dc=com', username=admin,password=password, usersuffix='ou=People', grpsuffix='ou=Group'"
+Error (0x4100104): Incorrect parameters: Invalid IP address format of [test]
+
+administrator@cli> 
+2018-01-11 13:41:07: 
+Expect: Invalid IP address
+
+2018-01-11 13:41:07: domain -a enable -t test -s ""
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (ad|ldap|od)
+
+administrator@cli> 
+2018-01-11 13:41:07: 
+Expect: Invalid setting parameter type
+
+2018-01-11 13:41:07: domain -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|enable|disable|refresh|check)
+
+administrator@cli> 
+2018-01-11 13:41:07: 
+Expect: Invalid setting parameters
+
+2018-01-11 13:41:07: domain test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-11 13:41:07: 
+Expect: Invalid setting parameters
+
+2018-01-11 13:41:07: 
+Need manual test
+
+2018-01-11 13:41:07: 'result': 'p'
+2018-01-11 13:41:07: domain -v
+===============================================================================
+ControllerId                            DomainStatus                           
+===============================================================================
+2                                       error                                  
+ 
+Not Joined into Domain mode
+ 
+-------------------------------------------------------------------------------
+Last successfully joined domain setting
+-------------------------------------------------------------------------------
+Netbios:                                Kdc: 
+Domain:                                 Username: 
+
+administrator@cli> 
+2018-01-11 13:41:04: 
+Expect: domain setting should be listed by verbose mode
+
+2018-01-11 13:41:04: 'result': 'p'
+2018-01-11 13:41:04: domain
+===============================================================================
+ControllerId                            DomainStatus                           
+===============================================================================
+2                                       error                                  
+ 
+Not Joined into Domain mode
+ 
+-------------------------------------------------------------------------------
+Last successfully joined domain setting
+-------------------------------------------------------------------------------
+Netbios:                                Kdc: 
+Domain:                                 Username: 
+
+administrator@cli> 
+2018-01-11 13:41:00: 
+Expect: domain setting should be listed
+
+2018-01-11 11:11:26: 'result': 'f'
+2018-01-11 11:11:26: domain -a check -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2018-01-11 11:11:26: 
+Expect: Missing parameter
+
+2018-01-11 11:11:26: domain -a check
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a check'
+
+administrator@cli> 
+2018-01-11 11:11:26: 
+Expect: Missing parameter
+
+2018-01-11 11:11:26: domain -a enable -t od -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2018-01-11 11:11:26: 
+Expect: Missing parameter
+
+2018-01-11 11:11:26: domain -a enable -t ldap -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2018-01-11 11:11:26: 
+Expect: Missing parameter
+
+2018-01-11 11:11:26: domain -a enable -t ad 
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a enable'
+
+administrator@cli> 
+2018-01-11 11:11:26: 
+Expect: Missing parameter
+
+2018-01-11 11:11:26: domain -a enable -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2018-01-11 11:11:26: 
+Expect: Missing parameter
+
+2018-01-11 11:11:26: domain -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+2018-01-11 11:11:26: 
+Expect: Missing parameter
+
+2018-01-11 11:11:26: 
+Fail: domain -a enable -t od -s "domain=test.com,server=10.84.2.55,basedn='dc=test,dc=com',password=password"
+
+2018-01-11 11:11:26: domain -a enable -t od -s "domain=test.com,server=10.84.2.55,basedn='dc=test,dc=com',password=password"
+unexpected error
+please send service report to your administrator
+administrator@cli> 
+2018-01-11 11:11:26: 
+Expect: Missing parameter
+
+2018-01-11 11:11:26: 
+Fail: domain -a enable -t ldap -s "server=10.84.2.46,security=none, basedn='dc=test,dc=com', username=admin,password=password, usersuffix='ou=People', grpsuffix='ou=Group'"
+
+2018-01-11 11:11:26: domain -a enable -t ldap -s "server=10.84.2.46,security=none, basedn='dc=test,dc=com', username=admin,password=password, usersuffix='ou=People', grpsuffix='ou=Group'"
+unexpected error
+please send service report to your administrator
+administrator@cli> 
+2018-01-11 11:11:26: 
+Expect: Missing parameter
+
+2018-01-11 11:11:26: 
+Fail: domain -a enable -t ad -s "domain=2008ad.com,kdc=WIN-CC18N6QMNLL.2008AD.com, netbios=2008ad,password=test"
+
+2018-01-11 11:11:25: domain -a enable -t ad -s "domain=2008ad.com,kdc=WIN-CC18N6QMNLL.2008AD.com, netbios=2008ad,password=test"
+unexpected error
+please send service report to your administrator
+administrator@cli> 
+2018-01-11 11:11:25: 
+Expect: Missing parameter
+
+2018-01-11 11:11:25: 
+Fail: domain -a enable -t ad -s "domain=2008ad.com,kdc=WIN-CC18N6QMNLL.2008AD.com, netbios=2008ad,username=administrator"
+
+2018-01-11 11:11:25: domain -a enable -t ad -s "domain=2008ad.com,kdc=WIN-CC18N6QMNLL.2008AD.com, netbios=2008ad,username=administrator"
+unexpected error
+please send service report to your administrator
+administrator@cli> 
+2018-01-11 11:11:25: 
+Expect: Missing parameter
+
+2018-01-11 11:10:23: 'result': 'f'
+2018-01-11 11:10:23: domain -a check -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2018-01-11 11:10:23: 
+Expect: Missing parameter
+
+2018-01-11 11:10:23: domain -a check
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a check'
+
+administrator@cli> 
+2018-01-11 11:10:23: 
+Expect: Missing parameter
+
+2018-01-11 11:10:23: domain -a enable -t od -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2018-01-11 11:10:23: 
+Expect: Missing parameter
+
+2018-01-11 11:10:23: domain -a enable -t ldap -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2018-01-11 11:10:23: 
+Expect: Missing parameter
+
+2018-01-11 11:10:23: domain -a enable -t ad 
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a enable'
+
+administrator@cli> 
+2018-01-11 11:10:23: 
+Expect: Missing parameter
+
+2018-01-11 11:10:23: domain -a enable -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2018-01-11 11:10:23: 
+Expect: Missing parameter
+
+2018-01-11 11:10:23: domain -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+2018-01-11 11:10:23: 
+Expect: Missing parameter
+
+2018-01-11 11:10:23: 
+Fail: domain -a enable -t od -s "domain=test.com,server=10.84.2.55,basedn='dc=test,dc=com',password=password"
+
+2018-01-11 11:10:23: domain -a enable -t od -s "domain=test.com,server=10.84.2.55,basedn='dc=test,dc=com',password=password"
+unexpected error
+please send service report to your administrator
+administrator@cli> 
+2018-01-11 11:10:23: 
+Expect: Missing parameter
+
+2018-01-11 11:10:23: 
+Fail: domain -a enable -t ldap -s "server=10.84.2.46,security=none, basedn='dc=test,dc=com', username=admin,password=password, usersuffix='ou=People', grpsuffix='ou=Group'"
+
+2018-01-11 11:10:23: domain -a enable -t ldap -s "server=10.84.2.46,security=none, basedn='dc=test,dc=com', username=admin,password=password, usersuffix='ou=People', grpsuffix='ou=Group'"
+unexpected error
+please send service report to your administrator
+administrator@cli> 
+2018-01-11 11:10:23: 
+Expect: Missing parameter
+
+2018-01-11 11:10:23: 
+Fail: domain -a enable -t ad -s "domain=2008ad.com,kdc=WIN-CC18N6QMNLL.2008AD.com, netbios=2008ad,username=administrator"
+
+2018-01-11 11:10:23: domain -a enable -t ad -s "domain=2008ad.com,kdc=WIN-CC18N6QMNLL.2008AD.com, netbios=2008ad,username=administrator"
+unexpected error
+please send service report to your administrator
+administrator@cli> 
+2018-01-11 11:10:23: 
+Expect: Missing parameter
+
+2018-01-11 11:10:13: 'result': 'p'
+2018-01-11 11:10:13: domain -a refresh -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-11 11:10:13: 
+Expect: Invalid option for the command or the action
+
+2018-01-11 11:10:13: domain -a disable -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-11 11:10:13: 
+Expect: Invalid option for the command or the action
+
+2018-01-11 11:10:13: domain -a check -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-11 11:10:13: 
+Expect: Invalid option for the command or the action
+
+2018-01-11 11:10:13: domain -a enable -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-11 11:10:13: 
+Expect: Invalid option for the command or the action
+
+2018-01-11 11:10:13: domain -a -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-11 11:10:13: 
+Expect: Invalid option for the command or the action
+
+2018-01-11 11:10:13: domain -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-11 11:10:13: 
+Expect: Invalid option for the command or the action
+
+2018-01-11 11:09:41: 'result': 'f'
+2018-01-11 11:09:41: domain -a refresh test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-11 11:09:41: 
+Expect: Invalid setting parameters
+
+2018-01-11 11:09:41: domain -a disable test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-11 11:09:41: 
+Expect: Invalid setting parameters
+
+2018-01-11 11:09:41: domain -a check -t ldap -l "server=test,security=none,basedn=122"
+Error (0x4100104): Incorrect parameters: Invalid IP address format of [test]
+
+administrator@cli> 
+2018-01-11 11:09:41: 
+Expect: Invalid IP address
+
+2018-01-11 11:09:41: domain -a check -t ldap -l "server=10.84.2.71,security=test,basedn=122"
+Error (0x2013): Invalid setting parameters
+security: invalid setting test (none|tls|ssl)
+
+administrator@cli> 
+2018-01-11 11:09:41: 
+Expect: Invalid setting parameters
+
+2018-01-11 11:09:41: domain -a check -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (ad|ldap|od)
+
+administrator@cli> 
+2018-01-11 11:09:41: 
+Expect: Invalid setting parameters
+
+2018-01-11 11:09:41: 
+Fail: domain -a enable -t od -s "domain=test.com,server=test,basedn='dc=test,dc=com',username=administrator,password=password"
+
+2018-01-11 11:09:41: domain -a enable -t od -s "domain=test.com,server=test,basedn='dc=test,dc=com',username=administrator,password=password"
+unexpected error
+please send service report to your administrator
+administrator@cli> 
+2018-01-11 11:09:41: 
+Expect: Invalid IP address
+
+2018-01-11 11:09:41: domain -a enable -t ldap -s "domain=test.com,server=10.84.2.46,security=tset, basedn='dc=test,dc=com', username=admin,password=password, usersuffix='ou=People', grpsuffix='ou=Group'"
+Error (0x2013): Invalid setting parameters
+security: invalid setting tset (none|tls|ssl)
+
+administrator@cli> 
+2018-01-11 11:09:41: 
+Expect: Invalid setting parameters
+
+2018-01-11 11:09:41: domain -a enable -t ldap -s "domain=test.com,server=test,security=none, basedn='dc=test,dc=com', username=admin,password=password, usersuffix='ou=People', grpsuffix='ou=Group'"
+Error (0x4100104): Incorrect parameters: Invalid IP address format of [test]
+
+administrator@cli> 
+2018-01-11 11:09:41: 
+Expect: Invalid IP address
+
+2018-01-11 11:09:41: 
+Fail: please check out System DNS IP is invalid
+
+2018-01-11 11:09:41: domain -a enable -t ad -s "domain=test,kdc=WIN-CC18N6QMNLL.2008AD.com, netbios=2008ad,username=administrator,password=password"
+Error (0x4100104): Incorrect parameters: System DNS IP is empty. Please set it first.
+
+administrator@cli> 
+2018-01-11 11:09:41: 
+Expect: Incorrect parameters
+
+2018-01-11 11:09:41: domain -a enable -t test -s ""
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (ad|ldap|od)
+
+administrator@cli> 
+2018-01-11 11:09:41: 
+Expect: Invalid setting parameters
+
+2018-01-11 11:09:41: domain -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|enable|disable|refresh|check)
+
+administrator@cli> 
+2018-01-11 11:09:41: 
+Expect: Invalid setting parameters
+
+2018-01-11 11:09:41: domain test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-11 11:09:41: 
+Expect: Invalid setting parameters
+
+2018-01-11 10:23:28: 'result': 'p'
+2018-01-11 10:23:28: domain
+===============================================================================
+ControllerId                            DomainStatus                           
+===============================================================================
+2                                       error                                  
+ 
+Not Joined into Domain mode
+ 
+-------------------------------------------------------------------------------
+Last successfully joined domain setting
+-------------------------------------------------------------------------------
+Netbios:                                Kdc: 
+Domain:                                 Username: 
+
+administrator@cli> 
+2018-01-11 10:23:28: 
+Expect: domain setting should be listed
+
+2018-01-11 09:30:52: 'result': 'p'
+2018-01-11 09:30:52: quota -a refresh -d 0 -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2018-01-11 09:30:52: 
+Expect: Missing parameter
+
+2018-01-11 09:30:52: quota -a refresh -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+2018-01-11 09:30:52: 
+Expect: Missing parameter
+
+2018-01-11 09:30:52: quota -a refresh
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a refresh'
+
+administrator@cli> 
+2018-01-11 09:30:52: 
+Expect: Missing parameter
+
+2018-01-11 09:30:52: quota -a set -d 0 -t clone -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2018-01-11 09:30:52: 
+Expect: Missing parameter
+
+2018-01-11 09:30:52: quota -a set -d 0 -t clone
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a set'
+
+administrator@cli> 
+2018-01-11 09:30:52: 
+Expect: Missing parameter
+
+2018-01-11 09:30:52: quota -a set -d 0 -t nasshare -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2018-01-11 09:30:52: 
+Expect: Missing parameter
+
+2018-01-11 09:30:52: quota -a set -d 0 -t nasshare 
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a set'
+
+administrator@cli> 
+2018-01-11 09:30:52: 
+Expect: Missing parameter
+
+2018-01-11 09:30:52: quota -a set -d 0 -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2018-01-11 09:30:52: 
+Expect: Missing parameter
+
+2018-01-11 09:30:52: quota -a set -d 0 
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a set'
+
+administrator@cli> 
+2018-01-11 09:30:52: 
+Expect: Missing parameter
+
+2018-01-11 09:30:52: quota -a set -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+2018-01-11 09:30:52: 
+Expect: Missing parameter
+
+2018-01-11 09:30:52: quota -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+2018-01-11 09:30:52: 
+Expect: Missing parameter
+
+2018-01-11 09:30:52: quota -d 0 -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2018-01-11 09:30:52: 
+Expect: Missing parameter
+
+2018-01-11 09:30:52: quota -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+2018-01-11 09:30:52: 
+Expect: Missing parameter
+
 2018-01-11 09:19:50: 'result': 'p'
 2018-01-11 09:19:50: quota -t nasshare -d 0
 ===============================================================================

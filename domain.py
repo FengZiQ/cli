@@ -3,7 +3,6 @@
 
 from ssh_connect import ssh_conn
 from cli_test import *
-from remote import server
 
 data = 'data/domain.xlsx'
 
@@ -26,31 +25,9 @@ def list_domain_by_verbose_mode(c):
     return cli_list.FailFlag
 
 
-def enable_domain(c):
+def enable_refresh_check_disable(c):
 
-    cli_setting = cli_test_setting()
-
-    cli_setting.setting(c, data, 'enable_domain', 1)
-
-    return cli_setting.FailFlag
-
-
-def reset_domain(c):
-
-    cli_other_action = cli_test_other_action()
-
-    cli_other_action.other(c, data, 'reset_domain')
-
-    return cli_other_action.FailFlag
-
-
-def clear_domain(c):
-
-    cli_other_action = cli_test_other_action()
-
-    cli_other_action.other(c, data, 'clear_domain')
-
-    return cli_other_action.FailFlag
+    tolog('\r\nNeed manual test\r\n')
 
 
 def invalid_setting_for_domain(c):
@@ -85,9 +62,7 @@ if __name__ == "__main__":
 
     list_domain(c)
     list_domain_by_verbose_mode(c)
-    enable_domain(c)
-    reset_domain(c)
-    clear_domain(c)
+    enable_refresh_check_disable(c)
     invalid_setting_for_domain(c)
     invalid_option_for_domain(c)
     missing_parameter_for_domain(c)

@@ -57,7 +57,7 @@ def BuildVerification(c):
             tolog(result)
 
     if reconnectflag:
-        # there are 44 command that can be tested
+        # there are 46 command that can be tested
         tolog("Start verifying pool add")
         import pool
         if (pool.add_pool_raid0(c)):
@@ -944,6 +944,21 @@ def BuildVerification(c):
             FailCasesList.append('The case ' + tz.invalid_option_for_tz.__name__ + ' failed')
         if (tz.missing_parameter_for_tz(c)):
             FailCasesList.append('The case ' + tz.missing_parameter_for_tz.__name__ + ' failed')
+
+        tolog('Start verifying domain')
+        import domain
+        if (domain.list_domain(c)):
+            FailCasesList.append('The case ' + domain.list_domain.__name__ + ' failed')
+        if (domain.list_domain_by_verbose_mode(c)):
+            FailCasesList.append('The case ' + domain.list_domain_by_verbose_mode.__name__ + ' failed')
+        if (domain.enable_refresh_check_disable(c)):
+            FailCasesList.append('The case ' + domain.enable_refresh_check_disable.__name__ + ' failed')
+        if (domain.invalid_setting_for_domain(c)):
+            FailCasesList.append('The case ' + domain.invalid_setting_for_domain.__name__ + ' failed')
+        if (domain.invalid_option_for_domain(c)):
+            FailCasesList.append('The case ' + domain.invalid_option_for_domain.__name__ + ' failed')
+        if (domain.missing_parameter_for_domain(c)):
+            FailCasesList.append('The case ' + domain.missing_parameter_for_domain.__name__ + ' failed')
 
         tolog('Start verifying migrate')
         import migrate
