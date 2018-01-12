@@ -90,7 +90,7 @@ def online_offline_phydrv(c):
         pdId = find_pd_id()
         server.webapi('post', 'pool', {"name": "test_phy_2", "pds": pdId[:3], "raid_level": "raid5"})
 
-    except TypeError:
+    except (TypeError, IndexError):
 
         tolog('precondition is failed\r\n')
 
@@ -112,7 +112,7 @@ def clear_phydrv(c):
         server.webapi('post', 'pool', {"name": "test_phy_3", "pds": pdId[:3], "raid_level": "raid5"})
         server.webapi('post', 'spare', {"pd_id": pdId[4], "dedicated": 'global', "revertible": 0})
 
-    except TypeError:
+    except (TypeError, IndexError):
 
         tolog('precondition is failed\r\n')
 
@@ -132,7 +132,7 @@ def invalid_setting_parameter(c):
 
         find_pd_id()
 
-    except TypeError:
+    except (TypeError, IndexError):
 
         tolog('precondition is failed\r\n')
 
