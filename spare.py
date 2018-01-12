@@ -20,7 +20,7 @@ def add_global_spare(c):
         # create pool
         server.webapi('post', 'pool', {"name": "test_spare_pool", "pds": pdId[:3], "raid_level": "raid5"})
 
-    except TypeError:
+    except:
 
         tolog('precondition is failed\r\n')
 
@@ -40,7 +40,7 @@ def add_dedicated_spare(c):
 
         pdId = find_pd_id()
 
-    except TypeError:
+    except:
 
         tolog('precondition is failed\r\n')
 
@@ -57,20 +57,23 @@ def add_dedicated_spare(c):
 
 def list_spare(c):
     cli_list = cli_test_list()
+    try:
+        # precondition
+        pdId = find_pd_id()
 
-    # precondition
-    pdId = find_pd_id()
+        # create pool
+        server.webapi('post', 'pool', {"name": "test_spare_pool", "pds": pdId[:3], "raid_level": "raid5"})
 
-    # create pool
-    server.webapi('post', 'pool', {"name": "test_spare_pool", "pds": pdId[:3], "raid_level": "raid5"})
+        # create spare
+        server.webapi('post', 'spare', {"dedicated": 'global', "revertible": 0, "pool_list": [], "pd_id": pdId[3]})
+        server.webapi('post', 'spare', {"dedicated": 'dedicated', "revertible": 1, "pool_list": [0], "pd_id": pdId[5]})
+    except:
 
-    # create spare
-    server.webapi('post', 'spare', {"dedicated": 'global', "revertible": 0, "pool_list": [], "pd_id": pdId[3]})
-    server.webapi('post', 'spare', {"dedicated": 'dedicated', "revertible": 1, "pool_list": [0], "pd_id": pdId[5]})
+        tolog('precondition is failed\r\n')
+    else:
+        cli_list.list(c, data, 'list_spare')
 
-    cli_list.list(c, data, 'list_spare')
-
-    return cli_list.FailFlag
+        return cli_list.FailFlag
 
 
 def list_spare_by_verbose_mode(c):
@@ -100,7 +103,7 @@ def invalid_parameter_for_spare(c):
 
         pdId = find_pd_id()
 
-    except TypeError:
+    except:
 
         tolog('precondition is failed\r\n')
 
@@ -134,7 +137,7 @@ def missing_parameter_for_spare(c):
 
         find_pd_id()
 
-    except TypeError:
+    except:
 
         tolog('to clean up environment is failed\r\n')
 
