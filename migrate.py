@@ -68,6 +68,8 @@ def precondition_1():
                         'capacity': '10GB'
                     })
 
+                server.webapi('post', 'volume/' + str(i) + '/export')
+
             server.webapi('post', 'snapshot', {"name": "test_migrate1", "type": 'volume', "source_id": 2})
 
         return
@@ -220,13 +222,13 @@ if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
 
-    start_local_migrate(c)
+    # start_local_migrate(c)
     start_remote_migrate(c)
-    stop_migrate(c)
-    help_migrate(c)
-    invalid_setting_for_migrate(c)
-    invalid_option_for_migrate(c)
-    missing_parameter_migrate(c)
+    # stop_migrate(c)
+    # help_migrate(c)
+    # invalid_setting_for_migrate(c)
+    # invalid_option_for_migrate(c)
+    # missing_parameter_migrate(c)
 
     ssh.close()
     elasped = time.clock() - start

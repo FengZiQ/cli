@@ -1,3 +1,3785 @@
+2018-01-15 11:27:11: 'result': 'f'
+2018-01-15 11:27:11: 
+Fail: please check out specific volume not exists
+
+2018-01-15 11:27:11: volume -i 6 -v
+-------------------------------------------------------------------------------
+Id: 6                                   Name: T_migrate_vol_6
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: 8
+ExportedWWN: 225100015507ca7b           OperationalStatus: OK, Synchronizing
+TotalCapacity: 10 GB                    UsedCapacity: 10 GB
+PoolAvailableCapacity: 7.23 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 17:17:36
+PreferCtrlId: 2                         AdvType: 
+
+administrator@cli> 
+2018-01-15 11:27:00: volume -i 6 -v
+-------------------------------------------------------------------------------
+Id: 6                                   Name: T_migrate_vol_6
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: 8
+ExportedWWN: 225100015507ca7b           OperationalStatus: OK, Synchronizing
+TotalCapacity: 10 GB                    UsedCapacity: 10 GB
+PoolAvailableCapacity: 7.23 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 17:17:36
+PreferCtrlId: 2                         AdvType: 
+
+administrator@cli> 
+2018-01-15 11:27:00: 
+Expect: source volume should be delete
+
+2018-01-15 11:27:00: 
+Fail: migrate -a start -t remote -i 9 -p 0 -s "srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+2018-01-15 11:26:50: migrate -a start -t remote -i 9 -p 0 -s "srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+Error (0x4100999): Fail to execute this method.
+
+administrator@cli> 
+2018-01-15 11:26:49: 
+Expect: migrate of remote type should be started by default volues
+
+2018-01-15 11:26:49: 
+Fail: migrate -a start -t remote -i 8 -p 0 -s "syncmode=sync,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+2018-01-15 11:26:39: migrate -a start -t remote -i 8 -p 0 -s "syncmode=sync,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+Error (0x4100999): Fail to execute this method.
+
+administrator@cli> 
+2018-01-15 11:26:37: 
+Expect: migrate of remote type should be started by "syncmode=sync"
+
+2018-01-15 11:26:37: 
+Fail: migrate -a start -t remote -i 7 -p 0 -s "syncmode=semi-sync,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+2018-01-15 11:26:27: migrate -a start -t remote -i 7 -p 0 -s "syncmode=semi-sync,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+Error (0x4100999): Fail to execute this method.
+
+administrator@cli> 
+2018-01-15 11:26:26: 
+Expect: migrate of remote type should be started by "syncmode=semi-sync"
+
+2018-01-15 11:26:26: 
+Fail: migrate -a start -t remote -i 6 -p 0 -s "syncmode=async,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+2018-01-15 11:26:16: migrate -a start -t remote -i 6 -p 0 -s "syncmode=async,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+Error (0x4100999): Fail to execute this method.
+
+administrator@cli> 
+2018-01-15 11:26:14: 
+Expect: migrate of remote type should be started by "syncmode=async"
+
+2018-01-15 11:20:01: 'result': 'f'
+2018-01-15 11:20:01: 
+Fail: please check out No volume exists
+
+2018-01-15 11:20:01: volume -i 2 -v
+-------------------------------------------------------------------------------
+Id: 2                                   Name: T_migrate_vol_4_migrate
+PoolId: 0                               PoolName: T_migrate_0
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 10 GB                    UsedCapacity: 10 GB
+PoolAvailableCapacity: 96.22 GB         UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 2.37 GB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 17:18:13
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 29.2
+
+administrator@cli> 
+2018-01-15 11:19:51: volume -i 2 -v
+-------------------------------------------------------------------------------
+Id: 2                                   Name: T_migrate_vol_4_migrate
+PoolId: 0                               PoolName: T_migrate_0
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 10 GB                    UsedCapacity: 10 GB
+PoolAvailableCapacity: 96.22 GB         UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 255.33 MB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 17:18:13
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 21.4
+
+administrator@cli> 
+2018-01-15 11:19:51: 
+Expect: source volume should be delete
+
+2018-01-15 11:19:50: volume -i 5 -v
+-------------------------------------------------------------------------------
+Id: 5                                   Name: T_migrate_vol_5
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: 7
+ExportedWWN: 22c1000155e21834           OperationalStatus: OK, Synchronizing
+TotalCapacity: 10 GB                    UsedCapacity: 10 GB
+PoolAvailableCapacity: 7.21 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 17:17:35
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 5.9
+
+administrator@cli> 
+2018-01-15 11:19:40: migrate -a start -t local -i 5 -p 0
+
+administrator@cli> 
+2018-01-15 11:19:36: 
+Expect: migrate should be started by default volues
+
+2018-01-15 11:19:36: 
+Fail: please check out AdvProtocol: Sync
+
+2018-01-15 11:19:36: 
+Fail: please check out AdvMode: Active-Passive
+
+2018-01-15 11:19:36: 
+Fail: please check out AdvRole: Destination
+
+2018-01-15 11:19:36: 
+Fail: please check out AdvKind: Local
+
+2018-01-15 11:19:35: 
+Fail: please check out AdvType: Migration
+
+2018-01-15 11:19:34: 
+Fail: please check out Compress: off
+
+2018-01-15 11:19:34: 
+Fail: please check out Logbias: latency
+
+2018-01-15 11:19:34: 
+Fail: please check out SyncMode: standard
+
+2018-01-15 11:19:34: 
+Fail: please check out Sector: 512 Bytes
+
+2018-01-15 11:19:34: 
+Fail: please check out Block: 8 KB
+
+2018-01-15 11:19:34: volume -i 12 -v
+-i: specific volume not exists
+
+administrator@cli> 
+2018-01-15 11:19:23: migrate -a start -t local -i 4 -p 0 -s "syncmode=sync"
+
+administrator@cli> 
+2018-01-15 11:19:20: 
+Expect: migrate should be started by "syncmode=sync"
+
+2018-01-15 11:19:20: volume -i 11 -v
+-------------------------------------------------------------------------------
+Id: 11                                  Name: T_migrate_vol_3_migrate
+PoolId: 1                               PoolName: T_migrate_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 7.21 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 17:17:58
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Semi-Sync
+AdvStatus: Syncing                      AdvProgress: 64.5
+
+administrator@cli> 
+2018-01-15 11:19:10: migrate -a start -t local -i 3 -p 1 -s "syncmode=semi-sync"
+
+administrator@cli> 
+2018-01-15 11:19:05: 
+Expect: migrate should be started by "syncmode=semi-sync"
+
+2018-01-15 11:19:05: volume -i 10 -v
+-------------------------------------------------------------------------------
+Id: 10                                  Name: T_migrate_vol_2_migrate
+PoolId: 1                               PoolName: T_migrate_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 7.21 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 17:17:41
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Async
+AdvStatus: Syncing                      AdvProgress: 73.7
+
+administrator@cli> 
+2018-01-15 11:18:55: migrate -a start -t local -i 2 -p 1 -s "syncmode=async"
+
+administrator@cli> 
+2018-01-15 11:18:49: 
+Expect: migrate should be started by "syncmode=async"
+
+2018-01-15 11:16:59: 'result': 'p'
+2018-01-15 11:16:59: replication -a resume -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-15 11:16:59: 
+Expect: Missing parameter
+
+2018-01-15 11:16:59: replication -a resume
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a resume'
+
+administrator@cli> 
+2018-01-15 11:16:59: 
+Expect: Missing parameter
+
+2018-01-15 11:16:59: replication -a pause -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-15 11:16:59: 
+Expect: Missing parameter
+
+2018-01-15 11:16:59: replication -a pause
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a pause'
+
+administrator@cli> 
+2018-01-15 11:16:59: 
+Expect: Missing parameter
+
+2018-01-15 11:16:59: replication -a stop -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-15 11:16:59: 
+Expect: Missing parameter
+
+2018-01-15 11:16:59: replication -a stop
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a stop'
+
+administrator@cli> 
+2018-01-15 11:16:59: 
+Expect: Missing parameter
+
+2018-01-15 11:16:59: replication -a start -i 0 -p 2 -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2018-01-15 11:16:59: 
+Expect: Missing parameter
+
+2018-01-15 11:16:59: replication -a start -i 1 -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2018-01-15 11:16:59: 
+Expect: Missing parameter
+
+2018-01-15 11:16:59: replication -a start -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-15 11:16:59: 
+Expect: Missing parameter
+
+2018-01-15 11:16:59: replication -a start
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a start'
+
+administrator@cli> 
+2018-01-15 11:16:59: 
+Expect: Missing parameter
+
+2018-01-15 11:16:59: replication -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+2018-01-15 11:16:59: 
+Expect: Missing parameter
+
+2018-01-15 11:16:59: 'result': 'p'
+2018-01-15 11:16:59: replication -a resume -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-15 11:16:59: 
+Expect: invalid option: -test
+
+2018-01-15 11:16:59: replication -a pause -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-15 11:16:59: 
+Expect: invalid option: -test
+
+2018-01-15 11:16:59: replication -a stop -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-15 11:16:59: 
+Expect: invalid option: -test
+
+2018-01-15 11:16:59: replication -a start -i 0 -p 1 -s "name=test,test=sync"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+2018-01-15 11:16:59: 
+Expect: invalid option: test
+
+2018-01-15 11:16:59: replication -a start -i 0 -p 1 -s "test=test,syncmode=test"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+2018-01-15 11:16:59: 
+Expect: invalid option: test
+
+2018-01-15 11:16:59: replication -a start -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-15 11:16:59: 
+Expect: invalid option: -test
+
+2018-01-15 11:16:59: replication -a -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-15 11:16:59: 
+Expect: invalid option: -test
+
+2018-01-15 11:16:59: replication -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-15 11:16:59: 
+Expect: invalid option: -test
+
+2018-01-15 11:16:59: 'result': 'f'
+2018-01-15 11:16:59: replication -a resume -i 20
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[20] is not existed.
+
+administrator@cli> 
+2018-01-15 11:16:58: 
+Expect: Volume id=[20] is not existed
+
+2018-01-15 11:16:58: replication -a resume -i 9
+Error (0x4100104): Incorrect parameters: Only source Volume can be resumed.
+
+administrator@cli> 
+2018-01-15 11:16:57: 
+Expect: Invalid setting parameters
+
+2018-01-15 11:16:57: replication -a resume -i 4
+Error (0x4100104): Incorrect parameters: This replication is not paused.
+
+administrator@cli> 
+2018-01-15 11:16:57: 
+Expect: should hint replication doesn't pause
+
+2018-01-15 11:16:57: replication -a resume -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2018-01-15 11:16:57: 
+Expect: Invalid setting parameters
+
+2018-01-15 11:16:57: replication -a pause -i 20
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[20] is not existed.
+
+administrator@cli> 
+2018-01-15 11:16:56: 
+Expect: Volume id=[20] is not existed
+
+2018-01-15 11:16:56: replication -a pause -i 9
+Error (0x4100104): Incorrect parameters: Only source Volume can be paused.
+
+administrator@cli> 
+2018-01-15 11:16:55: 
+Expect: replication should not pause by destination volume
+
+2018-01-15 11:16:55: replication -a pause -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2018-01-15 11:16:55: 
+Expect: Invalid setting parameters
+
+2018-01-15 11:16:55: replication -a stop -i 20
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[20] is not existed.
+
+administrator@cli> 
+2018-01-15 11:16:55: 
+Expect: Volume id=[20] is not existed
+
+2018-01-15 11:16:55: 
+Fail: replication -a stop -i 9
+
+2018-01-15 11:16:55: replication -a stop -i 9
+
+administrator@cli> 
+2018-01-15 11:16:54: 
+Expect: replication should not stop by destination volume
+
+2018-01-15 11:16:54: replication -a stop -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2018-01-15 11:16:53: 
+Expect: Invalid setting parameters
+
+2018-01-15 11:16:53: replication -a start -i 0 -p 1 -s "name=test,syncmode=test"
+Error (0x2013): Invalid setting parameters
+syncmode: invalid setting test (async|semi-sync|sync)
+
+administrator@cli> 
+2018-01-15 11:16:53: 
+Expect: should hint error when specify wrong sync mode
+
+2018-01-15 11:16:53: replication -a start -i 0 -p 1 -s "name=test_test_test_test_test_test_033"
+Error (0x2014): Setting parameters too long
+name shall not exceed 32 characters
+
+administrator@cli> 
+2018-01-15 11:16:53: 
+Expect: should hint error when name shall not exceed 32 characters
+
+2018-01-15 11:16:53: replication -a start -i 0 -p 1 -s "name=t*&"
+Error (0x2013): Invalid setting parameters
+name contain only alphanumeric characters and underscores
+
+administrator@cli> 
+2018-01-15 11:16:53: 
+Expect: name contain only alphanumeric characters and underscores
+
+2018-01-15 11:16:53: replication -a start -i 0 -p 1 -s "name="
+Error (0x2013): Invalid setting parameters
+name contain only alphanumeric characters and underscores
+
+administrator@cli> 
+2018-01-15 11:16:53: 
+Expect: name contain only alphanumeric characters and underscores
+
+2018-01-15 11:16:53: replication -a start -i 0 -p 2 -s "name=test_thin"
+Error (0x4100104): Incorrect parameters: Can not replicate Volume to the same Pool.
+
+administrator@cli> 
+2018-01-15 11:16:53: 
+Expect: Can not replicate Volume to the same Pool
+
+2018-01-15 11:16:53: replication -a start -i 1 -p 0 -s "name=test_thin"
+Error (0x4100104): Incorrect parameters: Volume is not full-provision.
+
+administrator@cli> 
+2018-01-15 11:16:53: 
+Expect: thin provision volume cannot become source volume
+
+2018-01-15 11:16:53: replication -a start -i 0 -p 10 -s "name=test_thin"
+Error (0x4100102): Empty query result, please check input parameters. Pool id=[10] is not existed.
+
+administrator@cli> 
+2018-01-15 11:16:52: 
+Expect: specify nonexistent destination pool
+
+2018-01-15 11:16:52: replication -a start -i 100 -p 0 -s "name=test_thin"
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[100] is not existed.
+
+administrator@cli> 
+2018-01-15 11:16:51: 
+Expect: specify nonexistent source volume
+
+2018-01-15 11:16:51: replication -a start -i 0 -p 3 -s "name=test_capacity"
+Error (0x4100104): Incorrect parameters: Destination Pool availiable size is not enough.
+
+administrator@cli> 
+2018-01-15 11:16:51: 
+Expect: destination pool capacity should be more than soure volume
+
+2018-01-15 11:16:51: replication -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|start|stop|pause|resume)
+
+administrator@cli> 
+2018-01-15 11:16:51: 
+Expect: Invalid setting parameters
+
+2018-01-15 11:16:51: replication test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-15 11:16:51: 
+Expect: Invalid setting parameters
+
+2018-01-15 11:16:51: 'result': 'p'
+2018-01-15 11:16:51: replication -h
+replication
+
+Usage:
+   replication [-a <action>] [-i <ID>] [-p <pool ID>] [-s <settings>]
+
+Summary:
+   The replication command allows the user to replicate volume into another
+   pool.
+   Only with thin-provision disabled volume can be used to replicate. During
+   replication in progress, source volume cannot be expanded or removed;
+   destination volume disallowed to do any operations.
+
+Options:
+
+-a <action>           Which action to perform.
+   list               (Default) Displays the replication status.
+   start              Start a specific replication status.
+   stop               Stop the replication
+   pause              Pause the replication
+   resume             Resume a paused replication
+
+-i <ID>               Source volume ID.
+
+-p <pool id>          Destination pool ID.
+                      Only valid for -a add specified
+
+-s "<option>=<value>"
+                      Used to specify replication settings.
+                      Only valid for -a add specified
+
+   name=              Destination volume name
+
+   syncmode=          sync mode method
+     async
+     semi-sync
+     sync             (Default)
+
+-v                    Verbose mode.  Used with -a list.
+
+Examples:
+   replication -a list
+   replication -a start -i 1 -p 0 -s "name=test, syncmode=async"
+   replication -a stop -i 2
+   replication -a pause -i i
+   replication -a resume -i 1
+Type ' | grep "word1,word2,..."' at the end of each command, to display 
+filtered info.
+
+administrator@cli> 
+2018-01-15 11:16:51: 
+Expect: replication help document should be displayed
+
+2018-01-15 11:16:51: 'result': 'p'
+2018-01-15 11:16:51: replication
+===============================================================================
+SrcVol         DestVol        Location  TotalCap  UsedCap   Status         
+===============================================================================
+T_replication_ t2             Local     4 GB      4 GB      Warning            
+vol_3                                                                          
+T_replication_ test_Test_Test Local     1 GB      1 GB      OK                 
+vol_5          _Test_Test_Tes                                                  
+               t_32                                                            
+T_replication_ test_Test_Test Local     1 GB      1 GB      OK                 
+vol_4          _Test_Test_Tes                                                  
+               t31                                                             
+
+administrator@cli> 
+2018-01-15 11:16:49: replication -a resume -i 3
+
+administrator@cli> 
+2018-01-15 11:16:49: 
+Expect: replication should be resumed
+
+2018-01-15 11:16:49: 'result': 'p'
+2018-01-15 11:16:49: replication
+===============================================================================
+SrcVol         DestVol        Location  TotalCap  UsedCap   Status         
+===============================================================================
+T_replication_ t2             Local     4 GB      4 GB      Pause              
+vol_3                                                                          
+T_replication_ test_Test_Test Local     1 GB      1 GB      OK                 
+vol_5          _Test_Test_Tes                                                  
+               t_32                                                            
+T_replication_ test_Test_Test Local     1 GB      1 GB      OK                 
+vol_4          _Test_Test_Tes                                                  
+               t31                                                             
+
+administrator@cli> 
+2018-01-15 11:16:47: replication -a pause -i 3
+
+administrator@cli> 
+2018-01-15 11:16:45: 
+Expect: replication should be paused by source volume
+
+2018-01-15 11:16:45: 'result': 'p'
+2018-01-15 11:16:45: volume -v -i 6
+-------------------------------------------------------------------------------
+Id: 6                                   Name: T
+PoolId: 1                               PoolName: T_replication_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 4 GB                     UsedCapacity: 4 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 17:14:51
+PreferCtrlId: 2                         AdvType: 
+
+administrator@cli> 
+2018-01-15 11:16:44: replication -a stop -i 2
+
+administrator@cli> 
+2018-01-15 11:16:41: 
+Expect: specific replication should be stopped
+
+2018-01-15 11:16:41: 'result': 'p'
+2018-01-15 11:16:41: replication -a list -v
+-------------------------------------------------------------------------------
+Location: Local                         Role: Destination
+Mode: Active-Passive                    SyncMode: Semi-Sync
+Status: Syncing                         Description: Syncing.
+Progress: 59.5                          SourceVolumeId: 3
+SourceVolumeName: T_replication_vol_3   SourcePoolName: T_replication_0
+SourcePortalIP: 10.128.0.2              DestinationVolumeId: 7
+DestinationVolumeName: t2               DestinationPoolName: T_replication_1
+DestinationPortalIP: 10.128.0.2         Enable: 1
+Period: 0                               TotalCapacity: 4 GB
+UsedCapacity: 4 GB
+-------------------------------------------------------------------------------
+Location: Local                         Role: Destination
+Mode: Active-Passive                    SyncMode: Async
+Status: Syncing                         Description: Syncing.
+Progress: 81.3                          SourceVolumeId: 2
+SourceVolumeName: T_replication_vol_2   SourcePoolName: T_replication_0
+SourcePortalIP: 10.128.0.2              DestinationVolumeId: 6
+DestinationVolumeName: T                DestinationPoolName: T_replication_1
+DestinationPortalIP: 10.128.0.2         Enable: 1
+Period: 0                               TotalCapacity: 4 GB
+UsedCapacity: 4 GB
+-------------------------------------------------------------------------------
+Location: Local                         Role: Source
+Mode: Active-Passive                    SyncMode: Sync
+Status: Syncing                         Description: Syncing.
+Progress: 89.6                          SourceVolumeId: 5
+SourceVolumeName: T_replication_vol_5   SourcePoolName: T_replication_1
+SourcePortalIP: 10.128.0.2              DestinationVolumeId: 9
+DestinationVolumeName: test_Test_Test_Test_Test_Test_32
+DestinationPoolName: T_replication_0    DestinationPortalIP: 10.128.0.2
+Enable: 1                               Period: 0
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+-------------------------------------------------------------------------------
+Location: Local                         Role: Source
+Mode: Active-Passive                    SyncMode: Sync
+Status: OK                              Description: Ready.
+Progress: 100.0                         SourceVolumeId: 4
+SourceVolumeName: T_replication_vol_4   SourcePoolName: T_replication_1
+SourcePortalIP: 10.128.0.2              DestinationVolumeId: 8
+DestinationVolumeName: test_Test_Test_Test_Test_Test31
+DestinationPoolName: T_replication_0    DestinationPortalIP: 10.128.0.2
+Enable: 1                               Period: 0
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+
+administrator@cli> 
+2018-01-15 11:16:41: 
+Expect: all of replication should be listed by verbose mode
+
+2018-01-15 11:16:41: 'result': 'p'
+2018-01-15 11:16:41: replication
+===============================================================================
+SrcVol         DestVol        Location  TotalCap  UsedCap   Status         
+===============================================================================
+T_replication_ t2             Local     4 GB      4 GB      Syncing            
+vol_3                                                                          
+T_replication_ T              Local     4 GB      4 GB      Syncing            
+vol_2                                                                          
+T_replication_ test_Test_Test Local     1 GB      1 GB      Syncing            
+vol_5          _Test_Test_Tes                                                  
+               t_32                                                            
+T_replication_ test_Test_Test Local     1 GB      1 GB      OK                 
+vol_4          _Test_Test_Tes                                                  
+               t31                                                             
+
+administrator@cli> 
+2018-01-15 11:16:41: 
+Expect: all of replication should be listed
+
+2018-01-15 11:16:41: 'result': 'f'
+2018-01-15 11:16:41: pool -a del -i 0 -f -y
+Error (0x4100104): Incorrect parameters: There are replication or migration Volume in the Pool.
+
+administrator@cli> 
+2018-01-15 11:16:40: 
+Expect: destination pool should not be deleted
+
+2018-01-15 11:16:40: pool -a del -i 1 -f -y
+Error (0x4100104): Incorrect parameters: There are replication or migration Volume in the Pool.
+
+administrator@cli> 
+2018-01-15 11:16:39: 
+Expect: source pool should not be deleted
+
+2018-01-15 11:16:39: volume -a del -i 2
+Error (0x4100104): Incorrect parameters: Volume is replication or migration Volume.
+
+administrator@cli> 
+2018-01-15 11:16:39: 
+Expect: source volume should not be deleted
+
+2018-01-15 11:16:39: volume -a mod -i 2 -s "capacity=5GB"
+Error (0x4100104): Incorrect parameters: Volume is replication or migration Volume.
+
+administrator@cli> 
+2018-01-15 11:16:37: 
+Expect: source volume should not be expanded
+
+2018-01-15 11:16:37: volume -a del -i 6
+Error (0x4100104): Incorrect parameters: Volume is replication or migration Volume.
+
+administrator@cli> 
+2018-01-15 11:16:37: 
+Expect: destination volume should not be deleted
+
+2018-01-15 11:16:37: lunmap -a add -p volume -i 0 -l 6 -m 2
+Error (0x402): Invalid parameter
+The volume/snapshot/clone is un-exported
+
+administrator@cli> 
+2018-01-15 11:16:37: 
+Expect: destination volume should not be added for lunmap
+
+2018-01-15 11:16:37: snapshot -a add -t volume -d 6 -s "name=test_replica"
+Error (0x4100104): Incorrect parameters: Destination volume of replication or migration cannot create snapshot.
+
+administrator@cli> 
+2018-01-15 11:16:35: 
+Expect: destination volume should not create snapshot
+
+2018-01-15 11:16:35: volume -a mod -i 6 -s "name=no_way"
+Error (0x4100104): Incorrect parameters: Volume is replication or migration Volume.
+
+administrator@cli> 
+2018-01-15 11:16:35: 
+Expect: destination volume should not be modified
+
+2018-01-15 11:16:35: volume -a mod -i 6 -s "capacity=6GB"
+Error (0x4100104): Incorrect parameters: Volume is replication or migration Volume.
+
+administrator@cli> 
+2018-01-15 11:16:33: 
+Expect: destination volume should not be expanded
+
+2018-01-15 11:16:33: 
+Fail: please check out Volume is replication or migration Volume
+
+2018-01-15 11:16:33: volume -a export -i 6
+Error (0x4100104): Incorrect parameters: Destination volume of replication in Active_Passive mode cannot be exported.
+
+administrator@cli> 
+2018-01-15 11:16:31: 
+Expect: destination volume should not be exported
+
+2018-01-15 11:16:31: replication -a start -i 0 -p 0 -s "name=firth_replica"
+Error (0x4100104): Incorrect parameters: Support maximum 4 local replication!
+
+administrator@cli> 
+2018-01-15 11:16:31: 
+Expect: Max 4 pairs of replication
+
+2018-01-15 11:16:30: 'result': 'p'
+2018-01-15 11:16:30: volume -i 5 -v
+-------------------------------------------------------------------------------
+Id: 5                                   Name: T_replication_vol_5
+PoolId: 1                               PoolName: T_replication_1
+Status: Exported                        ExportedId: 7
+ExportedWWN: 22540001553b77b0           OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 17:14:50
+PreferCtrlId: 2                         AdvType: Replication
+AdvKind: Local                          AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 3.0
+
+administrator@cli> 
+2018-01-15 11:16:27: replication -a start -i 5 -p 0 -s "name=test_Test_Test_Test_Test_Test_32"
+
+administrator@cli> 
+2018-01-15 11:16:23: 
+Expect: replication should be started by "name=test_Test_Test_Test_Test_Test_32"
+
+2018-01-15 11:16:23: volume -i 8 -v
+-------------------------------------------------------------------------------
+Id: 8                                   Name: test_Test_Test_Test_Test_Test31
+PoolId: 0                               PoolName: T_replication_0
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 107.22 GB        UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 17:15:09
+PreferCtrlId: 2                         AdvType: Replication
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 8.0
+
+administrator@cli> 
+2018-01-15 11:16:19: replication -a start -i 4 -p 0 -s "name=test_Test_Test_Test_Test_Test31, syncmode=sync"
+
+administrator@cli> 
+2018-01-15 11:16:16: 
+Expect: replication should be started by "name=test_Test_Test_Test_Test_Test31, syncmode=sync"
+
+2018-01-15 11:16:16: volume -i 7 -v
+-------------------------------------------------------------------------------
+Id: 7                                   Name: t2
+PoolId: 1                               PoolName: T_replication_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 4 GB                     UsedCapacity: 4 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 17:15:01
+PreferCtrlId: 2                         AdvType: Replication
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Semi-Sync
+AdvStatus: Syncing                      AdvProgress: 1.1
+
+administrator@cli> 
+2018-01-15 11:16:13: replication -a start -i 3 -p 1 -s "name=t2, syncmode=semi-sync"
+
+administrator@cli> 
+2018-01-15 11:16:09: 
+Expect: replication should be started by "name=t2, syncmode=semi-sync"
+
+2018-01-15 11:16:09: volume -i 6 -v
+-------------------------------------------------------------------------------
+Id: 6                                   Name: T
+PoolId: 1                               PoolName: T_replication_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 4 GB                     UsedCapacity: 4 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 17:14:51
+PreferCtrlId: 2                         AdvType: Replication
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Async
+AdvStatus: Syncing                      AdvProgress: 3.1
+
+administrator@cli> 
+2018-01-15 11:16:05: replication -a start -i 2 -p 1 -s "name=T, syncmode=async"
+
+administrator@cli> 
+2018-01-15 11:15:59: 
+Expect: replication should be started by "name=T, syncmode=async"
+
+2018-01-15 10:58:15: 'result': 'p'
+2018-01-15 10:58:15: replication -a resume -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-15 10:58:15: 
+Expect: Missing parameter
+
+2018-01-15 10:58:15: replication -a resume
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a resume'
+
+administrator@cli> 
+2018-01-15 10:58:15: 
+Expect: Missing parameter
+
+2018-01-15 10:58:15: replication -a pause -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-15 10:58:15: 
+Expect: Missing parameter
+
+2018-01-15 10:58:15: replication -a pause
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a pause'
+
+administrator@cli> 
+2018-01-15 10:58:15: 
+Expect: Missing parameter
+
+2018-01-15 10:58:15: replication -a stop -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-15 10:58:15: 
+Expect: Missing parameter
+
+2018-01-15 10:58:15: replication -a stop
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a stop'
+
+administrator@cli> 
+2018-01-15 10:58:15: 
+Expect: Missing parameter
+
+2018-01-15 10:58:15: replication -a start -i 0 -p 2 -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2018-01-15 10:58:15: 
+Expect: Missing parameter
+
+2018-01-15 10:58:15: replication -a start -i 1 -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2018-01-15 10:58:15: 
+Expect: Missing parameter
+
+2018-01-15 10:58:15: replication -a start -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-15 10:58:15: 
+Expect: Missing parameter
+
+2018-01-15 10:58:15: replication -a start
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a start'
+
+administrator@cli> 
+2018-01-15 10:58:15: 
+Expect: Missing parameter
+
+2018-01-15 10:58:15: replication -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+2018-01-15 10:58:15: 
+Expect: Missing parameter
+
+2018-01-15 10:47:44: 'result': 'p'
+2018-01-15 10:47:44: volume -i 5 -v
+-------------------------------------------------------------------------------
+Id: 5                                   Name: T_replication_vol_5
+PoolId: 1                               PoolName: T_replication_1
+Status: Exported                        ExportedId: 6
+ExportedWWN: 22ad00015559cf17           OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 16:46:05
+PreferCtrlId: 2                         AdvType: Replication
+AdvKind: Local                          AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 3.0
+
+administrator@cli> 
+2018-01-15 10:47:41: replication -a start -i 5 -p 0 -s "name=test_Test_Test_Test_Test_Test_32"
+
+administrator@cli> 
+2018-01-15 10:47:37: 
+Expect: replication should be started by "name=test_Test_Test_Test_Test_Test_32"
+
+2018-01-15 10:47:37: volume -i 8 -v
+-------------------------------------------------------------------------------
+Id: 8                                   Name: test_Test_Test_Test_Test_Test31
+PoolId: 0                               PoolName: T_replication_0
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 107.22 GB        UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 16:46:23
+PreferCtrlId: 2                         AdvType: Replication
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 9.3
+
+administrator@cli> 
+2018-01-15 10:47:34: replication -a start -i 4 -p 0 -s "name=test_Test_Test_Test_Test_Test31, syncmode=sync"
+
+administrator@cli> 
+2018-01-15 10:47:31: 
+Expect: replication should be started by "name=test_Test_Test_Test_Test_Test31, syncmode=sync"
+
+2018-01-15 10:47:31: volume -i 7 -v
+-------------------------------------------------------------------------------
+Id: 7                                   Name: t2
+PoolId: 1                               PoolName: T_replication_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 4 GB                     UsedCapacity: 4 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 16:46:16
+PreferCtrlId: 2                         AdvType: Replication
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Semi-Sync
+AdvStatus: Syncing                      AdvProgress: 1.5
+
+administrator@cli> 
+2018-01-15 10:47:28: replication -a start -i 3 -p 1 -s "name=t2, syncmode=semi-sync"
+
+administrator@cli> 
+2018-01-15 10:47:24: 
+Expect: replication should be started by "name=t2, syncmode=semi-sync"
+
+2018-01-15 10:47:24: volume -i 6 -v
+-------------------------------------------------------------------------------
+Id: 6                                   Name: T
+PoolId: 1                               PoolName: T_replication_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 4 GB                     UsedCapacity: 4 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 16:46:05
+PreferCtrlId: 2                         AdvType: Replication
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Async
+AdvStatus: Syncing                      AdvProgress: 3.6
+
+administrator@cli> 
+2018-01-15 10:47:21: replication -a start -i 2 -p 1 -s "name=T, syncmode=async"
+
+administrator@cli> 
+2018-01-15 10:47:13: 
+Expect: replication should be started by "name=T, syncmode=async"
+
+2018-01-15 10:27:31: 'result': 'f'
+2018-01-15 10:27:31: 
+Fail: please check out No volume exists
+
+2018-01-15 10:27:31: volume -i 2 -v
+-------------------------------------------------------------------------------
+Id: 2                                   Name: T_migrate_vol_4_migrate
+PoolId: 0                               PoolName: T_migrate_0
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 10 GB                    UsedCapacity: 10 GB
+PoolAvailableCapacity: 96.22 GB         UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 1.42 GB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 16:25:43
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 28.4
+
+administrator@cli> 
+2018-01-15 10:27:20: volume -i 2 -v
+-------------------------------------------------------------------------------
+Id: 2                                   Name: T_migrate_vol_4_migrate
+PoolId: 0                               PoolName: T_migrate_0
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 10 GB                    UsedCapacity: 10 GB
+PoolAvailableCapacity: 96.22 GB         UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 1.42 GB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 16:25:43
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 19.8
+
+administrator@cli> 
+2018-01-15 10:27:20: 
+Expect: source volume should be delete
+
+2018-01-15 10:27:20: volume -i 5 -v
+-------------------------------------------------------------------------------
+Id: 5                                   Name: T_migrate_vol_5
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: -1
+ExportedWWN: 229d0001559a90fb           OperationalStatus: OK, Synchronizing
+TotalCapacity: 10 GB                    UsedCapacity: 10 GB
+PoolAvailableCapacity: 7.21 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 16:25:06
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 5.4
+
+administrator@cli> 
+2018-01-15 10:27:09: migrate -a start -t local -i 5 -p 0
+
+administrator@cli> 
+2018-01-15 10:27:06: 
+Expect: migrate should be started by default volues
+
+2018-01-15 10:27:06: 
+Fail: please check out AdvProtocol: Sync
+
+2018-01-15 10:27:06: 
+Fail: please check out AdvMode: Active-Passive
+
+2018-01-15 10:27:06: 
+Fail: please check out AdvRole: Destination
+
+2018-01-15 10:27:06: 
+Fail: please check out AdvKind: Local
+
+2018-01-15 10:27:06: 
+Fail: please check out AdvType: Migration
+
+2018-01-15 10:27:06: 
+Fail: please check out Compress: off
+
+2018-01-15 10:27:06: 
+Fail: please check out Logbias: latency
+
+2018-01-15 10:27:06: 
+Fail: please check out SyncMode: standard
+
+2018-01-15 10:27:05: 
+Fail: please check out Sector: 512 Bytes
+
+2018-01-15 10:27:05: 
+Fail: please check out Block: 8 KB
+
+2018-01-15 10:27:05: volume -i 12 -v
+-i: specific volume not exists
+
+administrator@cli> 
+2018-01-15 10:26:55: migrate -a start -t local -i 4 -p 0 -s "syncmode=sync"
+
+administrator@cli> 
+2018-01-15 10:26:51: 
+Expect: migrate should be started by "syncmode=sync"
+
+2018-01-15 10:26:51: volume -i 11 -v
+-------------------------------------------------------------------------------
+Id: 11                                  Name: T_migrate_vol_3_migrate
+PoolId: 1                               PoolName: T_migrate_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 7.21 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 16:25:29
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Semi-Sync
+AdvStatus: Syncing                      AdvProgress: 46.9
+
+administrator@cli> 
+2018-01-15 10:26:41: migrate -a start -t local -i 3 -p 1 -s "syncmode=semi-sync"
+
+administrator@cli> 
+2018-01-15 10:26:37: 
+Expect: migrate should be started by "syncmode=semi-sync"
+
+2018-01-15 10:26:37: volume -i 10 -v
+-------------------------------------------------------------------------------
+Id: 10                                  Name: T_migrate_vol_2_migrate
+PoolId: 1                               PoolName: T_migrate_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 7.21 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 16:25:12
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Async
+AdvStatus: Syncing                      AdvProgress: 85.4
+
+administrator@cli> 
+2018-01-15 10:26:27: migrate -a start -t local -i 2 -p 1 -s "syncmode=async"
+
+administrator@cli> 
+2018-01-15 10:26:20: 
+Expect: migrate should be started by "syncmode=async"
+
+2018-01-15 10:22:57: 'result': 'f'
+2018-01-15 10:22:57: 
+Fail: please check out No volume exists
+
+2018-01-15 10:22:57: volume -i 2 -v
+-------------------------------------------------------------------------------
+Id: 2                                   Name: T_migrate_vol_5_migrate
+PoolId: 0                               PoolName: T_migrate_0
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 10 GB                    UsedCapacity: 10 GB
+PoolAvailableCapacity: 106.22 GB        UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 87.22 MB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 16:21:22
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 14.4
+
+administrator@cli> 
+2018-01-15 10:22:47: volume -i 2 -v
+-------------------------------------------------------------------------------
+Id: 2                                   Name: T_migrate_vol_5_migrate
+PoolId: 0                               PoolName: T_migrate_0
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 10 GB                    UsedCapacity: 10 GB
+PoolAvailableCapacity: 106.22 GB        UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 87.22 MB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 16:21:22
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 4.9
+
+administrator@cli> 
+2018-01-15 10:22:47: 
+Expect: source volume should be delete
+
+2018-01-15 10:22:47: volume -i 5 -v
+-------------------------------------------------------------------------------
+Id: 5                                   Name: T_migrate_vol_5
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: -1
+ExportedWWN: 22b10001550601a3           OperationalStatus: OK, Synchronizing
+TotalCapacity: 10 GB                    UsedCapacity: 10 GB
+PoolAvailableCapacity: 7.21 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 16:20:33
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 4.9
+
+administrator@cli> 
+2018-01-15 10:22:37: migrate -a start -t local -i 5 -p 0
+
+administrator@cli> 
+2018-01-15 10:22:29: 
+Expect: migrate should be started by default volues
+
+2018-01-15 10:22:29: 
+Fail: migrate -a start -t local -i 4 -p 0 -s "syncmode=sync"
+
+2018-01-15 10:22:19: migrate -a start -t local -i 4 -p 0 -s "syncmode=sync"
+Error (0x4100104): Incorrect parameters: Only exported volume can be migrated.
+
+administrator@cli> 
+2018-01-15 10:22:19: 
+Expect: migrate should be started by "syncmode=sync"
+
+2018-01-15 10:22:19: volume -i 11 -v
+-------------------------------------------------------------------------------
+Id: 11                                  Name: T_migrate_vol_3_migrate
+PoolId: 1                               PoolName: T_migrate_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 7.21 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 16:20:55
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Semi-Sync
+AdvStatus: Processing                   AdvProgress: 0.0
+
+administrator@cli> 
+2018-01-15 10:22:09: migrate -a start -t local -i 3 -p 1 -s "syncmode=semi-sync"
+
+administrator@cli> 
+2018-01-15 10:22:03: 
+Expect: migrate should be started by "syncmode=semi-sync"
+
+2018-01-15 10:22:03: volume -i 10 -v
+-------------------------------------------------------------------------------
+Id: 10                                  Name: T_migrate_vol_2_migrate
+PoolId: 1                               PoolName: T_migrate_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 7.21 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 16:20:37
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Async
+AdvStatus: Syncing                      AdvProgress: 85.4
+
+administrator@cli> 
+2018-01-15 10:21:53: migrate -a start -t local -i 2 -p 1 -s "syncmode=async"
+
+administrator@cli> 
+2018-01-15 10:21:44: 
+Expect: migrate should be started by "syncmode=async"
+
+2018-01-15 10:15:55: 'result': 'p'
+2018-01-15 10:15:55: migrate -a stop -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-15 10:15:55: 
+Expect: Missing parameter
+
+2018-01-15 10:15:55: migrate -a stop
+Error (0x403): Missing parameter
+-i source volumd ID is missed
+
+administrator@cli> 
+2018-01-15 10:15:55: 
+Expect: Missing parameter
+
+2018-01-15 10:15:55: migrate -a start -t local -i 0 -p 2 -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2018-01-15 10:15:55: 
+Expect: Missing parameter
+
+2018-01-15 10:15:55: migrate -a start -t local -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-15 10:15:55: 
+Expect: Missing parameter
+
+2018-01-15 10:15:55: migrate -a start -t local
+Error (0x403): Missing parameter
+-i source volumd ID is missed
+
+administrator@cli> 
+2018-01-15 10:15:55: 
+Expect: Missing parameter
+
+2018-01-15 10:15:55: migrate -a start -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+2018-01-15 10:15:55: 
+Expect: Missing parameter
+
+2018-01-15 10:15:55: migrate -a start
+Error (0x403): Missing parameter
+-i source volumd ID is missed
+
+administrator@cli> 
+2018-01-15 10:15:55: 
+Expect: Missing parameter
+
+2018-01-15 10:15:55: migrate -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+2018-01-15 10:15:55: 
+Expect: Missing parameter
+
+2018-01-15 10:15:55: 'result': 'p'
+2018-01-15 10:15:55: migrate -a stop -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-15 10:15:55: 
+Expect: invalid option: -test
+
+2018-01-15 10:15:55: migrate -a start -i 0 -p 1 -s "test=sync"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+2018-01-15 10:15:55: 
+Expect: invalid option: test
+
+2018-01-15 10:15:55: migrate -a start -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-15 10:15:55: 
+Expect: invalid option: -test
+
+2018-01-15 10:15:55: migrate -a -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-15 10:15:54: 
+Expect: invalid option: -test
+
+2018-01-15 10:15:54: migrate -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-15 10:15:54: 
+Expect: invalid option: -test
+
+2018-01-15 10:15:54: 'result': 'p'
+2018-01-15 10:15:54: migrate -a stop -i 20
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[20] is not existed.
+
+administrator@cli> 
+2018-01-15 10:15:54: 
+Expect: Volume id=[20] is not existed
+
+2018-01-15 10:15:54: migrate -a stop -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2018-01-15 10:15:54: 
+Expect: Invalid setting parameters
+
+2018-01-15 10:15:54: migrate -a start -t remote -i 0 -p 0 -s "srcip=10.84.254.164,dstip=10.84.1.115, password=password"
+Error (0x4100104): Incorrect parameters: There is existing replication or migration pair to this Volume.
+
+administrator@cli> 
+2018-01-15 10:15:53: 
+Expect: specify nonexistent source host
+
+2018-01-15 10:15:53: migrate -a start -t remote -i 0 -p 0 -s "srcip=10.84.2.164,dstip=10.0.254.2, password=password"
+Error (0x4100104): Incorrect parameters: There is existing replication or migration pair to this Volume.
+
+administrator@cli> 
+2018-01-15 10:15:53: 
+Expect: specify nonexistent destination host
+
+2018-01-15 10:15:53: migrate -a start -t remote -i 0 -p 0 -s "srcip=10.0.0.256,dstip=10.0.0.2, password=password"
+Error (0x4100104): Incorrect parameters: There is existing replication or migration pair to this Volume.
+
+administrator@cli> 
+2018-01-15 10:15:53: 
+Expect: ip nonconformity
+
+2018-01-15 10:15:53: migrate -a start -t remote -i 0 -p 0 -s "srcip=10.0.256.1,dstip=10.0.0.2, password=password"
+Error (0x4100104): Incorrect parameters: There is existing replication or migration pair to this Volume.
+
+administrator@cli> 
+2018-01-15 10:15:52: 
+Expect: ip nonconformity
+
+2018-01-15 10:15:52: migrate -a start -t remote -i 0 -p 0 -s "srcip=10.256.0.1,dstip=10.0.0.2, password=password"
+Error (0x4100104): Incorrect parameters: There is existing replication or migration pair to this Volume.
+
+administrator@cli> 
+2018-01-15 10:15:52: 
+Expect: ip nonconformity
+
+2018-01-15 10:15:52: migrate -a start -t remote -i 0 -p 0 -s "srcip=256.0.0.1,dstip=10.0.0.2, password=password"
+Error (0x4100999): Fail to execute this method.
+
+administrator@cli> 
+2018-01-15 10:15:21: 
+Expect: ip nonconformity
+
+2018-01-15 10:15:21: migrate -a start -t remote -i 0 -p 0 -s "syncmode=t,srcip=10.84.2.164,dstip=10.84.2.115, password=password"
+Error (0x2013): Invalid setting parameters
+syncmode: invalid setting t (async|semi-sync|sync)
+
+administrator@cli> 
+2018-01-15 10:15:21: 
+Expect: should hint error when specify wrong sync mode
+
+2018-01-15 10:15:21: migrate -a start -t local -i 0 -p 1 -s "syncmode=test"
+Error (0x2013): Invalid setting parameters
+syncmode: invalid setting test (async|semi-sync|sync)
+
+administrator@cli> 
+2018-01-15 10:15:21: 
+Expect: should hint error when specify wrong sync mode
+
+2018-01-15 10:15:21: migrate -a start -t local -i 0 -p 2
+Error (0x4100104): Incorrect parameters: Can not migrate Volume to the same Pool.
+
+administrator@cli> 
+2018-01-15 10:15:21: 
+Expect: Can not migrate Volume to the same Pool
+
+2018-01-15 10:15:21: migrate -a start -t local -i 1 -p 1
+Error (0x4100104): Incorrect parameters: Volume is not full-provision.
+
+administrator@cli> 
+2018-01-15 10:15:21: 
+Expect: thin provision volume cannot become source volume
+
+2018-01-15 10:15:21: migrate -a start -t local -i 0 -p 10
+Error (0x4100102): Empty query result, please check input parameters. Pool id=[10] is not existed.
+
+administrator@cli> 
+2018-01-15 10:15:19: 
+Expect: specify nonexistent destination pool
+
+2018-01-15 10:15:19: migrate -a start -t local -i 100 -p 0
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[100] is not existed.
+
+administrator@cli> 
+2018-01-15 10:15:19: 
+Expect: specify nonexistent source volume
+
+2018-01-15 10:15:19: migrate -a start -t local -i 0 -p 3
+Error (0x4100104): Incorrect parameters: Destination Pool availiable size is not enough.
+
+administrator@cli> 
+2018-01-15 10:15:19: 
+Expect: destination pool capacity should be more than soure volume
+
+2018-01-15 10:15:19: migrate -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (start|stop)
+
+administrator@cli> 
+2018-01-15 10:15:19: 
+Expect: Invalid setting parameters
+
+2018-01-15 10:15:19: migrate test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-15 10:15:19: 
+Expect: Invalid setting parameters
+
+2018-01-15 10:15:19: 'result': 'p'
+2018-01-15 10:15:19: migrate -h
+migrate
+
+Usage:
+   migrate [-a <action>] [-i <ID>] [-t <location>] [-p <pool ID>]
+           [-s <settings>]
+
+Summary:
+   The migrate command allows the user to migrate volume into another pool
+   which located in same subsystem (Local) or other subsystem (Remote).
+   As well as to stop a specified migration.
+   Only with thin-provision disabled volume can be used to migrate. During
+   migration in progress, source volume cannot be expanded or removed;
+   destination volume disallowed to do any operations.
+
+Options:
+
+-a <action>           Which action to perform.
+   start              (Default) Start a specific migration progress.
+   stop               Stop the migration
+
+-i <ID>               Source volume ID.
+
+-t <location>         Destination location.
+   local              (Default)
+   remote
+
+-p <pool ID>          Destination pool ID.
+
+-s "<option>=<value>"
+                      Used to specify migration settings
+   syncmode=          Sync mode method
+     async
+     semi-sync
+     sync             (Default)
+
+   srcip=             Source portal IP
+                      Only valid for -t remote specified.
+
+   dstip=             Destination portal IP of remote subsystem.
+                      Only valid for -t remote specified.
+
+   password=          Password of administrator of remote subsystem.
+                      Only valid for -t remote specified.
+
+Examples:
+   migrate -a start -i 1 -t local -p 0 -s "syncmode=async"
+   migrate -a start -i 2 -t remote -p 0 -s "srcip=10.0.0.1,
+     dstip=10.0.0.2, password=test"
+Type ' | grep "word1,word2,..."' at the end of each command, to display 
+filtered info.
+
+administrator@cli> 
+2018-01-15 10:15:19: 
+Expect: migrate help document should be displayed
+
+2018-01-15 10:15:19: 'result': 'p'
+2018-01-15 10:15:19: volume -v -i 7
+-------------------------------------------------------------------------------
+Id: 7                                   Name: T_migrate_vol_7
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: -1
+ExportedWWN: 226700015546be6b           OperationalStatus: OK, Synchronizing
+TotalCapacity: 10 GB                    UsedCapacity: 10 GB
+PoolAvailableCapacity: 7.21 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 16:11:06
+PreferCtrlId: 2                         AdvType: 
+
+administrator@cli> 
+2018-01-15 10:15:17: migrate -a stop -i 7
+
+administrator@cli> 
+2018-01-15 10:15:11: 
+Expect: specific migrate should be stopped
+
+2018-01-15 10:15:11: 'result': 'f'
+2018-01-15 10:15:11: 
+Fail: please check out specific volume not exists
+
+2018-01-15 10:15:11: volume -i 6 -v
+-------------------------------------------------------------------------------
+Id: 6                                   Name: T_migrate_vol_6
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: -1
+ExportedWWN: 22f100015531b95b           OperationalStatus: OK, Synchronizing
+TotalCapacity: 10 GB                    UsedCapacity: 10 GB
+PoolAvailableCapacity: 7.21 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 16:11:05
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Remote                         AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Async
+AdvStatus: Syncing                      AdvProgress: 5.7
+
+administrator@cli> 
+2018-01-15 10:15:00: volume -i 6 -v
+-------------------------------------------------------------------------------
+Id: 6                                   Name: T_migrate_vol_6
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: -1
+ExportedWWN: 22f100015531b95b           OperationalStatus: OK, Synchronizing
+TotalCapacity: 10 GB                    UsedCapacity: 10 GB
+PoolAvailableCapacity: 7.21 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 16:11:05
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Remote                         AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Async
+AdvStatus: Syncing                      AdvProgress: 5.0
+
+administrator@cli> 
+2018-01-15 10:15:00: 
+Expect: source volume should be delete
+
+2018-01-15 10:15:00: 
+Fail: migrate -a start -t remote -i 9 -p 0 -s "srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+2018-01-15 10:14:50: migrate -a start -t remote -i 9 -p 0 -s "srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+Error (0x4100999): Fail to execute this method.
+
+administrator@cli> 
+2018-01-15 10:14:45: 
+Expect: migrate of remote type should be started by default volues
+
+2018-01-15 10:14:45: 
+Fail: migrate -a start -t remote -i 8 -p 0 -s "syncmode=sync,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+2018-01-15 10:14:35: migrate -a start -t remote -i 8 -p 0 -s "syncmode=sync,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+Error (0x4100999): Fail to execute this method.
+
+administrator@cli> 
+2018-01-15 10:14:17: 
+Expect: migrate of remote type should be started by "syncmode=sync"
+
+2018-01-15 10:14:17: volume -i 7 -v
+-------------------------------------------------------------------------------
+Id: 7                                   Name: T_migrate_vol_7
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: -1
+ExportedWWN: 226700015546be6b           OperationalStatus: OK, Synchronizing
+TotalCapacity: 10 GB                    UsedCapacity: 10 GB
+PoolAvailableCapacity: 7.21 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 16:11:06
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Remote                         AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Semi-Sync
+AdvStatus: Syncing                      AdvProgress: 0.6
+
+administrator@cli> 
+2018-01-15 10:14:07: migrate -a start -t remote -i 7 -p 0 -s "syncmode=semi-sync,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+administrator@cli> 
+2018-01-15 10:13:59: 
+Expect: migrate of remote type should be started by "syncmode=semi-sync"
+
+2018-01-15 10:13:59: volume -i 6 -v
+-------------------------------------------------------------------------------
+Id: 6                                   Name: T_migrate_vol_6
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: 6
+ExportedWWN: 22f100015531b95b           OperationalStatus: OK, Synchronizing
+TotalCapacity: 10 GB                    UsedCapacity: 10 GB
+PoolAvailableCapacity: 7.21 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 16:11:05
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Remote                         AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Async
+AdvStatus: Syncing                      AdvProgress: 1.0
+
+administrator@cli> 
+2018-01-15 10:13:49: migrate -a start -t remote -i 6 -p 0 -s "syncmode=async,srcip=10.84.2.164,dstip=10.84.2.115,password=password"
+
+administrator@cli> 
+2018-01-15 10:13:44: 
+Expect: migrate of remote type should be started by "syncmode=async"
+
+2018-01-15 10:13:28: 'result': 'f'
+2018-01-15 10:13:28: 
+Fail: please check out No volume exists
+
+2018-01-15 10:13:28: volume -i 2 -v
+-------------------------------------------------------------------------------
+Id: 2                                   Name: T_migrate_vol_4_migrate
+PoolId: 0                               PoolName: T_migrate_0
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 10 GB                    UsedCapacity: 10 GB
+PoolAvailableCapacity: 96.22 GB         UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 1.66 GB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 16:11:40
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 27.5
+
+administrator@cli> 
+2018-01-15 10:13:17: volume -i 2 -v
+-------------------------------------------------------------------------------
+Id: 2                                   Name: T_migrate_vol_4_migrate
+PoolId: 0                               PoolName: T_migrate_0
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 10 GB                    UsedCapacity: 10 GB
+PoolAvailableCapacity: 96.22 GB         UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 1.66 GB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 16:11:40
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 20.9
+
+administrator@cli> 
+2018-01-15 10:13:17: 
+Expect: source volume should be delete
+
+2018-01-15 10:13:17: volume -i 5 -v
+-------------------------------------------------------------------------------
+Id: 5                                   Name: T_migrate_vol_5
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: -1
+ExportedWWN: 220b00015591c8a7           OperationalStatus: OK, Synchronizing
+TotalCapacity: 10 GB                    UsedCapacity: 10 GB
+PoolAvailableCapacity: 7.21 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 16:11:05
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 5.7
+
+administrator@cli> 
+2018-01-15 10:13:07: migrate -a start -t local -i 5 -p 0
+
+administrator@cli> 
+2018-01-15 10:13:02: 
+Expect: migrate should be started by default volues
+
+2018-01-15 10:13:02: 
+Fail: please check out AdvProtocol: Sync
+
+2018-01-15 10:13:02: 
+Fail: please check out AdvMode: Active-Passive
+
+2018-01-15 10:13:02: 
+Fail: please check out AdvRole: Destination
+
+2018-01-15 10:13:02: 
+Fail: please check out AdvKind: Local
+
+2018-01-15 10:13:02: 
+Fail: please check out AdvType: Migration
+
+2018-01-15 10:13:02: 
+Fail: please check out Compress: off
+
+2018-01-15 10:13:02: 
+Fail: please check out Logbias: latency
+
+2018-01-15 10:13:02: 
+Fail: please check out SyncMode: standard
+
+2018-01-15 10:13:02: 
+Fail: please check out Sector: 512 Bytes
+
+2018-01-15 10:13:02: 
+Fail: please check out Block: 8 KB
+
+2018-01-15 10:13:02: volume -i 12 -v
+-i: specific volume not exists
+
+administrator@cli> 
+2018-01-15 10:12:52: migrate -a start -t local -i 4 -p 0 -s "syncmode=sync"
+
+administrator@cli> 
+2018-01-15 10:12:48: 
+Expect: migrate should be started by "syncmode=sync"
+
+2018-01-15 10:12:48: volume -i 11 -v
+-------------------------------------------------------------------------------
+Id: 11                                  Name: T_migrate_vol_3_migrate
+PoolId: 1                               PoolName: T_migrate_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 7.21 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 16:11:25
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Semi-Sync
+AdvStatus: Syncing                      AdvProgress: 26.0
+
+administrator@cli> 
+2018-01-15 10:12:38: migrate -a start -t local -i 3 -p 1 -s "syncmode=semi-sync"
+
+administrator@cli> 
+2018-01-15 10:12:33: 
+Expect: migrate should be started by "syncmode=semi-sync"
+
+2018-01-15 10:12:33: volume -i 10 -v
+-------------------------------------------------------------------------------
+Id: 10                                  Name: T_migrate_vol_2_migrate
+PoolId: 1                               PoolName: T_migrate_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 7.21 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 16:11:09
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Async
+AdvStatus: Syncing                      AdvProgress: 89.6
+
+administrator@cli> 
+2018-01-15 10:12:22: migrate -a start -t local -i 2 -p 1 -s "syncmode=async"
+
+administrator@cli> 
+2018-01-15 10:12:16: 
+Expect: migrate should be started by "syncmode=async"
+
+2018-01-15 09:51:50: 'result': 'f'
+2018-01-15 09:51:50: 
+Fail: please check out No volume exists
+
+2018-01-15 09:51:50: volume -i 2 -v
+-------------------------------------------------------------------------------
+Id: 2                                   Name: T_migrate_vol_4_migrate
+PoolId: 0                               PoolName: T_migrate_0
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 10 GB                    UsedCapacity: 10 GB
+PoolAvailableCapacity: 96.22 GB         UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 991.63 MB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 15:50:05
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 22.3
+
+administrator@cli> 
+2018-01-15 09:51:40: volume -i 2 -v
+-------------------------------------------------------------------------------
+Id: 2                                   Name: T_migrate_vol_4_migrate
+PoolId: 0                               PoolName: T_migrate_0
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 10 GB                    UsedCapacity: 10 GB
+PoolAvailableCapacity: 96.22 GB         UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 991.63 MB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 15:50:05
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 15.1
+
+administrator@cli> 
+2018-01-15 09:51:40: 
+Expect: source volume should be delete
+
+2018-01-15 09:51:40: volume -i 5 -v
+-------------------------------------------------------------------------------
+Id: 5                                   Name: T_migrate_vol_5
+PoolId: 1                               PoolName: T_migrate_1
+Status: Exported                        ExportedId: -1
+ExportedWWN: 222f000155698672           OperationalStatus: OK, Synchronizing
+TotalCapacity: 10 GB                    UsedCapacity: 10 GB
+PoolAvailableCapacity: 7.21 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 15:49:26
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 6.5
+
+administrator@cli> 
+2018-01-15 09:51:30: migrate -a start -t local -i 5 -p 0
+
+administrator@cli> 
+2018-01-15 09:51:26: 
+Expect: migrate should be started by default volues
+
+2018-01-15 09:51:26: 
+Fail: please check out AdvProtocol: Sync
+
+2018-01-15 09:51:26: 
+Fail: please check out AdvMode: Active-Passive
+
+2018-01-15 09:51:26: 
+Fail: please check out AdvRole: Destination
+
+2018-01-15 09:51:26: 
+Fail: please check out AdvKind: Local
+
+2018-01-15 09:51:26: 
+Fail: please check out AdvType: Migration
+
+2018-01-15 09:51:26: 
+Fail: please check out Compress: off
+
+2018-01-15 09:51:26: 
+Fail: please check out Logbias: latency
+
+2018-01-15 09:51:26: 
+Fail: please check out SyncMode: standard
+
+2018-01-15 09:51:26: 
+Fail: please check out Sector: 512 Bytes
+
+2018-01-15 09:51:26: 
+Fail: please check out Block: 8 KB
+
+2018-01-15 09:51:26: volume -i 12 -v
+-i: specific volume not exists
+
+administrator@cli> 
+2018-01-15 09:51:15: migrate -a start -t local -i 4 -p 0 -s "syncmode=sync"
+
+administrator@cli> 
+2018-01-15 09:51:11: 
+Expect: migrate should be started by "syncmode=sync"
+
+2018-01-15 09:51:11: volume -i 11 -v
+-------------------------------------------------------------------------------
+Id: 11                                  Name: T_migrate_vol_3_migrate
+PoolId: 1                               PoolName: T_migrate_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 7.21 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 15:49:46
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Semi-Sync
+AdvStatus: Syncing                      AdvProgress: 49.8
+
+administrator@cli> 
+2018-01-15 09:51:01: migrate -a start -t local -i 3 -p 1 -s "syncmode=semi-sync"
+
+administrator@cli> 
+2018-01-15 09:50:53: 
+Expect: migrate should be started by "syncmode=semi-sync"
+
+2018-01-15 09:50:53: volume -i 10 -v
+-------------------------------------------------------------------------------
+Id: 10                                  Name: T_migrate_vol_2_migrate
+PoolId: 1                               PoolName: T_migrate_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 999.95 MB                UsedCapacity: 999.95 MB
+PoolAvailableCapacity: 7.21 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 15:49:30
+PreferCtrlId: 2                         AdvType: Migration
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Async
+AdvStatus: Syncing                      AdvProgress: 77.0
+
+administrator@cli> 
+2018-01-15 09:50:42: migrate -a start -t local -i 2 -p 1 -s "syncmode=async"
+
+administrator@cli> 
+2018-01-15 09:50:36: 
+Expect: migrate should be started by "syncmode=async"
+
+2018-01-15 09:44:03: 'result': 'p'
+2018-01-15 09:44:03: replication -a resume -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-15 09:44:03: 
+Expect: Missing parameter
+
+2018-01-15 09:44:03: replication -a resume
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a resume'
+
+administrator@cli> 
+2018-01-15 09:44:03: 
+Expect: Missing parameter
+
+2018-01-15 09:44:03: replication -a pause -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-15 09:44:03: 
+Expect: Missing parameter
+
+2018-01-15 09:44:03: replication -a pause
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a pause'
+
+administrator@cli> 
+2018-01-15 09:44:03: 
+Expect: Missing parameter
+
+2018-01-15 09:44:03: replication -a stop -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-15 09:44:03: 
+Expect: Missing parameter
+
+2018-01-15 09:44:03: replication -a stop
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a stop'
+
+administrator@cli> 
+2018-01-15 09:44:03: 
+Expect: Missing parameter
+
+2018-01-15 09:44:03: replication -a start -i 0 -p 2 -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2018-01-15 09:44:03: 
+Expect: Missing parameter
+
+2018-01-15 09:44:03: replication -a start -i 1 -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2018-01-15 09:44:03: 
+Expect: Missing parameter
+
+2018-01-15 09:44:03: replication -a start -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-15 09:44:03: 
+Expect: Missing parameter
+
+2018-01-15 09:44:03: replication -a start
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a start'
+
+administrator@cli> 
+2018-01-15 09:44:03: 
+Expect: Missing parameter
+
+2018-01-15 09:44:03: replication -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+2018-01-15 09:44:03: 
+Expect: Missing parameter
+
+2018-01-15 09:44:03: 'result': 'p'
+2018-01-15 09:44:03: replication -a resume -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-15 09:44:03: 
+Expect: invalid option: -test
+
+2018-01-15 09:44:03: replication -a pause -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-15 09:44:03: 
+Expect: invalid option: -test
+
+2018-01-15 09:44:03: replication -a stop -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-15 09:44:03: 
+Expect: invalid option: -test
+
+2018-01-15 09:44:03: replication -a start -i 0 -p 1 -s "name=test,test=sync"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+2018-01-15 09:44:03: 
+Expect: invalid option: test
+
+2018-01-15 09:44:03: replication -a start -i 0 -p 1 -s "test=test,syncmode=test"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+2018-01-15 09:44:03: 
+Expect: invalid option: test
+
+2018-01-15 09:44:03: replication -a start -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-15 09:44:03: 
+Expect: invalid option: -test
+
+2018-01-15 09:44:03: replication -a -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-15 09:44:03: 
+Expect: invalid option: -test
+
+2018-01-15 09:44:03: replication -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-15 09:44:03: 
+Expect: invalid option: -test
+
+2018-01-15 09:44:03: 'result': 'f'
+2018-01-15 09:44:03: replication -a resume -i 20
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[20] is not existed.
+
+administrator@cli> 
+2018-01-15 09:44:02: 
+Expect: Volume id=[20] is not existed
+
+2018-01-15 09:44:01: replication -a resume -i 9
+Error (0x4100104): Incorrect parameters: Only source Volume can be resumed.
+
+administrator@cli> 
+2018-01-15 09:44:01: 
+Expect: Invalid setting parameters
+
+2018-01-15 09:44:01: replication -a resume -i 4
+Error (0x4100104): Incorrect parameters: This replication is not paused.
+
+administrator@cli> 
+2018-01-15 09:44:01: 
+Expect: should hint replication doesn't pause
+
+2018-01-15 09:44:01: replication -a resume -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2018-01-15 09:44:01: 
+Expect: Invalid setting parameters
+
+2018-01-15 09:44:01: replication -a pause -i 20
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[20] is not existed.
+
+administrator@cli> 
+2018-01-15 09:43:59: 
+Expect: Volume id=[20] is not existed
+
+2018-01-15 09:43:59: replication -a pause -i 9
+Error (0x4100104): Incorrect parameters: Only source Volume can be paused.
+
+administrator@cli> 
+2018-01-15 09:43:59: 
+Expect: replication should not pause by destination volume
+
+2018-01-15 09:43:59: replication -a pause -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2018-01-15 09:43:59: 
+Expect: Invalid setting parameters
+
+2018-01-15 09:43:59: replication -a stop -i 20
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[20] is not existed.
+
+administrator@cli> 
+2018-01-15 09:43:59: 
+Expect: Volume id=[20] is not existed
+
+2018-01-15 09:43:58: 
+Fail: replication -a stop -i 9
+
+2018-01-15 09:43:58: replication -a stop -i 9
+
+administrator@cli> 
+2018-01-15 09:43:58: 
+Expect: replication should not stop by destination volume
+
+2018-01-15 09:43:58: replication -a stop -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2018-01-15 09:43:58: 
+Expect: Invalid setting parameters
+
+2018-01-15 09:43:58: replication -a start -i 0 -p 1 -s "name=test,syncmode=test"
+Error (0x2013): Invalid setting parameters
+syncmode: invalid setting test (async|semi-sync|sync)
+
+administrator@cli> 
+2018-01-15 09:43:58: 
+Expect: should hint error when specify wrong sync mode
+
+2018-01-15 09:43:58: replication -a start -i 0 -p 1 -s "name=test_test_test_test_test_test_033"
+Error (0x2014): Setting parameters too long
+name shall not exceed 32 characters
+
+administrator@cli> 
+2018-01-15 09:43:58: 
+Expect: should hint error when name shall not exceed 32 characters
+
+2018-01-15 09:43:58: replication -a start -i 0 -p 1 -s "name=t*&"
+Error (0x2013): Invalid setting parameters
+name contain only alphanumeric characters and underscores
+
+administrator@cli> 
+2018-01-15 09:43:58: 
+Expect: name contain only alphanumeric characters and underscores
+
+2018-01-15 09:43:58: replication -a start -i 0 -p 1 -s "name="
+Error (0x2013): Invalid setting parameters
+name contain only alphanumeric characters and underscores
+
+administrator@cli> 
+2018-01-15 09:43:58: 
+Expect: name contain only alphanumeric characters and underscores
+
+2018-01-15 09:43:57: replication -a start -i 0 -p 2 -s "name=test_thin"
+Error (0x4100104): Incorrect parameters: Can not replicate Volume to the same Pool.
+
+administrator@cli> 
+2018-01-15 09:43:57: 
+Expect: Can not replicate Volume to the same Pool
+
+2018-01-15 09:43:57: replication -a start -i 1 -p 0 -s "name=test_thin"
+Error (0x4100104): Incorrect parameters: Volume is not full-provision.
+
+administrator@cli> 
+2018-01-15 09:43:57: 
+Expect: thin provision volume cannot become source volume
+
+2018-01-15 09:43:57: replication -a start -i 0 -p 10 -s "name=test_thin"
+Error (0x4100102): Empty query result, please check input parameters. Pool id=[10] is not existed.
+
+administrator@cli> 
+2018-01-15 09:43:56: 
+Expect: specify nonexistent destination pool
+
+2018-01-15 09:43:55: replication -a start -i 100 -p 0 -s "name=test_thin"
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[100] is not existed.
+
+administrator@cli> 
+2018-01-15 09:43:55: 
+Expect: specify nonexistent source volume
+
+2018-01-15 09:43:55: replication -a start -i 0 -p 3 -s "name=test_capacity"
+Error (0x4100104): Incorrect parameters: Destination Pool availiable size is not enough.
+
+administrator@cli> 
+2018-01-15 09:43:55: 
+Expect: destination pool capacity should be more than soure volume
+
+2018-01-15 09:43:55: replication -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|start|stop|pause|resume)
+
+administrator@cli> 
+2018-01-15 09:43:55: 
+Expect: Invalid setting parameters
+
+2018-01-15 09:43:55: replication test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-15 09:43:55: 
+Expect: Invalid setting parameters
+
+2018-01-15 09:43:55: 'result': 'p'
+2018-01-15 09:43:55: replication -h
+replication
+
+Usage:
+   replication [-a <action>] [-i <ID>] [-p <pool ID>] [-s <settings>]
+
+Summary:
+   The replication command allows the user to replicate volume into another
+   pool.
+   Only with thin-provision disabled volume can be used to replicate. During
+   replication in progress, source volume cannot be expanded or removed;
+   destination volume disallowed to do any operations.
+
+Options:
+
+-a <action>           Which action to perform.
+   list               (Default) Displays the replication status.
+   start              Start a specific replication status.
+   stop               Stop the replication
+   pause              Pause the replication
+   resume             Resume a paused replication
+
+-i <ID>               Source volume ID.
+
+-p <pool id>          Destination pool ID.
+                      Only valid for -a add specified
+
+-s "<option>=<value>"
+                      Used to specify replication settings.
+                      Only valid for -a add specified
+
+   name=              Destination volume name
+
+   syncmode=          sync mode method
+     async
+     semi-sync
+     sync             (Default)
+
+-v                    Verbose mode.  Used with -a list.
+
+Examples:
+   replication -a list
+   replication -a start -i 1 -p 0 -s "name=test, syncmode=async"
+   replication -a stop -i 2
+   replication -a pause -i i
+   replication -a resume -i 1
+Type ' | grep "word1,word2,..."' at the end of each command, to display 
+filtered info.
+
+administrator@cli> 
+2018-01-15 09:43:55: 
+Expect: replication help document should be displayed
+
+2018-01-15 09:43:55: 'result': 'p'
+2018-01-15 09:43:55: replication
+===============================================================================
+SrcVol         DestVol        Location  TotalCap  UsedCap   Status         
+===============================================================================
+T_replication_ t2             Local     4 GB      4 GB      Warning            
+vol_3                                                                          
+T_replication_ test_Test_Test Local     1 GB      1 GB      OK                 
+vol_4          _Test_Test_Tes                                                  
+               t31                                                             
+T_replication_ test_Test_Test Local     1 GB      1 GB      OK                 
+vol_5          _Test_Test_Tes                                                  
+               t_32                                                            
+
+administrator@cli> 
+2018-01-15 09:43:54: replication -a resume -i 3
+
+administrator@cli> 
+2018-01-15 09:43:53: 
+Expect: replication should be resumed
+
+2018-01-15 09:43:53: 'result': 'p'
+2018-01-15 09:43:53: replication
+===============================================================================
+SrcVol         DestVol        Location  TotalCap  UsedCap   Status         
+===============================================================================
+T_replication_ t2             Local     4 GB      4 GB      Pause              
+vol_3                                                                          
+T_replication_ test_Test_Test Local     1 GB      1 GB      OK                 
+vol_4          _Test_Test_Tes                                                  
+               t31                                                             
+T_replication_ test_Test_Test Local     1 GB      1 GB      OK                 
+vol_5          _Test_Test_Tes                                                  
+               t_32                                                            
+
+administrator@cli> 
+2018-01-15 09:43:51: replication -a pause -i 3
+
+administrator@cli> 
+2018-01-15 09:43:51: 
+Expect: replication should be paused by source volume
+
+2018-01-15 09:43:51: 'result': 'p'
+2018-01-15 09:43:51: volume -v -i 6
+-------------------------------------------------------------------------------
+Id: 6                                   Name: T
+PoolId: 1                               PoolName: T_replication_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 4 GB                     UsedCapacity: 4 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 15:41:59
+PreferCtrlId: 2                         AdvType: 
+
+administrator@cli> 
+2018-01-15 09:43:50: replication -a stop -i 2
+
+administrator@cli> 
+2018-01-15 09:43:47: 
+Expect: specific replication should be stopped
+
+2018-01-15 09:43:47: 'result': 'p'
+2018-01-15 09:43:47: replication -a list -v
+-------------------------------------------------------------------------------
+Location: Local                         Role: Destination
+Mode: Active-Passive                    SyncMode: Semi-Sync
+Status: Syncing                         Description: Syncing.
+Progress: 56.0                          SourceVolumeId: 3
+SourceVolumeName: T_replication_vol_3   SourcePoolName: T_replication_0
+SourcePortalIP: 10.128.0.2              DestinationVolumeId: 7
+DestinationVolumeName: t2               DestinationPoolName: T_replication_1
+DestinationPortalIP: 10.128.0.2         Enable: 1
+Period: 0                               TotalCapacity: 4 GB
+UsedCapacity: 4 GB
+-------------------------------------------------------------------------------
+Location: Local                         Role: Destination
+Mode: Active-Passive                    SyncMode: Async
+Status: Syncing                         Description: Syncing.
+Progress: 75.4                          SourceVolumeId: 2
+SourceVolumeName: T_replication_vol_2   SourcePoolName: T_replication_0
+SourcePortalIP: 10.128.0.2              DestinationVolumeId: 6
+DestinationVolumeName: T                DestinationPoolName: T_replication_1
+DestinationPortalIP: 10.128.0.2         Enable: 1
+Period: 0                               TotalCapacity: 4 GB
+UsedCapacity: 4 GB
+-------------------------------------------------------------------------------
+Location: Local                         Role: Source
+Mode: Active-Passive                    SyncMode: Sync
+Status: OK                              Description: Ready.
+Progress: 100.0                         SourceVolumeId: 4
+SourceVolumeName: T_replication_vol_4   SourcePoolName: T_replication_1
+SourcePortalIP: 10.128.0.2              DestinationVolumeId: 8
+DestinationVolumeName: test_Test_Test_Test_Test_Test31
+DestinationPoolName: T_replication_0    DestinationPortalIP: 10.128.0.2
+Enable: 1                               Period: 0
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+-------------------------------------------------------------------------------
+Location: Local                         Role: Source
+Mode: Active-Passive                    SyncMode: Sync
+Status: Syncing                         Description: Syncing.
+Progress: 82.5                          SourceVolumeId: 5
+SourceVolumeName: T_replication_vol_5   SourcePoolName: T_replication_1
+SourcePortalIP: 10.128.0.2              DestinationVolumeId: 9
+DestinationVolumeName: test_Test_Test_Test_Test_Test_32
+DestinationPoolName: T_replication_0    DestinationPortalIP: 10.128.0.2
+Enable: 1                               Period: 0
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+
+administrator@cli> 
+2018-01-15 09:43:47: 
+Expect: all of replication should be listed by verbose mode
+
+2018-01-15 09:43:47: 'result': 'p'
+2018-01-15 09:43:47: replication
+===============================================================================
+SrcVol         DestVol        Location  TotalCap  UsedCap   Status         
+===============================================================================
+T_replication_ t2             Local     4 GB      4 GB      Syncing            
+vol_3                                                                          
+T_replication_ T              Local     4 GB      4 GB      Syncing            
+vol_2                                                                          
+T_replication_ test_Test_Test Local     1 GB      1 GB      OK                 
+vol_4          _Test_Test_Tes                                                  
+               t31                                                             
+T_replication_ test_Test_Test Local     1 GB      1 GB      Syncing            
+vol_5          _Test_Test_Tes                                                  
+               t_32                                                            
+
+administrator@cli> 
+2018-01-15 09:43:47: 
+Expect: all of replication should be listed
+
+2018-01-15 09:43:47: 'result': 'f'
+2018-01-15 09:43:47: pool -a del -i 0 -f -y
+Error (0x4100104): Incorrect parameters: There are replication or migration Volume in the Pool.
+
+administrator@cli> 
+2018-01-15 09:43:46: 
+Expect: destination pool should not be deleted
+
+2018-01-15 09:43:46: pool -a del -i 1 -f -y
+Error (0x4100104): Incorrect parameters: There are replication or migration Volume in the Pool.
+
+administrator@cli> 
+2018-01-15 09:43:45: 
+Expect: source pool should not be deleted
+
+2018-01-15 09:43:45: volume -a del -i 2
+Error (0x4100104): Incorrect parameters: Volume is replication or migration Volume.
+
+administrator@cli> 
+2018-01-15 09:43:45: 
+Expect: source volume should not be deleted
+
+2018-01-15 09:43:45: volume -a mod -i 2 -s "capacity=5GB"
+Error (0x4100104): Incorrect parameters: Volume is replication or migration Volume.
+
+administrator@cli> 
+2018-01-15 09:43:43: 
+Expect: source volume should not be expanded
+
+2018-01-15 09:43:43: volume -a del -i 6
+Error (0x4100104): Incorrect parameters: Volume is replication or migration Volume.
+
+administrator@cli> 
+2018-01-15 09:43:43: 
+Expect: destination volume should not be deleted
+
+2018-01-15 09:43:43: lunmap -a add -p volume -i 0 -l 6 -m 2
+Error (0x402): Invalid parameter
+The volume/snapshot/clone is un-exported
+
+administrator@cli> 
+2018-01-15 09:43:43: 
+Expect: destination volume should not be added for lunmap
+
+2018-01-15 09:43:43: snapshot -a add -t volume -d 6 -s "name=test_replica"
+Error (0x4100104): Incorrect parameters: Destination volume of replication or migration cannot create snapshot.
+
+administrator@cli> 
+2018-01-15 09:43:42: 
+Expect: destination volume should not create snapshot
+
+2018-01-15 09:43:42: volume -a mod -i 6 -s "name=no_way"
+Error (0x4100104): Incorrect parameters: Volume is replication or migration Volume.
+
+administrator@cli> 
+2018-01-15 09:43:41: 
+Expect: destination volume should not be modified
+
+2018-01-15 09:43:41: volume -a mod -i 6 -s "capacity=6GB"
+Error (0x4100104): Incorrect parameters: Volume is replication or migration Volume.
+
+administrator@cli> 
+2018-01-15 09:43:41: 
+Expect: destination volume should not be expanded
+
+2018-01-15 09:43:41: 
+Fail: please check out Destination volume of replication in Active_Passive mode cannot be exported
+
+2018-01-15 09:43:41: volume -a export -i 6
+Error (0x4100104): Incorrect parameters: Volume is replication or migration Volume.
+
+administrator@cli> 
+2018-01-15 09:43:39: 
+Expect: destination volume should not be exported
+
+2018-01-15 09:43:39: replication -a start -i 0 -p 0 -s "name=firth_replica"
+Error (0x4100104): Incorrect parameters: Support maximum 4 local replication!
+
+administrator@cli> 
+2018-01-15 09:43:38: 
+Expect: Max 4 pairs of replication
+
+2018-01-15 09:43:38: 'result': 'p'
+2018-01-15 09:43:38: volume -i 5 -v
+-------------------------------------------------------------------------------
+Id: 5                                   Name: T_replication_vol_5
+PoolId: 1                               PoolName: T_replication_1
+Status: Exported                        ExportedId: -1
+ExportedWWN: 225800015570075d           OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 15:41:58
+PreferCtrlId: 2                         AdvType: Replication
+AdvKind: Local                          AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 9.3
+
+administrator@cli> 
+2018-01-15 09:43:34: replication -a start -i 5 -p 0 -s "name=test_Test_Test_Test_Test_Test_32"
+
+administrator@cli> 
+2018-01-15 09:43:30: 
+Expect: replication should be started by "name=test_Test_Test_Test_Test_Test_32"
+
+2018-01-15 09:43:30: volume -i 8 -v
+-------------------------------------------------------------------------------
+Id: 8                                   Name: test_Test_Test_Test_Test_Test31
+PoolId: 0                               PoolName: T_replication_0
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 107.22 GB        UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 15:42:17
+PreferCtrlId: 2                         AdvType: Replication
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 9.3
+
+administrator@cli> 
+2018-01-15 09:43:27: replication -a start -i 4 -p 0 -s "name=test_Test_Test_Test_Test_Test31, syncmode=sync"
+
+administrator@cli> 
+2018-01-15 09:43:23: 
+Expect: replication should be started by "name=test_Test_Test_Test_Test_Test31, syncmode=sync"
+
+2018-01-15 09:43:23: volume -i 7 -v
+-------------------------------------------------------------------------------
+Id: 7                                   Name: t2
+PoolId: 1                               PoolName: T_replication_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 4 GB                     UsedCapacity: 4 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 15:42:09
+PreferCtrlId: 2                         AdvType: Replication
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Semi-Sync
+AdvStatus: Syncing                      AdvProgress: 1.8
+
+administrator@cli> 
+2018-01-15 09:43:20: replication -a start -i 3 -p 1 -s "name=t2, syncmode=semi-sync"
+
+administrator@cli> 
+2018-01-15 09:43:16: 
+Expect: replication should be started by "name=t2, syncmode=semi-sync"
+
+2018-01-15 09:43:16: volume -i 6 -v
+-------------------------------------------------------------------------------
+Id: 6                                   Name: T
+PoolId: 1                               PoolName: T_replication_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 4 GB                     UsedCapacity: 4 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 15:41:59
+PreferCtrlId: 2                         AdvType: Replication
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Async
+AdvStatus: Syncing                      AdvProgress: 3.4
+
+administrator@cli> 
+2018-01-15 09:43:13: replication -a start -i 2 -p 1 -s "name=T, syncmode=async"
+
+administrator@cli> 
+2018-01-15 09:43:05: 
+Expect: replication should be started by "name=T, syncmode=async"
+
+2018-01-15 09:19:42: 'result': 'p'
+2018-01-15 09:19:42: replication -a resume -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-15 09:19:42: 
+Expect: Missing parameter
+
+2018-01-15 09:19:42: replication -a resume
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a resume'
+
+administrator@cli> 
+2018-01-15 09:19:42: 
+Expect: Missing parameter
+
+2018-01-15 09:19:42: replication -a pause -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-15 09:19:42: 
+Expect: Missing parameter
+
+2018-01-15 09:19:42: replication -a pause
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a pause'
+
+administrator@cli> 
+2018-01-15 09:19:42: 
+Expect: Missing parameter
+
+2018-01-15 09:19:42: replication -a stop -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-15 09:19:42: 
+Expect: Missing parameter
+
+2018-01-15 09:19:42: replication -a stop
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a stop'
+
+administrator@cli> 
+2018-01-15 09:19:41: 
+Expect: Missing parameter
+
+2018-01-15 09:19:41: replication -a start -i 0 -p 2 -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2018-01-15 09:19:41: 
+Expect: Missing parameter
+
+2018-01-15 09:19:41: replication -a start -i 1 -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2018-01-15 09:19:41: 
+Expect: Missing parameter
+
+2018-01-15 09:19:41: replication -a start -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-15 09:19:41: 
+Expect: Missing parameter
+
+2018-01-15 09:19:41: replication -a start
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a start'
+
+administrator@cli> 
+2018-01-15 09:19:41: 
+Expect: Missing parameter
+
+2018-01-15 09:19:41: replication -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+2018-01-15 09:19:41: 
+Expect: Missing parameter
+
+2018-01-15 09:10:04: 'result': 'p'
+2018-01-15 09:10:04: volume -i 5 -v
+-------------------------------------------------------------------------------
+Id: 5                                   Name: T_replication_vol_5
+PoolId: 1                               PoolName: T_replication_1
+Status: Exported                        ExportedId: 5
+ExportedWWN: 224e000155924224           OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 15:08:31
+PreferCtrlId: 2                         AdvType: Replication
+AdvKind: Local                          AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 8.0
+
+administrator@cli> 
+2018-01-15 09:10:01: replication -a start -i 5 -p 0 -s "name=test_Test_Test_Test_Test_Test_32"
+
+administrator@cli> 
+2018-01-15 09:09:58: 
+Expect: replication should be started by "name=test_Test_Test_Test_Test_Test_32"
+
+2018-01-15 09:09:58: volume -i 8 -v
+-------------------------------------------------------------------------------
+Id: 8                                   Name: test_Test_Test_Test_Test_Test31
+PoolId: 0                               PoolName: T_replication_0
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 107.22 GB        UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 15:08:47
+PreferCtrlId: 2                         AdvType: Replication
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 7.2
+
+administrator@cli> 
+2018-01-15 09:09:54: replication -a start -i 4 -p 0 -s "name=test_Test_Test_Test_Test_Test31, syncmode=sync"
+
+administrator@cli> 
+2018-01-15 09:09:52: 
+Expect: replication should be started by "name=test_Test_Test_Test_Test_Test31, syncmode=sync"
+
+2018-01-15 09:09:51: volume -i 7 -v
+-------------------------------------------------------------------------------
+Id: 7                                   Name: t2
+PoolId: 1                               PoolName: T_replication_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 4 GB                     UsedCapacity: 4 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 15:08:40
+PreferCtrlId: 2                         AdvType: Replication
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Semi-Sync
+AdvStatus: Syncing                      AdvProgress: 1.1
+
+administrator@cli> 
+2018-01-15 09:09:48: replication -a start -i 3 -p 1 -s "name=t2, syncmode=semi-sync"
+
+administrator@cli> 
+2018-01-15 09:09:44: 
+Expect: replication should be started by "name=t2, syncmode=semi-sync"
+
+2018-01-15 09:09:44: volume -i 6 -v
+-------------------------------------------------------------------------------
+Id: 6                                   Name: T
+PoolId: 1                               PoolName: T_replication_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 4 GB                     UsedCapacity: 4 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 15:08:32
+PreferCtrlId: 2                         AdvType: Replication
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Async
+AdvStatus: Syncing                      AdvProgress: 2.9
+
+administrator@cli> 
+2018-01-15 09:09:41: replication -a start -i 2 -p 1 -s "name=T, syncmode=async"
+
+administrator@cli> 
+2018-01-15 09:09:36: 
+Expect: replication should be started by "name=T, syncmode=async"
+
+2018-01-15 09:07:59: 'result': 'p'
+2018-01-15 09:07:59: replication -a resume -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-15 09:07:59: 
+Expect: Missing parameter
+
+2018-01-15 09:07:59: replication -a resume
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a resume'
+
+administrator@cli> 
+2018-01-15 09:07:59: 
+Expect: Missing parameter
+
+2018-01-15 09:07:59: replication -a pause -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-15 09:07:59: 
+Expect: Missing parameter
+
+2018-01-15 09:07:59: replication -a pause
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a pause'
+
+administrator@cli> 
+2018-01-15 09:07:59: 
+Expect: Missing parameter
+
+2018-01-15 09:07:59: replication -a stop -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-15 09:07:59: 
+Expect: Missing parameter
+
+2018-01-15 09:07:59: replication -a stop
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a stop'
+
+administrator@cli> 
+2018-01-15 09:07:59: 
+Expect: Missing parameter
+
+2018-01-15 09:07:59: replication -a start -i 0 -p 2 -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+2018-01-15 09:07:59: 
+Expect: Missing parameter
+
+2018-01-15 09:07:59: replication -a start -i 1 -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+2018-01-15 09:07:59: 
+Expect: Missing parameter
+
+2018-01-15 09:07:59: replication -a start -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-15 09:07:59: 
+Expect: Missing parameter
+
+2018-01-15 09:07:59: replication -a start
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a start'
+
+administrator@cli> 
+2018-01-15 09:07:59: 
+Expect: Missing parameter
+
+2018-01-15 09:07:59: replication -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+2018-01-15 09:07:59: 
+Expect: Missing parameter
+
+2018-01-15 09:07:59: 'result': 'p'
+2018-01-15 09:07:59: replication -a resume -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-15 09:07:59: 
+Expect: invalid option: -test
+
+2018-01-15 09:07:59: replication -a pause -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-15 09:07:59: 
+Expect: invalid option: -test
+
+2018-01-15 09:07:59: replication -a stop -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-15 09:07:59: 
+Expect: invalid option: -test
+
+2018-01-15 09:07:59: replication -a start -i 0 -p 1 -s "name=test,test=sync"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+2018-01-15 09:07:59: 
+Expect: invalid option: test
+
+2018-01-15 09:07:59: replication -a start -i 0 -p 1 -s "test=test,syncmode=test"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+2018-01-15 09:07:59: 
+Expect: invalid option: test
+
+2018-01-15 09:07:59: replication -a start -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-15 09:07:59: 
+Expect: invalid option: -test
+
+2018-01-15 09:07:59: replication -a -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-15 09:07:59: 
+Expect: invalid option: -test
+
+2018-01-15 09:07:59: replication -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+2018-01-15 09:07:59: 
+Expect: invalid option: -test
+
+2018-01-15 09:07:59: 'result': 'f'
+2018-01-15 09:07:59: replication -a resume -i 20
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[20] is not existed.
+
+administrator@cli> 
+2018-01-15 09:07:57: 
+Expect: Volume id=[20] is not existed
+
+2018-01-15 09:07:57: replication -a resume -i 9
+Error (0x4100104): Incorrect parameters: Only source Volume can be resumed.
+
+administrator@cli> 
+2018-01-15 09:07:57: 
+Expect: Invalid setting parameters
+
+2018-01-15 09:07:57: replication -a resume -i 4
+Error (0x4100104): Incorrect parameters: This replication is not paused.
+
+administrator@cli> 
+2018-01-15 09:07:57: 
+Expect: should hint replication doesn't pause
+
+2018-01-15 09:07:57: replication -a resume -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2018-01-15 09:07:57: 
+Expect: Invalid setting parameters
+
+2018-01-15 09:07:56: replication -a pause -i 20
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[20] is not existed.
+
+administrator@cli> 
+2018-01-15 09:07:56: 
+Expect: Volume id=[20] is not existed
+
+2018-01-15 09:07:56: replication -a pause -i 9
+Error (0x4100104): Incorrect parameters: Only source Volume can be paused.
+
+administrator@cli> 
+2018-01-15 09:07:55: 
+Expect: replication should not pause by destination volume
+
+2018-01-15 09:07:55: replication -a pause -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2018-01-15 09:07:55: 
+Expect: Invalid setting parameters
+
+2018-01-15 09:07:55: replication -a stop -i 20
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[20] is not existed.
+
+administrator@cli> 
+2018-01-15 09:07:55: 
+Expect: Volume id=[20] is not existed
+
+2018-01-15 09:07:54: 
+Fail: replication -a stop -i 9
+
+2018-01-15 09:07:54: replication -a stop -i 9
+
+administrator@cli> 
+2018-01-15 09:07:53: 
+Expect: replication should not stop by destination volume
+
+2018-01-15 09:07:53: replication -a stop -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+2018-01-15 09:07:53: 
+Expect: Invalid setting parameters
+
+2018-01-15 09:07:53: replication -a start -i 0 -p 1 -s "name=test,syncmode=test"
+Error (0x2013): Invalid setting parameters
+syncmode: invalid setting test (async|semi-sync|sync)
+
+administrator@cli> 
+2018-01-15 09:07:53: 
+Expect: should hint error when specify wrong sync mode
+
+2018-01-15 09:07:53: replication -a start -i 0 -p 1 -s "name=test_test_test_test_test_test_033"
+Error (0x2014): Setting parameters too long
+name shall not exceed 32 characters
+
+administrator@cli> 
+2018-01-15 09:07:53: 
+Expect: should hint error when name shall not exceed 32 characters
+
+2018-01-15 09:07:53: replication -a start -i 0 -p 1 -s "name=t*&"
+Error (0x2013): Invalid setting parameters
+name contain only alphanumeric characters and underscores
+
+administrator@cli> 
+2018-01-15 09:07:53: 
+Expect: name contain only alphanumeric characters and underscores
+
+2018-01-15 09:07:53: replication -a start -i 0 -p 1 -s "name="
+Error (0x2013): Invalid setting parameters
+name contain only alphanumeric characters and underscores
+
+administrator@cli> 
+2018-01-15 09:07:53: 
+Expect: name contain only alphanumeric characters and underscores
+
+2018-01-15 09:07:53: replication -a start -i 0 -p 2 -s "name=test_thin"
+Error (0x4100104): Incorrect parameters: Can not replicate Volume to the same Pool.
+
+administrator@cli> 
+2018-01-15 09:07:53: 
+Expect: Can not replicate Volume to the same Pool
+
+2018-01-15 09:07:53: replication -a start -i 1 -p 0 -s "name=test_thin"
+Error (0x4100104): Incorrect parameters: Volume is not full-provision.
+
+administrator@cli> 
+2018-01-15 09:07:52: 
+Expect: thin provision volume cannot become source volume
+
+2018-01-15 09:07:52: replication -a start -i 0 -p 10 -s "name=test_thin"
+Error (0x4100102): Empty query result, please check input parameters. Pool id=[10] is not existed.
+
+administrator@cli> 
+2018-01-15 09:07:52: 
+Expect: specify nonexistent destination pool
+
+2018-01-15 09:07:52: replication -a start -i 100 -p 0 -s "name=test_thin"
+Error (0x4100102): Empty query result, please check input parameters. Volume id=[100] is not existed.
+
+administrator@cli> 
+2018-01-15 09:07:51: 
+Expect: specify nonexistent source volume
+
+2018-01-15 09:07:51: replication -a start -i 0 -p 3 -s "name=test_capacity"
+Error (0x4100104): Incorrect parameters: Destination Pool availiable size is not enough.
+
+administrator@cli> 
+2018-01-15 09:07:51: 
+Expect: destination pool capacity should be more than soure volume
+
+2018-01-15 09:07:51: replication -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|start|stop|pause|resume)
+
+administrator@cli> 
+2018-01-15 09:07:51: 
+Expect: Invalid setting parameters
+
+2018-01-15 09:07:51: replication test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-15 09:07:51: 
+Expect: Invalid setting parameters
+
+2018-01-15 09:07:51: 'result': 'p'
+2018-01-15 09:07:51: replication -h
+replication
+
+Usage:
+   replication [-a <action>] [-i <ID>] [-p <pool ID>] [-s <settings>]
+
+Summary:
+   The replication command allows the user to replicate volume into another
+   pool.
+   Only with thin-provision disabled volume can be used to replicate. During
+   replication in progress, source volume cannot be expanded or removed;
+   destination volume disallowed to do any operations.
+
+Options:
+
+-a <action>           Which action to perform.
+   list               (Default) Displays the replication status.
+   start              Start a specific replication status.
+   stop               Stop the replication
+   pause              Pause the replication
+   resume             Resume a paused replication
+
+-i <ID>               Source volume ID.
+
+-p <pool id>          Destination pool ID.
+                      Only valid for -a add specified
+
+-s "<option>=<value>"
+                      Used to specify replication settings.
+                      Only valid for -a add specified
+
+   name=              Destination volume name
+
+   syncmode=          sync mode method
+     async
+     semi-sync
+     sync             (Default)
+
+-v                    Verbose mode.  Used with -a list.
+
+Examples:
+   replication -a list
+   replication -a start -i 1 -p 0 -s "name=test, syncmode=async"
+   replication -a stop -i 2
+   replication -a pause -i i
+   replication -a resume -i 1
+Type ' | grep "word1,word2,..."' at the end of each command, to display 
+filtered info.
+
+administrator@cli> 
+2018-01-15 09:07:51: 
+Expect: replication help document should be displayed
+
+2018-01-15 09:07:51: 'result': 'p'
+2018-01-15 09:07:51: replication
+===============================================================================
+SrcVol         DestVol        Location  TotalCap  UsedCap   Status         
+===============================================================================
+T_replication_ t2             Local     4 GB      4 GB      Warning            
+vol_3                                                                          
+T_replication_ test_Test_Test Local     1 GB      1 GB      OK                 
+vol_5          _Test_Test_Tes                                                  
+               t_32                                                            
+T_replication_ test_Test_Test Local     1 GB      1 GB      OK                 
+vol_4          _Test_Test_Tes                                                  
+               t31                                                             
+
+administrator@cli> 
+2018-01-15 09:07:49: replication -a resume -i 3
+
+administrator@cli> 
+2018-01-15 09:07:48: 
+Expect: replication should be resumed
+
+2018-01-15 09:07:48: 'result': 'p'
+2018-01-15 09:07:47: replication
+===============================================================================
+SrcVol         DestVol        Location  TotalCap  UsedCap   Status         
+===============================================================================
+T_replication_ t2             Local     4 GB      4 GB      Pause              
+vol_3                                                                          
+T_replication_ test_Test_Test Local     1 GB      1 GB      OK                 
+vol_5          _Test_Test_Tes                                                  
+               t_32                                                            
+T_replication_ test_Test_Test Local     1 GB      1 GB      OK                 
+vol_4          _Test_Test_Tes                                                  
+               t31                                                             
+
+administrator@cli> 
+2018-01-15 09:07:46: replication -a pause -i 3
+
+administrator@cli> 
+2018-01-15 09:07:46: 
+Expect: replication should be paused by source volume
+
+2018-01-15 09:07:46: 'result': 'p'
+2018-01-15 09:07:46: volume -v -i 6
+-------------------------------------------------------------------------------
+Id: 6                                   Name: T
+PoolId: 1                               PoolName: T_replication_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 4 GB                     UsedCapacity: 4 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 15:06:00
+PreferCtrlId: 2                         AdvType: 
+
+administrator@cli> 
+2018-01-15 09:07:44: replication -a stop -i 2
+
+administrator@cli> 
+2018-01-15 09:07:41: 
+Expect: specific replication should be stopped
+
+2018-01-15 09:07:41: 'result': 'p'
+2018-01-15 09:07:41: replication -a list -v
+-------------------------------------------------------------------------------
+Location: Local                         Role: Destination
+Mode: Active-Passive                    SyncMode: Async
+Status: Syncing                         Description: Syncing.
+Progress: 72.5                          SourceVolumeId: 2
+SourceVolumeName: T_replication_vol_2   SourcePoolName: T_replication_0
+SourcePortalIP: 10.128.0.2              DestinationVolumeId: 6
+DestinationVolumeName: T                DestinationPoolName: T_replication_1
+DestinationPortalIP: 10.128.0.2         Enable: 1
+Period: 0                               TotalCapacity: 4 GB
+UsedCapacity: 4 GB
+-------------------------------------------------------------------------------
+Location: Local                         Role: Destination
+Mode: Active-Passive                    SyncMode: Semi-Sync
+Status: Syncing                         Description: Syncing.
+Progress: 56.3                          SourceVolumeId: 3
+SourceVolumeName: T_replication_vol_3   SourcePoolName: T_replication_0
+SourcePortalIP: 10.128.0.2              DestinationVolumeId: 7
+DestinationVolumeName: t2               DestinationPoolName: T_replication_1
+DestinationPortalIP: 10.128.0.2         Enable: 1
+Period: 0                               TotalCapacity: 4 GB
+UsedCapacity: 4 GB
+-------------------------------------------------------------------------------
+Location: Local                         Role: Source
+Mode: Active-Passive                    SyncMode: Sync
+Status: Syncing                         Description: Syncing.
+Progress: 85.4                          SourceVolumeId: 5
+SourceVolumeName: T_replication_vol_5   SourcePoolName: T_replication_1
+SourcePortalIP: 10.128.0.2              DestinationVolumeId: 9
+DestinationVolumeName: test_Test_Test_Test_Test_Test_32
+DestinationPoolName: T_replication_0    DestinationPortalIP: 10.128.0.2
+Enable: 1                               Period: 0
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+-------------------------------------------------------------------------------
+Location: Local                         Role: Source
+Mode: Active-Passive                    SyncMode: Sync
+Status: OK                              Description: Ready.
+Progress: 100.0                         SourceVolumeId: 4
+SourceVolumeName: T_replication_vol_4   SourcePoolName: T_replication_1
+SourcePortalIP: 10.128.0.2              DestinationVolumeId: 8
+DestinationVolumeName: test_Test_Test_Test_Test_Test31
+DestinationPoolName: T_replication_0    DestinationPortalIP: 10.128.0.2
+Enable: 1                               Period: 0
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+
+administrator@cli> 
+2018-01-15 09:07:41: 
+Expect: all of replication should be listed by verbose mode
+
+2018-01-15 09:07:41: 'result': 'p'
+2018-01-15 09:07:41: replication
+===============================================================================
+SrcVol         DestVol        Location  TotalCap  UsedCap   Status         
+===============================================================================
+T_replication_ T              Local     4 GB      4 GB      Syncing            
+vol_2                                                                          
+T_replication_ t2             Local     4 GB      4 GB      Syncing            
+vol_3                                                                          
+T_replication_ test_Test_Test Local     1 GB      1 GB      Syncing            
+vol_5          _Test_Test_Tes                                                  
+               t_32                                                            
+T_replication_ test_Test_Test Local     1 GB      1 GB      OK                 
+vol_4          _Test_Test_Tes                                                  
+               t31                                                             
+
+administrator@cli> 
+2018-01-15 09:07:41: 
+Expect: all of replication should be listed
+
+2018-01-15 09:07:41: 'result': 'p'
+2018-01-15 09:07:41: pool -a del -i 0 -f -y
+Error (0x4100104): Incorrect parameters: There are replication or migration Volume in the Pool.
+
+administrator@cli> 
+2018-01-15 09:07:41: 
+Expect: destination pool should not be deleted
+
+2018-01-15 09:07:40: pool -a del -i 1 -f -y
+Error (0x4100104): Incorrect parameters: There are replication or migration Volume in the Pool.
+
+administrator@cli> 
+2018-01-15 09:07:40: 
+Expect: source pool should not be deleted
+
+2018-01-15 09:07:40: volume -a del -i 2
+Error (0x4100104): Incorrect parameters: Volume is replication or migration Volume.
+
+administrator@cli> 
+2018-01-15 09:07:39: 
+Expect: source volume should not be deleted
+
+2018-01-15 09:07:39: volume -a mod -i 2 -s "capacity=5GB"
+Error (0x4100104): Incorrect parameters: Volume is replication or migration Volume.
+
+administrator@cli> 
+2018-01-15 09:07:38: 
+Expect: source volume should not be expanded
+
+2018-01-15 09:07:38: volume -a del -i 6
+Error (0x4100104): Incorrect parameters: Volume is replication or migration Volume.
+
+administrator@cli> 
+2018-01-15 09:07:37: 
+Expect: destination volume should not be deleted
+
+2018-01-15 09:07:37: lunmap -a add -p volume -i 0 -l 6 -m 2
+Error (0x402): Invalid parameter
+The volume/snapshot/clone is un-exported
+
+administrator@cli> 
+2018-01-15 09:07:37: 
+Expect: destination volume should not be added for lunmap
+
+2018-01-15 09:07:37: snapshot -a add -t volume -d 6 -s "name=test_replica"
+Error (0x4100104): Incorrect parameters: Destination volume of replication or migration cannot create snapshot.
+
+administrator@cli> 
+2018-01-15 09:07:37: 
+Expect: destination volume should not create snapshot
+
+2018-01-15 09:07:36: volume -a mod -i 6 -s "name=no_way"
+Error (0x4100104): Incorrect parameters: Volume is replication or migration Volume.
+
+administrator@cli> 
+2018-01-15 09:07:36: 
+Expect: destination volume should not be modified
+
+2018-01-15 09:07:36: volume -a mod -i 6 -s "capacity=6GB"
+Error (0x4100104): Incorrect parameters: Volume is replication or migration Volume.
+
+administrator@cli> 
+2018-01-15 09:07:35: 
+Expect: destination volume should not be expanded
+
+2018-01-15 09:07:35: volume -a export -i 6
+Error (0x4100104): Incorrect parameters: Destination volume of replication in Active_Passive mode cannot be exported.
+
+administrator@cli> 
+2018-01-15 09:07:33: 
+Expect: destination volume should not be exported
+
+2018-01-15 09:07:33: replication -a start -i 0 -p 0 -s "name=firth_replica"
+Error (0x4100104): Incorrect parameters: Support maximum 4 local replication!
+
+administrator@cli> 
+2018-01-15 09:07:33: 
+Expect: Max 4 pairs of replication
+
+2018-01-15 09:07:32: 'result': 'p'
+2018-01-15 09:07:32: volume -i 5 -v
+-------------------------------------------------------------------------------
+Id: 5                                   Name: T_replication_vol_5
+PoolId: 1                               PoolName: T_replication_1
+Status: Exported                        ExportedId: 5
+ExportedWWN: 22950001555ffd7a           OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 15:05:59
+PreferCtrlId: 2                         AdvType: Replication
+AdvKind: Local                          AdvRole: Source
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 4.2
+
+administrator@cli> 
+2018-01-15 09:07:29: replication -a start -i 5 -p 0 -s "name=test_Test_Test_Test_Test_Test_32"
+
+administrator@cli> 
+2018-01-15 09:07:24: 
+Expect: replication should be started by "name=test_Test_Test_Test_Test_Test_32"
+
+2018-01-15 09:07:24: volume -i 8 -v
+-------------------------------------------------------------------------------
+Id: 8                                   Name: test_Test_Test_Test_Test_Test31
+PoolId: 0                               PoolName: T_replication_0
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 1 GB                     UsedCapacity: 1 GB
+PoolAvailableCapacity: 107.22 GB        UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 8 KB                             Sector: 512 Bytes
+Compress: off                           Ratio: 1.00x
+SyncMode: standard                      ThinProv: Disabled
+Logbias: latency                        RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 15:06:14
+PreferCtrlId: 2                         AdvType: Replication
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Sync
+AdvStatus: Syncing                      AdvProgress: 3.4
+
+administrator@cli> 
+2018-01-15 09:07:21: replication -a start -i 4 -p 0 -s "name=test_Test_Test_Test_Test_Test31, syncmode=sync"
+
+administrator@cli> 
+2018-01-15 09:07:18: 
+Expect: replication should be started by "name=test_Test_Test_Test_Test_Test31, syncmode=sync"
+
+2018-01-15 09:07:18: volume -i 7 -v
+-------------------------------------------------------------------------------
+Id: 7                                   Name: t2
+PoolId: 1                               PoolName: T_replication_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 4 GB                     UsedCapacity: 4 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 15:06:08
+PreferCtrlId: 2                         AdvType: Replication
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Semi-Sync
+AdvStatus: Syncing                      AdvProgress: 0.5
+
+administrator@cli> 
+2018-01-15 09:07:15: replication -a start -i 3 -p 1 -s "name=t2, syncmode=semi-sync"
+
+administrator@cli> 
+2018-01-15 09:07:12: 
+Expect: replication should be started by "name=t2, syncmode=semi-sync"
+
+2018-01-15 09:07:12: volume -i 6 -v
+-------------------------------------------------------------------------------
+Id: 6                                   Name: T
+PoolId: 1                               PoolName: T_replication_1
+Status: Un-Exported                     OperationalStatus: OK, Synchronizing
+TotalCapacity: 4 GB                     UsedCapacity: 4 GB
+PoolAvailableCapacity: 7.26 TB          UsedCapacityByChild: 0 Byte
+UsedCapacityBySnapshot: 0 Byte          WrittenCapacityAfterSnapshot: 8.19 KB
+Block: 64 KB                            Sector: 4 KB
+Compress: gzip                          Ratio: 1.00x
+SyncMode: disabled                      ThinProv: Disabled
+Logbias: throughput                     RedundantMetaData: all
+CopiesOfNewData: 1                      SnapshotCount: 0
+MaxSnapshotCount: 1024                  CreateDate: 2018-01-15 15:06:00
+PreferCtrlId: 2                         AdvType: Replication
+AdvKind: Local                          AdvRole: Destination
+AdvMode: Active-Passive                 AdvProtocol: Async
+AdvStatus: Syncing                      AdvProgress: 2.0
+
+administrator@cli> 
+2018-01-15 09:07:09: replication -a start -i 2 -p 1 -s "name=T, syncmode=async"
+
+administrator@cli> 
+2018-01-15 09:07:04: 
+Expect: replication should be started by "name=T, syncmode=async"
+
 2018-01-12 17:58:41: 'result': 'p'
 2018-01-12 17:58:41: target -a del -i
 Error (0x403): Missing parameter
