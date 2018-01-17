@@ -6,7 +6,7 @@ from ssh_connect import *
 from to_log import *
 
 
-def ptb_jenkins(c):
+def ptb_jenkins():
 
     mark = False
 
@@ -55,10 +55,10 @@ def ptb_jenkins(c):
     return mark
 
 
-def ptt_jenkins(c):
+def ptt_jenkins():
 
     mark = False
-    target_release = open('target_release.txt', 'r')
+    target_release = open('/home/work/zach/clitest/target_release.txt', 'r')
     build_name = target_release.readline()
     target_release.close()
 
@@ -97,16 +97,17 @@ def build_verification(c):
 
     reconnect_flag = False
 
-    if ptt_jenkins(c):
+    if ptt_jenkins():
         reconnect_flag = True
 
     else:
-        if ptb_jenkins(c):
+        if ptb_jenkins():
             reconnect_flag = True
         else:
             tolog('\n new release installation is failed\n ')
 
     if reconnect_flag:
+        c, ssh = ssh_conn()
         # there are 46 command that can be tested
         tolog("Start verifying pool add")
         import pool
@@ -1068,7 +1069,6 @@ def build_verification(c):
             tolog(f)
 
     c.close()
-    ssh.close()
 
 
 if __name__ == "__main__":

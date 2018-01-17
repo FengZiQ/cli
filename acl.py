@@ -15,44 +15,46 @@ data = 'data/acl.xlsx'
 def precondition():
     # disable domain, if enabled domain, to add user or group will happen error
     server.webapi('post', 'domain/leave')
+    try:
+        pdId = find_pd_id()
+        # create pool
+        server.webapi('post', 'pool', {"name": "test_acl_pool", "pds": pdId[:3], "raid_level": "raid5"})
 
-    pdId = find_pd_id()
-    # create pool
-    server.webapi('post', 'pool', {"name": "test_acl_pool", "pds": pdId[:3], "raid_level": "raid5"})
+        # create nasShare
+        for i in range(2):
+            server.webapi('post', 'nasshare', {'pool_id': 0, 'name': 'test_acl_nas_' + str(i), 'capacity': '2GB'})
 
-    # create nasShare
-    for i in range(2):
-        server.webapi('post', 'nasshare', {'pool_id': 0, 'name': 'test_acl_nas_' + str(i), 'capacity': '2GB'})
+        # create nas user
+        for i in range(10):
+            server.webapi('post', 'dsuser', {"id": 'test_acl_' + str(i), "password": '000000'})
 
-    # create nas user
-    for i in range(10):
-        server.webapi('post', 'dsuser', {"id": 'test_acl_' + str(i), "password": '000000'})
+        # create nas group
+        for i in range(10):
+            server.webapi('post', 'dsgroup/editcancel')
+            step1 = server.webapi('post', 'dsgroup/editbegin', {
+                "page": 1,
+                "page_size": 20
+            })
 
-    # create nas group
-    for i in range(10):
-        server.webapi('post', 'dsgroup/editcancel')
-        step1 = server.webapi('post', 'dsgroup/editbegin', {
-            "page": 1,
-            "page_size": 20
-        })
+            token = json.loads(step1["text"])[0]["token"]
+            get_page_data = json.loads(step1["text"])[0]["page_data"]
+            page_data = [[0, uid["uid"]] for uid in get_page_data]
 
-        token = json.loads(step1["text"])[0]["token"]
-        get_page_data = json.loads(step1["text"])[0]["page_data"]
-        page_data = [[0, uid["uid"]] for uid in get_page_data]
+            server.webapi('post', 'dsgroup/editnext', {
+                "page": 1,
+                "page_size": 20,
+                "token": token,
+                "page_data": page_data
+            })
+            server.webapi('post', 'dsgroup/editsave', {
+                "id": 'test_acl_group_' + str(i),
+                "token": token,
+                "page_data": page_data
+            })
 
-        server.webapi('post', 'dsgroup/editnext', {
-            "page": 1,
-            "page_size": 20,
-            "token": token,
-            "page_data": page_data
-        })
-        server.webapi('post', 'dsgroup/editsave', {
-            "id": 'test_acl_group_' + str(i),
-            "token": token,
-            "page_data": page_data
-        })
-
-        server.webapi('post', 'dsgroup/editcancel')
+            server.webapi('post', 'dsgroup/editcancel')
+    except Exception as e:
+        tolog(e)
 
 
 def clean_up_environment():
@@ -61,24 +63,27 @@ def clean_up_environment():
     server.webapi('delete', 'pool/0?force=1')
 
     # delete nas user
-    ds_users_request = server.webapi('get', 'dsusers?page=1&page_size=200')
-    ds_users = json.loads(ds_users_request["text"])
+    try:
+        ds_users_request = server.webapi('get', 'dsusers?page=1&page_size=200')
+        ds_users = json.loads(ds_users_request["text"])
 
-    for ds_use in ds_users:
+        for ds_use in ds_users:
 
-        if ds_use["id"] != 'admin':
+            if ds_use["id"] != 'admin':
 
-            server.webapi('delete', 'dsuser/' + ds_use["id"])
+                server.webapi('delete', 'dsuser/' + ds_use["id"])
 
-    # delete nas group
-    ds_groups_request = server.webapi('get', 'dsgroups?page=1&page_size=200')
-    ds_groups = json.loads(ds_groups_request["text"])
+        # delete nas group
+        ds_groups_request = server.webapi('get', 'dsgroups?page=1&page_size=200')
+        ds_groups = json.loads(ds_groups_request["text"])
 
-    for ds_group in ds_groups:
+        for ds_group in ds_groups:
 
-        if ds_group["id"] != 'users':
+            if ds_group["id"] != 'users':
 
-            server.webapi('delete', 'dsgroup/' + ds_group["id"])
+                server.webapi('delete', 'dsgroup/' + ds_group["id"])
+    except Exception as e:
+        tolog(e)
 
     return
 

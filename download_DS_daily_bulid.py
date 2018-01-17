@@ -28,7 +28,7 @@ def download():
 
         os.system('rm -f /home/tftpboot/' + build_name)
         os.system('wget -P /home/tftpboot/ ' + build_server_url + temp2 + '/' + build_name)
-        
+
     os.system('echo ' + build_name + '>/home/zach/target_release.txt')
     os.system('scp /home/zach/target_release.txt root@10.84.2.66:/home/work/zach/clitest/')
 

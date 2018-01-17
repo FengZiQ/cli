@@ -84,9 +84,9 @@ if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
 
-    # add_target(c)
-    # list_target(c)
-    # del_target(c)
+    add_target(c)
+    list_target(c)
+    del_target(c)
     invalid_setting_for_target(c)
     invalid_option_for_target(c)
     missing_parameter_for_target(c)
