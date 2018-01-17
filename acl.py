@@ -3,7 +3,6 @@
 # 2017.11.10
 
 from ssh_connect import ssh_conn
-import time
 import json
 from cli_test import *
 from remote import server
@@ -53,8 +52,8 @@ def precondition():
             })
 
             server.webapi('post', 'dsgroup/editcancel')
-    except Exception as e:
-        tolog(e)
+    except:
+        tolog("precondition is failed\r\n")
 
 
 def clean_up_environment():
@@ -65,7 +64,8 @@ def clean_up_environment():
     # delete nas user
     try:
         ds_users_request = server.webapi('get', 'dsusers?page=1&page_size=200')
-        ds_users = json.loads(ds_users_request["text"])
+        temp = json.loads(ds_users_request["text"])
+        ds_users = [user_list for user_list in temp[0]['user_list']]
 
         for ds_use in ds_users:
 
@@ -75,15 +75,15 @@ def clean_up_environment():
 
         # delete nas group
         ds_groups_request = server.webapi('get', 'dsgroups?page=1&page_size=200')
-        ds_groups = json.loads(ds_groups_request["text"])
+        ds_groups = json.loads(ds_groups_request["text"])[0]['group_list']
 
         for ds_group in ds_groups:
 
             if ds_group["id"] != 'users':
 
                 server.webapi('delete', 'dsgroup/' + ds_group["id"])
-    except Exception as e:
-        tolog(e)
+    except:
+        tolog("to clean up environment is failed\r\n")
 
     return
 

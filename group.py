@@ -127,14 +127,14 @@ def clean_up_environment():
     # delete nas user
     users = server.webapi('get', 'dsusers?page=1&page_size=500')
     if isinstance(users, dict):
-        user_info = json.loads(users["text"])
+        user_info = json.loads(users["text"])[0]['user_list']
         for user in user_info:
             server.webapi('delete', 'dsuser/' + user["id"])
 
     # delete group
     groups = server.webapi('get', 'dsgroups?page=1&page_size=500')
     if isinstance(groups, dict):
-        groups_info = json.loads(groups["text"])
+        groups_info = json.loads(groups["text"])[0]['group_list']
         for group in groups_info:
             server.webapi('delete', 'dsgroup/' + group["id"] + '?force=1')
 

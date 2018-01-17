@@ -13,35 +13,37 @@ data = 'data/user.xlsx'
 def precondition():
 
     server.webapi('post', 'dsgroup/editcancel')
-
-    step1 = server.webapi('post', 'dsgroup/editbegin', {
-        "page": 1,
-        "page_size": 20
-    })
-
-    if isinstance(step1, dict):
-
-        token = json.loads(step1["text"])[0]["token"]
-
-        get_page_data = json.loads(step1["text"])[0]["page_data"]
-        page_data = [[0, uid["uid"]] for uid in get_page_data]
-
-        server.webapi('post', 'dsgroup/editnext', {
+    try:
+        step1 = server.webapi('post', 'dsgroup/editbegin', {
             "page": 1,
-            "page_size": 20,
-            "token": token,
-            "page_data": page_data
-        })
-        server.webapi('post', 'dsgroup/editsave', {
-            "id": 'test_users',
-            "token": token,
-            "page_data": page_data
+            "page_size": 20
         })
 
-        server.webapi('post', 'dsgroup/editcancel')
+        if isinstance(step1, dict):
 
-    else:
-        tolog(step1)
+            token = json.loads(step1["text"])[0]["token"]
+
+            get_page_data = json.loads(step1["text"])[0]["page_data"]
+            page_data = [[0, uid["uid"]] for uid in get_page_data]
+
+            server.webapi('post', 'dsgroup/editnext', {
+                "page": 1,
+                "page_size": 20,
+                "token": token,
+                "page_data": page_data
+            })
+            server.webapi('post', 'dsgroup/editsave', {
+                "id": 'test_users',
+                "token": token,
+                "page_data": page_data
+            })
+
+            server.webapi('post', 'dsgroup/editcancel')
+
+        else:
+            tolog(step1)
+    except:
+        tolog("precondition is failed\r\n")
 
 
 def clean_up_environment():
@@ -71,7 +73,7 @@ def clean_up_environment():
 
     if isinstance(nas_user_request, dict):
 
-        nas_users = json.loads(nas_user_request["text"])
+        nas_users = json.loads(nas_user_request["text"])[0]['user_list']
 
         for nas_user in nas_users:
             if nas_user["id"] != 'admin':

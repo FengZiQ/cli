@@ -15,50 +15,52 @@ data = 'data/quota.xlsx'
 def precondition():
     # disable domain, if enabled domain, to add user or group will happen error
     server.webapi('post', 'domain/leave')
+    try:
+        pdId = find_pd_id()
+        # create pool
+        server.webapi('post', 'pool', {"name": "test_quota_pool", "pds": pdId[:3], "raid_level": "raid5"})
 
-    pdId = find_pd_id()
-    # create pool
-    server.webapi('post', 'pool', {"name": "test_quota_pool", "pds": pdId[:3], "raid_level": "raid5"})
+        # create nasShare
+        for i in range(2):
+            server.webapi('post', 'nasshare', {'pool_id': 0, 'name': 'test_quota_nas_' + str(i), 'capacity': '2TB'})
 
-    # create nasShare
-    for i in range(2):
-        server.webapi('post', 'nasshare', {'pool_id': 0, 'name': 'test_quota_nas_' + str(i), 'capacity': '2TB'})
+        # create clone
+        server.webapi('post', 'snapshot', {"name": "test_quota_snap", "type": 'nasshare', "source_id": 0})
+        for i in range(2):
+            server.webapi('post', 'clone', {"name": "test_quota_clone_" + str(i), "source_id": 0})
 
-    # create clone
-    server.webapi('post', 'snapshot', {"name": "test_quota_snap", "type": 'nasshare', "source_id": 0})
-    for i in range(2):
-        server.webapi('post', 'clone', {"name": "test_quota_clone_" + str(i), "source_id": 0})
+        # create nas user
+        for i in range(10):
+            server.webapi('post', 'dsuser', {"id": 'test_quota_' + str(i), "password": '000000'})
 
-    # create nas user
-    for i in range(10):
-        server.webapi('post', 'dsuser', {"id": 'test_quota_' + str(i), "password": '000000'})
+        # create nas group
+        for i in range(10):
+            server.webapi('post', 'dsgroup/editcancel')
+            step1 = server.webapi('post', 'dsgroup/editbegin', {
+                "page": 1,
+                "page_size": 20
+            })
 
-    # create nas group
-    for i in range(10):
-        server.webapi('post', 'dsgroup/editcancel')
-        step1 = server.webapi('post', 'dsgroup/editbegin', {
-            "page": 1,
-            "page_size": 20
-        })
+            token = json.loads(step1["text"])[0]["token"]
 
-        token = json.loads(step1["text"])[0]["token"]
+            get_page_data = json.loads(step1["text"])[0]["page_data"]
+            page_data = [[0, uid["uid"]] for uid in get_page_data]
 
-        get_page_data = json.loads(step1["text"])[0]["page_data"]
-        page_data = [[0, uid["uid"]] for uid in get_page_data]
+            server.webapi('post', 'dsgroup/editnext', {
+                "page": 1,
+                "page_size": 20,
+                "token": token,
+                "page_data": page_data
+            })
+            server.webapi('post', 'dsgroup/editsave', {
+                "id": 'test_quota_group_' + str(i),
+                "token": token,
+                "page_data": page_data
+            })
 
-        server.webapi('post', 'dsgroup/editnext', {
-            "page": 1,
-            "page_size": 20,
-            "token": token,
-            "page_data": page_data
-        })
-        server.webapi('post', 'dsgroup/editsave', {
-            "id": 'test_quota_group_' + str(i),
-            "token": token,
-            "page_data": page_data
-        })
-
-        server.webapi('post', 'dsgroup/editcancel')
+            server.webapi('post', 'dsgroup/editcancel')
+    except:
+        tolog("precondition is failed\r\n")
 
     return
 
@@ -67,32 +69,34 @@ def clean_up_environment():
     # clean up environment
     # delete pool
     server.webapi('delete', 'pool/0?force=1')
+    try:
+        # delete nas user
+        ds_users_request = server.webapi('get', 'dsusers?page=1&page_size=200')
 
-    # delete nas user
-    ds_users_request = server.webapi('get', 'dsusers?page=1&page_size=200')
+        if isinstance(ds_users_request, dict):
 
-    if isinstance(ds_users_request, dict):
+            ds_users = json.loads(ds_users_request["text"])[0]['user_list']
 
-        ds_users = json.loads(ds_users_request["text"])
+            for ds_use in ds_users:
 
-        for ds_use in ds_users:
+                if ds_use["id"] != 'admin':
 
-            if ds_use["id"] != 'admin':
+                    server.webapi('delete', 'dsuser/' + ds_use["id"])
 
-                server.webapi('delete', 'dsuser/' + ds_use["id"])
+        # delete nas group
+        ds_groups_request = server.webapi('get', 'dsgroups?page=1&page_size=200')
 
-    # delete nas group
-    ds_groups_request = server.webapi('get', 'dsgroups?page=1&page_size=200')
+        if isinstance(ds_groups_request, dict):
 
-    if isinstance(ds_groups_request, dict):
+            ds_groups = json.loads(ds_groups_request["text"])[0]['group_list']
 
-        ds_groups = json.loads(ds_groups_request["text"])
+            for ds_group in ds_groups:
 
-        for ds_group in ds_groups:
+                if ds_group["id"] != 'users':
 
-            if ds_group["id"] != 'users':
-
-                server.webapi('delete', 'dsgroup/' + ds_group["id"])
+                    server.webapi('delete', 'dsgroup/' + ds_group["id"])
+    except:
+        tolog("to clean up environment is failed\r\n")
 
     return
 

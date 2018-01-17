@@ -1011,22 +1011,37 @@ def build_verification(c):
         if (domain.missing_parameter_for_domain(c)):
             failed_cases.append('The case ' + domain.missing_parameter_for_domain.__name__ + ' failed')
 
-        tolog('Start verifying migrate')
-        import migrate
-        if (migrate.start_local_migrate(c)):
-            failed_cases.append('The case ' + migrate.start_local_migrate.__name__ + ' failed')
-        if (migrate.start_remote_migrate(c)):
-            failed_cases.append('The case ' + migrate.start_remote_migrate.__name__ + ' failed')
-        if (migrate.stop_migrate(c)):
-            failed_cases.append('The case ' + migrate.stop_migrate.__name__ + ' failed')
-        if (migrate.help_migrate(c)):
-            failed_cases.append('The case ' + migrate.help_migrate.__name__ + ' failed')
-        if (migrate.invalid_setting_for_migrate(c)):
-            failed_cases.append('The case ' + migrate.invalid_setting_for_migrate.__name__ + ' failed')
-        if (migrate.invalid_option_for_migrate(c)):
-            failed_cases.append('The case ' + migrate.invalid_option_for_migrate.__name__ + ' failed')
-        if (migrate.missing_parameter_migrate(c)):
-            failed_cases.append('The case ' + migrate.missing_parameter_migrate.__name__ + ' failed')
+        tolog('Start verifying target')
+        import target
+        if (target.add_target(c)):
+            failed_cases.append('The case ' + target.add_target.__name__ + ' failed')
+        if (target.list_target(c)):
+            failed_cases.append('The case ' + target.list_target.__name__ + ' failed')
+        if (target.del_target(c)):
+            failed_cases.append('The case ' + target.del_target.__name__ + ' failed')
+        if (target.invalid_setting_for_target(c)):
+            failed_cases.append('The case ' + target.invalid_setting_for_target.__name__ + ' failed')
+        if (target.invalid_option_for_target(c)):
+            failed_cases.append('The case ' + target.invalid_option_for_target.__name__ + ' failed')
+        if (target.missing_parameter_for_target(c)):
+            failed_cases.append('The case ' + target.missing_parameter_for_target.__name__ + ' failed')
+
+        # tolog('Start verifying migrate')
+        # import migrate
+        # if (migrate.start_local_migrate(c)):
+        #     failed_cases.append('The case ' + migrate.start_local_migrate.__name__ + ' failed')
+        # if (migrate.start_remote_migrate(c)):
+        #     failed_cases.append('The case ' + migrate.start_remote_migrate.__name__ + ' failed')
+        # if (migrate.stop_migrate(c)):
+        #     failed_cases.append('The case ' + migrate.stop_migrate.__name__ + ' failed')
+        # if (migrate.help_migrate(c)):
+        #     failed_cases.append('The case ' + migrate.help_migrate.__name__ + ' failed')
+        # if (migrate.invalid_setting_for_migrate(c)):
+        #     failed_cases.append('The case ' + migrate.invalid_setting_for_migrate.__name__ + ' failed')
+        # if (migrate.invalid_option_for_migrate(c)):
+        #     failed_cases.append('The case ' + migrate.invalid_option_for_migrate.__name__ + ' failed')
+        # if (migrate.missing_parameter_migrate(c)):
+        #     failed_cases.append('The case ' + migrate.missing_parameter_migrate.__name__ + ' failed')
 
         tolog('Start verifying wcache')
         import wcache

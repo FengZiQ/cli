@@ -23645,3 +23645,4059 @@ administrator@cli>
 Fail: please check out specific volume not exists
 
 'result': 'f'
+
+ precondition is failed
+
+
+Expect: target should be added by name 00-11-22-33-44-55-66-77
+
+target -a add -n 00-11-22-33-44-55-66-77
+Error (0x49962102): Invalid command
+
+administrator@cli> 
+
+Fail: target -a add -n 00-11-22-33-44-55-66-77
+
+
+Expect: target should be added by name 09-81-27-36-45-54-88-99
+
+target -a add -n 09-81-27-36-45-54-88-99
+Error (0x49962102): Invalid command
+
+administrator@cli> 
+
+Fail: target -a add -n 09-81-27-36-45-54-88-99
+
+
+Expect: target should be added by name A1-bc-d7-e6-F5-54-88-99
+
+target -a add -n A1-bc-d7-e6-F5-54-88-99
+Error (0x49962102): Invalid command
+
+administrator@cli> 
+
+Fail: target -a add -n A1-bc-d7-e6-F5-54-88-99
+
+
+Expect: target should be added by name aa-bb-cc-dd-ee-ff-aa-bb
+
+target -a add -n aa-bb-cc-dd-ee-ff-aa-bb
+Error (0x49962102): Invalid command
+
+administrator@cli> 
+
+Fail: target -a add -n aa-bb-cc-dd-ee-ff-aa-bb
+
+
+Expect: target should be added by name AB-CD-EF-AA-BB-CC-DD-FF
+
+target -a add -n AB-CD-EF-AA-BB-CC-DD-FF
+Error (0x49962102): Invalid command
+
+administrator@cli> 
+
+Fail: target -a add -n AB-CD-EF-AA-BB-CC-DD-FF
+
+'result': 'f'
+
+Expect: all target should be listed
+
+target
+Error (0x49962102): Invalid command
+
+administrator@cli> 
+
+Fail: target
+
+
+Expect: target of index 1 should be listed
+
+target -i 1
+Error (0x49962102): Invalid command
+
+administrator@cli> 
+
+Fail: target -i 1
+
+'result': 'f'
+
+Expect: specific target should be deleted
+
+target -a del -i 1
+Error (0x49962102): Invalid command
+
+administrator@cli> 
+
+Fail: target -a del -i 1
+
+'result': 'f'
+
+Expect: Invalid setting parameters
+
+target test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+target -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|add|del)
+
+administrator@cli> 
+
+Expect: Invalid parameter
+
+target -a add -n abc-1-22-33-44-55-66-77
+Error (0x402): Invalid parameter
+-n: initiator name every byte has to be separated by one - character
+
+administrator@cli> 
+
+Expect: Invalid parameter
+
+target -a add -n 091-81-27-36-45-54-88-99
+Error (0x402): Invalid parameter
+-n: initiator name should be 8 bytes long
+
+administrator@cli> 
+
+Expect: Invalid parameter
+
+target -a add -n a1-bc-d7-e6-f5-54-88-9
+Error (0x402): Invalid parameter
+-n: initiator name should be 8 bytes long
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+target -i 65536
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 65536 (1,65535)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+target -a del -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+target -a del -i 200
+Error (0x49962102): Invalid command
+
+administrator@cli> 
+
+Fail: please check out specified target not found
+
+'result': 'f'
+
+Expect: Invalid option for the command or the action
+
+target -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+target -a -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+target -a add -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+target -a del -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Missing parameter
+
+target -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+target -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+target -a add
+Error (0x403): Missing parameter
+missing parameter '-n' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+target -a add -n 
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+target -a del
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a del'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+target -a del -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+'result': 'p'
+
+Expect: target should be added by name 00-11-22-33-44-55-66-77
+
+target -a add -n 00-11-22-33-44-55-66-77
+
+administrator@cli> 
+target -i 1
+-------------------------------------------------------------------------------
+Index: 1                                Wwnn: -5-55-55-55-55-55-55-55
+
+administrator@cli> 
+
+Fail: please check out Wwnn: 00-11-22-33-44-55-66-77
+
+
+Expect: target should be added by name 09-81-27-36-45-54-88-99
+
+target -a add -n 09-81-27-36-45-54-88-99
+
+administrator@cli> 
+target -i 2
+-------------------------------------------------------------------------------
+Index: 2                                Wwnn: -5-e4-32-81-90-aa-b7-76
+
+administrator@cli> 
+
+Fail: please check out Wwnn: 09-81-27-36-45-54-88-99
+
+
+Expect: target should be added by name A1-bc-d7-e6-F5-54-88-99
+
+target -a add -n A1-bc-d7-e6-F5-54-88-99
+
+administrator@cli> 
+target -i 3
+-------------------------------------------------------------------------------
+Index: 3                                Wwnn: -5-4e-ed-dc-cb-ba-a9-98
+
+administrator@cli> 
+
+Fail: please check out Wwnn: A1-bc-d7-e6-F5-54-88-99
+
+
+Expect: target should be added by name aa-bb-cc-dd-ee-ff-aa-bb
+
+target -a add -n aa-bb-cc-dd-ee-ff-aa-bb
+
+administrator@cli> 
+target -i 4
+-------------------------------------------------------------------------------
+Index: 4                                Wwnn: -5-e4-32-81-90-aa-b7-76
+
+administrator@cli> 
+
+Fail: please check out Wwnn: aa-bb-cc-dd-ee-ff-aa-bb
+
+
+Expect: target should be added by name AB-CD-EF-AA-BB-CC-DD-FF
+
+target -a add -n AB-CD-EF-AA-BB-CC-DD-FF
+
+administrator@cli> 
+target -i 5
+-------------------------------------------------------------------------------
+Index: 5                                Wwnn: -5-4e-ed-dc-cb-ba-a9-98
+
+administrator@cli> 
+
+Fail: please check out Wwnn: AB-CD-EF-AA-BB-CC-DD-FF
+
+'result': 'f'
+
+Expect: all target should be listed
+
+target
+-------------------------------------------------------------------------------
+Index: 1                                Wwnn: 00-11-22-33-44-55-66-77
+-------------------------------------------------------------------------------
+Index: 2                                Wwnn: 09-81-27-36-45-54-88-99
+-------------------------------------------------------------------------------
+Index: 3                                Wwnn: -5-55-55-55-55-55-55-55
+-------------------------------------------------------------------------------
+Index: 4                                Wwnn: -5-e4-32-81-90-aa-b7-76
+-------------------------------------------------------------------------------
+Index: 5                                Wwnn: -5-4e-ed-dc-cb-ba-a9-98
+-------------------------------------------------------------------------------
+Index: 6                                Wwnn: -5-d5-d5-d5-d5-d5-d5-d5
+-------------------------------------------------------------------------------
+Index: 7                                Wwnn: -5-e4-3d-8c-9b-aa-b7-76
+-------------------------------------------------------------------------------
+Index: 8                                Wwnn: -5-54-43-32-21-10-05-54
+-------------------------------------------------------------------------------
+Index: 9                                Wwnn: 00-00-ff-fd-00-00-00-00
+
+administrator@cli> 
+
+Expect: target of index 1 should be listed
+
+target -i 1
+-------------------------------------------------------------------------------
+Index: 1                                Wwnn: 00-11-22-33-44-55-66-77
+
+administrator@cli> 
+'result': 'p'
+
+Expect: specific target should be deleted
+
+target -a del -i 1
+
+administrator@cli> 
+target
+-------------------------------------------------------------------------------
+Index: 1                                Wwnn: 09-81-27-36-45-54-88-99
+-------------------------------------------------------------------------------
+Index: 2                                Wwnn: -5-55-55-55-55-55-55-55
+-------------------------------------------------------------------------------
+Index: 3                                Wwnn: -5-e4-32-81-90-aa-b7-76
+-------------------------------------------------------------------------------
+Index: 4                                Wwnn: -5-4e-ed-dc-cb-ba-a9-98
+-------------------------------------------------------------------------------
+Index: 5                                Wwnn: -5-d5-d5-d5-d5-d5-d5-d5
+-------------------------------------------------------------------------------
+Index: 6                                Wwnn: -5-e4-3d-8c-9b-aa-b7-76
+-------------------------------------------------------------------------------
+Index: 7                                Wwnn: -5-54-43-32-21-10-05-54
+-------------------------------------------------------------------------------
+Index: 8                                Wwnn: -0-00-00-00-5f-fd-49-40
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Invalid setting parameters
+
+target test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+target -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|add|del)
+
+administrator@cli> 
+
+Expect: Invalid parameter
+
+target -a add -n abc-1-22-33-44-55-66-77
+Error (0x402): Invalid parameter
+-n: initiator name every byte has to be separated by one - character
+
+administrator@cli> 
+
+Expect: Invalid parameter
+
+target -a add -n 091-81-27-36-45-54-88-99
+Error (0x402): Invalid parameter
+-n: initiator name should be 8 bytes long
+
+administrator@cli> 
+
+Expect: Invalid parameter
+
+target -a add -n a1-bc-d7-e6-f5-54-88-9
+Error (0x402): Invalid parameter
+-n: initiator name should be 8 bytes long
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+target -i 65536
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 65536 (1,65535)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+target -a del -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+target -a del -i 200
+Error (0x2013): Invalid setting parameters
+specified target not found
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Invalid option for the command or the action
+
+target -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+target -a -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+target -a add -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+target -a del -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Missing parameter
+
+target -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+target -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+target -a add
+Error (0x403): Missing parameter
+missing parameter '-n' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+target -a add -n 
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+target -a del
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a del'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+target -a del -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+'result': 'p'
+to clean up environment is failed
+
+to clean up environment is failed
+
+to clean up environment is failed
+
+
+Expect: permisions of everyone should be 0 on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=ro"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role              UIDorGID  Name                                    ACL       
+===============================================================================
+everyone          N/A       N/A                                     ro         
+ownergroup        N/A       N/A                                     rw         
+
+administrator@cli> 
+
+Expect: permisions of everyone should be rw on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=rw"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role              UIDorGID  Name                                    ACL       
+===============================================================================
+everyone          N/A       N/A                                     rw         
+ownergroup        N/A       N/A                                     rw         
+
+administrator@cli> 
+
+Expect: permisions of everyone should be deny only on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=deny"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role              UIDorGID  Name                                    ACL       
+===============================================================================
+everyone          N/A       N/A                                     deny       
+ownergroup        N/A       N/A                                     rw         
+
+administrator@cli> 
+
+Expect: signle nas user should can set ro permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=ro,name=test_acl_0"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role              UIDorGID  Name                                    ACL       
+===============================================================================
+everyone          N/A       N/A                                     deny       
+user              1001      test_acl_0                              ro         
+ownergroup        N/A       N/A                                     rw         
+
+administrator@cli> 
+
+Expect: signle nas user should can set rw permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=rw,name=test_acl_1"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role              UIDorGID  Name                                    ACL       
+===============================================================================
+everyone          N/A       N/A                                     deny       
+user              1001      test_acl_0                              ro         
+user              1002      test_acl_1                              rw         
+ownergroup        N/A       N/A                                     rw         
+
+administrator@cli> 
+
+Expect: signle nas user should can set deny permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=deny,name=test_acl_2"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role              UIDorGID  Name                                    ACL       
+===============================================================================
+everyone          N/A       N/A                                     deny       
+user              1001      test_acl_0                              ro         
+user              1002      test_acl_1                              rw         
+user              1003      test_acl_2                              deny       
+ownergroup        N/A       N/A                                     rw         
+
+administrator@cli> 
+
+Expect: signle nas group should can set ro permissions on nasshare
+
+acl -a set -d 1 -t nasshare -s "role=group,acl=ro,name=test_acl_group_0"
+
+administrator@cli> 
+acl -t nasshare -d 1
+===============================================================================
+Role              UIDorGID  Name                                    ACL       
+===============================================================================
+everyone          N/A       N/A                                     rw         
+group             1001      test_acl_group_0                        ro         
+ownergroup        N/A       N/A                                     rw         
+
+administrator@cli> 
+
+Expect: signle nas group should can set rw permissions on nasshare
+
+acl -a set -d 1 -t nasshare -s "role=group,acl=rw,name=test_acl_group_1"
+
+administrator@cli> 
+acl -t nasshare -d 1
+===============================================================================
+Role              UIDorGID  Name                                    ACL       
+===============================================================================
+everyone          N/A       N/A                                     rw         
+group             1001      test_acl_group_0                        ro         
+group             1002      test_acl_group_1                        rw         
+ownergroup        N/A       N/A                                     rw         
+
+administrator@cli> 
+
+Expect: signle nas group should can set deny permissions on nasshare
+
+acl -a set -d 1 -t nasshare -s "role=group,acl=deny,name=test_acl_group_2"
+
+administrator@cli> 
+acl -t nasshare -d 1
+===============================================================================
+Role              UIDorGID  Name                                    ACL       
+===============================================================================
+everyone          N/A       N/A                                     rw         
+group             1001      test_acl_group_0                        ro         
+group             1002      test_acl_group_1                        rw         
+group             1003      test_acl_group_2                        deny       
+ownergroup        N/A       N/A                                     rw         
+
+administrator@cli> 
+'result': 'p'
+
+Expect: list acl settings on nasshare 0
+
+acl -t nasshare -d 0
+===============================================================================
+Role              UIDorGID  Name                                    ACL       
+===============================================================================
+everyone          N/A       N/A                                     deny       
+user              1001      test_acl_0                              ro         
+user              1002      test_acl_1                              rw         
+user              1003      test_acl_2                              deny       
+ownergroup        N/A       N/A                                     rw         
+
+administrator@cli> 
+
+Expect: list acl settings on nasshare 1
+
+acl -t nasshare -d 1
+===============================================================================
+Role              UIDorGID  Name                                    ACL       
+===============================================================================
+everyone          N/A       N/A                                     rw         
+group             1001      test_acl_group_0                        ro         
+group             1002      test_acl_group_1                        rw         
+group             1003      test_acl_group_2                        deny       
+ownergroup        N/A       N/A                                     rw         
+
+administrator@cli> 
+'result': 'p'
+
+Expect: list acl settings of specific nasshare type by verbose mode
+
+acl -v -t nasshare -d 0
+-------------------------------------------------------------------------------
+Role: everyone                          UIDorGID: N/A
+ACL: deny                               Status: Ready
+UsernameOrGroupname: N/A
+-------------------------------------------------------------------------------
+Role: user                              UIDorGID: 1001
+ACL: ro                                 Status: Ready
+UsernameOrGroupname: test_acl_0
+-------------------------------------------------------------------------------
+Role: user                              UIDorGID: 1002
+ACL: rw                                 Status: Ready
+UsernameOrGroupname: test_acl_1
+-------------------------------------------------------------------------------
+Role: user                              UIDorGID: 1003
+ACL: deny                               Status: Ready
+UsernameOrGroupname: test_acl_2
+-------------------------------------------------------------------------------
+Role: ownergroup                        UIDorGID: N/A
+ACL: rw                                 Status: Ready
+UsernameOrGroupname: N/A
+
+administrator@cli> 
+'result': 'p'
+
+Expect: refresh acl of nasshare type
+
+acl -a refresh -d 0 -t nasshare
+
+administrator@cli> 
+'result': 'p'
+
+Expect: signle nas user should can set unset permissions on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=user,acl=unset,name=test_acl_2"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role              UIDorGID  Name                                    ACL       
+===============================================================================
+everyone          N/A       N/A                                     deny       
+user              1001      test_acl_0                              ro         
+user              1002      test_acl_1                              rw         
+ownergroup        N/A       N/A                                     rw         
+
+administrator@cli> 
+
+Expect: signle nas group should can set unset permissions on nasshare
+
+acl -a set -d 1 -t nasshare -s "role=group,acl=unset,name=test_acl_group_2"
+
+administrator@cli> 
+acl -t nasshare -d 1
+===============================================================================
+Role              UIDorGID  Name                                    ACL       
+===============================================================================
+everyone          N/A       N/A                                     rw         
+group             1001      test_acl_group_0                        ro         
+group             1002      test_acl_group_1                        rw         
+ownergroup        N/A       N/A                                     rw         
+
+administrator@cli> 
+
+Expect: permisions of everyone should be unset only on nasshare
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=unset"
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role              UIDorGID  Name                                    ACL       
+===============================================================================
+everyone          N/A       N/A                                     deny       
+user              1001      test_acl_0                              ro         
+user              1002      test_acl_1                              rw         
+ownergroup        N/A       N/A                                     rw         
+
+administrator@cli> 
+'result': 'p'
+
+Expect: all acl settings are cleared on specific nasshare
+
+acl -a clear -t nasshare -d 0
+
+administrator@cli> 
+acl -t nasshare -d 0
+===============================================================================
+Role              UIDorGID  Name                                    ACL       
+===============================================================================
+everyone          N/A       N/A                                     rw         
+ownergroup        N/A       N/A                                     rw         
+
+administrator@cli> 
+'result': 'p'
+
+Expect: add nasshare acl is deny for everyone
+
+acl -a set -d 0 -t nasshare -s "role=everyone,acl=deny"
+
+administrator@cli> 
+
+Expect: to add action is canceled on nasshare
+
+acl -a cancel -t nasshare -d 0
+Error (0x4100104): Incorrect parameters: There is running task now.
+
+administrator@cli> 
+
+Fail: acl -a cancel -t nasshare -d 0
+
+'result': 'f'
+
+Expect: Invalid setting parameters
+
+acl test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -d 0 -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (nasshare)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: id=[100] is not existed
+
+acl -a set -d 100 -t nasshare -s "role=user,name=admin,acl=rw"
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: id=[100] is not existed
+
+acl -a set -d 100 -t nasshare -s "role=group,name=users,acl=rw"
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t test -s "role=user,name=admin,acl=rw"
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (nasshare)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t nasshare -s "role=test,name=admin,acl=rw"
+Error (0x2013): Invalid setting parameters
+role: invalid setting test (everyone|user|group|ownergroup)
+
+administrator@cli> 
+
+Expect: NAS user [test] doesn't exist
+
+acl -a set -d 0 -t nasshare -s "role=user,name=test,acl=rw"
+Error (0x4100104): Incorrect parameters: NAS user [test] doesn't exist.
+
+administrator@cli> 
+
+Expect: NAS group [test] doesn't exist
+
+acl -a set -d 0 -t nasshare -s "role=group,name=test,acl=rw"
+Error (0x4100104): Incorrect parameters: NAS group [test] doesn't exist.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t nasshare -s "role=user,name=test_acl_0,acl=test"
+Error (0x2013): Invalid setting parameters
+acl: invalid setting test (unset|deny|ro|rw)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a set -d 0 -t nasshare -s "role=group,name=users,acl=test"
+Error (0x2013): Invalid setting parameters
+acl: invalid setting test (unset|deny|ro|rw)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a refresh test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a refresh -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (nasshare)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a mod -d 0 -t nasshare -s ""
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a mod -d 0 -t clone -s ""
+Error (0x2013): Invalid setting parameters
+-a: invalid setting mod (list|clear|set|cancel|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a clear -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+acl -a cancel -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Invalid option for the command or the action
+
+acl -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -d 0 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a set -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a set -d 0 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a set -d 0 -nasshare -s "test=user,user=adimin,acl=rw"
+Error (0x2012): Invalid option for the command or the action
+invalid option: -nasshare
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a set -d 0 -nasshare -s "role=user,test=adimin,acl=rw"
+Error (0x2012): Invalid option for the command or the action
+invalid option: -nasshare
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a refresh -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a clear -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a clear -t nasshare -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+acl -a cancel -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Missing parameter
+
+acl -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -d 0 -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a set -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a set -d 0 
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a set'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a set -d 0 -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a set -d 0 -t nasshare 
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a set'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a set -d 0 -t nasshare -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a refresh
+Error (0x403): Missing parameter
+missing parameter '-d' for '-a refresh'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a refresh -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a refresh -d 0 -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a cancel
+Error (0x403): Missing parameter
+missing parameter '-d' for '-a cancel'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a cancel -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a clear -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+acl -a clear
+Error (0x403): Missing parameter
+missing parameter '-d' for '-a clear'
+
+administrator@cli> 
+'result': 'p'
+
+Expect: allowip should be set by "ip=1.0.0.0, permission=ro, squash=root"
+
+allowip -a add -t nasshare -d 0 -s "ip=1.0.0.0, permission=ro, squash=root"
+
+administrator@cli> 
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         1.0.0.0                                 ro          root_squash      
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=126.255.255.254, permission=rw, squash=all"
+
+allowip -a add -t nasshare -d 0 -s "ip=126.255.255.254, permission=rw, squash=all"
+
+administrator@cli> 
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         1.0.0.0                                 ro          root_squash      
+1         126.255.255.254                         rw          all_squash       
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=128.0.0.0, permission=ro, squash=root"
+
+allowip -a add -t snapshot -d 0 -s "ip=128.0.0.0, permission=ro, squash=root"
+
+administrator@cli> 
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         128.0.0.0                               ro          root_squash      
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=191.255.255.254, permission=rw, squash=noroot"
+
+allowip -a add -t snapshot -d 0 -s "ip=191.255.255.254, permission=ro, squash=noroot"
+
+administrator@cli> 
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         128.0.0.0                               ro          root_squash      
+1         191.255.255.254                         ro          no_root_squash   
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=192.0.0.0, permission=ro, squash=all"
+
+allowip -a add -t clone -d 0 -s "ip=192.0.0.0, permission=ro, squash=all"
+
+administrator@cli> 
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         192.0.0.0                               ro          all_squash       
+
+administrator@cli> 
+
+Expect: allowip should be set by "ip=223.255.255.254, permission=rw, squash=root"
+
+allowip -a add -t clone -d 0 -s "ip=223.255.255.254, permission=rw, squash=root"
+
+administrator@cli> 
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         192.0.0.0                               ro          all_squash       
+1         223.255.255.254                         rw          root_squash      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: list allowip settings on nasshare 0
+
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         1.0.0.0                                 ro          root_squash      
+1         126.255.255.254                         rw          all_squash       
+
+administrator@cli> 
+
+Expect: list allowip settings on snapshot 0
+
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         128.0.0.0                               ro          root_squash      
+1         191.255.255.254                         ro          no_root_squash   
+
+administrator@cli> 
+
+Expect: list allowip settings of clone 0
+
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         192.0.0.0                               ro          all_squash       
+1         223.255.255.254                         rw          root_squash      
+
+administrator@cli> 
+
+Expect: list allowip settings on nasshare 0
+
+allowip
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         1.0.0.0                                 ro          root_squash      
+1         126.255.255.254                         rw          all_squash       
+
+administrator@cli> 
+'result': 'p'
+
+Expect: list allowip settings on nasshare 1 by verbose moed
+
+allowip -v -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         1.0.0.0                                 ro          root_squash      
+1         126.255.255.254                         rw          all_squash       
+
+administrator@cli> 
+
+Expect: list allowip settings on snapshot 1 by verbose moed
+
+allowip -v -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         128.0.0.0                               ro          root_squash      
+1         191.255.255.254                         ro          no_root_squash   
+
+administrator@cli> 
+
+Expect: list allowip settings of clone 1 by verbose moed
+
+allowip -v -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         192.0.0.0                               ro          all_squash       
+1         223.255.255.254                         rw          root_squash      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: allowip of nasshare type should be modified by "ip=10.84.2.1, permission=rw, squash=root"
+
+allowip -a mod -t nasshare -d 0 -i 0 -s "ip=10.84.2.1, permission=rw, squash=root"
+
+administrator@cli> 
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.1                               rw          root_squash      
+1         126.255.255.254                         rw          all_squash       
+
+administrator@cli> 
+
+Expect: allowip of nasshare type should be modified by "ip=10.84.2.2, permission=ro, squash=all"
+
+allowip -a mod -t nasshare -d 0 -i 0 -s "ip=10.84.2.2, permission=ro, squash=all"
+
+administrator@cli> 
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.2                               ro          all_squash       
+1         126.255.255.254                         rw          all_squash       
+
+administrator@cli> 
+
+Expect: allowip of nasshare type should be modified by "ip=10.84.2.3, permission=rw, squash=noroot"
+
+allowip -a mod -t nasshare -d 0 -i 0 -s "ip=10.84.2.3, permission=rw, squash=noroot"
+
+administrator@cli> 
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.3                               rw          no_root_squash   
+1         126.255.255.254                         rw          all_squash       
+
+administrator@cli> 
+
+Expect: allowip of snapshot type should be modified by "ip=10.84.2.1, permission=rw, squash=root"
+
+allowip -a mod -t snapshot -d 0 -i 0 -s "ip=10.84.2.1, permission=ro, squash=root"
+
+administrator@cli> 
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.1                               ro          root_squash      
+1         191.255.255.254                         ro          no_root_squash   
+
+administrator@cli> 
+
+Expect: allowip of snapshot type should be modified by "ip=10.84.2.2, permission=ro, squash=all"
+
+allowip -a mod -t snapshot -d 0 -i 0 -s "ip=10.84.2.2, permission=ro, squash=all"
+
+administrator@cli> 
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.2                               ro          all_squash       
+1         191.255.255.254                         ro          no_root_squash   
+
+administrator@cli> 
+
+Expect: allowip of snapshot type should be modified by "ip=10.84.2.3, permission=rw, squash=noroot"
+
+allowip -a mod -t snapshot -d 0 -i 0 -s "ip=10.84.2.3, permission=ro, squash=noroot"
+
+administrator@cli> 
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.3                               ro          no_root_squash   
+1         191.255.255.254                         ro          no_root_squash   
+
+administrator@cli> 
+
+Expect: allowip of clone type should be modified by "ip=10.84.2.1, permission=rw, squash=root"
+
+allowip -a mod -t clone -d 0 -i 0 -s "ip=10.84.2.1, permission=rw, squash=root"
+
+administrator@cli> 
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.1                               rw          root_squash      
+1         223.255.255.254                         rw          root_squash      
+
+administrator@cli> 
+
+Expect: allowip of clone type should be modified by "ip=10.84.2.2, permission=ro, squash=all"
+
+allowip -a mod -t clone -d 0 -i 0 -s "ip=10.84.2.2, permission=ro, squash=all"
+
+administrator@cli> 
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.2                               ro          all_squash       
+1         223.255.255.254                         rw          root_squash      
+
+administrator@cli> 
+
+Expect: allowip of clone type should be modified by "ip=10.84.2.3, permission=rw, squash=noroot"
+
+allowip -a mod -t clone -d 0 -i 0 -s "ip=10.84.2.3, permission=rw, squash=noroot"
+
+administrator@cli> 
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         10.84.2.3                               rw          no_root_squash   
+1         223.255.255.254                         rw          root_squash      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: index 0 of allowip should be deleted on nasshare 0
+
+allowip -a del -t nasshare -d 0 -i 0
+
+administrator@cli> 
+allowip -t nasshare -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         126.255.255.254                         rw          all_squash       
+
+administrator@cli> 
+
+Expect: index 0 of allowip should be deleted on snapshot 0
+
+allowip -a del -t snapshot -d 0 -i 0
+
+administrator@cli> 
+allowip -t snapshot -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         191.255.255.254                         ro          no_root_squash   
+
+administrator@cli> 
+
+Expect: index 0 of allowip should be deleted on clone 0
+
+allowip -a del -t clone -d 0 -i 0
+
+administrator@cli> 
+allowip -t clone -d 0
+===============================================================================
+Index     AllowIP                                 Permission  Squash         
+===============================================================================
+0         223.255.255.254                         rw          root_squash      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Invalid setting parameters
+
+allowip test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+allowip -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|add|mod|del|clear)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+allowip -a add -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (nasshare|snapshot|clone)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+allowip -a add -t nasshare -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+allowip -a add -t nasshare -d 0 -s test
+Error (0x2013): Invalid setting parameters
+invalid option: ['test']
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+allowip -a add -t nasshare -d 0 -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+allowip -a add -t nasshare -d 0 -s "ip=test,permission=ro,squash=root"
+Error (0x2013): Invalid setting parameters
+invalid allow_ip: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+allowip -a add -t nasshare -d 0 -s "ip=256.255.255.255,permission=ro,squash=root"
+Error (0x2013): Invalid setting parameters
+invalid allow_ip: 256.255.255.255
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+allowip -a add -t nasshare -d 0 -s "ip=255.256.255.255,permission=ro,squash=root"
+Error (0x2013): Invalid setting parameters
+invalid allow_ip: 255.256.255.255
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+allowip -a add -t nasshare -d 0 -s "ip=255.255.256.255,permission=ro,squash=root"
+Error (0x2013): Invalid setting parameters
+invalid allow_ip: 255.255.256.255
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+allowip -a add -t nasshare -d 0 -s "ip=255.255.255.256,permission=ro,squash=root"
+Error (0x2013): Invalid setting parameters
+invalid allow_ip: 255.255.255.256
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+allowip -a add -t nasshare -d 0 -s "ip=255.255.255.255,permission=test,squash=root"
+Error (0x2013): Invalid setting parameters
+permission: invalid setting test (ro|rw)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+allowip -a add -t nasshare -d 0 -s "ip=255.255.255.255,permission=ro,squash=test"
+Error (0x2013): Invalid setting parameters
+squash: invalid setting test (all|root|noroot)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+allowip -a mod test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+allowip -a mod -t nasshare -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+allowip -a mod -t nasshare -d 0 -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+allowip -a mod -t snapshot -d 2 -i 0 -s "ip=10.84.2.1, permission=ro, squash=root"
+Error (0x2013): Invalid setting parameters
+invalid index settings
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+allowip -a mod -t nasshare -d 0 -s "ip=256.255.255.255,permission=ro,squash=root" -i 0
+Error (0x2013): Invalid setting parameters
+invalid allow_ip: 256.255.255.255
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+allowip -a del test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+allowip -a del -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (nasshare|snapshot|clone)
+
+administrator@cli> 
+
+Expect: NAS Share id=[100] is not existed
+
+allowip -a del -t nasshare -d 100 -i 0
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+allowip -a del -t nasshare -d 0 -i 100
+Error (0x2013): Invalid setting parameters
+invalid index settings
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Invalid option for the command or the action
+
+allowip -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+allowip -a add -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+allowip -a add -t nasshare -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+allowip -a add -t nasshare -d 0 -s "test=255.255.255.255,permission=ro,squash=root"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+allowip -a add -t nasshare -d 0 -s "ip=255.255.255.255,test=ro,squash=root"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+allowip -a add -t nasshare -d 0 -s "ip=255.255.255.255,permission=ro,test=root"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+allowip -a mod -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+allowip -a mod -t nasshare -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+allowip -a mod -t nasshare -d 0 -s "test=255.255.255.255,permission=ro,squash=root" -i 0
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+allowip -a del -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Missing parameter
+
+allowip -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a add -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a add -t nasshare -d 
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a add -t nasshare -d 0 -s 
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a add -t nasshare -d 0 -s "permission=ro,squash=root"
+Error (0x403): Missing parameter
+missing parameter 'ip' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a add -t nasshare -d 0 -s "ip=0.0.0.0,permission=ro"
+Error (0x403): Missing parameter
+missing parameter 'squash' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a add -t nasshare -d 0 -s "ip=255.255.255.255,squash=root"
+Error (0x403): Missing parameter
+missing parameter 'permission' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a mod
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a mod -t nasshare -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a mod -t nasshare -d 0 -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a del
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a del'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a del -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a del -t nasshare -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+allowip -a del -t nasshare -d 0 -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+'result': 'p'
+
+Expect: specific nas user should have 1GB of storage limit in nasshare
+
+quota -a set -d 0 -t nasshare -s "role=user,limit=1GB,name=test_quota_0"
+
+administrator@cli> 
+quota -v -d 0
+-------------------------------------------------------------------------------
+Name: test_quota_0                      AccountType: User
+Uid: 1001                               Limit: 1 GB
+Used: 0 Byte                            Status: Ready
+
+administrator@cli> 
+
+Expect: specific nas user should have 2GB of storage limit in nasshare
+
+quota -a set -d 0 -t nasshare -s "role=user,limit=2GB,name=test_quota_0"
+
+administrator@cli> 
+quota -v -d 0
+-------------------------------------------------------------------------------
+Name: test_quota_0                      AccountType: User
+Uid: 1001                               Limit: 2 GB
+Used: 0 Byte                            Status: Ready
+
+administrator@cli> 
+
+Expect: specific nas user should have 3GB of storage limit in nasshare
+
+quota -a set -d 0 -t nasshare -s "role=user,limit=3GB,name=test_quota_1"
+Error (0x4100104): Incorrect parameters: Input size is over NAS share's capacity range.
+
+administrator@cli> 
+
+Fail: quota -a set -d 0 -t nasshare -s "role=user,limit=3GB,name=test_quota_1"
+
+
+Expect: specific nas user should have 998GB of storage limit in nasshare
+
+quota -a set -d 1 -t nasshare -s "role=group,limit=998GB,name=test_quota_group_0"
+Error (0x4100104): Incorrect parameters: Input size is over NAS share's capacity range.
+
+administrator@cli> 
+
+Fail: quota -a set -d 1 -t nasshare -s "role=group,limit=998GB,name=test_quota_group_0"
+
+
+Expect: specific nas user should have 999GB of storage limit in nasshare
+
+quota -a set -d 1 -t nasshare -s "role=group,limit=999GB,name=test_quota_group_0"
+Error (0x4100104): Incorrect parameters: Input size is over NAS share's capacity range.
+
+administrator@cli> 
+
+Fail: quota -a set -d 1 -t nasshare -s "role=group,limit=999GB,name=test_quota_group_0"
+
+
+Expect: specific nas user should have 1000GB of storage limit in nasshare
+
+quota -a set -d 1 -t nasshare -s "role=group,limit=1000GB,name=test_quota_group_1"
+Error (0x4100104): Incorrect parameters: Input size is over NAS share's capacity range.
+
+administrator@cli> 
+
+Fail: quota -a set -d 1 -t nasshare -s "role=group,limit=1000GB,name=test_quota_group_1"
+
+'result': 'f'
+
+Expect: list all of quota on nasshare 0
+
+quota
+===============================================================================
+Name                    Limit           Used             AccountType           
+===============================================================================
+test_quota_0            2 GB            0 Byte           User                  
+
+administrator@cli> 
+
+Expect: list all of quota on nasshare 0
+
+quota -d 0 -t nasshare
+===============================================================================
+Name                    Limit           Used             AccountType           
+===============================================================================
+test_quota_0            2 GB            0 Byte           User                  
+
+administrator@cli> 
+
+Expect: list all of quota on nasshare 1
+
+quota -d 1
+No quota found on nasshare 1
+
+administrator@cli> 
+
+Fail: please check out test_quota_group_0
+
+
+Fail: please check out test_quota_group_1
+
+'result': 'f'
+
+Expect: list all of quota by verbose mode
+
+quota -v
+-------------------------------------------------------------------------------
+Name: test_quota_0                      AccountType: User
+Uid: 1001                               Limit: 2 GB
+Used: 0 Byte                            Status: Ready
+
+administrator@cli> 
+
+Expect: list quota of nasshare type by verbose mode
+
+quota -v -d 0 -t nasshare
+-------------------------------------------------------------------------------
+Name: test_quota_0                      AccountType: User
+Uid: 1001                               Limit: 2 GB
+Used: 0 Byte                            Status: Ready
+
+administrator@cli> 
+'result': 'p'
+
+Expect: refresh quota of nasshare type
+
+quota -a refresh -d 0 -t nasshare
+
+administrator@cli> 
+'result': 'p'
+
+Expect: precondition: add quota
+
+quota -a set -d 0 -t nasshare -s "role=user,limit=1GB,name=test_quota_6"
+
+administrator@cli> 
+
+Expect: to add quota should be canceled
+
+quota -a cancel -d 0 -t nasshare
+Error (0x4100104): Incorrect parameters: There is running task now.
+
+administrator@cli> 
+
+Fail: quota -a cancel -d 0 -t nasshare
+
+
+Expect: user test_quota_6 is not in quota list
+
+quota -t nasshare -d 0
+===============================================================================
+Name                    Limit           Used             AccountType           
+===============================================================================
+test_quota_0            2 GB            0 Byte           User                  
+test_quota_6            1 GB            0 Byte           User                  
+
+administrator@cli> 
+'result': 'f'
+
+Expect: quota of user for test_quota_0 should be deleted
+
+quota -a set -d 0 -t nasshare -s "role=user,name=test_quota_0,limit=0"
+
+administrator@cli> 
+quota -t nasshare -d 0
+===============================================================================
+Name                    Limit           Used             AccountType           
+===============================================================================
+test_quota_6            1 GB            0 Byte           User                  
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Invalid setting parameters
+
+quota test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+quota -d test
+Error (0x2013): Invalid setting parameters
+-d: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+quota -d 100 -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (nasshare)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+quota -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|set|refresh)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+quota -a set -d 0 -t test -s "role=user,name=admin,limit=1GB"
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (nasshare)
+
+administrator@cli> 
+
+Expect: NAS Share id=[100] is not existed
+
+quota -a set -d 100 -t nasshare -s "role=user,name=test_quota_0,limit=1GB"
+Error (0x4100102): Empty query result, please check input parameters. NAS Share id=[100] is not existed.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+quota -a set -d 0 -t nasshare -s "role=test,name=test_quota_0,limit=1GB"
+Error (0x2013): Invalid setting parameters
+role: invalid setting test (user)
+
+administrator@cli> 
+
+Expect: NAS user [test] doesn't exist
+
+quota -a set -d 0 -t nasshare -s "role=user,name=test,limit=1GB"
+Error (0x4100104): Incorrect parameters: NAS user [test] doesn't exist.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+quota -a set -d 0 -t nasshare -s "role=user,name=test_quota_0,limit=test"
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: out of space
+
+quota -a set -d 0 -t nasshare -s "role=user,name=test_quota_0,limit=100TB"
+Error (0x4100104): Incorrect parameters: Input size is over NAS share's capacity range.
+
+administrator@cli> 
+
+Fail: please check out out of space
+
+
+Expect: Invalid setting parameters
+
+quota -a refresh test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+quota -a refresh -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (nasshare)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+quota -a set -d 0 -t nasshare -s ""
+Error (0x2013): Invalid setting parameters
+invalid comma: ','
+
+administrator@cli> 
+
+Expect: Can't do quota on user admin
+
+quota -a set -d 0 -t nasshare -s "role=user,limit=1GB,name=admin"
+Error (0x402): Invalid parameter
+Can't do quota on user admin.
+
+administrator@cli> 
+
+Expect: Can't set quota to default group [users]
+
+quota -a set -d 0 -t nasshare -s "role=group,name=users,limit=1GB"
+Error (0x4100104): Incorrect parameters: Can't set quota to default group [users].
+
+administrator@cli> 
+'result': 'f'
+
+Expect: Invalid option for the command or the action
+
+quota -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+quota -d 0 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+quota -a set -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+quota -a set -d 0 -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+quota -a set -d 0 -test -s "role=user,name=test_quota_0,limit=1GB"
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+quota -a set -d 0 -t nasshare -s "test=user,name=test_quota_0,limit=1GB"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+quota -a set -d 0 -t nasshare -s "role=user,test=test_quota_0,limit=1GB"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+quota -a set -d 0 -t nasshare -s "role=user,name=test_quota_0,test=1GB"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+quota -a refresh -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Missing parameter
+
+quota -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+quota -d 0 -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+quota -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+quota -a set -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+quota -a set -d 0 
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a set'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+quota -a set -d 0 -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+quota -a set -d 0 -t nasshare 
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a set'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+quota -a set -d 0 -t nasshare -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+quota -a set -d 0 -t clone
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a set'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+quota -a set -d 0 -t clone -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+quota -a refresh
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a refresh'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+quota -a refresh -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+quota -a refresh -d 0 -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+'result': 'p'
+
+Expect: 1 char name of group should be added
+
+group -a add -g A
+
+administrator@cli> 
+group -g A
+===============================================================================
+GroupName                GroupMembers                description               
+===============================================================================
+A                                                                              
+
+administrator@cli> 
+
+Expect: 2 char name of group should be added
+
+group -a add -g 12
+
+administrator@cli> 
+group -g 12
+===============================================================================
+GroupName                GroupMembers                description               
+===============================================================================
+12                                                                             
+
+administrator@cli> 
+
+Expect: 29 char name of group should be added
+
+group -a add -g test_test_test_test_test_test_
+
+administrator@cli> 
+group -g test_test_test_test_test_test_
+===============================================================================
+GroupName                              GroupMembers         description        
+===============================================================================
+test_test_test_test_test_test_                                                 
+
+administrator@cli> 
+
+Expect: 30 char name of group should be added
+
+group -a add -g name_name_name_name_name_name31
+
+administrator@cli> 
+group -g name_name_name_name_name_name31
+===============================================================================
+GroupName                               GroupMembers        description        
+===============================================================================
+name_name_name_name_name_name31                                                
+
+administrator@cli> 
+'result': 'p'
+
+Expect: group and users should be added
+
+group -a add -g add_group_and_user -u "test_group_0,test_group_1"
+
+administrator@cli> 
+group -v -g add_group_and_user
+-------------------------------------------------------------------------------
+GroupName: add_group_and_user           Gid: 1005
+Description:                            IsPri: 0
+GroupMembers: test_group_0,test_group_1 Status: Ready
+Location: Local
+
+administrator@cli> 
+'result': 'p'
+
+Expect: users should be added to group
+
+group -a adduser -g A -u "test_group_0,test_group_1"
+
+administrator@cli> 
+group -v -g A
+-------------------------------------------------------------------------------
+GroupName: A                            Gid: 1001
+Description:                            IsPri: 0
+GroupMembers: test_group_0,test_group_1 Status: Ready
+Location: Local
+
+administrator@cli> 
+'result': 'p'
+
+Expect: all of group should be listed
+
+group
+===============================================================================
+GroupName                     GroupMembers                   description       
+===============================================================================
+12                                                                             
+A                             test_group_0,test_group_1                        
+add_group_and_user            test_group_0,test_group_1                        
+name_name_name_name_name_name                                                  
+31                                                                             
+test_test_test_test_test_test                                                  
+_                                                                              
+users                         test_group_0,test_group_1,test NAS default group 
+                              _group_2,test_group_3,test_gro                   
+                              up_4,test_group_5,test_group_6                   
+                              ,test_group_7,test_group_8,tes                   
+                              t_group_9                                        
+
+administrator@cli> 
+
+Expect: specific group should be listed
+
+group -g A
+===============================================================================
+GroupName            GroupMembers                        description           
+===============================================================================
+A                    test_group_0,test_group_1                                 
+
+administrator@cli> 
+'result': 'p'
+
+Expect: all of group should be listed
+
+group -v
+-------------------------------------------------------------------------------
+GroupName: 12                           Gid: 1002
+Description:                            GroupMembers: 
+Status: Ready                           Location: Local
+-------------------------------------------------------------------------------
+GroupName: A                            Gid: 1001
+Description:                            GroupMembers: test_group_0,test_group_1
+Status: Ready                           Location: Local
+-------------------------------------------------------------------------------
+GroupName: add_group_and_user           Gid: 1005
+Description:                            GroupMembers: test_group_0,test_group_1
+Status: Ready                           Location: Local
+-------------------------------------------------------------------------------
+GroupName: name_name_name_name_name_name31
+Gid: 1004                               Description: 
+GroupMembers:                           Status: Ready
+Location: Local
+-------------------------------------------------------------------------------
+GroupName: test_test_test_test_test_test_
+Gid: 1003                               Description: 
+GroupMembers:                           Status: Ready
+Location: Local
+-------------------------------------------------------------------------------
+GroupName: users                        Gid: 100
+GroupMembers: 
+test_group_0,test_group_1,test_group_2,test_group_3,test_group_4,test_group_5,t
+est_group_6,test_group_7,test_group_8,test_group_9
+Description: NAS default group          Status: Ready
+Location: Local
+
+administrator@cli> 
+
+Expect: specific group should be listed
+
+group -v -g 12
+-------------------------------------------------------------------------------
+GroupName: 12                           Gid: 1002
+Description:                            IsPri: 0
+GroupMembers:                           Status: Ready
+Location: Local
+
+administrator@cli> 
+'result': 'p'
+
+Expect: description of group 12 should be modified
+
+group -a mod -g 12 -s "desc=this is the test group"
+
+administrator@cli> 
+group -g 12
+===============================================================================
+GroupName            GroupMembers            description                       
+===============================================================================
+12                                           this is the test group            
+
+administrator@cli> 
+'result': 'p'
+
+Expect: users should be deleted from group A
+
+group -a deluser -g A -u test_group_0,test_group_1
+
+administrator@cli> 
+group -g A
+===============================================================================
+GroupName                GroupMembers                description               
+===============================================================================
+A                                                                              
+
+administrator@cli> 
+'result': 'p'
+
+Expect: group A should be deleted
+
+group -a del -g A
+
+administrator@cli> 
+group
+===============================================================================
+GroupName                   GroupMembers                description            
+===============================================================================
+12                                                      this is the test group 
+add_group_and_user          test_group_0,test_group_1                          
+name_name_name_name_name_na                                                    
+me31                                                                           
+test_test_test_test_test_te                                                    
+st_                                                                            
+users                       test_group_0,test_group_1,t NAS default group      
+                            est_group_2,test_group_3,te                        
+                            st_group_4,test_group_5,tes                        
+                            t_group_6,test_group_7,test                        
+                            _group_8,test_group_9                              
+
+administrator@cli> 
+
+Expect: group add_group_and_user should be deleted
+
+group -a del -g add_group_and_user
+
+administrator@cli> 
+group
+===============================================================================
+GroupName                   GroupMembers                description            
+===============================================================================
+12                                                      this is the test group 
+name_name_name_name_name_na                                                    
+me31                                                                           
+test_test_test_test_test_te                                                    
+st_                                                                            
+users                       test_group_0,test_group_1,t NAS default group      
+                            est_group_2,test_group_3,te                        
+                            st_group_4,test_group_5,tes                        
+                            t_group_6,test_group_7,test                        
+                            _group_8,test_group_9                              
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Invalid setting parameters
+
+group test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Group is not found
+
+group -g invalid_setting_name
+Error (0x4100104): Incorrect parameters: Group is not found.
+
+administrator@cli> 
+
+Expect: Group is not found
+
+group -v -g invalid_setting_name
+Error (0x4100104): Incorrect parameters: Group is not found.
+
+administrator@cli> 
+
+Expect: The parameter [groupname] contains invalid character
+
+group -a add -g a*
+Error (0x4100104): Incorrect parameters: The parameter [groupname] contains invalid character. (0x4100104)
+
+administrator@cli> 
+
+Expect: The parameter [groupname] length is over 31 bytes
+
+group -a add -g test_test_test_test_test_test_32
+Error (0x4100104): Incorrect parameters: The parameter [groupname] length is over 31 bytes. (0x4100104)
+
+administrator@cli> 
+
+Expect: NAS group [invalid_setting_name] doesn't exist
+
+group -a mod -g invalid_setting_name -s "desc=test"
+Error (0x4100104): Incorrect parameters: NAS group [invalid_setting_name] doesn't exist.
+
+administrator@cli> 
+
+Expect: Failed to find the user
+
+group -a adduser -g 12 -u invalid_setting_name
+Error (0x402): Failed to find the user invalid_setting_name
+
+administrator@cli> 
+
+Expect: Failed to find the user
+
+group -a deluser -g 12 -u invalid_setting_name
+Error (0x402): Failed to find the user invalid_setting_name
+
+administrator@cli> 
+
+Expect: NAS group [invalid_setting_name] doesn't exist
+
+group -a del -g invalid_setting_name
+Error (0x4100104): Incorrect parameters: NAS group [invalid_setting_name] doesn't exist.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+group -a test
+Error (0x2013): Invalid setting parameters
+-a: invalid setting test (list|add|mod|del|adduser|deluser|refresh)
+
+administrator@cli> 
+
+Expect: Group is already exist
+
+group -a add -g users
+Error (0x402): Invalid parameter
+Group is already exist
+
+administrator@cli> 
+
+Expect: The group name [users] is reserved by system
+
+group -a del -g users
+Error (0x4100104): Incorrect parameters: The group name [users] is reserved by system.
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Invalid option
+
+group -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Expect: Invalid option
+
+group -a add -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Expect: Invalid option
+
+group -a adduser -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Expect: Invalid option
+
+group -a deluser -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Expect: Invalid option
+
+group -a del -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+
+Expect: Invalid option
+
+group -a mod -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Missing parameter
+
+group -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a add
+Error (0x403): Missing parameter
+missing parameter '-g' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a add -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a add -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a mod
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a mod -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a mod -g users -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a adduser
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a adduser'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a adduser -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a adduser -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a deluser
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a deluser'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a deluser -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a deluser -g users -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a del
+Error (0x403): Missing parameter
+missing parameter '-g' for '-a del'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+group -a del -g
+Error (0x403): Missing parameter
+-g: missing value
+
+administrator@cli> 
+'result': 'p'
+
+Expect: mgmt user should be added by default setting and -u Test_Test_Test_Test_Test_Test31
+
+user -a add -u Test_Test_Test_Test_Test_Test31 -p view
+Enter password for the new user:
+Enter password for the new user:
+[J
+Retype password for the new user:
+Retype password for the new user:
+[J
+
+administrator@cli> 
+user -u Test_Test_Test_Test_Test_Test31 -v
+-------------------------------------------------------------------------------
+Username: Test_Test_Test_Test_Test_Test31
+Status: Enabled                         Location: Local
+Privilege: View                         DisplayName: 
+Email: 
+
+administrator@cli> 
+
+Expect: mgmt user should be added by -u 1111_1111_1111_1111_1111_11130 -p maintenance -s "name=T2,status=enable"
+
+user -a add -t mgmt -u 1111_1111_1111_1111_1111_11130 -p maintenance -s "name=T2,status=enable"
+Enter password for the new user:
+Enter password for the new user:
+[J
+Retype password for the new user:
+Retype password for the new user:
+[J
+
+administrator@cli> 
+user -u 1111_1111_1111_1111_1111_11130 -v
+-------------------------------------------------------------------------------
+Username: 1111_1111_1111_1111_1111_11130
+Status: Enabled                         Location: Local
+Privilege: Maintenance                  DisplayName: T2
+Email: 
+
+administrator@cli> 
+
+Expect: mgmt user should be added by -u T_ -p power -s "name=1111_1111_1111_1111_1111_1111_1,status=disable,email=11@11.11"
+
+user -a add -t mgmt -u T_ -p power -s "name=1111_1111_1111_1111_1111_1111_1,status=disable,email=11@11.11"
+Enter password for the new user:
+Enter password for the new user:
+[J
+Retype password for the new user:
+Retype password for the new user:
+[J
+
+administrator@cli> 
+user -u T_ -v
+-------------------------------------------------------------------------------
+Username: T_                            Status: Disabled
+Location: Local                         Privilege: Power
+DisplayName: 1111_1111_1111_1111_1111_1111_1
+Email: 11@11.11
+
+administrator@cli> 
+
+Expect: mgmt user should be added by -u t -p super -s "name=t,status=disable,email=11@11.11"
+
+user -a add -t mgmt -u 1 -p super -s "name=t,status=disable,email=11@11.11"
+Enter password for the new user:
+Enter password for the new user:
+[J
+Retype password for the new user:
+Retype password for the new user:
+[J
+
+administrator@cli> 
+user -u 1 -v
+-------------------------------------------------------------------------------
+Username: 1                             Status: Disabled
+Location: Local                         Privilege: Super
+DisplayName: t                          Email: 11@11.11
+
+administrator@cli> 
+'result': 'p'
+
+Expect: mgmt user should be modified by -p view -s "name=1111_1111_1111_1111_1111_test31,status=disable,email=11@11.11"
+
+user -a mod -u 1 -p view -s "name=1111_1111_1111_1111_1111_test31,status=disable,email=11@11.11"
+
+administrator@cli> 
+user -u 1 -v
+-------------------------------------------------------------------------------
+Username: 1                             Status: Disabled
+Location: Local                         Privilege: View
+DisplayName: 1111_1111_1111_1111_1111_test31
+Email: 11@11.11
+
+administrator@cli> 
+
+Expect: mgmt user should be modified by -p maintenance -s "name=1111_1111_1111_1111_1111_test3,status=enable"
+
+user -a mod -u 1 -p maintenance -s "name=1111_1111_1111_1111_1111_test3,status=enable"
+
+administrator@cli> 
+user -u 1 -v
+-------------------------------------------------------------------------------
+Username: 1                             Status: Enabled
+Location: Local                         Privilege: Maintenance
+DisplayName: 1111_1111_1111_1111_1111_test3
+Email: 11@11.11
+
+administrator@cli> 
+
+Expect: mgmt user should be modified by -p power -s "name=T1"
+
+user -a mod -u 1 -p power -s "name=T1"
+
+administrator@cli> 
+user -u 1 -v
+-------------------------------------------------------------------------------
+Username: 1                             Status: Enabled
+Location: Local                         Privilege: Power
+DisplayName: T1                         Email: 11@11.11
+
+administrator@cli> 
+
+Expect: mgmt user should be modified by -p view -s "name=t"
+
+user -a mod -u 1 -p super -s "name=t"
+
+administrator@cli> 
+user -u 1 -v
+-------------------------------------------------------------------------------
+Username: 1                             Status: Enabled
+Location: Local                         Privilege: Super
+DisplayName: t                          Email: 11@11.11
+
+administrator@cli> 
+'result': 'p'
+
+Expect: snmp user should be added by -u 1 -s "auth=md5,priv=aes"
+
+user -a add -t snmp -u 1 -s "auth=md5,priv=aes"
+Enter auth password:[20D[20C[0m
+Enter auth password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+Enter priv password:[20D[20C[0m
+Enter priv password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+
+administrator@cli> 
+user -t snmp -u 1 -v
+
+EngineID: 0x80001f8880a6758536daa55e5a00000000
+
+-------------------------------------------------------------------------------
+Username: 1                             Permission: READ_ONLY
+Auth: MD5                               Priv: AES
+Type: SNMP
+
+administrator@cli> 
+
+Expect: snmp user should be added by -u T2 -s "auth=sha,priv=des"
+
+user -a add -t snmp -u T2 -s "auth=sha,priv=des"
+Enter auth password:[20D[20C[0m
+Enter auth password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+Enter priv password:[20D[20C[0m
+Enter priv password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+
+administrator@cli> 
+user -t snmp -u T2 -v
+
+EngineID: 0x80001f8880a6758536daa55e5a00000000
+
+-------------------------------------------------------------------------------
+Username: T2                            Permission: READ_ONLY
+Auth: SHA                               Priv: DES
+Type: SNMP
+
+administrator@cli> 
+
+Expect: snmp user should be added by -u Snmp_snmp_snmp_snmp_snmp_snm30
+
+user -a add -t snmp -u Snmp_snmp_snmp_snmp_snmp_snm30
+
+administrator@cli> 
+user -t snmp -u Snmp_snmp_snmp_snmp_snmp_snm30 -v
+
+EngineID: 0x80001f8880a6758536daa55e5a00000000
+
+-------------------------------------------------------------------------------
+Username: Snmp_snmp_snmp_snmp_snmp_snm30
+Permission: READ_ONLY                   Auth: N/A
+Priv: N/A                               Type: SNMP
+
+administrator@cli> 
+
+Expect: snmp user should be added by -u snmp_snmp_snmp_snmp_snmp_snmp31
+
+user -a add -t snmp -u snmp_snmp_snmp_snmp_snmp_snmp31
+
+administrator@cli> 
+user -t snmp -u snmp_snmp_snmp_snmp_snmp_snmp31 -v
+
+EngineID: 0x80001f8880a6758536daa55e5a00000000
+
+-------------------------------------------------------------------------------
+Username: snmp_snmp_snmp_snmp_snmp_snmp31
+Permission: READ_ONLY                   Auth: N/A
+Priv: N/A                               Type: SNMP
+
+administrator@cli> 
+'result': 'p'
+
+Expect: snmp user should be modified by "auth=md5,priv=aes"
+
+user -a mod -t snmp -u 1 -s "auth=md5,priv=aes"
+Enter auth password:[20D[20C[0m
+Enter auth password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+Enter priv password:[20D[20C[0m
+Enter priv password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+
+administrator@cli> 
+user -t snmp -u 1 -v
+
+EngineID: 0x80001f8880a6758536daa55e5a00000000
+
+-------------------------------------------------------------------------------
+Username: 1                             Permission: READ_ONLY
+Auth: MD5                               Priv: AES
+Type: SNMP
+
+administrator@cli> 
+
+Expect: snmp user should be modified by "auth=sha,priv=des"
+
+user -a mod -t snmp -u 1 -s "auth=sha,priv=des"
+Enter auth password:[20D[20C[0m
+Enter auth password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+Enter priv password:[20D[20C[0m
+Enter priv password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+
+administrator@cli> 
+user -t snmp -u 1 -v
+
+EngineID: 0x80001f8880a6758536daa55e5a00000000
+
+-------------------------------------------------------------------------------
+Username: 1                             Permission: READ_ONLY
+Auth: SHA                               Priv: DES
+Type: SNMP
+
+administrator@cli> 
+
+Expect: no password snmp user should be modified by "auth=sha,priv=des"
+
+user -a mod -t snmp -u snmp_snmp_snmp_snmp_snmp_snmp31 -s "auth=sha,priv=des"
+Enter auth password:[20D[20C[0m
+Enter auth password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+Enter priv password:[20D[20C[0m
+Enter priv password:
+[J
+Retype password:[16D[16C[0m
+Retype password:
+[J
+
+administrator@cli> 
+user -t snmp -u snmp_snmp_snmp_snmp_snmp_snmp31 -v
+
+EngineID: 0x80001f8880a6758536daa55e5a00000000
+
+-------------------------------------------------------------------------------
+Username: snmp_snmp_snmp_snmp_snmp_snmp31
+Permission: READ_ONLY                   Auth: SHA
+Priv: DES                               Type: SNMP
+
+administrator@cli> 
+'result': 'p'
+
+Expect: nas user should be added by -u 1 -s "group=users,department=default_group,phone=123456789,email=12@11.23,name=123"
+
+user -a add -t nas -u 1 -s "group=users,department=default_group,phone=123456789,email=12@11.23,name=123"
+Enter password for the new nas user:[36D[36C[0m
+Enter password for the new nas user:
+[J
+Retype password for the new nas user:[37D[37C[0mRetype password for the new nas user:
+[J
+
+administrator@cli> 
+user -t nas -v -u 1
+-------------------------------------------------------------------------------
+UserName: 1                             Email: 12@11.23
+DisplayName: 123                        Telephone: 123456789
+Department: default_group               PrimaryGroup: users
+Status: Ready                           SecondryGroups: 
+
+administrator@cli> 
+
+Fail: please check out PriGroupName: users
+
+
+Expect: nas user should be added by T2 -s "group=test_users,department=new_group,phone=0123456789,email=12@11.23"
+
+user -a add -t nas -u T2 -s "group=test_users,department=new_group,phone=0123456789,email=12@11.23"
+Enter password for the new nas user:[36D[36C[0m
+Enter password for the new nas user:
+[J
+Retype password for the new nas user:[37D[37C[0mRetype password for the new nas user:
+[J
+
+administrator@cli> 
+user -t nas -v -u T2
+-------------------------------------------------------------------------------
+UserName: T2                            Email: 12@11.23
+DisplayName:                            Telephone: 0123456789
+Department: new_group                   PrimaryGroup: test_users
+Status: Ready                           SecondryGroups: 
+
+administrator@cli> 
+
+Fail: please check out PriGroupName: test_users
+
+
+Expect: nas user should be added by -u test_test_test_test_test_nas30 -s "department=1,phone=123456000"
+
+user -a add -t nas -u test_test_test_test_test_nas30 -s "department=1,phone=123456000"
+Enter password for the new nas user:[36D[36C[0m
+Enter password for the new nas user:
+[J
+Retype password for the new nas user:[37D[37C[0mRetype password for the new nas user:
+[J
+
+administrator@cli> 
+user -t nas -v -u test_test_test_test_test_nas30
+-------------------------------------------------------------------------------
+UserName: test_test_test_test_test_nas30
+Email:                                  DisplayName: 
+Telephone: 123456000                    Department: 1
+PrimaryGroup: users                     Status: Ready
+SecondryGroups: 
+
+administrator@cli> 
+
+Fail: please check out PriGroupName: users
+
+
+Expect: nas user should be added by -u name_name_name_name_name_name31
+
+user -a add -t nas -u name_name_name_name_name_name31
+Enter password for the new nas user:[36D[36C[0m
+Enter password for the new nas user:
+[J
+Retype password for the new nas user:[37D[37C[0mRetype password for the new nas user:
+[J
+
+administrator@cli> 
+user -t nas -v -u name_name_name_name_name_name31
+-------------------------------------------------------------------------------
+UserName: name_name_name_name_name_name31
+Email:                                  DisplayName: 
+Telephone:                              Department: 
+PrimaryGroup: users                     Status: Ready
+SecondryGroups: 
+
+administrator@cli> 
+
+Fail: please check out PriGroupName: users
+
+'result': 'f'
+
+Expect: nas user should be modified by "group=test_users,department=default_group,phone=123456789,email=ab@cd.ef,name=1"
+
+user -a mod -t nas -u 1 -s "group=test_users,department=default_group,phone=123456789,email=ab@cd.ef,name=1"
+
+administrator@cli> 
+user -t nas -v -u 1
+-------------------------------------------------------------------------------
+UserName: 1                             Email: ab@cd.ef
+DisplayName: 1                          Telephone: 123456789
+Department: default_group               PrimaryGroup: test_users
+Status: Ready                           SecondryGroups: users
+
+administrator@cli> 
+
+Fail: please check out PriGroupName: test_users
+
+
+Expect: nas user should be modified by "group=users,department=new_group,phone=0123456789,name=T1"
+
+user -a mod -t nas -u 1 -s "group=users,department=new_group,phone=0123456789,name=T1"
+
+administrator@cli> 
+user -t nas -v -u 1
+-------------------------------------------------------------------------------
+UserName: 1                             Email: ab@cd.ef
+DisplayName: T1                         Telephone: 0123456789
+Department: new_group                   PrimaryGroup: users
+Status: Ready                           SecondryGroups: test_users
+
+administrator@cli> 
+
+Fail: please check out PriGroupName: users
+
+
+Expect: nas user should be modified by "name=test_test_test_test_test_tes30"
+
+user -a mod -t nas -u 1 -s "name=test_test_test_test_test_tes30"
+
+administrator@cli> 
+user -t nas -v -u 1
+-------------------------------------------------------------------------------
+UserName: 1                             Email: ab@cd.ef
+DisplayName: test_test_test_test_test_tes30
+Telephone: 0123456789                   Department: new_group
+PrimaryGroup: users                     Status: Ready
+SecondryGroups: test_users
+
+administrator@cli> 
+
+Expect: nas user should be modified by "name=test_test_test_test_test_test31"
+
+user -a mod -t nas -u 1 -s "name=test_test_test_test_test_test31"
+
+administrator@cli> 
+user -t nas -v -u 1
+-------------------------------------------------------------------------------
+UserName: 1                             Email: ab@cd.ef
+DisplayName: test_test_test_test_test_test31
+Telephone: 0123456789                   Department: new_group
+PrimaryGroup: users                     Status: Ready
+SecondryGroups: test_users
+
+administrator@cli> 
+'result': 'f'
+
+Expect: all of mgmt type user should be listed
+
+user
+===============================================================================
+Username              Location  Status    Privilege  DisplayName Email        
+===============================================================================
+administrator         Local     Enabled   Super      Super user  admin@yourco  
+                                                                 mpany.com     
+Test_Test_Test_Test_T Local     Enabled   View                                 
+est_Test31                                                                     
+1111_1111_1111_1111_1 Local     Enabled   Maintenanc T2                        
+111_11130                                 e                                    
+T_                    Local     Disabled  Power      1111_1111_1 11@11.11      
+                                                     111_1111_11               
+                                                     11_1111_1                 
+1                     Local     Enabled   Super      t           11@11.11      
+
+administrator@cli> 
+
+Expect: all of nas type user should be listed
+
+user -t nas
+===============================================================================
+UserName                 DisplayName              PrimaryGroup Email    Status 
+===============================================================================
+admin                    NAS default User         users                 Ready  
+1                        test_test_...est_test31  users        ab@cd.ef Ready  
+T2                                                test_users   12@11.23 Ready  
+name_name_...ame_name31                           users                 Ready  
+test_test_...test_nas30                           users                 Ready  
+
+administrator@cli> 
+
+Fail: please check out Department
+
+
+Fail: please check out Telephone
+
+
+Expect: all of snmp type user should be listed
+
+user -t snmp
+===============================================================================
+Username                             Type     Auth     Priv     Permission     
+===============================================================================
+1                                    SNMP     SHA      DES      READ_ONLY      
+T2                                   SNMP     SHA      DES      READ_ONLY      
+Snmp_snmp_snmp_snmp_snmp_snm30       SNMP     N/A      N/A      READ_ONLY      
+snmp_snmp_snmp_snmp_snmp_snmp31      SNMP     SHA      DES      READ_ONLY      
+
+administrator@cli> 
+
+Expect: specific mgmt type user should be listed
+
+user -u 1
+===============================================================================
+Username              Location  Status    Privilege  DisplayName Email        
+===============================================================================
+1                     Local     Enabled   Super      t           11@11.11      
+
+administrator@cli> 
+
+Expect: specific mgmt type user should be listed
+
+user -t mgmt -u 1
+===============================================================================
+Username              Location  Status    Privilege  DisplayName Email        
+===============================================================================
+1                     Local     Enabled   Super      t           11@11.11      
+
+administrator@cli> 
+
+Expect: specific nas type user should be listed
+
+user -t nas -u 1
+===============================================================================
+UserName   DisplayName                       PrimaryGroup   Email      Status  
+===============================================================================
+1          test_test_test_test_test_test31   users          ab@cd.ef   Ready   
+
+administrator@cli> 
+
+Fail: please check out Department
+
+
+Fail: please check out Telephone
+
+
+Expect: specific snmp type user should be listed
+
+user -t snmp -u 1
+===============================================================================
+Username          Type          Auth          Priv          Permission         
+===============================================================================
+1                 SNMP          SHA           DES           READ_ONLY          
+
+administrator@cli> 
+'result': 'f'
+
+Expect: all of mgmt type user should be listed by verbose mode
+
+user -v
+-------------------------------------------------------------------------------
+Username: administrator                 Status: Enabled
+Location: Local                         Privilege: Super
+DisplayName: Super user                 Email: admin@yourcompany.com
+-------------------------------------------------------------------------------
+Username: Test_Test_Test_Test_Test_Test31
+Status: Enabled                         Location: Local
+Privilege: View                         DisplayName: 
+Email: 
+-------------------------------------------------------------------------------
+Username: 1111_1111_1111_1111_1111_11130
+Status: Enabled                         Location: Local
+Privilege: Maintenance                  DisplayName: T2
+Email: 
+-------------------------------------------------------------------------------
+Username: T_                            Status: Disabled
+Location: Local                         Privilege: Power
+DisplayName: 1111_1111_1111_1111_1111_1111_1
+Email: 11@11.11
+-------------------------------------------------------------------------------
+Username: 1                             Status: Enabled
+Location: Local                         Privilege: Super
+DisplayName: t                          Email: 11@11.11
+
+administrator@cli> 
+
+Expect: all of nas type user should be listed by verbose mode
+
+user -t nas -v
+-------------------------------------------------------------------------------
+UserName: admin                         Email: 
+DisplayName: NAS default User           Telephone: 
+Department:                             PrimaryGroup: users
+Status: Ready                           SecondryGroups: 
+-------------------------------------------------------------------------------
+UserName: 1                             Email: ab@cd.ef
+DisplayName: test_test_test_test_test_test31
+Telephone: 0123456789                   Department: new_group
+PrimaryGroup: users                     Status: Ready
+SecondryGroups: test_users
+-------------------------------------------------------------------------------
+UserName: T2                            Email: 12@11.23
+DisplayName:                            Telephone: 0123456789
+Department: new_group                   PrimaryGroup: test_users
+Status: Ready                           SecondryGroups: 
+-------------------------------------------------------------------------------
+UserName: name_name_name_name_name_name31
+Email:                                  DisplayName: 
+Telephone:                              Department: 
+PrimaryGroup: users                     Status: Ready
+SecondryGroups: 
+-------------------------------------------------------------------------------
+UserName: test_test_test_test_test_nas30
+Email:                                  DisplayName: 
+Telephone: 123456000                    Department: 1
+PrimaryGroup: users                     Status: Ready
+SecondryGroups: 
+
+administrator@cli> 
+
+Fail: please check out PriGroupName:
+
+
+Fail: please check out SecGroupName:
+
+
+Expect: all of snmp type user should be listed by verbose mode
+
+user -t snmp -v 
+
+EngineID: 0x80001f8880a6758536daa55e5a00000000
+
+-------------------------------------------------------------------------------
+Username: 1                             Permission: READ_ONLY
+Auth: SHA                               Priv: DES
+Type: SNMP
+-------------------------------------------------------------------------------
+Username: T2                            Permission: READ_ONLY
+Auth: SHA                               Priv: DES
+Type: SNMP
+-------------------------------------------------------------------------------
+Username: Snmp_snmp_snmp_snmp_snmp_snm30
+Permission: READ_ONLY                   Auth: N/A
+Priv: N/A                               Type: SNMP
+-------------------------------------------------------------------------------
+Username: snmp_snmp_snmp_snmp_snmp_snmp31
+Permission: READ_ONLY                   Auth: SHA
+Priv: DES                               Type: SNMP
+
+administrator@cli> 
+
+Expect: specific mgmt type user should be listed by verbose mode
+
+user -u 1 -v 
+-------------------------------------------------------------------------------
+Username: 1                             Status: Enabled
+Location: Local                         Privilege: Super
+DisplayName: t                          Email: 11@11.11
+
+administrator@cli> 
+
+Expect: specific mgmt type user should be listed by verbose mode
+
+user -t mgmt -u 1 -v
+-------------------------------------------------------------------------------
+Username: 1                             Status: Enabled
+Location: Local                         Privilege: Super
+DisplayName: t                          Email: 11@11.11
+
+administrator@cli> 
+
+Expect: specific nas type user should be listed by verbose mode
+
+user -t nas -u 1 -v
+-------------------------------------------------------------------------------
+UserName: 1                             Email: ab@cd.ef
+DisplayName: test_test_test_test_test_test31
+Telephone: 0123456789                   Department: new_group
+PrimaryGroup: users                     Status: Ready
+SecondryGroups: test_users
+
+administrator@cli> 
+
+Fail: please check out PriGroupName:
+
+
+Fail: please check out SecGroupName:
+
+
+Expect: specific snmp type user should be listed by verbose mode
+
+user -t snmp -u 1 -v
+
+EngineID: 0x80001f8880a6758536daa55e5a00000000
+
+-------------------------------------------------------------------------------
+Username: 1                             Permission: READ_ONLY
+Auth: SHA                               Priv: DES
+Type: SNMP
+
+administrator@cli> 
+'result': 'f'
+
+Expect: specific user should be deleted
+
+user -a del -u T_
+
+administrator@cli> 
+user -u T_
+Error (0x200): Invalid username
+Username not found
+
+administrator@cli> 
+
+Expect: specific mgmt type user should be deleted
+
+user -a del -t mgmt -u 1
+
+administrator@cli> 
+user -t mgmt -u 1
+Error (0x200): Invalid username
+Username not found
+
+administrator@cli> 
+
+Expect: specific nas type user should be deleted
+
+user -a del -t nas -u T2
+
+administrator@cli> 
+user -t nas -u T2
+Error (0x4100104): Incorrect parameters: User is not found.
+
+administrator@cli> 
+
+Expect: specific snmp type user should be deleted
+
+user -a del -t snmp -u T2
+
+administrator@cli> 
+user -t snmp -u T2
+Error (0x200): Invalid username
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Invalid setting parameters
+
+user test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid username
+
+user -u test
+Error (0x200): Invalid username
+Username not found
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+user -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (mgmt|snmp|nas)
+
+administrator@cli> 
+
+Expect: User is not found
+
+user -t nas -u test
+Error (0x4100104): Incorrect parameters: User is not found.
+
+administrator@cli> 
+
+Expect: Invalid username
+
+user -t snmp -u test
+Error (0x200): Invalid username
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+user -a add test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+user -a add -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (mgmt|snmp|nas)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+user -a add -u #$% -p view
+Error (0x2013): Invalid setting parameters
+id contain only alphanumeric characters and underscores
+
+administrator@cli> 
+
+Expect: Setting parameters too long
+
+user -a add -u test_test_test_test_test_test_32 -p view
+Error (0x2014): Setting parameters too long
+-u: invalid setting test_test_test_test_test_test_32
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+user -a add -u test -p view -s "status=test"
+Error (0x2013): Invalid setting parameters
+status: invalid setting test (enable|disable)
+
+administrator@cli> 
+
+Expect: Setting parameters too long
+
+user -a add -t nas -u test_test_test_test_test_test_32
+Error (0x2014): Setting parameters too long
+-u: invalid setting test_test_test_test_test_test_32
+
+administrator@cli> 
+
+Expect: Setting parameters too long
+
+user -a add -t snmp -u test_test_test_test_test_test_32
+Error (0x2014): Setting parameters too long
+-u: invalid setting test_test_test_test_test_test_32
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+user -a add -t snmp -u test -s "auth=test,priv=des"
+Error (0x2013): Invalid setting parameters
+auth: invalid setting test (md5|sha)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+user -a add -t snmp -u test -s "auth=md5,priv=test"
+Error (0x2013): Invalid setting parameters
+priv: invalid setting test (des|aes)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+user -a mod test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+user -a mod -u test
+Error (0x2013): Invalid setting parameters
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+user -a mod -u 1111_1111_1111_1111_1111_11130 -p test
+Error (0x2013): Invalid setting parameters
+-p: invalid setting test (super|power|maintenance|view)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+user -a mod -u 1111_1111_1111_1111_1111_11130 -s "status=test"
+Error (0x2013): Invalid setting parameters
+status: invalid setting test (enable|disable)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+user -a mod -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (mgmt|snmp|nas)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+user -a mod -t nas test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid input group name
+
+user -a mod -t nas -u 1 -s "group=test"
+Error (0x4100104): Incorrect parameters: Invalid input group name: test.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+user -a mod -t nas -u 1 -s "phone=test#$%&*"
+Error (0x2013): Invalid setting parameters
+phone contain only digit characters, plus, parentheses, dot,blank space, hyphen, slash and octothorpe. Must end with digit.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+user -a mod -t snmp test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+user -a mod -t snmp -u 1 -s "auth=test"
+Error (0x2013): Invalid setting parameters
+auth: invalid setting test (md5|sha)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+user -a mod -t snmp -u 1 -s "priv=test"
+Error (0x2013): Invalid setting parameters
+priv: invalid setting test (des|aes)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+user -a del test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid username
+
+user -a del -u test
+Error (0x200): Invalid username
+
+administrator@cli> 
+
+Expect: Invalid username
+
+user -a del -t nas -u test
+Error (0x4100104): Incorrect parameters: Invalid username
+
+administrator@cli> 
+
+Expect: Invalid username
+
+user -a del -t snmp -u test
+Error (0x200): Invalid username
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Invalid option for the command or the action
+
+user -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+user -t nas -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+user -t snmp -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+user -a add -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+user -a add -t nas -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+user -a add -t snmp -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+user -a mod -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+user -a mod -u -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+user -a del -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+user -a del -t nas -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+user -a del -t snmp -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Missing parameter
+
+user -u 
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -t nas -u 
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -t snmp -u 
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -a add 
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -a add -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -a add -u test -p 
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -a add -u test -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -a mod 
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -a mod -u 
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -a mod -u 1111_1111_1111_1111_1111_11130 -p 
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -a mod -u 1111_1111_1111_1111_1111_11130 -s 
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -a mod -t nas
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -a mod -t nas -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -a mod -t nas -u 1
+Error (0x403): Missing parameter
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -a mod -t snmp
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -a mod -t snmp -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -a mod -t snmp -u 1
+Error (0x403): Missing parameter
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -a del
+Error (0x403): Missing parameter
+missing parameter '-u' for '-a del'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -a del -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -a del -t nas -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+user -a del -t snmp -u
+Error (0x403): Missing parameter
+-u: missing value
+
+administrator@cli> 
+'result': 'p'
