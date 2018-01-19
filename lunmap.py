@@ -76,7 +76,7 @@ def precondition(c):
 
         return initID, volumeID, snapshotID, cloneID
 
-    except IndexError:
+    except:
 
         tolog('precondition is failed\r\n')
 

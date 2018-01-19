@@ -24,7 +24,7 @@ def add_chap(c):
     # precondition
     try:
         clean_up_environment()
-    except TypeError:
+    except:
         tolog('precondition is failed\r\n')
 
     cli_setting = cli_test_setting()

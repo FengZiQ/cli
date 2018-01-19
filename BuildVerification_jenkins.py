@@ -108,7 +108,7 @@ def build_verification(c):
 
     if reconnect_flag:
         c, ssh = ssh_conn()
-        # there are 46 command that can be tested
+        # there are 47 command that can be tested
         tolog("Start verifying pool add")
         import pool
         if (pool.add_pool_raid0(c)):
@@ -478,6 +478,44 @@ def build_verification(c):
         if (rb.missing_parameter(c)):
             failed_cases.append('The case ' + rb.missing_parameter.__name__ + ' failed')
 
+        tolog("Start verifying fc")
+        import fc
+        if (fc.list_fc(c)):
+            failed_cases.append('The case ' + fc.list_fc.__name__ + ' failed')
+        if (fc.list_fc_by_verbose_mode(c)):
+            failed_cases.append('The case ' + fc.list_fc_by_verbose_mode.__name__ + ' failed')
+        if (fc.mod_fc(c)):
+            failed_cases.append('The case ' + fc.mod_fc.__name__ + ' failed')
+        if (fc.reset_fc(c)):
+            failed_cases.append('The case ' + fc.reset_fc.__name__ + ' failed')
+        if (fc.clear_fc(c)):
+            failed_cases.append('The case ' + fc.clear_fc.__name__ + ' failed')
+        if (fc.invalid_setting_for_fc(c)):
+            failed_cases.append('The case ' + fc.invalid_setting_for_fc.__name__ + ' failed')
+        if (fc.invalid_option_for_fc(c)):
+            failed_cases.append('The case ' + fc.invalid_option_for_fc.__name__ + ' failed')
+        if (fc.missing_parameter_for_fc(c)):
+            failed_cases.append('The case ' + fc.missing_parameter_for_fc.__name__ + ' failed')
+
+        tolog("Start verifying iscsi")
+        import iscsi
+        if (iscsi.add_phy_vlan_portal(c)):
+            failed_cases.append('The case ' + iscsi.add_phy_vlan_portal.__name__ + ' failed')
+        if (iscsi.list_iscsi(c)):
+            failed_cases.append('The case ' + iscsi.list_iscsi.__name__ + ' failed')
+        if (iscsi.list_iscsi_by_verbose_mode(c)):
+            failed_cases.append('The case ' + iscsi.list_iscsi_by_verbose_mode.__name__ + ' failed')
+        if (iscsi.mod_iscsi(c)):
+            failed_cases.append('The case ' + iscsi.mod_iscsi.__name__ + ' failed')
+        if (iscsi.del_iscsi(c)):
+            failed_cases.append('The case ' + iscsi.del_iscsi.__name__ + ' failed')
+        if (iscsi.invalid_setting_for_iscsi(c)):
+            failed_cases.append('The case ' + iscsi.invalid_setting_for_iscsi.__name__ + ' failed')
+        if (iscsi.invalid_option_for_iscsi(c)):
+            failed_cases.append('The case ' + iscsi.invalid_option_for_iscsi.__name__ + ' failed')
+        if (iscsi.missing_parameter_for_iscsi(c)):
+            failed_cases.append('The case ' + iscsi.missing_parameter_for_iscsi.__name__ + ' failed')
+
         tolog("Start verifying chap")
         import chap
         if (chap.add_chap(c)):
@@ -784,25 +822,6 @@ def build_verification(c):
             failed_cases.append(
                 'The case ' + factorydefaults.verifyFactorydefaultsMissingParameters.__name__ + ' failed')
 
-        tolog("Start verifying fc")
-        import fc
-        if (fc.list_fc(c)):
-            failed_cases.append('The case ' + fc.list_fc.__name__ + ' failed')
-        if (fc.list_fc_by_verbose_mode(c)):
-            failed_cases.append('The case ' + fc.list_fc_by_verbose_mode.__name__ + ' failed')
-        if (fc.mod_fc(c)):
-            failed_cases.append('The case ' + fc.mod_fc.__name__ + ' failed')
-        if (fc.reset_fc(c)):
-            failed_cases.append('The case ' + fc.reset_fc.__name__ + ' failed')
-        if (fc.clear_fc(c)):
-            failed_cases.append('The case ' + fc.clear_fc.__name__ + ' failed')
-        if (fc.invalid_setting_for_fc(c)):
-            failed_cases.append('The case ' + fc.invalid_setting_for_fc.__name__ + ' failed')
-        if (fc.invalid_option_for_fc(c)):
-            failed_cases.append('The case ' + fc.invalid_option_for_fc.__name__ + ' failed')
-        if (fc.missing_parameter_for_fc(c)):
-            failed_cases.append('The case ' + fc.missing_parameter_for_fc.__name__ + ' failed')
-
         tolog("Start verifying help")
         import help
         if (help.verifyHelp(c)):
@@ -826,27 +845,6 @@ def build_verification(c):
             failed_cases.append('The case ' + initiator.verifyInitiatorInvalidParameters.__name__ + ' failed')
         if (initiator.verifyInitiatorMissingParameters(c)):
             failed_cases.append('The case ' + initiator.verifyInitiatorMissingParameters.__name__ + ' failed')
-
-        tolog("Start verifying iscsi")
-        import iscsi
-        if (iscsi.verifyIscsi(c)):
-            failed_cases.append('The case ' + iscsi.verifyIscsi.__name__ + ' failed')
-        if (iscsi.verifyIscsiList(c)):
-            failed_cases.append('The case ' + iscsi.verifyIscsiList.__name__ + ' failed')
-        if (iscsi.verifyIscsiAdd(c)):
-            failed_cases.append('The case ' + iscsi.verifyIscsiAdd.__name__ + ' failed')
-        if (iscsi.verifyIscsiMod(c)):
-            failed_cases.append('The case ' + iscsi.verifyIscsiMod.__name__ + ' failed')
-        if (iscsi.verifyIscsiDel(c)):
-            failed_cases.append('The case ' + iscsi.verifyIscsiDel.__name__ + ' failed')
-        if (iscsi.verifyIscsiSpecifyInexistentId(c)):
-            failed_cases.append('The case ' + iscsi.verifyIscsiSpecifyInexistentId.__name__ + ' failed')
-        if (iscsi.verifyIscsiInvalidOption(c)):
-            failed_cases.append('The case ' + iscsi.verifyIscsiInvalidOption.__name__ + ' failed')
-        if (iscsi.verifyIscsiInvalidParameters(c)):
-            failed_cases.append('The case ' + iscsi.verifyIscsiInvalidParameters.__name__ + ' failed')
-        if (iscsi.verifyIscsiMissingParameters(c)):
-            failed_cases.append('The case ' + iscsi.verifyIscsiMissingParameters.__name__ + ' failed')
 
         tolog("Start verifying isns")
         import isns
@@ -1026,22 +1024,22 @@ def build_verification(c):
         if (target.missing_parameter_for_target(c)):
             failed_cases.append('The case ' + target.missing_parameter_for_target.__name__ + ' failed')
 
-        # tolog('Start verifying migrate')
-        # import migrate
-        # if (migrate.start_local_migrate(c)):
-        #     failed_cases.append('The case ' + migrate.start_local_migrate.__name__ + ' failed')
-        # if (migrate.start_remote_migrate(c)):
-        #     failed_cases.append('The case ' + migrate.start_remote_migrate.__name__ + ' failed')
-        # if (migrate.stop_migrate(c)):
-        #     failed_cases.append('The case ' + migrate.stop_migrate.__name__ + ' failed')
-        # if (migrate.help_migrate(c)):
-        #     failed_cases.append('The case ' + migrate.help_migrate.__name__ + ' failed')
-        # if (migrate.invalid_setting_for_migrate(c)):
-        #     failed_cases.append('The case ' + migrate.invalid_setting_for_migrate.__name__ + ' failed')
-        # if (migrate.invalid_option_for_migrate(c)):
-        #     failed_cases.append('The case ' + migrate.invalid_option_for_migrate.__name__ + ' failed')
-        # if (migrate.missing_parameter_migrate(c)):
-        #     failed_cases.append('The case ' + migrate.missing_parameter_migrate.__name__ + ' failed')
+        tolog('Start verifying migrate')
+        import migrate
+        if (migrate.start_local_migrate(c)):
+            failed_cases.append('The case ' + migrate.start_local_migrate.__name__ + ' failed')
+        if (migrate.start_remote_migrate(c)):
+            failed_cases.append('The case ' + migrate.start_remote_migrate.__name__ + ' failed')
+        if (migrate.stop_migrate(c)):
+            failed_cases.append('The case ' + migrate.stop_migrate.__name__ + ' failed')
+        if (migrate.help_migrate(c)):
+            failed_cases.append('The case ' + migrate.help_migrate.__name__ + ' failed')
+        if (migrate.invalid_setting_for_migrate(c)):
+            failed_cases.append('The case ' + migrate.invalid_setting_for_migrate.__name__ + ' failed')
+        if (migrate.invalid_option_for_migrate(c)):
+            failed_cases.append('The case ' + migrate.invalid_option_for_migrate.__name__ + ' failed')
+        if (migrate.missing_parameter_migrate(c)):
+            failed_cases.append('The case ' + migrate.missing_parameter_migrate.__name__ + ' failed')
 
         tolog('Start verifying wcache')
         import wcache
