@@ -108,7 +108,7 @@ def build_verification(c):
 
     if reconnect_flag:
         c, ssh = ssh_conn()
-        # there are 47 command that can be tested
+        # there are 48 command that can be tested
         tolog("Start verifying pool add")
         import pool
         if (pool.add_pool_raid0(c)):
@@ -515,6 +515,23 @@ def build_verification(c):
             failed_cases.append('The case ' + iscsi.invalid_option_for_iscsi.__name__ + ' failed')
         if (iscsi.missing_parameter_for_iscsi(c)):
             failed_cases.append('The case ' + iscsi.missing_parameter_for_iscsi.__name__ + ' failed')
+
+        tolog("Start verifying net")
+        import net
+        if (net.list_net(c)):
+            failed_cases.append('The case ' + net.list_net.__name__ + ' failed')
+        if (net.list_net_by_verbose_mode(c)):
+            failed_cases.append('The case ' + net.list_net_by_verbose_mode.__name__ + ' failed')
+        if (net.disable_enable_net(c)):
+            failed_cases.append('The case ' + net.disable_enable_net.__name__ + ' failed')
+        if (net.modify_net(c)):
+            failed_cases.append('The case ' + net.modify_net.__name__ + ' failed')
+        if (net.invalid_setting_for_net(c)):
+            failed_cases.append('The case ' + net.invalid_setting_for_net.__name__ + ' failed')
+        if (net.invalid_option_for_net(c)):
+            failed_cases.append('The case ' + net.invalid_option_for_net.__name__ + ' failed')
+        if (net.missing_parameter_for_net(c)):
+            failed_cases.append('The case ' + net.missing_parameter_for_net.__name__ + ' failed')
 
         tolog("Start verifying chap")
         import chap

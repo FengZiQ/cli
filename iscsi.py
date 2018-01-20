@@ -24,7 +24,6 @@ def precondition():
         for trunk in trunk_info:
             # delete all trunk
             server.webapi('delete', 'linkaggr/' + str(trunk['id']))
-            print
 
     except:
         tolog("precondition is failed\r\n")
