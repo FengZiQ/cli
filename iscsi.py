@@ -23,17 +23,11 @@ def precondition():
 
         for trunk in trunk_info:
             # delete all trunk
-            server.webapi('delete', 'iscsi/linkaggr/' + str(trunk['id']))
+            server.webapi('delete', 'linkaggr/' + str(trunk['id']))
             print
 
     except:
         tolog("precondition is failed\r\n")
-
-    # modify port status
-    for i in range(2):
-
-        server.webapi('put', 'iscsiport/' + str(i + 1) + '_1', {'port_status': 1, 'jumbo_frame': 1})
-        server.webapi('put', 'iscsiport/' + str(i + 1) + '_2', {'port_status': 1, 'jumbo_frame': 1})
 
     return
 

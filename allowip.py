@@ -125,13 +125,13 @@ if __name__ == "__main__":
     c, ssh = ssh_conn()
 
     add_allowip(c)
-    list_allowip(c)
-    list_allowip_by_verbose_mode(c)
-    mod_allowip(c)
-    del_allowip(c)
-    invalid_setting_for_allowip(c)
-    invalid_option_for_allowip(c)
-    missing_parameter_for_allowip(c)
+    # list_allowip(c)
+    # list_allowip_by_verbose_mode(c)
+    # mod_allowip(c)
+    # del_allowip(c)
+    # invalid_setting_for_allowip(c)
+    # invalid_option_for_allowip(c)
+    # missing_parameter_for_allowip(c)
 
     ssh.close()
     elasped = time.clock() - start

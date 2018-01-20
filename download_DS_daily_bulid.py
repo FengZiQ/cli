@@ -14,9 +14,10 @@ def download():
     now_time = datetime.datetime.now().strftime('%Y-%m-%d')
 
     temp2 = ''
-    for t1 in temp1:
-        if now_time + '-' in t1:
-            temp2 = temp2 + t1.split('/')[0]
+
+    if now_time + '-' in temp1[-5]:
+
+        temp2 = temp2 + temp1[-5].split('/')[0]
 
     if temp2:
         soup2 = BeautifulSoup(requests.get(build_server_url + temp2).text, 'html.parser', from_encoding='utf-8').text

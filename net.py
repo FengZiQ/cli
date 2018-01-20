@@ -27,7 +27,11 @@ def list_net_by_verbose_mode(c):
 
 def enable_modify_disable(c):
 
-    tolog('\r\nNeed manual test\r\n')
+    cli_setting = cli_test_setting()
+
+    cli_setting.setting(c, data, 'enable_modify_disable', 5)
+
+    return cli_setting.FailFlag
 
 
 def invalid_setting_for_net(c):
