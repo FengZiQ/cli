@@ -1,3 +1,1541 @@
+2018-01-22 15:43:53: 'result': 'p'
+2018-01-22 15:43:53: 
+<font color="green">Pass</font>
+2018-01-22 15:43:53: initiator -a del -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-22 15:43:53: <b> Verify initiator -a del -i</b>
+2018-01-22 15:43:53: initiator -a add -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-22 15:43:53: <b> Verify initiator -a add -i</b>
+2018-01-22 15:43:53: initiator -a list -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-22 15:43:53: <b> Verify initiator -a list -i</b>
+2018-01-22 15:43:53: initiator -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+2018-01-22 15:43:52: <b> Verify initiator -i</b>
+2018-01-22 15:43:52: <b>Verify initiator missing parameters</b>
+2018-01-22 15:43:52: 'result': 'p'
+2018-01-22 15:43:52: 
+<font color="green">Pass</font>
+2018-01-22 15:43:52: initiator -a del -i 2048
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 2048 (0,2047)
+
+administrator@cli> 
+2018-01-22 15:43:52: <b> Verify initiator -a del -i 2048</b>
+2018-01-22 15:43:52: initiator -a add test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-22 15:43:52: <b> Verify initiator -a add test</b>
+2018-01-22 15:43:52: initiator -a list -i 2048
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 2048 (0,2047)
+
+administrator@cli> 
+2018-01-22 15:43:52: <b> Verify initiator -a list -i 2048</b>
+2018-01-22 15:43:52: initiator test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+2018-01-22 15:43:52: <b> Verify initiator test</b>
+2018-01-22 15:43:52: <b>Verify initiator invalid parameters</b>
+2018-01-22 15:43:51: 'result': 'p'
+2018-01-22 15:43:51: 
+<font color="green">Pass</font>
+2018-01-22 15:43:51: initiator -a del -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+2018-01-22 15:43:51: <b> Verify initiator -a del -x</b>
+2018-01-22 15:43:51: initiator -a add -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+2018-01-22 15:43:51: <b> Verify initiator -a add -x</b>
+2018-01-22 15:43:51: initiator -a list -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+2018-01-22 15:43:51: <b> Verify initiator -a list -x</b>
+2018-01-22 15:43:51: initiator -x
+Error (0x2012): Invalid option for the command or the action
+invalid option: -x
+
+administrator@cli> 
+2018-01-22 15:43:51: <b> Verify initiator -x</b>
+2018-01-22 15:43:51: <b>Verify initiator invalid option</b>
+2018-01-22 15:43:51: 'result': 'p'
+2018-01-22 15:43:51: 
+<font color="green">Pass</font>
+2018-01-22 15:43:51: initiator -a list -i 1
+No initiator entry available
+
+administrator@cli> 
+2018-01-22 15:43:51: <b>initiator -a list -i 1</b>
+2018-01-22 15:43:51: initiator -a del -i 1
+Error (0x498B5202): Invalid initiator index
+
+administrator@cli> 
+2018-01-22 15:43:51: <b>initiator -a del -i 1</b>
+2018-01-22 15:43:51: initiator
+No initiator entry available
+
+administrator@cli> 
+2018-01-22 15:43:51: <b> Verify initiator specify inexistent Id </b>
+2018-01-22 15:43:50: 'result': 'p'
+2018-01-22 15:43:50: 
+<font color="green">Pass</font>
+2018-01-22 15:43:50: initiator
+No initiator entry available
+
+administrator@cli> 
+2018-01-22 15:43:50: initiator -a del -i 20
+
+administrator@cli> 
+2018-01-22 15:43:49: <b> initiator -a del -i 20</b>
+2018-01-22 15:43:49: initiator -a del -i 19
+
+administrator@cli> 
+2018-01-22 15:43:49: <b> initiator -a del -i 19</b>
+2018-01-22 15:43:49: initiator -a del -i 18
+
+administrator@cli> 
+2018-01-22 15:43:49: <b> initiator -a del -i 18</b>
+2018-01-22 15:43:49: initiator -a del -i 17
+
+administrator@cli> 
+2018-01-22 15:43:49: <b> initiator -a del -i 17</b>
+2018-01-22 15:43:49: initiator -a del -i 16
+
+administrator@cli> 
+2018-01-22 15:43:49: <b> initiator -a del -i 16</b>
+2018-01-22 15:43:49: initiator -a del -i 15
+
+administrator@cli> 
+2018-01-22 15:43:48: <b> initiator -a del -i 15</b>
+2018-01-22 15:43:48: initiator -a del -i 14
+
+administrator@cli> 
+2018-01-22 15:43:48: <b> initiator -a del -i 14</b>
+2018-01-22 15:43:48: initiator -a del -i 13
+
+administrator@cli> 
+2018-01-22 15:43:48: <b> initiator -a del -i 13</b>
+2018-01-22 15:43:48: initiator -a del -i 12
+
+administrator@cli> 
+2018-01-22 15:43:48: <b> initiator -a del -i 12</b>
+2018-01-22 15:43:48: initiator -a del -i 11
+
+administrator@cli> 
+2018-01-22 15:43:48: <b> initiator -a del -i 11</b>
+2018-01-22 15:43:48: initiator -a del -i 10
+
+administrator@cli> 
+2018-01-22 15:43:47: <b> initiator -a del -i 10</b>
+2018-01-22 15:43:47: initiator -a del -i 9
+
+administrator@cli> 
+2018-01-22 15:43:47: <b> initiator -a del -i 9</b>
+2018-01-22 15:43:47: initiator -a del -i 8
+
+administrator@cli> 
+2018-01-22 15:43:47: <b> initiator -a del -i 8</b>
+2018-01-22 15:43:47: initiator -a del -i 7
+
+administrator@cli> 
+2018-01-22 15:43:47: <b> initiator -a del -i 7</b>
+2018-01-22 15:43:47: initiator -a del -i 6
+
+administrator@cli> 
+2018-01-22 15:43:47: <b> initiator -a del -i 6</b>
+2018-01-22 15:43:47: initiator -a del -i 5
+
+administrator@cli> 
+2018-01-22 15:43:46: <b> initiator -a del -i 5</b>
+2018-01-22 15:43:46: initiator -a del -i 4
+
+administrator@cli> 
+2018-01-22 15:43:46: <b> initiator -a del -i 4</b>
+2018-01-22 15:43:46: initiator -a del -i 3
+
+administrator@cli> 
+2018-01-22 15:43:46: <b> initiator -a del -i 3</b>
+2018-01-22 15:43:45: initiator -a del -i 2
+
+administrator@cli> 
+2018-01-22 15:43:45: <b> initiator -a del -i 2</b>
+2018-01-22 15:43:45: initiator -a del -i 1
+
+administrator@cli> 
+2018-01-22 15:43:45: <b> initiator -a del -i 1</b>
+2018-01-22 15:43:45: initiator -a del -i 0
+
+administrator@cli> 
+2018-01-22 15:43:45: <b> initiator -a del -i 0</b>
+2018-01-22 15:43:45: initiator
+-------------------------------------------------------------------------------
+Id: 0                                   Type: iscsi
+Name: Test.addInitiator0.com
+-------------------------------------------------------------------------------
+Id: 1                                   Type: iscsi
+Name: Test.addInitiator1.com
+-------------------------------------------------------------------------------
+Id: 2                                   Type: iscsi
+Name: Test.addInitiator2.com
+-------------------------------------------------------------------------------
+Id: 3                                   Type: iscsi
+Name: Test.addInitiator3.com
+-------------------------------------------------------------------------------
+Id: 4                                   Type: iscsi
+Name: Test.addInitiator4.com
+-------------------------------------------------------------------------------
+Id: 5                                   Type: iscsi
+Name: Test.addInitiator5.com
+-------------------------------------------------------------------------------
+Id: 6                                   Type: iscsi
+Name: Test.addInitiator6.com
+-------------------------------------------------------------------------------
+Id: 7                                   Type: iscsi
+Name: Test.addInitiator7.com
+-------------------------------------------------------------------------------
+Id: 8                                   Type: iscsi
+Name: Test.addInitiator8.com
+-------------------------------------------------------------------------------
+Id: 9                                   Type: iscsi
+Name: Test.addInitiator9.com
+-------------------------------------------------------------------------------
+Id: 10                                  Type: iscsi
+Name: Test.addInitiator10.com
+-------------------------------------------------------------------------------
+Id: 11                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-00
+-------------------------------------------------------------------------------
+Id: 12                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-01
+-------------------------------------------------------------------------------
+Id: 13                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-02
+-------------------------------------------------------------------------------
+Id: 14                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-03
+-------------------------------------------------------------------------------
+Id: 15                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-04
+-------------------------------------------------------------------------------
+Id: 16                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-05
+-------------------------------------------------------------------------------
+Id: 17                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-06
+-------------------------------------------------------------------------------
+Id: 18                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-07
+-------------------------------------------------------------------------------
+Id: 19                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-08
+-------------------------------------------------------------------------------
+Id: 20                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-09
+
+administrator@cli> 
+2018-01-22 15:43:45: 'result': 'p'
+2018-01-22 15:43:45: 
+<font color="green">Pass</font>
+2018-01-22 15:43:45: initiator -a list -i 20
+-------------------------------------------------------------------------------
+Id: 20                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-09
+
+administrator@cli> 
+2018-01-22 15:43:45: <b> initiator -a list -i 20</b>
+2018-01-22 15:43:45: initiator -a list -i 19
+-------------------------------------------------------------------------------
+Id: 19                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-08
+
+administrator@cli> 
+2018-01-22 15:43:45: <b> initiator -a list -i 19</b>
+2018-01-22 15:43:44: initiator -a list -i 18
+-------------------------------------------------------------------------------
+Id: 18                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-07
+
+administrator@cli> 
+2018-01-22 15:43:44: <b> initiator -a list -i 18</b>
+2018-01-22 15:43:44: initiator -a list -i 17
+-------------------------------------------------------------------------------
+Id: 17                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-06
+
+administrator@cli> 
+2018-01-22 15:43:44: <b> initiator -a list -i 17</b>
+2018-01-22 15:43:44: initiator -a list -i 16
+-------------------------------------------------------------------------------
+Id: 16                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-05
+
+administrator@cli> 
+2018-01-22 15:43:44: <b> initiator -a list -i 16</b>
+2018-01-22 15:43:44: initiator -a list -i 15
+-------------------------------------------------------------------------------
+Id: 15                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-04
+
+administrator@cli> 
+2018-01-22 15:43:44: <b> initiator -a list -i 15</b>
+2018-01-22 15:43:44: initiator -a list -i 14
+-------------------------------------------------------------------------------
+Id: 14                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-03
+
+administrator@cli> 
+2018-01-22 15:43:44: <b> initiator -a list -i 14</b>
+2018-01-22 15:43:44: initiator -a list -i 13
+-------------------------------------------------------------------------------
+Id: 13                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-02
+
+administrator@cli> 
+2018-01-22 15:43:44: <b> initiator -a list -i 13</b>
+2018-01-22 15:43:44: initiator -a list -i 12
+-------------------------------------------------------------------------------
+Id: 12                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-01
+
+administrator@cli> 
+2018-01-22 15:43:44: <b> initiator -a list -i 12</b>
+2018-01-22 15:43:44: initiator -a list -i 11
+-------------------------------------------------------------------------------
+Id: 11                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-00
+
+administrator@cli> 
+2018-01-22 15:43:44: <b> initiator -a list -i 11</b>
+2018-01-22 15:43:44: initiator -a list -i 10
+-------------------------------------------------------------------------------
+Id: 10                                  Type: iscsi
+Name: Test.addInitiator10.com
+
+administrator@cli> 
+2018-01-22 15:43:43: <b> initiator -a list -i 10</b>
+2018-01-22 15:43:43: initiator -a list -i 9
+-------------------------------------------------------------------------------
+Id: 9                                   Type: iscsi
+Name: Test.addInitiator9.com
+
+administrator@cli> 
+2018-01-22 15:43:43: <b> initiator -a list -i 9</b>
+2018-01-22 15:43:43: initiator -a list -i 8
+-------------------------------------------------------------------------------
+Id: 8                                   Type: iscsi
+Name: Test.addInitiator8.com
+
+administrator@cli> 
+2018-01-22 15:43:43: <b> initiator -a list -i 8</b>
+2018-01-22 15:43:43: initiator -a list -i 7
+-------------------------------------------------------------------------------
+Id: 7                                   Type: iscsi
+Name: Test.addInitiator7.com
+
+administrator@cli> 
+2018-01-22 15:43:43: <b> initiator -a list -i 7</b>
+2018-01-22 15:43:43: initiator -a list -i 6
+-------------------------------------------------------------------------------
+Id: 6                                   Type: iscsi
+Name: Test.addInitiator6.com
+
+administrator@cli> 
+2018-01-22 15:43:43: <b> initiator -a list -i 6</b>
+2018-01-22 15:43:43: initiator -a list -i 5
+-------------------------------------------------------------------------------
+Id: 5                                   Type: iscsi
+Name: Test.addInitiator5.com
+
+administrator@cli> 
+2018-01-22 15:43:43: <b> initiator -a list -i 5</b>
+2018-01-22 15:43:43: initiator -a list -i 4
+-------------------------------------------------------------------------------
+Id: 4                                   Type: iscsi
+Name: Test.addInitiator4.com
+
+administrator@cli> 
+2018-01-22 15:43:43: <b> initiator -a list -i 4</b>
+2018-01-22 15:43:43: initiator -a list -i 3
+-------------------------------------------------------------------------------
+Id: 3                                   Type: iscsi
+Name: Test.addInitiator3.com
+
+administrator@cli> 
+2018-01-22 15:43:43: <b> initiator -a list -i 3</b>
+2018-01-22 15:43:43: initiator -a list -i 2
+-------------------------------------------------------------------------------
+Id: 2                                   Type: iscsi
+Name: Test.addInitiator2.com
+
+administrator@cli> 
+2018-01-22 15:43:43: <b> initiator -a list -i 2</b>
+2018-01-22 15:43:43: initiator -a list -i 1
+-------------------------------------------------------------------------------
+Id: 1                                   Type: iscsi
+Name: Test.addInitiator1.com
+
+administrator@cli> 
+2018-01-22 15:43:42: <b> initiator -a list -i 1</b>
+2018-01-22 15:43:42: initiator -a list -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   Type: iscsi
+Name: Test.addInitiator0.com
+
+administrator@cli> 
+2018-01-22 15:43:42: <b> initiator -a list -i 0</b>
+2018-01-22 15:43:42: initiator -a list
+-------------------------------------------------------------------------------
+Id: 0                                   Type: iscsi
+Name: Test.addInitiator0.com
+-------------------------------------------------------------------------------
+Id: 1                                   Type: iscsi
+Name: Test.addInitiator1.com
+-------------------------------------------------------------------------------
+Id: 2                                   Type: iscsi
+Name: Test.addInitiator2.com
+-------------------------------------------------------------------------------
+Id: 3                                   Type: iscsi
+Name: Test.addInitiator3.com
+-------------------------------------------------------------------------------
+Id: 4                                   Type: iscsi
+Name: Test.addInitiator4.com
+-------------------------------------------------------------------------------
+Id: 5                                   Type: iscsi
+Name: Test.addInitiator5.com
+-------------------------------------------------------------------------------
+Id: 6                                   Type: iscsi
+Name: Test.addInitiator6.com
+-------------------------------------------------------------------------------
+Id: 7                                   Type: iscsi
+Name: Test.addInitiator7.com
+-------------------------------------------------------------------------------
+Id: 8                                   Type: iscsi
+Name: Test.addInitiator8.com
+-------------------------------------------------------------------------------
+Id: 9                                   Type: iscsi
+Name: Test.addInitiator9.com
+-------------------------------------------------------------------------------
+Id: 10                                  Type: iscsi
+Name: Test.addInitiator10.com
+-------------------------------------------------------------------------------
+Id: 11                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-00
+-------------------------------------------------------------------------------
+Id: 12                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-01
+-------------------------------------------------------------------------------
+Id: 13                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-02
+-------------------------------------------------------------------------------
+Id: 14                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-03
+-------------------------------------------------------------------------------
+Id: 15                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-04
+-------------------------------------------------------------------------------
+Id: 16                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-05
+-------------------------------------------------------------------------------
+Id: 17                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-06
+-------------------------------------------------------------------------------
+Id: 18                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-07
+-------------------------------------------------------------------------------
+Id: 19                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-08
+-------------------------------------------------------------------------------
+Id: 20                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-09
+
+administrator@cli> 
+2018-01-22 15:43:42: <b>Verify initiator -a list</b>
+2018-01-22 15:43:42: 'result': 'p'
+2018-01-22 15:43:42: 
+<font color="green">Pass</font>
+2018-01-22 15:43:42: initiator -i 20
+-------------------------------------------------------------------------------
+Id: 20                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-09
+
+administrator@cli> 
+2018-01-22 15:43:42: <b> initiator -i 20</b>
+2018-01-22 15:43:42: initiator -i 19
+-------------------------------------------------------------------------------
+Id: 19                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-08
+
+administrator@cli> 
+2018-01-22 15:43:42: <b> initiator -i 19</b>
+2018-01-22 15:43:42: initiator -i 18
+-------------------------------------------------------------------------------
+Id: 18                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-07
+
+administrator@cli> 
+2018-01-22 15:43:42: <b> initiator -i 18</b>
+2018-01-22 15:43:42: initiator -i 17
+-------------------------------------------------------------------------------
+Id: 17                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-06
+
+administrator@cli> 
+2018-01-22 15:43:42: <b> initiator -i 17</b>
+2018-01-22 15:43:42: initiator -i 16
+-------------------------------------------------------------------------------
+Id: 16                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-05
+
+administrator@cli> 
+2018-01-22 15:43:41: <b> initiator -i 16</b>
+2018-01-22 15:43:41: initiator -i 15
+-------------------------------------------------------------------------------
+Id: 15                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-04
+
+administrator@cli> 
+2018-01-22 15:43:41: <b> initiator -i 15</b>
+2018-01-22 15:43:41: initiator -i 14
+-------------------------------------------------------------------------------
+Id: 14                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-03
+
+administrator@cli> 
+2018-01-22 15:43:41: <b> initiator -i 14</b>
+2018-01-22 15:43:41: initiator -i 13
+-------------------------------------------------------------------------------
+Id: 13                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-02
+
+administrator@cli> 
+2018-01-22 15:43:41: <b> initiator -i 13</b>
+2018-01-22 15:43:41: initiator -i 12
+-------------------------------------------------------------------------------
+Id: 12                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-01
+
+administrator@cli> 
+2018-01-22 15:43:41: <b> initiator -i 12</b>
+2018-01-22 15:43:41: initiator -i 11
+-------------------------------------------------------------------------------
+Id: 11                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-00
+
+administrator@cli> 
+2018-01-22 15:43:41: <b> initiator -i 11</b>
+2018-01-22 15:43:41: initiator -i 10
+-------------------------------------------------------------------------------
+Id: 10                                  Type: iscsi
+Name: Test.addInitiator10.com
+
+administrator@cli> 
+2018-01-22 15:43:41: <b> initiator -i 10</b>
+2018-01-22 15:43:40: initiator -i 9
+-------------------------------------------------------------------------------
+Id: 9                                   Type: iscsi
+Name: Test.addInitiator9.com
+
+administrator@cli> 
+2018-01-22 15:43:40: <b> initiator -i 9</b>
+2018-01-22 15:43:40: initiator -i 8
+-------------------------------------------------------------------------------
+Id: 8                                   Type: iscsi
+Name: Test.addInitiator8.com
+
+administrator@cli> 
+2018-01-22 15:43:40: <b> initiator -i 8</b>
+2018-01-22 15:43:39: initiator -i 7
+-------------------------------------------------------------------------------
+Id: 7                                   Type: iscsi
+Name: Test.addInitiator7.com
+
+administrator@cli> 
+2018-01-22 15:43:39: <b> initiator -i 7</b>
+2018-01-22 15:43:39: initiator -i 6
+-------------------------------------------------------------------------------
+Id: 6                                   Type: iscsi
+Name: Test.addInitiator6.com
+
+administrator@cli> 
+2018-01-22 15:43:39: <b> initiator -i 6</b>
+2018-01-22 15:43:39: initiator -i 5
+-------------------------------------------------------------------------------
+Id: 5                                   Type: iscsi
+Name: Test.addInitiator5.com
+
+administrator@cli> 
+2018-01-22 15:43:39: <b> initiator -i 5</b>
+2018-01-22 15:43:39: initiator -i 4
+-------------------------------------------------------------------------------
+Id: 4                                   Type: iscsi
+Name: Test.addInitiator4.com
+
+administrator@cli> 
+2018-01-22 15:43:39: <b> initiator -i 4</b>
+2018-01-22 15:43:39: initiator -i 3
+-------------------------------------------------------------------------------
+Id: 3                                   Type: iscsi
+Name: Test.addInitiator3.com
+
+administrator@cli> 
+2018-01-22 15:43:39: <b> initiator -i 3</b>
+2018-01-22 15:43:39: initiator -i 2
+-------------------------------------------------------------------------------
+Id: 2                                   Type: iscsi
+Name: Test.addInitiator2.com
+
+administrator@cli> 
+2018-01-22 15:43:39: <b> initiator -i 2</b>
+2018-01-22 15:43:39: initiator -i 1
+-------------------------------------------------------------------------------
+Id: 1                                   Type: iscsi
+Name: Test.addInitiator1.com
+
+administrator@cli> 
+2018-01-22 15:43:39: <b> initiator -i 1</b>
+2018-01-22 15:43:39: initiator -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   Type: iscsi
+Name: Test.addInitiator0.com
+
+administrator@cli> 
+2018-01-22 15:43:38: <b> initiator -i 0</b>
+2018-01-22 15:43:38: initiator
+-------------------------------------------------------------------------------
+Id: 0                                   Type: iscsi
+Name: Test.addInitiator0.com
+-------------------------------------------------------------------------------
+Id: 1                                   Type: iscsi
+Name: Test.addInitiator1.com
+-------------------------------------------------------------------------------
+Id: 2                                   Type: iscsi
+Name: Test.addInitiator2.com
+-------------------------------------------------------------------------------
+Id: 3                                   Type: iscsi
+Name: Test.addInitiator3.com
+-------------------------------------------------------------------------------
+Id: 4                                   Type: iscsi
+Name: Test.addInitiator4.com
+-------------------------------------------------------------------------------
+Id: 5                                   Type: iscsi
+Name: Test.addInitiator5.com
+-------------------------------------------------------------------------------
+Id: 6                                   Type: iscsi
+Name: Test.addInitiator6.com
+-------------------------------------------------------------------------------
+Id: 7                                   Type: iscsi
+Name: Test.addInitiator7.com
+-------------------------------------------------------------------------------
+Id: 8                                   Type: iscsi
+Name: Test.addInitiator8.com
+-------------------------------------------------------------------------------
+Id: 9                                   Type: iscsi
+Name: Test.addInitiator9.com
+-------------------------------------------------------------------------------
+Id: 10                                  Type: iscsi
+Name: Test.addInitiator10.com
+-------------------------------------------------------------------------------
+Id: 11                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-00
+-------------------------------------------------------------------------------
+Id: 12                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-01
+-------------------------------------------------------------------------------
+Id: 13                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-02
+-------------------------------------------------------------------------------
+Id: 14                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-03
+-------------------------------------------------------------------------------
+Id: 15                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-04
+-------------------------------------------------------------------------------
+Id: 16                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-05
+-------------------------------------------------------------------------------
+Id: 17                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-06
+-------------------------------------------------------------------------------
+Id: 18                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-07
+-------------------------------------------------------------------------------
+Id: 19                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-08
+-------------------------------------------------------------------------------
+Id: 20                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-09
+
+administrator@cli> 
+2018-01-22 15:43:38: <b>Verify initiator </b>
+2018-01-22 15:43:38: 'result': 'p'
+2018-01-22 15:43:38: 
+<font color="green">Pass</font>
+2018-01-22 15:43:38: initiator
+-------------------------------------------------------------------------------
+Id: 0                                   Type: iscsi
+Name: Test.addInitiator0.com
+-------------------------------------------------------------------------------
+Id: 1                                   Type: iscsi
+Name: Test.addInitiator1.com
+-------------------------------------------------------------------------------
+Id: 2                                   Type: iscsi
+Name: Test.addInitiator2.com
+-------------------------------------------------------------------------------
+Id: 3                                   Type: iscsi
+Name: Test.addInitiator3.com
+-------------------------------------------------------------------------------
+Id: 4                                   Type: iscsi
+Name: Test.addInitiator4.com
+-------------------------------------------------------------------------------
+Id: 5                                   Type: iscsi
+Name: Test.addInitiator5.com
+-------------------------------------------------------------------------------
+Id: 6                                   Type: iscsi
+Name: Test.addInitiator6.com
+-------------------------------------------------------------------------------
+Id: 7                                   Type: iscsi
+Name: Test.addInitiator7.com
+-------------------------------------------------------------------------------
+Id: 8                                   Type: iscsi
+Name: Test.addInitiator8.com
+-------------------------------------------------------------------------------
+Id: 9                                   Type: iscsi
+Name: Test.addInitiator9.com
+-------------------------------------------------------------------------------
+Id: 10                                  Type: iscsi
+Name: Test.addInitiator10.com
+-------------------------------------------------------------------------------
+Id: 11                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-00
+-------------------------------------------------------------------------------
+Id: 12                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-01
+-------------------------------------------------------------------------------
+Id: 13                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-02
+-------------------------------------------------------------------------------
+Id: 14                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-03
+-------------------------------------------------------------------------------
+Id: 15                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-04
+-------------------------------------------------------------------------------
+Id: 16                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-05
+-------------------------------------------------------------------------------
+Id: 17                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-06
+-------------------------------------------------------------------------------
+Id: 18                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-07
+-------------------------------------------------------------------------------
+Id: 19                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-08
+-------------------------------------------------------------------------------
+Id: 20                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-09
+
+administrator@cli> 
+2018-01-22 15:43:38: initiator -a add -t fc -n aa-bb-cc-dd-ee-ff-11-09
+
+administrator@cli> 
+2018-01-22 15:43:37: <b>initiator -a add -t fc -n aa-bb-cc-dd-ee-ff-11-09</b>
+2018-01-22 15:43:37: initiator
+-------------------------------------------------------------------------------
+Id: 0                                   Type: iscsi
+Name: Test.addInitiator0.com
+-------------------------------------------------------------------------------
+Id: 1                                   Type: iscsi
+Name: Test.addInitiator1.com
+-------------------------------------------------------------------------------
+Id: 2                                   Type: iscsi
+Name: Test.addInitiator2.com
+-------------------------------------------------------------------------------
+Id: 3                                   Type: iscsi
+Name: Test.addInitiator3.com
+-------------------------------------------------------------------------------
+Id: 4                                   Type: iscsi
+Name: Test.addInitiator4.com
+-------------------------------------------------------------------------------
+Id: 5                                   Type: iscsi
+Name: Test.addInitiator5.com
+-------------------------------------------------------------------------------
+Id: 6                                   Type: iscsi
+Name: Test.addInitiator6.com
+-------------------------------------------------------------------------------
+Id: 7                                   Type: iscsi
+Name: Test.addInitiator7.com
+-------------------------------------------------------------------------------
+Id: 8                                   Type: iscsi
+Name: Test.addInitiator8.com
+-------------------------------------------------------------------------------
+Id: 9                                   Type: iscsi
+Name: Test.addInitiator9.com
+-------------------------------------------------------------------------------
+Id: 10                                  Type: iscsi
+Name: Test.addInitiator10.com
+-------------------------------------------------------------------------------
+Id: 11                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-00
+-------------------------------------------------------------------------------
+Id: 12                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-01
+-------------------------------------------------------------------------------
+Id: 13                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-02
+-------------------------------------------------------------------------------
+Id: 14                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-03
+-------------------------------------------------------------------------------
+Id: 15                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-04
+-------------------------------------------------------------------------------
+Id: 16                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-05
+-------------------------------------------------------------------------------
+Id: 17                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-06
+-------------------------------------------------------------------------------
+Id: 18                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-07
+-------------------------------------------------------------------------------
+Id: 19                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-08
+
+administrator@cli> 
+2018-01-22 15:43:37: initiator -a add -t fc -n aa-bb-cc-dd-ee-ff-11-08
+
+administrator@cli> 
+2018-01-22 15:43:37: <b>initiator -a add -t fc -n aa-bb-cc-dd-ee-ff-11-08</b>
+2018-01-22 15:43:37: initiator
+-------------------------------------------------------------------------------
+Id: 0                                   Type: iscsi
+Name: Test.addInitiator0.com
+-------------------------------------------------------------------------------
+Id: 1                                   Type: iscsi
+Name: Test.addInitiator1.com
+-------------------------------------------------------------------------------
+Id: 2                                   Type: iscsi
+Name: Test.addInitiator2.com
+-------------------------------------------------------------------------------
+Id: 3                                   Type: iscsi
+Name: Test.addInitiator3.com
+-------------------------------------------------------------------------------
+Id: 4                                   Type: iscsi
+Name: Test.addInitiator4.com
+-------------------------------------------------------------------------------
+Id: 5                                   Type: iscsi
+Name: Test.addInitiator5.com
+-------------------------------------------------------------------------------
+Id: 6                                   Type: iscsi
+Name: Test.addInitiator6.com
+-------------------------------------------------------------------------------
+Id: 7                                   Type: iscsi
+Name: Test.addInitiator7.com
+-------------------------------------------------------------------------------
+Id: 8                                   Type: iscsi
+Name: Test.addInitiator8.com
+-------------------------------------------------------------------------------
+Id: 9                                   Type: iscsi
+Name: Test.addInitiator9.com
+-------------------------------------------------------------------------------
+Id: 10                                  Type: iscsi
+Name: Test.addInitiator10.com
+-------------------------------------------------------------------------------
+Id: 11                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-00
+-------------------------------------------------------------------------------
+Id: 12                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-01
+-------------------------------------------------------------------------------
+Id: 13                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-02
+-------------------------------------------------------------------------------
+Id: 14                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-03
+-------------------------------------------------------------------------------
+Id: 15                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-04
+-------------------------------------------------------------------------------
+Id: 16                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-05
+-------------------------------------------------------------------------------
+Id: 17                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-06
+-------------------------------------------------------------------------------
+Id: 18                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-07
+
+administrator@cli> 
+2018-01-22 15:43:37: initiator -a add -t fc -n aa-bb-cc-dd-ee-ff-11-07
+
+administrator@cli> 
+2018-01-22 15:43:37: <b>initiator -a add -t fc -n aa-bb-cc-dd-ee-ff-11-07</b>
+2018-01-22 15:43:37: initiator
+-------------------------------------------------------------------------------
+Id: 0                                   Type: iscsi
+Name: Test.addInitiator0.com
+-------------------------------------------------------------------------------
+Id: 1                                   Type: iscsi
+Name: Test.addInitiator1.com
+-------------------------------------------------------------------------------
+Id: 2                                   Type: iscsi
+Name: Test.addInitiator2.com
+-------------------------------------------------------------------------------
+Id: 3                                   Type: iscsi
+Name: Test.addInitiator3.com
+-------------------------------------------------------------------------------
+Id: 4                                   Type: iscsi
+Name: Test.addInitiator4.com
+-------------------------------------------------------------------------------
+Id: 5                                   Type: iscsi
+Name: Test.addInitiator5.com
+-------------------------------------------------------------------------------
+Id: 6                                   Type: iscsi
+Name: Test.addInitiator6.com
+-------------------------------------------------------------------------------
+Id: 7                                   Type: iscsi
+Name: Test.addInitiator7.com
+-------------------------------------------------------------------------------
+Id: 8                                   Type: iscsi
+Name: Test.addInitiator8.com
+-------------------------------------------------------------------------------
+Id: 9                                   Type: iscsi
+Name: Test.addInitiator9.com
+-------------------------------------------------------------------------------
+Id: 10                                  Type: iscsi
+Name: Test.addInitiator10.com
+-------------------------------------------------------------------------------
+Id: 11                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-00
+-------------------------------------------------------------------------------
+Id: 12                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-01
+-------------------------------------------------------------------------------
+Id: 13                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-02
+-------------------------------------------------------------------------------
+Id: 14                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-03
+-------------------------------------------------------------------------------
+Id: 15                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-04
+-------------------------------------------------------------------------------
+Id: 16                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-05
+-------------------------------------------------------------------------------
+Id: 17                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-06
+
+administrator@cli> 
+2018-01-22 15:43:37: initiator -a add -t fc -n aa-bb-cc-dd-ee-ff-11-06
+
+administrator@cli> 
+2018-01-22 15:43:37: <b>initiator -a add -t fc -n aa-bb-cc-dd-ee-ff-11-06</b>
+2018-01-22 15:43:37: initiator
+-------------------------------------------------------------------------------
+Id: 0                                   Type: iscsi
+Name: Test.addInitiator0.com
+-------------------------------------------------------------------------------
+Id: 1                                   Type: iscsi
+Name: Test.addInitiator1.com
+-------------------------------------------------------------------------------
+Id: 2                                   Type: iscsi
+Name: Test.addInitiator2.com
+-------------------------------------------------------------------------------
+Id: 3                                   Type: iscsi
+Name: Test.addInitiator3.com
+-------------------------------------------------------------------------------
+Id: 4                                   Type: iscsi
+Name: Test.addInitiator4.com
+-------------------------------------------------------------------------------
+Id: 5                                   Type: iscsi
+Name: Test.addInitiator5.com
+-------------------------------------------------------------------------------
+Id: 6                                   Type: iscsi
+Name: Test.addInitiator6.com
+-------------------------------------------------------------------------------
+Id: 7                                   Type: iscsi
+Name: Test.addInitiator7.com
+-------------------------------------------------------------------------------
+Id: 8                                   Type: iscsi
+Name: Test.addInitiator8.com
+-------------------------------------------------------------------------------
+Id: 9                                   Type: iscsi
+Name: Test.addInitiator9.com
+-------------------------------------------------------------------------------
+Id: 10                                  Type: iscsi
+Name: Test.addInitiator10.com
+-------------------------------------------------------------------------------
+Id: 11                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-00
+-------------------------------------------------------------------------------
+Id: 12                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-01
+-------------------------------------------------------------------------------
+Id: 13                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-02
+-------------------------------------------------------------------------------
+Id: 14                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-03
+-------------------------------------------------------------------------------
+Id: 15                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-04
+-------------------------------------------------------------------------------
+Id: 16                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-05
+
+administrator@cli> 
+2018-01-22 15:43:37: initiator -a add -t fc -n aa-bb-cc-dd-ee-ff-11-05
+
+administrator@cli> 
+2018-01-22 15:43:36: <b>initiator -a add -t fc -n aa-bb-cc-dd-ee-ff-11-05</b>
+2018-01-22 15:43:36: initiator
+-------------------------------------------------------------------------------
+Id: 0                                   Type: iscsi
+Name: Test.addInitiator0.com
+-------------------------------------------------------------------------------
+Id: 1                                   Type: iscsi
+Name: Test.addInitiator1.com
+-------------------------------------------------------------------------------
+Id: 2                                   Type: iscsi
+Name: Test.addInitiator2.com
+-------------------------------------------------------------------------------
+Id: 3                                   Type: iscsi
+Name: Test.addInitiator3.com
+-------------------------------------------------------------------------------
+Id: 4                                   Type: iscsi
+Name: Test.addInitiator4.com
+-------------------------------------------------------------------------------
+Id: 5                                   Type: iscsi
+Name: Test.addInitiator5.com
+-------------------------------------------------------------------------------
+Id: 6                                   Type: iscsi
+Name: Test.addInitiator6.com
+-------------------------------------------------------------------------------
+Id: 7                                   Type: iscsi
+Name: Test.addInitiator7.com
+-------------------------------------------------------------------------------
+Id: 8                                   Type: iscsi
+Name: Test.addInitiator8.com
+-------------------------------------------------------------------------------
+Id: 9                                   Type: iscsi
+Name: Test.addInitiator9.com
+-------------------------------------------------------------------------------
+Id: 10                                  Type: iscsi
+Name: Test.addInitiator10.com
+-------------------------------------------------------------------------------
+Id: 11                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-00
+-------------------------------------------------------------------------------
+Id: 12                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-01
+-------------------------------------------------------------------------------
+Id: 13                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-02
+-------------------------------------------------------------------------------
+Id: 14                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-03
+-------------------------------------------------------------------------------
+Id: 15                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-04
+
+administrator@cli> 
+2018-01-22 15:43:36: initiator -a add -t fc -n aa-bb-cc-dd-ee-ff-11-04
+
+administrator@cli> 
+2018-01-22 15:43:36: <b>initiator -a add -t fc -n aa-bb-cc-dd-ee-ff-11-04</b>
+2018-01-22 15:43:36: initiator
+-------------------------------------------------------------------------------
+Id: 0                                   Type: iscsi
+Name: Test.addInitiator0.com
+-------------------------------------------------------------------------------
+Id: 1                                   Type: iscsi
+Name: Test.addInitiator1.com
+-------------------------------------------------------------------------------
+Id: 2                                   Type: iscsi
+Name: Test.addInitiator2.com
+-------------------------------------------------------------------------------
+Id: 3                                   Type: iscsi
+Name: Test.addInitiator3.com
+-------------------------------------------------------------------------------
+Id: 4                                   Type: iscsi
+Name: Test.addInitiator4.com
+-------------------------------------------------------------------------------
+Id: 5                                   Type: iscsi
+Name: Test.addInitiator5.com
+-------------------------------------------------------------------------------
+Id: 6                                   Type: iscsi
+Name: Test.addInitiator6.com
+-------------------------------------------------------------------------------
+Id: 7                                   Type: iscsi
+Name: Test.addInitiator7.com
+-------------------------------------------------------------------------------
+Id: 8                                   Type: iscsi
+Name: Test.addInitiator8.com
+-------------------------------------------------------------------------------
+Id: 9                                   Type: iscsi
+Name: Test.addInitiator9.com
+-------------------------------------------------------------------------------
+Id: 10                                  Type: iscsi
+Name: Test.addInitiator10.com
+-------------------------------------------------------------------------------
+Id: 11                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-00
+-------------------------------------------------------------------------------
+Id: 12                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-01
+-------------------------------------------------------------------------------
+Id: 13                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-02
+-------------------------------------------------------------------------------
+Id: 14                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-03
+
+administrator@cli> 
+2018-01-22 15:43:36: initiator -a add -t fc -n aa-bb-cc-dd-ee-ff-11-03
+
+administrator@cli> 
+2018-01-22 15:43:36: <b>initiator -a add -t fc -n aa-bb-cc-dd-ee-ff-11-03</b>
+2018-01-22 15:43:36: initiator
+-------------------------------------------------------------------------------
+Id: 0                                   Type: iscsi
+Name: Test.addInitiator0.com
+-------------------------------------------------------------------------------
+Id: 1                                   Type: iscsi
+Name: Test.addInitiator1.com
+-------------------------------------------------------------------------------
+Id: 2                                   Type: iscsi
+Name: Test.addInitiator2.com
+-------------------------------------------------------------------------------
+Id: 3                                   Type: iscsi
+Name: Test.addInitiator3.com
+-------------------------------------------------------------------------------
+Id: 4                                   Type: iscsi
+Name: Test.addInitiator4.com
+-------------------------------------------------------------------------------
+Id: 5                                   Type: iscsi
+Name: Test.addInitiator5.com
+-------------------------------------------------------------------------------
+Id: 6                                   Type: iscsi
+Name: Test.addInitiator6.com
+-------------------------------------------------------------------------------
+Id: 7                                   Type: iscsi
+Name: Test.addInitiator7.com
+-------------------------------------------------------------------------------
+Id: 8                                   Type: iscsi
+Name: Test.addInitiator8.com
+-------------------------------------------------------------------------------
+Id: 9                                   Type: iscsi
+Name: Test.addInitiator9.com
+-------------------------------------------------------------------------------
+Id: 10                                  Type: iscsi
+Name: Test.addInitiator10.com
+-------------------------------------------------------------------------------
+Id: 11                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-00
+-------------------------------------------------------------------------------
+Id: 12                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-01
+-------------------------------------------------------------------------------
+Id: 13                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-02
+
+administrator@cli> 
+2018-01-22 15:43:36: initiator -a add -t fc -n aa-bb-cc-dd-ee-ff-11-02
+
+administrator@cli> 
+2018-01-22 15:43:36: <b>initiator -a add -t fc -n aa-bb-cc-dd-ee-ff-11-02</b>
+2018-01-22 15:43:36: initiator
+-------------------------------------------------------------------------------
+Id: 0                                   Type: iscsi
+Name: Test.addInitiator0.com
+-------------------------------------------------------------------------------
+Id: 1                                   Type: iscsi
+Name: Test.addInitiator1.com
+-------------------------------------------------------------------------------
+Id: 2                                   Type: iscsi
+Name: Test.addInitiator2.com
+-------------------------------------------------------------------------------
+Id: 3                                   Type: iscsi
+Name: Test.addInitiator3.com
+-------------------------------------------------------------------------------
+Id: 4                                   Type: iscsi
+Name: Test.addInitiator4.com
+-------------------------------------------------------------------------------
+Id: 5                                   Type: iscsi
+Name: Test.addInitiator5.com
+-------------------------------------------------------------------------------
+Id: 6                                   Type: iscsi
+Name: Test.addInitiator6.com
+-------------------------------------------------------------------------------
+Id: 7                                   Type: iscsi
+Name: Test.addInitiator7.com
+-------------------------------------------------------------------------------
+Id: 8                                   Type: iscsi
+Name: Test.addInitiator8.com
+-------------------------------------------------------------------------------
+Id: 9                                   Type: iscsi
+Name: Test.addInitiator9.com
+-------------------------------------------------------------------------------
+Id: 10                                  Type: iscsi
+Name: Test.addInitiator10.com
+-------------------------------------------------------------------------------
+Id: 11                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-00
+-------------------------------------------------------------------------------
+Id: 12                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-01
+
+administrator@cli> 
+2018-01-22 15:43:36: initiator -a add -t fc -n aa-bb-cc-dd-ee-ff-11-01
+
+administrator@cli> 
+2018-01-22 15:43:35: <b>initiator -a add -t fc -n aa-bb-cc-dd-ee-ff-11-01</b>
+2018-01-22 15:43:35: initiator
+-------------------------------------------------------------------------------
+Id: 0                                   Type: iscsi
+Name: Test.addInitiator0.com
+-------------------------------------------------------------------------------
+Id: 1                                   Type: iscsi
+Name: Test.addInitiator1.com
+-------------------------------------------------------------------------------
+Id: 2                                   Type: iscsi
+Name: Test.addInitiator2.com
+-------------------------------------------------------------------------------
+Id: 3                                   Type: iscsi
+Name: Test.addInitiator3.com
+-------------------------------------------------------------------------------
+Id: 4                                   Type: iscsi
+Name: Test.addInitiator4.com
+-------------------------------------------------------------------------------
+Id: 5                                   Type: iscsi
+Name: Test.addInitiator5.com
+-------------------------------------------------------------------------------
+Id: 6                                   Type: iscsi
+Name: Test.addInitiator6.com
+-------------------------------------------------------------------------------
+Id: 7                                   Type: iscsi
+Name: Test.addInitiator7.com
+-------------------------------------------------------------------------------
+Id: 8                                   Type: iscsi
+Name: Test.addInitiator8.com
+-------------------------------------------------------------------------------
+Id: 9                                   Type: iscsi
+Name: Test.addInitiator9.com
+-------------------------------------------------------------------------------
+Id: 10                                  Type: iscsi
+Name: Test.addInitiator10.com
+-------------------------------------------------------------------------------
+Id: 11                                  Type: fc
+Name: aa-bb-cc-dd-ee-ff-11-00
+
+administrator@cli> 
+2018-01-22 15:43:35: initiator -a add -t fc -n aa-bb-cc-dd-ee-ff-11-00
+
+administrator@cli> 
+2018-01-22 15:43:35: <b>initiator -a add -t fc -n aa-bb-cc-dd-ee-ff-11-00</b>
+2018-01-22 15:43:35: <b> Verify add type fc initiator </b>
+2018-01-22 15:43:35: initiator
+-------------------------------------------------------------------------------
+Id: 0                                   Type: iscsi
+Name: Test.addInitiator0.com
+-------------------------------------------------------------------------------
+Id: 1                                   Type: iscsi
+Name: Test.addInitiator1.com
+-------------------------------------------------------------------------------
+Id: 2                                   Type: iscsi
+Name: Test.addInitiator2.com
+-------------------------------------------------------------------------------
+Id: 3                                   Type: iscsi
+Name: Test.addInitiator3.com
+-------------------------------------------------------------------------------
+Id: 4                                   Type: iscsi
+Name: Test.addInitiator4.com
+-------------------------------------------------------------------------------
+Id: 5                                   Type: iscsi
+Name: Test.addInitiator5.com
+-------------------------------------------------------------------------------
+Id: 6                                   Type: iscsi
+Name: Test.addInitiator6.com
+-------------------------------------------------------------------------------
+Id: 7                                   Type: iscsi
+Name: Test.addInitiator7.com
+-------------------------------------------------------------------------------
+Id: 8                                   Type: iscsi
+Name: Test.addInitiator8.com
+-------------------------------------------------------------------------------
+Id: 9                                   Type: iscsi
+Name: Test.addInitiator9.com
+-------------------------------------------------------------------------------
+Id: 10                                  Type: iscsi
+Name: Test.addInitiator10.com
+
+administrator@cli> 
+2018-01-22 15:43:35: initiator -a add -t iscsi -n Test.addInitiator10.com
+
+administrator@cli> 
+2018-01-22 15:43:35: <b>initiator -a add -t iscsi -n Test.addInitiator10.com</b>
+2018-01-22 15:43:35: initiator
+-------------------------------------------------------------------------------
+Id: 0                                   Type: iscsi
+Name: Test.addInitiator0.com
+-------------------------------------------------------------------------------
+Id: 1                                   Type: iscsi
+Name: Test.addInitiator1.com
+-------------------------------------------------------------------------------
+Id: 2                                   Type: iscsi
+Name: Test.addInitiator2.com
+-------------------------------------------------------------------------------
+Id: 3                                   Type: iscsi
+Name: Test.addInitiator3.com
+-------------------------------------------------------------------------------
+Id: 4                                   Type: iscsi
+Name: Test.addInitiator4.com
+-------------------------------------------------------------------------------
+Id: 5                                   Type: iscsi
+Name: Test.addInitiator5.com
+-------------------------------------------------------------------------------
+Id: 6                                   Type: iscsi
+Name: Test.addInitiator6.com
+-------------------------------------------------------------------------------
+Id: 7                                   Type: iscsi
+Name: Test.addInitiator7.com
+-------------------------------------------------------------------------------
+Id: 8                                   Type: iscsi
+Name: Test.addInitiator8.com
+-------------------------------------------------------------------------------
+Id: 9                                   Type: iscsi
+Name: Test.addInitiator9.com
+
+administrator@cli> 
+2018-01-22 15:43:35: initiator -a add -t iscsi -n Test.addInitiator9.com
+
+administrator@cli> 
+2018-01-22 15:43:35: <b>initiator -a add -t iscsi -n Test.addInitiator9.com</b>
+2018-01-22 15:43:35: initiator
+-------------------------------------------------------------------------------
+Id: 0                                   Type: iscsi
+Name: Test.addInitiator0.com
+-------------------------------------------------------------------------------
+Id: 1                                   Type: iscsi
+Name: Test.addInitiator1.com
+-------------------------------------------------------------------------------
+Id: 2                                   Type: iscsi
+Name: Test.addInitiator2.com
+-------------------------------------------------------------------------------
+Id: 3                                   Type: iscsi
+Name: Test.addInitiator3.com
+-------------------------------------------------------------------------------
+Id: 4                                   Type: iscsi
+Name: Test.addInitiator4.com
+-------------------------------------------------------------------------------
+Id: 5                                   Type: iscsi
+Name: Test.addInitiator5.com
+-------------------------------------------------------------------------------
+Id: 6                                   Type: iscsi
+Name: Test.addInitiator6.com
+-------------------------------------------------------------------------------
+Id: 7                                   Type: iscsi
+Name: Test.addInitiator7.com
+-------------------------------------------------------------------------------
+Id: 8                                   Type: iscsi
+Name: Test.addInitiator8.com
+
+administrator@cli> 
+2018-01-22 15:43:35: initiator -a add -t iscsi -n Test.addInitiator8.com
+
+administrator@cli> 
+2018-01-22 15:43:34: <b>initiator -a add -t iscsi -n Test.addInitiator8.com</b>
+2018-01-22 15:43:34: initiator
+-------------------------------------------------------------------------------
+Id: 0                                   Type: iscsi
+Name: Test.addInitiator0.com
+-------------------------------------------------------------------------------
+Id: 1                                   Type: iscsi
+Name: Test.addInitiator1.com
+-------------------------------------------------------------------------------
+Id: 2                                   Type: iscsi
+Name: Test.addInitiator2.com
+-------------------------------------------------------------------------------
+Id: 3                                   Type: iscsi
+Name: Test.addInitiator3.com
+-------------------------------------------------------------------------------
+Id: 4                                   Type: iscsi
+Name: Test.addInitiator4.com
+-------------------------------------------------------------------------------
+Id: 5                                   Type: iscsi
+Name: Test.addInitiator5.com
+-------------------------------------------------------------------------------
+Id: 6                                   Type: iscsi
+Name: Test.addInitiator6.com
+-------------------------------------------------------------------------------
+Id: 7                                   Type: iscsi
+Name: Test.addInitiator7.com
+
+administrator@cli> 
+2018-01-22 15:43:34: initiator -a add -t iscsi -n Test.addInitiator7.com
+
+administrator@cli> 
+2018-01-22 15:43:34: <b>initiator -a add -t iscsi -n Test.addInitiator7.com</b>
+2018-01-22 15:43:34: initiator
+-------------------------------------------------------------------------------
+Id: 0                                   Type: iscsi
+Name: Test.addInitiator0.com
+-------------------------------------------------------------------------------
+Id: 1                                   Type: iscsi
+Name: Test.addInitiator1.com
+-------------------------------------------------------------------------------
+Id: 2                                   Type: iscsi
+Name: Test.addInitiator2.com
+-------------------------------------------------------------------------------
+Id: 3                                   Type: iscsi
+Name: Test.addInitiator3.com
+-------------------------------------------------------------------------------
+Id: 4                                   Type: iscsi
+Name: Test.addInitiator4.com
+-------------------------------------------------------------------------------
+Id: 5                                   Type: iscsi
+Name: Test.addInitiator5.com
+-------------------------------------------------------------------------------
+Id: 6                                   Type: iscsi
+Name: Test.addInitiator6.com
+
+administrator@cli> 
+2018-01-22 15:43:33: initiator -a add -t iscsi -n Test.addInitiator6.com
+
+administrator@cli> 
+2018-01-22 15:43:33: <b>initiator -a add -t iscsi -n Test.addInitiator6.com</b>
+2018-01-22 15:43:33: initiator
+-------------------------------------------------------------------------------
+Id: 0                                   Type: iscsi
+Name: Test.addInitiator0.com
+-------------------------------------------------------------------------------
+Id: 1                                   Type: iscsi
+Name: Test.addInitiator1.com
+-------------------------------------------------------------------------------
+Id: 2                                   Type: iscsi
+Name: Test.addInitiator2.com
+-------------------------------------------------------------------------------
+Id: 3                                   Type: iscsi
+Name: Test.addInitiator3.com
+-------------------------------------------------------------------------------
+Id: 4                                   Type: iscsi
+Name: Test.addInitiator4.com
+-------------------------------------------------------------------------------
+Id: 5                                   Type: iscsi
+Name: Test.addInitiator5.com
+
+administrator@cli> 
+2018-01-22 15:43:33: initiator -a add -t iscsi -n Test.addInitiator5.com
+
+administrator@cli> 
+2018-01-22 15:43:33: <b>initiator -a add -t iscsi -n Test.addInitiator5.com</b>
+2018-01-22 15:43:33: initiator
+-------------------------------------------------------------------------------
+Id: 0                                   Type: iscsi
+Name: Test.addInitiator0.com
+-------------------------------------------------------------------------------
+Id: 1                                   Type: iscsi
+Name: Test.addInitiator1.com
+-------------------------------------------------------------------------------
+Id: 2                                   Type: iscsi
+Name: Test.addInitiator2.com
+-------------------------------------------------------------------------------
+Id: 3                                   Type: iscsi
+Name: Test.addInitiator3.com
+-------------------------------------------------------------------------------
+Id: 4                                   Type: iscsi
+Name: Test.addInitiator4.com
+
+administrator@cli> 
+2018-01-22 15:43:33: initiator -a add -t iscsi -n Test.addInitiator4.com
+
+administrator@cli> 
+2018-01-22 15:43:33: <b>initiator -a add -t iscsi -n Test.addInitiator4.com</b>
+2018-01-22 15:43:33: initiator
+-------------------------------------------------------------------------------
+Id: 0                                   Type: iscsi
+Name: Test.addInitiator0.com
+-------------------------------------------------------------------------------
+Id: 1                                   Type: iscsi
+Name: Test.addInitiator1.com
+-------------------------------------------------------------------------------
+Id: 2                                   Type: iscsi
+Name: Test.addInitiator2.com
+-------------------------------------------------------------------------------
+Id: 3                                   Type: iscsi
+Name: Test.addInitiator3.com
+
+administrator@cli> 
+2018-01-22 15:43:33: initiator -a add -t iscsi -n Test.addInitiator3.com
+
+administrator@cli> 
+2018-01-22 15:43:32: <b>initiator -a add -t iscsi -n Test.addInitiator3.com</b>
+2018-01-22 15:43:32: initiator
+-------------------------------------------------------------------------------
+Id: 0                                   Type: iscsi
+Name: Test.addInitiator0.com
+-------------------------------------------------------------------------------
+Id: 1                                   Type: iscsi
+Name: Test.addInitiator1.com
+-------------------------------------------------------------------------------
+Id: 2                                   Type: iscsi
+Name: Test.addInitiator2.com
+
+administrator@cli> 
+2018-01-22 15:43:32: initiator -a add -t iscsi -n Test.addInitiator2.com
+
+administrator@cli> 
+2018-01-22 15:43:32: <b>initiator -a add -t iscsi -n Test.addInitiator2.com</b>
+2018-01-22 15:43:32: initiator
+-------------------------------------------------------------------------------
+Id: 0                                   Type: iscsi
+Name: Test.addInitiator0.com
+-------------------------------------------------------------------------------
+Id: 1                                   Type: iscsi
+Name: Test.addInitiator1.com
+
+administrator@cli> 
+2018-01-22 15:43:32: initiator -a add -t iscsi -n Test.addInitiator1.com
+
+administrator@cli> 
+2018-01-22 15:43:32: <b>initiator -a add -t iscsi -n Test.addInitiator1.com</b>
+2018-01-22 15:43:32: initiator
+-------------------------------------------------------------------------------
+Id: 0                                   Type: iscsi
+Name: Test.addInitiator0.com
+
+administrator@cli> 
+2018-01-22 15:43:32: initiator -a add -t iscsi -n Test.addInitiator0.com
+
+administrator@cli> 
+2018-01-22 15:43:32: <b>initiator -a add -t iscsi -n Test.addInitiator0.com</b>
+2018-01-22 15:43:32: <b> Verify add type iscsi initiator </b>
 2018-01-22 14:49:14: 'result': 'p'
 2018-01-22 14:49:14: trunk -a del -i
 Error (0x403): Missing parameter
