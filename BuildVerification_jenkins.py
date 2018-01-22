@@ -533,6 +533,25 @@ def build_verification(c):
         if (net.missing_parameter_for_net(c)):
             failed_cases.append('The case ' + net.missing_parameter_for_net.__name__ + ' failed')
 
+        tolog("Start verifying trunk")
+        import trunk
+        if (trunk.add_io_trunk(c)):
+            failed_cases.append('The case ' + trunk.add_io_trunk.__name__ + ' failed')
+        if (trunk.add_mgmt_trunk(c)):
+            failed_cases.append('The case ' + trunk.add_mgmt_trunk.__name__ + ' failed')
+        if (trunk.list_trunk(c)):
+            failed_cases.append('The case ' + trunk.list_trunk.__name__ + ' failed')
+        if (trunk.mod_trunk(c)):
+            failed_cases.append('The case ' + trunk.mod_trunk.__name__ + ' failed')
+        if (trunk.del_trunk(c)):
+            failed_cases.append('The case ' + trunk.del_trunk.__name__ + ' failed')
+        if (trunk.invalid_setting_for_trunk(c)):
+            failed_cases.append('The case ' + trunk.invalid_setting_for_trunk.__name__ + ' failed')
+        if (trunk.invalid_option_for_trunk(c)):
+            failed_cases.append('The case ' + trunk.invalid_option_for_trunk.__name__ + ' failed')
+        if (trunk.missing_parameter_for_trunk(c)):
+            failed_cases.append('The case ' + trunk.missing_parameter_for_trunk.__name__ + ' failed')
+
         tolog("Start verifying chap")
         import chap
         if (chap.add_chap(c)):
