@@ -552,6 +552,21 @@ def build_verification(c):
         if (trunk.missing_parameter_for_trunk(c)):
             failed_cases.append('The case ' + trunk.missing_parameter_for_trunk.__name__ + ' failed')
 
+        tolog("Start verifying initiator")
+        import initiator
+        if (initiator.add_initiator(c)):
+            failed_cases.append('The case ' + initiator.add_initiator.__name__ + ' failed')
+        if (initiator.list_initiator(c)):
+            failed_cases.append('The case ' + initiator.list_initiator.__name__ + ' failed')
+        if (initiator.del_initiator(c)):
+            failed_cases.append('The case ' + initiator.del_initiator.__name__ + ' failed')
+        if (initiator.invalid_setting_for_initiator(c)):
+            failed_cases.append('The case ' + initiator.invalid_setting_for_initiator.__name__ + ' failed')
+        if (initiator.invalid_option_for_initiator(c)):
+            failed_cases.append('The case ' + initiator.invalid_option_for_initiator.__name__ + ' failed')
+        if (initiator.missing_parameter_for_initiator(c)):
+            failed_cases.append('The case ' + initiator.missing_parameter_for_initiator.__name__ + ' failed')
+
         tolog("Start verifying chap")
         import chap
         if (chap.add_chap(c)):
@@ -862,25 +877,6 @@ def build_verification(c):
         import help
         if (help.verifyHelp(c)):
             failed_cases.append('The case ' + help.verifyHelp.__name__ + ' failed')
-
-        tolog("Start verifying initiator")
-        import initiator
-        if (initiator.verifyInitiatorAdd(c)):
-            failed_cases.append('The case ' + initiator.verifyInitiatorAdd.__name__ + ' failed')
-        if (initiator.verifyInitiator(c)):
-            failed_cases.append('The case ' + initiator.verifyInitiator.__name__ + ' failed')
-        if (initiator.verifyInitiatorList(c)):
-            failed_cases.append('The case ' + initiator.verifyInitiatorList.__name__ + ' failed')
-        if (initiator.verifyInitiatorDel(c)):
-            failed_cases.append('The case ' + initiator.verifyInitiatorDel.__name__ + ' failed')
-        if (initiator.verifyInitiatorSpecifyInexistentId(c)):
-            failed_cases.append('The case ' + initiator.verifyInitiatorSpecifyInexistentId.__name__ + ' failed')
-        if (initiator.verifyInitiatorInvalidOption(c)):
-            failed_cases.append('The case ' + initiator.verifyInitiatorInvalidOption.__name__ + ' failed')
-        if (initiator.verifyInitiatorInvalidParameters(c)):
-            failed_cases.append('The case ' + initiator.verifyInitiatorInvalidParameters.__name__ + ' failed')
-        if (initiator.verifyInitiatorMissingParameters(c)):
-            failed_cases.append('The case ' + initiator.verifyInitiatorMissingParameters.__name__ + ' failed')
 
         tolog("Start verifying isns")
         import isns

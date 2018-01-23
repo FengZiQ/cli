@@ -11,19 +11,14 @@ data = 'data/initiator.xlsx'
 
 def precondition():
 
-    portal_request = server.webapi('get', 'iscsiportal')
-    initiator_request = server.webapi('get', 'linkaggr')
+    initiator_request = server.webapi('get', 'initiator')
+
     try:
-        portal_info = json.loads(portal_request["text"])
         initiator_info = json.loads(initiator_request["text"])
 
-        for portal in portal_info:
-            # delete all initiator portal
-            server.webapi('delete', 'iscsiportal/' + str(portal['id']))
-
         for initiator in initiator_info:
-            # delete all initiator
-            server.webapi('delete', 'linkaggr/' + str(initiator['id']))
+            # delete all initiator portal
+            server.webapi('delete', 'initiator/' + str(initiator['id']))
 
     except:
         tolog("precondition is failed\r\n")
@@ -33,27 +28,18 @@ def precondition():
 
 def clean_up_environment():
 
-    try:
-        chap_request = server.webapi('get', 'chap')
-
-        for chap in json.loads(chap_request['text']):
-            server.webapi('delete', 'chap/' + str(chap['id']))
-
-    except:
-        tolog("to clean up environment is failed\r\n")
-
     precondition()
 
     return
 
 
-def add_io_initiator(c):
+def add_initiator(c):
     # precondition
     precondition()
 
     cli_setting = cli_test_setting()
 
-    cli_setting.setting(c, data, 'add_io_initiator')
+    cli_setting.setting(c, data, 'add_initiator', 3)
 
     return cli_setting.FailFlag
 
