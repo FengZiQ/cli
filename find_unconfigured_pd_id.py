@@ -10,98 +10,120 @@ def find_pd_id(physical_capacity=None):
 
     pd_id = []
 
-    pd_request = server.webapi('get', 'phydrv')
+    try:
 
-    if isinstance(pd_request, dict):
+        pd_request = server.webapi('get', 'phydrv')
 
-        pd_info = json.loads(pd_request["text"])
+        if isinstance(pd_request, dict):
 
-        str_pd_info = str(pd_info)
+            pd_info = json.loads(pd_request["text"])
 
-        # delete pool
-        if 'Pool' in str_pd_info:
+            str_pd_info = str(pd_info)
 
-            pool_response = server.webapi('get', 'pool')
+            # delete pool
+            if 'Pool' in str_pd_info:
 
-            if isinstance(pool_response, dict):
+                vol_request = server.webapi('get', 'volume?page=1&page_size=100')
 
-                pool_info = json.loads(pool_response["text"])
+                if isinstance(vol_request, dict):
 
-                if len(pool_info) != 0:
+                    for vol in json.loads(vol_request["text"]):
 
-                    for pool in pool_info:
-                        server.webapiurl('delete', 'pool', str(pool['id']) + '?force=1')
+                        if 'adv_role' in vol.keys() and vol['adv_role'] == 'Source' and vol['adv_type'] == 'Migration':
+                            server.webapi('post', 'migrate/' + str(vol['id']) + '/stop', {"location": 1})
 
-            else:
-                tolog(str(pool_response))
+                        if vol['adv_type'] == 'Replication':
 
-        # delete spare
-        if 'Spare' in str_pd_info:
+                            replica_request = server.webapi('get', 'replica')
+                            if isinstance(replica_request, dict):
+                                    for replica in json.loads(replica_request["text"]):
+                                        server.webapi('post', 'replicaloc/' + str(replica["src_id"]) + '/stop')
 
-            spare_response = server.webapi('get', 'spare')
+                pool_response = server.webapi('get', 'pool')
 
-            if isinstance(spare_response, dict):
+                if isinstance(pool_response, dict):
 
-                spare_info = json.loads(spare_response["text"])
+                    pool_info = json.loads(pool_response["text"])
 
-                for spare in spare_info:
+                    if len(pool_info) != 0:
 
-                    server.webapiurl('delete', 'spare', str(spare["id"]))
+                        for pool in pool_info:
+                            server.webapiurl('delete', 'pool', str(pool['id']) + '?force=1')
 
-            else:
+                else:
+                    tolog(str(pool_response))
 
-                tolog(str(spare_response))
+            # delete spare
+            if 'Spare' in str_pd_info:
 
-        # delete read cache
-        if 'ReadCache' in str_pd_info:
+                spare_response = server.webapi('get', 'spare')
 
-            read_ache_response = server.webapi('get', 'rcache')
+                if isinstance(spare_response, dict):
 
-            if isinstance(read_ache_response, dict):
+                    spare_info = json.loads(spare_response["text"])
 
-                cache_info = json.loads(read_ache_response["text"])[0]["pd_list"][0]
+                    for spare in spare_info:
 
-                sdd_id = cache_info["pd_id"]
+                        server.webapiurl('delete', 'spare', str(spare["id"]))
 
-                server.webapi('post', 'rcache/detach', {"pd_list": [sdd_id]})
+                else:
 
-            else:
-                tolog(str(read_ache_response))
+                    tolog(str(spare_response))
 
-        # delete write cache
-        if 'WriteCache' in str_pd_info:
+            # delete read cache
+            if 'ReadCache' in str_pd_info:
 
-            server.webapi('post', 'wcache/detach', {"id": 'detach'})
+                read_ache_response = server.webapi('get', 'rcache')
 
-    else:
-        tolog(str(pd_request))
+                if isinstance(read_ache_response, dict):
 
-    # find pd id
-    pdResponse = server.webapi('get', 'phydrv')
+                    cache_info = json.loads(read_ache_response["text"])[0]["pd_list"][0]
 
-    if isinstance(pdResponse, dict):
+                    sdd_id = cache_info["pd_id"]
 
-        pdInfo = json.loads(pdResponse["text"])
+                    server.webapi('post', 'rcache/detach', {"pd_list": [sdd_id]})
 
-        if physical_capacity == None:
+                else:
+                    tolog(str(read_ache_response))
 
-            for pd in pdInfo:
-                if pd["cfg_status"] == 'Unconfigured' and pd["media_type"] == 'HDD':
-                    pd_id.append(pd["id"])
+            # delete write cache
+            if 'WriteCache' in str_pd_info:
 
-        elif physical_capacity == '2TB':
+                server.webapi('post', 'wcache/detach', {"id": 'detach'})
 
-            for pd in pdInfo:
-                if pd["cfg_status"] == 'Unconfigured' and pd["physical_capacity"] == '2 TB' and pd["media_type"] == 'HDD':
-                    pd_id.append(pd["id"])
+        else:
+            tolog(str(pd_request))
 
-        elif physical_capacity == '4TB':
+        # find pd id
+        pdResponse = server.webapi('get', 'phydrv')
 
-            for pd in pdInfo:
-                if pd["cfg_status"] == 'Unconfigured' and pd["physical_capacity"] == '4 TB' and pd["media_type"] == 'HDD':
-                    pd_id.append(pd["id"])
+        if isinstance(pdResponse, dict):
 
-    else:
-        tolog(str(pdResponse))
+            pdInfo = json.loads(pdResponse["text"])
+
+            if physical_capacity == None:
+
+                for pd in pdInfo:
+                    if pd["cfg_status"] == 'Unconfigured' and pd["media_type"] == 'HDD':
+                        pd_id.append(pd["id"])
+
+            elif physical_capacity == '2TB':
+
+                for pd in pdInfo:
+                    if pd["cfg_status"] == 'Unconfigured' and pd["physical_capacity"] == '2 TB' and pd["media_type"] == 'HDD':
+                        pd_id.append(pd["id"])
+
+            elif physical_capacity == '4TB':
+
+                for pd in pdInfo:
+                    if pd["cfg_status"] == 'Unconfigured' and pd["physical_capacity"] == '4 TB' and pd["media_type"] == 'HDD':
+                        pd_id.append(pd["id"])
+
+        else:
+            tolog(str(pdResponse))
+
+    except:
+
+        tolog('please check out physical drive ConfigStatus\n')
 
     return pd_id

@@ -28,6 +28,9 @@ def precondition():
     except:
         tolog("precondition is failed\r\n")
 
+    # enable support io
+    server.webapi('put', 'net', {'support_io': 1})
+
     return
 
 

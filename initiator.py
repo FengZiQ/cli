@@ -17,7 +17,7 @@ def precondition():
         initiator_info = json.loads(initiator_request["text"])
 
         for initiator in initiator_info:
-            # delete all initiator portal
+            # delete all initiator
             server.webapi('delete', 'initiator/' + str(initiator['id']))
 
     except:

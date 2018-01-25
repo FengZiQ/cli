@@ -5,60 +5,88 @@ from ssh_connect import ssh_conn
 from cli_test import *
 from remote import server
 import json
+from find_unconfigured_pd_id import find_pd_id
 
 data = 'data/lunmap.xlsx'
 
 
 def precondition():
-
-    portal_request = server.webapi('get', 'iscsiportal')
-    trunk_request = server.webapi('get', 'linkaggr')
     try:
-        portal_info = json.loads(portal_request["text"])
-        trunk_info = json.loads(trunk_request["text"])
+        clean_up_environment()
 
-        for portal in portal_info:
-            # delete all iscsi portal
-            server.webapi('delete', 'iscsiportal/' + str(portal['id']))
+        pdId = find_pd_id()
+        # create pool
+        server.webapi('post', 'pool', {"name": "T_lunMap_P0", "pds": pdId[6:9], "raid_level": "raid5"})
 
-        for trunk in trunk_info:
-            # delete all trunk
-            server.webapi('delete', 'linkaggr/' + str(trunk['id']))
+        # create volume and export it
+        for i in range(3):
+            server.webapi('post', 'volume', {'pool_id': 0, 'name': 'T_lunMap_V' + str(i), 'capacity': '100GB'})
+            server.webapi('post', 'volume/' + str(i) + '/export')
 
+        # create snapshot and export it
+        for i in range(3):
+            server.webapi('post', 'snapshot', {"name": "T_lunMap_SS" + str(i), "type": 'volume', "source_id": 2})
+            server.webapi('post', 'snapshot/' + str(i) + '/export')
+
+        # create clone and export it
+        for i in range(3):
+            server.webapi('post', 'clone', {"name": "T_lunMap_C" + str(i), "source_id": 2})
+            server.webapi('post', 'clone/' + str(i) + '/export')
+
+        # create initiator
+        for i in range(4):
+            server.webapi('post', 'initiator', {'type': 'iSCSI', 'name': 'T.com' + str(i)})
+            server.webapi('post', 'initiator', {'type': 'fc', 'name': '00-11-22-33-00-00-11-1' + str(i)})
     except:
         tolog("precondition is failed\r\n")
-
-    server.webapi('post', 'iscsiportal', {
-        'if_type': 'Physical',
-        'port_type': 1,
-        'ctrl_id': 2,
-        'port_id': 1,
-        'tcp_port': 4,
-        'ip_type': 'IPv4',
-        'dhcp': 1
-    })
 
     return
 
 
 def clean_up_environment():
 
-    portal_request = server.webapi('get', 'iscsiportal')
+    initiator_request = server.webapi('get', 'initiator')
 
     try:
-        portal_info = json.loads(portal_request["text"])
-
-        for portal in portal_info:
-            # delete all iscsi portal
-            server.webapi('delete', 'iscsiportal/' + str(portal['id']))
-
+        initiator_info = json.loads(initiator_request["text"])
+        for initiator in initiator_info:
+            # delete all initiator
+            server.webapi('delete', 'initiator/' + str(initiator['id']))
+        # delete pool
+        find_pd_id()
     except:
         tolog("precondition is failed\r\n")
 
+    return
 
-def need_manual_test(c):
 
-    tolog('those cases need manual test\r\n')
+def enable_lmm(c):
+
+    cli_setting = cli_test_setting()
+
+    cli_setting.setting(c, data, 'enable_lmm')
+
+    return cli_setting.FailFlag
+
+
+def add_lunmap(c):
+    # precondition
+    precondition()
+
+    cli_setting = cli_test_setting()
+
+    cli_setting.setting(c, data, 'add_lunmap')
+
+    return cli_setting.FailFlag
+
+
+def addun_lunmap(c):
+
+    cli_setting = cli_test_setting()
+
+    cli_setting.setting(c, data, 'addun_lunmap')
+
+    return cli_setting.FailFlag
 
 
 def list_lunmap(c):
@@ -70,31 +98,29 @@ def list_lunmap(c):
     return cli_list.FailFlag
 
 
-def list_lunmap_by_verbose_mode(c):
+def del_lunmap(c):
 
-    cli_list = cli_test_list()
+    cli_delete = cli_test_delete()
 
-    cli_list.list(c, data, 'list_lunmap_by_verbose_mode')
+    cli_delete.delete(c, data, 'del_lunmap')
 
-    return cli_list.FailFlag
-
-
-def disable_enable_lunmap(c):
-
-    cli_setting = cli_test_setting()
-
-    cli_setting.setting(c, data, 'disable_enable_lunmap')
-
-    return cli_setting.FailFlag
+    return cli_delete.FailFlag
 
 
-def modify_lunmap(c):
-    # precondition
-    precondition()
+def dellun_lunmap(c):
+
+    cli_delete = cli_test_delete()
+
+    cli_delete.delete(c, data, 'dellun_lunmap')
+
+    return cli_delete.FailFlag
+
+
+def disable_lmm(c):
 
     cli_setting = cli_test_setting()
 
-    cli_setting.setting(c, data, 'modify_lunmap')
+    cli_setting.setting(c, data, 'disable_lmm')
 
     return cli_setting.FailFlag
 
@@ -133,13 +159,15 @@ if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
 
-    list_lunmap(c)
-    list_lunmap_by_verbose_mode(c)
-    disable_enable_lunmap(c)
-    modify_lunmap(c)
-    invalid_setting_for_lunmap(c)
-    invalid_option_for_lunmap(c)
-    missing_parameter_for_lunmap(c)
+    # enable_lmm(c)
+    add_lunmap(c)
+    # addun_lunmap(c)
+    # list_lunmap(c)
+    # del_lunmap(c)
+    # dellun_lunmap(c)
+    # invalid_setting_for_lunmap(c)
+    # invalid_option_for_lunmap(c)
+    # missing_parameter_for_lunmap(c)
 
     ssh.close()
     elasped = time.clock() - start
