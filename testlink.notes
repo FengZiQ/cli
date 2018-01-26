@@ -87218,3 +87218,2494 @@ VAAIsupport: Disabled                   SSDTrimSupport: Enabled
 
 administrator@cli> 
 'result': 'p'
+
+Expect: all of ctrl should be listed
+
+ctrl
+===============================================================================
+CtrlId         Alias         OperationalStatus         ReadinessStatus         
+===============================================================================
+1                            Not Present               N/A                     
+2*             1             OK                        Active                  
+
+* Primary Controller
+
+
+administrator@cli> 
+
+Expect: ctrl 1 should be listed
+
+ctrl -i 1
+===============================================================================
+CtrlId         Alias         OperationalStatus         ReadinessStatus         
+===============================================================================
+1                            Not Present               N/A                     
+
+* Primary Controller
+
+
+administrator@cli> 
+
+Expect: ctrl 2 should be listed
+
+ctrl -i 2
+===============================================================================
+CtrlId         Alias         OperationalStatus         ReadinessStatus         
+===============================================================================
+2*             1             OK                        Active                  
+
+* Primary Controller
+
+
+administrator@cli> 
+
+Expect: local controller's id should be listed
+
+ctrl -l
+LocalCtrlId: 2
+
+administrator@cli> 
+'result': 'p'
+
+Expect: all of ctrl should be listed by verbose mode
+
+ctrl -v
+-------------------------------------------------------------------------------
+Controller 1 information not accessible
+
+-------------------------------------------------------------------------------
+CtrlId: 2                               Alias: 1
+OperationalStatus: OK                   PowerOnTime: 54 minutes
+ControllerRole: Primary                 ReadinessStatus: Active
+LUNAffinity: Enabled                    LunmappingMethod: Name Based
+CacheUsagePercentage: 0                 DirtyCachePercentage: 0
+PartNo: F29000020000177                 SerialNo: MA6D16508700019
+HWRev: B1                               WWN: 2101-0001-555b-3d29
+CmdProtocol: SCSI-3                     ALUA: Disabled
+MemType1: DDR4 SDRAM  (Slot 1)          MemSize1:   8 GB  (Slot 1)
+MemType2: DDR4 SDRAM  (Slot 2)          MemSize2:   8 GB  (Slot 2)
+MemType3:        N/A  (Slot 3)          MemSize3:    N/A  (Slot 3)
+MemType4:        N/A  (Slot 4)          MemSize4:    N/A  (Slot 4)
+FlashType: Flash Memory                 FlashSize: 16 GB
+NVRAMType: SRAM                         NVRAMSize: 1 MB
+BootLoaderVersion: 15.26.0000.00        BootLoaderBuildDate: Dec 06, 2016
+FirmwareVersion: 12.02.9999.61          FirmwareBuildDate: Jan 25, 2018
+SoftwareVersion: 12.02.9999.61          SoftwareBuildDate: Jan 25, 2018
+OverallRAIDStatus: OK                   PhyDrvPresent: 15
+PhyDrvOnline: 0                         PhyDrvOffline: 0
+PhyDrvPFA: 0                            GlobalSparePresent: 0
+DedicatedSparePresent: 0                RevertibleGlobalSparePresent: 0
+RevertibleDedicatedSparePresent: 0      RevertibleGlobalSpareUsed: 0
+RevertibleDedicatedSpareUsed: 0         WriteThroughMode: 0
+MaxSectorSize: 4 KB                     PreferredCacheLineSize: 64
+CacheLineSize: 64                       Coercion: Enabled
+CoercionMethod: TableRounding           SMART: Enabled
+SMARTPollingInterval: 1440 minutes      MigrationStorage: DDF
+CacheFlushInterval: 1                   PollInterval: 255
+AdaptiveWBCache: Disabled               HostCacheFlushing: Enabled
+ForcedReadAhead: Disabled               Battery: Disabled
+CommonWorld: Disabled                   Liquid: Disabled
+DriveCmd: Enabled                       PowerSavingIdleTime: 24 hours 
+PowerSavingStandbyTime: Never           PowerSavingStoppedTime: 24 hours 
+PseudoDeviceType: CTRL                  PerfectRebuildAvailable: 64
+VAAIsupport: Disabled                   SSDTrimSupport: Enabled
+
+administrator@cli> 
+
+Expect: ctrl 1 should be listed by verbose mode
+
+ctrl -i 1 -v
+-------------------------------------------------------------------------------
+Controller 1 information not accessible
+
+
+administrator@cli> 
+
+Expect: ctrl 2 should be listed by verbose mode
+
+ctrl -i 2 -v
+-------------------------------------------------------------------------------
+CtrlId: 2                               Alias: 1
+OperationalStatus: OK                   PowerOnTime: 54 minutes
+ControllerRole: Primary                 ReadinessStatus: Active
+LUNAffinity: Enabled                    LunmappingMethod: Name Based
+CacheUsagePercentage: 0                 DirtyCachePercentage: 0
+PartNo: F29000020000177                 SerialNo: MA6D16508700019
+HWRev: B1                               WWN: 2101-0001-555b-3d29
+CmdProtocol: SCSI-3                     ALUA: Disabled
+MemType1: DDR4 SDRAM  (Slot 1)          MemSize1:   8 GB  (Slot 1)
+MemType2: DDR4 SDRAM  (Slot 2)          MemSize2:   8 GB  (Slot 2)
+MemType3:        N/A  (Slot 3)          MemSize3:    N/A  (Slot 3)
+MemType4:        N/A  (Slot 4)          MemSize4:    N/A  (Slot 4)
+FlashType: Flash Memory                 FlashSize: 16 GB
+NVRAMType: SRAM                         NVRAMSize: 1 MB
+BootLoaderVersion: 15.26.0000.00        BootLoaderBuildDate: Dec 06, 2016
+FirmwareVersion: 12.02.9999.61          FirmwareBuildDate: Jan 25, 2018
+SoftwareVersion: 12.02.9999.61          SoftwareBuildDate: Jan 25, 2018
+OverallRAIDStatus: OK                   PhyDrvPresent: 15
+PhyDrvOnline: 0                         PhyDrvOffline: 0
+PhyDrvPFA: 0                            GlobalSparePresent: 0
+DedicatedSparePresent: 0                RevertibleGlobalSparePresent: 0
+RevertibleDedicatedSparePresent: 0      RevertibleGlobalSpareUsed: 0
+RevertibleDedicatedSpareUsed: 0         WriteThroughMode: 0
+MaxSectorSize: 4 KB                     PreferredCacheLineSize: 64
+CacheLineSize: 64                       Coercion: Enabled
+CoercionMethod: TableRounding           SMART: Enabled
+SMARTPollingInterval: 1440 minutes      MigrationStorage: DDF
+CacheFlushInterval: 1                   PollInterval: 255
+AdaptiveWBCache: Disabled               HostCacheFlushing: Enabled
+ForcedReadAhead: Disabled               Battery: Disabled
+CommonWorld: Disabled                   Liquid: Disabled
+DriveCmd: Enabled                       PowerSavingIdleTime: 24 hours 
+PowerSavingStandbyTime: Never           PowerSavingStoppedTime: 24 hours 
+PseudoDeviceType: CTRL                  PerfectRebuildAvailable: 64
+VAAIsupport: Disabled                   SSDTrimSupport: Enabled
+
+administrator@cli> 
+'result': 'p'
+
+Expect: parameters of ctrl should be modified by "alias=test_test_test_test_test_test_test_test_123456"
+
+ctrl -a mod -i 2 -s "alias=test_test_test_test_test_test_test_test_123456"
+
+administrator@cli> 
+ctrl -i 2 -v
+-------------------------------------------------------------------------------
+Alias: test_test_test_test_test_test_test_test_123456
+CtrlId: 2                               OperationalStatus: OK
+PowerOnTime: 54 minutes                 ControllerRole: Primary
+ReadinessStatus: Active                 LUNAffinity: Enabled
+LunmappingMethod: Name Based            CacheUsagePercentage: 0
+DirtyCachePercentage: 0                 PartNo: F29000020000177
+SerialNo: MA6D16508700019               HWRev: B1
+WWN: 2101-0001-555b-3d29                CmdProtocol: SCSI-3
+ALUA: Disabled                          MemType1: DDR4 SDRAM  (Slot 1)
+MemSize1:   8 GB  (Slot 1)              MemType2: DDR4 SDRAM  (Slot 2)
+MemSize2:   8 GB  (Slot 2)              MemType3:        N/A  (Slot 3)
+MemSize3:    N/A  (Slot 3)              MemType4:        N/A  (Slot 4)
+MemSize4:    N/A  (Slot 4)              FlashType: Flash Memory
+FlashSize: 16 GB                        NVRAMType: SRAM
+NVRAMSize: 1 MB                         BootLoaderVersion: 15.26.0000.00
+BootLoaderBuildDate: Dec 06, 2016       FirmwareVersion: 12.02.9999.61
+FirmwareBuildDate: Jan 25, 2018         SoftwareVersion: 12.02.9999.61
+SoftwareBuildDate: Jan 25, 2018         OverallRAIDStatus: OK
+PhyDrvPresent: 15                       PhyDrvOnline: 0
+PhyDrvOffline: 0                        PhyDrvPFA: 0
+GlobalSparePresent: 0                   DedicatedSparePresent: 0
+RevertibleGlobalSparePresent: 0         RevertibleDedicatedSparePresent: 0
+RevertibleGlobalSpareUsed: 0            RevertibleDedicatedSpareUsed: 0
+WriteThroughMode: 0                     MaxSectorSize: 4 KB
+PreferredCacheLineSize: 64              CacheLineSize: 64
+Coercion: Enabled                       CoercionMethod: TableRounding
+SMART: Enabled                          SMARTPollingInterval: 1440 minutes
+MigrationStorage: DDF                   CacheFlushInterval: 1
+PollInterval: 255                       AdaptiveWBCache: Disabled
+HostCacheFlushing: Enabled              ForcedReadAhead: Disabled
+Battery: Enabled                        CommonWorld: Disabled
+Liquid: Disabled                        DriveCmd: Enabled
+PowerSavingIdleTime: 24 hours           PowerSavingStandbyTime: Never
+PowerSavingStoppedTime: 24 hours        PseudoDeviceType: CTRL
+PerfectRebuildAvailable: 64             VAAIsupport: Disabled
+SSDTrimSupport: Enabled
+
+administrator@cli> 
+
+Expect: parameters of ctrl should be modified by "alias=test_test_test_test_test_test_test_test_1234567"
+
+ctrl -a mod -i 2 -s "alias=test_test_test_test_test_test_test_test_1234567"
+
+administrator@cli> 
+ctrl -i 2 -v
+-------------------------------------------------------------------------------
+Alias: test_test_test_test_test_test_test_test_1234567
+CtrlId: 2                               OperationalStatus: OK
+PowerOnTime: 54 minutes                 ControllerRole: Primary
+ReadinessStatus: Active                 LUNAffinity: Enabled
+LunmappingMethod: Name Based            CacheUsagePercentage: 0
+DirtyCachePercentage: 0                 PartNo: F29000020000177
+SerialNo: MA6D16508700019               HWRev: B1
+WWN: 2101-0001-555b-3d29                CmdProtocol: SCSI-3
+ALUA: Disabled                          MemType1: DDR4 SDRAM  (Slot 1)
+MemSize1:   8 GB  (Slot 1)              MemType2: DDR4 SDRAM  (Slot 2)
+MemSize2:   8 GB  (Slot 2)              MemType3:        N/A  (Slot 3)
+MemSize3:    N/A  (Slot 3)              MemType4:        N/A  (Slot 4)
+MemSize4:    N/A  (Slot 4)              FlashType: Flash Memory
+FlashSize: 16 GB                        NVRAMType: SRAM
+NVRAMSize: 1 MB                         BootLoaderVersion: 15.26.0000.00
+BootLoaderBuildDate: Dec 06, 2016       FirmwareVersion: 12.02.9999.61
+FirmwareBuildDate: Jan 25, 2018         SoftwareVersion: 12.02.9999.61
+SoftwareBuildDate: Jan 25, 2018         OverallRAIDStatus: OK
+PhyDrvPresent: 15                       PhyDrvOnline: 0
+PhyDrvOffline: 0                        PhyDrvPFA: 0
+GlobalSparePresent: 0                   DedicatedSparePresent: 0
+RevertibleGlobalSparePresent: 0         RevertibleDedicatedSparePresent: 0
+RevertibleGlobalSpareUsed: 0            RevertibleDedicatedSpareUsed: 0
+WriteThroughMode: 0                     MaxSectorSize: 4 KB
+PreferredCacheLineSize: 64              CacheLineSize: 64
+Coercion: Enabled                       CoercionMethod: TableRounding
+SMART: Enabled                          SMARTPollingInterval: 1440 minutes
+MigrationStorage: DDF                   CacheFlushInterval: 1
+PollInterval: 255                       AdaptiveWBCache: Disabled
+HostCacheFlushing: Enabled              ForcedReadAhead: Disabled
+Battery: Disabled                       CommonWorld: Disabled
+Liquid: Disabled                        DriveCmd: Enabled
+PowerSavingIdleTime: 24 hours           PowerSavingStandbyTime: Never
+PowerSavingStoppedTime: 24 hours        PseudoDeviceType: CTRL
+PerfectRebuildAvailable: 64             VAAIsupport: Disabled
+SSDTrimSupport: Enabled
+
+administrator@cli> 
+
+Expect: parameters of ctrl should be modified by "alias=,coercion=eanble,coercionmethod=GBTruncate"
+
+ctrl -a mod -i 2 -s "alias=,coercion=enable,coercionmethod=GBTruncate"
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -r
+Error (0x403): Missing parameter
+-r: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -t port -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -t target -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -t session -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -t portal -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -t device -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a add -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a add -t portal -m 
+Error (0x403): Missing parameter
+-m: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a add -t portal -m trunk -s 
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a add -t portal -r 2 -p 1 -m phy -s "iptype=4,dhcp=enable,tcpport=2000"
+Error (0x403): Missing parameter
+-s: missing porttype
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a add -t portal -r 2 -p 1 -m vlan -s "vlantag=3,iptype=4,dhcp=enable,tcpport=2000"
+Error (0x403): Missing parameter
+-s: missing porttype
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a mod
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a mod -t target
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a mod -t target -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a mod -t target -i 0 -s 
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a del
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a del'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a del -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a del -t portal -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+'result': 'p'
+
+Expect: lunmap should be added with: -t iscsi -i 0 -p volume -l 0,1 -m 0,1
+
+lunmap -a add -t iscsi -i 0 -p volume -l 0,1 -m 0,1
+
+administrator@cli> 
+lunmap -i 0
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 0                          InitiatorType: iSCSI
+InitiatorName: T.com0
+
+===============================================================================
+Lun                       Sid                      Type                        
+===============================================================================
+0                         0                        volume                      
+1                         1                        volume                      
+
+administrator@cli> 
+
+Expect: lunmap should be added with: -t fc -i 1 -p volume -l 1 -m 2
+
+lunmap -a add -t fc -i 1 -p volume -l 1 -m 2
+
+administrator@cli> 
+lunmap -i 1
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 1                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-10
+
+===============================================================================
+Lun                       Sid                      Type                        
+===============================================================================
+2                         1                        volume                      
+
+administrator@cli> 
+
+Expect: lunmap should be added with: -t iscsi -i 2 -p snapshot -l 0,1 -m 2,4
+
+lunmap -a add -t iscsi -i 2 -p snapshot -l 0,1 -m 2,4
+
+administrator@cli> 
+lunmap -i 2
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 2                          InitiatorType: iSCSI
+InitiatorName: T.com1
+
+===============================================================================
+Lun                      Sid                      Type                         
+===============================================================================
+2                        0                        snapshot                     
+4                        1                        snapshot                     
+
+administrator@cli> 
+
+Expect: lunmap should be added with: -t fc -i 3 -p snapshot -l 2 -m 1022
+
+lunmap -a add -t fc -i 3 -p snapshot -l 2 -m 1022
+
+administrator@cli> 
+lunmap -i 3
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 3                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-11
+
+===============================================================================
+Lun                       Sid                     Type                         
+===============================================================================
+1022                      2                       snapshot                     
+
+administrator@cli> 
+
+Expect: lunmap should be added with: -t iscsi -i 4 -p clone -l 0,1 -m 0,1
+
+lunmap -a add -t iscsi -i 4 -p clone -l 0,1 -m 0,1
+
+administrator@cli> 
+lunmap -i 4
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 4                          InitiatorType: iSCSI
+InitiatorName: T.com2
+
+===============================================================================
+Lun                       Sid                       Type                       
+===============================================================================
+0                         0                         clone                      
+1                         1                         clone                      
+
+administrator@cli> 
+
+Expect: lunmap should be added with: -t fc -i 5 -p clone -l 0 -m 1023
+
+lunmap -a add -t fc -i 5 -p clone -l 0 -m 1023
+
+administrator@cli> 
+lunmap -i 5
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 5                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-12
+
+===============================================================================
+Lun                        Sid                      Type                       
+===============================================================================
+1023                       0                        clone                      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: volume 2 should be mapped on initiator 0
+
+lunmap -a addlun -i 0 -p volume -l 2 -m 3
+
+administrator@cli> 
+lunmap -i 0
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 0                          InitiatorType: iSCSI
+InitiatorName: T.com0
+
+===============================================================================
+Lun                       Sid                      Type                        
+===============================================================================
+0                         0                        volume                      
+1                         1                        volume                      
+3                         2                        volume                      
+
+administrator@cli> 
+
+Expect: snapshot 0,1 should be mapped on initiator 3
+
+lunmap -a addlun -i 3 -p snapshot -l 0,1 -m 5,6
+
+administrator@cli> 
+lunmap -i 3
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 3                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-11
+
+===============================================================================
+Lun                       Sid                     Type                         
+===============================================================================
+5                         0                       snapshot                     
+6                         1                       snapshot                     
+1022                      2                       snapshot                     
+
+administrator@cli> 
+
+Expect: clone 1 should be mapped on initiator 5
+
+lunmap -a addlun -i 5 -p clone -l 1 -m 1022
+
+administrator@cli> 
+lunmap -i 5
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 5                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-12
+
+===============================================================================
+Lun                        Sid                      Type                       
+===============================================================================
+1022                       1                        clone                      
+1023                       0                        clone                      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: all lunmap should be listed
+
+lunmap
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 0                          InitiatorType: iSCSI
+InitiatorName: T.com0
+
+===============================================================================
+Lun                       Sid                      Type                        
+===============================================================================
+0                         0                        volume                      
+1                         1                        volume                      
+3                         2                        volume                      
+-------------------------------------------------------------------------------
+InitiatorId: 1                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-10
+
+===============================================================================
+Lun                       Sid                      Type                        
+===============================================================================
+2                         1                        volume                      
+-------------------------------------------------------------------------------
+InitiatorId: 2                          InitiatorType: iSCSI
+InitiatorName: T.com1
+
+===============================================================================
+Lun                      Sid                      Type                         
+===============================================================================
+2                        0                        snapshot                     
+4                        1                        snapshot                     
+-------------------------------------------------------------------------------
+InitiatorId: 3                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-11
+
+===============================================================================
+Lun                       Sid                     Type                         
+===============================================================================
+5                         0                       snapshot                     
+6                         1                       snapshot                     
+1022                      2                       snapshot                     
+-------------------------------------------------------------------------------
+InitiatorId: 4                          InitiatorType: iSCSI
+InitiatorName: T.com2
+
+===============================================================================
+Lun                       Sid                       Type                       
+===============================================================================
+0                         0                         clone                      
+1                         1                         clone                      
+-------------------------------------------------------------------------------
+InitiatorId: 5                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-12
+
+===============================================================================
+Lun                        Sid                      Type                       
+===============================================================================
+1022                       1                        clone                      
+1023                       0                        clone                      
+
+administrator@cli> 
+
+Expect: lunmap should be listed on initiator 0
+
+lunmap -i 0
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 0                          InitiatorType: iSCSI
+InitiatorName: T.com0
+
+===============================================================================
+Lun                       Sid                      Type                        
+===============================================================================
+0                         0                        volume                      
+1                         1                        volume                      
+3                         2                        volume                      
+
+administrator@cli> 
+
+Expect: lunmap should be listed on initiator 7
+
+lunmap -i 7
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+No LUN mapping entry available
+
+administrator@cli> 
+'result': 'p'
+
+Expect: mapping should be deleted on initiator 0
+
+lunmap -a del -i 0
+
+administrator@cli> 
+lunmap -i 0
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 1                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-10
+
+===============================================================================
+Lun                       Sid                      Type                        
+===============================================================================
+2                         1                        volume                      
+
+administrator@cli> 
+
+Fail: please check out Lun                       Sid                      Type
+
+
+Expect: mapping should be deleted on initiator 1
+
+lunmap -a del -i 1
+
+administrator@cli> 
+lunmap -i 1
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 2                          InitiatorType: iSCSI
+InitiatorName: T.com1
+
+===============================================================================
+Lun                      Sid                      Type                         
+===============================================================================
+2                        0                        snapshot                     
+4                        1                        snapshot                     
+
+administrator@cli> 
+'result': 'f'
+
+Expect: lunmap should be added with: -t iscsi -i 0 -p volume -l 0,1 -m 0,1
+
+lunmap -a add -t iscsi -i 0 -p volume -l 0,1 -m 0,1
+
+administrator@cli> 
+lunmap -i 0
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 0                          InitiatorType: iSCSI
+InitiatorName: T.com0
+
+===============================================================================
+Lun                       Sid                      Type                        
+===============================================================================
+0                         0                        volume                      
+1                         1                        volume                      
+
+administrator@cli> 
+
+Expect: lunmap should be added with: -t fc -i 1 -p volume -l 1 -m 2
+
+lunmap -a add -t fc -i 1 -p volume -l 1 -m 2
+
+administrator@cli> 
+lunmap -i 1
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 1                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-10
+
+===============================================================================
+Lun                       Sid                      Type                        
+===============================================================================
+2                         1                        volume                      
+
+administrator@cli> 
+
+Expect: lunmap should be added with: -t iscsi -i 2 -p snapshot -l 0,1 -m 2,4
+
+lunmap -a add -t iscsi -i 2 -p snapshot -l 0,1 -m 2,4
+
+administrator@cli> 
+lunmap -i 2
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 2                          InitiatorType: iSCSI
+InitiatorName: T.com1
+
+===============================================================================
+Lun                      Sid                      Type                         
+===============================================================================
+2                        0                        snapshot                     
+4                        1                        snapshot                     
+
+administrator@cli> 
+
+Expect: lunmap should be added with: -t fc -i 3 -p snapshot -l 2 -m 1022
+
+lunmap -a add -t fc -i 3 -p snapshot -l 2 -m 1022
+
+administrator@cli> 
+lunmap -i 3
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 3                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-11
+
+===============================================================================
+Lun                       Sid                     Type                         
+===============================================================================
+1022                      2                       snapshot                     
+
+administrator@cli> 
+
+Expect: lunmap should be added with: -t iscsi -i 4 -p clone -l 0,1 -m 0,1
+
+lunmap -a add -t iscsi -i 4 -p clone -l 0,1 -m 0,1
+
+administrator@cli> 
+lunmap -i 4
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 4                          InitiatorType: iSCSI
+InitiatorName: T.com2
+
+===============================================================================
+Lun                       Sid                       Type                       
+===============================================================================
+0                         0                         clone                      
+1                         1                         clone                      
+
+administrator@cli> 
+
+Expect: lunmap should be added with: -t fc -i 5 -p clone -l 0 -m 1023
+
+lunmap -a add -t fc -i 5 -p clone -l 0 -m 1023
+
+administrator@cli> 
+lunmap -i 5
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 5                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-12
+
+===============================================================================
+Lun                        Sid                      Type                       
+===============================================================================
+1023                       0                        clone                      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: volume 2 should be mapped on initiator 0
+
+lunmap -a addlun -i 0 -p volume -l 2 -m 3
+
+administrator@cli> 
+lunmap -i 0
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 0                          InitiatorType: iSCSI
+InitiatorName: T.com0
+
+===============================================================================
+Lun                       Sid                      Type                        
+===============================================================================
+0                         0                        volume                      
+1                         1                        volume                      
+3                         2                        volume                      
+
+administrator@cli> 
+
+Expect: snapshot 0,1 should be mapped on initiator 3
+
+lunmap -a addlun -i 3 -p snapshot -l 0,1 -m 5,6
+
+administrator@cli> 
+lunmap -i 3
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 3                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-11
+
+===============================================================================
+Lun                       Sid                     Type                         
+===============================================================================
+5                         0                       snapshot                     
+6                         1                       snapshot                     
+1022                      2                       snapshot                     
+
+administrator@cli> 
+
+Expect: clone 1 should be mapped on initiator 5
+
+lunmap -a addlun -i 5 -p clone -l 1 -m 1022
+
+administrator@cli> 
+lunmap -i 5
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 5                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-12
+
+===============================================================================
+Lun                        Sid                      Type                       
+===============================================================================
+1022                       1                        clone                      
+1023                       0                        clone                      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: mapping should be deleted on initiator 0
+
+lunmap -a del -i 0
+
+administrator@cli> 
+lunmap -i 0
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 1                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-10
+
+===============================================================================
+Lun                       Sid                      Type                        
+===============================================================================
+2                         1                        volume                      
+
+administrator@cli> 
+
+Fail: please check out Lun                       Sid                      Type
+
+
+Expect: mapping should be deleted on initiator 1
+
+lunmap -a del -i 1
+
+administrator@cli> 
+lunmap -i 1
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 2                          InitiatorType: iSCSI
+InitiatorName: T.com1
+
+===============================================================================
+Lun                      Sid                      Type                         
+===============================================================================
+2                        0                        snapshot                     
+4                        1                        snapshot                     
+
+administrator@cli> 
+'result': 'f'
+
+Expect: Missing parameter
+
+lunmap
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 3                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-11
+
+===============================================================================
+Lun                       Sid                     Type                         
+===============================================================================
+5                         0                       snapshot                     
+6                         1                       snapshot                     
+1022                      2                       snapshot                     
+-------------------------------------------------------------------------------
+InitiatorId: 4                          InitiatorType: iSCSI
+InitiatorName: T.com2
+
+===============================================================================
+Lun                       Sid                       Type                       
+===============================================================================
+0                         0                         clone                      
+1                         1                         clone                      
+-------------------------------------------------------------------------------
+InitiatorId: 5                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-12
+
+===============================================================================
+Lun                        Sid                      Type                       
+===============================================================================
+1022                       1                        clone                      
+1023                       0                        clone                      
+
+administrator@cli> 
+
+Fail: lunmap
+
+'result': 'f'
+
+Expect: lunmap should be added with: -t iscsi -i 0 -p volume -l 0,1 -m 0,1
+
+lunmap -a add -t iscsi -i 0 -p volume -l 0,1 -m 0,1
+
+administrator@cli> 
+lunmap -i 0
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 0                          InitiatorType: iSCSI
+InitiatorName: T.com0
+
+===============================================================================
+Lun                       Sid                      Type                        
+===============================================================================
+0                         0                        volume                      
+1                         1                        volume                      
+
+administrator@cli> 
+
+Expect: lunmap should be added with: -t fc -i 1 -p volume -l 1 -m 2
+
+lunmap -a add -t fc -i 1 -p volume -l 1 -m 2
+
+administrator@cli> 
+lunmap -i 1
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 1                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-10
+
+===============================================================================
+Lun                       Sid                      Type                        
+===============================================================================
+2                         1                        volume                      
+
+administrator@cli> 
+
+Expect: lunmap should be added with: -t iscsi -i 2 -p snapshot -l 0,1 -m 2,4
+
+lunmap -a add -t iscsi -i 2 -p snapshot -l 0,1 -m 2,4
+
+administrator@cli> 
+lunmap -i 2
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 2                          InitiatorType: iSCSI
+InitiatorName: T.com1
+
+===============================================================================
+Lun                      Sid                      Type                         
+===============================================================================
+2                        0                        snapshot                     
+4                        1                        snapshot                     
+
+administrator@cli> 
+
+Expect: lunmap should be added with: -t fc -i 3 -p snapshot -l 2 -m 1022
+
+lunmap -a add -t fc -i 3 -p snapshot -l 2 -m 1022
+
+administrator@cli> 
+lunmap -i 3
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 3                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-11
+
+===============================================================================
+Lun                       Sid                     Type                         
+===============================================================================
+1022                      2                       snapshot                     
+
+administrator@cli> 
+
+Expect: lunmap should be added with: -t iscsi -i 4 -p clone -l 0,1 -m 0,1
+
+lunmap -a add -t iscsi -i 4 -p clone -l 0,1 -m 0,1
+
+administrator@cli> 
+lunmap -i 4
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 4                          InitiatorType: iSCSI
+InitiatorName: T.com2
+
+===============================================================================
+Lun                       Sid                       Type                       
+===============================================================================
+0                         0                         clone                      
+1                         1                         clone                      
+
+administrator@cli> 
+
+Expect: lunmap should be added with: -t fc -i 5 -p clone -l 0 -m 1023
+
+lunmap -a add -t fc -i 5 -p clone -l 0 -m 1023
+
+administrator@cli> 
+lunmap -i 5
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 5                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-12
+
+===============================================================================
+Lun                        Sid                      Type                       
+===============================================================================
+1023                       0                        clone                      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: volume 2 should be mapped on initiator 0
+
+lunmap -a addlun -i 0 -p volume -l 2 -m 3
+
+administrator@cli> 
+lunmap -i 0
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 0                          InitiatorType: iSCSI
+InitiatorName: T.com0
+
+===============================================================================
+Lun                       Sid                      Type                        
+===============================================================================
+0                         0                        volume                      
+1                         1                        volume                      
+3                         2                        volume                      
+
+administrator@cli> 
+
+Expect: snapshot 0,1 should be mapped on initiator 3
+
+lunmap -a addlun -i 3 -p snapshot -l 0,1 -m 5,6
+
+administrator@cli> 
+lunmap -i 3
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 3                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-11
+
+===============================================================================
+Lun                       Sid                     Type                         
+===============================================================================
+5                         0                       snapshot                     
+6                         1                       snapshot                     
+1022                      2                       snapshot                     
+
+administrator@cli> 
+
+Expect: clone 1 should be mapped on initiator 5
+
+lunmap -a addlun -i 5 -p clone -l 1 -m 1022
+
+administrator@cli> 
+lunmap -i 5
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 5                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-12
+
+===============================================================================
+Lun                        Sid                      Type                       
+===============================================================================
+1022                       1                        clone                      
+1023                       0                        clone                      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: mapping should be deleted on initiator 0
+
+lunmap -a del -i 0
+
+administrator@cli> 
+lunmap -i 0
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 1                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-10
+
+===============================================================================
+Lun                       Sid                      Type                        
+===============================================================================
+2                         1                        volume                      
+
+administrator@cli> 
+
+Fail: please check out Lun                       Sid                      Type
+
+
+Expect: mapping should be deleted on initiator 1
+
+lunmap -a del -i 1
+
+administrator@cli> 
+lunmap -i 1
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 2                          InitiatorType: iSCSI
+InitiatorName: T.com1
+
+===============================================================================
+Lun                      Sid                      Type                         
+===============================================================================
+2                        0                        snapshot                     
+4                        1                        snapshot                     
+
+administrator@cli> 
+'result': 'f'
+
+Expect: lunmap should be added with: -t iscsi -i 0 -p volume -l 0,1 -m 0,1
+
+lunmap -a add -t iscsi -i 0 -p volume -l 0,1 -m 0,1
+
+administrator@cli> 
+lunmap -i 0
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 0                          InitiatorType: iSCSI
+InitiatorName: T.com0
+
+===============================================================================
+Lun                       Sid                      Type                        
+===============================================================================
+0                         0                        volume                      
+1                         1                        volume                      
+
+administrator@cli> 
+
+Expect: lunmap should be added with: -t fc -i 1 -p volume -l 1 -m 2
+
+lunmap -a add -t fc -i 1 -p volume -l 1 -m 2
+
+administrator@cli> 
+lunmap -i 1
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 1                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-10
+
+===============================================================================
+Lun                       Sid                      Type                        
+===============================================================================
+2                         1                        volume                      
+
+administrator@cli> 
+
+Expect: lunmap should be added with: -t iscsi -i 2 -p snapshot -l 0,1 -m 2,4
+
+lunmap -a add -t iscsi -i 2 -p snapshot -l 0,1 -m 2,4
+
+administrator@cli> 
+lunmap -i 2
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 2                          InitiatorType: iSCSI
+InitiatorName: T.com1
+
+===============================================================================
+Lun                      Sid                      Type                         
+===============================================================================
+2                        0                        snapshot                     
+4                        1                        snapshot                     
+
+administrator@cli> 
+
+Expect: lunmap should be added with: -t fc -i 3 -p snapshot -l 2 -m 1022
+
+lunmap -a add -t fc -i 3 -p snapshot -l 2 -m 1022
+
+administrator@cli> 
+lunmap -i 3
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 3                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-11
+
+===============================================================================
+Lun                       Sid                     Type                         
+===============================================================================
+1022                      2                       snapshot                     
+
+administrator@cli> 
+
+Expect: lunmap should be added with: -t iscsi -i 4 -p clone -l 0,1 -m 0,1
+
+lunmap -a add -t iscsi -i 4 -p clone -l 0,1 -m 0,1
+
+administrator@cli> 
+lunmap -i 4
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 4                          InitiatorType: iSCSI
+InitiatorName: T.com2
+
+===============================================================================
+Lun                       Sid                       Type                       
+===============================================================================
+0                         0                         clone                      
+1                         1                         clone                      
+
+administrator@cli> 
+
+Expect: lunmap should be added with: -t fc -i 5 -p clone -l 0 -m 1023
+
+lunmap -a add -t fc -i 5 -p clone -l 0 -m 1023
+
+administrator@cli> 
+lunmap -i 5
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 5                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-12
+
+===============================================================================
+Lun                        Sid                      Type                       
+===============================================================================
+1023                       0                        clone                      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: volume 2 should be mapped on initiator 0
+
+lunmap -a addlun -i 0 -p volume -l 2 -m 3
+
+administrator@cli> 
+lunmap -i 0
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 0                          InitiatorType: iSCSI
+InitiatorName: T.com0
+
+===============================================================================
+Lun                       Sid                      Type                        
+===============================================================================
+0                         0                        volume                      
+1                         1                        volume                      
+3                         2                        volume                      
+
+administrator@cli> 
+
+Expect: snapshot 0,1 should be mapped on initiator 3
+
+lunmap -a addlun -i 3 -p snapshot -l 0,1 -m 5,6
+
+administrator@cli> 
+lunmap -i 3
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 3                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-11
+
+===============================================================================
+Lun                       Sid                     Type                         
+===============================================================================
+5                         0                       snapshot                     
+6                         1                       snapshot                     
+1022                      2                       snapshot                     
+
+administrator@cli> 
+
+Expect: clone 1 should be mapped on initiator 5
+
+lunmap -a addlun -i 5 -p clone -l 1 -m 1022
+
+administrator@cli> 
+lunmap -i 5
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 5                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-12
+
+===============================================================================
+Lun                        Sid                      Type                       
+===============================================================================
+1022                       1                        clone                      
+1023                       0                        clone                      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: mapping should be deleted on initiator 1
+
+lunmap -a del -i 1
+
+administrator@cli> 
+lunmap -i 1
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 2                          InitiatorType: iSCSI
+InitiatorName: T.com1
+
+===============================================================================
+Lun                      Sid                      Type                         
+===============================================================================
+2                        0                        snapshot                     
+4                        1                        snapshot                     
+
+administrator@cli> 
+
+Expect: mapping should be deleted on initiator 2
+
+lunmap -a del -i 2
+
+administrator@cli> 
+lunmap -i 2
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 3                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-11
+
+===============================================================================
+Lun                       Sid                     Type                         
+===============================================================================
+5                         0                       snapshot                     
+6                         1                       snapshot                     
+1022                      2                       snapshot                     
+
+administrator@cli> 
+
+Expect: mapping should be deleted on initiator 4
+
+lunmap -a del -i 4
+
+administrator@cli> 
+lunmap -i 4
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 5                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-12
+
+===============================================================================
+Lun                        Sid                      Type                       
+===============================================================================
+1022                       1                        clone                      
+1023                       0                        clone                      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: lunmap should be added with: -t iscsi -i 0 -p volume -l 0,1 -m 0,1
+
+lunmap -a add -t iscsi -i 0 -p volume -l 0,1 -m 0,1
+
+administrator@cli> 
+lunmap -i 0
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 0                          InitiatorType: iSCSI
+InitiatorName: T.com0
+
+===============================================================================
+Lun                       Sid                      Type                        
+===============================================================================
+0                         0                        volume                      
+1                         1                        volume                      
+
+administrator@cli> 
+
+Expect: lunmap should be added with: -t fc -i 1 -p volume -l 1 -m 2
+
+lunmap -a add -t fc -i 1 -p volume -l 1 -m 2
+
+administrator@cli> 
+lunmap -i 1
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 1                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-10
+
+===============================================================================
+Lun                       Sid                      Type                        
+===============================================================================
+2                         1                        volume                      
+
+administrator@cli> 
+
+Expect: lunmap should be added with: -t iscsi -i 2 -p snapshot -l 0,1 -m 2,4
+
+lunmap -a add -t iscsi -i 2 -p snapshot -l 0,1 -m 2,4
+
+administrator@cli> 
+lunmap -i 2
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 2                          InitiatorType: iSCSI
+InitiatorName: T.com1
+
+===============================================================================
+Lun                      Sid                      Type                         
+===============================================================================
+2                        0                        snapshot                     
+4                        1                        snapshot                     
+
+administrator@cli> 
+
+Expect: lunmap should be added with: -t fc -i 3 -p snapshot -l 2 -m 1022
+
+lunmap -a add -t fc -i 3 -p snapshot -l 2 -m 1022
+
+administrator@cli> 
+lunmap -i 3
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 3                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-11
+
+===============================================================================
+Lun                       Sid                     Type                         
+===============================================================================
+1022                      2                       snapshot                     
+
+administrator@cli> 
+
+Expect: lunmap should be added with: -t iscsi -i 4 -p clone -l 0,1 -m 0,1
+
+lunmap -a add -t iscsi -i 4 -p clone -l 0,1 -m 0,1
+
+administrator@cli> 
+lunmap -i 4
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 4                          InitiatorType: iSCSI
+InitiatorName: T.com2
+
+===============================================================================
+Lun                       Sid                       Type                       
+===============================================================================
+0                         0                         clone                      
+1                         1                         clone                      
+
+administrator@cli> 
+
+Expect: lunmap should be added with: -t fc -i 5 -p clone -l 0 -m 1023
+
+lunmap -a add -t fc -i 5 -p clone -l 0 -m 1023
+
+administrator@cli> 
+lunmap -i 5
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 5                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-12
+
+===============================================================================
+Lun                        Sid                      Type                       
+===============================================================================
+1023                       0                        clone                      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: volume 2 should be mapped on initiator 0
+
+lunmap -a addlun -i 0 -p volume -l 2 -m 3
+
+administrator@cli> 
+lunmap -i 0
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 0                          InitiatorType: iSCSI
+InitiatorName: T.com0
+
+===============================================================================
+Lun                       Sid                      Type                        
+===============================================================================
+0                         0                        volume                      
+1                         1                        volume                      
+3                         2                        volume                      
+
+administrator@cli> 
+
+Expect: snapshot 0,1 should be mapped on initiator 3
+
+lunmap -a addlun -i 3 -p snapshot -l 0,1 -m 5,6
+
+administrator@cli> 
+lunmap -i 3
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 3                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-11
+
+===============================================================================
+Lun                       Sid                     Type                         
+===============================================================================
+5                         0                       snapshot                     
+6                         1                       snapshot                     
+1022                      2                       snapshot                     
+
+administrator@cli> 
+
+Expect: clone 1 should be mapped on initiator 5
+
+lunmap -a addlun -i 5 -p clone -l 1 -m 1022
+
+administrator@cli> 
+lunmap -i 5
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 5                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-12
+
+===============================================================================
+Lun                        Sid                      Type                       
+===============================================================================
+1022                       1                        clone                      
+1023                       0                        clone                      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: mapping should be deleted on initiator 1
+
+lunmap -a del -i 1
+
+administrator@cli> 
+lunmap -i 1
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 2                          InitiatorType: iSCSI
+InitiatorName: T.com1
+
+===============================================================================
+Lun                      Sid                      Type                         
+===============================================================================
+2                        0                        snapshot                     
+4                        1                        snapshot                     
+
+administrator@cli> 
+
+Expect: mapping should be deleted on initiator 2
+
+lunmap -a del -i 2
+
+administrator@cli> 
+lunmap -i 2
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 3                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-11
+
+===============================================================================
+Lun                       Sid                     Type                         
+===============================================================================
+5                         0                       snapshot                     
+6                         1                       snapshot                     
+1022                      2                       snapshot                     
+
+administrator@cli> 
+
+Expect: mapping should be deleted on initiator 4
+
+lunmap -a del -i 4
+
+administrator@cli> 
+lunmap -i 4
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 5                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-12
+
+===============================================================================
+Lun                        Sid                      Type                       
+===============================================================================
+1022                       1                        clone                      
+1023                       0                        clone                      
+
+administrator@cli> 
+
+Fail: please check out Lun                        Sid                      Type
+
+'result': 'f'
+
+Expect: mapping of volume 0,1 should be deleted on initiator 0
+
+lunmap -a dellun -i 0 -p volume -l 0,1
+
+administrator@cli> 
+lunmap -i 0
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 0                          InitiatorType: iSCSI
+InitiatorName: T.com0
+
+===============================================================================
+Lun                       Sid                      Type                        
+===============================================================================
+3                         2                        volume                      
+
+administrator@cli> 
+
+Fail: please check out 
+
+
+Expect: mapping of snapshot 0,1 should be deleted on initiator 3
+
+lunmap -a dellun -i 3 -p snapshot -l 0,1
+
+administrator@cli> 
+lunmap -i 3
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 3                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-11
+
+===============================================================================
+Lun                       Sid                     Type                         
+===============================================================================
+1022                      2                       snapshot                     
+
+administrator@cli> 
+
+Fail: please check out 
+
+
+Expect: mapping of clone 0,1 should be deleted on initiator 4
+
+lunmap -a dellun -i 4 -p clone -l 0,1
+Error (0x4070): LMM entry not found
+
+administrator@cli> 
+
+Fail: lunmap -a dellun -i 4 -p clone -l 0,1
+
+'result': 'f'
+
+Expect: lunmap should be added with: -t iscsi -i 0 -p volume -l 0,1 -m 0,1
+
+lunmap -a add -t iscsi -i 0 -p volume -l 0,1 -m 0,1
+
+administrator@cli> 
+lunmap -i 0
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 0                          InitiatorType: iSCSI
+InitiatorName: T.com0
+
+===============================================================================
+Lun                       Sid                      Type                        
+===============================================================================
+0                         0                        volume                      
+1                         1                        volume                      
+
+administrator@cli> 
+
+Expect: lunmap should be added with: -t fc -i 1 -p volume -l 1 -m 2
+
+lunmap -a add -t fc -i 1 -p volume -l 1 -m 2
+
+administrator@cli> 
+lunmap -i 1
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 1                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-10
+
+===============================================================================
+Lun                       Sid                      Type                        
+===============================================================================
+2                         1                        volume                      
+
+administrator@cli> 
+
+Expect: lunmap should be added with: -t iscsi -i 2 -p snapshot -l 0,1 -m 2,4
+
+lunmap -a add -t iscsi -i 2 -p snapshot -l 0,1 -m 2,4
+
+administrator@cli> 
+lunmap -i 2
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 2                          InitiatorType: iSCSI
+InitiatorName: T.com1
+
+===============================================================================
+Lun                      Sid                      Type                         
+===============================================================================
+2                        0                        snapshot                     
+4                        1                        snapshot                     
+
+administrator@cli> 
+
+Expect: lunmap should be added with: -t fc -i 3 -p snapshot -l 2 -m 1022
+
+lunmap -a add -t fc -i 3 -p snapshot -l 2 -m 1022
+
+administrator@cli> 
+lunmap -i 3
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 3                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-11
+
+===============================================================================
+Lun                       Sid                     Type                         
+===============================================================================
+1022                      2                       snapshot                     
+
+administrator@cli> 
+
+Expect: lunmap should be added with: -t iscsi -i 4 -p clone -l 0,1 -m 0,1
+
+lunmap -a add -t iscsi -i 4 -p clone -l 0,1 -m 0,1
+
+administrator@cli> 
+lunmap -i 4
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 4                          InitiatorType: iSCSI
+InitiatorName: T.com2
+
+===============================================================================
+Lun                       Sid                       Type                       
+===============================================================================
+0                         0                         clone                      
+1                         1                         clone                      
+
+administrator@cli> 
+
+Expect: lunmap should be added with: -t fc -i 5 -p clone -l 0 -m 1023
+
+lunmap -a add -t fc -i 5 -p clone -l 0 -m 1023
+
+administrator@cli> 
+lunmap -i 5
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 5                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-12
+
+===============================================================================
+Lun                        Sid                      Type                       
+===============================================================================
+1023                       0                        clone                      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: volume 2 should be mapped on initiator 0
+
+lunmap -a addlun -i 0 -p volume -l 2 -m 3
+
+administrator@cli> 
+lunmap -i 0
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 0                          InitiatorType: iSCSI
+InitiatorName: T.com0
+
+===============================================================================
+Lun                       Sid                      Type                        
+===============================================================================
+0                         0                        volume                      
+1                         1                        volume                      
+3                         2                        volume                      
+
+administrator@cli> 
+
+Expect: snapshot 0,1 should be mapped on initiator 3
+
+lunmap -a addlun -i 3 -p snapshot -l 0,1 -m 5,6
+
+administrator@cli> 
+lunmap -i 3
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 3                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-11
+
+===============================================================================
+Lun                       Sid                     Type                         
+===============================================================================
+5                         0                       snapshot                     
+6                         1                       snapshot                     
+1022                      2                       snapshot                     
+
+administrator@cli> 
+
+Expect: clone 1 should be mapped on initiator 5
+
+lunmap -a addlun -i 5 -p clone -l 1 -m 1022
+
+administrator@cli> 
+lunmap -i 5
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 5                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-12
+
+===============================================================================
+Lun                        Sid                      Type                       
+===============================================================================
+1022                       1                        clone                      
+1023                       0                        clone                      
+
+administrator@cli> 
+'result': 'p'
+
+Expect: mapping of volume 0,1 should be deleted on initiator 0
+
+lunmap -a dellun -i 0 -p volume -l 0,1
+
+administrator@cli> 
+lunmap -i 0
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 0                          InitiatorType: iSCSI
+InitiatorName: T.com0
+
+===============================================================================
+Lun                       Sid                      Type                        
+===============================================================================
+3                         2                        volume                      
+
+administrator@cli> 
+
+Fail: please check out 
+
+
+Expect: mapping of snapshot 0,1 should be deleted on initiator 3
+
+lunmap -a dellun -i 3 -p snapshot -l 0,1
+
+administrator@cli> 
+lunmap -i 3
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 3                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-11
+
+===============================================================================
+Lun                       Sid                     Type                         
+===============================================================================
+1022                      2                       snapshot                     
+
+administrator@cli> 
+
+Fail: please check out 
+
+
+Expect: mapping of clone 0,1 should be deleted on initiator 5
+
+lunmap -a dellun -i 5 -p clone -l 0,1
+
+administrator@cli> 
+lunmap -i 5
+LUN Mapping Type : initiator
+LUN mapping and masking : Enabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 5                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-12
+
+
+administrator@cli> 
+
+Fail: please check out 
+
+'result': 'f'
+
+Expect: LMM should be disabled
+
+lunmap -a disable
+
+administrator@cli> 
+lunmap
+LUN Mapping Type : initiator
+LUN mapping and masking : Disabled
+
+-------------------------------------------------------------------------------
+InitiatorId: 0                          InitiatorType: iSCSI
+InitiatorName: T.com0
+
+===============================================================================
+Lun                       Sid                      Type                        
+===============================================================================
+3                         2                        volume                      
+-------------------------------------------------------------------------------
+InitiatorId: 1                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-10
+
+===============================================================================
+Lun                       Sid                      Type                        
+===============================================================================
+2                         1                        volume                      
+-------------------------------------------------------------------------------
+InitiatorId: 2                          InitiatorType: iSCSI
+InitiatorName: T.com1
+
+===============================================================================
+Lun                      Sid                      Type                         
+===============================================================================
+2                        0                        snapshot                     
+4                        1                        snapshot                     
+-------------------------------------------------------------------------------
+InitiatorId: 3                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-11
+
+===============================================================================
+Lun                       Sid                     Type                         
+===============================================================================
+1022                      2                       snapshot                     
+-------------------------------------------------------------------------------
+InitiatorId: 4                          InitiatorType: iSCSI
+InitiatorName: T.com2
+
+===============================================================================
+Lun                       Sid                       Type                       
+===============================================================================
+0                         0                         clone                      
+1                         1                         clone                      
+-------------------------------------------------------------------------------
+InitiatorId: 5                          InitiatorType: FC
+InitiatorName: 00-11-22-33-00-00-11-12
+
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Invalid setting parameters
+
+lunmap test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+lunmap -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting initator id when lists lun mapping
+
+lunmap -i -1
+Error (0x2013): Invalid setting parameters
+-i: invalid setting -1 (0,2048)
+
+administrator@cli> 
+
+Expect: Invalid setting initator id when lists lun mapping
+
+lunmap -i 2049
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 2049 (0,2048)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+lunmap -a add test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting initator type
+
+lunmap -a add -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (fc|iscsi)
+
+administrator@cli> 
+
+Expect: Invalid setting initator id when adds lun mapping
+
+lunmap -a add -t fc -i 100 -p volume -l 1 -m 2
+Error (0x498B5202): Invalid initiator index
+
+administrator@cli> 
+
+Expect: Invalid setting source type
+
+lunmap -a add -t iscsi -i 2 -p test -l 0,1 -m 2,4
+Error (0x2013): Invalid setting parameters
+-p: invalid setting test (volume|snapshot|clone)
+
+administrator@cli> 
+
+Expect: Invalid setting source id
+
+lunmap -a add -t fc -i 3 -p snapshot -l 10 -m 1022
+Error (0x4100102): Empty query result, please check input parameters. Snapshot id=[10] is not existed.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+lunmap -a add -t iscsi -i 2 -p clone -l 0 -m test
+Error (0x2013): Invalid setting parameters
+-m: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting lun mapping values
+
+lunmap -a add -t iscsi -i 2 -p clone -l 0 -m -1
+Error (0x2013): Invalid setting parameters
+-m: invalid setting -1
+
+administrator@cli> 
+
+Fail: please check out invalid setting -1 (0,1023)
+
+
+Expect: Invalid setting lun mapping values
+
+lunmap -a add -t iscsi -i 1 -p volume -l 0 -m 1024
+Error (0x4072): Invalid LMM entry LUN value
+
+administrator@cli> 
+
+Fail: please check out invalid setting 1024 (0,1023)
+
+
+Expect: Invalid setting initator id when adds mapping
+
+lunmap -a addlun -i 7 -p volume -l 2 -m 3
+Error (0x4070): LMM entry not found
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+lunmap -a addlun -i 5 -p snapshot -l 10 -m 5
+Error (0x4100102): Empty query result, please check input parameters. Snapshot id=[10] is not existed.
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+lunmap -a enable test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+lunmap -a disable test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+lunmap -a del -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting initator id when deletes lun mapping
+
+lunmap -a del -i 7
+Error (0x498B5302): Invalid LUN map table
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+lunmap -a dellun -i test -p volume -l 0,1
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting initator id when deletes lun mapping
+
+lunmap -a dellun -i 7 -p snapshot -l 0,1
+Error (0x4070): LMM entry not found
+
+administrator@cli> 
+
+Expect: Invalid setting source id when deletes mapping
+
+lunmap -a dellun -i 5 -p clone -l 0
+Error (0x402): Invalid parameter
+-l: invalid source id
+
+administrator@cli> 
+'result': 'f'
+
+Expect: Invalid option for the command or the action
+
+lunmap -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+lunmap -i -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+lunmap -a add -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+lunmap -a addlun -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+lunmap -a enable -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+lunmap -a disable -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+lunmap -a del -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+lunmap -a dellun -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Missing parameter
+
+lunmap -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+lunmap -a
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+lunmap -a add
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+lunmap -a add -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+lunmap -a add -t fc -i 
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+lunmap -a add -t iscsi -i 2 -p 
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+lunmap -a add -t fc -i 3 -p snapshot 
+Error (0x403): Missing parameter
+missing parameter '-l' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+lunmap -a add -t iscsi -i 2 -p clone -l 
+Error (0x403): Missing parameter
+-l: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+lunmap -a add -t iscsi -i 7 -p clone -l 0 -m 
+Error (0x403): Missing parameter
+-m: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+lunmap -a addlun
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a addlun'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+lunmap -a addlun -i 5 -p snapshot -l 
+Error (0x403): Missing parameter
+-l: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+lunmap -a del
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a del'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+lunmap -a del -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+lunmap -a dellun
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a dellun'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+lunmap -a dellun -i 
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+lunmap -a dellun -i 5 -p 
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+lunmap -a dellun -i 5 -p clone -l 
+Error (0x403): Missing parameter
+-l: missing value
+
+administrator@cli> 
+'result': 'p'

@@ -102,7 +102,7 @@ def del_lunmap(c):
 
     cli_delete = cli_test_delete()
 
-    cli_delete.delete(c, data, 'del_lunmap')
+    cli_delete.delete(c, data, 'del_lunmap', 5)
 
     return cli_delete.FailFlag
 
@@ -159,15 +159,16 @@ if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
 
-    # enable_lmm(c)
+    enable_lmm(c)
     add_lunmap(c)
-    # addun_lunmap(c)
-    # list_lunmap(c)
-    # del_lunmap(c)
-    # dellun_lunmap(c)
-    # invalid_setting_for_lunmap(c)
-    # invalid_option_for_lunmap(c)
-    # missing_parameter_for_lunmap(c)
+    addun_lunmap(c)
+    list_lunmap(c)
+    del_lunmap(c)
+    dellun_lunmap(c)
+    disable_lmm(c)
+    invalid_setting_for_lunmap(c)
+    invalid_option_for_lunmap(c)
+    missing_parameter_for_lunmap(c)
 
     ssh.close()
     elasped = time.clock() - start

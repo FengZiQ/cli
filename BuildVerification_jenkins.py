@@ -567,6 +567,29 @@ def build_verification(c):
         if (initiator.missing_parameter_for_initiator(c)):
             failed_cases.append('The case ' + initiator.missing_parameter_for_initiator.__name__ + ' failed')
 
+        tolog("Start verifying lunmap")
+        import lunmap
+        if (lunmap.enable_lmm(c)):
+            failed_cases.append('The case ' + lunmap.enable_lmm.__name__ + ' failed')
+        if (lunmap.add_lunmap(c)):
+            failed_cases.append('The case ' + lunmap.add_lunmap.__name__ + ' failed')
+        if (lunmap.addun_lunmap(c)):
+            failed_cases.append('The case ' + lunmap.addun_lunmap.__name__ + ' failed')
+        if (lunmap.list_lunmap(c)):
+            failed_cases.append('The case ' + lunmap.list_lunmap.__name__ + ' failed')
+        if (lunmap.del_lunmap(c)):
+            failed_cases.append('The case ' + lunmap.del_lunmap.__name__ + ' failed')
+        if (lunmap.dellun_lunmap(c)):
+            failed_cases.append('The case ' + lunmap.dellun_lunmap.__name__ + ' failed')
+        if (lunmap.disable_lmm(c)):
+            failed_cases.append('The case ' + lunmap.disable_lmm.__name__ + ' failed')
+        if (lunmap.invalid_setting_for_lunmap(c)):
+            failed_cases.append('The case ' + lunmap.invalid_setting_for_lunmap.__name__ + ' failed')
+        if (lunmap.invalid_option_for_lunmap(c)):
+            failed_cases.append('The case ' + lunmap.invalid_option_for_lunmap.__name__ + ' failed')
+        if (lunmap.missing_parameter_for_lunmap(c)):
+            failed_cases.append('The case ' + lunmap.missing_parameter_for_lunmap.__name__ + ' failed')
+
         tolog("Start verifying chap")
         import chap
         if (chap.add_chap(c)):
@@ -894,34 +917,6 @@ def build_verification(c):
             failed_cases.append('The case ' + isns.verifyIsnsInvalidParameters.__name__ + ' failed')
         if (isns.verifyIsnsMissingParameters(c)):
             failed_cases.append('The case ' + isns.verifyIsnsMissingParameters.__name__ + ' failed')
-
-        tolog("Start verifying lunmap")
-        import lunmap
-        if (lunmap.verifyLunmapAdd(c)):
-            failed_cases.append('The case ' + lunmap.verifyLunmapAdd.__name__ + ' failed')
-        if (lunmap.verifyLunmap(c)):
-            failed_cases.append('The case ' + lunmap.verifyLunmap.__name__ + ' failed')
-        if (lunmap.verifyLunmapList(c)):
-            failed_cases.append('The case ' + lunmap.verifyLunmapList.__name__ + ' failed')
-        if (lunmap.verifyLunmapAddlun(c)):
-            failed_cases.append('The case ' + lunmap.verifyLunmapAddlun.__name__ + ' failed')
-        if (lunmap.verifyLunmapDellun(c)):
-            failed_cases.append('The case ' + lunmap.verifyLunmapDellun.__name__ + ' failed')
-        if (lunmap.verifyLunmapEnable(c)):
-            failed_cases.append('The case ' + lunmap.verifyLunmapEnable.__name__ + ' failed')
-        if (lunmap.verifyLunmapDel(c)):
-            failed_cases.append('The case ' + lunmap.verifyLunmapDel.__name__ + ' failed')
-        if (lunmap.verifyLunmapDisable(c)):
-            failed_cases.append('The case ' + lunmap.verifyLunmapDisable.__name__ + ' failed')
-        if (lunmap.verifyLunmapSpecifyInexistentId(c)):
-            failed_cases.append('The case ' + lunmap.verifyLunmapSpecifyInexistentId.__name__ + ' failed')
-        if (lunmap.verifyLunmapInvalidOption(c)):
-            failed_cases.append('The case ' + lunmap.verifyLunmapInvalidOption.__name__ + ' failed')
-        if (lunmap.verifyLunmapInvalidParameters(c)):
-            failed_cases.append('The case ' + lunmap.verifyLunmapInvalidParameters.__name__ + ' failed')
-        if (lunmap.verifyLunmapMissingParameters(c)):
-            failed_cases.append('The case ' + lunmap.verifyLunmapMissingParameters.__name__ + ' failed')
-        lunmap.cleanUp(c)
 
         tolog("Start verifying ntp")
         import ntp
