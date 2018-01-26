@@ -33,7 +33,7 @@ def precondition():
         'port_type': 1,
         'ctrl_id': 2,
         'port_id': 1,
-        'tcp_port': 4,
+        'tcp_port': 1026,
         'ip_type': 'IPv4',
         'dhcp': 1
     })
