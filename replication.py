@@ -151,6 +151,15 @@ def forbidden_action(c):
     return cli_failed_test.FailFlag
 
 
+def sync_source_attribute(c):
+
+    cli_setting = cli_test_setting()
+
+    cli_setting.setting(c, data, 'sync_source_attribute', 3)
+
+    return cli_setting.FailFlag
+
+
 def list_replication(c):
 
     cli_list = cli_test_list()
@@ -241,6 +250,7 @@ if __name__ == "__main__":
 
     start_replication(c)
     forbidden_action(c)
+    sync_source_attribute(c)
     list_replication(c)
     list_replication_by_verbose(c)
     stop_replication(c)

@@ -260,6 +260,8 @@ def build_verification(c):
             failed_cases.append('The case ' + replication.start_replication.__name__ + ' failed')
         if (replication.forbidden_action(c)):
             failed_cases.append('The case ' + replication.forbidden_action.__name__ + ' failed')
+        if (replication.sync_source_attribute(c)):
+            failed_cases.append('The case ' + replication.sync_source_attribute.__name__ + ' failed')
         if (replication.list_replication(c)):
             failed_cases.append('The case ' + replication.list_replication.__name__ + ' failed')
         if (replication.list_replication_by_verbose(c)):

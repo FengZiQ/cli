@@ -1,209 +1,121 @@
-# coding=utf-8
+# -*- coding = utf-8 -*-
+# 2018.01.29
 
-from send_cmd import *
-from to_log import *
 from ssh_connect import ssh_conn
+from cli_test import *
+from remote import server
+from find_unconfigured_pd_id import find_pd_id
 
-Pass = "'result': 'p'"
-Fail = "'result': 'f'"
+data = 'data/swmgt.xlsx'
 
-def verifySwmgt(c):
-    FailFlag = False
-    tolog("<b>Verify swmgt </b>")
 
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify swmgt </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
+def list_swmgt(c):
 
-    return FailFlag
+    cli_list = cli_test_list()
 
-def verifySwmgtList(c):
-    FailFlag = False
-    tolog("<b>Verify swmgt -a list </b>")
+    cli_list.list(c, data, 'list_swmgt')
 
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify swmgt -a list </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
+    return cli_list.FailFlag
 
-    return FailFlag
 
-def verifySwmgtStart(c):
-    FailFlag = False
-    tolog("<b>Verify swmgt -a start </b>")
+def start_swmgt(c):
 
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify swmgt -a start </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
+    cli_setting = cli_test_setting()
 
-    return FailFlag
+    cli_setting.setting(c, data, 'start_swmgt', 3)
 
-def verifySwmgtStop(c):
-    FailFlag = False
-    tolog("<b>Verify swmgt -a stop </b>")
+    return cli_setting.FailFlag
 
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify swmgt -a stop </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
 
-    return FailFlag
+def restart_swmgt(c):
 
-def verifySwmgtMod(c):
-    FailFlag = False
-    tolog("<b>Verify swmgt -a mod </b>")
+    cli_setting = cli_test_setting()
 
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify swmgt -a mod </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
+    cli_setting.setting(c, data, 'restart_swmgt', 3)
 
-    return FailFlag
+    return cli_setting.FailFlag
 
-def verifySwmgtAdd(c):
-    FailFlag = False
-    tolog("<b>Verify swmgt -a add</b>")
 
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify swmgt -a add </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
+def stop_swmgt(c):
 
-    return FailFlag
+    cli_setting = cli_test_setting()
 
-def verifySwmgtDel(c):
-    FailFlag = False
-    tolog("<b>Verify swmgt -a del</b>")
+    cli_setting.setting(c, data, 'stop_swmgt', 3)
 
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify swmgt -a del </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
+    return cli_setting.FailFlag
 
-    return FailFlag
 
-def verifySwmgtInvalidOption(c):
-    FailFlag = False
-    tolog("<b>Verify swmgt invalid option</b>")
+def mod_swmgt(c):
 
-    command = [
-        'swmgt -x',
-        'swmgt -a list -x',
-        'swmgt -a mod -x',
-        'swmgt -a start -x ',
-        'swmgt -a stop -x',
-        'swmgt -a add -x'
-    ]
+    cli_setting = cli_test_setting()
 
-    for com in command:
-        tolog('<b> Verify ' + com + '</b>')
+    cli_setting.setting(c, data, 'mod_swmgt', 3)
 
-        result = SendCmd(c, com)
+    return cli_setting.FailFlag
 
-        if "Error (" not in result or "Invalid option" not in result:
-            FailFlag = True
-            tolog('\n<font color="red">Fail: ' + com + ' </font>')
 
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify swmgt invalid option </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
+def add_swmgt(c):
 
-    return FailFlag
+    cli_setting = cli_test_setting()
 
-def verifySwmgtInvalidParameters(c):
-    FailFlag = False
-    tolog("<b>Verify swmgt invalid parameters</b>")
+    cli_setting.setting(c, data, 'add_swmgt', 3)
 
-    command = [
-        'swmgt test',
-        'swmgt -a list test',
-        'swmgt -a mod -n test',
-        'swmgt -a start -n test ',
-        'swmgt -a stop -n test',
-        'swmgt -a add -n ssh -p test'
-    ]
+    return cli_setting.FailFlag
 
-    for com in command:
-        tolog('<b> Verify ' + com + '</b>')
 
-        result = SendCmd(c, com)
+def delete_swmgt(c):
 
-        if "Error (" not in result or "Invalid setting parameters" not in result:
-            FailFlag = True
-            tolog('\n<font color="red">Fail: ' + com + ' </font>')
+    cli_delete = cli_test_delete()
 
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify swmgt invalid parameters </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
+    cli_delete.delete(c, data, 'delete_swmgt')
 
-    return FailFlag
+    return cli_delete.FailFlag
 
-def verifySwmgtMissingParameters(c):
-    FailFlag = False
-    tolog("<b>Verify swmgt missing parameters</b>")
 
-    command = [
-        'swmgt -a',
-        'swmgt -n ',
-        'swmgt -a start -n ',
-        'swmgt -a stop -n',
-        'swmgt -a mod -n snmp -t',
-        'swmgt -a del -n '
-    ]
+def invalid_parameter_for_swmgt(c):
 
-    for com in command:
-        tolog('<b> Verify ' + com + '</b>')
+    cli_failed_test = cli_test_failed_test()
 
-        result = SendCmd(c, com)
+    cli_failed_test.failed_test(c, data, 'invalid_parameter_for_swmgt')
 
-        if "Error (" not in result or "Missing parameter" not in result:
-            FailFlag = True
-            tolog('\n<font color="red">Fail: ' + com + ' </font>')
+    return cli_failed_test.FailFlag
 
-    if FailFlag:
-        tolog('\n<font color="red">Fail: Verify swmgt missing parameters </font>')
-        tolog(Fail)
-    else:
-        tolog('\n<font color="green">Pass</font>')
-        tolog(Pass)
 
-    return FailFlag
+def invalid_option_for_swmgt(c):
+
+    cli_failed_test = cli_test_failed_test()
+
+    cli_failed_test.failed_test(c, data, 'invalid_option_for_swmgt')
+
+    return cli_failed_test.FailFlag
+
+
+def missing_parameter_for_swmgt(c):
+
+    cli_failed_test = cli_test_failed_test()
+
+    cli_failed_test.failed_test(c, data, 'missing_parameter_for_swmgt')
+
+    # clean up environment
+
+    return cli_failed_test.FailFlag
+
 
 if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
-    verifySwmgt(c)
-    verifySwmgtList(c)
-    verifySwmgtStart(c)
-    verifySwmgtStop(c)
-    verifySwmgtMod(c)
-    verifySwmgtAdd(c)
-    verifySwmgtDel(c)
-    verifySwmgtInvalidOption(c)
-    verifySwmgtInvalidParameters(c)
-    verifySwmgtMissingParameters(c)
+
+    list_swmgt(c)
+    start_swmgt(c)
+    restart_swmgt(c)
+    stop_swmgt(c)
+    mod_swmgt(c)
+    add_swmgt(c)
+    delete_swmgt(c)
+    invalid_parameter_for_swmgt(c)
+    invalid_option_for_swmgt(c)
+    missing_parameter_for_swmgt(c)
+
     ssh.close()
     elasped = time.clock() - start
     print "Elasped %s" % elasped
