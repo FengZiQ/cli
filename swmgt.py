@@ -3,8 +3,7 @@
 
 from ssh_connect import ssh_conn
 from cli_test import *
-from remote import server
-from find_unconfigured_pd_id import find_pd_id
+
 
 data = 'data/swmgt.xlsx'
 
@@ -18,11 +17,11 @@ def list_swmgt(c):
     return cli_list.FailFlag
 
 
-def start_swmgt(c):
+def start_stop_swmgt(c):
 
     cli_setting = cli_test_setting()
 
-    cli_setting.setting(c, data, 'start_swmgt', 3)
+    cli_setting.setting(c, data, 'start_stop_swmgt')
 
     return cli_setting.FailFlag
 
@@ -31,16 +30,7 @@ def restart_swmgt(c):
 
     cli_setting = cli_test_setting()
 
-    cli_setting.setting(c, data, 'restart_swmgt', 3)
-
-    return cli_setting.FailFlag
-
-
-def stop_swmgt(c):
-
-    cli_setting = cli_test_setting()
-
-    cli_setting.setting(c, data, 'stop_swmgt', 3)
+    cli_setting.setting(c, data, 'restart_swmgt')
 
     return cli_setting.FailFlag
 
@@ -49,7 +39,7 @@ def mod_swmgt(c):
 
     cli_setting = cli_test_setting()
 
-    cli_setting.setting(c, data, 'mod_swmgt', 3)
+    cli_setting.setting(c, data, 'mod_swmgt')
 
     return cli_setting.FailFlag
 
@@ -58,7 +48,7 @@ def add_swmgt(c):
 
     cli_setting = cli_test_setting()
 
-    cli_setting.setting(c, data, 'add_swmgt', 3)
+    cli_setting.setting(c, data, 'add_swmgt')
 
     return cli_setting.FailFlag
 
@@ -96,8 +86,6 @@ def missing_parameter_for_swmgt(c):
 
     cli_failed_test.failed_test(c, data, 'missing_parameter_for_swmgt')
 
-    # clean up environment
-
     return cli_failed_test.FailFlag
 
 
@@ -106,9 +94,8 @@ if __name__ == "__main__":
     c, ssh = ssh_conn()
 
     list_swmgt(c)
-    start_swmgt(c)
+    start_stop_swmgt(c)
     restart_swmgt(c)
-    stop_swmgt(c)
     mod_swmgt(c)
     add_swmgt(c)
     delete_swmgt(c)

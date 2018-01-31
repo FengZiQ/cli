@@ -108,7 +108,7 @@ def build_verification(c):
 
     if reconnect_flag:
         c, ssh = ssh_conn()
-        # there are 48 command that can be tested
+        # there are 49 command that can be tested
         tolog("Start verifying pool add")
         import pool
         if (pool.add_pool_raid0(c)):
@@ -591,6 +591,27 @@ def build_verification(c):
             failed_cases.append('The case ' + lunmap.invalid_option_for_lunmap.__name__ + ' failed')
         if (lunmap.missing_parameter_for_lunmap(c)):
             failed_cases.append('The case ' + lunmap.missing_parameter_for_lunmap.__name__ + ' failed')
+
+        tolog("Start verifying swmgt")
+        import swmgt
+        if (swmgt.list_swmgt(c)):
+            failed_cases.append('The case ' + swmgt.list_swmgt.__name__ + ' failed')
+        if (swmgt.start_stop_swmgt(c)):
+            failed_cases.append('The case ' + swmgt.start_stop_swmgt.__name__ + ' failed')
+        if (swmgt.restart_swmgt(c)):
+            failed_cases.append('The case ' + swmgt.restart_swmgt.__name__ + ' failed')
+        if (swmgt.mod_swmgt(c)):
+            failed_cases.append('The case ' + swmgt.mod_swmgt.__name__ + ' failed')
+        if (swmgt.add_swmgt(c)):
+            failed_cases.append('The case ' + swmgt.add_swmgt.__name__ + ' failed')
+        if (swmgt.delete_swmgt(c)):
+            failed_cases.append('The case ' + swmgt.delete_swmgt.__name__ + ' failed')
+        if (swmgt.invalid_parameter_for_swmgt(c)):
+            failed_cases.append('The case ' + swmgt.invalid_parameter_for_swmgt.__name__ + ' failed')
+        if (swmgt.invalid_option_for_swmgt(c)):
+            failed_cases.append('The case ' + swmgt.invalid_option_for_swmgt.__name__ + ' failed')
+        if (swmgt.missing_parameter_for_swmgt(c)):
+            failed_cases.append('The case ' + swmgt.missing_parameter_for_swmgt.__name__ + ' failed')
 
         tolog("Start verifying chap")
         import chap
@@ -1109,8 +1130,10 @@ def build_verification(c):
     if len(failed_cases) != 0:
         for f in failed_cases:
             tolog(f)
-
-    c.close()
+    try:
+        c.close()
+    except:
+        tolog('failed shutdown channel')
 
 
 if __name__ == "__main__":
