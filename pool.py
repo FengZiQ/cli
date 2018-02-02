@@ -3,11 +3,45 @@
 
 from ssh_connect import ssh_conn
 import time
+import json
 from cli_test import *
 from remote import server
 from find_unconfigured_pd_id import find_pd_id
 
 data = 'data/pool.xlsx'
+
+
+def precondition():
+    flag = False
+    # get fc device on fabric
+    fabric_request = server.webapi('get', 'fcinitiator')
+    try:
+        fabric_info = json.loads(fabric_request["text"])
+        for fabric in fabric_info:
+            if len(fabric["initiators"]) != 0:
+                temp = fabric["initiators"]
+                for t in temp:
+                    if t['wwnn'] == '25-00-00-01-55-59-ea-9d':
+                        server.webapi('post', 'target', {"name": '25-00-00-01-55-59-ea-9d'})
+                        flag = True
+    except:
+        tolog('precondition is failed\n')
+
+    return flag
+
+
+def add_pool_by_external_drive(c):
+    # precondition
+    if precondition():
+        find_pd_id()
+
+        cli_setting = cli_test_setting()
+
+        cli_setting.setting(c, data, 'add_pool_by_external_drive', 3)
+
+        return cli_setting.FailFlag
+    else:
+        tolog('precondition is failed\n')
 
 
 def add_pool_raid0(c):
@@ -16,15 +50,10 @@ def add_pool_raid0(c):
 
     # precondition
     try:
-
         find_pd_id()
-
     except TypeError:
-
         tolog('precondition is failed\r\n')
-
     else:
-
         cli_setting.setting(c, data, 'add_pool_raid0', 3)
 
     return cli_setting.FailFlag
@@ -460,28 +489,29 @@ if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
 
-    add_pool_raid0(c)
-    add_pool_raid1(c)
-    add_pool_raid5(c)
-    add_pool_raid6(c)
-    add_pool_raid10(c)
-    add_pool_raid50(c)
-    add_pool_raid60(c)
-    add_pool_default_setting(c)
-    modify_pool_name(c)
-    list_pool(c)
-    list_verbose_mode_pool(c)
-    expand_raid0_pool(c)
-    expand_raid1_pool(c)
-    expand_raid5_pool(c)
-    expand_raid6_pool(c)
-    expand_raid10_pool(c)
-    expand_raid50_pool(c)
-    expand_raid60_pool(c)
-    delete_pool(c)
-    invalid_settings_parameter(c)
-    invalid_option(c)
-    missing_parameter(c)
+    add_pool_by_external_drive(c)
+    # add_pool_raid0(c)
+    # add_pool_raid1(c)
+    # add_pool_raid5(c)
+    # add_pool_raid6(c)
+    # add_pool_raid10(c)
+    # add_pool_raid50(c)
+    # add_pool_raid60(c)
+    # add_pool_default_setting(c)
+    # modify_pool_name(c)
+    # list_pool(c)
+    # list_verbose_mode_pool(c)
+    # expand_raid0_pool(c)
+    # expand_raid1_pool(c)
+    # expand_raid5_pool(c)
+    # expand_raid6_pool(c)
+    # expand_raid10_pool(c)
+    # expand_raid50_pool(c)
+    # expand_raid60_pool(c)
+    # delete_pool(c)
+    # invalid_settings_parameter(c)
+    # invalid_option(c)
+    # missing_parameter(c)
 
     ssh.close()
     elasped = time.clock() - start

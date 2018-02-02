@@ -3,88 +3,41 @@
 from send_cmd import *
 from to_log import *
 from ssh_connect import ssh_conn
+from find_unconfigured_pd_id import find_pd_id
+from remote import server
+import json
 
 Pass = "'result': 'p'"
 Fail = "'result': 'f'"
 
-def findBgaSId(c):
-    bgaSInfo = SendCmd(c, 'bgasched')
-    bgaSId = []
 
-    if 'Type' and 'ID' in bgaSInfo:
-        row = bgaSInfo.split('\r\n')
-        for i in range(4, len(row)-2):
-            if len(row[i].split()) >= 6:
-                bgaSId.append(row[i].split()[1] + ':' + row[i].split()[0])
-    else:
-        tolog('There is no bgasched')
+def precondition():
+    # create pool
+    pdId = find_pd_id()
+    if len(pdId) >= 6:
+        server.webapi('post', 'pool', {"name": "testBgasched1", "pds": pdId[:3], "raid_level": "raid5"})
+        server.webapi('post', 'pool', {"name": "testBgasched2", "pds": pdId[3:5], "raid_level": "raid1"})
+        server.webapi('post', 'pool', {"name": "testBgasched3", "pds": [pdId[5:6]], "raid_level": "raid0"})
 
-    return bgaSId
 
-def findPlId(c):
-    plInfo = SendCmd(c, 'pool')
-    pdId = []
-    row = plInfo.split('\r\n')
+def clean_up_environment():
 
-    for i in range(4, len(row) - 2):
-        if len(row[i].split()) >= 9:
-            pdId.append(row[i].split()[0])
+    bgaS_request = server.webapi('get', 'bgaschedule')
 
-    return pdId
+    bgaS_info = json.loads(bgaS_request['text'])
+
+    for info in bgaS_info:
+
+        server.webapi('delete', 'bgaschedule/' + str(info['id']))
+
 
 def verifyBgaschedAdd(c):
     FailFlag = False
 
     # precondition
-    def delOldBgasched(c):
-        bgaSId = findBgaSId(c)
-        if len(bgaSId) != 0:
-            for typeId in bgaSId:
-                if 'BatteryRecondition' in typeId:
-                    SendCmd(c, 'bgasched -a del -t br -i ' + typeId[0])
-                elif 'SpareCheck' in typeId:
-                    SendCmd(c, 'bgasched -a del -t sc -i ' + typeId[0])
-                elif 'RedundancyCheck' in typeId:
-                    SendCmd(c, 'bgasched -a del -t rc -i ' + typeId[0])
+    precondition()
 
-    # delete old bgasched
-    delOldBgasched(c)
-
-    # create pool
-    plId = findPlId(c)
-    if len(plId) !=0:
-        for i in plId:
-            SendCmdconfirm(c, 'pool -a del -f -i ' + i)
-
-        pdInfo = SendCmd(c, 'phydrv')
-        pdId = []
-        pdRow = pdInfo.split('\r\n')
-        for i in range(4, (len(pdRow) - 2)):
-            if "Unconfigured" in pdRow[i] and 'HDD' in pdRow[i]:
-                pdId.append(pdRow[i].split()[0])
-        if len(pdId) >= 5:
-            SendCmd(c, 'pool -a add -s "name=testBgasched1, raid=1" -p ' + pdId[0] + ',' + pdId[1])
-            SendCmd(c, 'pool -a add -s "name=testBgasched2, raid=1" -p ' + pdId[2] + ',' + pdId[3])
-            SendCmd(c, 'pool -a add -s "name=testBgasched3, raid=0" -p ' + pdId[4])
-        else:
-            tolog('\n\n The lack of pd')
-            exit()
-    else:
-        pdInfo = SendCmd(c, 'phydrv')
-        pdId = []
-        pdRow = pdInfo.split('\r\n')
-        for i in range(4, (len(pdRow) - 2)):
-            if "Unconfigured" in pdRow[i]:
-                pdId.append(pdRow[i].split()[0])
-        if len(pdId) >= 5:
-            SendCmd(c, 'pool -a add -s "name=testBgasched1, raid=1" -p ' + pdId[0] + ',' + pdId[1])
-            SendCmd(c, 'pool -a add -s "name=testBgasched2, raid=1" -p ' + pdId[2] + ',' + pdId[3])
-            SendCmd(c, 'pool -a add -s "name=testBgasched3, raid=0" -p ' + pdId[4])
-        else:
-            tolog('\n\n The lack of pd')
-            exit()
-
-    poolId = findPlId(c)
+    poolId = ['0', '1', '2']
     type = ['rc', 'br', 'sc']
     # confirm information
     listType = ['Type: RedundancyCheck', 'Type: BatteryRecondition', 'Type: SpareCheck']
@@ -108,14 +61,15 @@ def verifyBgaschedAdd(c):
             tolog('Fail: ' + 'bgasched -a add -t ' + type[i] + ' -s "recurtype=daily')
             FailFlag = True
 
-    delOldBgasched(c)
+    clean_up_environment()
+
     # pool of raid0 can not create rc bgasched
     result = SendCmd(c, 'bgasched -a add -t rc -s "recurtype=daily,poolid=2"')
     if 'Error (' not in result:
         FailFlag = True
         tolog('Fail: bgasched -a add -t rc -s "recurtype=daily,poolid=2"')
 
-    delOldBgasched(c)
+    clean_up_environment()
 
     # add bgasched of weekly type
     tolog('add bgasched of weekly type')
@@ -138,7 +92,7 @@ def verifyBgaschedAdd(c):
                 tolog('Fail: ' + 'bgasched -a add -t ' + type[i])
                 FailFlag = True
 
-    delOldBgasched(c)
+    clean_up_environment()
 
     # add bgasched of monthly type
     tolog('add bgasched of monthly type')
@@ -155,7 +109,7 @@ def verifyBgaschedAdd(c):
             tolog('Fail: ' + 'bgasched -a add -t ' + type[i] + ' -s "recurtype=monthly')
             FailFlag = True
 
-    delOldBgasched(c)
+    clean_up_environment()
 
     if FailFlag:
         tolog('\n<font color="red">Fail: To verify add bgasched </font>')
@@ -165,6 +119,7 @@ def verifyBgaschedAdd(c):
         tolog(Pass)
 
     return FailFlag
+
 
 def verifyBgaschedMod(c):
     FailFlag = False
@@ -299,6 +254,7 @@ def verifyBgaschedMod(c):
 
     return FailFlag
 
+
 def verifyBgaschedList(c):
     FailFlag = False
     command = ['bgasched',
@@ -324,26 +280,24 @@ def verifyBgaschedList(c):
 
     return FailFlag
 
+
 def verifyBgaschedDel(c):
     FailFlag = False
-    bgaSId = findBgaSId(c)
-    if len(bgaSId) != 0:
-        for typeId in bgaSId:
-            if 'BatteryRecondition' in typeId:
-                result = SendCmd(c, 'bgasched -a del -t br -i ' + typeId[0])
-                if 'Error (' in result:
-                    FailFlag = True
-                    tolog('Fail: ' + 'bgasched -a del -t br -i ' + typeId[0])
-            elif 'SpareCheck' in typeId:
-                result = SendCmd(c, 'bgasched -a del -t sc -i ' + typeId[0])
-                if 'Error (' in result:
-                    FailFlag = True
-                    tolog('Fail: ' + 'bgasched -a del -t sc -i ' + typeId[0])
-            elif 'RedundancyCheck' in typeId:
-                result = SendCmd(c, 'bgasched -a del -t rc -i ' + typeId[0])
-                if 'Error (' in result:
-                    FailFlag = True
-                    tolog('Fail: ' + 'bgasched -a del -t rc -i ' + typeId[0])
+
+    result = SendCmd(c, 'bgasched -a del -t br -i 1')
+    if 'Error (' in result:
+        FailFlag = True
+        tolog('Fail: ' + 'bgasched -a del -t br -i 1')
+
+    result = SendCmd(c, 'bgasched -a del -t sc -i 1')
+    if 'Error (' in result:
+        FailFlag = True
+        tolog('Fail: ' + 'bgasched -a del -t sc -i 1')
+
+    result = SendCmd(c, 'bgasched -a del -t rc -i 1')
+    if 'Error (' in result:
+        FailFlag = True
+        tolog('Fail: ' + 'bgasched -a del -t rc -i 1')
 
     if FailFlag:
         tolog('\n<font color="red">Fail: To verify delete bgasched </font>')
@@ -353,6 +307,7 @@ def verifyBgaschedDel(c):
         tolog(Pass)
 
     return FailFlag
+
 
 def verifyBgaschedHelp(c):
     FailFlag = False
@@ -369,6 +324,7 @@ def verifyBgaschedHelp(c):
         tolog(Pass)
 
     return FailFlag
+
 
 def verifyBgaschedInvalidOption(c):
     FailFlag = False
@@ -391,6 +347,7 @@ def verifyBgaschedInvalidOption(c):
         tolog(Pass)
 
     return FailFlag
+
 
 def verifyBgaschedInvalidParameters(c):
     FailFlag = False
@@ -443,6 +400,7 @@ def verifyBgaschedInvalidParameters(c):
 
     return FailFlag
 
+
 def verifyBgaschedMissingParameters(c):
     FailFlag = False
     command = ['bgasched -t ',
@@ -462,22 +420,17 @@ def verifyBgaschedMissingParameters(c):
         tolog('\n<font color="green">Pass</font>')
         tolog(Pass)
 
+    # clean up environment
+    clean_up_environment()
+    find_pd_id()
+
     return FailFlag
 
-def clearUp(c):
-    plInfo = SendCmd(c, 'pool')
-    row = plInfo.split('\r\n')
-    plId = []
-    for i in range(4, len(row) - 2):
-        if len(row[i].split()) >= 9 and 'testBgasched' in row[i]:
-            plId.append(row[i].split()[0])
-
-    for i in plId:
-        SendCmdconfirm(c, 'pool -a del -f -i ' + i)
 
 if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
+
     verifyBgaschedAdd(c)
     verifyBgaschedMod(c)
     verifyBgaschedList(c)
@@ -486,7 +439,7 @@ if __name__ == "__main__":
     verifyBgaschedInvalidOption(c)
     verifyBgaschedInvalidParameters(c)
     verifyBgaschedMissingParameters(c)
-    clearUp(c)
+
     ssh.close()
     elasped = time.clock() - start
     print "Elasped %s" % elasped

@@ -12,6 +12,20 @@ data = 'data/phydrv.xlsx'
 
 def precondition():
     pdId = find_pd_id()
+
+    # to add target
+    fabric_request = server.webapi('get', 'fcinitiator')
+    try:
+        fabric_info = json.loads(fabric_request["text"])
+        for fabric in fabric_info:
+            if len(fabric["initiators"]) != 0:
+                temp = fabric["initiators"]
+                for t in temp:
+                    if t['wwnn'] == '25-00-00-01-55-59-ea-9d':
+                        server.webapi('post', 'target', {"name": '25-00-00-01-55-59-ea-9d'})
+    except:
+        tolog('precondition is failed\n')
+
     ssd_id = []
 
     # create pool

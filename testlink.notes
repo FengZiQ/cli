@@ -104269,3 +104269,3568 @@ invalid option: -test
 
 administrator@cli> 
 'result': 'p'
+
+Expect: list specific physical drive of HDD type
+
+phydrv -p 1
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Pool0           
+     S640                                                                      
+
+administrator@cli> 
+
+Expect: list specific physical drive of SSD type
+
+phydrv -p 5
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         Unconfigured    
+
+administrator@cli> 
+
+Expect: only display 2 physical drive info
+
+phydrv -c 2
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Pool0           
+     S640                                                                      
+2    HDS722020AL SAS HDD  2 TB        Encl1 Slot2   OK         Pool1           
+     A330                                                                      
+
+administrator@cli> 
+
+Expect: all of physical drive should be listed
+
+phydrv
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Pool0           
+     S640                                                                      
+2    HDS722020AL SAS HDD  2 TB        Encl1 Slot2   OK         Pool1           
+     A330                                                                      
+3    ST373455SS  SAS HDD  73 GB       Encl1 Slot3   OK         Pool1           
+4    HUS724040AL SAS HDD  4 TB        Encl1 Slot4   OK         Pool1           
+     S640                                                                      
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         Unconfigured    
+6    SSD U110    SAS SSD  31 GB       Encl1 Slot6   OK         Unconfigured    
+     32GB                                                                      
+8    HUS724040AL SAS HDD  4 TB        Encl1 Slot8   OK         Global Spare    
+     S640                                                                      
+9    HUS724040AL SAS HDD  4 TB        Encl1 Slot9   OK         Dedicated Spare 
+     S640                                                                      
+10   HUA723020AL SAS HDD  2 TB        Encl1 Slot10  OK         Unconfigured    
+     A640                                                                      
+11   HDS722020AL SAS HDD  2 TB        Encl1 Slot11  OK         Unconfigured    
+     A330                                                                      
+12   HUS724040AL SAS HDD  4 TB        Encl1 Slot12  OK         Unconfigured    
+     S640                                                                      
+13   ST3146356SS SAS HDD  146 GB      Encl1 Slot13  OK         Unconfigured    
+14   HUS723020AL SAS HDD  2 TB        Encl1 Slot14  OK         Unconfigured    
+     S640                                                                      
+15   ST380815AS  SAS HDD  79 GB       Encl1 Slot15  OK         Unconfigured    
+16   SSDSA2SH032 SAS SSD  31 GB       Encl1 Slot16  OK         Unconfigured    
+     G1GN                                                                      
+
+administrator@cli> 
+
+Expect: external drive info should be listed
+
+phydrv -l
+===============================================================================
+Id   UUID              Capacity  Vendor      Model          Status      PoolId
+===============================================================================
+1    2222d00015593ba8d 10 GB     Promise     VTrak E5800f   Not usable  N/A    
+2    222400001551da33c 30 GB     Promise     VTrak E5800f   Not usable  N/A    
+3    222590001551acef8 30 GB     Promise     VTrak E5800f   Not usable  N/A    
+4    22275000155f4c099 30 GB     Promise     VTrak E5800f   Not usable  N/A    
+5    22276000155acacdd 10 GB     Promise     VTrak E5800f   Not usable  N/A    
+6    222bb000155e4bdbd 10 GB     Promise     VTrak E5800f   Not usable  N/A    
+7    222c00001553141f8 9 GB      Promise     VTrak E5800f   Not usable  N/A    
+8    222cf0001556dc9c8 30 GB     Promise     VTrak E5800f   Not usable  N/A    
+9    222e0000155dbabed 10 GB     Promise     VTrak E5800f   Not usable  N/A    
+10   222e300015583c7a9 30 GB     Promise     VTrak E5800f   Not usable  N/A    
+
+administrator@cli> 
+'result': 'p'
+
+Expect: list specific physical drive of HDD type by verbose mode
+
+phydrv -v -p 1
+-------------------------------------------------------------------------------
+PdId: 1                                 EnclId: 1
+SlotId: 1                               DriveType: SAS
+OperationalStatus: OK                   Alias: 
+PhysicalCapacity: 2 TB                  ConfigurableCapacity: 2 TB
+UsedCapacity: 2 TB                      BlockSize: 512 Bytes
+CfgStatus: Pool0                        Location: Encl1 Slot1
+ModelNo: HITACHI HUS723020ALS640        ModelBrief: HUS723020ALS640
+VisibleTo: All Controllers              SerialNo: YGGEU7BA
+FwVer: A5B0                             ProtocolMajorVer: SPC-4
+TrimType: Not Support                   MediaType: HDD
+Type: SAS HDD                           Temperature: 32C/89F
+ReferenceTemperature: 85C/185F          PowerSavingLevel: Disabled
+WriteCacheSupport: Enabled              WriteCache: Enabled
+RlaCacheSupport: Enabled                RlaCache: Enabled
+WWN: 5000-cca0-1c19-1e40                NumPorts: 2
+Port1SASAddress: 50-00-cc-a0-1c-19-1e-41
+Port1Speed: Unknown (0)                 Port2Speed: 6Gb/s
+Port2SASAddress: 50-00-cc-a0-1c-19-1e-42
+Interface: 6Gb/s                        ReadCacheSupport: Enabled
+ReadCache: Enabled                      CmdQueuingSupport: Enabled
+CmdQueuing: Enabled                     SASSATABridgeFirmwareVersion: N/A
+SASSATABridgeBootLoaderVersion: N/A     TempPollInt: 33
+MediumErrorThreshold: 64                Glatency: 0
+DataTransfered: 1827607040              ReadDataTransfered: 1208995328
+WriteDataTransfered: 618611712          Errors: 0
+NonRwErrors: 0                          ReadErrors: 0
+WriteErrors: 0                          NumOfMediumErrors: 0
+IoRequest: 21293                        NonRwRequest: 1393
+ReadIoRequest: 10241                    WriteIoRequest: 10241
+AvgResponseTimeForCtrl1: N/A            AvgResponseTimeForCtrl2: 2 milliseconds
+MaxResponseTimeForCtrl2: 860 milliseconds
+MaxResponseTimeForCtrl1: N/A            StartTime: 2018-01-31 15:01:11
+CollectionTime: 2018-01-31 21:20:18
+
+administrator@cli> 
+
+Expect: list specific physical drive of SSD type by verbose mode
+
+phydrv -v -p 5
+-------------------------------------------------------------------------------
+PdId: 5                                 EnclId: 1
+SlotId: 5                               DriveType: SAS
+OperationalStatus: OK                   Alias: 
+PhysicalCapacity: 32 GB                 ConfigurableCapacity: 31 GB
+UsedCapacity: 0 Byte                    BlockSize: 512 Bytes
+CfgStatus: Unconfigured                 Location: Encl1 Slot5
+ModelNo: SSDSA2SH032G1GN INTEL          ModelBrief: INTEL
+VisibleTo: All Controllers              SerialNo: CVEM9384002J032HGN
+FwVer: 8790                             ProtocolMajorVer: SPC-3
+TrimType: Not Support                   MediaType: SSD
+Type: SAS SSD                           Temperature: N/A
+ReferenceTemperature: N/A               PowerSavingLevel: Disabled
+WriteCacheSupport: Enabled              WriteCache: Enabled
+RlaCacheSupport: Enabled                RlaCache: Enabled
+WWN: 5001-5179-5909-1395                NumPorts: 2
+Port1SASAddress: 50-06-05-ba-00-72-5d-21
+Port1Speed: Unknown (0)                 Port2Speed: 6Gb/s
+Port2SASAddress: 50-06-05-ba-00-72-5d-22
+Interface: 6Gb/s                        ReadCacheSupport: Disabled
+ReadCache: Enabled                      CmdQueuingSupport: Enabled
+SASSATABridgeFirmwareVersion: 14_00_00_00
+SASSATABridgeBootLoaderVersion: 0A_00_00_00
+CmdQueuing: Enabled                     TempPollInt: 33
+MediumErrorThreshold: 64                Glatency: 0
+DataTransfered: 1536                    ReadDataTransfered: 1536
+WriteDataTransfered: 0                  Errors: 0
+NonRwErrors: 0                          ReadErrors: 0
+WriteErrors: 0                          NumOfMediumErrors: 0
+IoRequest: 34                           NonRwRequest: 31
+ReadIoRequest: 3                        WriteIoRequest: 3
+AvgResponseTimeForCtrl1: N/A            AvgResponseTimeForCtrl2: 1 milliseconds
+MaxResponseTimeForCtrl2: 410 milliseconds
+MaxResponseTimeForCtrl1: N/A            StartTime: 2018-01-31 15:01:11
+CollectionTime: 2018-01-31 21:20:19
+
+administrator@cli> 
+
+Expect: all of physical drive should be listed by verbose mode
+
+phydrv -v
+-------------------------------------------------------------------------------
+PdId: 1                                 EnclId: 1
+SlotId: 1                               DriveType: SAS
+OperationalStatus: OK                   Alias: 
+PhysicalCapacity: 2 TB                  ConfigurableCapacity: 2 TB
+UsedCapacity: 2 TB                      BlockSize: 512 Bytes
+CfgStatus: Pool0                        Location: Encl1 Slot1
+ModelNo: HITACHI HUS723020ALS640        ModelBrief: HUS723020ALS640
+VisibleTo: All Controllers              SerialNo: YGGEU7BA
+FwVer: A5B0                             ProtocolMajorVer: SPC-4
+TrimType: Not Support                   MediaType: HDD
+Type: SAS HDD                           Temperature: 32C/89F
+ReferenceTemperature: 85C/185F          PowerSavingLevel: Disabled
+WriteCacheSupport: Enabled              WriteCache: Enabled
+RlaCacheSupport: Enabled                RlaCache: Enabled
+WWN: 5000-cca0-1c19-1e40                NumPorts: 2
+Port1SASAddress: 50-00-cc-a0-1c-19-1e-41
+Port1Speed: Unknown (0)                 Port2Speed: 6Gb/s
+Port2SASAddress: 50-00-cc-a0-1c-19-1e-42
+Interface: 6Gb/s                        ReadCacheSupport: Enabled
+ReadCache: Enabled                      CmdQueuingSupport: Enabled
+CmdQueuing: Enabled                     SASSATABridgeFirmwareVersion: N/A
+SASSATABridgeBootLoaderVersion: N/A     TempPollInt: 33
+MediumErrorThreshold: 64                Glatency: 0
+DataTransfered: 1827607040              ReadDataTransfered: 1208995328
+WriteDataTransfered: 618611712          Errors: 0
+NonRwErrors: 0                          ReadErrors: 0
+WriteErrors: 0                          NumOfMediumErrors: 0
+IoRequest: 21293                        NonRwRequest: 1393
+ReadIoRequest: 10241                    WriteIoRequest: 10241
+AvgResponseTimeForCtrl1: N/A            AvgResponseTimeForCtrl2: 2 milliseconds
+MaxResponseTimeForCtrl2: 860 milliseconds
+MaxResponseTimeForCtrl1: N/A            StartTime: 2018-01-31 15:01:11
+CollectionTime: 2018-01-31 21:20:19
+-------------------------------------------------------------------------------
+PdId: 2                                 EnclId: 1
+SlotId: 2                               DriveType: SAS
+OperationalStatus: OK                   Alias: 
+PhysicalCapacity: 2 TB                  ConfigurableCapacity: 2 TB
+UsedCapacity: 73 GB                     BlockSize: 512 Bytes
+CfgStatus: Pool1                        Location: Encl1 Slot2
+ModelNo: Hitachi HDS722020ALA330        ModelBrief: HDS722020ALA330
+VisibleTo: All Controllers              SerialNo: JK11A8B9HL84YF
+FwVer: A3MA                             ProtocolMajorVer: SPC-3
+TrimType: Not Support                   MediaType: HDD
+Type: SAS HDD                           Temperature: N/A
+ReferenceTemperature: N/A               PowerSavingLevel: Disabled
+WriteCacheSupport: Enabled              WriteCache: Enabled
+RlaCacheSupport: Enabled                RlaCache: Enabled
+WWN: 5000-cca2-22d6-64d0                NumPorts: 2
+Port1SASAddress: 50-06-05-ba-00-72-c0-91
+Port1Speed: Unknown (0)                 Port2Speed: 6Gb/s
+Port2SASAddress: 50-06-05-ba-00-72-c0-92
+Interface: 6Gb/s                        ReadCacheSupport: Disabled
+ReadCache: Enabled                      CmdQueuingSupport: Enabled
+SASSATABridgeFirmwareVersion: 14_00_00_00
+SASSATABridgeBootLoaderVersion: 0A_00_00_00
+CmdQueuing: Enabled                     TempPollInt: 33
+MediumErrorThreshold: 64                Glatency: 0
+DataTransfered: 6519452160              ReadDataTransfered: 4331597312
+WriteDataTransfered: 2187854848         Errors: 0
+NonRwErrors: 0                          ReadErrors: 0
+WriteErrors: 0                          NumOfMediumErrors: 0
+IoRequest: 70832                        NonRwRequest: 33
+ReadIoRequest: 37188                    WriteIoRequest: 37188
+AvgResponseTimeForCtrl1: N/A            AvgResponseTimeForCtrl2: 3 milliseconds
+MaxResponseTimeForCtrl2: 410 milliseconds
+MaxResponseTimeForCtrl1: N/A            StartTime: 2018-01-31 15:01:11
+CollectionTime: 2018-01-31 21:20:19
+-------------------------------------------------------------------------------
+PdId: 3                                 EnclId: 1
+SlotId: 3                               DriveType: SAS
+OperationalStatus: OK                   Alias: 
+PhysicalCapacity: 73.41 GB              ConfigurableCapacity: 73 GB
+UsedCapacity: 73 GB                     BlockSize: 512 Bytes
+CfgStatus: Pool1                        Location: Encl1 Slot3
+ModelNo: SEAGATE ST373455SS             ModelBrief: ST373455SS
+VisibleTo: All Controllers              SerialNo: 3LQ2RN3S
+FwVer: S527                             ProtocolMajorVer: SPC-3
+TrimType: Not Support                   MediaType: HDD
+Type: SAS HDD                           Temperature: 31C/87F
+ReferenceTemperature: 68C/154F          PowerSavingLevel: Disabled
+WriteCacheSupport: Enabled              WriteCache: Enabled
+RlaCacheSupport: Enabled                RlaCache: Enabled
+WWN: 5000-c500-084f-388f                NumPorts: 2
+Port1SASAddress: 50-00-c5-00-08-4f-38-8d
+Port1Speed: 3Gb/s                       Port2Speed: 3Gb/s
+Port2SASAddress: 50-00-c5-00-08-4f-38-8e
+Interface: 3Gb/s                        ReadCacheSupport: Enabled
+ReadCache: Enabled                      CmdQueuingSupport: Enabled
+CmdQueuing: Enabled                     SASSATABridgeFirmwareVersion: N/A
+SASSATABridgeBootLoaderVersion: N/A     TempPollInt: 33
+MediumErrorThreshold: 64                Glatency: 0
+DataTransfered: 6519812096              ReadDataTransfered: 4332173824
+WriteDataTransfered: 2187638272         Errors: 0
+NonRwErrors: 0                          ReadErrors: 0
+WriteErrors: 0                          NumOfMediumErrors: 0
+IoRequest: 72184                        NonRwRequest: 1393
+ReadIoRequest: 37201                    WriteIoRequest: 37201
+AvgResponseTimeForCtrl1: N/A            AvgResponseTimeForCtrl2: 4 milliseconds
+MaxResponseTimeForCtrl2: 120 milliseconds
+MaxResponseTimeForCtrl1: N/A            StartTime: 2018-01-31 15:01:11
+CollectionTime: 2018-01-31 21:20:19
+-------------------------------------------------------------------------------
+PdId: 4                                 EnclId: 1
+SlotId: 4                               DriveType: SAS
+OperationalStatus: OK                   Alias: 
+PhysicalCapacity: 4 TB                  ConfigurableCapacity: 4 TB
+UsedCapacity: 73 GB                     BlockSize: 512 Bytes
+CfgStatus: Pool1                        Location: Encl1 Slot4
+ModelNo: HGST    HUS724040ALS640        ModelBrief: HUS724040ALS640
+VisibleTo: All Controllers              SerialNo: PBGVY90X
+FwVer: A124                             ProtocolMajorVer: SPC-4
+TrimType: Not Support                   MediaType: HDD
+Type: SAS HDD                           Temperature: 36C/96F
+ReferenceTemperature: 85C/185F          PowerSavingLevel: Disabled
+WriteCacheSupport: Enabled              WriteCache: Enabled
+RlaCacheSupport: Enabled                RlaCache: Enabled
+WWN: 5000-cca0-3b30-fe68                NumPorts: 2
+Port1SASAddress: 50-00-cc-a0-3b-30-fe-69
+Port1Speed: Unknown (0)                 Port2Speed: 6Gb/s
+Port2SASAddress: 50-00-cc-a0-3b-30-fe-6a
+Interface: 6Gb/s                        ReadCacheSupport: Enabled
+ReadCache: Enabled                      CmdQueuingSupport: Enabled
+CmdQueuing: Enabled                     SASSATABridgeFirmwareVersion: N/A
+SASSATABridgeBootLoaderVersion: N/A     TempPollInt: 33
+MediumErrorThreshold: 64                Glatency: 0
+DataTransfered: 4726117888              ReadDataTransfered: 3144070144
+WriteDataTransfered: 1582047744         Errors: 0
+NonRwErrors: 0                          ReadErrors: 0
+WriteErrors: 0                          NumOfMediumErrors: 0
+IoRequest: 52560                        NonRwRequest: 1396
+ReadIoRequest: 26987                    WriteIoRequest: 26987
+AvgResponseTimeForCtrl1: N/A            AvgResponseTimeForCtrl2: 3 milliseconds
+MaxResponseTimeForCtrl2: 120 milliseconds
+MaxResponseTimeForCtrl1: N/A            StartTime: 2018-01-31 15:01:11
+CollectionTime: 2018-01-31 21:20:19
+-------------------------------------------------------------------------------
+PdId: 5                                 EnclId: 1
+SlotId: 5                               DriveType: SAS
+OperationalStatus: OK                   Alias: 
+PhysicalCapacity: 32 GB                 ConfigurableCapacity: 31 GB
+UsedCapacity: 0 Byte                    BlockSize: 512 Bytes
+CfgStatus: Unconfigured                 Location: Encl1 Slot5
+ModelNo: SSDSA2SH032G1GN INTEL          ModelBrief: INTEL
+VisibleTo: All Controllers              SerialNo: CVEM9384002J032HGN
+FwVer: 8790                             ProtocolMajorVer: SPC-3
+TrimType: Not Support                   MediaType: SSD
+Type: SAS SSD                           Temperature: N/A
+ReferenceTemperature: N/A               PowerSavingLevel: Disabled
+WriteCacheSupport: Enabled              WriteCache: Enabled
+RlaCacheSupport: Enabled                RlaCache: Enabled
+WWN: 5001-5179-5909-1395                NumPorts: 2
+Port1SASAddress: 50-06-05-ba-00-72-5d-21
+Port1Speed: Unknown (0)                 Port2Speed: 6Gb/s
+Port2SASAddress: 50-06-05-ba-00-72-5d-22
+Interface: 6Gb/s                        ReadCacheSupport: Disabled
+ReadCache: Enabled                      CmdQueuingSupport: Enabled
+SASSATABridgeFirmwareVersion: 14_00_00_00
+SASSATABridgeBootLoaderVersion: 0A_00_00_00
+CmdQueuing: Enabled                     TempPollInt: 33
+MediumErrorThreshold: 64                Glatency: 0
+DataTransfered: 1536                    ReadDataTransfered: 1536
+WriteDataTransfered: 0                  Errors: 0
+NonRwErrors: 0                          ReadErrors: 0
+WriteErrors: 0                          NumOfMediumErrors: 0
+IoRequest: 34                           NonRwRequest: 31
+ReadIoRequest: 3                        WriteIoRequest: 3
+AvgResponseTimeForCtrl1: N/A            AvgResponseTimeForCtrl2: 1 milliseconds
+MaxResponseTimeForCtrl2: 410 milliseconds
+MaxResponseTimeForCtrl1: N/A            StartTime: 2018-01-31 15:01:11
+CollectionTime: 2018-01-31 21:20:19
+-------------------------------------------------------------------------------
+PdId: 6                                 EnclId: 1
+SlotId: 6                               DriveType: SAS
+OperationalStatus: OK                   Alias: 
+PhysicalCapacity: 32.02 GB              ConfigurableCapacity: 31 GB
+UsedCapacity: 0 Byte                    BlockSize: 512 Bytes
+CfgStatus: Unconfigured                 Location: Encl1 Slot6
+ModelNo: SanDisk SSD U110 32GB          ModelBrief: SSD U110 32GB
+VisibleTo: All Controllers              SerialNo: 141406400035
+FwVer: 000                              ProtocolMajorVer: SPC-3
+TrimType: IRAT                          MediaType: SSD
+Type: SAS SSD                           Temperature: N/A
+ReferenceTemperature: N/A               PowerSavingLevel: Disabled
+WriteCacheSupport: Enabled              WriteCache: Enabled
+RlaCacheSupport: Enabled                RlaCache: Enabled
+WWN: 5001-b44b-f80f-6a23                NumPorts: 2
+Port1SASAddress: 50-06-05-ba-00-15-bd-25
+Port1Speed: Unknown (0)                 Port2Speed: 6Gb/s
+Port2SASAddress: 50-06-05-ba-00-15-bd-26
+Interface: 6Gb/s                        ReadCacheSupport: Disabled
+ReadCache: Enabled                      CmdQueuingSupport: Enabled
+SASSATABridgeFirmwareVersion: 14_00_00_00
+SASSATABridgeBootLoaderVersion: 0A_00_00_00
+CmdQueuing: Enabled                     TempPollInt: 33
+MediumErrorThreshold: 64                Glatency: 0
+DataTransfered: 1536                    ReadDataTransfered: 1536
+WriteDataTransfered: 0                  Errors: 0
+NonRwErrors: 0                          ReadErrors: 0
+WriteErrors: 0                          NumOfMediumErrors: 0
+IoRequest: 34                           NonRwRequest: 31
+ReadIoRequest: 3                        WriteIoRequest: 3
+AvgResponseTimeForCtrl1: N/A            AvgResponseTimeForCtrl2: 1 milliseconds
+MaxResponseTimeForCtrl2: 410 milliseconds
+MaxResponseTimeForCtrl1: N/A            StartTime: 2018-01-31 15:01:11
+CollectionTime: 2018-01-31 21:20:19
+-------------------------------------------------------------------------------
+PdId: 8                                 EnclId: 1
+SlotId: 8                               DriveType: SAS
+OperationalStatus: OK                   Alias: 
+PhysicalCapacity: 4 TB                  ConfigurableCapacity: 4 TB
+UsedCapacity: 0 Byte                    BlockSize: 512 Bytes
+CfgStatus: Global Spare                 Location: Encl1 Slot8
+ModelNo: HGST    HUS724040ALS640        ModelBrief: HUS724040ALS640
+VisibleTo: All Controllers              SerialNo: PBGW70LX
+FwVer: A124                             ProtocolMajorVer: SPC-4
+TrimType: Not Support                   MediaType: HDD
+Type: SAS HDD                           Temperature: 38C/100F
+ReferenceTemperature: 85C/185F          PowerSavingLevel: Disabled
+WriteCacheSupport: Enabled              WriteCache: Enabled
+RlaCacheSupport: Enabled                RlaCache: Enabled
+WWN: 5000-cca0-3b31-8178                NumPorts: 2
+Port1SASAddress: 50-00-cc-a0-3b-31-81-79
+Port1Speed: Unknown (0)                 Port2Speed: 6Gb/s
+Port2SASAddress: 50-00-cc-a0-3b-31-81-7a
+Interface: 6Gb/s                        ReadCacheSupport: Enabled
+ReadCache: Enabled                      CmdQueuingSupport: Enabled
+CmdQueuing: Enabled                     SASSATABridgeFirmwareVersion: N/A
+SASSATABridgeBootLoaderVersion: N/A     TempPollInt: 33
+MediumErrorThreshold: 64                Glatency: 0
+DataTransfered: 9498624                 ReadDataTransfered: 1536
+WriteDataTransfered: 9497088            Errors: 0
+NonRwErrors: 0                          ReadErrors: 0
+WriteErrors: 0                          NumOfMediumErrors: 0
+IoRequest: 1561                         NonRwRequest: 1394
+ReadIoRequest: 3                        WriteIoRequest: 3
+AvgResponseTimeForCtrl1: N/A            AvgResponseTimeForCtrl2: 1 milliseconds
+MaxResponseTimeForCtrl2: 60 milliseconds
+MaxResponseTimeForCtrl1: N/A            StartTime: 2018-01-31 15:01:11
+CollectionTime: 2018-01-31 21:20:19
+-------------------------------------------------------------------------------
+PdId: 9                                 EnclId: 1
+SlotId: 9                               DriveType: SAS
+OperationalStatus: OK                   Alias: 
+PhysicalCapacity: 4 TB                  ConfigurableCapacity: 4 TB
+UsedCapacity: 0 Byte                    BlockSize: 512 Bytes
+CfgStatus: Dedicated Spare              Location: Encl1 Slot9
+ModelNo: HGST    HUS724040ALS640        ModelBrief: HUS724040ALS640
+VisibleTo: All Controllers              SerialNo: PBH1ZHNX
+FwVer: A124                             ProtocolMajorVer: SPC-4
+TrimType: Not Support                   MediaType: HDD
+Type: SAS HDD                           Temperature: 36C/96F
+ReferenceTemperature: 85C/185F          PowerSavingLevel: Disabled
+WriteCacheSupport: Enabled              WriteCache: Enabled
+RlaCacheSupport: Enabled                RlaCache: Enabled
+WWN: 5000-cca0-3b3b-f98c                NumPorts: 2
+Port1SASAddress: 50-00-cc-a0-3b-3b-f9-8d
+Port1Speed: Unknown (0)                 Port2Speed: 6Gb/s
+Port2SASAddress: 50-00-cc-a0-3b-3b-f9-8e
+Interface: 6Gb/s                        ReadCacheSupport: Enabled
+ReadCache: Enabled                      CmdQueuingSupport: Enabled
+CmdQueuing: Enabled                     SASSATABridgeFirmwareVersion: N/A
+SASSATABridgeBootLoaderVersion: N/A     TempPollInt: 33
+MediumErrorThreshold: 64                Glatency: 0
+DataTransfered: 9498624                 ReadDataTransfered: 1536
+WriteDataTransfered: 9497088            Errors: 0
+NonRwErrors: 0                          ReadErrors: 0
+WriteErrors: 0                          NumOfMediumErrors: 0
+IoRequest: 1561                         NonRwRequest: 1394
+ReadIoRequest: 3                        WriteIoRequest: 3
+AvgResponseTimeForCtrl1: N/A            AvgResponseTimeForCtrl2: 1 milliseconds
+MaxResponseTimeForCtrl2: 60 milliseconds
+MaxResponseTimeForCtrl1: N/A            StartTime: 2018-01-31 15:01:11
+CollectionTime: 2018-01-31 21:20:19
+-------------------------------------------------------------------------------
+PdId: 10                                EnclId: 1
+SlotId: 10                              DriveType: SAS
+OperationalStatus: OK                   Alias: 
+PhysicalCapacity: 2 TB                  ConfigurableCapacity: 2 TB
+UsedCapacity: 0 Byte                    BlockSize: 512 Bytes
+CfgStatus: Unconfigured                 Location: Encl1 Slot10
+ModelNo: Hitachi HUA723020ALA640        ModelBrief: HUA723020ALA640
+VisibleTo: All Controllers              SerialNo: MK0271YGHR5YZA
+FwVer: AA10                             ProtocolMajorVer: SPC-3
+TrimType: Not Support                   MediaType: HDD
+Type: SAS HDD                           Temperature: N/A
+ReferenceTemperature: N/A               PowerSavingLevel: Disabled
+WriteCacheSupport: Enabled              WriteCache: Enabled
+RlaCacheSupport: Enabled                RlaCache: Enabled
+WWN: 5000-cca2-24d8-2e11                NumPorts: 2
+Port1SASAddress: 50-06-05-ba-00-72-c2-71
+Port1Speed: Unknown (0)                 Port2Speed: 6Gb/s
+Port2SASAddress: 50-06-05-ba-00-72-c2-72
+Interface: 6Gb/s                        ReadCacheSupport: Disabled
+ReadCache: Enabled                      CmdQueuingSupport: Enabled
+SASSATABridgeFirmwareVersion: 14_00_00_00
+SASSATABridgeBootLoaderVersion: 0A_00_00_00
+CmdQueuing: Enabled                     TempPollInt: 33
+MediumErrorThreshold: 64                Glatency: 0
+DataTransfered: 1536                    ReadDataTransfered: 1536
+WriteDataTransfered: 0                  Errors: 0
+NonRwErrors: 0                          ReadErrors: 0
+WriteErrors: 0                          NumOfMediumErrors: 0
+IoRequest: 34                           NonRwRequest: 31
+ReadIoRequest: 3                        WriteIoRequest: 3
+AvgResponseTimeForCtrl1: N/A            AvgResponseTimeForCtrl2: 1 milliseconds
+MaxResponseTimeForCtrl2: 410 milliseconds
+MaxResponseTimeForCtrl1: N/A            StartTime: 2018-01-31 15:01:11
+CollectionTime: 2018-01-31 21:20:19
+-------------------------------------------------------------------------------
+PdId: 11                                EnclId: 1
+SlotId: 11                              DriveType: SAS
+OperationalStatus: OK                   Alias: 
+PhysicalCapacity: 2 TB                  ConfigurableCapacity: 2 TB
+UsedCapacity: 0 Byte                    BlockSize: 512 Bytes
+CfgStatus: Unconfigured                 Location: Encl1 Slot11
+ModelNo: Hitachi HDS722020ALA330        ModelBrief: HDS722020ALA330
+VisibleTo: All Controllers              SerialNo: JK11A8B9HLDL9F
+FwVer: A3MA                             ProtocolMajorVer: SPC-3
+TrimType: Not Support                   MediaType: HDD
+Type: SAS HDD                           Temperature: N/A
+ReferenceTemperature: N/A               PowerSavingLevel: Disabled
+WriteCacheSupport: Enabled              WriteCache: Enabled
+RlaCacheSupport: Enabled                RlaCache: Enabled
+WWN: 5000-cca2-22d6-7572                NumPorts: 2
+Port1SASAddress: 50-06-05-ba-00-72-c2-d9
+Port1Speed: Unknown (0)                 Port2Speed: 6Gb/s
+Port2SASAddress: 50-06-05-ba-00-72-c2-da
+Interface: 6Gb/s                        ReadCacheSupport: Disabled
+ReadCache: Enabled                      CmdQueuingSupport: Enabled
+SASSATABridgeFirmwareVersion: 14_00_00_00
+SASSATABridgeBootLoaderVersion: 0A_00_00_00
+CmdQueuing: Enabled                     TempPollInt: 33
+MediumErrorThreshold: 64                Glatency: 0
+DataTransfered: 1536                    ReadDataTransfered: 1536
+WriteDataTransfered: 0                  Errors: 0
+NonRwErrors: 0                          ReadErrors: 0
+WriteErrors: 0                          NumOfMediumErrors: 0
+IoRequest: 34                           NonRwRequest: 31
+ReadIoRequest: 3                        WriteIoRequest: 3
+AvgResponseTimeForCtrl1: N/A            AvgResponseTimeForCtrl2: 1 milliseconds
+MaxResponseTimeForCtrl2: 410 milliseconds
+MaxResponseTimeForCtrl1: N/A            StartTime: 2018-01-31 15:01:11
+CollectionTime: 2018-01-31 21:20:19
+-------------------------------------------------------------------------------
+PdId: 12                                EnclId: 1
+SlotId: 12                              DriveType: SAS
+OperationalStatus: OK                   Alias: 
+PhysicalCapacity: 4 TB                  ConfigurableCapacity: 4 TB
+UsedCapacity: 0 Byte                    BlockSize: 512 Bytes
+CfgStatus: Unconfigured                 Location: Encl1 Slot12
+ModelNo: HGST    HUS724040ALS640        ModelBrief: HUS724040ALS640
+VisibleTo: All Controllers              SerialNo: PBGWRKXX
+FwVer: A124                             ProtocolMajorVer: SPC-4
+TrimType: Not Support                   MediaType: HDD
+Type: SAS HDD                           Temperature: 36C/96F
+ReferenceTemperature: 85C/185F          PowerSavingLevel: Disabled
+WriteCacheSupport: Enabled              WriteCache: Enabled
+RlaCacheSupport: Enabled                RlaCache: Enabled
+WWN: 5000-cca0-3b32-6b18                NumPorts: 2
+Port1SASAddress: 50-00-cc-a0-3b-32-6b-19
+Port1Speed: Unknown (0)                 Port2Speed: 6Gb/s
+Port2SASAddress: 50-00-cc-a0-3b-32-6b-1a
+Interface: 6Gb/s                        ReadCacheSupport: Enabled
+ReadCache: Enabled                      CmdQueuingSupport: Enabled
+CmdQueuing: Enabled                     SASSATABridgeFirmwareVersion: N/A
+SASSATABridgeBootLoaderVersion: N/A     TempPollInt: 33
+MediumErrorThreshold: 64                Glatency: 0
+DataTransfered: 1536                    ReadDataTransfered: 1536
+WriteDataTransfered: 0                  Errors: 0
+NonRwErrors: 0                          ReadErrors: 0
+WriteErrors: 0                          NumOfMediumErrors: 0
+IoRequest: 1397                         NonRwRequest: 1394
+ReadIoRequest: 3                        WriteIoRequest: 3
+AvgResponseTimeForCtrl1: N/A            AvgResponseTimeForCtrl2: 1 milliseconds
+MaxResponseTimeForCtrl2: 60 milliseconds
+MaxResponseTimeForCtrl1: N/A            StartTime: 2018-01-31 15:01:11
+CollectionTime: 2018-01-31 21:20:19
+-------------------------------------------------------------------------------
+PdId: 13                                EnclId: 1
+SlotId: 13                              DriveType: SAS
+OperationalStatus: OK                   Alias: 
+PhysicalCapacity: 146.82 GB             ConfigurableCapacity: 146 GB
+UsedCapacity: 0 Byte                    BlockSize: 512 Bytes
+CfgStatus: Unconfigured                 Location: Encl1 Slot13
+ModelNo: SEAGATE ST3146356SS            ModelBrief: ST3146356SS
+VisibleTo: All Controllers              SerialNo: 3QN1V1R7
+FwVer: HS0A                             ProtocolMajorVer: SPC-3
+TrimType: Not Support                   MediaType: HDD
+Type: SAS HDD                           Temperature: 33C/91F
+ReferenceTemperature: 68C/154F          PowerSavingLevel: Disabled
+WriteCacheSupport: Enabled              WriteCache: Enabled
+RlaCacheSupport: Enabled                RlaCache: Enabled
+WWN: 5000-c500-135e-561b                NumPorts: 2
+Port1SASAddress: 50-00-c5-00-13-5e-56-19
+Port1Speed: 1.5Gb/s                     Port2Speed: 3Gb/s
+Port2SASAddress: 50-00-c5-00-13-5e-56-1a
+Interface: 3Gb/s                        ReadCacheSupport: Enabled
+ReadCache: Enabled                      CmdQueuingSupport: Enabled
+CmdQueuing: Enabled                     SASSATABridgeFirmwareVersion: N/A
+SASSATABridgeBootLoaderVersion: N/A     TempPollInt: 33
+MediumErrorThreshold: 64                Glatency: 0
+DataTransfered: 1536                    ReadDataTransfered: 1536
+WriteDataTransfered: 0                  Errors: 0
+NonRwErrors: 0                          ReadErrors: 0
+WriteErrors: 0                          NumOfMediumErrors: 0
+IoRequest: 1394                         NonRwRequest: 1391
+ReadIoRequest: 3                        WriteIoRequest: 3
+AvgResponseTimeForCtrl1: N/A            AvgResponseTimeForCtrl2: 2 milliseconds
+MaxResponseTimeForCtrl2: 100 milliseconds
+MaxResponseTimeForCtrl1: N/A            StartTime: 2018-01-31 15:01:11
+CollectionTime: 2018-01-31 21:20:19
+-------------------------------------------------------------------------------
+PdId: 14                                EnclId: 1
+SlotId: 14                              DriveType: SAS
+OperationalStatus: OK                   Alias: 
+PhysicalCapacity: 2 TB                  ConfigurableCapacity: 2 TB
+UsedCapacity: 0 Byte                    BlockSize: 512 Bytes
+CfgStatus: Unconfigured                 Location: Encl1 Slot14
+ModelNo: HITACHI HUS723020ALS640        ModelBrief: HUS723020ALS640
+VisibleTo: All Controllers              SerialNo: YFJ6TSEK
+FwVer: A5B0                             ProtocolMajorVer: SPC-4
+TrimType: Not Support                   MediaType: HDD
+Type: SAS HDD                           Temperature: 36C/96F
+ReferenceTemperature: 85C/185F          PowerSavingLevel: Disabled
+WriteCacheSupport: Enabled              WriteCache: Enabled
+RlaCacheSupport: Enabled                RlaCache: Enabled
+WWN: 5000-cca0-1b7d-18a8                NumPorts: 2
+Port1SASAddress: 50-00-cc-a0-1b-7d-18-a9
+Port1Speed: Unknown (0)                 Port2Speed: 6Gb/s
+Port2SASAddress: 50-00-cc-a0-1b-7d-18-aa
+Interface: 6Gb/s                        ReadCacheSupport: Enabled
+ReadCache: Enabled                      CmdQueuingSupport: Enabled
+CmdQueuing: Enabled                     SASSATABridgeFirmwareVersion: N/A
+SASSATABridgeBootLoaderVersion: N/A     TempPollInt: 33
+MediumErrorThreshold: 64                Glatency: 0
+DataTransfered: 1536                    ReadDataTransfered: 1536
+WriteDataTransfered: 0                  Errors: 0
+NonRwErrors: 0                          ReadErrors: 0
+WriteErrors: 0                          NumOfMediumErrors: 0
+IoRequest: 1394                         NonRwRequest: 1391
+ReadIoRequest: 3                        WriteIoRequest: 3
+AvgResponseTimeForCtrl1: N/A            AvgResponseTimeForCtrl2: 1 milliseconds
+MaxResponseTimeForCtrl2: 50 milliseconds
+MaxResponseTimeForCtrl1: N/A            StartTime: 2018-01-31 15:01:11
+CollectionTime: 2018-01-31 21:20:19
+-------------------------------------------------------------------------------
+PdId: 15                                EnclId: 1
+SlotId: 15                              DriveType: SAS
+OperationalStatus: OK                   Alias: 
+PhysicalCapacity: 80.03 GB              ConfigurableCapacity: 79 GB
+UsedCapacity: 0 Byte                    BlockSize: 512 Bytes
+CfgStatus: Unconfigured                 Location: Encl1 Slot15
+ModelNo: ST380815AS                     ModelBrief: ST380815AS
+VisibleTo: All Controllers              SerialNo: 6QZ167QX
+FwVer: C                                ProtocolMajorVer: SPC-3
+TrimType: Not Support                   MediaType: HDD
+Type: SAS HDD                           Temperature: N/A
+ReferenceTemperature: N/A               PowerSavingLevel: Disabled
+WriteCacheSupport: Enabled              WriteCache: Enabled
+RlaCacheSupport: Enabled                RlaCache: Enabled
+WWN: 4154-4120-2020-2020                NumPorts: 2
+Port1SASAddress: 50-06-05-ba-00-15-b3-6d
+Port1Speed: Unknown (0)                 Port2Speed: 6Gb/s
+Port2SASAddress: 50-06-05-ba-00-15-b3-6e
+Interface: 6Gb/s                        ReadCacheSupport: Disabled
+ReadCache: Enabled                      CmdQueuingSupport: Enabled
+SASSATABridgeFirmwareVersion: 14_00_00_00
+SASSATABridgeBootLoaderVersion: 0A_00_00_00
+CmdQueuing: Enabled                     TempPollInt: 33
+MediumErrorThreshold: 64                Glatency: 0
+DataTransfered: 1536                    ReadDataTransfered: 1536
+WriteDataTransfered: 0                  Errors: 0
+NonRwErrors: 0                          ReadErrors: 0
+WriteErrors: 0                          NumOfMediumErrors: 0
+IoRequest: 34                           NonRwRequest: 31
+ReadIoRequest: 3                        WriteIoRequest: 3
+AvgResponseTimeForCtrl1: N/A            AvgResponseTimeForCtrl2: 1 milliseconds
+MaxResponseTimeForCtrl2: 410 milliseconds
+MaxResponseTimeForCtrl1: N/A            StartTime: 2018-01-31 15:01:11
+CollectionTime: 2018-01-31 21:20:19
+-------------------------------------------------------------------------------
+PdId: 16                                EnclId: 1
+SlotId: 16                              DriveType: SAS
+OperationalStatus: OK                   Alias: 
+PhysicalCapacity: 32 GB                 ConfigurableCapacity: 31 GB
+UsedCapacity: 0 Byte                    BlockSize: 512 Bytes
+CfgStatus: Unconfigured                 Location: Encl1 Slot16
+ModelNo: INTEL SSDSA2SH032G1GN          ModelBrief: SSDSA2SH032G1GN
+VisibleTo: All Controllers              SerialNo: CVEM82840034032HGN
+FwVer: 8620                             ProtocolMajorVer: SPC-3
+TrimType: Not Support                   MediaType: SSD
+Type: SAS SSD                           Temperature: N/A
+ReferenceTemperature: N/A               PowerSavingLevel: Disabled
+WriteCacheSupport: Enabled              WriteCache: Enabled
+RlaCacheSupport: Enabled                RlaCache: Enabled
+WWN: 5001-5170-ed62-119d                NumPorts: 2
+Port1SASAddress: 50-06-05-ba-00-15-eb-bd
+Port1Speed: Unknown (0)                 Port2Speed: 6Gb/s
+Port2SASAddress: 50-06-05-ba-00-15-eb-be
+Interface: 6Gb/s                        ReadCacheSupport: Disabled
+ReadCache: Enabled                      CmdQueuingSupport: Enabled
+SASSATABridgeFirmwareVersion: 14_00_00_00
+SASSATABridgeBootLoaderVersion: 0A_00_00_00
+CmdQueuing: Enabled                     TempPollInt: 33
+MediumErrorThreshold: 64                Glatency: 0
+DataTransfered: 1536                    ReadDataTransfered: 1536
+WriteDataTransfered: 0                  Errors: 0
+NonRwErrors: 0                          ReadErrors: 0
+WriteErrors: 0                          NumOfMediumErrors: 0
+IoRequest: 34                           NonRwRequest: 31
+ReadIoRequest: 3                        WriteIoRequest: 3
+AvgResponseTimeForCtrl1: N/A            AvgResponseTimeForCtrl2: 1 milliseconds
+MaxResponseTimeForCtrl2: 410 milliseconds
+MaxResponseTimeForCtrl1: N/A            StartTime: 2018-01-31 15:01:11
+CollectionTime: 2018-01-31 21:20:19
+
+administrator@cli> 
+
+Expect: external drive info should be listed by verbose mode
+
+phydrv -v -l
+-------------------------------------------------------------------------------
+Id: 1                                   UUID: 2222d00015593ba8d
+Capacity: 10 GB                         Vendor: Promise
+Model: VTrak E5800f                     Status: Not usable
+PoolId: N/A
+
+===============================================================================
+Policy                                   DevieStatus                           
+===============================================================================
+round-robin 0                            activ                                 
+
+-------------------------------------------------------------------------------
+Id: 2                                   UUID: 222400001551da33c
+Capacity: 30 GB                         Vendor: Promise
+Model: VTrak E5800f                     Status: Not usable
+PoolId: N/A
+
+===============================================================================
+Policy                                   DevieStatus                           
+===============================================================================
+round-robin 0                            activ                                 
+
+-------------------------------------------------------------------------------
+Id: 3                                   UUID: 222590001551acef8
+Capacity: 30 GB                         Vendor: Promise
+Model: VTrak E5800f                     Status: Not usable
+PoolId: N/A
+
+===============================================================================
+Policy                                   DevieStatus                           
+===============================================================================
+round-robin 0                            activ                                 
+
+-------------------------------------------------------------------------------
+Id: 4                                   UUID: 22275000155f4c099
+Capacity: 30 GB                         Vendor: Promise
+Model: VTrak E5800f                     Status: Not usable
+PoolId: N/A
+
+===============================================================================
+Policy                                   DevieStatus                           
+===============================================================================
+round-robin 0                            activ                                 
+
+-------------------------------------------------------------------------------
+Id: 5                                   UUID: 22276000155acacdd
+Capacity: 10 GB                         Vendor: Promise
+Model: VTrak E5800f                     Status: Not usable
+PoolId: N/A
+
+===============================================================================
+Policy                                   DevieStatus                           
+===============================================================================
+round-robin 0                            activ                                 
+
+-------------------------------------------------------------------------------
+Id: 6                                   UUID: 222bb000155e4bdbd
+Capacity: 10 GB                         Vendor: Promise
+Model: VTrak E5800f                     Status: Not usable
+PoolId: N/A
+
+===============================================================================
+Policy                                   DevieStatus                           
+===============================================================================
+round-robin 0                            activ                                 
+
+-------------------------------------------------------------------------------
+Id: 7                                   UUID: 222c00001553141f8
+Capacity: 9 GB                          Vendor: Promise
+Model: VTrak E5800f                     Status: Not usable
+PoolId: N/A
+
+===============================================================================
+Policy                                   DevieStatus                           
+===============================================================================
+round-robin 0                            activ                                 
+
+-------------------------------------------------------------------------------
+Id: 8                                   UUID: 222cf0001556dc9c8
+Capacity: 30 GB                         Vendor: Promise
+Model: VTrak E5800f                     Status: Not usable
+PoolId: N/A
+
+===============================================================================
+Policy                                   DevieStatus                           
+===============================================================================
+round-robin 0                            activ                                 
+
+-------------------------------------------------------------------------------
+Id: 9                                   UUID: 222e0000155dbabed
+Capacity: 10 GB                         Vendor: Promise
+Model: VTrak E5800f                     Status: Not usable
+PoolId: N/A
+
+===============================================================================
+Policy                                   DevieStatus                           
+===============================================================================
+round-robin 0                            activ                                 
+
+-------------------------------------------------------------------------------
+Id: 10                                  UUID: 222e300015583c7a9
+Capacity: 30 GB                         Vendor: Promise
+Model: VTrak E5800f                     Status: Not usable
+PoolId: N/A
+
+===============================================================================
+Policy                                   DevieStatus                           
+===============================================================================
+round-robin 0                            activ                                 
+
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Missing parameter
+
+phydrv -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+phydrv -c
+Error (0x403): Missing parameter
+-c: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+phydrv -a mod
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+phydrv -a mod -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+phydrv -a mod -p 1 -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+phydrv -a mod -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+phydrv -a mod -d
+Error (0x403): Missing parameter
+-d: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+phydrv -a mod -d all -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+phydrv -a mod -d sata -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+phydrv -a mod -d sas -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+phydrv -a locate
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a locate'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+phydrv -a offline
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a offline'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+phydrv -a online
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a online'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+phydrv -a clear
+Error (0x403): Missing parameter
+missing parameter '-p' for '-a clear'
+
+administrator@cli> 
+'result': 'p'
+
+Expect: initiator of iscsi type should be added with name 1
+
+initiator -a add -t iscsi -n 1
+
+administrator@cli> 
+initiator -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   Type: iscsi
+Name: 1
+
+administrator@cli> 
+
+Expect: initiator of iscsi type should be added with name T
+
+initiator -a add -i 0 -t iscsi -n T
+
+administrator@cli> 
+initiator -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   Type: iscsi
+Name: 1
+
+administrator@cli> 
+
+Fail: please check out Name: T
+
+
+Expect: initiator of iscsi type should be added with name 1.1.com
+
+initiator -a add -t iscsi -n 1.1.com
+
+administrator@cli> 
+initiator -i 1
+-------------------------------------------------------------------------------
+Id: 1                                   Type: iscsi
+Name: T
+
+administrator@cli> 
+
+Fail: please check out Name: 1.1.com
+
+
+Expect: initiator of iscsi type should be added with name T-:.1.1
+
+initiator -a add -t iscsi -n T-:.1.1
+
+administrator@cli> 
+initiator -i 2
+-------------------------------------------------------------------------------
+Id: 2                                   Type: iscsi
+Name: 1.1.com
+
+administrator@cli> 
+
+Fail: please check out Name: 1.1.1
+
+
+Expect: initiator of iscsi type should be added with name 1.1.1
+
+initiator -a add -t iscsi -n 1.1.1
+
+administrator@cli> 
+initiator -i 3
+-------------------------------------------------------------------------------
+Id: 3                                   Type: iscsi
+Name: T-:.1.1
+
+administrator@cli> 
+
+Expect: initiator of fc type should be added with name 01-23-45-67-89-00-11-22
+
+initiator -a add -i 3 -t fc -n 01-23-45-67-89-00-11-22
+
+administrator@cli> 
+initiator -i 3
+-------------------------------------------------------------------------------
+Id: 3                                   Type: iscsi
+Name: T-:.1.1
+
+administrator@cli> 
+
+Fail: please check out Type: fc
+
+
+Fail: please check out Name: 01-23-45-67-89-00-11-22
+
+
+Expect: initiator of fc type should be added with name A1-b0-45-67-f9-00-11-22
+
+initiator -a add -t fc -n A1-b0-45-67-f9-00-11-22
+
+administrator@cli> 
+initiator -i 4
+-------------------------------------------------------------------------------
+Id: 4                                   Type: iscsi
+Name: 1.1.1
+
+administrator@cli> 
+
+Fail: please check out Type: fc
+
+
+Fail: please check out Name: A1-b0-45-67-f9-00-11-22
+
+
+Expect: initiator of fc type should be added with name 00-00-00-00-00-00-00-00
+
+initiator -a add -t fc -n 00-00-00-00-00-00-00-00
+
+administrator@cli> 
+initiator -i 5
+-------------------------------------------------------------------------------
+Id: 5                                   Type: fc
+Name: 01-23-45-67-89-00-11-22
+
+administrator@cli> 
+
+Fail: please check out Name: 00-00-00-00-00-00-00-00
+
+
+Expect: initiator of fc type should be added with name AA-AA-AA-AA-AA-AA-AA-AA
+
+initiator -a add -t fc -n AA-AA-AA-AA-AA-AA-AA-AA
+
+administrator@cli> 
+initiator -i 6
+-------------------------------------------------------------------------------
+Id: 6                                   Type: fc
+Name: a1-b0-45-67-f9-00-11-22
+
+administrator@cli> 
+
+Fail: please check out Name: AA-AA-AA-AA-AA-AA-AA-AA
+
+
+Expect: initiator of fc type should be added with name ff-ff-ff-ff-ff-ff-ff-ff
+
+initiator -a add -t fc -n ff-ff-ff-ff-ff-ff-ff-ff
+
+administrator@cli> 
+initiator -i 7
+-------------------------------------------------------------------------------
+Id: 7                                   Type: fc
+Name: 00-00-00-00-00-00-00-00
+
+administrator@cli> 
+
+Fail: please check out Name: ff-ff-ff-ff-ff-ff-ff-ff
+
+
+Expect: initiator of iscsi type should be added with name test
+
+initiator -a add -i 7 -t iscsi -n test
+
+administrator@cli> 
+initiator -i 7
+-------------------------------------------------------------------------------
+Id: 7                                   Type: fc
+Name: 00-00-00-00-00-00-00-00
+
+administrator@cli> 
+
+Fail: please check out Type: iscsi
+
+
+Fail: please check out Name: test
+
+'result': 'f'
+
+Expect: all initiator should be listed
+
+initiator
+-------------------------------------------------------------------------------
+Id: 0                                   Type: iscsi
+Name: 1
+-------------------------------------------------------------------------------
+Id: 1                                   Type: iscsi
+Name: T
+-------------------------------------------------------------------------------
+Id: 2                                   Type: iscsi
+Name: 1.1.com
+-------------------------------------------------------------------------------
+Id: 3                                   Type: iscsi
+Name: T-:.1.1
+-------------------------------------------------------------------------------
+Id: 4                                   Type: iscsi
+Name: 1.1.1
+-------------------------------------------------------------------------------
+Id: 5                                   Type: fc
+Name: 01-23-45-67-89-00-11-22
+-------------------------------------------------------------------------------
+Id: 6                                   Type: fc
+Name: a1-b0-45-67-f9-00-11-22
+-------------------------------------------------------------------------------
+Id: 7                                   Type: fc
+Name: 00-00-00-00-00-00-00-00
+-------------------------------------------------------------------------------
+Id: 8                                   Type: fc
+Name: aa-aa-aa-aa-aa-aa-aa-aa
+-------------------------------------------------------------------------------
+Id: 9                                   Type: fc
+Name: ff-ff-ff-ff-ff-ff-ff-ff
+-------------------------------------------------------------------------------
+Id: 10                                  Type: iscsi
+Name: test
+
+administrator@cli> 
+
+Expect: initiator 0 should be listed
+
+initiator -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   Type: iscsi
+Name: 1
+
+administrator@cli> 
+
+Expect: initiator 0/1 should be listed
+
+initiator -i 0 -c 2
+-------------------------------------------------------------------------------
+Id: 0                                   Type: iscsi
+Name: 1
+-------------------------------------------------------------------------------
+Id: 1                                   Type: iscsi
+Name: T
+
+administrator@cli> 
+'result': 'p'
+
+Expect: initiator 0 should be deleted
+
+initiator -a del -i 0
+
+administrator@cli> 
+initiator -i 0
+-------------------------------------------------------------------------------
+Id: 1                                   Type: iscsi
+Name: T
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Invalid setting parameters
+
+initiator test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting initiator type
+
+initiator -a add -t test -n 1
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (fc|iscsi)
+
+administrator@cli> 
+
+Expect: Invalid setting index value when adds initiator
+
+initiator -a add -i 100 -t iscsi -n abc
+
+administrator@cli> 
+
+Fail: initiator -a add -i 100 -t iscsi -n abc
+
+
+Expect: Invalid setting iscsi type name
+
+initiator -a add -t iscsi -n *#%$
+Error (0x2013): Invalid setting parameters
+name contain only alphanumeric characters, dot, hyphen and colon
+
+administrator@cli> 
+
+Expect: Invalid setting fc type name
+
+initiator -a add -t fc -n T-:.1.1
+Error (0x402): Invalid parameter
+-n: initiator name should be 8 bytes long
+
+administrator@cli> 
+
+Expect: Invalid setting index value when lists initiator
+
+initiator -i 2048
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 2048 (0,2047)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+initiator -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+initiator -a del test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting index value when deletes initiator
+
+initiator -a del -i 200
+Error (0x498B5202): Invalid initiator index
+
+administrator@cli> 
+'result': 'f'
+
+Expect: Invalid option for the command or the action
+
+initiator -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+initiator -a add -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+initiator -a del -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Missing parameter
+
+initiator -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+initiator -c 2
+-------------------------------------------------------------------------------
+Id: 1                                   Type: iscsi
+Name: T
+-------------------------------------------------------------------------------
+Id: 2                                   Type: iscsi
+Name: 1.1.com
+-------------------------------------------------------------------------------
+Id: 3                                   Type: iscsi
+Name: T-:.1.1
+-------------------------------------------------------------------------------
+Id: 4                                   Type: iscsi
+Name: 1.1.1
+-------------------------------------------------------------------------------
+Id: 5                                   Type: fc
+Name: 01-23-45-67-89-00-11-22
+-------------------------------------------------------------------------------
+Id: 6                                   Type: fc
+Name: a1-b0-45-67-f9-00-11-22
+-------------------------------------------------------------------------------
+Id: 7                                   Type: fc
+Name: 00-00-00-00-00-00-00-00
+-------------------------------------------------------------------------------
+Id: 8                                   Type: fc
+Name: aa-aa-aa-aa-aa-aa-aa-aa
+-------------------------------------------------------------------------------
+Id: 9                                   Type: fc
+Name: ff-ff-ff-ff-ff-ff-ff-ff
+-------------------------------------------------------------------------------
+Id: 10                                  Type: iscsi
+Name: test
+-------------------------------------------------------------------------------
+Id: 100                                 Type: iscsi
+Name: abc
+
+administrator@cli> 
+
+Fail: initiator -c 2
+
+
+Expect: Missing parameter
+
+initiator -i 0 -c
+Error (0x403): Missing parameter
+-c: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+initiator -a add
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+initiator -a add -i 10 -n abc
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+initiator -a add -t iscsi -n 
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+initiator -a add -t fc -n
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+initiator -a del
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a del'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+initiator -a del -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+'result': 'f'
+
+Expect: portal of physical type should be added by "iptype=4,dhcp=enable,tcpport=1025,porttype=io,attribute=io"
+
+iscsi -a add -t portal -r 2 -p 1 -m phy -s "iptype=4,dhcp=enable,tcpport=1025,porttype=io,attribute=io"
+
+administrator@cli> 
+iscsi -t portal -v -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   TcpPort: 1025
+Dhcp: Enabled                           InterfaceType: Physical
+PortType: IO                            CtrlId: 2
+PortId: 1                               Status: Active (Ctrl 2)
+InterfaceName: 1                        IpType: 4
+PrimaryIp: 0.0.0.0                      PrimaryIpMask: 0.0.0.0
+Gateway: 0.0.0.0                        AssnTargets: 0
+SecondRoute: Disabled                   RouteInterface: 
+Attribute: IO
+
+administrator@cli> 
+
+Expect: portal of physical type should be added by "iptype=4,dhcp=enable,tcpport=1026,porttype=io,attribute=advanced"
+
+iscsi -a add -t portal -r 2 -p 1 -m phy -s "iptype=4,dhcp=enable,tcpport=1026,porttype=io,attribute=advanced"
+
+administrator@cli> 
+iscsi -t portal -v -i 1
+-------------------------------------------------------------------------------
+Id: 1                                   TcpPort: 1026
+Dhcp: Enabled                           InterfaceType: Physical
+PortType: IO                            CtrlId: 2
+PortId: 1                               Status: Active (Ctrl 2)
+InterfaceName: 1                        IpType: 4
+PrimaryIp: 0.0.0.0                      PrimaryIpMask: 0.0.0.0
+Gateway: 0.0.0.0                        AssnTargets: 0
+SecondRoute: Disabled                   RouteInterface: 
+Attribute: Advanced
+
+administrator@cli> 
+
+Expect: portal of physical type should be added by "iptype=4,dhcp=disable,primaryip=10.84.2.241,primaryipmask=255.255.255.0,gateway=10.84.2.1,tcpport=65534"
+
+iscsi -a add -t portal -r 2 -p 2 -s "iptype=4,dhcp=disable,primaryip=10.84.2.241,primaryipmask=255.255.255.0,gateway=10.84.2.1,tcpport=65534,porttype=io,attribute=io"
+
+administrator@cli> 
+iscsi -t portal -v -i 2
+-------------------------------------------------------------------------------
+Id: 2                                   TcpPort: 65534
+Dhcp: Disabled                          InterfaceType: Physical
+PortType: IO                            CtrlId: 2
+PortId: 2                               Status: Active (Ctrl 2)
+InterfaceName: 2                        IpType: 4
+PrimaryIp: 10.84.2.241                  PrimaryIpMask: 255.255.255.0
+Gateway: 10.84.2.1                      AssnTargets: 0
+SecondRoute: Disabled                   RouteInterface: 
+Attribute: IO
+
+administrator@cli> 
+
+Expect: vlan of physical type should be added by "vlantag=1,iptype=4,dhcp=disable,primaryip=10.84.2.253,primaryipmask=255.255.255.0,gateway=10.84.2.1,tcpport=65535,porttype=io,attribute=io"
+
+iscsi -a add -t portal -r 2 -p 1 -m vlan -s "vlantag=1,iptype=4,dhcp=disable,primaryip=10.84.2.253,primaryipmask=255.255.255.0,gateway=10.84.2.1,tcpport=65535,porttype=io,attribute=io"
+
+administrator@cli> 
+iscsi -t portal -v -i 3
+-------------------------------------------------------------------------------
+Id: 3                                   TcpPort: 65535
+Dhcp: Disabled                          InterfaceType: VLAN
+PortType: IO                            CtrlId: 2
+PortId: 1                               Status: Active (Ctrl 2)
+InterfaceName: 1.1                      VlanTag: 1
+IpType: 4                               PrimaryIp: 10.84.2.253
+PrimaryIpMask: 255.255.255.0            Gateway: 10.84.2.1
+AssnTargets: 0                          SecondRoute: Disabled
+RouteInterface:                         Attribute: IO
+
+administrator@cli> 
+
+Expect: vlan of physical type should be added by "vlantag=2,iptype=4,dhcp=enable,porttype=mgmt,attribute=io"
+
+iscsi -a add -t portal -r 2 -p 2 -m vlan -s "vlantag=2,iptype=4,dhcp=enable,porttype=mgmt,attribute=io"
+
+administrator@cli> 
+iscsi -t portal -v -i 4
+-------------------------------------------------------------------------------
+Id: 4                                   TcpPort: 3260
+Dhcp: Enabled                           InterfaceType: VLAN
+PortType: Mgmt                          CtrlId: 2
+PortId: 2                               Status: Active (Ctrl 2)
+InterfaceName: 2.2                      VlanTag: 2
+IpType: 4                               PrimaryIp: 0.0.0.0
+PrimaryIpMask: 0.0.0.0                  Gateway: 0.0.0.0
+AssnTargets: 0                          SecondRoute: Disabled
+RouteInterface:                         Attribute: IO
+
+administrator@cli> 
+
+Expect: vlan of physical type should be added by "vlantag=2,iptype=4,dhcp=enable,tcpport=65535,porttype=mgmt,attribute=io"
+
+iscsi -a add -t portal -r 2 -p 2 -m vlan -s "vlantag=2,iptype=4,dhcp=enable,tcpport=65535,porttype=mgmt,attribute=io"
+
+administrator@cli> 
+iscsi -t portal -v -i 5
+-------------------------------------------------------------------------------
+Id: 5                                   TcpPort: 65535
+Dhcp: Enabled                           InterfaceType: VLAN
+PortType: Mgmt                          CtrlId: 2
+PortId: 2                               Status: Active (Ctrl 2)
+InterfaceName: 2.2                      VlanTag: 2
+IpType: 4                               PrimaryIp: 0.0.0.0
+PrimaryIpMask: 0.0.0.0                  Gateway: 0.0.0.0
+AssnTargets: 0                          SecondRoute: Disabled
+RouteInterface:                         Attribute: IO
+
+administrator@cli> 
+
+Expect: portal of physical type should be added by "iptype=6,dhcp=enable,tcpport=65534,porttype=mgmt,attribute=io"
+
+iscsi -a add -t portal -r 2 -p 1 -m phy -s "iptype=6,dhcp=enable,tcpport=65534,porttype=mgmt,attribute=io"
+
+administrator@cli> 
+iscsi -t portal -v -i 6
+-------------------------------------------------------------------------------
+Id: 6                                   TcpPort: 65534
+Dhcp: Enabled                           InterfaceType: Physical
+PortType: Mgmt                          CtrlId: 2
+PortId: 1                               Status: Active (Ctrl 2)
+InterfaceName: 1                        IpType: 6
+PrimaryIp: ::                           PrimaryIpMask: 0
+Gateway: ::                             AssnTargets: 0
+SecondRoute: Disabled                   RouteInterface: 
+Attribute: IO
+
+administrator@cli> 
+
+Expect: vlan of physical type should be added by "vlantag=4093,iptype=6,dhcp=enable,porttype=mgmt,attribute=io"
+
+iscsi -a add -t portal -r 2 -p 1 -m vlan -s "vlantag=4093,iptype=6,dhcp=enable,porttype=mgmt,attribute=io"
+
+administrator@cli> 
+iscsi -t portal -v -i 7
+-------------------------------------------------------------------------------
+Id: 7                                   TcpPort: 3260
+Dhcp: Enabled                           InterfaceType: VLAN
+PortType: Mgmt                          CtrlId: 2
+PortId: 1                               Status: Active (Ctrl 2)
+InterfaceName: 1.4093                   VlanTag: 4093
+IpType: 6                               PrimaryIp: ::
+PrimaryIpMask: 0                        Gateway: ::
+AssnTargets: 0                          SecondRoute: Disabled
+RouteInterface:                         Attribute: IO
+
+administrator@cli> 
+
+Expect: portal of physical type should be added by "iptype=6,dhcp=disable,primaryip=0:1:2:3:0:5:6:0,primaryipmask=4:5:6:0:0:0:0:0,gateway=0:0:0:7:8:9:0:0,tcpport=65535,porttype=io,attribute=io"
+
+iscsi -a add -t portal -r 2 -p 2 -s "iptype=6,dhcp=disable,primaryip=0:1:2:3:0:6:5:0,primaryipmask=4:5:6:0:0:0:0:0,gateway=0:0:0:7:8:9:0:0,tcpport=65535,porttype=io,attribute=io"
+
+administrator@cli> 
+iscsi -t portal -v -i 8
+-------------------------------------------------------------------------------
+Id: 8                                   TcpPort: 65535
+Dhcp: Disabled                          InterfaceType: Physical
+PortType: IO                            CtrlId: 2
+PortId: 2                               Status: Active (Ctrl 2)
+InterfaceName: 2                        IpType: 6
+PrimaryIp: 0:1:2:3:0:6:5:0              PrimaryIpMask: 0
+Gateway: ::7:8:9:0:0                    AssnTargets: 0
+SecondRoute: Disabled                   RouteInterface: 
+Attribute: IO
+
+administrator@cli> 
+
+Fail: please check out PrimaryIpMask: 0:0:0:7:8:9:0:0
+
+
+Expect: portal of physical type should be added by "iptype=6,dhcp=disable,primaryip=A:B:0:0:0:0:0:0,primaryipmask=C:D:2:0:0:0:0:0,gateway=E:F:0:3:0:0:0:0,tcpport=65535,porttype=io,attribute=io"
+
+iscsi -a add -t portal -r 2 -p 2 -s "iptype=6,dhcp=disable,primaryip=A:B:0:0:0:0:0:0,primaryipmask=C:D:2:0:0:0:0:0,gateway=E:F:0:3:0:0:0:0,tcpport=65535,porttype=io,attribute=io"
+
+administrator@cli> 
+iscsi -t portal -v -i 9
+-------------------------------------------------------------------------------
+Id: 9                                   TcpPort: 65535
+Dhcp: Disabled                          InterfaceType: Physical
+PortType: IO                            CtrlId: 2
+PortId: 2                               Status: Active (Ctrl 2)
+InterfaceName: 2                        IpType: 6
+PrimaryIp: a:b::                        PrimaryIpMask: 0
+Gateway: e:f:0:3::                      AssnTargets: 0
+SecondRoute: Disabled                   RouteInterface: 
+Attribute: IO
+
+administrator@cli> 
+
+Fail: please check out PrimaryIpMask: c:d:2::
+
+
+Expect: vlan of physical type should be added by "vlantag=4094,iptype=6,dhcp=disable,primaryip=0:1:2:3:0:0:0:0,primaryipmask=4:5:6:0:0:0:0:0,gateway=0:0:0:7:8:9:0:0,tcpport=65535,porttype=io"
+
+iscsi -a add -t portal -r 2 -p 2 -m vlan -s "vlantag=4094,iptype=6,dhcp=disable,primaryip=0:1:2:3:0:0:0:0,primaryipmask=4:5:6:0:0:0:0:0,gateway=0:0:0:7:8:9:0:0,tcpport=65535,porttype=io"
+
+administrator@cli> 
+iscsi -t portal -v -i 10
+-------------------------------------------------------------------------------
+Id: 10                                  TcpPort: 65535
+Dhcp: Disabled                          InterfaceType: VLAN
+PortType: IO                            CtrlId: 2
+PortId: 2                               Status: Active (Ctrl 2)
+InterfaceName: 2.4094                   VlanTag: 4094
+IpType: 6                               PrimaryIp: 0:1:2:3::
+PrimaryIpMask: 0                        Gateway: ::7:8:9:0:0
+AssnTargets: 0                          SecondRoute: Disabled
+RouteInterface:                         Attribute: IO
+
+administrator@cli> 
+
+Fail: please check out PrimaryIpMask: 4:5:6::
+
+
+Expect: vlan of physical type should be added by "vlantag=4094,iptype=6,dhcp=disable,primaryip=A:B:C:D:0:0:0:0,primaryipmask=C:D:2:0:0:0:0:0,gateway=E:F:0:3:0:0:0:0,tcpport=65535,porttype=io"
+
+iscsi -a add -t portal -r 2 -p 2 -m vlan -s "vlantag=4094,iptype=6,dhcp=disable,primaryip=A:B:C:D:0:0:0:0,primaryipmask=C:D:2:0:0:0:0:0,gateway=E:F:0:3:0:0:0:0,tcpport=65535,porttype=io"
+
+administrator@cli> 
+iscsi -t portal -v -i 11
+-------------------------------------------------------------------------------
+Id: 11                                  TcpPort: 65535
+Dhcp: Disabled                          InterfaceType: VLAN
+PortType: IO                            CtrlId: 2
+PortId: 2                               Status: Active (Ctrl 2)
+InterfaceName: 2.4094                   VlanTag: 4094
+IpType: 6                               PrimaryIp: a:b:c:d::
+PrimaryIpMask: 0                        Gateway: e:f:0:3::
+AssnTargets: 0                          SecondRoute: Disabled
+RouteInterface:                         Attribute: IO
+
+administrator@cli> 
+
+Fail: please check out PrimaryIpMask: c:d:2::
+
+'result': 'f'
+
+Expect: target should be modified by "alias=12,headerdigest=enable,datadigest=disable,keepalive=disable"
+
+iscsi -a mod -t target -i 0 -s "alias=12,headerdigest=enable,datadigest=disable,keepalive=disable"
+
+administrator@cli> 
+iscsi -t target -v -i 0
+-------------------------------------------------------------------------------
+Name: iqn.1994-12.com.promise:12.tgt0000.293d5b5501000020
+Id: 0                                   Alias: 12
+ImmediateData: Disabled                 InitialR2t: Enabled
+HeaderDigest: Enabled                   DataDigest: Disabled
+UniChapAuth: Disabled                   BiChapAuth: Disabled
+DataPduInOrder: Enabled                 DataSeqInOrder: Enabled
+MaxOutstandingR2t: 1                    MaxConnects: 1
+FirstBurstLength: 262144                MaxBurstLength: 524288
+DefTimeToWait: 2                        DefTimeToRetain: 20
+ErrorRecoveryLevel: 0                   Status: Up
+AssnPortalIds: 0,1,2,3,4,5,6,7,8,9,10,11
+KeepAlive: Disabled
+
+administrator@cli> 
+
+Expect: target should be modified by "alias=Tt3,headerdigest=disable,datadigest=enable,keepalive=enable"
+
+iscsi -a mod -t target -i 0 -s "alias=Tt3,headerdigest=disable,datadigest=enable,keepalive=enable"
+
+administrator@cli> 
+iscsi -t target -v -i 0
+-------------------------------------------------------------------------------
+Name: iqn.1994-12.com.promise:tt3.tgt0000.293d5b5501000020
+Id: 0                                   Alias: Tt3
+ImmediateData: Disabled                 InitialR2t: Enabled
+HeaderDigest: Disabled                  DataDigest: Enabled
+UniChapAuth: Disabled                   BiChapAuth: Disabled
+DataPduInOrder: Enabled                 DataSeqInOrder: Enabled
+MaxOutstandingR2t: 1                    MaxConnects: 1
+FirstBurstLength: 262144                MaxBurstLength: 524288
+DefTimeToWait: 2                        DefTimeToRetain: 20
+ErrorRecoveryLevel: 0                   Status: Up
+AssnPortalIds: 0,1,2,3,4,5,6,7,8,9,10,11
+KeepAlive: Enabled
+
+administrator@cli> 
+
+Expect: target should be modified by "alias=test-test-test-test-test-tes30,unichapauth=enable,bichapauth=enable"
+
+iscsi -a mod -t target -i 0 -s "alias=test-test-test-test-test-tes30,unichapauth=enable,bichapauth=enable"
+
+administrator@cli> 
+iscsi -t target -v -i 0
+-------------------------------------------------------------------------------
+Name: 
+iqn.1994-12.com.promise:test-test-test-test-test-tes30.tgt0000.293d5b5501000020
+Id: 0                                   Alias: test-test-test-test-test-tes30
+ImmediateData: Disabled                 InitialR2t: Enabled
+HeaderDigest: Disabled                  DataDigest: Enabled
+UniChapAuth: Enabled                    BiChapAuth: Enabled
+DataPduInOrder: Enabled                 DataSeqInOrder: Enabled
+MaxOutstandingR2t: 1                    MaxConnects: 1
+FirstBurstLength: 262144                MaxBurstLength: 524288
+DefTimeToWait: 2                        DefTimeToRetain: 20
+ErrorRecoveryLevel: 0                   Status: Up
+AssnPortalIds: 0,1,2,3,4,5,6,7,8,9,10,11
+KeepAlive: Enabled
+
+administrator@cli> 
+
+Expect: target should be modified by "alias=test-test-test-test-test-test31,unichapauth=enable,bichapauth=disable"
+
+iscsi -a mod -t target -i 0 -s "alias=test-test-test-test-test-test31,unichapauth=enable,bichapauth=disable"
+
+administrator@cli> 
+iscsi -t target -v -i 0
+-------------------------------------------------------------------------------
+Name: 
+iqn.1994-12.com.promise:test-test-test-test-test-test31.tgt0000.293d5b550100002
+0
+Id: 0                                   Alias: test-test-test-test-test-test31
+ImmediateData: Disabled                 InitialR2t: Enabled
+HeaderDigest: Disabled                  DataDigest: Enabled
+UniChapAuth: Enabled                    BiChapAuth: Disabled
+DataPduInOrder: Enabled                 DataSeqInOrder: Enabled
+MaxOutstandingR2t: 1                    MaxConnects: 1
+FirstBurstLength: 262144                MaxBurstLength: 524288
+DefTimeToWait: 2                        DefTimeToRetain: 20
+ErrorRecoveryLevel: 0                   Status: Up
+AssnPortalIds: 0,1,2,3,4,5,6,7,8,9,10,11
+KeepAlive: Enabled
+
+administrator@cli> 
+
+Expect: target should be modified by "unichapauth=disable,bichapauth=disable"
+
+iscsi -a mod -t target -i 0 -s "unichapauth=disable,bichapauth=disable"
+
+administrator@cli> 
+iscsi -t target -v -i 0
+-------------------------------------------------------------------------------
+Name: 
+iqn.1994-12.com.promise:test-test-test-test-test-test31.tgt0000.293d5b550100002
+0
+Id: 0                                   Alias: test-test-test-test-test-test31
+ImmediateData: Disabled                 InitialR2t: Enabled
+HeaderDigest: Disabled                  DataDigest: Enabled
+UniChapAuth: Disabled                   BiChapAuth: Disabled
+DataPduInOrder: Enabled                 DataSeqInOrder: Enabled
+MaxOutstandingR2t: 1                    MaxConnects: 1
+FirstBurstLength: 262144                MaxBurstLength: 524288
+DefTimeToWait: 2                        DefTimeToRetain: 20
+ErrorRecoveryLevel: 0                   Status: Up
+AssnPortalIds: 0,1,2,3,4,5,6,7,8,9,10,11
+KeepAlive: Enabled
+
+administrator@cli> 
+
+Expect: port 1 on ctrl 2 should be modified by "jumboframe=enable"
+
+iscsi -a mod -r 2 -t port -p 1 -s "jumboframe=enable"
+
+administrator@cli> 
+iscsi -r 2 -t port -p 1 -v
+-------------------------------------------------------------------------------
+PortId: 1                               CtrlId: 2
+Id: 1_2                                 IsMgmt: 0
+JumboFrame: Enabled                     PortStatus: Enabled
+LinkStats: Down, Active                 MacAddress: 00:01:55:5B:3D:2F
+MaxSupportSpeed: 10000 Mbps             CurrentSpeed: 0 Mbps
+RelativePortals: 0,1,3
+
+administrator@cli> 
+
+Expect: port 1 on ctrl 2 should be modified by "jumboframe=disable"
+
+iscsi -a mod -r 2 -t port -p 1 -s "jumboframe=disable"
+
+administrator@cli> 
+iscsi -r 2 -t port -p 1 -v
+-------------------------------------------------------------------------------
+PortId: 1                               CtrlId: 2
+Id: 1_2                                 IsMgmt: 0
+JumboFrame: Disabled                    PortStatus: Enabled
+LinkStats: Down, Active                 MacAddress: 00:01:55:5B:3D:2F
+MaxSupportSpeed: 10000 Mbps             CurrentSpeed: 0 Mbps
+RelativePortals: 0,1,3
+
+administrator@cli> 
+
+Expect: port 2 on ctrl 2 should be modified by "jumboframe=enable"
+
+iscsi -a mod -r 2 -t port -p 2 -s "jumboframe=enable"
+
+administrator@cli> 
+iscsi -r 2 -t port -p 2 -v
+-------------------------------------------------------------------------------
+PortId: 2                               CtrlId: 2
+Id: 2_2                                 IsMgmt: 0
+JumboFrame: Enabled                     PortStatus: Enabled
+LinkStats: Down, Active                 MacAddress: 00:01:55:5B:3D:30
+MaxSupportSpeed: 10000 Mbps             CurrentSpeed: 0 Mbps
+RelativePortals: 2,8,9,10,11
+
+administrator@cli> 
+
+Expect: port 2 on ctrl 2 should be modified by "jumboframe=disable"
+
+iscsi -a mod -r 2 -t port -p 2 -s "jumboframe=disable"
+
+administrator@cli> 
+iscsi -r 2 -t port -p 2 -v
+-------------------------------------------------------------------------------
+PortId: 2                               CtrlId: 2
+Id: 2_2                                 IsMgmt: 0
+JumboFrame: Disabled                    PortStatus: Enabled
+LinkStats: Down, Active                 MacAddress: 00:01:55:5B:3D:30
+MaxSupportSpeed: 10000 Mbps             CurrentSpeed: 0 Mbps
+RelativePortals: 2,8,9,10,11
+
+administrator@cli> 
+
+Expect: portal 1 should be modified by "tcpport=3260,dhcp=disable,primaryip=10.84.2.240,primaryipmask=255.255.255.0,attribute=io"
+
+iscsi -a mod -t portal -i 1 -s "tcpport=3260,dhcp=disable,primaryip=10.84.2.240,primaryipmask=255.255.255.0,attribute=io"
+
+administrator@cli> 
+iscsi -t portal -i 1 -v
+-------------------------------------------------------------------------------
+Id: 1                                   TcpPort: 3260
+Dhcp: Disabled                          InterfaceType: Physical
+PortType: IO                            CtrlId: 2
+PortId: 1                               Status: Active (Ctrl 2)
+InterfaceName: 1                        IpType: 4
+PrimaryIp: 10.84.2.240                  PrimaryIpMask: 255.255.255.0
+Gateway: 0.0.0.0                        AssnTargets: 0
+SecondRoute: Disabled                   RouteInterface: 
+Attribute: IO
+
+administrator@cli> 
+
+Expect: portal 4 should be modified by "vlantag=520,dhcp=disable,tcpport=65533,primaryip=10.84.2.250,primaryipmask=255.255.255.0,attribute=advanced"
+
+iscsi -a mod -t portal -i 4 -s "vlantag=520,dhcp=disable,tcpport=65533,primaryip=10.84.2.250,primaryipmask=255.255.255.0,attribute=advanced"
+
+administrator@cli> 
+iscsi -t portal -i 4 -v
+-------------------------------------------------------------------------------
+Id: 4                                   TcpPort: 65533
+Dhcp: Disabled                          InterfaceType: VLAN
+PortType: Mgmt                          CtrlId: 2
+PortId: 2                               Status: Active (Ctrl 2)
+InterfaceName: 2.520                    VlanTag: 520
+IpType: 4                               PrimaryIp: 10.84.2.250
+PrimaryIpMask: 255.255.255.0            Gateway: 0.0.0.0
+AssnTargets: 0                          SecondRoute: Disabled
+RouteInterface:                         Attribute: Advanced
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Missing parameter
+
+iscsi -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -r
+Error (0x403): Missing parameter
+-r: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -t port -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -t target -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -t session -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -t portal -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -t device -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a add -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a add -t portal -m 
+Error (0x403): Missing parameter
+-m: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a add -t portal -m trunk -s 
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a add -t portal -r 2 -p 1 -m phy -s "iptype=4,dhcp=enable,tcpport=2000"
+Error (0x403): Missing parameter
+-s: missing porttype
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a add -t portal -r 2 -p 1 -m vlan -s "vlantag=3,iptype=4,dhcp=enable,tcpport=2000"
+Error (0x403): Missing parameter
+-s: missing porttype
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a mod
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a mod -t target
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a mod -t target -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a mod -t target -i 0 -s 
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a del
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a del'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a del -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a del -t portal -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Missing parameter
+
+initiator -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+initiator -c 2
+-------------------------------------------------------------------------------
+Id: 0                                   Type: iscsi
+Name: 1
+-------------------------------------------------------------------------------
+Id: 1                                   Type: fc
+Name: a1-b0-45-67-f9-00-11-22
+
+administrator@cli> 
+
+Fail: initiator -c 2
+
+
+Expect: Missing parameter
+
+initiator -i 0 -c
+Error (0x403): Missing parameter
+-c: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+initiator -a add
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+initiator -a add -i 10 -n abc
+Error (0x403): Missing parameter
+missing parameter '-t' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+initiator -a add -t iscsi -n 
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+initiator -a add -t fc -n
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+initiator -a del
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a del'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+initiator -a del -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+'result': 'f'
+precondition is failed
+
+precondition is failed
+
+precondition is failed
+
+
+Expect: add pool by "name=test_ed0,ctrlid=1" -p 6,7
+
+pool -a add -t ed -s "name=test_ed0,ctrlid=1" -p 6,7
+
+administrator@cli> 
+pool -v -i 0
+
+Pool global setting:
+-------------------------------------------------------------------------------
+CapacityThreshold: 85
+
+-------------------------------------------------------------------------------
+Id: 0                                   Name: test_ed0
+TotalCapacity: 18.33 GB                 UsedCapacity: 17.18 GB
+PoolAvail: 17.42 GB                     PoolReserved: -16263267994 Byte
+FreeCapacity: 1.15 GB                   Usage: 93
+OperationalStatus: Not usable           Owner: Controller 2
+PreferCtrlId: 1                         Pds: 
+Axle: 0                                 PdGroup: 
+AdvExisting: 0                          EdList: 6,7
+
+
+===============================================================================
+Id   UUID           Capacity  Vendor         Model          Status    PoolId  
+===============================================================================
+7    222bb000155e4b 10 GB     Promise        VTrak E5800f   Not       0        
+     dbd                                                    usable             
+8    222c0000155314 9 GB      Promise        VTrak E5800f   Not       0        
+     1f8                                                    usable             
+
+administrator@cli> 
+
+Expect: add pool by "name=test_ed1,ctrlid=2" -p 8
+
+pool -a add -t ed -s "name=test_ed1,ctrlid=2" -p 8
+
+administrator@cli> 
+pool -v -i 1
+
+Pool global setting:
+-------------------------------------------------------------------------------
+CapacityThreshold: 85
+
+-------------------------------------------------------------------------------
+Id: 1                                   Name: test_ed1
+TotalCapacity: 28.87 GB                 UsedCapacity: 17.18 GB
+PoolAvail: 11.69 GB                     PoolReserved: 0 Byte
+FreeCapacity: 11.69 GB                  Usage: 59
+OperationalStatus: ABNORMAL             Owner: Controller 2
+PreferCtrlId: 2                         Pds: 
+Axle: 0                                 PdGroup: 
+AdvExisting: 0                          EdList: 8
+
+
+===============================================================================
+Id   UUID           Capacity  Vendor         Model          Status    PoolId  
+===============================================================================
+9    222cf0001556dc 30 GB     Promise        VTrak E5800f   Not       1        
+     9c8                                                    usable             
+
+administrator@cli> 
+
+Expect: add pool by "name=test_ed2" -p 9
+
+pool -a add -t ed -s "name=test_ed2" -p 9
+Error (0x4100107): Fail to create Pool.
+
+administrator@cli> 
+
+Fail: pool -a add -t ed -s "name=test_ed2" -p 9
+
+'result': 'f'
+
+Expect: portal of physical type should be added by "iptype=4,dhcp=enable,tcpport=1025,porttype=io,attribute=io"
+
+iscsi -a add -t portal -r 2 -p 1 -m phy -s "iptype=4,dhcp=enable,tcpport=1025,porttype=io,attribute=io"
+
+administrator@cli> 
+iscsi -t portal -v -i 0
+-------------------------------------------------------------------------------
+Id: 0                                   TcpPort: 1025
+Dhcp: Enabled                           InterfaceType: Physical
+PortType: IO                            CtrlId: 2
+PortId: 1                               Status: Active (Ctrl 2)
+InterfaceName: 1                        IpType: 4
+PrimaryIp: 0.0.0.0                      PrimaryIpMask: 0.0.0.0
+Gateway: 0.0.0.0                        AssnTargets: 0
+SecondRoute: Disabled                   RouteInterface: 
+Attribute: IO
+
+administrator@cli> 
+
+Expect: portal of physical type should be added by "iptype=4,dhcp=enable,tcpport=1026,porttype=io,attribute=advanced"
+
+iscsi -a add -t portal -r 2 -p 1 -m phy -s "iptype=4,dhcp=enable,tcpport=1026,porttype=io,attribute=advanced"
+
+administrator@cli> 
+iscsi -t portal -v -i 1
+-------------------------------------------------------------------------------
+Id: 1                                   TcpPort: 1026
+Dhcp: Enabled                           InterfaceType: Physical
+PortType: IO                            CtrlId: 2
+PortId: 1                               Status: Active (Ctrl 2)
+InterfaceName: 1                        IpType: 4
+PrimaryIp: 0.0.0.0                      PrimaryIpMask: 0.0.0.0
+Gateway: 0.0.0.0                        AssnTargets: 0
+SecondRoute: Disabled                   RouteInterface: 
+Attribute: Advanced
+
+administrator@cli> 
+
+Expect: portal of physical type should be added by "iptype=4,dhcp=disable,primaryip=10.84.2.241,primaryipmask=255.255.255.0,gateway=10.84.2.1,tcpport=65534"
+
+iscsi -a add -t portal -r 2 -p 2 -s "iptype=4,dhcp=disable,primaryip=10.84.2.241,primaryipmask=255.255.255.0,gateway=10.84.2.1,tcpport=65534,porttype=io,attribute=io"
+
+administrator@cli> 
+iscsi -t portal -v -i 2
+-------------------------------------------------------------------------------
+Id: 2                                   TcpPort: 65534
+Dhcp: Disabled                          InterfaceType: Physical
+PortType: IO                            CtrlId: 2
+PortId: 2                               Status: Active (Ctrl 2)
+InterfaceName: 2                        IpType: 4
+PrimaryIp: 10.84.2.241                  PrimaryIpMask: 255.255.255.0
+Gateway: 10.84.2.1                      AssnTargets: 0
+SecondRoute: Disabled                   RouteInterface: 
+Attribute: IO
+
+administrator@cli> 
+
+Expect: vlan of physical type should be added by "vlantag=1,iptype=4,dhcp=disable,primaryip=10.84.2.253,primaryipmask=255.255.255.0,gateway=10.84.2.1,tcpport=65535,porttype=io,attribute=io"
+
+iscsi -a add -t portal -r 2 -p 1 -m vlan -s "vlantag=1,iptype=4,dhcp=disable,primaryip=10.84.2.253,primaryipmask=255.255.255.0,gateway=10.84.2.1,tcpport=65535,porttype=io,attribute=io"
+
+administrator@cli> 
+iscsi -t portal -v -i 3
+-------------------------------------------------------------------------------
+Id: 3                                   TcpPort: 65535
+Dhcp: Disabled                          InterfaceType: VLAN
+PortType: IO                            CtrlId: 2
+PortId: 1                               Status: Active (Ctrl 2)
+InterfaceName: 1.1                      VlanTag: 1
+IpType: 4                               PrimaryIp: 10.84.2.253
+PrimaryIpMask: 255.255.255.0            Gateway: 10.84.2.1
+AssnTargets: 0                          SecondRoute: Disabled
+RouteInterface:                         Attribute: IO
+
+administrator@cli> 
+
+Expect: vlan of physical type should be added by "vlantag=2,iptype=4,dhcp=enable,porttype=mgmt,attribute=io"
+
+iscsi -a add -t portal -r 2 -p 2 -m vlan -s "vlantag=2,iptype=4,dhcp=enable,porttype=mgmt,attribute=io"
+
+administrator@cli> 
+iscsi -t portal -v -i 4
+-------------------------------------------------------------------------------
+Id: 4                                   TcpPort: 3260
+Dhcp: Enabled                           InterfaceType: VLAN
+PortType: Mgmt                          CtrlId: 2
+PortId: 2                               Status: Active (Ctrl 2)
+InterfaceName: 2.2                      VlanTag: 2
+IpType: 4                               PrimaryIp: 0.0.0.0
+PrimaryIpMask: 0.0.0.0                  Gateway: 0.0.0.0
+AssnTargets: 0                          SecondRoute: Disabled
+RouteInterface:                         Attribute: IO
+
+administrator@cli> 
+
+Expect: vlan of physical type should be added by "vlantag=2,iptype=4,dhcp=enable,tcpport=65535,porttype=mgmt,attribute=io"
+
+iscsi -a add -t portal -r 2 -p 2 -m vlan -s "vlantag=2,iptype=4,dhcp=enable,tcpport=65535,porttype=mgmt,attribute=io"
+
+administrator@cli> 
+iscsi -t portal -v -i 5
+-------------------------------------------------------------------------------
+Id: 5                                   TcpPort: 65535
+Dhcp: Enabled                           InterfaceType: VLAN
+PortType: Mgmt                          CtrlId: 2
+PortId: 2                               Status: Active (Ctrl 2)
+InterfaceName: 2.2                      VlanTag: 2
+IpType: 4                               PrimaryIp: 0.0.0.0
+PrimaryIpMask: 0.0.0.0                  Gateway: 0.0.0.0
+AssnTargets: 0                          SecondRoute: Disabled
+RouteInterface:                         Attribute: IO
+
+administrator@cli> 
+
+Expect: portal of physical type should be added by "iptype=6,dhcp=enable,tcpport=65534,porttype=mgmt,attribute=io"
+
+iscsi -a add -t portal -r 2 -p 1 -m phy -s "iptype=6,dhcp=enable,tcpport=65534,porttype=mgmt,attribute=io"
+
+administrator@cli> 
+iscsi -t portal -v -i 6
+-------------------------------------------------------------------------------
+Id: 6                                   TcpPort: 65534
+Dhcp: Enabled                           InterfaceType: Physical
+PortType: Mgmt                          CtrlId: 2
+PortId: 1                               Status: Active (Ctrl 2)
+InterfaceName: 1                        IpType: 6
+PrimaryIp: ::                           PrimaryIpMask: ::
+Gateway: ::                             AssnTargets: 0
+SecondRoute: Disabled                   RouteInterface: 
+Attribute: IO
+
+administrator@cli> 
+
+Expect: vlan of physical type should be added by "vlantag=4093,iptype=6,dhcp=enable,porttype=mgmt,attribute=io"
+
+iscsi -a add -t portal -r 2 -p 1 -m vlan -s "vlantag=4093,iptype=6,dhcp=enable,porttype=mgmt,attribute=io"
+
+administrator@cli> 
+iscsi -t portal -v -i 7
+-------------------------------------------------------------------------------
+Id: 7                                   TcpPort: 3260
+Dhcp: Enabled                           InterfaceType: VLAN
+PortType: Mgmt                          CtrlId: 2
+PortId: 1                               Status: Active (Ctrl 2)
+InterfaceName: 1.4093                   VlanTag: 4093
+IpType: 6                               PrimaryIp: ::
+PrimaryIpMask: ::                       Gateway: ::
+AssnTargets: 0                          SecondRoute: Disabled
+RouteInterface:                         Attribute: IO
+
+administrator@cli> 
+
+Expect: portal of physical type should be added by "iptype=6,dhcp=disable,primaryip=0:1:2:3:0:5:6:0,primaryipmask=4:5:6:0:0:0:0:0,gateway=0:0:0:7:8:9:0:0,tcpport=65535,porttype=io,attribute=io"
+
+iscsi -a add -t portal -r 2 -p 2 -s "iptype=6,dhcp=disable,primaryip=0:1:2:3:0:6:5:0,primaryipmask=4:5:6:0:0:0:0:0,gateway=0:0:0:7:8:9:0:0,tcpport=65535,porttype=io,attribute=io"
+
+administrator@cli> 
+iscsi -t portal -v -i 8
+-------------------------------------------------------------------------------
+Id: 8                                   TcpPort: 65535
+Dhcp: Disabled                          InterfaceType: Physical
+PortType: IO                            CtrlId: 2
+PortId: 2                               Status: Active (Ctrl 2)
+InterfaceName: 2                        IpType: 6
+PrimaryIp: 0:1:2:3:0:6:5:0              PrimaryIpMask: 4:5:6::
+Gateway: ::7:8:9:0:0                    AssnTargets: 0
+SecondRoute: Disabled                   RouteInterface: 
+Attribute: IO
+
+administrator@cli> 
+
+Fail: please check out PrimaryIpMask: 0:0:0:7:8:9:0:0
+
+
+Expect: portal of physical type should be added by "iptype=6,dhcp=disable,primaryip=A:B:0:0:0:0:0:0,primaryipmask=C:D:2:0:0:0:0:0,gateway=E:F:0:3:0:0:0:0,tcpport=65535,porttype=io,attribute=io"
+
+iscsi -a add -t portal -r 2 -p 2 -s "iptype=6,dhcp=disable,primaryip=A:B:0:0:0:0:0:0,primaryipmask=C:D:2:0:0:0:0:0,gateway=E:F:0:3:0:0:0:0,tcpport=65535,porttype=io,attribute=io"
+
+administrator@cli> 
+iscsi -t portal -v -i 9
+-------------------------------------------------------------------------------
+Id: 9                                   TcpPort: 65535
+Dhcp: Disabled                          InterfaceType: Physical
+PortType: IO                            CtrlId: 2
+PortId: 2                               Status: Active (Ctrl 2)
+InterfaceName: 2                        IpType: 6
+PrimaryIp: a:b::                        PrimaryIpMask: c:d:2::
+Gateway: e:f:0:3::                      AssnTargets: 0
+SecondRoute: Disabled                   RouteInterface: 
+Attribute: IO
+
+administrator@cli> 
+
+Expect: vlan of physical type should be added by "vlantag=4094,iptype=6,dhcp=disable,primaryip=0:1:2:3:0:0:0:0,primaryipmask=4:5:6:0:0:0:0:0,gateway=0:0:0:7:8:9:0:0,tcpport=65535,porttype=io"
+
+iscsi -a add -t portal -r 2 -p 2 -m vlan -s "vlantag=4094,iptype=6,dhcp=disable,primaryip=0:1:2:3:0:0:0:0,primaryipmask=4:5:6:0:0:0:0:0,gateway=0:0:0:7:8:9:0:0,tcpport=65535,porttype=io"
+
+administrator@cli> 
+iscsi -t portal -v -i 10
+-------------------------------------------------------------------------------
+Id: 10                                  TcpPort: 65535
+Dhcp: Disabled                          InterfaceType: VLAN
+PortType: IO                            CtrlId: 2
+PortId: 2                               Status: Active (Ctrl 2)
+InterfaceName: 2.4094                   VlanTag: 4094
+IpType: 6                               PrimaryIp: 0:1:2:3::
+PrimaryIpMask: 4:5:6::                  Gateway: ::7:8:9:0:0
+AssnTargets: 0                          SecondRoute: Disabled
+RouteInterface:                         Attribute: IO
+
+administrator@cli> 
+
+Expect: vlan of physical type should be added by "vlantag=4094,iptype=6,dhcp=disable,primaryip=A:B:C:D:0:0:0:0,primaryipmask=C:D:2:0:0:0:0:0,gateway=E:F:0:3:0:0:0:0,tcpport=65535,porttype=io"
+
+iscsi -a add -t portal -r 2 -p 2 -m vlan -s "vlantag=4094,iptype=6,dhcp=disable,primaryip=A:B:C:D:0:0:0:0,primaryipmask=C:D:2:0:0:0:0:0,gateway=E:F:0:3:0:0:0:0,tcpport=65535,porttype=io"
+
+administrator@cli> 
+iscsi -t portal -v -i 11
+-------------------------------------------------------------------------------
+Id: 11                                  TcpPort: 65535
+Dhcp: Disabled                          InterfaceType: VLAN
+PortType: IO                            CtrlId: 2
+PortId: 2                               Status: Active (Ctrl 2)
+InterfaceName: 2.4094                   VlanTag: 4094
+IpType: 6                               PrimaryIp: a:b:c:d::
+PrimaryIpMask: c:d:2::                  Gateway: e:f:0:3::
+AssnTargets: 0                          SecondRoute: Disabled
+RouteInterface:                         Attribute: IO
+
+administrator@cli> 
+'result': 'f'
+
+Expect: Missing parameter
+
+iscsi -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -r
+Error (0x403): Missing parameter
+-r: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -t port -p
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -t target -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -t session -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -t portal -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -t device -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a add -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a add -t portal -m 
+Error (0x403): Missing parameter
+-m: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a add -t portal -m trunk -s 
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a add -t portal -r 2 -p 1 -m phy -s "iptype=4,dhcp=enable,tcpport=2000"
+Error (0x403): Missing parameter
+-s: missing porttype
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a add -t portal -r 2 -p 1 -m vlan -s "vlantag=3,iptype=4,dhcp=enable,tcpport=2000"
+Error (0x403): Missing parameter
+-s: missing porttype
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a mod
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a mod -t target
+Error (0x403): Missing parameter
+missing parameter '-s' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a mod -t target -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a mod -t target -i 0 -s 
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a del
+Error (0x403): Missing parameter
+missing parameter '-i' for '-a del'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a del -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+iscsi -a del -t portal -i
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+'result': 'p'
+bgasched
+No BGA Schedule detected
+
+administrator@cli> 
+There is no bgasched
+pool
+No pool in the subsystem
+
+administrator@cli> 
+phydrv
+===============================================================================
+PdId Model       Type     CfgCapacity Location      OpStatus   ConfigStatus    
+===============================================================================
+1    HUS723020AL SAS HDD  2 TB        Encl1 Slot1   OK         Unconfigured    
+     S640                                                                      
+2    HDS722020AL SAS HDD  2 TB        Encl1 Slot2   OK         Unconfigured    
+     A330                                                                      
+3    ST373455SS  SAS HDD  73 GB       Encl1 Slot3   OK         Unconfigured    
+4    HUS724040AL SAS HDD  4 TB        Encl1 Slot4   OK         Unconfigured    
+     S640                                                                      
+5    INTEL       SAS SSD  31 GB       Encl1 Slot5   OK         Unconfigured    
+6    SSD U110    SAS SSD  31 GB       Encl1 Slot6   OK         Unconfigured    
+     32GB                                                                      
+8    HUS724040AL SAS HDD  4 TB        Encl1 Slot8   OK         Unconfigured    
+     S640                                                                      
+9    HUS724040AL SAS HDD  4 TB        Encl1 Slot9   OK         Unconfigured    
+     S640                                                                      
+10   HUA723020AL SAS HDD  2 TB        Encl1 Slot10  OK         Unconfigured    
+     A640                                                                      
+11   HDS722020AL SAS HDD  2 TB        Encl1 Slot11  OK         Unconfigured    
+     A330                                                                      
+12   HUS724040AL SAS HDD  4 TB        Encl1 Slot12  OK         Unconfigured    
+     S640                                                                      
+13   ST3146356SS SAS HDD  146 GB      Encl1 Slot13  OK         Unconfigured    
+14   HUS723020AL SAS HDD  2 TB        Encl1 Slot14  OK         Unconfigured    
+     S640                                                                      
+15   ST380815AS  SAS HDD  79 GB       Encl1 Slot15  OK         Unconfigured    
+16   SSDSA2SH032 SAS SSD  31 GB       Encl1 Slot16  OK         Unconfigured    
+     G1GN                                                                      
+
+administrator@cli> 
+pool -a add -s "name=testBgasched1, raid=1" -p 1,2
+Error (0x4100107): Fail to create Pool.
+
+administrator@cli> 
+pool -a add -s "name=testBgasched2, raid=1" -p 3,4
+Error (0x4100107): Fail to create Pool.
+
+administrator@cli> 
+pool -a add -s "name=testBgasched3, raid=0" -p 5
+Error (0x4100107): Fail to create Pool.
+
+administrator@cli> 
+pool
+No pool in the subsystem
+
+administrator@cli> 
+date
+-------------------------------------------------------------------------------
+SystemDate: 2018-02-02 00:54:18
+
+administrator@cli> 
+add bgasched of daily type
+date
+-------------------------------------------------------------------------------
+SystemDate: 2018-02-02 01:20:29
+
+administrator@cli> 
+add bgasched of daily type
+bgasched -a add -t rc -s "recurtype=daily,poolid=0"
+Error (0x2013): Invalid setting parameters
+specified pool id:0 not exists
+
+administrator@cli> 
+bgasched -a add -t rc -s "recurtype=daily,poolid=1"
+Error (0x2013): Invalid setting parameters
+specified pool id:1 not exists
+
+administrator@cli> 
+bgasched -v -t rc
+Specified BGA Schedule not exists
+
+administrator@cli> 
+Fail: bgasched -a add -t rc -s "recurtype=daily
+bgasched -a add -t br -s "recurtype=daily"
+
+administrator@cli> 
+bgasched -v -t br
+-------------------------------------------------------------------------------
+Id: 1                                   Type: BatteryRecondition
+StartTime: 02:00                        StartDay: 2018-02-02
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: No End Date                      RecurrenceInterval: 1
+
+administrator@cli> 
+bgasched -a add -t sc -s "recurtype=daily"
+
+administrator@cli> 
+bgasched -v -t sc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: SpareCheck
+StartTime: 22:00                        StartDay: 2018-02-02
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: No End Date                      RecurrenceInterval: 1
+
+administrator@cli> 
+bgasched -a add -t rc -s "recurtype=daily,poolid=2"
+Error (0x2013): Invalid setting parameters
+specified pool id:2 not exists
+
+administrator@cli> 
+add bgasched of weekly type
+bgasched -a add -t rc -s "poolid=0"
+Error (0x2013): Invalid setting parameters
+specified pool id:0 not exists
+
+administrator@cli> 
+bgasched -a add -t rc -s "poolid=1"
+Error (0x2013): Invalid setting parameters
+specified pool id:1 not exists
+
+administrator@cli> 
+bgasched -v -t rc
+Specified BGA Schedule not exists
+
+administrator@cli> 
+Fail: bgasched -a add -t rc
+bgasched -a add -t br
+
+administrator@cli> 
+bgasched -v -t br
+-------------------------------------------------------------------------------
+Id: 1                                   Type: BatteryRecondition
+StartTime: 02:00                        StartDay: 2018-02-02
+OperationalStatus: Disabled             RecurrenceType: Monthly
+EndOn: No End Date                      MonthMask:  Jan,Mar,May,Jul,Sep,Nov
+DayOfMonth: 1
+
+administrator@cli> 
+bgasched -a add -t sc
+
+administrator@cli> 
+bgasched -v -t sc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: SpareCheck
+StartTime: 22:00                        StartDay: 2018-02-02
+OperationalStatus: Disabled             RecurrenceType: Weekly
+EndOn: No End Date                      RecurrenceInterval: 1
+DayOfWeek: Tues
+
+administrator@cli> 
+add bgasched of monthly type
+bgasched -a add -t rc -s "recurtype=monthly,poolid=0"
+Error (0x2013): Invalid setting parameters
+specified pool id:0 not exists
+
+administrator@cli> 
+bgasched -a add -t rc -s "recurtype=monthly,poolid=1"
+Error (0x2013): Invalid setting parameters
+specified pool id:1 not exists
+
+administrator@cli> 
+bgasched -v -t rc
+Specified BGA Schedule not exists
+
+administrator@cli> 
+Fail: bgasched -a add -t rc -s "recurtype=monthly
+bgasched -a add -t br -s "recurtype=monthly"
+
+administrator@cli> 
+bgasched -v -t br
+-------------------------------------------------------------------------------
+Id: 1                                   Type: BatteryRecondition
+StartTime: 02:00                        StartDay: 2018-02-02
+OperationalStatus: Disabled             RecurrenceType: Monthly
+EndOn: No End Date                      MonthMask:  Jan,Mar,May,Jul,Sep,Nov
+DayOfMonth: 1
+
+administrator@cli> 
+bgasched -a add -t sc -s "recurtype=monthly"
+
+administrator@cli> 
+bgasched -v -t sc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: SpareCheck
+StartTime: 22:00                        StartDay: 2018-02-02
+OperationalStatus: Disabled             RecurrenceType: Monthly
+MonthMask:  Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec
+EndOn: No End Date                      DayOfMonth: 1
+
+administrator@cli> 
+
+<font color="red">Fail: To verify add bgasched </font>
+'result': 'f'
+date
+-------------------------------------------------------------------------------
+SystemDate: 2018-02-02 02:37:45
+
+administrator@cli> 
+add bgasched of daily type
+bgasched -a add -t rc -s "recurtype=daily,poolid=0"
+
+administrator@cli> 
+bgasched -a add -t rc -s "recurtype=daily,poolid=1"
+
+administrator@cli> 
+bgasched -v -t rc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 22:00                        StartDay: 2018-02-02
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: No End Date                      RecurrenceInterval: 1
+AutoFix: Disabled                       PauseOnError: Disabled
+PoolIds: 0
+-------------------------------------------------------------------------------
+Id: 2                                   Type: RedundancyCheck
+StartTime: 22:00                        StartDay: 2018-02-02
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: No End Date                      RecurrenceInterval: 1
+AutoFix: Disabled                       PauseOnError: Disabled
+PoolIds: 1
+
+administrator@cli> 
+bgasched -a add -t br -s "recurtype=daily"
+
+administrator@cli> 
+bgasched -v -t br
+-------------------------------------------------------------------------------
+Id: 1                                   Type: BatteryRecondition
+StartTime: 02:00                        StartDay: 2018-02-02
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: No End Date                      RecurrenceInterval: 1
+
+administrator@cli> 
+bgasched -a add -t sc -s "recurtype=daily"
+
+administrator@cli> 
+bgasched -v -t sc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: SpareCheck
+StartTime: 22:00                        StartDay: 2018-02-02
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: No End Date                      RecurrenceInterval: 1
+
+administrator@cli> 
+bgasched -a add -t rc -s "recurtype=daily,poolid=2"
+Error (0x2013): Invalid setting parameters
+specified pool id:2 not exists
+
+administrator@cli> 
+add bgasched of weekly type
+bgasched -a add -t rc -s "poolid=0"
+
+administrator@cli> 
+bgasched -a add -t rc -s "poolid=1"
+
+administrator@cli> 
+bgasched -v -t rc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 22:00                        StartDay: 2018-02-02
+OperationalStatus: Disabled             RecurrenceType: Weekly
+EndOn: No End Date                      RecurrenceInterval: 1
+DayOfWeek: Wed                          AutoFix: Disabled
+PauseOnError: Disabled                  PoolIds: 0
+-------------------------------------------------------------------------------
+Id: 2                                   Type: RedundancyCheck
+StartTime: 22:00                        StartDay: 2018-02-02
+OperationalStatus: Disabled             RecurrenceType: Weekly
+EndOn: No End Date                      RecurrenceInterval: 1
+DayOfWeek: Wed                          AutoFix: Disabled
+PauseOnError: Disabled                  PoolIds: 1
+
+administrator@cli> 
+bgasched -a add -t br
+
+administrator@cli> 
+bgasched -v -t br
+-------------------------------------------------------------------------------
+Id: 1                                   Type: BatteryRecondition
+StartTime: 02:00                        StartDay: 2018-02-02
+OperationalStatus: Disabled             RecurrenceType: Monthly
+EndOn: No End Date                      MonthMask:  Jan,Mar,May,Jul,Sep,Nov
+DayOfMonth: 1
+
+administrator@cli> 
+bgasched -a add -t sc
+
+administrator@cli> 
+bgasched -v -t sc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: SpareCheck
+StartTime: 22:00                        StartDay: 2018-02-02
+OperationalStatus: Disabled             RecurrenceType: Weekly
+EndOn: No End Date                      RecurrenceInterval: 1
+DayOfWeek: Tues
+
+administrator@cli> 
+add bgasched of monthly type
+bgasched -a add -t rc -s "recurtype=monthly,poolid=0"
+
+administrator@cli> 
+bgasched -a add -t rc -s "recurtype=monthly,poolid=1"
+
+administrator@cli> 
+bgasched -v -t rc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 22:00                        StartDay: 2018-02-02
+OperationalStatus: Disabled             RecurrenceType: Monthly
+MonthMask:  Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec
+EndOn: No End Date                      DayOfMonth: 1
+AutoFix: Disabled                       PauseOnError: Disabled
+PoolIds: 0
+-------------------------------------------------------------------------------
+Id: 2                                   Type: RedundancyCheck
+StartTime: 22:00                        StartDay: 2018-02-02
+OperationalStatus: Disabled             RecurrenceType: Monthly
+MonthMask:  Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec
+EndOn: No End Date                      DayOfMonth: 1
+AutoFix: Disabled                       PauseOnError: Disabled
+PoolIds: 1
+
+administrator@cli> 
+bgasched -a add -t br -s "recurtype=monthly"
+
+administrator@cli> 
+bgasched -v -t br
+-------------------------------------------------------------------------------
+Id: 1                                   Type: BatteryRecondition
+StartTime: 02:00                        StartDay: 2018-02-02
+OperationalStatus: Disabled             RecurrenceType: Monthly
+EndOn: No End Date                      MonthMask:  Jan,Mar,May,Jul,Sep,Nov
+DayOfMonth: 1
+
+administrator@cli> 
+bgasched -a add -t sc -s "recurtype=monthly"
+
+administrator@cli> 
+bgasched -v -t sc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: SpareCheck
+StartTime: 22:00                        StartDay: 2018-02-02
+OperationalStatus: Disabled             RecurrenceType: Monthly
+MonthMask:  Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec
+EndOn: No End Date                      DayOfMonth: 1
+
+administrator@cli> 
+
+<font color="green">Pass</font>
+'result': 'p'
+bgasched -a add -t rc -s "recurtype=daily"
+
+administrator@cli> 
+bgasched -a add -t br -s "recurtype=weekly"
+
+administrator@cli> 
+bgasched -a add -t sc -s "recurtype=monthly"
+
+administrator@cli> 
+verify: bgasched -a mod -t rc
+bgasched -a mod -t rc -s "autofix=Enable,pause=Enable"
+
+administrator@cli> 
+bgasched -v -t rc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 22:00                        StartDay: 2018-02-02
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: No End Date                      RecurrenceInterval: 1
+AutoFix: Enabled                        PauseOnError: Enabled
+PoolIds: 0,1
+
+administrator@cli> 
+bgasched -a mod -t rc -s "status=Disable,starttime=00:00,startfrom=1970-01-01,endon=1"
+
+administrator@cli> 
+bgasched -v -t rc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 00:00                        StartDay: 1970-01-01
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: after 1 times                    RecurrenceInterval: 1
+AutoFix: Enabled                        PauseOnError: Enabled
+PoolIds: 0,1
+
+administrator@cli> 
+bgasched -a mod -t rc -s "autofix=Enable,pause=Enable"
+
+administrator@cli> 
+bgasched -v -t rc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 00:00                        StartDay: 1970-01-01
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: after 1 times                    RecurrenceInterval: 1
+AutoFix: Enabled                        PauseOnError: Enabled
+PoolIds: 0,1
+
+administrator@cli> 
+bgasched -a mod -t rc -s "status=Disable,starttime=06:10,startfrom=2037-12-31,endon=255"
+
+administrator@cli> 
+bgasched -v -t rc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 06:10                        StartDay: 2037-12-31
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: after 255 times                  RecurrenceInterval: 1
+AutoFix: Enabled                        PauseOnError: Enabled
+PoolIds: 0,1
+
+administrator@cli> 
+bgasched -a mod -t rc -s "autofix=Disable,pause=Disable"
+
+administrator@cli> 
+bgasched -v -t rc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 06:10                        StartDay: 2037-12-31
+OperationalStatus: Disabled             RecurrenceType: Daily
+EndOn: after 255 times                  RecurrenceInterval: 1
+AutoFix: Disabled                       PauseOnError: Disabled
+PoolIds: 0,1
+
+administrator@cli> 
+bgasched -a mod -t rc -s "status=Enable,starttime=12:20,startfrom=2000-01-01,endon=1970-01-01"
+
+administrator@cli> 
+bgasched -v -t rc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 12:20                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Daily
+EndOn: 1970/01/01                       RecurrenceInterval: 1
+AutoFix: Disabled                       PauseOnError: Disabled
+PoolIds: 0,1
+
+administrator@cli> 
+bgasched -a mod -t rc -s "autofix=Disable,pause=Disable"
+
+administrator@cli> 
+bgasched -v -t rc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 12:20                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Daily
+EndOn: 1970/01/01                       RecurrenceInterval: 1
+AutoFix: Disabled                       PauseOnError: Disabled
+PoolIds: 0,1
+
+administrator@cli> 
+bgasched -a mod -t rc -s "status=Enable,starttime=23:59,startfrom=2000-01-01,endon=2037-12-31"
+
+administrator@cli> 
+bgasched -v -t rc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Daily
+EndOn: 2037/12/31                       RecurrenceInterval: 1
+AutoFix: Disabled                       PauseOnError: Disabled
+PoolIds: 0,1
+
+administrator@cli> 
+verify: bgasched -a mod -t br
+bgasched -a mod -t rc -s "autofix=Enable,pause=Enable"
+
+administrator@cli> 
+bgasched -v -t rc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Daily
+EndOn: 2037/12/31                       RecurrenceInterval: 1
+AutoFix: Enabled                        PauseOnError: Enabled
+PoolIds: 0,1
+
+administrator@cli> 
+bgasched -a mod -t br -s "status=Disable,starttime=00:00,startfrom=1970-01-01,endon=1"
+
+administrator@cli> 
+bgasched -v -t br
+-------------------------------------------------------------------------------
+Id: 1                                   Type: BatteryRecondition
+StartTime: 00:00                        StartDay: 1970-01-01
+OperationalStatus: Disabled             RecurrenceType: Weekly
+EndOn: after 1 times                    RecurrenceInterval: 1
+DayOfWeek: Sun,Tues
+
+administrator@cli> 
+bgasched -a mod -t rc -s "autofix=Enable,pause=Enable"
+
+administrator@cli> 
+bgasched -v -t rc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Daily
+EndOn: 2037/12/31                       RecurrenceInterval: 1
+AutoFix: Enabled                        PauseOnError: Enabled
+PoolIds: 0,1
+
+administrator@cli> 
+bgasched -a mod -t br -s "status=Disable,starttime=06:10,startfrom=2037-12-31,endon=255"
+
+administrator@cli> 
+bgasched -v -t br
+-------------------------------------------------------------------------------
+Id: 1                                   Type: BatteryRecondition
+StartTime: 06:10                        StartDay: 2037-12-31
+OperationalStatus: Disabled             RecurrenceType: Weekly
+EndOn: after 255 times                  RecurrenceInterval: 1
+DayOfWeek: Sun,Tues
+
+administrator@cli> 
+bgasched -a mod -t rc -s "autofix=Disable,pause=Disable"
+
+administrator@cli> 
+bgasched -v -t rc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Daily
+EndOn: 2037/12/31                       RecurrenceInterval: 1
+AutoFix: Disabled                       PauseOnError: Disabled
+PoolIds: 0,1
+
+administrator@cli> 
+bgasched -a mod -t br -s "status=Enable,starttime=12:20,startfrom=2000-01-01,endon=1970-01-01"
+
+administrator@cli> 
+bgasched -v -t br
+-------------------------------------------------------------------------------
+Id: 1                                   Type: BatteryRecondition
+StartTime: 12:20                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Weekly
+EndOn: 1970/01/01                       RecurrenceInterval: 1
+DayOfWeek: Sun,Tues
+
+administrator@cli> 
+bgasched -a mod -t rc -s "autofix=Disable,pause=Disable"
+
+administrator@cli> 
+bgasched -v -t rc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Daily
+EndOn: 2037/12/31                       RecurrenceInterval: 1
+AutoFix: Disabled                       PauseOnError: Disabled
+PoolIds: 0,1
+
+administrator@cli> 
+bgasched -a mod -t br -s "status=Enable,starttime=23:59,startfrom=2000-01-01,endon=2037-12-31"
+
+administrator@cli> 
+bgasched -v -t br
+-------------------------------------------------------------------------------
+Id: 1                                   Type: BatteryRecondition
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Weekly
+EndOn: 2037/12/31                       RecurrenceInterval: 1
+DayOfWeek: Sun,Tues
+
+administrator@cli> 
+verify: bgasched -a mod -t sc
+bgasched -a mod -t rc -s "autofix=Enable,pause=Enable"
+
+administrator@cli> 
+bgasched -v -t rc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Daily
+EndOn: 2037/12/31                       RecurrenceInterval: 1
+AutoFix: Enabled                        PauseOnError: Enabled
+PoolIds: 0,1
+
+administrator@cli> 
+bgasched -a mod -t sc -s "status=Disable,starttime=00:00,startfrom=1970-01-01,endon=1"
+
+administrator@cli> 
+bgasched -v -t sc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: SpareCheck
+StartTime: 00:00                        StartDay: 1970-01-01
+OperationalStatus: Disabled             RecurrenceType: Monthly
+MonthMask:  Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec
+EndOn: after 1 times                    DayOfMonth: 1
+
+administrator@cli> 
+bgasched -a mod -t rc -s "autofix=Enable,pause=Enable"
+
+administrator@cli> 
+bgasched -v -t rc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Daily
+EndOn: 2037/12/31                       RecurrenceInterval: 1
+AutoFix: Enabled                        PauseOnError: Enabled
+PoolIds: 0,1
+
+administrator@cli> 
+bgasched -a mod -t sc -s "status=Disable,starttime=06:10,startfrom=2037-12-31,endon=255"
+
+administrator@cli> 
+bgasched -v -t sc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: SpareCheck
+StartTime: 06:10                        StartDay: 2037-12-31
+OperationalStatus: Disabled             RecurrenceType: Monthly
+MonthMask:  Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec
+EndOn: after 255 times                  DayOfMonth: 1
+
+administrator@cli> 
+bgasched -a mod -t rc -s "autofix=Disable,pause=Disable"
+
+administrator@cli> 
+bgasched -v -t rc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Daily
+EndOn: 2037/12/31                       RecurrenceInterval: 1
+AutoFix: Disabled                       PauseOnError: Disabled
+PoolIds: 0,1
+
+administrator@cli> 
+bgasched -a mod -t sc -s "status=Enable,starttime=12:20,startfrom=2000-01-01,endon=1970-01-01"
+
+administrator@cli> 
+bgasched -v -t sc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: SpareCheck
+StartTime: 12:20                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Monthly
+MonthMask:  Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec
+EndOn: 1970/01/01                       DayOfMonth: 1
+
+administrator@cli> 
+bgasched -a mod -t rc -s "autofix=Disable,pause=Disable"
+
+administrator@cli> 
+bgasched -v -t rc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Daily
+EndOn: 2037/12/31                       RecurrenceInterval: 1
+AutoFix: Disabled                       PauseOnError: Disabled
+PoolIds: 0,1
+
+administrator@cli> 
+bgasched -a mod -t sc -s "status=Enable,starttime=23:59,startfrom=2000-01-01,endon=2037-12-31"
+
+administrator@cli> 
+bgasched -v -t sc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: SpareCheck
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Monthly
+MonthMask:  Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec
+EndOn: 2037/12/31                       DayOfMonth: 1
+
+administrator@cli> 
+Setting the parameters associated with recurType of daily
+bgasched -a mod -t rc -s "recurInterval=1"
+
+administrator@cli> 
+bgasched -v -t rc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Daily
+EndOn: 2037/12/31                       RecurrenceInterval: 1
+AutoFix: Disabled                       PauseOnError: Disabled
+PoolIds: 0,1
+
+administrator@cli> 
+bgasched -a mod -t rc -s "recurInterval=2"
+
+administrator@cli> 
+bgasched -v -t rc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Daily
+EndOn: 2037/12/31                       RecurrenceInterval: 2
+AutoFix: Disabled                       PauseOnError: Disabled
+PoolIds: 0,1
+
+administrator@cli> 
+bgasched -a mod -t rc -s "recurInterval=254"
+
+administrator@cli> 
+bgasched -v -t rc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Daily
+EndOn: 2037/12/31                       RecurrenceInterval: 254
+AutoFix: Disabled                       PauseOnError: Disabled
+PoolIds: 0,1
+
+administrator@cli> 
+bgasched -a mod -t rc -s "recurInterval=255"
+
+administrator@cli> 
+bgasched -v -t rc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Daily
+EndOn: 2037/12/31                       RecurrenceInterval: 255
+AutoFix: Disabled                       PauseOnError: Disabled
+PoolIds: 0,1
+
+administrator@cli> 
+Setting the parameters associated with recurType of weekly
+bgasched -a mod -t br -s "recurInterval=1,dow=Sun"
+
+administrator@cli> 
+bgasched -v -t br
+-------------------------------------------------------------------------------
+Id: 1                                   Type: BatteryRecondition
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Weekly
+EndOn: 2037/12/31                       RecurrenceInterval: 1
+DayOfWeek: Sun
+
+administrator@cli> 
+bgasched -a mod -t br -s "recurInterval=2,dow=Mon"
+
+administrator@cli> 
+bgasched -v -t br
+-------------------------------------------------------------------------------
+Id: 1                                   Type: BatteryRecondition
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Weekly
+EndOn: 2037/12/31                       RecurrenceInterval: 2
+DayOfWeek: Mon
+
+administrator@cli> 
+bgasched -a mod -t br -s "recurInterval=51,dow=Tues"
+
+administrator@cli> 
+bgasched -v -t br
+-------------------------------------------------------------------------------
+Id: 1                                   Type: BatteryRecondition
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Weekly
+EndOn: 2037/12/31                       RecurrenceInterval: 51
+DayOfWeek: Tues
+
+administrator@cli> 
+bgasched -a mod -t br -s "recurInterval=52,dow=Wed"
+
+administrator@cli> 
+bgasched -v -t br
+-------------------------------------------------------------------------------
+Id: 1                                   Type: BatteryRecondition
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Weekly
+EndOn: 2037/12/31                       RecurrenceInterval: 52
+DayOfWeek: Wed
+
+administrator@cli> 
+bgasched -a mod -t br -s "recurInterval=52,dow=Thur"
+
+administrator@cli> 
+bgasched -v -t br
+-------------------------------------------------------------------------------
+Id: 1                                   Type: BatteryRecondition
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Weekly
+EndOn: 2037/12/31                       RecurrenceInterval: 52
+DayOfWeek: Thur
+
+administrator@cli> 
+bgasched -a mod -t br -s "recurInterval=52,dow=Fri"
+
+administrator@cli> 
+bgasched -v -t br
+-------------------------------------------------------------------------------
+Id: 1                                   Type: BatteryRecondition
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Weekly
+EndOn: 2037/12/31                       RecurrenceInterval: 52
+DayOfWeek: Fri
+
+administrator@cli> 
+bgasched -a mod -t br -s "recurInterval=52,dow=Sat"
+
+administrator@cli> 
+bgasched -v -t br
+-------------------------------------------------------------------------------
+Id: 1                                   Type: BatteryRecondition
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Weekly
+EndOn: 2037/12/31                       RecurrenceInterval: 52
+DayOfWeek: Sat
+
+administrator@cli> 
+Setting the parameters associated with recurType of monthly
+bgasched -a mod -t sc -s "daypattern=dom,dom=1"
+
+administrator@cli> 
+bgasched -v -t sc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: SpareCheck
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Monthly
+MonthMask:  Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec
+EndOn: 2037/12/31                       DayOfMonth: 1
+
+administrator@cli> 
+bgasched -a mod -t sc -s "daypattern=dom,dom=2"
+
+administrator@cli> 
+bgasched -v -t sc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: SpareCheck
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Monthly
+MonthMask:  Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec
+EndOn: 2037/12/31                       DayOfMonth: 2
+
+administrator@cli> 
+bgasched -a mod -t sc -s "daypattern=dom,dom=30"
+
+administrator@cli> 
+bgasched -v -t sc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: SpareCheck
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Monthly
+MonthMask:  Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec
+EndOn: 2037/12/31                       DayOfMonth: 30
+
+administrator@cli> 
+bgasched -a mod -t sc -s "daypattern=dom,dom=31"
+
+administrator@cli> 
+bgasched -v -t sc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: SpareCheck
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Monthly
+MonthMask:  Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec
+EndOn: 2037/12/31                       DayOfMonth: 31
+
+administrator@cli> 
+bgasched -a mod -t sc -s "daypattern=dow,dow=Sun,wom=1st"
+
+administrator@cli> 
+bgasched -v -t sc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: SpareCheck
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Monthly
+MonthMask:  Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec
+EndOn: 2037/12/31                       DayOfMonth: 1st Sun
+
+administrator@cli> 
+bgasched -a mod -t sc -s "daypattern=dow,dow=Mon,wom=2nd"
+
+administrator@cli> 
+bgasched -v -t sc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: SpareCheck
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Monthly
+MonthMask:  Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec
+EndOn: 2037/12/31                       DayOfMonth: 2nd Mon
+
+administrator@cli> 
+bgasched -a mod -t sc -s "daypattern=dow,dow=Tues,wom=3rd"
+
+administrator@cli> 
+bgasched -v -t sc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: SpareCheck
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Monthly
+MonthMask:  Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec
+EndOn: 2037/12/31                       DayOfMonth: 3rd Tues
+
+administrator@cli> 
+bgasched -a mod -t sc -s "daypattern=dow,dow=Wed,wom=4th"
+
+administrator@cli> 
+bgasched -v -t sc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: SpareCheck
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Monthly
+MonthMask:  Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec
+EndOn: 2037/12/31                       DayOfMonth: 4th Wed
+
+administrator@cli> 
+bgasched -a mod -t sc -s "daypattern=dow,dow=Thur,wom=Last"
+
+administrator@cli> 
+bgasched -v -t sc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: SpareCheck
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Monthly
+MonthMask:  Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec
+EndOn: 2037/12/31                       DayOfMonth: Last Thur
+
+administrator@cli> 
+bgasched -a mod -t sc -s "daypattern=dow,dow=Fri,wom=Last"
+
+administrator@cli> 
+bgasched -v -t sc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: SpareCheck
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Monthly
+MonthMask:  Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec
+EndOn: 2037/12/31                       DayOfMonth: Last Fri
+
+administrator@cli> 
+bgasched -a mod -t sc -s "daypattern=dow,dow=Sat,wom=Last"
+
+administrator@cli> 
+bgasched -v -t sc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: SpareCheck
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Monthly
+MonthMask:  Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec
+EndOn: 2037/12/31                       DayOfMonth: Last Sat
+
+administrator@cli> 
+
+<font color="green">Pass</font>
+'result': 'p'
+verify: bgasched
+bgasched
+===============================================================================
+Type                ID   Recurrence  StartTime           OperationalStatus 
+===============================================================================
+BatteryRecondition  1    Weekly      2000-01-01 23:59    Enabled               
+SpareCheck          1    Monthly     2000-01-01 23:59    Enabled               
+RedundancyCheck     1    Daily       2000-01-01 23:59    Enabled               
+
+administrator@cli> 
+verify: bgasched -v
+bgasched -v
+-------------------------------------------------------------------------------
+Id: 1                                   Type: BatteryRecondition
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Weekly
+EndOn: 2037/12/31                       RecurrenceInterval: 52
+DayOfWeek: Sat
+-------------------------------------------------------------------------------
+Id: 1                                   Type: SpareCheck
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Monthly
+MonthMask:  Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec
+EndOn: 2037/12/31                       DayOfMonth: Last Sat
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Daily
+EndOn: 2037/12/31                       RecurrenceInterval: 255
+AutoFix: Disabled                       PauseOnError: Disabled
+PoolIds: 0,1
+
+administrator@cli> 
+verify: bgasched -v -t br
+bgasched -v -t br
+-------------------------------------------------------------------------------
+Id: 1                                   Type: BatteryRecondition
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Weekly
+EndOn: 2037/12/31                       RecurrenceInterval: 52
+DayOfWeek: Sat
+
+administrator@cli> 
+verify: bgasched -v -t rc
+bgasched -v -t rc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: RedundancyCheck
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Daily
+EndOn: 2037/12/31                       RecurrenceInterval: 255
+AutoFix: Disabled                       PauseOnError: Disabled
+PoolIds: 0,1
+
+administrator@cli> 
+verify: bgasched -v -t sc
+bgasched -v -t sc
+-------------------------------------------------------------------------------
+Id: 1                                   Type: SpareCheck
+StartTime: 23:59                        StartDay: 2000-01-01
+OperationalStatus: Enabled              RecurrenceType: Monthly
+MonthMask:  Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec
+EndOn: 2037/12/31                       DayOfMonth: Last Sat
+
+administrator@cli> 
+
+<font color="green">Pass</font>
+'result': 'p'
+bgasched -a del -t br -i 1
+
+administrator@cli> 
+bgasched -a del -t sc -i 1
+
+administrator@cli> 
+bgasched -a del -t rc -i 1
+
+administrator@cli> 
+
+<font color="green">Pass</font>
+'result': 'p'
+bgasched -t 
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+bgasched -a mod -t rc -s
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+bgasched -a del -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+<font color="green">Pass</font>
+'result': 'p'
