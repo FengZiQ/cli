@@ -489,8 +489,8 @@ if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
 
-    add_pool_by_external_drive(c)
-    # add_pool_raid0(c)
+    # add_pool_by_external_drive(c)
+    add_pool_raid0(c)
     # add_pool_raid1(c)
     # add_pool_raid5(c)
     # add_pool_raid6(c)

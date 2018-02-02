@@ -122,6 +122,14 @@ def find_pd_id(physical_capacity=None):
         else:
             tolog(str(pdResponse))
 
+        pool_response1 = server.webapi('get', 'pool')
+
+        ed_pool_info = json.loads(pool_response1['text'])
+
+        for ed_pool in ed_pool_info:
+
+            server.webapiurl('delete', 'pool', str(ed_pool['id']) + '?force=1')
+
     except:
 
         tolog('please check out physical drive ConfigStatus\n')

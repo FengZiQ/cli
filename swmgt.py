@@ -21,7 +21,7 @@ def start_stop_swmgt(c):
 
     cli_setting = cli_test_setting()
 
-    cli_setting.setting(c, data, 'start_stop_swmgt')
+    cli_setting.setting(c, data, 'start_stop_swmgt', 3)
 
     return cli_setting.FailFlag
 
@@ -30,7 +30,7 @@ def restart_swmgt(c):
 
     cli_setting = cli_test_setting()
 
-    cli_setting.setting(c, data, 'restart_swmgt')
+    cli_setting.setting(c, data, 'restart_swmgt', 3)
 
     return cli_setting.FailFlag
 
@@ -48,7 +48,7 @@ def add_swmgt(c):
 
     cli_setting = cli_test_setting()
 
-    cli_setting.setting(c, data, 'add_swmgt')
+    cli_setting.setting(c, data, 'add_swmgt', 3)
 
     return cli_setting.FailFlag
 
@@ -93,15 +93,15 @@ if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
 
-    list_swmgt(c)
+    # list_swmgt(c)
     start_stop_swmgt(c)
-    restart_swmgt(c)
-    mod_swmgt(c)
-    add_swmgt(c)
-    delete_swmgt(c)
-    invalid_parameter_for_swmgt(c)
-    invalid_option_for_swmgt(c)
-    missing_parameter_for_swmgt(c)
+    # restart_swmgt(c)
+    # mod_swmgt(c)
+    # add_swmgt(c)
+    # delete_swmgt(c)
+    # invalid_parameter_for_swmgt(c)
+    # invalid_option_for_swmgt(c)
+    # missing_parameter_for_swmgt(c)
 
     ssh.close()
     elasped = time.clock() - start

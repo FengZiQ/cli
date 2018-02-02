@@ -107834,3 +107834,2344 @@ administrator@cli>
 
 <font color="green">Pass</font>
 'result': 'p'
+
+Expect: add pool by "name=test_ed0,ctrlid=1" -p 1,2
+
+pool -a add -t ed -s "name=test_ed0,ctrlid=1" -p 1,2
+
+administrator@cli> 
+pool -v -i 0
+
+Pool global setting:
+-------------------------------------------------------------------------------
+CapacityThreshold: 85
+
+-------------------------------------------------------------------------------
+Id: 0                                   Name: test_ed0
+TotalCapacity: 96.74 GB                 UsedCapacity: 17.18 GB
+PoolAvail: 91.90 GB                     PoolReserved: -12343061760 Byte
+FreeCapacity: 79.56 GB                  Usage: 17
+OperationalStatus: Not usable           Owner: Controller 2
+PreferCtrlId: 1                         Pds: 
+Axle: 0                                 PdGroup: 
+AdvExisting: 0                          EdList: 1,2
+
+
+===============================================================================
+Id   UUID           Capacity  Vendor         Model          Status    PoolId  
+===============================================================================
+1    2222b0001555c8 50 GB     Promise        VTrak E5800f   Not       0        
+     a56                                                    usable             
+2    22291000155c58 50 GB     Promise        VTrak E5800f   Not       0        
+     307                                                    usable             
+
+administrator@cli> 
+
+Expect: add pool by "name=test_ed1,ctrlid=2" -p 3
+
+pool -a add -t ed -s "name=test_ed1,ctrlid=2" -p 3
+
+administrator@cli> 
+pool -v -i 1
+
+Pool global setting:
+-------------------------------------------------------------------------------
+CapacityThreshold: 85
+
+-------------------------------------------------------------------------------
+Id: 1                                   Name: test_ed1
+TotalCapacity: 48.37 GB                 UsedCapacity: 17.18 GB
+PoolAvail: 28.77 GB                     PoolReserved: 2.42 GB
+FreeCapacity: 31.19 GB                  Usage: 35
+OperationalStatus: Not usable           Owner: Controller 2
+PreferCtrlId: 2                         Pds: 
+Axle: 0                                 PdGroup: 
+AdvExisting: 0                          EdList: 3
+
+
+===============================================================================
+Id   UUID           Capacity  Vendor         Model          Status    PoolId  
+===============================================================================
+3    222bd0001552b8 50 GB     Promise        VTrak E5800f   Not       1        
+     d66                                                    usable             
+
+administrator@cli> 
+
+Expect: add pool by "name=test_ed2" -p 4
+
+pool -a add -t ed -s "name=test_ed2" -p 4
+
+administrator@cli> 
+pool -v -i 2
+
+Pool global setting:
+-------------------------------------------------------------------------------
+CapacityThreshold: 85
+
+-------------------------------------------------------------------------------
+Id: 2                                   Name: test_ed2
+TotalCapacity: 48.37 GB                 UsedCapacity: 17.18 GB
+PoolAvail: 28.77 GB                     PoolReserved: 2.42 GB
+FreeCapacity: 31.19 GB                  Usage: 35
+OperationalStatus: Not usable           Owner: Controller 2
+PreferCtrlId: 1                         Pds: 
+Axle: 0                                 PdGroup: 
+AdvExisting: 0                          EdList: 4
+
+
+===============================================================================
+Id   UUID           Capacity  Vendor         Model          Status    PoolId  
+===============================================================================
+4    222cd0001551d2 50 GB     Promise        VTrak E5800f   Not       2        
+     d7a                                                    usable             
+
+administrator@cli> 
+'result': 'p'
+
+Expect: All software components info should be displayed
+
+swmgt
+===============================================================================
+Component Name         Running Status         Startup Type           
+===============================================================================
+Email                  Started                Automatic                        
+SLP                    Started                Automatic                        
+Webserver              Stopped                Automatic                        
+SSH                    Started                Automatic                        
+SNMP                   Started                Automatic                        
+
+administrator@cli> 
+
+Expect: Email notification info should be displayed
+
+swmgt -n email
+-------------------------------------------------------------------------------
+StartupType: Automatic
+-------------------------------------------------------------------------------
+SMTPServer: 0.0.0.0                     SmtpPort: 25
+SSL: 0                                  Authentication: No
+SenderAddr:                             Subject: Event notification
+
+administrator@cli> 
+
+Expect: Service location protocol agent info should be displayed
+
+swmgt -n slp
+-------------------------------------------------------------------------------
+StartupType: Automatic
+
+administrator@cli> 
+
+Expect: Web server info should be displayed
+
+swmgt -n webserver
+-------------------------------------------------------------------------------
+StartupType: Automatic
+-------------------------------------------------------------------------------
+SessionTimeout(minutes): 24
+
+administrator@cli> 
+
+Expect: ssh info should be displayed
+
+swmgt -n ssh
+-------------------------------------------------------------------------------
+StartupType: Automatic
+-------------------------------------------------------------------------------
+Port: 22                                MaxConnection: 4
+SessionTimeout(minutes): 24
+
+administrator@cli> 
+
+Expect: snmp info should be displayed
+
+swmgt -n snmp
+-------------------------------------------------------------------------------
+StartupType: Automatic
+-------------------------------------------------------------------------------
+SysName:                                SysLocation: USA
+SysContact: admin@yourcompany.com       Port: 161
+ReadCommunity: public                   WriteCommunity: Write not supported
+Port6: 161                              ReadCommunity6: public
+WriteCommunity6: Write not supported6
+
+administrator@cli> 
+
+Expect: advanced feature info should be displayed
+
+swmgt -n advanced
+===============================================================================
+FeatureId      FeatureName                             Status              
+===============================================================================
+1              Storage-AA                              Enabled                 
+2              Remote-Replication                      Enabled                 
+3              Remote-Migration                        Enabled                 
+4              Local-Replication                       Enabled                 
+5              Local-Migration                         Enabled                 
+6              External-Storage-FC                     Enabled                 
+7              External-Storage-iSCSI                  Enabled                 
+
+administrator@cli> 
+'result': 'p'
+
+Expect: software component of email should be started
+
+swmgt -a start -n email
+
+administrator@cli> 
+swmgt
+===============================================================================
+Component Name         Running Status         Startup Type           
+===============================================================================
+Email                  Started                Automatic                        
+SLP                    Started                Automatic                        
+Webserver              Stopped                Automatic                        
+SSH                    Started                Automatic                        
+SNMP                   Started                Automatic                        
+
+administrator@cli> 
+
+Expect: software component of email should be stopped
+
+swmgt -a stop -n email
+
+administrator@cli> 
+swmgt
+===============================================================================
+Component Name         Running Status         Startup Type           
+===============================================================================
+Email                  Stopped                Automatic                        
+SLP                    Started                Automatic                        
+Webserver              Stopped                Automatic                        
+SSH                    Started                Automatic                        
+SNMP                   Started                Automatic                        
+
+administrator@cli> 
+
+Expect: software component of email should be started
+
+swmgt -a start -n email
+
+administrator@cli> 
+swmgt
+===============================================================================
+Component Name         Running Status         Startup Type           
+===============================================================================
+Email                  Started                Automatic                        
+SLP                    Started                Automatic                        
+Webserver              Stopped                Automatic                        
+SSH                    Started                Automatic                        
+SNMP                   Started                Automatic                        
+
+administrator@cli> 
+
+Expect: software component of slp should be started
+
+swmgt -a start -n slp
+
+administrator@cli> 
+swmgt
+===============================================================================
+Component Name         Running Status         Startup Type           
+===============================================================================
+Email                  Started                Automatic                        
+SLP                    Started                Automatic                        
+Webserver              Stopped                Automatic                        
+SSH                    Started                Automatic                        
+SNMP                   Started                Automatic                        
+
+administrator@cli> 
+
+Expect: software component of slp should be stopped
+
+swmgt -a stop -n slp
+
+administrator@cli> 
+swmgt
+===============================================================================
+Component Name         Running Status         Startup Type           
+===============================================================================
+Email                  Started                Automatic                        
+SLP                    Stopped                Automatic                        
+Webserver              Stopped                Automatic                        
+SSH                    Started                Automatic                        
+SNMP                   Started                Automatic                        
+
+administrator@cli> 
+
+Expect: software component of slp should be started
+
+swmgt -a start -n slp
+
+administrator@cli> 
+swmgt
+===============================================================================
+Component Name         Running Status         Startup Type           
+===============================================================================
+Email                  Started                Automatic                        
+SLP                    Started                Automatic                        
+Webserver              Stopped                Automatic                        
+SSH                    Started                Automatic                        
+SNMP                   Started                Automatic                        
+
+administrator@cli> 
+
+Expect: software component of webserver should be started
+
+swmgt -a start -n webserver
+
+administrator@cli> 
+swmgt
+===============================================================================
+Component Name         Running Status         Startup Type           
+===============================================================================
+Email                  Started                Automatic                        
+SLP                    Started                Automatic                        
+Webserver              Error                  Automatic                        
+SSH                    Started                Automatic                        
+SNMP                   Started                Automatic                        
+
+administrator@cli> 
+
+Fail: please check out Webserver              Started
+
+
+Expect: software component of webserver should be stopped
+
+swmgt -a stop -n webserver
+
+administrator@cli> 
+swmgt
+===============================================================================
+Component Name         Running Status         Startup Type           
+===============================================================================
+Email                  Started                Automatic                        
+SLP                    Started                Automatic                        
+Webserver              Stopped                Automatic                        
+SSH                    Started                Automatic                        
+SNMP                   Started                Automatic                        
+
+administrator@cli> 
+
+Expect: software component of webserver should be started
+
+swmgt -a start -n webserver
+
+administrator@cli> 
+swmgt
+===============================================================================
+Component Name         Running Status         Startup Type           
+===============================================================================
+Email                  Started                Automatic                        
+SLP                    Started                Automatic                        
+Webserver              Stopped                Automatic                        
+SSH                    Started                Automatic                        
+SNMP                   Started                Automatic                        
+
+administrator@cli> 
+
+Fail: please check out Webserver              Started
+
+
+Expect: software component of snmp should be started
+
+swmgt -a start -n snmp
+
+administrator@cli> 
+swmgt
+===============================================================================
+Component Name         Running Status         Startup Type           
+===============================================================================
+Email                  Started                Automatic                        
+SLP                    Started                Automatic                        
+Webserver              Error                  Automatic                        
+SSH                    Started                Automatic                        
+SNMP                   Started                Automatic                        
+
+administrator@cli> 
+
+Expect: software component of snmp should be stopped
+
+swmgt -a stop -n snmp
+
+administrator@cli> 
+swmgt
+===============================================================================
+Component Name         Running Status         Startup Type           
+===============================================================================
+Email                  Started                Automatic                        
+SLP                    Started                Automatic                        
+Webserver              Stopped                Automatic                        
+SSH                    Started                Automatic                        
+SNMP                   Stopped                Automatic                        
+
+administrator@cli> 
+
+Expect: software component of snmp should be started
+
+swmgt -a start -n snmp
+
+administrator@cli> 
+swmgt
+===============================================================================
+Component Name         Running Status         Startup Type           
+===============================================================================
+Email                  Started                Automatic                        
+SLP                    Started                Automatic                        
+Webserver              Stopped                Automatic                        
+SSH                    Started                Automatic                        
+SNMP                   Started                Automatic                        
+
+administrator@cli> 
+
+Expect: software component of ssh should be started
+
+swmgt -a start -n ssh
+
+administrator@cli> 
+swmgt
+===============================================================================
+Component Name         Running Status         Startup Type           
+===============================================================================
+Email                  Started                Automatic                        
+SLP                    Started                Automatic                        
+Webserver              Stopped                Automatic                        
+SSH                    Started                Automatic                        
+SNMP                   Started                Automatic                        
+
+administrator@cli> 
+'result': 'f'
+
+Expect: Email notification should be restarted
+
+swmgt -a restart -n email
+
+administrator@cli> 
+swmgt
+===============================================================================
+Component Name         Running Status         Startup Type           
+===============================================================================
+Email                  Started                Automatic                        
+SLP                    Started                Automatic                        
+Webserver              Stopped                Automatic                        
+SSH                    Started                Automatic                        
+SNMP                   Started                Automatic                        
+
+administrator@cli> 
+
+Expect: Service location protocol agent should berestarted
+
+swmgt -a restart -n slp
+
+administrator@cli> 
+swmgt
+===============================================================================
+Component Name         Running Status         Startup Type           
+===============================================================================
+Email                  Started                Automatic                        
+SLP                    Started                Automatic                        
+Webserver              Stopped                Automatic                        
+SSH                    Started                Automatic                        
+SNMP                   Started                Automatic                        
+
+administrator@cli> 
+
+Expect: Web server should be restarted
+
+swmgt -a restart -n webserver
+
+administrator@cli> 
+swmgt
+===============================================================================
+Component Name         Running Status         Startup Type           
+===============================================================================
+Email                  Started                Automatic                        
+SLP                    Started                Automatic                        
+Webserver              Stopped                Automatic                        
+SSH                    Started                Automatic                        
+SNMP                   Started                Automatic                        
+
+administrator@cli> 
+
+Fail: please check out Webserver              Started
+
+
+Expect: snmp should be restarted
+
+swmgt -a restart -n snmp
+
+administrator@cli> 
+swmgt
+===============================================================================
+Component Name         Running Status         Startup Type           
+===============================================================================
+Email                  Started                Automatic                        
+SLP                    Started                Automatic                        
+Webserver              Stopped                Automatic                        
+SSH                    Started                Automatic                        
+SNMP                   Started                Automatic                        
+
+administrator@cli> 
+'result': 'f'
+
+Expect: startup type of email should be modified manual
+
+swmgt -a mod -n email -t manual
+
+administrator@cli> 
+swmgt -n email
+-------------------------------------------------------------------------------
+StartupType: Manual
+-------------------------------------------------------------------------------
+SMTPServer: 0.0.0.0                     SmtpPort: 25
+SSL: 0                                  Authentication: No
+SenderAddr:                             Subject: Event notification
+
+administrator@cli> 
+
+Expect: startup type of email should be modified automatic
+
+swmgt -a mod -n email -t automatic
+
+administrator@cli> 
+swmgt -n email
+-------------------------------------------------------------------------------
+StartupType: Automatic
+-------------------------------------------------------------------------------
+SMTPServer: 0.0.0.0                     SmtpPort: 25
+SSL: 0                                  Authentication: No
+SenderAddr:                             Subject: Event notification
+
+administrator@cli> 
+
+Expect: startup type of slp should be modified manual
+
+swmgt -a mod -n slp -t manual
+
+administrator@cli> 
+swmgt -n slp
+-------------------------------------------------------------------------------
+StartupType: Manual
+
+administrator@cli> 
+
+Expect: startup type of slp should be modified automatic
+
+swmgt -a mod -n slp -t automatic
+
+administrator@cli> 
+swmgt -n slp
+-------------------------------------------------------------------------------
+StartupType: Automatic
+
+administrator@cli> 
+
+Expect: startup type of webserver should be modified manual
+
+swmgt -a mod -n webserver -t manual
+
+administrator@cli> 
+swmgt -n webserver
+-------------------------------------------------------------------------------
+StartupType: Manual
+-------------------------------------------------------------------------------
+SessionTimeout(minutes): 24
+
+administrator@cli> 
+
+Expect: startup type of webserver should be modified automatic
+
+swmgt -a mod -n webserver -t automatic
+
+administrator@cli> 
+swmgt -n webserver
+-------------------------------------------------------------------------------
+StartupType: Automatic
+-------------------------------------------------------------------------------
+SessionTimeout(minutes): 24
+
+administrator@cli> 
+
+Expect: startup type of ssh should be modified manual
+
+swmgt -a mod -n ssh -t manual
+
+administrator@cli> 
+swmgt -n ssh
+-------------------------------------------------------------------------------
+StartupType: Manual
+-------------------------------------------------------------------------------
+Port: 22                                MaxConnection: 4
+SessionTimeout(minutes): 24
+
+administrator@cli> 
+
+Expect: startup type of ssh should be modified automatic
+
+swmgt -a mod -n ssh -t automatic
+
+administrator@cli> 
+swmgt -n ssh
+-------------------------------------------------------------------------------
+StartupType: Automatic
+-------------------------------------------------------------------------------
+Port: 22                                MaxConnection: 4
+SessionTimeout(minutes): 24
+
+administrator@cli> 
+
+Expect: startup type of snmp should be modified manual
+
+swmgt -a mod -n snmp -t manual
+
+administrator@cli> 
+swmgt -n snmp
+-------------------------------------------------------------------------------
+StartupType: Manual
+-------------------------------------------------------------------------------
+SysName:                                SysLocation: USA
+SysContact: admin@yourcompany.com       Port: 161
+ReadCommunity: public                   WriteCommunity: Write not supported
+Port6: 161                              ReadCommunity6: public
+WriteCommunity6: Write not supported6
+
+administrator@cli> 
+
+Expect: startup type of snmp should be modified automatic
+
+swmgt -a mod -n snmp -t automatic
+
+administrator@cli> 
+swmgt -n snmp
+-------------------------------------------------------------------------------
+StartupType: Automatic
+-------------------------------------------------------------------------------
+SysName:                                SysLocation: USA
+SysContact: admin@yourcompany.com       Port: 161
+ReadCommunity: public                   WriteCommunity: Write not supported
+Port6: 161                              ReadCommunity6: public
+WriteCommunity6: Write not supported6
+
+administrator@cli> 
+
+Expect: email should be modified with "smtpserver=211.150.65.81,serverport=65535,authentication=no,senderaddr=zach.feng@cn.promise.com,subject=this is the test"
+
+swmgt -a mod -n email -s "smtpserver=211.150.65.81,serverport=65535,authentication=no,senderaddr=zach.feng@cn.promise.com,subject=this is the test"
+Note: New settings will take affect only after restart of service email.
+
+
+administrator@cli> 
+swmgt -n email
+-------------------------------------------------------------------------------
+StartupType: Automatic
+-------------------------------------------------------------------------------
+SMTPServer: 211.150.65.81               SmtpPort: 65535
+SSL: 0                                  Authentication: No
+SenderAddr: zach.feng@cn.promise.com    Subject: this is the test
+
+administrator@cli> 
+
+Expect: email should be modified with "smtpserver=exchange2007.promise.com.tw,serverport=0,authentication=yes,username=test,password=123456,senderaddr=zach.feng@cn.promise.com,subject=this is the test"
+
+swmgt -a mod -n email -s "smtpserver=exchange2007.promise.com.tw,serverport=0,authentication=yes,username=test,password=123456,senderaddr=zach.feng@cn.promise.com,subject=this is the test"
+Note: New settings will take affect only after restart of service email.
+
+
+administrator@cli> 
+swmgt -n email
+-------------------------------------------------------------------------------
+StartupType: Automatic
+-------------------------------------------------------------------------------
+SMTPServer: exchange2007.promise.com.tw SmtpPort: 0
+SSL: 0                                  Authentication: Yes
+Username:                               Password: 
+SenderAddr: zach.feng@cn.promise.com    Subject: this is the test
+
+administrator@cli> 
+
+Expect: email should be modified with "subject=t-t"
+
+swmgt -a mod -n email -s "subject=t-t"
+Note: New settings will take affect only after restart of service email.
+
+
+administrator@cli> 
+swmgt -n email
+-------------------------------------------------------------------------------
+StartupType: Automatic
+-------------------------------------------------------------------------------
+SMTPServer: exchange2007.promise.com.tw SmtpPort: 0
+SSL: 0                                  Authentication: Yes
+Username:                               Password: 
+SenderAddr: zach.feng@cn.promise.com    Subject: t-t
+
+administrator@cli> 
+
+Expect: email should be modified with "username=t-t,authentication=yes"
+
+swmgt -a mod -n email -s "username=t-t,authentication=yes,password=012345"
+Note: New settings will take affect only after restart of service email.
+
+
+administrator@cli> 
+swmgt -n email
+-------------------------------------------------------------------------------
+StartupType: Automatic
+-------------------------------------------------------------------------------
+SMTPServer: exchange2007.promise.com.tw SmtpPort: 0
+SSL: 0                                  Authentication: Yes
+Username: t-t                           Password: 012345
+SenderAddr: zach.feng@cn.promise.com    Subject: t-t
+
+administrator@cli> 
+
+Expect: webserver should be modified with "sessiontimeout=1"
+
+swmgt -a mod -n webserver -s "sessiontimeout=1"
+Note: New settings will take affect only after restart of service webserver.
+
+
+administrator@cli> 
+swmgt -n webserver
+-------------------------------------------------------------------------------
+StartupType: Automatic
+-------------------------------------------------------------------------------
+SessionTimeout(minutes): 1
+
+administrator@cli> 
+
+Expect: webserver should be modified with "sessiontimeout=1400"
+
+swmgt -a mod -n webserver -s "sessiontimeout=1400"
+Note: New settings will take affect only after restart of service webserver.
+
+
+administrator@cli> 
+swmgt -n webserver
+-------------------------------------------------------------------------------
+StartupType: Automatic
+-------------------------------------------------------------------------------
+SessionTimeout(minutes): 1400
+
+administrator@cli> 
+
+Expect: webserver should be modified with "sessiontimeout=30"
+
+swmgt -a mod -n webserver -s "sessiontimeout=30"
+Note: New settings will take affect only after restart of service webserver.
+
+
+administrator@cli> 
+swmgt -n webserver
+-------------------------------------------------------------------------------
+StartupType: Automatic
+-------------------------------------------------------------------------------
+SessionTimeout(minutes): 30
+
+administrator@cli> 
+
+Expect: ssh should be modified with "port=1,sessiontimeout=1,maxconnection=1"
+
+swmgt -a mod -n ssh -s "port=1,sessiontimeout=1,maxconnection=1"
+Note: New settings will take affect only after restart of service ssh.
+
+
+administrator@cli> 
+swmgt -n ssh
+-------------------------------------------------------------------------------
+StartupType: Automatic
+-------------------------------------------------------------------------------
+Port: 1                                 MaxConnection: 1
+SessionTimeout(minutes): 1
+
+administrator@cli> 
+
+Expect: ssh should be modified with "port=65535,sessiontimeout=1400,maxconnection=2"
+
+swmgt -a mod -n ssh -s "port=65535,sessiontimeout=1400,maxconnection=2"
+Note: New settings will take affect only after restart of service ssh.
+
+
+administrator@cli> 
+swmgt -n ssh
+-------------------------------------------------------------------------------
+StartupType: Automatic
+-------------------------------------------------------------------------------
+Port: 65535                             MaxConnection: 2
+SessionTimeout(minutes): 1400
+
+administrator@cli> 
+
+Expect: ssh should be modified with "port=22,sessiontimeout=60,maxconnection=4"
+
+swmgt -a mod -n ssh -s "port=22,sessiontimeout=60,maxconnection=4"
+Note: New settings will take affect only after restart of service ssh.
+
+
+administrator@cli> 
+swmgt -n ssh
+-------------------------------------------------------------------------------
+StartupType: Automatic
+-------------------------------------------------------------------------------
+Port: 22                                MaxConnection: 4
+SessionTimeout(minutes): 60
+
+administrator@cli> 
+
+Expect: snmp should be modified with "port=1,port6=65535,sysname=name,syslocation=CN,syscontact=admin@email.com,readcommunity=IPv4,readcommunity6=IPv6"
+
+swmgt -a mod -n snmp -s "port=1,port6=65535,sysname=name,syslocation=CN,syscontact=admin@email.com,readcommunity=IPv4,readcommunity6=IPv6"
+Note: New settings will take affect only after restart of service snmp.
+
+
+administrator@cli> 
+swmgt -n snmp
+-------------------------------------------------------------------------------
+StartupType: Automatic
+-------------------------------------------------------------------------------
+SysName: name                           SysLocation: CN
+SysContact: admin@email.com             Port: 1
+ReadCommunity: IPv4                     WriteCommunity: Write not supported
+Port6: 65535                            ReadCommunity6: IPv6
+WriteCommunity6: Write not supported6
+
+administrator@cli> 
+
+Expect: snmp should be modified with "port=65535,port6=1,sysname=DS,syslocation=ShangHai,syscontact=test@email.cn,readcommunity=IPv4,readcommunity6=IPv6"
+
+swmgt -a mod -n snmp -s "port=65535,port6=1,sysname=DS,syslocation=ShangHai,syscontact=test@email.cn,readcommunity=IPv4,readcommunity6=IPv6"
+Note: New settings will take affect only after restart of service snmp.
+
+
+administrator@cli> 
+swmgt -n snmp
+-------------------------------------------------------------------------------
+StartupType: Automatic
+-------------------------------------------------------------------------------
+SysName: DS                             SysLocation: ShangHai
+SysContact: test@email.cn               Port: 65535
+ReadCommunity: IPv4                     WriteCommunity: Write not supported
+Port6: 1                                ReadCommunity6: IPv6
+WriteCommunity6: Write not supported6
+
+administrator@cli> 
+
+Expect: snmp should be modified with "sysname=t-t,syslocation=t-t,readcommunity=t-t,readcommunity6=t-t"
+
+swmgt -a mod -n snmp -s "sysname=t-t,syslocation=t-t,readcommunity=t-t,readcommunity6=t-t"
+Note: New settings will take affect only after restart of service snmp.
+
+
+administrator@cli> 
+swmgt -n snmp
+-------------------------------------------------------------------------------
+StartupType: Automatic
+-------------------------------------------------------------------------------
+SysName: t-t                            SysLocation: t-t
+SysContact: test@email.cn               Port: 65535
+ReadCommunity: t-t                      WriteCommunity: Write not supported
+Port6: 1                                ReadCommunity6: t-t
+WriteCommunity6: Write not supported6
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Trap sink should be added with "trapsinkserver=server.name,trapfilter=info"
+
+swmgt -a add -n snmp -p "trapsinkserver=server.name,trapfilter=info"
+Note: New settings will take affect only after restart of service snmp.
+
+
+administrator@cli> 
+swmgt -n snmp
+-------------------------------------------------------------------------------
+StartupType: Automatic
+-------------------------------------------------------------------------------
+SysName: t-t                            SysLocation: t-t
+SysContact: test@email.cn               Port: 65535
+ReadCommunity: t-t                      WriteCommunity: Write not supported
+Port6: 1                                ReadCommunity6: t-t
+WriteCommunity6: Write not supported6
+===============================================================================
+Index TrapSinkServer      TrapFilter          
+===============================================================================
+1     server.name         info and above                                       
+
+administrator@cli> 
+
+Expect: Trap sink should be added with "trapsinkserver=1.1.1.1,trapfilter=warning"
+
+swmgt -a add -n snmp -p "trapsinkserver=1.1.1.1,trapfilter=warning"
+Note: New settings will take affect only after restart of service snmp.
+
+
+administrator@cli> 
+swmgt -n snmp
+-------------------------------------------------------------------------------
+StartupType: Automatic
+-------------------------------------------------------------------------------
+SysName: t-t                            SysLocation: t-t
+SysContact: test@email.cn               Port: 65535
+ReadCommunity: t-t                      WriteCommunity: Write not supported
+Port6: 1                                ReadCommunity6: t-t
+WriteCommunity6: Write not supported6
+===============================================================================
+Index TrapSinkServer      TrapFilter          
+===============================================================================
+1     server.name         info and above                                       
+2     1.1.1.1             warning and above                                    
+
+administrator@cli> 
+
+Expect: Trap sink should be added with "trapsinkserver=255.1.1.1,trapfilter=minor"
+
+swmgt -a add -n snmp -p "trapsinkserver=255.1.1.1,trapfilter=minor"
+Note: New settings will take affect only after restart of service snmp.
+
+
+administrator@cli> 
+swmgt -n snmp
+-------------------------------------------------------------------------------
+StartupType: Automatic
+-------------------------------------------------------------------------------
+SysName: t-t                            SysLocation: t-t
+SysContact: test@email.cn               Port: 65535
+ReadCommunity: t-t                      WriteCommunity: Write not supported
+Port6: 1                                ReadCommunity6: t-t
+WriteCommunity6: Write not supported6
+===============================================================================
+Index TrapSinkServer      TrapFilter          
+===============================================================================
+1     server.name         info and above                                       
+2     1.1.1.1             warning and above                                    
+3     255.1.1.1           minor and above                                      
+
+administrator@cli> 
+
+Expect: Trap sink should be added with "trapsinkserver=1.255.1.1,trapfilter=major"
+
+swmgt -a add -n snmp -p "trapsinkserver=1.255.1.1,trapfilter=major"
+Note: New settings will take affect only after restart of service snmp.
+
+
+administrator@cli> 
+swmgt -n snmp
+-------------------------------------------------------------------------------
+StartupType: Automatic
+-------------------------------------------------------------------------------
+SysName: t-t                            SysLocation: t-t
+SysContact: test@email.cn               Port: 65535
+ReadCommunity: t-t                      WriteCommunity: Write not supported
+Port6: 1                                ReadCommunity6: t-t
+WriteCommunity6: Write not supported6
+===============================================================================
+Index TrapSinkServer      TrapFilter          
+===============================================================================
+1     server.name         info and above                                       
+2     1.1.1.1             warning and above                                    
+3     255.1.1.1           minor and above                                      
+4     1.255.1.1           major and above                                      
+
+administrator@cli> 
+
+Expect: Trap sink should be added with "trapsinkserver=1.1.255.1,trapfilter=critical"
+
+swmgt -a add -n snmp -p "trapsinkserver=1.1.255.1,trapfilter=critical"
+Note: New settings will take affect only after restart of service snmp.
+
+
+administrator@cli> 
+swmgt -n snmp
+-------------------------------------------------------------------------------
+StartupType: Automatic
+-------------------------------------------------------------------------------
+SysName: t-t                            SysLocation: t-t
+SysContact: test@email.cn               Port: 65535
+ReadCommunity: t-t                      WriteCommunity: Write not supported
+Port6: 1                                ReadCommunity6: t-t
+WriteCommunity6: Write not supported6
+===============================================================================
+Index TrapSinkServer      TrapFilter          
+===============================================================================
+1     server.name         info and above                                       
+2     1.1.1.1             warning and above                                    
+3     255.1.1.1           minor and above                                      
+4     1.255.1.1           major and above                                      
+5     1.1.255.1           critical and above                                   
+
+administrator@cli> 
+
+Expect: Trap sink should be added with "trapsinkserver=1.1.1.255,trapfilter=fatal"
+
+swmgt -a add -n snmp -p "trapsinkserver=1.1.1.255,trapfilter=fatal"
+Note: New settings will take affect only after restart of service snmp.
+
+
+administrator@cli> 
+swmgt -n snmp
+-------------------------------------------------------------------------------
+StartupType: Automatic
+-------------------------------------------------------------------------------
+SysName: t-t                            SysLocation: t-t
+SysContact: test@email.cn               Port: 65535
+ReadCommunity: t-t                      WriteCommunity: Write not supported
+Port6: 1                                ReadCommunity6: t-t
+WriteCommunity6: Write not supported6
+===============================================================================
+Index TrapSinkServer      TrapFilter          
+===============================================================================
+1     server.name         info and above                                       
+2     1.1.1.1             warning and above                                    
+3     255.1.1.1           minor and above                                      
+4     1.255.1.1           major and above                                      
+5     1.1.255.1           critical and above                                   
+6     1.1.1.255           fatal                                                
+
+administrator@cli> 
+
+Expect: ssh public key should be added with "filename=test_key.pub,server=10.84.2.99,comment=t-t"
+
+swmgt -a add -n ssh -p "filename=test_key.pub,server=10.84.2.99,comment=t-t"
+Note: New settings will take affect only after restart of service ssh.
+
+
+administrator@cli> 
+swmgt -n ssh
+-------------------------------------------------------------------------------
+StartupType: Automatic
+-------------------------------------------------------------------------------
+Port: 22                                MaxConnection: 4
+SessionTimeout(minutes): 60
+
+administrator@cli> 
+
+Fail: please check out Index
+
+
+Fail: please check out Comment
+
+'result': 'f'
+
+Expect: trap sink 6 should be deleted
+
+swmgt -a del -n snmp -i 6
+Note: New settings will take affect only after restart of service snmp.
+
+
+administrator@cli> 
+swmgt -n snmp
+-------------------------------------------------------------------------------
+StartupType: Automatic
+-------------------------------------------------------------------------------
+SysName: t-t                            SysLocation: t-t
+SysContact: test@email.cn               Port: 65535
+ReadCommunity: t-t                      WriteCommunity: Write not supported
+Port6: 1                                ReadCommunity6: t-t
+WriteCommunity6: Write not supported6
+===============================================================================
+Index TrapSinkServer      TrapFilter          
+===============================================================================
+1     server.name         info and above                                       
+2     1.1.1.1             warning and above                                    
+3     255.1.1.1           minor and above                                      
+4     1.255.1.1           major and above                                      
+5     1.1.255.1           critical and above                                   
+
+administrator@cli> 
+
+Expect: trap sink 5 should be deleted
+
+swmgt -a del -n snmp -i 5
+Note: New settings will take affect only after restart of service snmp.
+
+
+administrator@cli> 
+swmgt -n snmp
+-------------------------------------------------------------------------------
+StartupType: Automatic
+-------------------------------------------------------------------------------
+SysName: t-t                            SysLocation: t-t
+SysContact: test@email.cn               Port: 65535
+ReadCommunity: t-t                      WriteCommunity: Write not supported
+Port6: 1                                ReadCommunity6: t-t
+WriteCommunity6: Write not supported6
+===============================================================================
+Index TrapSinkServer      TrapFilter          
+===============================================================================
+1     server.name         info and above                                       
+2     1.1.1.1             warning and above                                    
+3     255.1.1.1           minor and above                                      
+4     1.255.1.1           major and above                                      
+
+administrator@cli> 
+
+Expect: trap sink 4 should be deleted
+
+swmgt -a del -n snmp -i 4
+Note: New settings will take affect only after restart of service snmp.
+
+
+administrator@cli> 
+swmgt -n snmp
+-------------------------------------------------------------------------------
+StartupType: Automatic
+-------------------------------------------------------------------------------
+SysName: t-t                            SysLocation: t-t
+SysContact: test@email.cn               Port: 65535
+ReadCommunity: t-t                      WriteCommunity: Write not supported
+Port6: 1                                ReadCommunity6: t-t
+WriteCommunity6: Write not supported6
+===============================================================================
+Index TrapSinkServer      TrapFilter          
+===============================================================================
+1     server.name         info and above                                       
+2     1.1.1.1             warning and above                                    
+3     255.1.1.1           minor and above                                      
+
+administrator@cli> 
+
+Expect: trap sink 3 should be deleted
+
+swmgt -a del -n snmp -i 3
+Note: New settings will take affect only after restart of service snmp.
+
+
+administrator@cli> 
+swmgt -n snmp
+-------------------------------------------------------------------------------
+StartupType: Automatic
+-------------------------------------------------------------------------------
+SysName: t-t                            SysLocation: t-t
+SysContact: test@email.cn               Port: 65535
+ReadCommunity: t-t                      WriteCommunity: Write not supported
+Port6: 1                                ReadCommunity6: t-t
+WriteCommunity6: Write not supported6
+===============================================================================
+Index TrapSinkServer      TrapFilter          
+===============================================================================
+1     server.name         info and above                                       
+2     1.1.1.1             warning and above                                    
+
+administrator@cli> 
+
+Expect: trap sink 2 should be deleted
+
+swmgt -a del -n snmp -i 2
+Note: New settings will take affect only after restart of service snmp.
+
+
+administrator@cli> 
+swmgt -n snmp
+-------------------------------------------------------------------------------
+StartupType: Automatic
+-------------------------------------------------------------------------------
+SysName: t-t                            SysLocation: t-t
+SysContact: test@email.cn               Port: 65535
+ReadCommunity: t-t                      WriteCommunity: Write not supported
+Port6: 1                                ReadCommunity6: t-t
+WriteCommunity6: Write not supported6
+===============================================================================
+Index TrapSinkServer      TrapFilter          
+===============================================================================
+1     server.name         info and above                                       
+
+administrator@cli> 
+
+Expect: trap sink 1 should be deleted
+
+swmgt -a del -n snmp -i 1
+Note: New settings will take affect only after restart of service snmp.
+
+
+administrator@cli> 
+swmgt -n snmp
+-------------------------------------------------------------------------------
+StartupType: Automatic
+-------------------------------------------------------------------------------
+SysName: t-t                            SysLocation: t-t
+SysContact: test@email.cn               Port: 65535
+ReadCommunity: t-t                      WriteCommunity: Write not supported
+Port6: 1                                ReadCommunity6: t-t
+WriteCommunity6: Write not supported6
+
+administrator@cli> 
+
+Expect: public key 1 should be deleted
+
+swmgt -a del -n ssh -i 1
+Error (0x402): Invalid parameter
+invalid ssh public key index
+
+administrator@cli> 
+
+Fail: swmgt -a del -n ssh -i 1
+
+'result': 'f'
+
+Expect: Invalid setting parameters
+
+swmgt test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting component name when executes listing action
+
+swmgt -n test
+Error (0x2013): Invalid setting parameters
+-n: invalid setting test (email|slp|webserver|ssh|snmp|advanced)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+swmgt -a start test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+swmgt -a stop test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting component name when executes starting action
+
+swmgt -a start -n test
+Error (0x2013): Invalid setting parameters
+-n: invalid setting test (email|slp|webserver|ssh|snmp|advanced)
+
+administrator@cli> 
+
+Expect: Invalid setting component name when executes stopping action
+
+swmgt -a stop -n test
+Error (0x2013): Invalid setting parameters
+-n: invalid setting test (email|slp|webserver|ssh|snmp|advanced)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+swmgt -a restart test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting component name when executes restarting action
+
+swmgt -a restart -n tset
+Error (0x2013): Invalid setting parameters
+-n: invalid setting tset (email|slp|webserver|ssh|snmp|advanced)
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+swmgt -a mod test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting component name when executes modification action
+
+swmgt -a mod -n test -t automatic
+Error (0x2013): Invalid setting parameters
+-n: invalid setting test (email|slp|webserver|ssh|snmp|advanced)
+
+administrator@cli> 
+
+Expect: Invalid setting startup type
+
+swmgt -a mod -n webserver -t test
+Error (0x2013): Invalid setting parameters
+-t: invalid setting test (automatic|manual)
+
+administrator@cli> 
+
+Expect: Invalid setting smtp server ip
+
+swmgt -a mod -n email -s "smtpserver=256.256.256.256"
+Note: New settings will take affect only after restart of service email.
+
+
+administrator@cli> 
+
+Fail: swmgt -a mod -n email -s "smtpserver=256.256.256.256"
+
+
+Expect: Invalid setting smtp server port
+
+swmgt -a mod -n email -s "serverport=-1"
+Error (0x2013): Invalid setting parameters
+serverport: invalid setting -1 (0,65535)
+
+administrator@cli> 
+
+Expect: Invalid setting smtp server port
+
+swmgt -a mod -n email -s "serverport=65536"
+Error (0x2013): Invalid setting parameters
+serverport: invalid setting 65536 (0,65535)
+
+administrator@cli> 
+
+Expect: Invalid setting smtp authentication
+
+swmgt -a mod -n email -s "authentication=test"
+Error (0x402): Invalid parameter
+invalid authentication (yes|no)
+
+administrator@cli> 
+
+Expect: Invalid setting smtp username
+
+swmgt -a mod -n email -s "username=&*/?%"
+Error (0x2013): Invalid setting parameters
+user_name contains only alphanumeric characters,  blank spaces, '.', '-', '@', '\', '/', ':' and '_'
+
+administrator@cli> 
+
+Expect: Invalid setting smtp senderaddr
+
+swmgt -a mod -n email -s "senderaddr=test"
+Error (0x2013): Invalid setting parameters
+invalid sender_address: test
+
+administrator@cli> 
+
+Expect: Invalid setting smtp subject
+
+swmgt -a mod -n email -s "subject=8&#"
+Error (0x2013): Invalid setting parameters
+subject contains only alphanumeric characters,  blank spaces, '.', '-', '@', '\', '/', ':' and '_'
+
+administrator@cli> 
+
+Expect: Invalid setting 
+
+swmgt -a mod -n email -s "authentication=no,username=zach.feng,password=012345"
+Error (0x2013): Invalid setting parameters
+cannot specify user_name if SMTP authentication is set to NO
+
+administrator@cli> 
+
+Expect: Invalid setting webserver session time out
+
+swmgt -a mod -n webserver -s "sessiontimeout=0"
+Error (0x2013): Invalid setting parameters
+sessiontimeout: invalid setting 0 (1,1440)
+
+administrator@cli> 
+
+Expect: Invalid setting webserver session time out
+
+swmgt -a mod -n webserver -s "sessiontimeout=1441"
+Error (0x2013): Invalid setting parameters
+sessiontimeout: invalid setting 1441 (1,1440)
+
+administrator@cli> 
+
+Expect: Invalid setting ssh port
+
+swmgt -a mod -n ssh -s "port=0"
+Error (0x2013): Invalid setting parameters
+port: invalid setting 0 (1,65535)
+
+administrator@cli> 
+
+Expect: Invalid setting ssh port
+
+swmgt -a mod -n ssh -s "port=65536"
+Error (0x2013): Invalid setting parameters
+port: invalid setting 65536 (1,65535)
+
+administrator@cli> 
+
+Expect: Invalid setting ssh session time out
+
+swmgt -a mod -n ssh -s "sessiontimeout=0"
+Error (0x2013): Invalid setting parameters
+sessiontimeout: invalid setting 0 (1,1440)
+
+administrator@cli> 
+
+Expect: Invalid setting ssh session time out
+
+swmgt -a mod -n ssh -s "sessiontimeout=1441"
+Error (0x2013): Invalid setting parameters
+sessiontimeout: invalid setting 1441 (1,1440)
+
+administrator@cli> 
+
+Expect: Invalid setting ssh maxconnection
+
+swmgt -a mod -n ssh -s "maxconnection=0"
+Error (0x2013): Invalid setting parameters
+maxconnection: invalid setting 0 (1,4)
+
+administrator@cli> 
+
+Expect: Invalid setting ssh maxconnection
+
+swmgt -a mod -n ssh -s "maxconnection=5"
+Error (0x2013): Invalid setting parameters
+maxconnection: invalid setting 5 (1,4)
+
+administrator@cli> 
+
+Expect: Invalid setting snmp port
+
+swmgt -a mod -n snmp -s "port=0"
+Error (0x2013): Invalid setting parameters
+port: invalid setting 0 (1,65535)
+
+administrator@cli> 
+
+Expect: Invalid setting snmp port
+
+swmgt -a mod -n snmp -s "port=65536"
+Error (0x2013): Invalid setting parameters
+port: invalid setting 65536 (1,65535)
+
+administrator@cli> 
+
+Expect: Invalid setting snmp port6
+
+swmgt -a mod -n snmp -s "port6=0"
+Error (0x2013): Invalid setting parameters
+port6: invalid setting 0 (1,65535)
+
+administrator@cli> 
+
+Expect: Invalid setting snmp port6
+
+swmgt -a mod -n snmp -s "port6=65536"
+Error (0x2013): Invalid setting parameters
+port6: invalid setting 65536 (1,65535)
+
+administrator@cli> 
+
+Expect: Invalid setting snmp sysname
+
+swmgt -a mod -n snmp -s "sysname=*&#"
+Error (0x2013): Invalid setting parameters
+sys_name contains only alphanumeric characters,  blank spaces, '.', '-', '@', '\', '/', ':' and '_'
+
+administrator@cli> 
+
+Expect: Invalid setting snmp syslocation
+
+swmgt -a mod -n snmp -s "syslocation=*$#"
+Error (0x2013): Invalid setting parameters
+sys_location contains only alphanumeric characters,  blank spaces, '.', '-', '@', '\', '/', ':' and '_'
+
+administrator@cli> 
+
+Expect: Invalid setting snmp syscontact
+
+swmgt -a mod -n snmp -s "syscontact=*$#"
+Error (0x2013): Invalid setting parameters
+invalid sys_contact: *$#
+
+administrator@cli> 
+
+Expect: Invalid setting snmp readcommunity
+
+swmgt -a mod -n snmp -s "readcommunity=*&$"
+Error (0x2013): Invalid setting parameters
+read_community contains only alphanumeric characters,  blank spaces, '.', '-', '@', '\', '/', ':' and '_'
+
+administrator@cli> 
+
+Expect: Invalid setting snmp readcommunity6
+
+swmgt -a mod -n snmp -s "readcommunity6=*&$"
+Note: New settings will take affect only after restart of service snmp.
+
+
+administrator@cli> 
+
+Fail: swmgt -a mod -n snmp -s "readcommunity6=*&$"
+
+
+Expect: Invalid setting parameters
+
+swmgt -a add test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting component name when executes adding action
+
+swmgt -a add -n test
+Error (0x2013): Invalid setting parameters
+-n: invalid setting test (email|slp|webserver|ssh|snmp|advanced)
+
+administrator@cli> 
+
+Expect: Invalid setting snmp trap sink server
+
+swmgt -a add -n snmp -p "trapsinkserver=*&%$#,trapfilter=info"
+Error (0x2013): Invalid setting parameters
+invalid trap_server: *&%$#
+
+administrator@cli> 
+
+Expect: Invalid setting snmp trap filter
+
+swmgt -a add -n snmp -p "trapsinkserver=server.name,trapfilter=test"
+Error (0x2013): Invalid setting parameters
+trapfilter: invalid setting test (info|warning|minor|major|critical|fatal)
+
+administrator@cli> 
+
+Expect: Invalid setting file name
+
+swmgt -a add -n ssh -p "filename=test,server=10.84.2.99,comment=root@server"
+Error (0x140): Failed to get file from the TFTP server
+
+administrator@cli> 
+
+Fail: please check out invalid
+
+
+Expect: Invalid setting tftp server ip
+
+swmgt -a add -n ssh -p "filename=test_key.pub,server=0,comment=root@server"
+Error (0x140): Failed to get file from the TFTP server
+
+administrator@cli> 
+
+Expect: Invalid setting ssh comment
+
+swmgt -a add -n ssh -p "filename=test_key.pub,server=10.84.2.99,comment=*&%"
+Error (0x2013): Invalid setting parameters
+comment contains only alphanumeric characters,  blank spaces, '.', '-', '@', '\', '/', ':' and '_'
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+swmgt -a del test
+Error (0x2013): Invalid setting parameters
+invalid setting: test
+
+administrator@cli> 
+
+Expect: Invalid setting parameters
+
+swmgt -a del -n test -i 0
+Error (0x2013): Invalid setting parameters
+-n: invalid setting test (email|slp|webserver|ssh|snmp|advanced)
+
+administrator@cli> 
+
+Expect: Invalid setting index
+
+swmgt -a del -n snmp -i 0
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 0 (1,255)
+
+administrator@cli> 
+
+Expect: Invalid setting index
+
+swmgt -a del -n snmp -i 256
+Error (0x2013): Invalid setting parameters
+-i: invalid setting 256 (1,255)
+
+administrator@cli> 
+
+Expect: Invalid setting index
+
+swmgt -a del -n ssh -i test
+Error (0x2013): Invalid setting parameters
+-i: invalid setting test
+
+administrator@cli> 
+'result': 'f'
+
+Expect: Invalid option for the command or the action
+
+swmgt -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+swmgt -a start -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+swmgt -a stop -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+swmgt -a restart -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+swmgt -a restart -n -tset
+Error (0x2012): Invalid option for the command or the action
+invalid option: -tset
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+swmgt -a mod -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+swmgt -a mod -n webserver -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+swmgt -a mod -n email -s "test=256.256.256.256"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+swmgt -a mod -n webserver -s "test=0"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+swmgt -a mod -n ssh -s "test=0"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+swmgt -a mod -n snmp -s "test=0"
+Error (0x2012): Invalid option for the command or the action
+-s: invalid option: test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+swmgt -a add -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+swmgt -a add -n snmp -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+swmgt -a add -n snmp -p "test=test,trapfilter=info"
+Error (0x2012): Invalid option for the command or the action
+-p: invalid option: test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+swmgt -a add -n ssh -p "test=test"
+Error (0x2012): Invalid option for the command or the action
+-p: invalid option: test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+swmgt -a del -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+
+Expect: Invalid option for the command or the action
+
+swmgt -a del -n snmp -test
+Error (0x2012): Invalid option for the command or the action
+invalid option: -test
+
+administrator@cli> 
+'result': 'p'
+
+Expect: Missing parameter
+
+swmgt -n
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+swmgt -a 
+Error (0x403): Missing parameter
+-a: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+swmgt -a start
+Error (0x403): Missing parameter
+missing parameter '-n' for '-a start'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+swmgt -a stop
+Error (0x403): Missing parameter
+missing parameter '-n' for '-a stop'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+swmgt -a restart
+Error (0x403): Missing parameter
+missing parameter '-n' for '-a restart'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+swmgt -a restart -n 
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+swmgt -a mod
+Error (0x403): Missing parameter
+missing parameter '-n' for '-a mod'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+swmgt -a mod -n 
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+swmgt -a mod -n webserver -t
+Error (0x403): Missing parameter
+-t: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+swmgt -a mod -n email -s 
+Error (0x403): Missing parameter
+-s: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+swmgt -a mod -s "port=65536"
+Error (0x2013): Invalid setting parameters
+port: invalid setting 65536 (1,65535)
+
+administrator@cli> 
+
+Fail: please check out Missing parameter
+
+
+Expect: Missing parameter
+
+swmgt -a add
+Error (0x403): Missing parameter
+missing parameter '-n' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+swmgt -a add -n
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+swmgt -a add -n snmp -p 
+Error (0x403): Missing parameter
+-p: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+swmgt -a add -p "server=10.84.2.99,comment=root@server"
+Error (0x403): Missing parameter
+missing parameter '-n' for '-a add'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+swmgt -a del
+Error (0x403): Missing parameter
+missing parameter '-n' for '-a del'
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+swmgt -a del -n 
+Error (0x403): Missing parameter
+-n: missing value
+
+administrator@cli> 
+
+Expect: Missing parameter
+
+swmgt -a del -n snmp -i 
+Error (0x403): Missing parameter
+-i: missing value
+
+administrator@cli> 
+'result': 'f'
+
+Expect: software component of email should be started
+
+swmgt -a start -n email
+
+administrator@cli> 
+swmgt
+===============================================================================
+Component Name         Running Status         Startup Type           
+===============================================================================
+Email                  Started                Automatic                        
+SLP                    Started                Automatic                        
+Webserver              Stopped                Automatic                        
+SSH                    Started                Automatic                        
+SNMP                   Started                Automatic                        
+
+administrator@cli> 
+
+Expect: software component of email should be stopped
+
+swmgt -a stop -n email
+
+administrator@cli> 
+swmgt
+===============================================================================
+Component Name         Running Status         Startup Type           
+===============================================================================
+Email                  Stopped                Automatic                        
+SLP                    Started                Automatic                        
+Webserver              Stopped                Automatic                        
+SSH                    Started                Automatic                        
+SNMP                   Started                Automatic                        
+
+administrator@cli> 
+
+Expect: software component of email should be started
+
+swmgt -a start -n email
+
+administrator@cli> 
+swmgt
+===============================================================================
+Component Name         Running Status         Startup Type           
+===============================================================================
+Email                  Started                Automatic                        
+SLP                    Started                Automatic                        
+Webserver              Stopped                Automatic                        
+SSH                    Started                Automatic                        
+SNMP                   Started                Automatic                        
+
+administrator@cli> 
+
+Expect: software component of slp should be started
+
+swmgt -a start -n slp
+
+administrator@cli> 
+swmgt
+===============================================================================
+Component Name         Running Status         Startup Type           
+===============================================================================
+Email                  Started                Automatic                        
+SLP                    Started                Automatic                        
+Webserver              Stopped                Automatic                        
+SSH                    Started                Automatic                        
+SNMP                   Started                Automatic                        
+
+administrator@cli> 
+
+Expect: software component of slp should be stopped
+
+swmgt -a stop -n slp
+
+administrator@cli> 
+swmgt
+===============================================================================
+Component Name         Running Status         Startup Type           
+===============================================================================
+Email                  Started                Automatic                        
+SLP                    Stopped                Automatic                        
+Webserver              Stopped                Automatic                        
+SSH                    Started                Automatic                        
+SNMP                   Started                Automatic                        
+
+administrator@cli> 
+
+Expect: software component of slp should be started
+
+swmgt -a start -n slp
+
+administrator@cli> 
+swmgt
+===============================================================================
+Component Name         Running Status         Startup Type           
+===============================================================================
+Email                  Started                Automatic                        
+SLP                    Started                Automatic                        
+Webserver              Stopped                Automatic                        
+SSH                    Started                Automatic                        
+SNMP                   Started                Automatic                        
+
+administrator@cli> 
+
+Expect: software component of webserver should be started
+
+swmgt -a start -n webserver
+
+administrator@cli> 
+swmgt
+===============================================================================
+Component Name         Running Status         Startup Type           
+===============================================================================
+Email                  Started                Automatic                        
+SLP                    Started                Automatic                        
+Webserver              Error                  Automatic                        
+SSH                    Started                Automatic                        
+SNMP                   Started                Automatic                        
+
+administrator@cli> 
+
+Fail: please check out Webserver              Started
+
+
+Expect: software component of webserver should be stopped
+
+swmgt -a stop -n webserver
+
+administrator@cli> 
+swmgt
+===============================================================================
+Component Name         Running Status         Startup Type           
+===============================================================================
+Email                  Started                Automatic                        
+SLP                    Started                Automatic                        
+Webserver              Stopped                Automatic                        
+SSH                    Started                Automatic                        
+SNMP                   Started                Automatic                        
+
+administrator@cli> 
+
+Expect: software component of webserver should be started
+
+swmgt -a start -n webserver
+
+administrator@cli> 
+swmgt
+===============================================================================
+Component Name         Running Status         Startup Type           
+===============================================================================
+Email                  Started                Automatic                        
+SLP                    Started                Automatic                        
+Webserver              Error                  Automatic                        
+SSH                    Started                Automatic                        
+SNMP                   Started                Automatic                        
+
+administrator@cli> 
+
+Fail: please check out Webserver              Started
+
+
+Expect: software component of snmp should be started
+
+swmgt -a start -n snmp
+
+administrator@cli> 
+swmgt
+===============================================================================
+Component Name         Running Status         Startup Type           
+===============================================================================
+Email                  Started                Automatic                        
+SLP                    Started                Automatic                        
+Webserver              Stopped                Automatic                        
+SSH                    Started                Automatic                        
+SNMP                   Started                Automatic                        
+
+administrator@cli> 
+
+Expect: software component of snmp should be stopped
+
+swmgt -a stop -n snmp
+
+administrator@cli> 
+swmgt
+===============================================================================
+Component Name         Running Status         Startup Type           
+===============================================================================
+Email                  Started                Automatic                        
+SLP                    Started                Automatic                        
+Webserver              Stopped                Automatic                        
+SSH                    Started                Automatic                        
+SNMP                   Stopped                Automatic                        
+
+administrator@cli> 
+
+Expect: software component of snmp should be started
+
+swmgt -a start -n snmp
+
+administrator@cli> 
+swmgt
+===============================================================================
+Component Name         Running Status         Startup Type           
+===============================================================================
+Email                  Started                Automatic                        
+SLP                    Started                Automatic                        
+Webserver              Stopped                Automatic                        
+SSH                    Started                Automatic                        
+SNMP                   Started                Automatic                        
+
+administrator@cli> 
+
+Expect: software component of ssh should be started
+
+swmgt -a start -n ssh
+
+administrator@cli> 
+swmgt
+===============================================================================
+Component Name         Running Status         Startup Type           
+===============================================================================
+Email                  Started                Automatic                        
+SLP                    Started                Automatic                        
+Webserver              Stopped                Automatic                        
+SSH                    Started                Automatic                        
+SNMP                   Started                Automatic                        
+
+administrator@cli> 
+'result': 'f'
+
+Expect: expand raid0 pool by pds 2,3
+
+pool -a expand -i 0 -p 2,3
+
+administrator@cli> 
+pool -v -i 0
+
+Pool global setting:
+-------------------------------------------------------------------------------
+CapacityThreshold: 85
+
+-------------------------------------------------------------------------------
+Id: 0                                   Name: expand_raid0_pool
+TotalCapacity: 2.07 TB                  UsedCapacity: 42.95 GB
+PoolAvail: 1.90 TB                      PoolReserved: 129.32 GB
+FreeCapacity: 2.03 TB                   Usage: 2
+RaidLevel: 0                            ForceSync: Disabled
+Stripe: 64 KB                           Sector: 512 Bytes
+OperationalStatus: OK                   Owner: Controller 2
+PreferCtrlId: 1                         Pds: 1,2,3
+Axle: 2                                 PdGroup: (1),(2,3)
+AdvExisting: 0                          EdList: 
+
+===============================================================================
+SeqNo                      PdId                     Status                     
+===============================================================================
+0                          1                        OK                         
+1                          2                        OK                         
+2                          3                        OK                         
+
+
+administrator@cli> 
+
+Expect: expand raid0 pool by eds 5,6
+
+pool -a expand -i 0 -t ed -p 5
+
+administrator@cli> 
+pool -v -i 0
+
+Pool global setting:
+-------------------------------------------------------------------------------
+CapacityThreshold: 85
+
+-------------------------------------------------------------------------------
+Id: 0                                   Name: expand_raid0_pool
+TotalCapacity: 2.12 TB                  UsedCapacity: 42.95 GB
+PoolAvail: 1.94 TB                      PoolReserved: 131.74 GB
+FreeCapacity: 2.08 TB                   Usage: 2
+RaidLevel: 0                            ForceSync: Disabled
+Stripe: 64 KB                           Sector: 512 Bytes
+OperationalStatus: OK                   Owner: Controller 2
+PreferCtrlId: 1                         Pds: 1,2,3
+Axle: 2                                 PdGroup: (1),(2,3)
+AdvExisting: 0                          EdList: 
+
+===============================================================================
+SeqNo                      PdId                     Status                     
+===============================================================================
+0                          1                        OK                         
+1                          2                        OK                         
+2                          3                        OK                         
+
+
+administrator@cli> 
+'result': 'p'
+
+Expect: expand raid0 pool by pds 2,3
+
+pool -a expand -i 0 -p 2,3
+Error (0x4020): Physical drive not found
+
+administrator@cli> 
+
+Fail: pool -a expand -i 0 -p 2,3
+
+
+Expect: expand raid0 pool by eds 5,6
+
+pool -a expand -i 0 -t ed -p 5
+Error (0x4100107): Fail to extend Pool.
+
+administrator@cli> 
+
+Fail: pool -a expand -i 0 -t ed -p 5
+
+'result': 'f'
+
+Expect: add pool by "name=test_ed0,ctrlid=1" -p 1,2
+
+pool -a add -t ed -s "name=test_ed0,ctrlid=1" -p 1,2
+Error (0x4100107): Fail to create Pool.
+
+administrator@cli> 
+
+Fail: pool -a add -t ed -s "name=test_ed0,ctrlid=1" -p 1,2
+
+
+Expect: add pool by "name=test_ed1,ctrlid=2" -p 3
+
+pool -a add -t ed -s "name=test_ed1,ctrlid=2" -p 3
+
+administrator@cli> 
+pool -v -i 1
+
+Pool global setting:
+-------------------------------------------------------------------------------
+CapacityThreshold: 85
+
+-------------------------------------------------------------------------------
+Id: 1                                   Name: test_ed1
+TotalCapacity: 48.37 GB                 UsedCapacity: 17.18 GB
+PoolAvail: 45.95 GB                     PoolReserved: -14761497447 Byte
+FreeCapacity: 31.19 GB                  Usage: 35
+OperationalStatus: OK                   Owner: Controller 2
+PreferCtrlId: 2                         Pds: 
+Axle: 0                                 PdGroup: 
+AdvExisting: 0                          EdList: 3
+
+
+===============================================================================
+Id   UUID           Capacity  Vendor         Model          Status    PoolId  
+===============================================================================
+3    2226b000155e88 50 GB     Promise        VTrak E5800f   OK        1        
+     1f9                                                                       
+
+administrator@cli> 
+
+Expect: add pool by "name=test_ed2" -p 4
+
+pool -a add -t ed -s "name=test_ed2" -p 4
+
+administrator@cli> 
+pool -v -i 2
+
+Pool global setting:
+-------------------------------------------------------------------------------
+CapacityThreshold: 85
+
+-------------------------------------------------------------------------------
+Id: 2                                   Name: test_ed2
+TotalCapacity: 48.37 GB                 UsedCapacity: 17.18 GB
+PoolAvail: 28.77 GB                     PoolReserved: 2.42 GB
+FreeCapacity: 31.19 GB                  Usage: 35
+OperationalStatus: OK                   Owner: Controller 1
+PreferCtrlId: 1                         Pds: 
+Axle: 0                                 PdGroup: 
+AdvExisting: 0                          EdList: 4
+
+
+===============================================================================
+Id   UUID           Capacity  Vendor         Model          Status    PoolId  
+===============================================================================
+4    22291000155c58 50 GB     Promise        VTrak E5800f   OK        2        
+     307                                                                       
+
+administrator@cli> 
+'result': 'f'
+
+Expect: add pool by "name=test_ed0,ctrlid=1" -p 1,2
+
+pool -a add -t ed -s "name=test_ed0,ctrlid=1" -p 1,2
+
+administrator@cli> 
+pool -v -i 0
+
+Pool global setting:
+-------------------------------------------------------------------------------
+CapacityThreshold: 85
+
+-------------------------------------------------------------------------------
+Id: 0                                   Name: test_ed0
+TotalCapacity: 96.74 GB                 UsedCapacity: 17.18 GB
+PoolAvail: 91.90 GB                     PoolReserved: -12343061760 Byte
+FreeCapacity: 79.56 GB                  Usage: 17
+OperationalStatus: OK                   Owner: Controller 1
+PreferCtrlId: 1                         Pds: 
+Axle: 0                                 PdGroup: 
+AdvExisting: 0                          EdList: 1,2
+
+
+===============================================================================
+Id   UUID           Capacity  Vendor         Model          Status    PoolId  
+===============================================================================
+1    2222b0001555c8 50 GB     Promise        VTrak E5800f   OK        0        
+     a56                                                                       
+2    22247000155068 50 GB     Promise        VTrak E5800f   OK        0        
+     f98                                                                       
+
+administrator@cli> 
+
+Expect: add pool by "name=test_ed1,ctrlid=2" -p 3
+
+pool -a add -t ed -s "name=test_ed1,ctrlid=2" -p 3
+
+administrator@cli> 
+pool -v -i 1
+
+Pool global setting:
+-------------------------------------------------------------------------------
+CapacityThreshold: 85
+
+-------------------------------------------------------------------------------
+Id: 1                                   Name: test_ed1
+TotalCapacity: 48.37 GB                 UsedCapacity: 17.18 GB
+PoolAvail: 28.77 GB                     PoolReserved: 2.42 GB
+FreeCapacity: 31.19 GB                  Usage: 35
+OperationalStatus: OK                   Owner: Controller 2
+PreferCtrlId: 2                         Pds: 
+Axle: 0                                 PdGroup: 
+AdvExisting: 0                          EdList: 3
+
+
+===============================================================================
+Id   UUID           Capacity  Vendor         Model          Status    PoolId  
+===============================================================================
+3    2226b000155e88 50 GB     Promise        VTrak E5800f   OK        1        
+     1f9                                                                       
+
+administrator@cli> 
+
+Expect: add pool by "name=test_ed2" -p 4
+
+pool -a add -t ed -s "name=test_ed2" -p 4
+
+administrator@cli> 
+pool -v -i 2
+
+Pool global setting:
+-------------------------------------------------------------------------------
+CapacityThreshold: 85
+
+-------------------------------------------------------------------------------
+Id: 2                                   Name: test_ed2
+TotalCapacity: 48.37 GB                 UsedCapacity: 17.18 GB
+PoolAvail: 45.95 GB                     PoolReserved: -14761497447 Byte
+FreeCapacity: 31.19 GB                  Usage: 35
+OperationalStatus: OK                   Owner: Controller 1
+PreferCtrlId: 1                         Pds: 
+Axle: 0                                 PdGroup: 
+AdvExisting: 0                          EdList: 4
+
+
+===============================================================================
+Id   UUID           Capacity  Vendor         Model          Status    PoolId  
+===============================================================================
+4    22291000155c58 50 GB     Promise        VTrak E5800f   OK        2        
+     307                                                                       
+
+administrator@cli> 
+'result': 'p'
+
+Expect: add pool by "name=a,raid=0,stripe=64KB,sector=512B,ctrlid=1"
+
+pool -a add -t pd -s "name=a,raid=0,stripe=64KB,sector=512B,ctrlid=1" -p 1
+Error (0x4020): Physical drive not found
+
+administrator@cli> 
+
+Fail: pool -a add -t pd -s "name=a,raid=0,stripe=64KB,sector=512B,ctrlid=1" -p 1
+
+'result': 'f'
