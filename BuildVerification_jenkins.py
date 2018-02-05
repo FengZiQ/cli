@@ -111,6 +111,8 @@ def build_verification(c):
         # there are 49 command that can be tested
         tolog("Start verifying pool add")
         import pool
+        if (pool.add_pool_by_external_drive(c)):
+            failed_cases.append('The case ' + pool.add_pool_by_external_drive.__name__ + ' failed')
         if (pool.add_pool_raid0(c)):
             failed_cases.append('The case ' + pool.add_pool_raid0.__name__ + ' failed')
         if (pool.add_pool_raid1(c)):
