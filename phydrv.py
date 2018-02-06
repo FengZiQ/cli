@@ -37,15 +37,15 @@ def precondition():
     server.webapi('post', 'spare', {"pd_id": pdId[5], "dedicated": 'dedicated', "revertible": 0, "pool_list": [0]})
 
     # create cache
-    # pd_request = server.webapi('get', 'phydrv')
-    # pd_info = json.loads(pd_request["text"])
-    #
-    # for info in pd_info:
-    #     if info["media_type"] == 'SSD':
-    #         ssd_id.append(info["id"])
-    #
-    # server.webapi('post', 'rcache/attach', {"pd_list": [ssd_id[0]]})
-    # server.webapi('post', 'wcache/attach', {"pd_list": ssd_id[1:], "pool_list": []})
+    pd_request = server.webapi('get', 'phydrv')
+    pd_info = json.loads(pd_request["text"])
+
+    for info in pd_info:
+        if info["media_type"] == 'SSD':
+            ssd_id.append(info["id"])
+
+    server.webapi('post', 'rcache/attach', {"pd_list": [ssd_id[0]]})
+    server.webapi('post', 'wcache/attach', {"pd_list": ssd_id[1:], "pool_list": []})
 
 
 def list_phydrv(c):

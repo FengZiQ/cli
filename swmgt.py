@@ -93,15 +93,15 @@ if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
 
-    # list_swmgt(c)
+    list_swmgt(c)
     start_stop_swmgt(c)
-    # restart_swmgt(c)
-    # mod_swmgt(c)
-    # add_swmgt(c)
-    # delete_swmgt(c)
-    # invalid_parameter_for_swmgt(c)
-    # invalid_option_for_swmgt(c)
-    # missing_parameter_for_swmgt(c)
+    restart_swmgt(c)
+    mod_swmgt(c)
+    add_swmgt(c)
+    delete_swmgt(c)
+    invalid_parameter_for_swmgt(c)
+    invalid_option_for_swmgt(c)
+    missing_parameter_for_swmgt(c)
 
     ssh.close()
     elasped = time.clock() - start

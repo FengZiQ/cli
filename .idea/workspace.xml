@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e03c8b68-9846-4b80-8d73-1c116d755aef" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/pool.xlsx" afterPath="$PROJECT_DIR$/data/pool.xlsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/swmgt.xlsx" afterPath="$PROJECT_DIR$/data/swmgt.xlsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BuildVerification_jenkins.py" afterPath="$PROJECT_DIR$/BuildVerification_jenkins.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bgasched.py" afterPath="$PROJECT_DIR$/bgasched.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cli_scripts.log" afterPath="$PROJECT_DIR$/cli_scripts.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pool.py" afterPath="$PROJECT_DIR$/pool.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/phydrv.py" afterPath="$PROJECT_DIR$/phydrv.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/subscription.py" afterPath="$PROJECT_DIR$/subscription.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/swmgt.py" afterPath="$PROJECT_DIR$/swmgt.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testlink.notes" afterPath="$PROJECT_DIR$/testlink.notes" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,37 +21,14 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="pool.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pool.py">
+      <file leaf-file-name="subscription.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/subscription.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="160" column="0" lean-forward="true" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
+            <state relative-caret-position="19">
+              <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
               <folding>
-                <element signature="e#30#62#0" expanded="true" />
-                <element signature="e#234#819#0" expanded="false" />
-                <element signature="e#861#1121#0" expanded="false" />
-                <element signature="e#1152#1401#0" expanded="false" />
-                <element signature="e#1432#1686#0" expanded="false" />
-                <element signature="e#1717#1971#0" expanded="false" />
-                <element signature="e#2002#2256#0" expanded="false" />
-                <element signature="e#2288#2543#0" expanded="false" />
-                <element signature="e#2575#2830#0" expanded="false" />
-                <element signature="e#2862#3117#0" expanded="false" />
-                <element signature="e#3158#3422#0" expanded="false" />
-                <element signature="e#3455#3577#0" expanded="false" />
-                <element signature="e#3603#4068#0" expanded="false" />
-                <element signature="e#4107#4217#0" expanded="false" />
-                <element signature="e#4251#4669#0" expanded="false" />
-                <element signature="e#4703#5121#0" expanded="false" />
-                <element signature="e#5155#5573#0" expanded="false" />
-                <element signature="e#5607#6025#0" expanded="false" />
-                <element signature="e#6060#6481#0" expanded="false" />
-                <element signature="e#6516#6948#0" expanded="false" />
-                <element signature="e#6983#7415#0" expanded="false" />
-                <element signature="e#7443#8112#0" expanded="false" />
-                <element signature="e#8155#8556#0" expanded="false" />
-                <element signature="e#8587#8724#0" expanded="false" />
-                <element signature="e#8758#9036#0" expanded="false" />
+                <element signature="e#39#71#0" expanded="true" />
+                <element signature="e#631#1002#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -66,7 +45,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>snmp_</find>
       <find>Fail:</find>
       <find>smart</find>
       <find>alua</find>
@@ -85,7 +63,6 @@
       <find>target</find>
       <find>fail:\</find>
       <find>fc</find>
-      <find>fail</find>
       <find>iscsi</find>
       <find>trunk</find>
       <find>initi</find>
@@ -95,10 +72,11 @@
       <find>replica</find>
       <find>spare</find>
       <find>lunmap</find>
+      <find>fail</find>
       <find>fail:</find>
+      <find>swmgt</find>
     </findStrings>
     <replaceStrings>
-      <replace>clone.</replace>
       <replace>phydrv.</replace>
       <replace>rb.</replace>
       <replace>perfstats.</replace>
@@ -128,6 +106,7 @@
       <replace>initiator</replace>
       <replace>lunmap</replace>
       <replace>swmgt</replace>
+      <replace>subscription</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -136,7 +115,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/to_log.py" />
         <option value="$PROJECT_DIR$/send_cmd.py" />
         <option value="$PROJECT_DIR$/target_release.txt" />
         <option value="$PROJECT_DIR$/install_official_release.py" />
@@ -178,15 +156,16 @@
         <option value="$PROJECT_DIR$/migrate.py" />
         <option value="$PROJECT_DIR$/snapshot.py" />
         <option value="$PROJECT_DIR$/initiator.py" />
-        <option value="$PROJECT_DIR$/phydrv.py" />
         <option value="$PROJECT_DIR$/iscsi.py" />
-        <option value="$PROJECT_DIR$/bgasched.py" />
-        <option value="$PROJECT_DIR$/swmgt.py" />
         <option value="$PROJECT_DIR$/find_unconfigured_pd_id.py" />
         <option value="$PROJECT_DIR$/remote.py" />
         <option value="$PROJECT_DIR$/ssh_connect.py" />
         <option value="$PROJECT_DIR$/pool.py" />
         <option value="$PROJECT_DIR$/BuildVerification_jenkins.py" />
+        <option value="$PROJECT_DIR$/phydrv.py" />
+        <option value="$PROJECT_DIR$/swmgt.py" />
+        <option value="$PROJECT_DIR$/subscription.py" />
+        <option value="$PROJECT_DIR$/bgasched.py" />
       </list>
     </option>
   </component>
@@ -214,7 +193,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -229,6 +207,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -247,7 +226,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.pool">
+  <component name="RunManager" selected="Python.bgasched">
     <configuration default="false" name="iscsi" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -261,24 +240,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="cli" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/iscsi.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="initiator" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="cli" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/initiator.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -320,7 +281,7 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="swmgt" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="phydrv" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -332,7 +293,25 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="cli" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/swmgt.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/phydrv.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="subscription" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="cli" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/subscription.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -404,18 +383,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.iscsi" />
-      <item index="1" class="java.lang.String" itemvalue="Python.initiator" />
-      <item index="2" class="java.lang.String" itemvalue="Python.pool" />
-      <item index="3" class="java.lang.String" itemvalue="Python.bgasched" />
-      <item index="4" class="java.lang.String" itemvalue="Python.swmgt" />
+      <item index="1" class="java.lang.String" itemvalue="Python.pool" />
+      <item index="2" class="java.lang.String" itemvalue="Python.bgasched" />
+      <item index="3" class="java.lang.String" itemvalue="Python.phydrv" />
+      <item index="4" class="java.lang.String" itemvalue="Python.subscription" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.pool" />
-        <item index="1" class="java.lang.String" itemvalue="Python.swmgt" />
-        <item index="2" class="java.lang.String" itemvalue="Python.bgasched" />
-        <item index="3" class="java.lang.String" itemvalue="Python.iscsi" />
-        <item index="4" class="java.lang.String" itemvalue="Python.initiator" />
+        <item index="0" class="java.lang.String" itemvalue="Python.bgasched" />
+        <item index="1" class="java.lang.String" itemvalue="Python.subscription" />
+        <item index="2" class="java.lang.String" itemvalue="Python.phydrv" />
+        <item index="3" class="java.lang.String" itemvalue="Python.pool" />
+        <item index="4" class="java.lang.String" itemvalue="Python.iscsi" />
       </list>
     </recent_temporary>
   </component>
@@ -452,7 +431,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21108742" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21321961" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4355363" sideWeight="0.5053305" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -511,25 +490,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="591" />
+      <option name="time" value="598" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/-762174762/__builtin__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="414" column="4" lean-forward="false" selection-start-line="414" selection-start-column="4" selection-end-line="414" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/to_log.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="30" lean-forward="true" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/rcache.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-760">
@@ -678,13 +643,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/acl.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="214" column="16" lean-forward="true" selection-start-line="214" selection-start-column="16" selection-end-line="214" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/net.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -797,13 +755,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/phydrv.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="20" column="46" lean-forward="true" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/iscsi.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="226">
@@ -815,20 +766,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="318">
           <caret line="157" column="32" lean-forward="true" selection-start-line="157" selection-start-column="32" selection-end-line="157" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bgasched.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="438" column="34" lean-forward="true" selection-start-line="438" selection-start-column="34" selection-end-line="438" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/swmgt.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="103" column="36" lean-forward="true" selection-start-line="103" selection-start-column="36" selection-end-line="103" selection-end-column="36" />
         </state>
       </provider>
     </entry>
@@ -846,21 +783,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ssh_connect.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="4" column="21" lean-forward="false" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/BuildVerification_jenkins.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-646">
           <caret line="111" column="41" lean-forward="true" selection-start-line="111" selection-start-column="41" selection-end-line="111" selection-end-column="41" />
-          <folding>
-            <element signature="e#135#1601#0" expanded="false" />
-            <element signature="e#1628#2568#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -868,32 +794,59 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
           <caret line="160" column="0" lean-forward="true" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ping.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/phydrv.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="153" column="0" lean-forward="true" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/swmgt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="96" column="23" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="107" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ssh_connect.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="4" column="21" lean-forward="false" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/acl.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="88" column="0" lean-forward="true" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bgasched.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3933">
+          <caret line="32" column="49" lean-forward="true" selection-start-line="32" selection-start-column="49" selection-end-line="32" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/subscription.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
           <folding>
-            <element signature="e#30#62#0" expanded="true" />
-            <element signature="e#234#819#0" expanded="false" />
-            <element signature="e#861#1121#0" expanded="false" />
-            <element signature="e#1152#1401#0" expanded="false" />
-            <element signature="e#1432#1686#0" expanded="false" />
-            <element signature="e#1717#1971#0" expanded="false" />
-            <element signature="e#2002#2256#0" expanded="false" />
-            <element signature="e#2288#2543#0" expanded="false" />
-            <element signature="e#2575#2830#0" expanded="false" />
-            <element signature="e#2862#3117#0" expanded="false" />
-            <element signature="e#3158#3422#0" expanded="false" />
-            <element signature="e#3455#3577#0" expanded="false" />
-            <element signature="e#3603#4068#0" expanded="false" />
-            <element signature="e#4107#4217#0" expanded="false" />
-            <element signature="e#4251#4669#0" expanded="false" />
-            <element signature="e#4703#5121#0" expanded="false" />
-            <element signature="e#5155#5573#0" expanded="false" />
-            <element signature="e#5607#6025#0" expanded="false" />
-            <element signature="e#6060#6481#0" expanded="false" />
-            <element signature="e#6516#6948#0" expanded="false" />
-            <element signature="e#6983#7415#0" expanded="false" />
-            <element signature="e#7443#8112#0" expanded="false" />
-            <element signature="e#8155#8556#0" expanded="false" />
-            <element signature="e#8587#8724#0" expanded="false" />
-            <element signature="e#8758#9036#0" expanded="false" />
+            <element signature="e#39#71#0" expanded="true" />
+            <element signature="e#631#1002#0" expanded="false" />
           </folding>
         </state>
       </provider>

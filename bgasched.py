@@ -21,14 +21,16 @@ def precondition():
 
 
 def clean_up_environment():
+    try:
+        bgaS_request = server.webapi('get', 'bgaschedule')
 
-    bgaS_request = server.webapi('get', 'bgaschedule')
+        bgaS_info = json.loads(bgaS_request['text'])
 
-    bgaS_info = json.loads(bgaS_request['text'])
+        for info in bgaS_info:
 
-    for info in bgaS_info:
-
-        server.webapi('delete', 'bgaschedule/' + str(info['id']))
+            server.webapi('delete', 'bgaschedule/' + str(info['id']))
+    except:
+        tolog('failed to clean up environment\n')
 
 
 def verifyBgaschedAdd(c):
