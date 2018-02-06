@@ -182,7 +182,7 @@ def stop_replication(c):
 
     cli_delete = cli_test_delete()
 
-    cli_delete.delete(c, data, 'stop_replication', 1)
+    cli_delete.delete_need_confirm(c, data, 'stop_replication', 1)
 
     return cli_delete.FailFlag
 

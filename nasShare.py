@@ -256,7 +256,7 @@ def mountNASShare(c):
     if 'Un-Mounted' in totalRow[4]:
         tolog('Expect: Mount NASShare ' + nasShareId[0] + '\r\n')
 
-        result = SendCmd(c, 'nasshare -a mount -i ' + nasShareId[0])
+        result = SendCmdconfirm(c, 'nasshare -a mount -i ' + nasShareId[0])
         checkResult = SendCmd(c, 'nasshare -i ' + nasShareId[0])
 
         if 'Error (' in result:
@@ -269,11 +269,11 @@ def mountNASShare(c):
                 Failflag = True
                 tolog('Fail: please check NASShare status')
     else:
-        SendCmd(c, 'nasshare -a unmount -i ' + nasShareId[0])
+        SendCmdconfirm(c, 'nasshare -a unmount -i ' + nasShareId[0])
 
         tolog('Expect: Mount NASShare ' + nasShareId[0] + '\r\n')
 
-        result = SendCmd(c, 'nasshare -a mount -i ' + nasShareId[0])
+        result = SendCmdconfirm(c, 'nasshare -a mount -i ' + nasShareId[0])
         checkResult = SendCmd(c, 'nasshare -i ' + nasShareId[0])
 
         if 'Error (' in result:
@@ -310,7 +310,7 @@ def unmountNASShare(c):
     if 'Mounted' in totalRow[4]:
         tolog('Expect: Un-Mount NASShare ' + nasShareId[0] + '\r\n')
 
-        result = SendCmd(c, 'nasshare -a unmount -i ' + nasShareId[0])
+        result = SendCmdconfirm(c, 'nasshare -a unmount -i ' + nasShareId[0])
         checkResult = SendCmd(c, 'nasshare -i ' + nasShareId[0])
 
         if 'Error (' in result:
@@ -323,11 +323,11 @@ def unmountNASShare(c):
                 Failflag = True
                 tolog('Fail: please check NASShare status')
     else:
-        SendCmd(c, 'nasshare -a mount -i ' + nasShareId[0])
+        SendCmdconfirm(c, 'nasshare -a mount -i ' + nasShareId[0])
 
         tolog('Expect: Un-Mount NASShare ' + nasShareId[0] + '\r\n')
 
-        result = SendCmd(c, 'nasshare -a unmount -i ' + nasShareId[0])
+        result = SendCmdconfirm(c, 'nasshare -a unmount -i ' + nasShareId[0])
         checkResult = SendCmd(c, 'nasshare -i ' + nasShareId[0])
 
         if 'Error (' in result:
@@ -515,11 +515,11 @@ def deleteNASShare(c):
     nasShareName = ['N'*31, '1_a', 'N'*32]
 
     tolog('Expect: delete NASShare ' + nasShareName[1] + '\r\n')
-    result = SendCmd(c, 'nasshare -a del -i 1')
+    delete_result = SendCmd(c, 'nasshare -a del -i 1')
 
     checkResult = SendCmd(c, 'nasshare')
 
-    if 'Error (' in result:
+    if 'Error (' in delete_result:
 
         Failflag = True
         tolog('Fail: to delete NASShare ' + nasShareName[1] + ' is failed \r\n')

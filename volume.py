@@ -1,4 +1,4 @@
-# coding = utf-8
+# -*- coding = utf-8 -*-
 # 2017.9.17
 
 from ssh_connect import ssh_conn
@@ -78,7 +78,7 @@ def unexportVolume(c):
     # precondition
     server.webapi('post', 'volume/0/export')
 
-    cli_setting.setting(c, data, 'unexportVolume', 3)
+    cli_setting.setting_need_confirm(c, data, 'unexportVolume', 3)
 
     return cli_setting.FailFlag
 

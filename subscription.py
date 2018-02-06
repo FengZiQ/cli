@@ -43,7 +43,7 @@ def clean_up_environment():
 
 def list_subscription(c):
     # precondition
-    # precondition()
+    precondition()
 
     cli_list = cli_test_list()
 
@@ -80,10 +80,12 @@ def enable_disable_subscription(c):
 
 
 def test_subscription(c):
+    # precondition
+    server.webapi('put', 'user/administrator', {'email': 'zach.feng@cn.promise.com'})
 
-    cli_setting = cli_test_setting()
+    cli_setting = cli_test_other_action()
 
-    cli_setting.setting(c, data, 'add_subscription', 3)
+    cli_setting.other(c, data, 'test_subscription')
 
     return cli_setting.FailFlag
 
@@ -112,6 +114,9 @@ def missing_parameter_subscription(c):
 
     cli_failed_test.failed_test(c, data, 'missing_parameter_subscription')
 
+    # clean up environment
+    clean_up_environment()
+
     return cli_failed_test.FailFlag
 
 
@@ -120,12 +125,13 @@ if __name__ == "__main__":
     c, ssh = ssh_conn()
 
     list_subscription(c)
-    # mod_subscription(c)
-    # enable_disable_subscription(c)
-    # test_subscription(c)
-    # invalid_parameter_subscription(c)
-    # invalid_option_for_subscription(c)
-    # missing_parameter_subscription(c)
+    list_subscription_by_v_mode(c)
+    mod_subscription(c)
+    enable_disable_subscription(c)
+    test_subscription(c)
+    invalid_parameter_subscription(c)
+    invalid_option_for_subscription(c)
+    missing_parameter_subscription(c)
 
     ssh.close()
     elasped = time.clock() - start

@@ -108,7 +108,7 @@ def build_verification(c):
 
     if reconnect_flag:
         c, ssh = ssh_conn()
-        # there are 49 command that can be tested
+        # there are 50 command that can be tested
         tolog("Start verifying pool add")
         import pool
         if (pool.add_pool_by_external_drive(c)):
@@ -614,6 +614,25 @@ def build_verification(c):
             failed_cases.append('The case ' + swmgt.invalid_option_for_swmgt.__name__ + ' failed')
         if (swmgt.missing_parameter_for_swmgt(c)):
             failed_cases.append('The case ' + swmgt.missing_parameter_for_swmgt.__name__ + ' failed')
+
+        tolog("Start verifying subscription")
+        import subscription
+        if (subscription.list_subscription(c)):
+            failed_cases.append('The case ' + subscription.list_subscription.__name__ + ' failed')
+        if (subscription.list_subscription_by_v_mode(c)):
+            failed_cases.append('The case ' + subscription.list_subscription_by_v_mode.__name__ + ' failed')
+        if (subscription.mod_subscription(c)):
+            failed_cases.append('The case ' + subscription.mod_subscription.__name__ + ' failed')
+        if (subscription.enable_disable_subscription(c)):
+            failed_cases.append('The case ' + subscription.enable_disable_subscription.__name__ + ' failed')
+        if (subscription.test_subscription(c)):
+            failed_cases.append('The case ' + subscription.test_subscription.__name__ + ' failed')
+        if (subscription.invalid_parameter_subscription(c)):
+            failed_cases.append('The case ' + subscription.invalid_parameter_subscription.__name__ + ' failed')
+        if (subscription.invalid_option_for_subscription(c)):
+            failed_cases.append('The case ' + subscription.invalid_option_for_subscription.__name__ + ' failed')
+        if (subscription.missing_parameter_subscription(c)):
+            failed_cases.append('The case ' + subscription.missing_parameter_subscription.__name__ + ' failed')
 
         tolog("Start verifying chap")
         import chap
