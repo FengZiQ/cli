@@ -1030,26 +1030,6 @@ def build_verification(c):
         if (smart.verifySmartMissingParameters(c)):
             failed_cases.append('The case ' + smart.verifySmartMissingParameters.__name__ + ' failed')
 
-        tolog('Start verifying bgasched')
-        import bgasched
-        if (bgasched.verifyBgaschedAdd(c)):
-            failed_cases.append('The case ' + bgasched.verifyBgaschedAdd.__name__ + ' failed')
-        if (bgasched.verifyBgaschedMod(c)):
-            failed_cases.append('The case ' + bgasched.verifyBgaschedMod.__name__ + ' failed')
-        if (bgasched.verifyBgaschedList(c)):
-            failed_cases.append('The case ' + bgasched.verifyBgaschedList.__name__ + ' failed')
-        if (bgasched.verifyBgaschedDel(c)):
-            failed_cases.append('The case ' + bgasched.verifyBgaschedDel.__name__ + ' failed')
-        if (bgasched.verifyBgaschedHelp(c)):
-            failed_cases.append('The case ' + bgasched.verifyBgaschedHelp.__name__ + ' failed')
-        if (bgasched.verifyBgaschedInvalidOption(c)):
-            failed_cases.append('The case ' + bgasched.verifyBgaschedInvalidOption.__name__ + ' failed')
-        if (bgasched.verifyBgaschedInvalidParameters(c)):
-            failed_cases.append('The case ' + bgasched.verifyBgaschedInvalidParameters.__name__ + ' failed')
-        if (bgasched.verifyBgaschedMissingParameters(c)):
-            failed_cases.append('The case ' + bgasched.verifyBgaschedMissingParameters.__name__ + ' failed')
-        bgasched.clearUp(c)
-
         tolog('Start verifying tz')
         import tz
         if (tz.list_tz(c)):
@@ -1147,6 +1127,25 @@ def build_verification(c):
             failed_cases.append('The case ' + rcache.invalid_option_for_rcache.__name__ + ' failed')
         if (rcache.missing_parameter_for_rcache(c)):
             failed_cases.append('The case ' + rcache.missing_parameter_for_rcache.__name__ + ' failed')
+
+        tolog('Start verifying bgasched')
+        import bgasched
+        if (bgasched.verifyBgaschedAdd(c)):
+            failed_cases.append('The case ' + bgasched.verifyBgaschedAdd.__name__ + ' failed')
+        if (bgasched.verifyBgaschedMod(c)):
+            failed_cases.append('The case ' + bgasched.verifyBgaschedMod.__name__ + ' failed')
+        if (bgasched.verifyBgaschedList(c)):
+            failed_cases.append('The case ' + bgasched.verifyBgaschedList.__name__ + ' failed')
+        if (bgasched.verifyBgaschedDel(c)):
+            failed_cases.append('The case ' + bgasched.verifyBgaschedDel.__name__ + ' failed')
+        if (bgasched.verifyBgaschedHelp(c)):
+            failed_cases.append('The case ' + bgasched.verifyBgaschedHelp.__name__ + ' failed')
+        if (bgasched.verifyBgaschedInvalidOption(c)):
+            failed_cases.append('The case ' + bgasched.verifyBgaschedInvalidOption.__name__ + ' failed')
+        if (bgasched.verifyBgaschedInvalidParameters(c)):
+            failed_cases.append('The case ' + bgasched.verifyBgaschedInvalidParameters.__name__ + ' failed')
+        if (bgasched.verifyBgaschedMissingParameters(c)):
+            failed_cases.append('The case ' + bgasched.verifyBgaschedMissingParameters.__name__ + ' failed')
 
     if len(failed_cases) != 0:
         for f in failed_cases:

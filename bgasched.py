@@ -12,12 +12,17 @@ Fail = "'result': 'f'"
 
 
 def precondition():
+    # delete old bgasched
+    clean_up_environment()
+
     # create pool
     pdId = find_pd_id()
     if len(pdId) >= 6:
         server.webapi('post', 'pool', {"name": "testBgasched1", "pds": pdId[:3], "raid_level": "raid5"})
         server.webapi('post', 'pool', {"name": "testBgasched2", "pds": pdId[3:5], "raid_level": "raid1"})
-        server.webapi('post', 'pool', {"name": "testBgasched3", "pds": [pdId[5:6]], "raid_level": "raid0"})
+        server.webapi('post', 'pool', {"name": "testBgasched3", "pds": pdId[5:6], "raid_level": "raid0"})
+
+    return
 
 
 def clean_up_environment():
@@ -31,6 +36,10 @@ def clean_up_environment():
             server.webapi('delete', 'bgaschedule/' + str(info['id']))
     except:
         tolog('failed to clean up environment\n')
+
+    find_pd_id()
+
+    return
 
 
 def verifyBgaschedAdd(c):
@@ -63,7 +72,7 @@ def verifyBgaschedAdd(c):
             tolog('Fail: ' + 'bgasched -a add -t ' + type[i] + ' -s "recurtype=daily')
             FailFlag = True
 
-    clean_up_environment()
+    precondition()
 
     # pool of raid0 can not create rc bgasched
     result = SendCmd(c, 'bgasched -a add -t rc -s "recurtype=daily,poolid=2"')
@@ -71,7 +80,7 @@ def verifyBgaschedAdd(c):
         FailFlag = True
         tolog('Fail: bgasched -a add -t rc -s "recurtype=daily,poolid=2"')
 
-    clean_up_environment()
+    precondition()
 
     # add bgasched of weekly type
     tolog('add bgasched of weekly type')
@@ -94,7 +103,7 @@ def verifyBgaschedAdd(c):
                 tolog('Fail: ' + 'bgasched -a add -t ' + type[i])
                 FailFlag = True
 
-    clean_up_environment()
+    precondition()
 
     # add bgasched of monthly type
     tolog('add bgasched of monthly type')
@@ -111,7 +120,7 @@ def verifyBgaschedAdd(c):
             tolog('Fail: ' + 'bgasched -a add -t ' + type[i] + ' -s "recurtype=monthly')
             FailFlag = True
 
-    clean_up_environment()
+    precondition()
 
     if FailFlag:
         tolog('\n<font color="red">Fail: To verify add bgasched </font>')
@@ -131,7 +140,6 @@ def verifyBgaschedMod(c):
     for i in range(0, 3):
         if 'Error (' in SendCmd(c, 'bgasched -a add -t ' + type[i] + ' -s "recurtype=' + recurtype[i] + '"'):
             tolog('to create precondition is failed')
-            exit()
 
     # setting by type of type
     globalSettings = [
@@ -424,7 +432,6 @@ def verifyBgaschedMissingParameters(c):
 
     # clean up environment
     clean_up_environment()
-    find_pd_id()
 
     return FailFlag
 

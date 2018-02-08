@@ -382,7 +382,10 @@ def failedTest_InexistentId(c):
 
     for i in range(len(failedSetting)):
 
-        result = SendCmd(c, failedSetting[i])
+        if 'mount' in failedSetting[i]:
+            result = SendCmdconfirm(c, failedSetting[i])
+        else:
+            result = SendCmd(c, failedSetting[i])
 
         if 'Error (' not in result or 'id=[100] is not existed' not in result:
             Failflag = True
@@ -419,7 +422,11 @@ def failedTest_InvalidOption(c):
     tolog('Expect: To input inexistent option will hint invalid option \r\n')
 
     for i in range(len(failedSetting)):
-        result = SendCmd(c, failedSetting[i])
+
+        if 'mount' in failedSetting[i]:
+            result = SendCmdconfirm(c, failedSetting[i])
+        else:
+            result = SendCmd(c, failedSetting[i])
 
         if 'Error (' not in result or 'Invalid option' not in result:
             Failflag = False
