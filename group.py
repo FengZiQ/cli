@@ -136,24 +136,24 @@ def clean_up_environment():
     if isinstance(groups, dict):
         groups_info = json.loads(groups["text"])[0]['group_list']
         for group in groups_info:
-            server.webapi('delete', 'dsgroup/' + group["id"] + '?force=1')
+            server.webapi('delete', 'dsgroup/' + group["id"])
 
 
 if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
-
-    add_group_and_verify_name(c)
-    add_group_and_user(c)
-    add_user_into_group(c)
-    list_group(c)
-    list_group_by_verbose_mode(c)
-    modify_group(c)
-    delete_user_from_group(c)
-    delete_group(c)
-    invalid_setting_for_group(c)
-    invalid_option_for_group(c)
-    missing_parameter_for_group(c)
+    clean_up_environment()
+    # add_group_and_verify_name(c)
+    # add_group_and_user(c)
+    # add_user_into_group(c)
+    # list_group(c)
+    # list_group_by_verbose_mode(c)
+    # modify_group(c)
+    # delete_user_from_group(c)
+    # delete_group(c)
+    # invalid_setting_for_group(c)
+    # invalid_option_for_group(c)
+    # missing_parameter_for_group(c)
 
     ssh.close()
     elasped = time.clock() - start

@@ -46,59 +46,56 @@ def precondition():
         tolog("precondition is failed\r\n")
 
 
-def clean_up_environment():
-    # delete management users
-    user_request = server.webapi('get', 'user')
+# delete management users
+def delete_mgmt_user():
+    try:
+        user_request = server.webapi('get', 'user')
+        if isinstance(user_request, dict):
+            users = json.loads(user_request["text"])
+            for user in users:
+                if user["id"] != 'administrator':
+                    server.webapi('delete', 'user/' + user["id"])
+    except:
+        tolog('failed to delete mgmt user\n')
+    return
 
-    if isinstance(user_request, dict):
 
-        users = json.loads(user_request["text"])
+# delete snmp users
+def delete_snmp_user():
+    try:
+        snmp_user_request = server.webapi('get', 'snmpuser')
+        if isinstance(snmp_user_request, dict):
+            snmp_users = json.loads(snmp_user_request["text"])
+            for snmp_user in snmp_users:
+                server.webapi('delete', 'snmpuser/' + snmp_user["id"])
+    except:
+        tolog('failed to delete snmp user\n')
 
-        for user in users:
-            if user["id"] != 'administrator':
-                server.webapi('delete', 'user/' + user["id"])
+    return
 
-    # delete snmp users
-    snmp_user_request = server.webapi('get', 'snmpuser')
 
-    if isinstance(snmp_user_request, dict):
-
-        snmp_users = json.loads(snmp_user_request["text"])
-
-        for snmp_user in snmp_users:
-            server.webapi('delete', 'snmpuser/' + snmp_user["id"])
-
-    # delete nas users
-    nas_user_request = server.webapi('get', 'dsusers?page=1&page_size=100')
-
-    if isinstance(nas_user_request, dict):
-
-        nas_users = json.loads(nas_user_request["text"])[0]['user_list']
-
-        for nas_user in nas_users:
-            if nas_user["id"] != 'admin':
-                server.webapi('delete', 'dsuser/' + nas_user["id"])
+# delete nas users
+def delete_nas_user():
+    try:
+        nas_user_request = server.webapi('get', 'dsusers?page=1&page_size=100')
+        if isinstance(nas_user_request, dict):
+            nas_users = json.loads(nas_user_request["text"])[0]['user_list']
+            for nas_user in nas_users:
+                if nas_user["id"] != 'admin':
+                    server.webapi('delete', 'dsuser/' + nas_user["id"])
+    except:
+        tolog('failed to delete nas user\n')
 
     return
             
 
 def add_mgmt_user(c):
+    # precondition
+    delete_mgmt_user()
 
     cli_setting = cli_test_setting()
 
-    # precondition: clear all of user
-    try:
-
-
-        clean_up_environment()
-
-    except TypeError:
-
-        tolog('precondition is failed\r\n')
-
-    else:
-
-        cli_setting.setting_need_password(c, data, 'add_mgmt_user', 1)
+    cli_setting.setting_need_password(c, data, 'add_mgmt_user', 1)
 
     return cli_setting.FailFlag
 
@@ -113,6 +110,8 @@ def mod_mgmt_user(c):
 
 
 def add_snmp_user(c):
+    # precondition
+    delete_snmp_user()
 
     cli_setting = cli_test_setting()
 
@@ -131,21 +130,13 @@ def mod_snmp_user(c):
 
 
 def add_nas_user(c):
+    # precondition
+    delete_nas_user()
+    precondition()
 
     cli_setting = cli_test_setting()
 
-    # precondition: create group test_users
-    try:
-
-        precondition()
-
-    except TypeError:
-
-        tolog('precondition is failed\r\n')
-
-    else:
-
-        cli_setting.setting_need_password(c, data, 'add_nas_user', 1)
+    cli_setting.setting_need_password(c, data, 'add_nas_user', 1)
 
     return cli_setting.FailFlag
 
@@ -211,13 +202,10 @@ def missing_parameter_for_user(c):
     cli_failed_test.failed_test(c, data, 'missing_parameter_for_user')
 
     # clean up environment
-    try:
-
-        clean_up_environment()
-
-    except TypeError:
-
-        tolog('to clean up environment is failed\r\n')
+    delete_snmp_user()
+    delete_nas_user()
+    delete_mgmt_user()
+    server.webapi('delete', 'dsgroup/test_users')
 
     return cli_failed_test.FailFlag
 

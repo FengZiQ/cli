@@ -108,7 +108,7 @@ def build_verification(c):
 
     if reconnect_flag:
         c, ssh = ssh_conn()
-        # there are 50 command that can be tested
+        # there are 51 command that can be tested
         tolog("Start verifying pool add")
         import pool
         if (pool.add_pool_by_external_drive(c)):
@@ -1127,6 +1127,21 @@ def build_verification(c):
             failed_cases.append('The case ' + rcache.invalid_option_for_rcache.__name__ + ' failed')
         if (rcache.missing_parameter_for_rcache(c)):
             failed_cases.append('The case ' + rcache.missing_parameter_for_rcache.__name__ + ' failed')
+
+        tolog('Start verifying sasdiag')
+        import sasdiag
+        if (sasdiag.discover_sasdiag(c)):
+            failed_cases.append('The case ' + sasdiag.discover_sasdiag.__name__ + ' failed')
+        if (sasdiag.errorlog_sasdiag(c)):
+            failed_cases.append('The case ' + sasdiag.errorlog_sasdiag.__name__ + ' failed')
+        if (sasdiag.clearerrlog_sasdiag(c)):
+            failed_cases.append('The case ' + sasdiag.clearerrlog_sasdiag.__name__ + ' failed')
+        if (sasdiag.invalid_parameter_sasdiag(c)):
+            failed_cases.append('The case ' + sasdiag.invalid_parameter_sasdiag.__name__ + ' failed')
+        if (sasdiag.invalid_option_for_sasdiag(c)):
+            failed_cases.append('The case ' + sasdiag.invalid_option_for_sasdiag.__name__ + ' failed')
+        if (sasdiag.missing_parameter_sasdiag(c)):
+            failed_cases.append('The case ' + sasdiag.missing_parameter_sasdiag.__name__ + ' failed')
 
         tolog('Start verifying bgasched')
         import bgasched
