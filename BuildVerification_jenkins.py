@@ -503,6 +503,8 @@ def build_verification(c):
 
         tolog("Start verifying iscsi")
         import iscsi
+        if (iscsi.add_trunk_portal(c)):
+            failed_cases.append('The case ' + iscsi.add_trunk_portal.__name__ + ' failed')
         if (iscsi.add_phy_vlan_portal(c)):
             failed_cases.append('The case ' + iscsi.add_phy_vlan_portal.__name__ + ' failed')
         if (iscsi.list_iscsi(c)):

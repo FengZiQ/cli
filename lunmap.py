@@ -52,8 +52,7 @@ def clean_up_environment():
         for initiator in initiator_info:
             # delete all initiator
             server.webapi('delete', 'initiator/' + str(initiator['id']))
-        # delete pool
-        find_pd_id()
+
     except:
         tolog("precondition is failed\r\n")
 
@@ -151,6 +150,7 @@ def missing_parameter_for_lunmap(c):
 
     # clean up environment
     clean_up_environment()
+    find_pd_id()
 
     return cli_failed_test.FailFlag
 

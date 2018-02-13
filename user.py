@@ -38,8 +38,6 @@ def precondition():
                 "page_data": page_data
             })
 
-            server.webapi('post', 'dsgroup/editcancel')
-
         else:
             tolog(step1)
     except:

@@ -148,7 +148,7 @@ if __name__ == "__main__":
     start = time.clock()
     c, ssh = ssh_conn()
 
-    # add_trunk_portal(c)
+    add_trunk_portal(c)
     add_phy_vlan_portal(c)
     list_iscsi(c)
     list_iscsi_by_verbose_mode(c)
