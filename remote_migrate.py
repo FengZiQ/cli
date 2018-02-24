@@ -1,5 +1,5 @@
 import json
-from remote_115 import server
+from remote_113 import server
 
 
 def precondition_for_migrate():
@@ -33,7 +33,7 @@ def precondition_for_migrate():
 
         pd_info = json.loads(pd_request_1["text"])
 
-        pdId = [pd['id'] for pd in pd_info if pd['cfg_size'] >= 1000000000000]
+        pdId = [pd['id'] for pd in pd_info if pd['cfg_size'] >= 3000000]
 
         if len(pdId) > 0:
 

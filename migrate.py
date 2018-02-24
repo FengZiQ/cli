@@ -29,13 +29,13 @@ def precondition_1():
 
         if len(pdId) > 0:
             # create pool
-            server.webapi('post', 'pool', {"name": "T_migrate_0", "pds": pdId[:3], "raid_level": "raid5"})
+            server.webapi('post', 'pool', {"name": "T_migrate_0", "pds": pdId[:3], "raid_level": "raid5", 'ctrl_id': 1})
 
-            server.webapi('post', 'pool', {"name": "T_migrate_1", "pds": pdId[3:6], "raid_level": "raid5"})
+            server.webapi('post', 'pool', {"name": "T_migrate_1", "pds": pdId[3:6], "raid_level": "raid5", 'ctrl_id': 1})
 
-            server.webapi('post', 'pool', {"name": "T_migrate_2", "pds": [pdId[6]], "raid_level": "raid0"})
+            server.webapi('post', 'pool', {"name": "T_migrate_2", "pds": [pdId[6]], "raid_level": "raid0", 'ctrl_id': 1})
 
-            server.webapi('post', 'pool', {"name": "T_migrate_3", "pds": [15], "raid_level": "raid0"})
+            server.webapi('post', 'pool', {"name": "T_migrate_3", "pds": [15], "raid_level": "raid0", 'ctrl_id': 1})
 
             # create source volume
             for i in range(10):
@@ -225,7 +225,6 @@ if __name__ == "__main__":
     c, ssh = ssh_conn()
 
     start_local_migrate(c)
-    start_remote_migrate(c)
     stop_migrate(c)
     help_migrate(c)
     invalid_setting_for_migrate(c)

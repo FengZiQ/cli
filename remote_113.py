@@ -12,7 +12,7 @@ formatter = logging.Formatter('%(asctime)s %(levelname)s %(message)s')
 handler.setFormatter(formatter)
 logger.addHandler(handler)
 
-serverIp = "10.84.2.115"
+serverIp = "10.84.2.113"
 
 
 class Server(object):

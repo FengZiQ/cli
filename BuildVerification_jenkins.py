@@ -1081,8 +1081,6 @@ def build_verification(c):
         import migrate
         if (migrate.start_local_migrate(c)):
             failed_cases.append('The case ' + migrate.start_local_migrate.__name__ + ' failed')
-        if (migrate.start_remote_migrate(c)):
-            failed_cases.append('The case ' + migrate.start_remote_migrate.__name__ + ' failed')
         if (migrate.stop_migrate(c)):
             failed_cases.append('The case ' + migrate.stop_migrate.__name__ + ' failed')
         if (migrate.help_migrate(c)):

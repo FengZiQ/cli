@@ -1,7 +1,8 @@
 # -*- coding = utf-8-*-
-# 2018.02.11
+# 2018.02.23
 
 from ssh_connect import ssh_conn
+from send_cmd import *
 from cli_test import *
 from remote import server
 from find_unconfigured_pd_id import find_pd_id

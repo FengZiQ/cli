@@ -7,6 +7,7 @@ from ssh_connect import ssh_conn
 Pass = "'result': 'p'"
 Fail = "'result': 'f'"
 
+
 def verifyIsns(c):
     FailFlag = False
     tolog("<b>Verify isns </b>")
@@ -26,6 +27,7 @@ def verifyIsns(c):
         
     return FailFlag
 
+
 def verifyIsnsList(c):
     FailFlag = False
     tolog("<b>Verify isns -a list </b>")
@@ -44,6 +46,7 @@ def verifyIsnsList(c):
         tolog(Pass)
         
     return FailFlag
+
 
 def verifyIsnsMod(c):
     FailFlag = False
@@ -89,25 +92,24 @@ def verifyIsnsMod(c):
         
     return FailFlag
 
+
 def verifyIsnsSpecifyInexistentId(c):
     FailFlag = False
     pInfor = SendCmd(c, 'iscsi -t portal')
-    
+
     if 'No portal in the subsystem' in pInfor:
         result = SendCmd(c, 'isns -a mod -t portal -g 1 -s "isns=enable,serverip=1.1.1.1,serverport=65535"')
-        
+
         if 'Error (' not in result or 'Invalid iSCSI portal id' not in result:
             tolog(' <font color="red">Fail: isns specify inexistent Id </font>')
     else:
-        pID = pInfor.split('\r\n')[-3][0]
-        
-        if int(pID[0]) < 31:
-            tolog('<b> isns -a mod -t portal -g ' + str(int(pID[0]) + 1) + ' -s "isns=enable,serverip=1.1.1.1,serverport=65535" </b>')
-            
-            result = SendCmd(c, 'isns -a mod -t portal -g ' + str(int(pID[0]) + 1) + ' -s "isns=enable,serverip=1.1.1.1,serverport=65535"')
-            
-            if 'Error (' not in result or 'Invalid iSCSI portal id' not in result:
-                tolog(' <font color="red">Fail: isns specify inexistent Id </font>')
+
+        tolog('<b> isns -a mod -t portal -g 10 -s "isns=enable,serverip=1.1.1.1,serverport=65535" </b>')
+
+        result = SendCmd(c, 'isns -a mod -t portal -g 10 -s "isns=enable,serverip=1.1.1.1,serverport=65535"')
+
+        if 'Error (' not in result or 'Invalid iSCSI portal id' not in result:
+            tolog(' <font color="red">Fail: isns specify inexistent Id </font>')
 
     if FailFlag:
         tolog('\n<font color="red">Fail: Verify isns specify inexistent Id </font>')
@@ -117,6 +119,7 @@ def verifyIsnsSpecifyInexistentId(c):
         tolog(Pass)
         
     return FailFlag
+
 
 def verifyIsnsInvalidOption(c):
     FailFlag = False
@@ -146,6 +149,7 @@ def verifyIsnsInvalidOption(c):
         
     return FailFlag
 
+
 def verifyIsnsInvalidParameters(c):
     FailFlag = False
     tolog("<b>Verify isns invalid parameters</b>")
@@ -174,6 +178,7 @@ def verifyIsnsInvalidParameters(c):
         
     return FailFlag
 
+
 def verifyIsnsMissingParameters(c):
     FailFlag = False
     tolog("<b>Verify isns missing parameters</b>")
@@ -192,7 +197,7 @@ def verifyIsnsMissingParameters(c):
         if "Error (" not in result or "Missing parameter" not in result:
             FailFlag = True
             tolog('\n<font color="red">Fail: ' + com + ' </font>')
-            
+
     if FailFlag:
         tolog('\n<font color="red">Fail: Verify isns missing parameters </font>')
         tolog(Fail)
@@ -201,6 +206,7 @@ def verifyIsnsMissingParameters(c):
         tolog(Pass)
         
     return FailFlag
+
 
 if __name__ == "__main__":
     start = time.clock()
